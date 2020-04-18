@@ -1,0 +1,22 @@
+created: 20200418124902034
+modified: 20200619182404436
+title: Welcome
+type: text/vnd.tiddlywiki
+
+This is a non-linear web notebook.
+
+I hope this notebook will be [[readable in 100+ years time]].
+
+<<<
+* It is a [[Quine|https://en.wikipedia.org/wiki/Quine_(computing)]].
+* All in one file.
+* Just need a browser.
+* You can modify the content too.
+* It's a [[TiddlyWiki|https://tiddlywiki.com/]].
+<<<
+
+I learn this technology from my Guru([[Joe Armstrong|https://en.wikipedia.org/wiki/Joe_Armstrong_(programmer)]]).
+
+''Attention: this is a notebook, not a blog.''
+
+If you'd like to see my blog, please see https://thaddeusjiang.com/posts.
