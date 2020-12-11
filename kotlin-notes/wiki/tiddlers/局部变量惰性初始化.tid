@@ -1,0 +1,17 @@
+created: 20201122102301471
+modified: 20201122102434444
+tags: 不懂
+title: 局部变量惰性初始化
+type: text/vnd.tiddlywiki
+
+```
+fun example(computeFoo: () -> Foo) {
+    val memoizedFoo by lazy(computeFoo)
+
+    if (someCondition && memoizedFoo.isValid()) {
+        memoizedFoo.doSomething()
+    }
+}
+```
+
+memoizedFoo 变量只会在第一次访问时计算。 如果 someCondition 失败，那么该变量根本不会计算。

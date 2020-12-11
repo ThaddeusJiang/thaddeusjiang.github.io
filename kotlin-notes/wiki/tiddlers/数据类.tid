@@ -1,0 +1,18 @@
+created: 20201122100452785
+modified: 20201122100614606
+tags: 
+title: 数据类
+type: text/vnd.tiddlywiki
+
+关键字 data
+
+```
+data class User(val name: String, val age: Int)
+```
+
+允许解构声明
+
+```
+val jane = User("Jane", 35)
+val (name, age) = jane
+```

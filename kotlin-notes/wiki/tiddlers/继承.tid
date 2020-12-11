@@ -1,0 +1,75 @@
+created: 20201122093626732
+modified: 20201122142520498
+tags: 
+title: 继承
+type: text/vnd.tiddlywiki
+
+<<<
+
+Kotlin 中所有类都继承该 Any 类，它是所有类的超类。
+
+Any 不是 java.lang.Object
+<<<
+
+
+```kotlin
+open class Dog {                // 1
+    open fun sayHello() {       // 2
+        println("wow wow!")
+    }
+}
+
+// Dog() 关键
+class Yorkshire : Dog() {       // 3
+    override fun sayHello() {   // 4
+        println("wif wif!")
+    }
+}
+
+fun main() {
+    val dog: Dog = Yorkshire()
+    dog.sayHello()
+}
+```
+
+```
+class Example // 从 Any 隐式继承
+```
+
+Any 默认提供三个函数
+
+```
+equals()
+hashCode()
+toString()
+```
+
+! 重写
+
+在基类中，使用fun声明函数时，此函数默认为final修饰，不能被子类重写。如果允许子类重写该函数，那么就要手动添加 open 修饰它, 子类重写方法使用 override 关键词：
+
+
+```
+/**用户基类**/
+open class Person{
+    open fun study(){       // 允许子类重写
+        println("我毕业了")
+    }
+}
+
+/**子类继承 Person 类**/
+class Student : Person() {
+
+    override fun study(){    // 重写方法
+        println("我在读大学")
+    }
+}
+
+fun main(args: Array<String>) {
+    val s =  Student()
+    s.study();
+
+}
+```
+
+属性重写

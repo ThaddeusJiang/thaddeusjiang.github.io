@@ -1,0 +1,11 @@
+created: 20201128060134542
+modified: 20201128060147991
+tags: 
+title: eval
+type: text/vnd.tiddlywiki
+
+```
+fun eval(expr: String): dynamic
+```
+
+Exposes the JavaScript eval function to Kotlin.

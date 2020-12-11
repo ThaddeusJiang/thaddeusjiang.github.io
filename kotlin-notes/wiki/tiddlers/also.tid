@@ -1,0 +1,21 @@
+created: 20201123064244649
+modified: 20201129035604805
+tags: [[Scope Functions]]
+title: also
+type: text/vnd.tiddlywiki
+
+上下文对象作为 lambda 表达式的参数（it）来访问。 返回值是上下文对象本身。
+
+
+当你在代码中看到 also 时，可以将其理解为“[[并且用该对象执行以下操作]]”。
+
+
+```kotlin
+val numbers = mutableListOf("one", "two", "three")
+numbers
+    .also { println("The list elements before adding new one: $it") }
+    .add("four")
+
+// output
+The list elements before adding new one: [one, two, three]
+```

@@ -1,0 +1,21 @@
+created: 20201123064126290
+modified: 20201129035327694
+tags: [[Scope Functions]]
+title: apply
+type: text/vnd.tiddlywiki
+
+上下文对象 作为接收者（this）来访问。 返回值 是上下文对象本身。
+
+apply 的常见情况是对象配置。这样的调用可以理解为“[[将以下赋值操作应用于对象]]”。
+
+
+```kotlin
+val adam = Person("Adam").apply {
+    age = 32
+    city = "London"        
+}
+println(adam)
+
+// output
+Person(name=Adam, age=32, city=London)
+```

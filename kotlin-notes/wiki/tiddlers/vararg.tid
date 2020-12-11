@@ -1,0 +1,15 @@
+created: 20201122113658952
+modified: 20201122142153111
+tags: 
+title: vararg
+type: text/vnd.tiddlywiki
+
+varargs 允许多个参数
+
+
+```kotlin
+fun printAll(vararg messages: String) {                            // 1
+    for (m in messages) println(m)
+}
+printAll("Hello", "Hallo", "Salut", "Hola", "你好")
+```

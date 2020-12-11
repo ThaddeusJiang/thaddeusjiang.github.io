@@ -1,0 +1,36 @@
+created: 20201122100015682
+modified: 20201122100343370
+tags: 不懂
+title: 扩展
+type: text/vnd.tiddlywiki
+
+<<<
+Kotlin 可以对一个类的属性和方法进行扩展，且不需要继承或使用 Decorator 模式。
+
+扩展是一种静态行为，对被扩展的类代码本身不会造成任何影响。
+<<<
+
+```
+fun receiverType.functionName(params){
+    body
+}
+```
+
+```
+class User(var name:String)
+
+/**扩展函数**/
+fun User.Print(){
+    print("用户名 $name")
+}
+
+fun main(arg:Array<String>){
+    var user = User("Runoob")
+    user.Print()
+}
+// 输出
+// 用户名 Runoob
+```
+
+
+这和直接定义在 class 内有什么区别？

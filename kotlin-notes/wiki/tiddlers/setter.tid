@@ -1,0 +1,18 @@
+created: 20201129043951470
+modified: 20201129044104862
+tags: 
+title: setter
+type: text/vnd.tiddlywiki
+
+set 和 [[field]] 配合
+
+```kotlin
+class PropertyExample() {
+    var counter = 0
+    var propertyWithCounter: Int? = null
+        set(v: Int?) {
+            field = v
+            counter++
+        }
+}
+```

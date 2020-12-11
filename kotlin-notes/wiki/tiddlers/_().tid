@@ -1,0 +1,18 @@
+created: 20201129051507926
+modified: 20201129052915892
+tags: 
+title: .()
+type: text/vnd.tiddlywiki
+
+Function literals with receiver
+
+带有接收者的函数字面值
+
+```Kotlin
+fun task(): List<Boolean> {
+    val isEven: Int.() -> Boolean = { this % 2 == 0 }
+    val isOdd: Int.() -> Boolean = { this % 2 != 0 }
+
+    return listOf(42.isOdd(), 239.isOdd(), 294823098.isEven())
+}
+```

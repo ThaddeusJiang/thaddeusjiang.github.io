@@ -1,0 +1,55 @@
+created: 20201122090801748
+modified: 20201122091942290
+tags: 
+title: 基本数据类型
+type: text/vnd.tiddlywiki
+
+<<<
+Kotlin 中没有基本数据类型，只有封装的数字类型，这样可以保证不会出现空指针。
+
+Kotlin 中，三个等号 === 比较对象地址，两个等号 == 比较值。
+<<<
+
+[img[位宽度.png]]
+
+
+字面常量
+
+* 十进制：123
+* 长整数：123L
+* 16进制：0x
+* 1进制：0b
+* Doubles：123.5
+* Floats：123.5f
+
+
+必须显示类型转换
+
+```
+toByte()
+toShort()
+toInt()
+toLong()
+toFloat()
+toDouble()
+toChar()
+```
+
+
+数组
+
+创建数组有两种方法：一种是函数，一种是构造。
+
+```
+// [1,2,3]
+val a = arrayOf(1,2,3)
+
+// [0,2,4]
+val b = Array(3, { i -> (i * 2) })
+```
+
+除了 Array，还有 ByteArray, ShortArray, IntArray，省区装箱操作，因此效率更高。
+
+三个引号 """ 支持多行字符串。
+
+

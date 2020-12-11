@@ -1,0 +1,52 @@
+created: 20201129033743407
+modified: 20201129040017675
+title: Scope Functions
+type: text/vnd.tiddlywiki
+
+Kotlin 有 5 种作用域函数。
+
+<<list-links filter:"[tag[Scope Functions]]" >>
+
+
+[img[作用域函数选择.png]]
+
+典型用法
+
+```kotlin
+Person("Alice", 20, "Amsterdam").let {
+    println(it)
+    it.moveTo("London")
+    it.incrementAge()
+    println(it)
+}
+```
+
+如果不使用 let 来写这段代码，就必须引入一个新变量，并在每次使用它时重复其名称。
+
+```kotlin
+val alice = Person("Alice", 20, "Amsterdam")
+println(alice)
+alice.moveTo("London")
+alice.incrementAge()
+println(alice)
+```
+
+作用域函数没有引入任何新的技术，但是它们可以使你的代码更加简洁易读。
+
+
+作用域函数之间的区别
+
+* 引用上下文对象的方式
+* 返回值
+
+
+!! 引用上下文对象的方式
+
+* run、with 以及 apply 通过关键字 [[this]] 引用上下文对象。
+* let 及 also 将上下文对象作为 lambda 表达式参数， 用隐式默认名称 [[it]] 访问。
+
+!! 返回值
+* apply 及 also 返回上下文对象。
+* let、run 及 with 返回 lambda 表达式结果.
+
+

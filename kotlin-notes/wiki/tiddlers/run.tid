@@ -1,0 +1,40 @@
+created: 20201123064004131
+modified: 20201129035738728
+tags: [[Scope Functions]]
+title: run
+type: text/vnd.tiddlywiki
+
+run 和 with 做同样的事情，但是调用方式和 let 一样——作为上下文对象的扩展函数.
+
+```kotlin
+fun getNullableLength(ns: String?) {
+    println("for \"$ns\":")
+    ns?.run {                                                  // 1
+        println("\tis empty? " + isEmpty())                    // 2
+        println("\tlength = $length")                           
+        length                                                 // 3
+    }
+}
+getNullableLength(null)
+getNullableLength("")
+getNullableLength("some string with Kotlin")
+```
+
+
+
+run 和 let 也非常像
+
+```kotlin
+val service = MultiportService("https://example.kotlinlang.org", 80)
+
+val result = service.run {
+    port = 8080
+    query(prepareRequest() + " to port $port")
+}
+
+// 同样的代码如果用 let() 函数来写:
+val letResult = service.let {
+    it.port = 8080
+    it.query(it.prepareRequest() + " to port ${it.port}")
+}
+```

@@ -1,0 +1,17 @@
+created: 20201122142012270
+modified: 20201122142042258
+tags: 
+title: infix function
+type: text/vnd.tiddlywiki
+
+语法糖
+
+```kotlin
+infix fun Int.shl(x: Int): Int { ... }
+
+// calling the function using the infix notation
+1 shl 2
+
+// is the same as
+1.shl(2)
+```

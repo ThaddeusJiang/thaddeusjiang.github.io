@@ -1,0 +1,24 @@
+created: 20201128060911560
+modified: 20201128061003583
+tags: 
+title: Comparator
+type: text/vnd.tiddlywiki
+
+```
+typealias Comparator<T> = Comparator<T>
+```
+
+Provides a comparison function for imposing a total ordering between instances of the type T.
+
+
+```kotlin
+import java.util.*
+
+fun getList(): List<Int> {
+    val arrayList = arrayListOf(1, 5, 2)
+    Collections.sort(arrayList, object: Comparator<Int> {
+        override fun compare(x: Int, y: Int) = y - x
+    })
+    return arrayList
+}
+```
