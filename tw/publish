@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# build a single File TW in share/output/index.html
-
-tiddlywiki share --build index
-mv share/output/index.html ..

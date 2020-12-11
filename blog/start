@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# start wiki on port 7123
+
+tiddlywiki wiki --server 7123
