@@ -1,22 +1,18 @@
 created: 20200418124902034
-modified: 20200619182404436
+modified: 20201211153222221
 title: Welcome
 type: text/vnd.tiddlywiki
 
-This is a non-linear web notebook.
+嗨，欢迎来到我的 Blog。
 
-I hope this notebook will be [[readable in 100+ years time]].
+本页面使用 TiddlyWiki 构建。
 
-<<<
-* It is a [[Quine|https://en.wikipedia.org/wiki/Quine_(computing)]].
-* All in one file.
-* Just need a browser.
-* You can modify the content too.
-* It's a [[TiddlyWiki|https://tiddlywiki.com/]].
-<<<
+这意味着：
 
-I learn this technology from my Guru([[Joe Armstrong|https://en.wikipedia.org/wiki/Joe_Armstrong_(programmer)]]).
+* 仅仅只有一个 HTML 文件
+* 这是一个自产生程序，输出结果就是程序源码
+* 阅读、修改、发布，仅仅需要一个浏览器
 
-''Attention: this is a notebook, not a blog.''
+我从我的精神导师那里学习到这个技术。
 
-If you'd like to see my blog, please see https://thaddeusjiang.com/posts.
+如果你也想尝试一下，看这里 [[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]

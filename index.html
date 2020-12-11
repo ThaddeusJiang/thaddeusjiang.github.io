@@ -47,7 +47,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
-<title>TiddyWiki — a non-linear notebook, not a blog.</title>
+<title>I AM TJ — </title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~-->
 
 <!--~~ Raw markup ~~-->
@@ -160,6 +160,10 @@ Error message and password prompt
 
 <li>$:/config/Navigation/UpdateAddressBar</li>
 
+<li>$:/config/NewJournal/Tags</li>
+
+<li>$:/config/NewJournal/Title</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/import</li>
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/language</li>
@@ -175,6 +179,8 @@ Error message and password prompt
 <li>$:/isEncrypted</li>
 
 <li>$:/language</li>
+
+<li>$:/language/DefaultNewTiddlerTitle</li>
 
 <li>$:/plugins/tiddlywiki/highlight</li>
 
@@ -221,6 +227,12 @@ Error message and password prompt
 </div>
 <div created="20200422110547346" modified="20200422110547356" title="$:/config/Navigation/UpdateAddressBar" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>permalink</pre>
+</div>
+<div created="20201211153121598" modified="20201211153121598" modifier="TJ" title="$:/config/NewJournal/Tags" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre></pre>
+</div>
+<div created="20201211153057908" creator="TJ" modified="20201211153110142" modifier="TJ" title="$:/config/NewJournal/Title" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>YYYY-MMM-DDth</pre>
 </div>
 <div created="20200421053600519" modified="20200421054749258" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/import" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>show</pre>
@@ -9607,7 +9619,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200418125427020" modified="20200422095045405" title="$:/DefaultTiddlers" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200418125427020" modified="20201211153226980" title="$:/DefaultTiddlers" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>Welcome</pre>
 </div>
 <div title="$:/isEncrypted" revision="0" bag="default">
@@ -9615,6 +9627,9 @@ Error message and password prompt
 </div>
 <div created="20200418151846100" modified="20200422092449305" title="$:/language" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>$:/languages/en-GB</pre>
+</div>
+<div created="20201211153115375" creator="TJ" modified="20201211153115390" modifier="TJ" title="$:/language/DefaultNewTiddlerTitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre></pre>
 </div>
 <div author="Joao Bolila" dependents="" description="Highlight.js syntax highlighting" list="readme usage howto license" name="Highlight" plugin-type="plugin" title="$:/plugins/tiddlywiki/highlight" type="application/json" version="5.1.22" revision="0" bag="default">
 <pre>{
@@ -9782,11 +9797,11 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200422093504914" modified="20200519130430951" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>a non-linear notebook, not a blog.</pre>
+<div created="20200422093504914" creator="TJ" modified="20201211153038436" modifier="TJ" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre></pre>
 </div>
-<div created="20200418124742730" modified="20200619182010721" title="$:/SiteTitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>TiddyWiki</pre>
+<div created="20200418124742730" modified="20201211153029620" title="$:/SiteTitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>I AM TJ</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange" revision="0" bag="default">
 <pre>no</pre>
@@ -10036,24 +10051,20 @@ mark {
 
 </pre>
 </div>
-<div created="20200418124902034" modified="20200619182404436" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>This is a non-linear web notebook.
+<div created="20200418124902034" modified="20201211153222221" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>嗨，欢迎来到我的 Blog。
 
-I hope this notebook will be [[readable in 100+ years time]].
+本页面使用 TiddlyWiki 构建。
 
-&lt;&lt;&lt;
-* It is a [[Quine|https://en.wikipedia.org/wiki/Quine_(computing)]].
-* All in one file.
-* Just need a browser.
-* You can modify the content too.
-* It's a [[TiddlyWiki|https://tiddlywiki.com/]].
-&lt;&lt;&lt;
+这意味着：
 
-I learn this technology from my Guru([[Joe Armstrong|https://en.wikipedia.org/wiki/Joe_Armstrong_(programmer)]]).
+* 仅仅只有一个 HTML 文件
+* 这是一个自产生程序，输出结果就是程序源码
+* 阅读、修改、发布，仅仅需要一个浏览器
 
-''Attention: this is a notebook, not a blog.''
+我从我的精神导师那里学习到这个技术。
 
-If you'd like to see my blog, please see https://thaddeusjiang.com/posts.
+如果你也想尝试一下，看这里 [[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 </pre>
 </div>
 
