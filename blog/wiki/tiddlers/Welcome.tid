@@ -1,5 +1,7 @@
 created: 20200418124902034
-modified: 20201211153222221
+creator: TJ
+modified: 20201215025906886
+modifier: TJ
 title: Welcome
 type: text/vnd.tiddlywiki
 
@@ -13,6 +15,6 @@ type: text/vnd.tiddlywiki
 * 这是一个自产生程序，输出结果就是程序源码
 * 阅读、修改、发布，仅仅需要一个浏览器
 
-我从我的精神导师那里学习到这个技术。
+我从我的精神导师那里学习到这个技术。 [[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 
-如果你也想尝试一下，看这里 [[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
+如果你也想尝试一下，看这里 [[TiddlyWiki|https://tiddlywiki.com/]]

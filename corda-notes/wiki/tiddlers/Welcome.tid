@@ -1,6 +1,0 @@
-created: 20201211144337401
-modified: 20201211144511482
-title: Welcome
-type: text/vnd.tiddlywiki
-
-<$list filter="[!is[system]sort[title]]" />

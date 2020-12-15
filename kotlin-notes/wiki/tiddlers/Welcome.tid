@@ -1,8 +1,0 @@
-created: 20201122083603040
-modified: 20201122084529957
-title: Welcome
-type: text/vnd.tiddlywiki
-
-! Index
-
-<<list-links filter:"[all[]!is[system]sort[]]" >>
