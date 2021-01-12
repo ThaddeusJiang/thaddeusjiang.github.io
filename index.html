@@ -218,6 +218,8 @@ Error message and password prompt
 
 <li>2021 年第一本书《图形思考》</li>
 
+<li>2021-01-12 其实你不需要 unicode-range</li>
+
 <li>My old blog</li>
 
 <li>Posts</li>
@@ -251,8 +253,8 @@ Error message and password prompt
 <div created="20201211153121598" modified="20201211153121598" modifier="TJ" title="$:/config/NewJournal/Tags" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre></pre>
 </div>
-<div created="20201211153057908" creator="TJ" modified="20201220084018137" modifier="TJ" title="$:/config/NewJournal/Title" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>YYYY-MMM-DD</pre>
+<div created="20201211153057908" creator="TJ" modified="20210112062726897" modifier="TJ" title="$:/config/NewJournal/Title" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre></pre>
 </div>
 <div created="20201231153557011" creator="TJ" modified="20201231153557023" modifier="TJ" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>show</pre>
@@ -10136,10 +10138,11 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200418125427020" creator="TJ" modified="20210106060252588" modifier="TJ" title="$:/DefaultTiddlers" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200418125427020" creator="TJ" modified="20210112065402597" modifier="TJ" title="$:/DefaultTiddlers" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>Welcome
+Posts
 wakatime
-Posts</pre>
+</pre>
 </div>
 <div title="$:/isEncrypted" revision="0" bag="default">
 <pre>no</pre>
@@ -10147,7 +10150,7 @@ Posts</pre>
 <div created="20200418151846100" modified="20200422092449305" title="$:/language" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>$:/languages/en-GB</pre>
 </div>
-<div created="20201211153115375" creator="TJ" modified="20201211153115390" modifier="TJ" title="$:/language/DefaultNewTiddlerTitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20201211153115375" creator="TJ" modified="20210112062728479" modifier="TJ" title="$:/language/DefaultNewTiddlerTitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre></pre>
 </div>
 <div created="20201220085159410" creator="TJ" modified="20201220085159422" modifier="TJ" title="$:/palette" type="text/vnd.tiddlywiki" revision="0" bag="default">
@@ -10334,7 +10337,7 @@ Posts</pre>
 <div title="$:/status/RequireReloadDueToPluginChange" revision="0" bag="default">
 <pre>no</pre>
 </div>
-<div list="Welcome wakatime Posts" title="$:/StoryList" revision="1" bag="default">
+<div list="Welcome Posts wakatime" title="$:/StoryList" revision="1" bag="default">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23" revision="0" bag="default">
@@ -11048,11 +11051,26 @@ Velocity 1.6 引入**严格引用模式**，通过设置 Velocity 配置属性�
 
 今后的读书笔记要聚焦那些发人深省且今后对自己有帮助的段落。</pre>
 </div>
+<div created="20210112062714804" creator="TJ" modified="20210112065905343" modifier="TJ" tags="UI开发也不简单 Post" title="2021-01-12 其实你不需要 unicode-range" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>最近有一个需求，所有英文字母和数字使用 `Roboto` 字体，其他文字使用 `Hiragino Sans` 字体。
+
+由于我 CSS 并不算好，本以为很难，所以 Google 了一下，查到了 https://keqingrong.github.io/blog/2019-11-30-different-fonts-in-different-locales
+
+然后一顿操作猛如虎，实现了。自以为是、得意扬扬地翘起了小尾巴。
+
+不过，我也觉得奇怪。这个需求很常见啊，应该大家都会遇到啊，为啥没听其他开发者提到过 `unicode-range` 呢？
+
+然后我又查了一些资料，最后从 [[张鑫旭的 blog|https://www.zhangxinxu.com/wordpress/2016/11/css-unicode-range-character-font-face/]] 中找到了原因。原来我们根本就不需要使用 unicode-range 就可以实现上面需求。
+
+[img[https://i.gyazo.com/9e822752680e749f318dcb9306a718c7.png]]
+
+看完张鑫旭的这篇blog，我骄傲的小尾巴也落下来了。😂</pre>
+</div>
 <div created="20201231153737855" creator="TJ" modified="20201231153759673" modifier="TJ" tags="" title="My old blog" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>https://thaddeusjiang.com/posts</pre>
 </div>
-<div created="20201220083108305" creator="TJ" modified="20201231153917262" modifier="TJ" tags="" title="Posts" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>&lt;&lt;list-links filter:&quot;[tag[Post]]&quot;&gt;&gt;
+<div created="20201220083108305" creator="TJ" modified="20210112065745727" modifier="TJ" tags="" title="Posts" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>&lt;&lt;list-links filter:&quot;[tag[Post]!sort[]]&quot;&gt;&gt;
 
 ----
 * [[My old blog]] (migrating)</pre>
