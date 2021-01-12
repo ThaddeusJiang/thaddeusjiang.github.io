@@ -47,7 +47,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
-<title>Thaddeus Jiang (TJ) — Tech, Reading and Others</title>
+<title>Thaddeus Jiang (TJ) — developer, cat lover, reader, writer</title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~-->
 
 <!--~~ Raw markup ~~-->
@@ -213,6 +213,14 @@ Error message and password prompt
 <li>2017-06-30 简单总结一下 XSS</li>
 
 <li>2017-07-06 掌握20% 常用的 Velocity</li>
+
+<li>2017-09-11 那么 Appium 到底是怎么工作的呢？</li>
+
+<li>2018-04-21 eslint 提示：Do not use findDOMNode</li>
+
+<li>2018-04-22 使用 axios 时遇到的几个问题</li>
+
+<li>2018-04-23 扩展 Ant Design iconfont</li>
 
 <li>2021 big goals</li>
 
@@ -10328,8 +10336,8 @@ wakatime
     }
 }</pre>
 </div>
-<div created="20200422093504914" creator="TJ" modified="20201215025756833" modifier="TJ" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>Tech, Reading and Others</pre>
+<div created="20200422093504914" creator="TJ" modified="20210112131532317" modifier="TJ" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>developer, cat lover, reader, writer</pre>
 </div>
 <div created="20200418124742730" creator="TJ" modified="20210109051743313" modifier="TJ" title="$:/SiteTitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>Thaddeus Jiang (TJ)</pre>
@@ -11016,6 +11024,172 @@ Velocity 1.6 引入**严格引用模式**，通过设置 Velocity 配置属性�
 当遇到没有定义或者存在歧义的情况 Velocity 将抛出异常。
 
 希望这篇文章对你有帮助。
+</pre>
+</div>
+<div created="20210112124917563" creator="TJ" modified="20210112125434044" modifier="TJ" tags="Post" title="2017-09-11 那么 Appium 到底是怎么工作的呢？" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>因为官网文档写的没有梯度，作为新手的我花了好几个小时硬是没看明白它是怎么工作的。 网上教程也基本都是翻译，所以结构很复杂、和其他技术耦合度很高，且没有说明。
+
+我自己总结了一份超简单 Appium 自动化测试示例（Node.js 版)
+
+本示例，默认在 Mac（已安装 XCode、Node.js）测试 iOS app。
+
+!! 那么 Appium 到底是怎么工作的呢？
+
+1. 首先，你需要启动一个 Appium 服务（它会接收你发出的测试指令，并控制 App 完成相关动作）。
+
+```
+// 安装
+$ npm install -g appium
+// 启动 appium 服务
+$ appium
+```
+2. 然后，你需要 build 一个可以自动化测试的 app 包。 使用下面命令 build，在 `./build/Release-iphonesimulator/` 得到 XXX.app。 我测试的 app 放在目录 `./apps/`
+
+```
+$ xcodebuild -sdk iphonesimulator10.3
+// iphonesimulator 代表模拟器
+// 10.3 是 iOS 版本
+```
+
+3. 再然后，你需要写一段测试代码。 你可以得到一个特别特别简单例子 [[Appium-Sample-Node]]。 因为 Appium 本身功能很弱，我们依赖 wd.js、mocha.js 和 chai.js 完成测试代码。
+
+&gt; wd.js 优雅地获取 App 元素，如按钮（button）、文字（label）等等。
+&gt;  mocha.js 优雅地做测试前准备、测试后处理 。
+&gt; chai.js 优雅地使用断言。
+
+4. 最后一步，执行你的测试代码。 如果你的 mocha 是全局安装，$ npm run ios-simple可以替换成$ mocha ios-simple.js
+
+```
+$ cd Appium-Sample-Node &amp;&amp; npm install
+$ npm run ios-simple
+```
+现在你会了吗？
+</pre>
+</div>
+<div created="20210112125513258" creator="TJ" modified="20210112125705170" modifier="TJ" tags="Post" title="2018-04-21 eslint 提示：Do not use findDOMNode" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>记录一条 eslint 提示：
+
+```
+[eslint] Do not use findDOMNode (react/no-find-dom-node)
+```
+
+背景
+
+使用react-dnd做拖拽功能时，需要判断真实DOM的大小和位置。
+
+官方示例： https://github.com/react-dnd/react-dnd/blob/164a8048296101e3bcf543df3406ee6dabfdf059/packages/documentation/examples/04%20Sortable/Simple/Card.js#L35
+
+但是我们项目使用 eslint 检查 js 代码品质。所以出现 👆 提示。
+
+解决方法
+
+```jsx
+// Step 1. render()
+;&lt;div
+  ref={node =&gt; {
+    this.node = node
+  }}
+&gt;
+  ...
+&lt;/div&gt;
+
+// Step 2. function
+component.decoratedComponentInstance.node.getBoundingClientRect()
+```
+
+参考： https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
+</pre>
+</div>
+<div created="20210112125725582" creator="TJ" modified="20210112130150550" modifier="TJ" tags="Post" title="2018-04-22 使用 axios 时遇到的几个问题" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>!! 1. axios 的 baseURL
+
+目前进行的项目是公司主应用下的子应用，所以 API 全都是 `/cms/api/*`。 为了提高写代码效率，我写下来如下代码。
+
+```js
+// fetch.js
+import fetch from &quot;axios&quot;
+
+fetch.defaults.baseURL = &quot;/cms/api&quot;
+
+export default fetch
+```
+
+这样做以后，我们的 API 形如 `/cms/api/users` 时，我们只需要写 `/users` 就可以了。axios 会自动补充前缀。
+
+!! 但是这样做有一个问题
+
+ fetch.defaults.baseURL 是一个全局设置。所以当我们需要请求 /cms/api 以外的 API 时，我们必须覆盖掉 baseURL。
+
+方法：
+
+```js
+import fetch from &quot;./fetch&quot;
+
+const ajaxInstance = fetch.create({
+  baseURL: &quot;&quot;,
+})
+
+ajaxInstance.get() // or ajaxInstance.post()
+```
+
+!! 2. axios 使用 `application/x-www-form-urlencoded` 发送参数
+
+axios 默认使用 application/json 发送参数，但是对于一些老旧 API，我们不得不使用application/x-www-form-urlencoded格式。
+
+方法：
+
+```js
+
+const params = new URLSearchParams()
+params.append(&quot;query&quot;, value)
+
+ajaxInstance.post(apiUrl, params)
+```
+
+
+参考：
+
+* https://ykloveyxk.github.io/2017/02/25/axios全攻略/
+* https://imququ.com/post/four-ways-to-post-data-in-http.html
+</pre>
+</div>
+<div created="20210112130230820" creator="TJ" modified="20210112131004039" modifier="TJ" tags="Post" title="2018-04-23 扩展 Ant Design iconfont" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>我们项目组是 [[Ant Design|https://github.com/ant-design/ant-design]] 的重度用户。 Ant Design 的 Icon 组件提供了很多图标，个人项目基本上足够了。 但是作为公司的项目，既有图标显然不能满足业务需求，所以就需要扩展图标。
+
+其实扩展 Ant Design 的 Icon 的图标特别简单，这里只是做一下记录。
+
+方法
+
+1. 上传你的图标到 https://www.iconfont.cn/，拷贝项目下面生成的 symbol 代码。 我们项目设计师给我的是 svg 文件。
+
+2. 为你的项目引入 `辅助 js`，并添加一段 `全局 CSS`。
+
+```html
+&lt;script src=&quot;./iconfont.js&quot;&gt;&lt;/script&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+  .icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
+&lt;/style&gt;
+```
+
+3. 使用新图标
+
+```html
+
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;use xlink:href=&quot;#icon-xxx&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+```
+
+参考
+
+* http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.15&amp;helptype=code
 </pre>
 </div>
 <div created="20201231151613751" creator="TJ" modified="20201231152619570" modifier="TJ" tags="" title="2021 big goals" type="text/vnd.tiddlywiki" revision="0" bag="default">
