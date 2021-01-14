@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# build a single File wiki in wiki/output/index.html
-
-tiddlywiki wiki --build index
-mv wiki/output/index.html ..

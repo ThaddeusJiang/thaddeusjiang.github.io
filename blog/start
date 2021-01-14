@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# start wiki on port 7123
-
-tiddlywiki wiki --listen port=7123 anon-username=TJ
