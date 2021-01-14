@@ -1,8 +1,8 @@
 created: 20201220085555836
 creator: TJ
-modified: 20201220090929957
+modified: 20210114003806295
 modifier: TJ
 title: $:/themes/tiddlywiki/vanilla/settings/fontfamily
 type: text/vnd.tiddlywiki
 
-Georgia, Merriweather, serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+Times New Roman,Songti SC,Songti TC,YuMincho,Liberation Serif, -apple-system,Segoe UI,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"

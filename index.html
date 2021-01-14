@@ -172,6 +172,8 @@ Error message and password prompt
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-image</li>
 
+<li>$:/config/Plugins/Disabled/$:/plugins/tiddlywiki/googleanalytics</li>
+
 <li>$:/config/RelinkOnRename</li>
 
 <li>$:/config/WikiParserRules/Inline/wikilink</li>
@@ -179,6 +181,8 @@ Error message and password prompt
 <li>$:/core</li>
 
 <li>$:/DefaultTiddlers</li>
+
+<li>$:/GoogleAnalyticsAccount</li>
 
 <li>$:/isEncrypted</li>
 
@@ -224,6 +228,8 @@ Error message and password prompt
 
 <li>2021 big goals</li>
 
+<li>2021 Q1 OKRs</li>
+
 <li>2021 年第一本书《图形思考》</li>
 
 <li>2021-01-12 其实你不需要 unicode-range</li>
@@ -237,6 +243,10 @@ Error message and password prompt
 <li>wakatime</li>
 
 <li>Welcome</li>
+
+<li>字体</li>
+
+<li>我的选择</li>
 
 </ul>
 </p>
@@ -275,6 +285,9 @@ Error message and password prompt
 </div>
 <div created="20200421053637476" modified="20200421053644789" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-image" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>hide</pre>
+</div>
+<div created="20210113045354915" creator="TJ" modified="20210113045354924" modifier="TJ" title="$:/config/Plugins/Disabled/$:/plugins/tiddlywiki/googleanalytics" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>yes</pre>
 </div>
 <div created="20200422091522545" modified="20200422091522555" title="$:/config/RelinkOnRename" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>yes</pre>
@@ -10152,6 +10165,9 @@ Posts
 wakatime
 </pre>
 </div>
+<div created="20210113045057532" creator="TJ" modified="20210113045327100" modifier="TJ" title="$:/GoogleAnalyticsAccount" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>G-3KQSN8XNGG</pre>
+</div>
 <div title="$:/isEncrypted" revision="0" bag="default">
 <pre>no</pre>
 </div>
@@ -10460,8 +10476,8 @@ wakatime
 <div created="20200511061828199" modified="20200511061828212" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>fluid-fixed</pre>
 </div>
-<div created="20201220085555836" creator="TJ" modified="20201220090929957" modifier="TJ" title="$:/themes/tiddlywiki/vanilla/settings/fontfamily" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>Georgia, Merriweather, serif, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;</pre>
+<div created="20201220085555836" creator="TJ" modified="20210114003806295" modifier="TJ" title="$:/themes/tiddlywiki/vanilla/settings/fontfamily" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>Times New Roman,Songti SC,Songti TC,YuMincho,Liberation Serif, -apple-system,Segoe UI,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,Arial,&quot;Noto Sans&quot;,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;,&quot;Noto Color Emoji&quot;</pre>
 </div>
 <div created="20170623082426711" creator="TJ" modified="20201220092238061" modifier="TJ" tags="Git Post" title="2017-06-23 分享几个 git 的使用场景" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>你真的会使用 git 吗？你能回答下面几个问题吗？ 有三个 commit（顺序：CommitA、CommitB、CommitC），它们相互独立，没有依赖。
@@ -11199,6 +11215,36 @@ ajaxInstance.post(apiUrl, params)
 # 考驾照
 # 注册公司</pre>
 </div>
+<div created="20210114001858362" creator="TJ" modified="20210114004452995" modifier="TJ" tags="" title="2021 Q1 OKRs" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>! 个人
+
+&lt;&lt;&lt;.tc-big-quote
+Objective 1：2021 Q1 发布 M&amp;A Site beta
+&lt;&lt;&lt;
+
+Key Results：
+
+# 100 commits
+# 完成 MVP 功能，如：Account、Email、Payment
+# 向实际客户介绍 10 次
+
+&lt;&lt;&lt;.tc-big-quote
+Objective 2：增加 Output，让别人知道你知道
+&lt;&lt;&lt;
+
+Key Results：
+
+# FE 技术文章 10 篇
+# Elixir 精选 12 期（坚持每周一期，每周四晚上发布）
+# 准备 3 篇 LT 的草稿
+
+
+
+
+
+
+</pre>
+</div>
 <div created="20210109051756907" creator="TJ" modified="20210109053710392" modifier="TJ" tags="Reading" title="2021 年第一本书《图形思考》" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>《图形思考》这本书很薄，内容也不难，清晰易懂，同时又非常实用。
 
@@ -11287,6 +11333,35 @@ ajaxInstance.post(apiUrl, params)
 我从我的精神导师那里学习到这个技术。 [[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 
 如果你也想尝试一下，看这里 [[TiddlyWiki|https://tiddlywiki.com/]]
+</pre>
+</div>
+<div created="20210114003838884" creator="TJ" modified="20210114004331840" modifier="TJ" tags="" title="字体" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>正文
+
+* 西文：Times New Roman、Liberation Serif
+* 简体中文：Songti SC、中易宋体
+* 繁體中文：Songti TC、新細明體
+* 日本語：游明朝、IPA明朝
+
+参考：
+https://banana.moe/posts/2016-12-02-serif-cjk-font-in-web
+</pre>
+</div>
+<div created="20210113025054985" creator="TJ" modified="20210113025336656" modifier="TJ" tags="" title="我的选择" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>* [[TiddlyWiki]]
+* [[Telegram]]
+* [[Elixir]]
+* [[Emacs]]
+* [[JS]]
+* [[Ruby]]
+* [[日本]]
+* [[海边]]
+* [[独栋]]
+
+* [[去中心化]]
+
+
+
 </pre>
 </div>
 
