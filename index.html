@@ -200,6 +200,8 @@ Error message and password prompt
 
 <li>$:/SiteTitle</li>
 
+<li>$:/state/showeditpreview</li>
+
 <li>$:/state/tab/sidebar--595412856</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
@@ -237,6 +239,8 @@ Error message and password prompt
 <li>2021-01-12 其实你不需要 unicode-range</li>
 
 <li>2021-01-14 这个博客只有一个 HTML</li>
+
+<li>2021-01-15 Nuxt Composition API useMeta 异步更新</li>
 
 <li>My old blog</li>
 
@@ -10362,13 +10366,16 @@ wakatime
 <div bag="default" created="20200418124742730" creator="TJ" modified="20210109051743313" modifier="TJ" revision="0" title="$:/SiteTitle" type="text/vnd.tiddlywiki">
 <pre>Thaddeus Jiang (TJ)</pre>
 </div>
+<div created="20210115065134492" modified="20210115065134492" title="$:/state/showeditpreview">
+<pre>yes</pre>
+</div>
 <div created="20210114094530212" modified="20210114094530212" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div list="Welcome Posts wakatime" title="$:/StoryList">
+<div list="[[2021-01-15 Nuxt Composition API useMeta 异步更新]] [[test Beaker Browser]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div author="JeremyRuston" bag="default" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" revision="0" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23">
@@ -11297,6 +11304,44 @@ Key Results：
 
 我已经把那些乱七八糟的都删了，只留了一个 HTML。
 使用体验完全没有影响，太赞了。</pre>
+</div>
+<div created="20210115064704257" modified="20210115070221794" tags="手艺人的小本本" title="2021-01-15 Nuxt Composition API useMeta 异步更新">
+<pre>我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。
+所以使用了 [[@nuxtjs/composition-api|https://composition-api.nuxtjs.org/]]
+
+一个小需求，从 API 获取数据，更新 document 的 `title` 。
+
+我们使用 `useMeta` 
+
+```js
+const { title, meta } = useMeta()
+
+useFetch(async () =&gt; {
+  const data  = await someAjax();
+
+  title.value.title = data.title
+})
+```
+
+为什么要写这篇笔记？
+
+因为官方文档太迷惑了，让我浪费了很多时间。
+
+官方文档：
+
+```
+// You can even pass a function to achieve a computed meta
+const message = ref('')
+useMeta(() =&gt; ({ title: message.value }))
+```
+
+这段话让我误以为：“如果需要异步更新，就必须以函数形式。”
+
+实际上并不需要。仅以一篇笔记，纪念我失去的时间。
+
+参考
+
+* https://github.com/nuxt-community/composition-api/issues/116#issuecomment-643707422</pre>
 </div>
 <div bag="default" created="20201231153737855" creator="TJ" modified="20201231153759673" modifier="TJ" revision="0" tags="" title="My old blog" type="text/vnd.tiddlywiki">
 <pre>https://thaddeusjiang.com/posts</pre>
