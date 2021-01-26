@@ -286,6 +286,20 @@ Error message and password prompt
 
 <li>2019-05-14 如何使用 GitHub 账号登录？</li>
 
+<li>2019-05-16 前端性能优化（一）性能评估</li>
+
+<li>2019-07-11 从 jsinspect 迁移到 jscpd</li>
+
+<li>2019-07-15 使用 git cz 标准化提交记录</li>
+
+<li>2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment</li>
+
+<li>2019-09-21 更新 Cypress 相关配置</li>
+
+<li>2019-09-30 升级到 react-intl 3</li>
+
+<li>2019-11-08 踩了一下 GitHub package 大水坑</li>
+
 <li>2020 Q2 OKRs</li>
 
 <li>2020 Q2 OKRs Review</li>
@@ -10498,8 +10512,8 @@ wakatime
 <div created="20210118050139470" creator="TJ" modified="20210118114250968" modifier="TJ" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Appearance</pre>
 </div>
-<div created="20210114094530212" creator="TJ" modified="20210126005848831" modifier="TJ" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20210114094530212" creator="TJ" modified="20210126133704414" modifier="TJ" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20210120140450412" creator="TJ" modified="20210122110903030" modifier="TJ" title="$:/state/twitter/usage-195781886-195781886">
 <pre>$:/plugins/tiddlywiki/twitter/usage/tweet</pre>
@@ -10510,7 +10524,7 @@ wakatime
 <div created="20210118114135023" creator="T" modified="20210118114135100" modifier="T" title="$:/status/UserName">
 <pre>TJ</pre>
 </div>
-<div created="20210126005121297" creator="TJ" list="一次只思考一个角度，让思考更清晰 子弹笔记 [[A4 纸笔记法]] 阅读《图形思考》的意外收获 手艺人手记 [[2021-01-22 Is Mobile-First Wrong?]] wakatime" modified="20210126010759482" modifier="TJ" title="$:/StoryList">
+<div list="Welcome 手艺人手记 wakatime" title="$:/StoryList">
 <pre></pre>
 </div>
 <div author="JeremyRuston" bag="default" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" revision="0" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23">
@@ -11896,6 +11910,495 @@ ReactDOM.render(&lt;App /&gt;, rootElement);
 &gt; source code: https://codesandbox.io/s/zw27vrzpk3
 </pre>
 </div>
+<div created="20210126133715856" creator="TJ" modified="20210126134339880" modifier="TJ" tags="性能优化 手艺人手记" title="2019-05-16 前端性能优化（一）性能评估">
+<pre>
+前端性能优化是一个老生常谈的话题，是每一个前端开发者都避不开的技术。
+本文主要介绍一下性能优化的第一步，也是最重要的一步。如何性能评估。
+
+为什么说性能评估是最重要的一步呢？
+
+&lt;&lt;&lt;.tc-big-quote
+方向错了，再怎么努力也没用。
+&lt;&lt;&lt;柳传志
+
+
+性能优化就像水桶效应，应该找到并修复最低的那块木板。
+
+下面进入正题：
+
+TL;DR
+
+* 使用什么工具？
+* 工具的使用方法？
+* 有哪些指标？
+
+!! 使用什么工具？
+
+一提到性能测试，老一辈的程序员总会说“写脚本测”。但是现在已经是 2019 年了，请不要像原始人一下从头开始。
+
+这里推荐大家使用 Chrome DevTools Performance
+
+!! 工具的使用方法？
+
+Chrome DevTools Performance 使用方法很简单。
+
+# 使用 incognito 模式打开 Chrome
+# 打开你想要测试的网页，如 https://jiang.jifa.name
+# 打开 Chrome DevTools，选择 Performance
+# 点击自动记录按钮
+
+[img[https://i.gyazo.com/159c7857ffa7cfbbaa7fc37a515f155a.png]]
+
+使用 incognito 模式主要是为了避免 Chrome 插件对测试的影响。
+对于准备测试环境，还有一些其他方法。查看 https://developer.chrome.com/devtools/docs/clean-testing-environment
+
+!! 有哪些指标？
+
+我们可以看到上图中 ④ 显示了一张饼状图。饼状图所对应的表如下：
+
+| Name      | 项目      |
+| Loading   | HTML 文件 |
+| Scripting | 脚本      |
+| Rendering | 样式表    |
+| Painting  | 媒体资源  |
+| System    | 其他资源  |
+| Idle      | 空闲时间  |
+
+从上面图中可以看出，我所测试的网页中 `Scripting` 耗时占了 50% 以上，如果想对其进行性能优化，我们最该优化的地方就是我们的脚本。
+
+refs:
+
+* https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference
+</pre>
+</div>
+<div created="20210126134418789" creator="TJ" modified="20210126134946988" modifier="TJ" tags="手艺人手记" title="2019-07-11 从 jsinspect 迁移到 jscpd">
+<pre>&lt;&lt;&lt;.tc-big-quote
+jscpd 是一个用于检测重复代码的工具，拒绝 copy/pause 从选择优秀的工具开始。
+&lt;&lt;&lt;
+
+
+目前负责的项目的 package.json 中有如下命令：
+
+```json
+//  package.json
+{
+  &quot;scripts:&quot;: {
+    &quot;check:quality&quot;: &quot;npx jsinspect -t 50 src&quot;,
+  }
+}
+```
+
+但是，这只是从上一个项目继承过来的祖传代码，从来没有人使用过。
+
+一般情况下，我的原则都是没有用的代码，全部删除。
+但是存在必有其存在的道理，先分析一下。
+
+* 这段代码有什么作用？
+** jsinspect 检查复制/粘贴，或者类似代码的工具。
+* 为什么没有人使用？
+** 我运行了一下，结果得到一大堆 log，十分茫然，不知道接下来要做什么。
+** 没有简单易懂的结果报告。
+
+从上面分析可以看出，功能还是有用的，最起码能知道项目中有多少重复代码。就是工具选择的不恰当，没有易用性。
+
+改进方法就是寻找替代方案。
+于是我找到 jscpd
+
+!! jscpd 对比 jsinspect 优势
+
+# 仍在维护。（这点太重要了）
+# 运行结果内容清晰，且报告比较美观。
+
+!! jscpd 使用
+
+官网示例非常简单，推荐直接阅读。
+
+TL;DR
+
+1. config file
+
+```json
+{
+  &quot;threshold&quot;: 0.1,
+  &quot;reporters&quot;: [&quot;html&quot;, &quot;console&quot;],
+  &quot;ignore&quot;: [&quot;**/__snapshots__/**&quot;],
+  &quot;absolute&quot;: true
+}
+```
+
+- package.json
+
+```json
+{
+  &quot;scripts:&quot;: {
+    &quot;check:quality&quot;: &quot;npx jscpd src&quot;,
+  }
+}
+```
+
+运行结果对比：左：jsinspect，右：jscpd
+[img[https://i.gyazo.com/ed66c11ed7e90eb87c34c9391a055855.jpg]]
+
+对比之后，效果显而易见。jscpd 完胜。
+
+
+refs:
+
+* https://github.com/kucherenko/jscpd</pre>
+</div>
+<div created="20210126135006802" creator="TJ" modified="20210126135106580" modifier="TJ" tags="手艺人手记 Git" title="2019-07-15 使用 git cz 标准化提交记录">
+<pre>自从开始使用 git cz 取代 git commit -m，提交记录变得非常干净、漂亮，这整个过程也没有任何额外负担，非常自然。
+
+
+!! 安装 git cz
+
+```sh
+// install
+$ npm install -g commitizen cz-conventional-changelog
+
+// config file
+$ echo '{ &quot;path&quot;: &quot;cz-conventional-changelog&quot; }' &gt; ~/.czrc
+
+// install vscode extension
+$ code --install-extension axetroy.vscode-changelog-generator
+```
+
+!! 使用
+
+```
+$ git add .
+$ git cz
+```
+</pre>
+</div>
+<div created="20210126135133083" creator="TJ" modified="20210126135507936" modifier="TJ" tags="手艺人手记 GraphQL" title="2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment">
+<pre>不经意间使用 GraphQL 已经一年时间了，
+分享一个自己走过的坑，`多层嵌套 fragment`。
+
+!! 首先，什么是 GraphQL fragment？
+
+&lt;&lt;&lt;.tc-big-quote
+GraphQL includes reusable units called fragments. Fragments let you construct sets of fields, and then include them in queries where you need to.
+&lt;&lt;&lt;
+
+GraphQL fragment 允许我们定义一些常用的属性集，方便重复利用。
+
+使用方法如下，我们定义 TagFragment， 它被利用在 ACardFragment 和 BCardFragment 中。
+
+```js
+const TagFragment = gql`
+  fragment TagFragment {
+    id
+    name
+  }
+`
+
+const ACardFragment = gql`
+  fragment ACard {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+`
+
+const BCardFragment = gql`
+  fragment BCard {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+`
+```
+
+!! 为什么说嵌套 fragment 是反面教材？
+
+这里我们定义 TagFragment、BCardFragment、AFromFragment 如下，并在 AFormQuery 中使用 AFormFragment。
+
+你会发现，虽然 AFormQuery 只使用了 AFormFragment，但是由于多层嵌套 fragment 的原因，你不得不同时引用 BCardFragment 和 TagFragment。
+
+```js
+const TagFragment = gql`
+  fragment TagFragment {
+    id
+    name
+  }
+`
+
+const BCardFragment = gql`
+  fragment BCardFragment {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+`
+
+const AFormFragment = gql`
+  fragment AFormFragment {
+     id
+     name
+     bs {
+       ...BCardFragment
+     }
+  }
+`
+
+// only reference AFormFragment, have to inject BCardFragment and TagFragment
+const AFormQuery = gql`
+  query {
+    ...AFormFragment
+  }
+  ${AFormFragment}
+  ${BCardFragment}
+  ${TagFragment}
+`
+```
+
+!! 如何解决上面问题呢？
+
+其实很简单。
+
+&lt;&lt;&lt;.tc-big-quote
+只需保证每个 fragment 都不向外传递除自己以外的 fragment 即可。
+&lt;&lt;&lt;
+
+如下
+
+```js
+const TagFragment = gql`
+  fragment TagFragment {
+    id
+    name
+  }
+`
+
+const BCardFragment = gql`
+  fragment BCard {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+  ${TagFragment} // inject
+`
+
+const AFormFragment = gql`
+  fragment AFormFragment {
+     id
+     name
+     bs {
+       ...BCardFragment
+     }
+  }
+  ${BCardFragment} // inject
+`
+// only need AFormFragment
+const AFormQuery = gql`
+  query {
+    ...AFormFragment
+  }
+  ${AFormFragment}
+`
+```
+
+希望您可以避开这个坑。
+
+refs:
+
+* https://graphql.org/
+* https://graphql.org/learn/queries/#fragments</pre>
+</div>
+<div created="20210126135522466" creator="TJ" modified="20210126135818312" modifier="TJ" tags="手艺人手记 ESLint Cypress.js" title="2019-09-21 更新 Cypress 相关配置">
+<pre>最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。
+
+!! 旧配置
+
+使用在 cypress 文件夹中配置 `tsconfig.json` 的方式，超简单。内容如下：
+
+```json
+{
+  &quot;compilerOptions&quot;: {
+    &quot;allowJs&quot;: true,
+    &quot;baseUrl&quot;: &quot;../node_modules&quot;,
+    &quot;types&quot;: [&quot;cypress&quot;]
+  },
+  &quot;include&quot;: [&quot;**/*.*&quot;]
+}
+```
+
+!! 新配置
+
+新配置分成 2 部分，ESLint 和 jsconfig.json。
+
+* ESLint 负责检查 Cypress 断言的使用是否正确
+* jsconfig 负责 Cypress 自动补全
+
+!! ESLint
+
+1. 安装 eslint-plugin-cypress
+
+```sh
+npm install eslint-plugin-cypress --save-dev
+```
+
+2. 配置 .eslintrc.json
+
+```json
+// .eslintrc.json
+{
+  &quot;plugins&quot;: [&quot;cypress&quot;],
+  &quot;env&quot;: {
+    &quot;cypress/globals&quot;: true
+  }
+}
+```
+
+!! jsconfig
+
+在项目根目录下创建 .jsconfig.json，配置如下内容：
+
+```json
+// .jsconfig.json
+{
+  &quot;include&quot;: [&quot;./node_modules/cypress&quot;, &quot;cypress/**/*.js&quot;]
+}
+```
+
+
+refs:
+
+* https://github.com/cypress-io/eslint-plugin-cypress</pre>
+</div>
+<div created="20210126135836440" creator="TJ" modified="20210126140401294" modifier="TJ" tags="手艺人手记 React.js" title="2019-09-30 升级到 react-intl 3">
+<pre>上周把公司项目中 react-intl 升到 v3，做一个简单记录。
+这次升级策略和使用 React Hooks 时一样，不重构现有代码，但是在今后新功能中`积极使用`新的 hook API。
+
+!! 第一步 更新 package.json
+
+我直接使用 `npm install react-intl@latest` 升级到最近版本。
+
+!! 第二步 修复 Breaking API Changes
+
+我的项目中涉及到 `FormattedRelative` API。超级简单，就是改个名字而已。
+
+[img[https://i.gyazo.com/83fd1e9ce1981486f75da48bcb8b7ce8.png]]
+
+!! 第三步 移除遗留代码
+
+我说的是 `addLocaleData` API。因为我的项目是 to B 项目，客户统一使用 Chrome， 没有必要支持 IE11 等浏览器。
+所以我将涉及 `addLocaleData` 代码也一并移除了。
+[img[https://i.gyazo.com/c7612e4218d3338bc24f84640bdedf6f.png]]
+
+!! 第四步 更新 snapshot testing
+
+这步是必不可少的，我们项目使用 create-react-app 构建。
+
+执行 
+
+```
+yarn test --updateSnapshot
+```
+
+!! 第五步 更新 flow-typed
+
+我们项目使用 flow 进行类型定义，npm script 定义如下：
+
+```json
+// package.json
+{
+  &quot;flow-typed&quot;: &quot;rimraf flow-typed/npm &amp;&amp; npx flow-typed install --ignoreDeps dev bundled peer&quot;
+}
+```
+
+执行 
+
+```
+yarn flow-typed
+```
+
+refs:
+
+* https://github.com/formatjs/react-intl
+* https://github.com/formatjs/react-intl/blob/master/docs/Upgrade-Guide.md
+* https://github.com/facebook/create-react-app
+* https://github.com/flow-typed/flow-typed</pre>
+</div>
+<div created="20210126140418652" creator="TJ" modified="20210126141213931" modifier="TJ" tags="手艺人手记" title="2019-11-08 踩了一下 GitHub package 大水坑">
+<pre>GitHub 今年新发布的功能有很多，有 Actions、Sponsor 和 Package 等等。
+
+昨天我不小心踩了一下 GitHub package 大水坑，折腾了一下午。
+
+首先，我的结论是：
+
+# GitHub package 不是开箱即用的
+# 第三方 CI 尚未完全支持，如 Netlify
+# GitHub package 的优势在于支持不同包管理系统
+
+!! 1. GitHub package 不是开箱即用的
+
+为什么这么说呢？因为我认为 npm 是开箱即用的。
+回想一下我们使用 npm 的过程。
+
+# 首先，安装 npm
+# 执行命令
+
+这就是么简单，不要手动配置（使用国内镜像除外）。
+
+!! 那么如何使用 GitHub package 呢？
+
+1, 首先你要注册试用 package，因为它还是 beta 版本。
+
+2. 你必须有一个 personal access token（有 read:packages and write:package 权限）
+
+3. 修改 .npmrc
+
+```bash
+//npm.pkg.github.com/:_authToken=PERSONAL-ACCESS-TOKEN
+registry=https://npm.pkg.github.com/OWNER
+```
+
+4.  package.json 中 name 必须带有 @github_username 前缀，形如 `@thaddeusjiang/typography-theme-tsubaki`
+
+5. 发布
+
+```
+npm publish
+```
+
+6. 去仓库的 package 页面编辑说明文件
+
+[img[https://i.gyazo.com/ae3fdcd3fb5575cf02ce1d87b8bc6f54.jpg]]
+
+!! 2. 第三方 CI 尚未完全支持，如 Netlify
+
+如第一步所写，使用 git package 之前需要修改 .npmrc，所以我们必须手动修改第三方 CI 的 .npmrc。
+否则会出现类似错误
+
+[img[https://i.gyazo.com/988ac35f6c946ada7ec8fefa05f8890e.jpg]]
+
+为了其它正常使用你的 package，你不得不同时发布到 npm，并写一个 https://github.com/ThaddeusJiang/typography-theme-tsubaki/issues/3 去解释为什么灰安装出错。
+
+!! 3. GitHub package 的优势在于支持不同包管理系统
+
+正如 GitHub package 主页上所写，GitHub package 支持 npm、Docker、Maven、NuGet、RubyGems 等等包管理系统，低于对开源社区热情不高，且技术栈复杂的公司来说，GitHub package 还是一种可以尝试的解决方案。
+
+[img[https://i.gyazo.com/3ac3082152e0d4c2f41d627e1d9773e9.jpg]]
+
+综上所述，我建议个人项目暂时还是不要折腾 GitHub package 比较好。
+
+
+
+refs:
+
+* https://github.com/features/package-registry
+* https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line</pre>
+</div>
 <div created="20210122122549764" creator="TJ" modified="20210122122632854" modifier="TJ" tags="" title="2020 Q2 OKRs">
 <pre>Objective 1. 我希望帮助 team-lab 前端团队提升知名度
 
@@ -12430,7 +12933,7 @@ https://recoursive.com/2020/03/03/reset_macos_privacy_permissions/</pre>
 <div bag="default" created="20210106060128715" creator="TJ" modified="20210106060221635" modifier="TJ" revision="0" tags="" title="wakatime" type="text/vnd.tiddlywiki">
 <pre>&lt;embed src=&quot;https://wakatime.com/share/@ThaddeusJiang/360e9ff9-628e-47c5-8c30-241174f8d094.svg&quot;/&gt;</pre>
 </div>
-<div bag="default" created="20200418124902034" creator="TJ" modified="20210120140432258" modifier="TJ" revision="0" title="Welcome" type="text/vnd.tiddlywiki">
+<div bag="default" created="20200418124902034" creator="TJ" modified="20210126141703224" modifier="TJ" revision="0" title="Welcome" type="text/vnd.tiddlywiki">
 <pre>嗨，欢迎来到我的 Blog。
 
 我的 Blog 系统使用 [[TiddlyWiki|https://tiddlywiki.com/]] 构建。
@@ -12440,6 +12943,12 @@ https://recoursive.com/2020/03/03/reset_macos_privacy_permissions/</pre>
 * 仅仅只有一个 HTML 文件
 * 这是一个自产生程序，输出结果就是程序源码
 * 阅读、修改、发布，仅仅需要一个浏览器
+
+我希望这个 Blog 在 100 年后仍然可读。
+
+&lt;&lt;&lt;.tc-big-quote
+I hope the blog will be readable in 100+ years time.
+&lt;&lt;&lt;Joe Armstrong
 
 我从哪里学习到这个技术？ 看这里  [[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 
