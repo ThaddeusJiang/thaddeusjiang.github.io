@@ -218,11 +218,15 @@ Error message and password prompt
 
 <li>$:/SiteTitle</li>
 
+<li>$:/state/advancedsearch/currentTab</li>
+
 <li>$:/state/plugin-info-2069695326-$:/plugins/tiddlywiki/twitter--1140713763</li>
 
 <li>$:/state/showeditpreview</li>
 
 <li>$:/state/sidebar</li>
+
+<li>$:/state/tab--1498284803</li>
 
 <li>$:/state/tab--1963855381</li>
 
@@ -300,11 +304,35 @@ Error message and password prompt
 
 <li>2019-11-08 踩了一下 GitHub package 大水坑</li>
 
+<li>2019-11-13 20% CSS</li>
+
+<li>2019-11-18 React Testing 1 - Unit Testing</li>
+
+<li>2019-11-19 React Testing 2 - E2E Testing</li>
+
+<li>2019-11-20 React Testing 3 - Visual Testing</li>
+
+<li>2019-11-26 配置自定义域名邮箱</li>
+
 <li>2020 Q2 OKRs</li>
 
 <li>2020 Q2 OKRs Review</li>
 
 <li>2020 Q3 OKRs</li>
+
+<li>2020-04-22 How to decide Responsive Design break point?</li>
+
+<li>2020-05-19 What is boilerplate code?</li>
+
+<li>2020-05-30 Why I choose Gridsome to rebuild my site</li>
+
+<li>2020-06-18 Micro frontends 1: What is Micro frontends</li>
+
+<li>2020-06-25 Micro frontends 2: A demo made with single-spa</li>
+
+<li>2020-07-07 Frontend handle Authorization</li>
+
+<li>2020-07-21 Why Tailwind CSS</li>
 
 <li>2020-07-30 Vue.js SSR Note</li>
 
@@ -347,6 +375,8 @@ Error message and password prompt
 <li>子弹笔记</li>
 
 <li>字体</li>
+
+<li>我写了多少篇《手艺人手记》</li>
 
 <li>我的选择</li>
 
@@ -10491,14 +10521,20 @@ wakatime
 <div bag="default" created="20200418124742730" creator="TJ" modified="20210117100047309" modifier="TJ" revision="0" title="$:/SiteTitle" type="text/vnd.tiddlywiki">
 <pre>TJ || 蒋継発</pre>
 </div>
+<div created="20210127142718568" creator="TJ" modified="20210127142718568" modifier="TJ" title="$:/state/advancedsearch/currentTab">
+<pre>$:/core/ui/AdvancedSearch/Standard</pre>
+</div>
 <div created="20210120140447688" creator="TJ" modified="20210120140447688" modifier="TJ" title="$:/state/plugin-info-2069695326-$:/plugins/tiddlywiki/twitter--1140713763">
 <pre>usage</pre>
 </div>
 <div created="20210115065134492" modified="20210115065134492" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div created="20210118050120882" creator="TJ" modified="20210122112053470" modifier="TJ" title="$:/state/sidebar">
+<div created="20210118050120882" creator="TJ" modified="20210127143205515" modifier="TJ" title="$:/state/sidebar">
 <pre>yes</pre>
+</div>
+<div created="20210127142718569" creator="TJ" modified="20210127142718569" modifier="TJ" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Standard</pre>
 </div>
 <div created="20210118050505299" creator="TJ" modified="20210118114302683" modifier="TJ" title="$:/state/tab--1963855381">
 <pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
@@ -11911,8 +11947,7 @@ ReactDOM.render(&lt;App /&gt;, rootElement);
 </pre>
 </div>
 <div created="20210126133715856" creator="TJ" modified="20210126134339880" modifier="TJ" tags="性能优化 手艺人手记" title="2019-05-16 前端性能优化（一）性能评估">
-<pre>
-前端性能优化是一个老生常谈的话题，是每一个前端开发者都避不开的技术。
+<pre>前端性能优化是一个老生常谈的话题，是每一个前端开发者都避不开的技术。
 本文主要介绍一下性能优化的第一步，也是最重要的一步。如何性能评估。
 
 为什么说性能评估是最重要的一步呢？
@@ -12399,6 +12434,638 @@ refs:
 * https://github.com/features/package-registry
 * https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line</pre>
 </div>
+<div created="20210127132620165" creator="TJ" modified="20210127133342034" modifier="TJ" tags="手艺人手记" title="2019-11-13 20% CSS">
+<pre>我是一名 Web 开发者，日常工作中主要使用的技术是 JS 和 CSS。相比 JS ，我认为自己没有认真研究过 CSS 的技术细节。虽然如此，但是我有自信可以实现 “任意 UI”。因为我熟练掌握 20% CSS，并擅长查看其他网站的 CSS 源码。
+
+在这里分享一下我的 20% CSS。
+
+[img[https://i.gyazo.com/fc726a706533e4b298ee07d1e85cdeb5.png]]
+
+!! 1. 必须熟练掌握的基本知识
+
+1.1. CSS 选择器
+
+你需要掌握
+
+*  class 选择器
+*  id 选择器
+*  标签选择器
+*  父子选择器，兄弟选择器
+*  属性选择器
+
+1.2. CSS 单位
+
+你需要掌握
+
+* %
+* px
+* rem
+
+1.3 CSS 颜色
+
+你需要掌握
+
+* 十六进制（hex）表示法
+* RGB 表示法
+
+1.4. CSS 边距之间关系
+
+CSS 最基本的边距主要是 `margin` 和 `padding`，他们的关系如下：
+
+[img[https://i.gyazo.com/2537725d5fa341801f2da60e27320455.gif]]
+
+!! 2. 必须熟练掌握的基本场景
+
+2.1 CSS 布局
+
+你需要掌握
+
+* position 位置布局
+* flex 弹性布局
+* float 流布局
+* column 列布局
+
+我有一份非常简洁的 [CSS 布局教程](http://learnlayout.com/)。
+
+ 2.2. CSS 显示
+
+你需要掌握
+
+* display
+**  none/block/inline-block
+*  边框
+**  border
+**  border-radius
+*  颜色
+**  background-color
+**  color
+*  阴影
+**  box-shadow
+**  text-shadow
+*  文本
+**  font-family
+**  font-size
+**  font-weight
+**  text-decoration
+**  word-wrap
+*  伪类
+**  :hover :focus
+**  ::before ::after
+*  ...
+
+2.3 CSS 媒体查询
+
+媒体查询主要应对响应式设计。
+
+Google 提供了一份非常好的响应式设计教程。https://developers.google.com/web/fundamentals/design-and-ux/responsive
+
+!! 3. 重要，但会查文档即可
+
+* 渐变
+* 过渡
+* 动画
+* 2D/3D 转换
+
+最后，本文不是 CSS 教程，更像是一个“迷你关键字列表”。
+
+希望能帮助到你。
+</pre>
+</div>
+<div created="20210127133417016" creator="TJ" modified="20210127134938820" modifier="TJ" tags="手艺人手记 React.js" title="2019-11-18 React Testing 1 - Unit Testing">
+<pre>&lt;&lt;&lt;.tc-big-quote
+软件测试中，Unit Testing 是最基础的，也是测试量最大的。
+&lt;&lt;&lt;
+
+
+那么，React 项目如何 Unit Testing呢？
+
+首先，我们要先确定几个前提
+
+* 使用 create-react-app 创建项目
+* 使用 Jest 和 React Testing Library 测试
+* 使用 GitHub Actions 自动化
+
+!! 1. 创建项目，并配置 Jest 和 React Testing Library
+
+```bash
+npx create-react-app testing-demo
+
+cd testing-demo
+yarn add @testing-library/react --dev
+
+```
+
+!! 2. 编写一个 Counter 组件，并测试
+
+&lt;&lt;&lt;.tc-big-quote
+Tips: 测试代码和组件放在同一文件夹下，更易管理。
+&lt;&lt;&lt;
+
+```js
+// src/components/counter/index.js
+import React, { useState } from &quot;react&quot;
+
+export default function Counter() {
+  const [count, setCount] = useState(0)
+  return (
+    &lt;div&gt;
+      &lt;button type=&quot;button&quot; onClick={() =&gt; setCount(count - 1)}&gt;
+        -
+      &lt;/button&gt;
+      &lt;span&gt;{count}&lt;/span&gt;
+      &lt;button type=&quot;button&quot; onClick={() =&gt; setCount(count + 1)}&gt;
+        +
+      &lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+
+// src/components/counter/counter.test.js
+import React from &quot;react&quot;
+import { render, fireEvent } from &quot;@testing-library/react&quot;
+import Counter from &quot;.&quot;
+
+test(&quot;&lt;Counter /&gt;&quot;, () =&gt; {
+  const { getByText } = render(&lt;Counter /&gt;)
+
+  expect(getByText(&quot;0&quot;)).toBeTruthy()
+
+  fireEvent.click(getByText(&quot;+&quot;))
+
+  expect(getByText(&quot;1&quot;)).toBeTruthy()
+
+  fireEvent.click(getByText(&quot;-&quot;))
+  fireEvent.click(getByText(&quot;-&quot;))
+
+  expect(getByText(&quot;-1&quot;)).toBeTruthy()
+})
+```
+
+!! 3. 常见问题
+
+* 我应该在哪写 Unit Testing？
+
+没有强制约定，个人认为测试代码和源码放在项目文件夹更容易管理。
+  
+如上面例子：测试代码和源码都存放在 `src/components/counter/` 中。
+
+* 自动补全 Jest 函数和断言的？
+
+```bash
+yarn add @types/jest
+```
+
+* 如何查看测试覆盖率？
+
+```bash
+yarn test --coverage
+```
+
+* 如何自动化测试？
+
+以 GitHub Actions 为例：新建 `.github/workflows/pull_request.yml`，并编写如下代码
+
+  ```yaml
+  name: &quot;PR Checks&quot;
+
+  on: pull_request
+
+  jobs:
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@master
+
+      - name: Install dependencies
+        run: yarn install --non-interactive --no-progress --frozen-lockfile --ignore-optional
+
+      - name: Run tests
+        run: yarn test
+        env:
+          CI: true
+```
+
+代码：https://github.com/ThaddeusJiang/react-testing-example/pull/1
+
+
+refs:
+
+* https://testing-library.com/docs/react-testing-library/intro
+* https://jestjs.io/docs/en/tutorial-react</pre>
+</div>
+<div created="20210127133818117" creator="TJ" modified="20210127135059836" modifier="TJ" tags="React.js 手艺人手记 Cypress.js Testing" title="2019-11-19 React Testing 2 - E2E Testing">
+<pre>相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。
+
+!! 1. 什么是 E2E Testing？
+
+&lt;&lt;&lt;.tc-big-quote
+笔者认为：E2E Testing 就是从用户角度对软件进行测试。
+&lt;&lt;&lt;
+
+例如：进入“登陆界面”，输入用户名和密码，点击登陆后跳转到“登陆成功”界面。
+
+!! 2. 如何做 E2E Testing？
+
+很幸运，在 E2E Testing 方面，已经有很多开源软件可以使用。
+推荐 Cypress
+
+1. 安装并配置 Cypress
+
+```bash
+yarn add cypress --dev
+
+yarn cypress open
+```
+
+第一次运行 `cypress open`，Cypress 会自动生成测试目录和基本配置。如：
+
+```
+├── cypress
+│   └── fixtures
+│   └── integration
+│   └── plugins
+│   └── support
+```
+
+2. 编写一个登陆界面，并测试
+
+我们约定路由如下：
+
+* `/login` 登陆界面
+* `/` 主页面
+
+```js
+// 登陆界面
+// src/modules/login/index.js
+import React, { useState } from &quot;react&quot;
+import { navigate } from &quot;@reach/router&quot;
+
+export default function Login() {
+  const [username, setUsername] = useState(&quot;&quot;)
+  const [password, setPassword] = useState(&quot;&quot;)
+
+  return (
+    &lt;div&gt;
+      &lt;div&gt;
+        &lt;label htmlFor=&quot;username&quot;&gt;Username:&lt;/label&gt;
+        &lt;input
+          type=&quot;text&quot;
+          id=&quot;username&quot;
+          name=&quot;username&quot;
+          value={username}
+          onChange={e =&gt; setUsername(e.target.value)}
+        /&gt;
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;label htmlFor=&quot;password&quot;&gt;Password:&lt;/label&gt;
+        &lt;input
+          type=&quot;password&quot;
+          id=&quot;password&quot;
+          name=&quot;password&quot;
+          value={password}
+          onChange={e =&gt; setPassword(e.target.value)}
+        /&gt;
+      &lt;/div&gt;
+
+      &lt;button
+        type=&quot;submit&quot;
+        onClick={() =&gt; {
+          if (username === &quot;jifa&quot; &amp;&amp; password === &quot;password&quot;) {
+            navigate(&quot;/&quot;)
+          }
+        }}
+      &gt;
+        Login
+      &lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+```
+
+```js
+// 测试代码
+// cypress/integration/login.js
+/// &lt;reference types=&quot;Cypress&quot; /&gt;
+
+describe(&quot;Login Page&quot;, function() {
+  before(function() {
+    cy.fixture(&quot;user&quot;).as(&quot;user&quot;)
+  })
+
+  it(&quot;fill username and password, login&quot;, function() {
+    cy.visit(&quot;/login&quot;)
+
+    cy.get('input[name=&quot;username&quot;]').type(this.user.username)
+    cy.get('input[name=&quot;password&quot;]').type(this.user.password)
+
+    cy.get('button[type=&quot;submit&quot;]').click()
+
+    cy.contains(&quot;HOME&quot;)
+  })
+})
+```
+
+```json
+// 测试数据
+// cypress/fixtures/user.json
+{
+  &quot;username&quot;: &quot;jifa&quot;,
+  &quot;password&quot;: &quot;password&quot;
+}
+```
+
+运行测试
+
+```bash
+yarn cypress open
+```
+
+这时 Cypress 会启动如下窗口，点击测试文件即可开始测试。
+
+[img[https://i.gyazo.com/2ce8aa2c6788c5076bbeac6c1c6e71af.jpg]]
+
+!! 3. 常见问题
+
+1. 如何自动补全 Cypress 方法？
+
+在测试文件内添加如下代码：
+
+```js
+/// &lt;reference types=&quot;Cypress&quot; /&gt;
+```
+
+2. `cy undefined`，如何解决？
+
+安装 [eslint-plugin-cypress](https://github.com/cypress-io/eslint-plugin-cypress)，并配置 `eslintrc.json`
+
+```bash
+yarn add --dev eslint-plugin-cypress
+```
+
+```json
+// eslintrc.json
+{
+  &quot;plugins&quot;: [&quot;cypress&quot;]
+}
+```
+
+3. 如何自动化测试？
+
+以 GitHub Actions 为例：
+
+第一步：定义 npm scripts
+
+```json
+// package.json
+&quot;scripts&quot;: {
+  &quot;start&quot;: &quot;react-scripts start&quot;,
+
+  &quot;start-server&quot;: &quot;npm start&quot;,
+  &quot;cy:record&quot;: &quot;cypress run --record&quot;,
+  &quot;cy:ci&quot;: &quot;start-server-and-test start-server http://localhost:3000 cy:record&quot;
+}
+```
+
+第二步： 定义 `.github/workflows/pull_request.yml`
+
+```yaml
+name: &quot;PR Checks&quot;
+
+on: pull_request
+
+jobs:
+  test:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@master
+
+      - name: Install dependencies
+        run: yarn install --non-interactive --no-progress --frozen-lockfile --ignore-optional
+
+      - name: E2E Tests
+        run: yarn cy:ci
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+```
+
+需要在 GitHub Secrets 定义 `CYPRESS_RECORD_KEY`，如下：
+
+[img[https://i.gyazo.com/825570ffe09b2d6ff69f7b546ba1733d.jpg]]
+
+!! 经验
+
+&lt;&lt;&lt;.tc-big-quote
+其实可以全局安装 Cypress
+&lt;&lt;&lt;
+
+优点是缩短 npm 安装时间。
+
+代码：https://github.com/ThaddeusJiang/react-testing-example/pull/2
+
+refs:
+
+* https://www.cypress.io/
+</pre>
+</div>
+<div created="20210127134337113" creator="TJ" modified="20210127135010236" modifier="TJ" tags="手艺人手记 React.js Testing" title="2019-11-20 React Testing 3 - Visual Testing">
+<pre>&lt;&lt;&lt;.tc-big-quote
+ Visual Testing 是我所接触的测试方法中最直观的，也是效果最明显的。
+&lt;&lt;&lt;
+
+!! 1. 什么是 Visual Testing？
+
+简单的说，Visual Testing 就是从视觉效果上测试。
+更加全面的解释，参见 《What is Visual Testing? A comprehensive explanation》 
+
+!! 为什么要使用 Visual Testing 呢？
+
+最简单的原因就是快速，直观，不易遗漏。
+
+!! 2. 如何做 Visual Testing？
+
+Percy.io 是一个性价比高的 Visual Testing 平台，对个人项目或者小团队非常实用。
+
+Percy 提供多种集成方式，本文中选择从 E2E Testing 集成 Visual Testing。
+
+1. 安装 `@percy/cypress`
+
+```bash
+yarn add --dev @percy/cypress
+```
+
+2. 在 `cypress/support/commands.js` 添加 `@percy/cypress`
+
+```js
+// At the top of cypress/support/commands.js
+import &quot;@percy/cypress&quot;
+```
+
+3. 在 `cypress/plugins/index.js` 添加 `percyHealthCheck`
+
+```js
+// In cypress/plugins/index.js
+let percyHealthCheck = require(&quot;@percy/cypress/task&quot;)
+
+module.exports = (on, config) =&gt; {
+  on(&quot;task&quot;, percyHealthCheck)
+}
+```
+
+4. 在 Cypress 测试代码中添加 Percy 　代码
+
+```js
+// cypress/integration/login.js
+it(&quot;visual testing for login page&quot;, () =&gt; {
+  cy.visit(&quot;/login&quot;)
+  cy.percySnapshot()
+})
+```
+
+5. 登陆 [Percy](https://percy.io/) 新建项目，并获得 Token
+
+[img[https://i.gyazo.com/99015684ec24f10d7e5e08839e6a568c.jpg]]
+
+6. 通过 Percy 启动 Cypress
+
+```bash
+$ PERCY_TOKEN=xxx percy exec -- cypress run
+```
+
+!! 3. 常见问题
+
+1. 如何自动化测试
+
+以 GitHub Actions 为例：
+
+第一步：定义 npm scripts
+
+```json
+// package.json
+&quot;scripts&quot;: {
+  &quot;start&quot;: &quot;react-scripts start&quot;,
+  &quot;build&quot;: &quot;react-scripts build&quot;,
+  &quot;test&quot;: &quot;react-scripts test&quot;,
+  &quot;cy:open&quot;: &quot;cypress open&quot;,
+  &quot;start-server&quot;: &quot;npm start&quot;,
+++  &quot;cy:record&quot;: &quot;percy exec -- cypress run --record&quot;,
+  &quot;cy:ci&quot;: &quot;start-server-and-test start-server http://localhost:3000 cy:record&quot;
+},
+```
+
+第二步： 定义 `.github/workflows/pull_request.yml`
+
+```yaml
+name: &quot;PR Checks&quot;
+
+on: pull_request
+
+jobs:
+  test:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@master
+
+      - name: Install dependencies
+        run: yarn install --non-interactive --no-progress --frozen-lockfile --ignore-optional
+
+      - name: E2E Tests
+        run: yarn cy:ci
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+++          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+```
+
+source code： https://github.com/ThaddeusJiang/react-testing-example/pull/3
+
+refs:
+
+* https://percy.io
+* https://docs.percy.io/docs/cypress
+* 《What is Visual Testing? A comprehensive explanation.》 https://applitools.com/blog/visual-testing
+
+</pre>
+</div>
+<div created="20210127135114208" creator="TJ" modified="20210127140325005" modifier="TJ" tags="手艺人手记" title="2019-11-26 配置自定义域名邮箱">
+<pre>绝大多数 freelancer 都使用自定义域名邮箱。一方面，使用自定义域名邮箱显得更专业，另一方面，可以有效隔绝生活邮件和工作邮件。本文简单介绍一下如何配置自己的自定义域名邮箱。
+
+!! 背景
+
+最近计划开始从事 freelancer 的工作。在网上查了一下，看到使用自定义域名邮箱可以提高客户的信任感，所以开始重度使用自己 `@jifa.name` 邮箱。
+
+在此之前 `@jifa.name` 使用 Yandex Connect 搭建，搭建方法分享在 StackOverflow ，因为只使用它做必要的备份和验证使用，并没有发现问题。
+
+但是随着邮件来往增多，我发现我不能及时回复邮件了。错误提示如下：
+
+[img[https://i.gyazo.com/3e67d941bd9c0c99faabf1bf42f19239.png]]
+
+尝试了很多解决方案，但是都没解决。并且发现 yandex 的英文界面经常出现俄语，实在太难受了。
+不得已，决定从 Yandex Connect 迁移到 Zoho Mail。
+
+!! 为什么选择 Zoho Mail 
+
+# zoho mail 免费
+# zoho mail 英文支持好，不会出现不认识的按钮或者菜单
+# 我以前应哟 Zoho notebook，对 Zoho 的软件有一定好感。
+
+!! 如何设置？
+
+首先，介绍几点前提：
+
+* 我的域名是从 [GoDaddy](https://godaddy.com) 购买的
+* 我是用 [Netlify](https://app.netlify.com/) 管理 DNS，而不是 GoDaddy。
+
+!! 第一步：使用 Netlify 管理 DNS
+
+你可以在你的 Netlify Domain 页面添加一个 Domain
+
+[img[https://i.gyazo.com/18c08519a8c4709c405ae9136b6c9fc4.jpg]]
+
+然后点进你的 Domain，你可以在 `Nameservers` 获得 Netlify 的 DNS zoon
+
+[img[https://i.gyazo.com/2fb312d51ddb698f9ebac2d7ceb0b8ce.jpg]]
+
+到 GoDaddy 的 DNS 页面替换到原来的 DNS zoon
+[img[https://i.gyazo.com/17f31adf9ad6ab40387549d501511e40.jpg]]
+
+!! 第二步：配置 MX 记录
+
+我的配置如下：
+
+[img[https://i.gyazo.com/c50be634fd0f2e2a256a2d32d99706ac.jpg]]
+
+!! 第三步：配置 TXT 记录
+
+需要配置 3 条 TXT 记录，分别是 `SPF` `DKIM` `DMARC`，关于他们的作用，简单地说就是为了防止你的邮件被当成垃圾邮件。
+
+* SPF
+[img[https://i.gyazo.com/77ade364fab39dcc08ee5ef111f36d1d.jpg]]
+
+* DKIM
+[img[https://i.gyazo.com/2814987ef32778632f803b5a1b15f4e1.jpg]]
+
+* DMARC
+[img[https://i.gyazo.com/e79dd5bf2ce6f472a97c4a4cfa378b9c.jpg]]
+
+到此位置，你已经配置好自己的自定义域名邮箱了。
+接下来就是使用你狂拽酷炫的邮件地址收发邮件了。
+
+
+refs:
+
+* https://connect.yandex.com/
+* https://stackoverflow.com/a/56238722/5847276
+* https://www.zoho.com/mail/
+* https://zh.wikipedia.org/wiki/MX记录
+* https://en.wikipedia.org/wiki/TXT_record
+* http://lomu.me/post/SPF-DKIM-DMARC-PTR</pre>
+</div>
 <div created="20210122122549764" creator="TJ" modified="20210122122632854" modifier="TJ" tags="" title="2020 Q2 OKRs">
 <pre>Objective 1. 我希望帮助 team-lab 前端团队提升知名度
 
@@ -12508,6 +13175,450 @@ KRs
 * https://scrapbox.io/teamlab-frontend/TJ
 * https://twitter.com/ThaddeusJiang
 &lt;&lt;&lt;</pre>
+</div>
+<div created="20210127140423555" creator="TJ" modified="20210127141116241" modifier="TJ" tags="手艺人手记" title="2020-04-22 How to decide Responsive Design break point?">
+<pre>这可能是一个事实。
+
+绝大多数 Web 项目使用 `实际设备宽度` 作为 Responsive Design 的 break point。
+
+虽然不知道具体原因是为什么，但是极有可能和 Bootstrap 流行有关。因为 Bootstrap 就使用实际设备（Apple's）的宽度作为 Gird 布局的 break point。
+
+[img[https://i.gyazo.com/0f746f3b84be7dcb33c510cc82eedbb6.jpg]]
+
+个人认为这种设计只适合通用 framework，并不是银弹。
+
+!! 让我们一起看一个实际需求
+现在我们需要开发一个列表展示页面。
+
+要求：
+
+&lt;&lt;&lt;
+卡片宽度为 200px，卡片间隔 40px。
+并且手机单列显示，平板或电脑多列显示。
+
+&lt;&lt;&lt;
+
+实际效果大致如下：
+
+[img[https://i.gyazo.com/3c1f4fe292375cf6c1c8944de943f92b.jpg]]
+
+如果我们以设备宽度为break point，我们写出如下代码：
+
+```css
+.list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.item {
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+  border: 1px solid #000;
+}
+```
+
+此时，如果你使用 iPad 进行测试，很幸运，你会发现一切正常。
+
+但是，如果你使用 Android 设备去测试，那你可能就要祈祷上帝了。因为 Android 设备的宽度相当任性，你可能遇到宽度为 `767px` 的设备。
+
+如果是设备宽度是 767px，上面的代码会如何显示呢？
+
+结果如下：
+
+[img[https://i.gyazo.com/d78f49274be9ae18947f60d157065298.jpg]]
+
+页面从 3 列突然变到 1 列
+
+!! 为什么会这样呢？
+
+因为上面代码存在一个严重的问题，即 Responsive Design 的 break point 和页面展示内容脱节。
+它是基于设备的宽度决定的。
+
+!! 正确的做法
+
+&lt;&lt;&lt;.tc-big-quote
+基于内容决定 break point，将内容变化点作为 break point。
+&lt;&lt;&lt;
+
+!! 基于内容选取 break point
+
+同样的要求：
+
+&lt;&lt;&lt;
+卡片宽度为 200px，卡片间隔 40px。
+并且手机单列显示，平板或电脑多列显示。
+&lt;&lt;&lt;
+
+基于内容，我们可以得出页面从单列到多列的变化点是 `440px`。
+
+```
+440px = 200px + 40px + 200px
+```
+
+为了给页面边距预留一些留白，我们将 break point 设置 `480px`，CSS 如下：
+
+```css
+@media (min-width: 480px) {
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+```
+
+看一下实际效果
+
+[img[https://i.gyazo.com/8d8dbd82023553af0a8c3939bfc59ee8.gif]]
+
+!! 总结
+
+&lt;&lt;&lt;.tc-big-quote
+Responsive Design 应该基于内容，而不是设备。
+&lt;&lt;&lt;
+
+refs:
+
+* https://getbootstrap.com/</pre>
+</div>
+<div created="20210127141137768" creator="TJ" modified="20210127141457284" modifier="TJ" tags="手艺人手记 React.js Svelte.js" title="2020-05-19 What is boilerplate code?">
+<pre>
+终于理解了 Svelte 宣扬的第一条特性 “Build boilerplate-free components” 是什么意思。
+
+&lt;&lt;&lt;.tc-big-quote
+boilerplate code，即编写大量和业务无关的代码。
+&lt;&lt;&lt;
+
+如 React hook：
+
+```js
+const [name, setName] = useState('')
+const [age, setAge] = useState(0)
+const [address, setAddress] = useState('')
+
+return (
+  &lt;div&gt;
+    &lt;input value={name} onChange={(e) =&gt; setName(e.target.value)}&gt;
+    &lt;input value={age} onChange={(e) =&gt; setAge(e.target.value)}&gt;
+    &lt;input value={address} onChange={(e) =&gt; setAddress(e.target.value)}&gt;
+  &lt;/div&gt;
+)
+```
+
+其实 setName 和 onChange 等函数完全和业务无关，单纯是为了 React 语法而已。
+
+所以 Svelte 提供 binding 语法
+
+```js
+&lt;script&gt;
+let name = ''
+let age = 0
+let address = ''
+&lt;/script&gt;
+
+&lt;input value={name}&gt;
+&lt;input type=number value={age}&gt;
+&lt;input value={address}&gt;
+```
+
+那种编写方法更容易？一目了然
+
+!! 类比：
+
+* 读取文件也是 boilerplate，你必须确认 file 存在，读取完毕后还必须关闭 file。
+* RESTful API 也是 boilerplate，CURD 写到吐。难怪 Ruby on Rails 会那么人气。开发者救星啊！！！
+
+
+refs:
+
+* https://svelte.dev/</pre>
+</div>
+<div created="20210127141518807" creator="TJ" modified="20210127141706241" modifier="TJ" tags="手艺人手记 Vue.js" title="2020-05-30 Why I choose Gridsome to rebuild my site">
+<pre>作为一个 web developer，我特别讨厌自己不断被新技术诱惑的职业病。
+
+我都快记不得这是第几次重写个人网站了，简直是一错再错。
+
+不管怎么样，我还是决定重写一遍。
+
+原因如下：
+
+# 2020年1月，我换了新工作。在新公司中，我的主要技术栈从 React.js 换成了 Vue.js。由于工作中使用 Vue.js 更多，个人网站切换到 Vue.js 技术栈也算是理所当然吧。
+# 我的个人网站完全可以是静态的。Vue.js 生态中静态网站工具有 Vuepress，Nuxt，Gridsome 等，我都尝试了一下，Vuepress 过度依赖 markdown 文件系统，Nuxt 对静态网站不够专注，经过对比我选择了 Gridsome。
+# 最后一点，Gridsome 官方提供的 blog starer 配色还不错，我很喜欢。
+
+最后，希望自己今后能更多专注到 `能力成长`，而不仅仅是`技能成长`。</pre>
+</div>
+<div created="20210127141719413" creator="TJ" modified="20210127142016686" modifier="TJ" tags="手艺人手记 Micro-frontends" title="2020-06-18 Micro frontends 1: What is Micro frontends">
+<pre>!! 什么是 Micro frontends？
+
+第一次听说 Micro frontends 是在 ThoughtWorks Radars。
+简单的说，Micro frontends 就是 Micro Services 在前端的应用。
+
+!! 为什么我们需要 Micro frontends？
+随着技术和市场需求的发展，我们的应用程序已经变得越来越大了。从很早以前服务端工程师就发现可以通过拆分 Micro services 来减少模块间耦合，降低开发和维护难度。
+所以出现了如下架构：
+
+[img[https://i.gyazo.com/63b6e63f4e430c7d90f598c122d03338.png]]
+
+我们注意上图的最右边，Database 和 Backend 已经成功将代码拆分成微服务，但是 Frontend 还是一个大而统一的系统。
+
+形成这种现状有很多原因，具体就不讨论了。
+不过，鉴于服务端微服务的的成功实践，前端工程师们也意识到前端的微服务架构也势在必行。
+简单列举几个原因：
+
+# 微服务可以减少模块间耦合，降低开发和维护难度。
+# 微服务更容易进行任务分配，并行开发，提高生产效率。
+# 感谢浏览器的不断进化，即使前端拆分成微服务，也能提供 SPA 的用户体验。
+
+!! 为什么 Micro frontends 没有 Micro Services 流行？
+
+原因有很多，简单总结：
+
+# Frontend 项目大体上可分为 site 和 system 两种，site 数量巨大，但功能简单，并不需要微服务架构。system 数量少，且大部分属于内部系统，不对外公开，所以影响力较低。
+# Micro Services 理论出现更早，项目实践更多。
+# Frontend 开发者中初级程序员更多，架构知识薄弱。
+
+!! 什么样的项目适合 Micro frontends？
+
+# 大型，复杂系统。如 XXX 管理系统，一个系统集成了很多模块。
+# 对 UI 更新要求不高的系统。
+# 标准服务，可重复利用的模块。
+
+
+refs:
+
+* https://www.thoughtworks.com/radar/techniques/micro-frontends</pre>
+</div>
+<div created="20210127142031784" creator="TJ" modified="20210127142416883" modifier="TJ" tags="手艺人手记 Micro-frontends" title="2020-06-25 Micro frontends 2: A demo made with single-spa">
+<pre>介绍了 Micro Frontends 的理论，估计大家还是云里雾里的。
+
+我们用一个实例来展示一下 Micro Frontends 的威力。
+
+!! A demo made with single-spa
+&lt;iframe src=&quot;https://mf-dog.netlify.app/&quot;  width=&quot;100%&quot; height=&quot;600px&quot; &gt;&lt;/iframe&gt;
+
+这是一个非常简单的应用，只有一个菜单和两个页面。
+通常情况下，对于如此简单的应用，我们通常不需要考虑什么架构问题。
+不过为了演示效果嘛。
+
+!!  使用了哪些 library？
+
+基本的 library 有 3 个
+
+# [single-spa](https://github.com/single-spa/single-spa)
+# [systemjs](https://github.com/systemjs/systemjs)
+# [import-map-overrides](https://github.com/joeldenning/import-map-overrides/)
+
+
+大家可以猜一下，这个应用一共有几个 repository ？
+
+答案：4
+
+为什么需要 4 个 repository 呢？它们有什么作用？
+
+# 使用 single-spa 实现 MicroFrontends，我们需要一个 config app 用来管理全部 app 的状态。
+# 我们有 2 个页面，我们把分别独立成 app。
+# 公共组件和主题也独立成 app。
+
+我们一共使用了 4 个 app，为了 CI/CD 方便，我们使用了 4 个 repository。
+当然，你也可以使用 monorepo 管理。
+
+!! 这难道不是更复杂了吗？
+
+对于如此简单的应用，Micro frontends 确实没有必要。
+但是，Micro frontends 的场景并不是简单应用，而是庞大且错中复杂的企业级应用。
+可能很多人来自互联网公司，主要开发 toC 产品，没有 toB 系统开发经历。
+
+我简单介绍一个我参与的一个 toB 产品的背景，如下：
+
+```
+XXX 系统
+2020 年启动，第一版计划 2022 年上线。
+业务模块 100+
+参与开发人员 50+
+上线后，继续添加功能
+```
+
+请问这样的项目有什么问题？
+
+# 开发周期长，2020 年流行的技术可能 2022 年已经是落后的技术了。
+# 参与人数众多，如果不能清晰的划分业务模块的话，实际开发过程中会出现大量冲突，影响进度。
+# 持续添加功能，为了减少回归测试工作量，隔离是必须的。
+
+综上所述，
+
+&lt;&lt;&lt;.tc-big-quote
+Micro frontends 更适合 toB 场景。
+&lt;&lt;&lt;</pre>
+</div>
+<div created="20210127142437872" creator="TJ" modified="20210127143216123" modifier="TJ" tags="手艺人手记" title="2020-07-07 Frontend handle Authorization">
+<pre>!! 分享一个简单登录认证实现
+我使用 [Axios](https://github.com/axios/axios) 作为 HTTP client。
+
+!! 原则
+
+# 不创建 axios 实例，仅使用 global axios
+# 避免在 UI 层写认证逻辑
+
+!! 步骤
+
+1. 从 localStorage 中读取 token，并设置到 header 中
+
+```js
+axios.defaults.headers.common['Any-Token-Key'] = localStorage.getItem('any-token-key')
+```
+
+2. 拦截 response，处理 `401 Unauthorized` 错误。
+
+```js
+axios.interceptors.response
+  .use((response) =&gt; {
+    return response
+  },
+  function (error) {
+    if (error.response.status === 401) {
+      router.go('/login')
+    }
+  })
+```
+
+3. 编写 login 逻辑
+
+```js
+export const login = async ({user, password}) =&gt; {
+  const { data } = await axios.post('/login', {user, password})
+  const { token } = data
+
+  localStorage.setItem('any-token-key', token)
+  axios.defaults.headers.common['Any-Token-Key'] = token
+}
+```
+
+!! 一点点小感悟
+
+前端登录认证是一个基础到不能再基础的功能，可是我发现不少号称有几年开发经验的程序员还是写不出来。
+
+虽然不知道具体原因，但是我推测可能有一下原因
+
+# 没有参与过新项目的开发，所以没有接触过登录认证模块。
+# 绝大多数公司在面试时不会问这种基础的问题，所以一门心思扑在“高大上”的算法和源码。
+# 没有阅读过其他项目的登录认证代码，只了解目前项目的逻辑。
+
+其实，日常工作中没那么多造火箭的的工作，算法和源码理解虽然很重要，但是基本的代码能力也是必不可少的。
+
+来面试的同学/前辈们一上来就谈 Vue/React 源码，设计思想，中台实现，吧啦吧啦的，给人一种没有实际开发经验的感觉。</pre>
+</div>
+<div created="20210127142614587" creator="TJ" modified="20210127143306673" modifier="TJ" tags="手艺人手记" title="2020-07-21 Why Tailwind CSS">
+<pre>
+在 Twitter 上有一个讨论很有意思。
+
+&lt;$twitter type=&quot;tweet&quot; tweetID=&quot;1285099312012079104&quot; /&gt;
+
+&lt;&lt;&lt;.tc-big-quote
+为什么在 class 中组合 CSS，而不直接写 CSS？
+&lt;&lt;&lt;
+
+其实最开始发现 Tailwind CSS 火起来的时候，我也有相同的疑问。
+
+经过一段时间的使用，我慢慢地明白了为什么 Tailwind CSS 为什么选择这种方式？
+
+TL;DR
+
+# 作用范围适中，且易于组合
+# 更小的 CSS bundle
+# 统一的实现减少了 bug
+
+!! 1. 作用范围适中，且易于组合
+
+对于我而言，
+编写 CSS 就像使用汇编语言开发程序，
+Tailwind CSS 则让我使用了“高级语言”，不需要再过度专注语法细节了。
+
+命名清晰的 class 组合起来非常容易，且简单易懂。即使没有 CSS 基础也可以轻松组合出期待的 UI。
+的确，对于熟练使用 CSS 的开发者来说，Tailwind CSS 提供的 class 增加了记忆成本。
+但是，对于并不熟练 CSS 的开发者来说，CSS 的记忆成本更高。
+并且，CSS 粒度过细，开发量非常大。
+
+!! 2. 更小的 CSS bundle
+
+这是一个意外的收获，我也是偶然发现的。
+例如：为了风格统一，我们需要在绝大多数标签上使用圆角。
+
+使用 Tailwind CSS 开发，只需要一个 class
+
+```html
+&lt;div class=&quot;rounded&quot;&gt;&lt;div&gt;
+
+&lt;button class=&quot;rounded&quot;&gt;&lt;button&gt;
+
+&lt;img class=&quot;rounded&quot; /&gt;
+```
+
+一般的 CSS 开发方式，需要三个 class
+
+```html
+&lt;div class=&quot;container&quot;&gt;&lt;div&gt;
+
+&lt;button class=&quot;button&quot;&gt;&lt;button&gt;
+
+&lt;img class=&quot;image&quot; /&gt;
+
+
+&lt;style&gt;
+.container {
+  border-radius: 5px;
+}
+
+.button {
+  border-radius: 5px;
+}
+
+.images {
+  border-radius: 5px;
+}
+&lt;/style&gt;
+```
+
+Tailwind CSS 顺便减少的 CSS 文件大小。
+
+!! 3. 统一的实现减少了 bug
+
+还以圆角为例，大家有没有在项目中看到过下面代码？
+
+```html
+&lt;style&gt;
+.container {
+  border-radius: 5px;
+}
+
+.button {
+  border-radius: 5;
+}
+
+.images {
+  border-radius: 1rem;
+}
+&lt;/style&gt;
+```
+
+说出来有点不好意思，这样的代码，我经常遇到。
+虽然 code review 时我会给出修改意见，但是这类代码从未减少。🤷‍♂️
+
+
+refs:
+
+* https://tailwindcss.com/
+</pre>
 </div>
 <div created="20210122123937270" creator="TJ" modified="20210122124421739" modifier="TJ" tags="手艺人手记 Vue.js Nuxt.js SSR" title="2020-07-30 Vue.js SSR Note">
 <pre>作为前端开发者 3 年了，第一次认真学习 SSR。
@@ -13014,6 +14125,9 @@ https://book.douban.com/subject/30395230/</pre>
 https://banana.moe/posts/2016-12-02-serif-cjk-font-in-web
 </pre>
 </div>
+<div created="20210127143428690" creator="TJ" modified="20210127143455220" modifier="TJ" tags="" title="我写了多少篇《手艺人手记》">
+<pre>&lt;$count filter=&quot;[tag[手艺人手记]]&quot;/&gt; </pre>
+</div>
 <div bag="default" created="20210113025054985" creator="TJ" modified="20210113025336656" modifier="TJ" revision="0" tags="" title="我的选择" type="text/vnd.tiddlywiki">
 <pre>* [[TiddlyWiki]]
 * [[Telegram]]
@@ -13031,7 +14145,7 @@ https://banana.moe/posts/2016-12-02-serif-cjk-font-in-web
 
 </pre>
 </div>
-<div bag="default" created="20201220083108305" creator="TJ" modified="20210117095117837" modifier="TJ" revision="0" tags="" title="手艺人手记" type="text/vnd.tiddlywiki">
+<div bag="default" created="20201220083108305" creator="TJ" modified="20210127143427076" modifier="TJ" revision="0" tags="" title="手艺人手记" type="text/vnd.tiddlywiki">
 <pre>&lt;&lt;list-links filter:&quot;[tag[手艺人手记]!sort[]]&quot;&gt;&gt;
 </pre>
 </div>
