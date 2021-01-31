@@ -352,6 +352,8 @@ Error message and password prompt
 
 <li>2021-01-22 Is Mobile-First Wrong?</li>
 
+<li>2021-01-31如何实现英文和中文不同字重？</li>
+
 <li>A4 纸笔记法</li>
 
 <li>customize css</li>
@@ -371,6 +373,10 @@ Error message and password prompt
 <li>Welcome</li>
 
 <li>一次只思考一个角度，让思考更清晰</li>
+
+<li>如何实现英文和中文使用不同字体？</li>
+
+<li>如何实现英文和中文使用不同字重？</li>
 
 <li>子弹笔记</li>
 
@@ -10560,7 +10566,7 @@ wakatime
 <div created="20210118114135023" creator="T" modified="20210118114135100" modifier="T" title="$:/status/UserName">
 <pre>TJ</pre>
 </div>
-<div list="Welcome 手艺人手记 wakatime" title="$:/StoryList">
+<div created="20210131133255228" creator="TJ" list="[[2021-01-12 其实你不需要 unicode-range]] Welcome 手艺人手记 2021-01-31如何实现英文和中文不同字重？ wakatime" modified="20210131133442154" modifier="TJ" title="$:/StoryList">
 <pre></pre>
 </div>
 <div author="JeremyRuston" bag="default" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" revision="0" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23">
@@ -13292,8 +13298,7 @@ refs:
 * https://getbootstrap.com/</pre>
 </div>
 <div created="20210127141137768" creator="TJ" modified="20210127141457284" modifier="TJ" tags="手艺人手记 React.js Svelte.js" title="2020-05-19 What is boilerplate code?">
-<pre>
-终于理解了 Svelte 宣扬的第一条特性 “Build boilerplate-free components” 是什么意思。
+<pre>终于理解了 Svelte 宣扬的第一条特性 “Build boilerplate-free components” 是什么意思。
 
 &lt;&lt;&lt;.tc-big-quote
 boilerplate code，即编写大量和业务无关的代码。
@@ -13519,8 +13524,7 @@ export const login = async ({user, password}) =&gt; {
 来面试的同学/前辈们一上来就谈 Vue/React 源码，设计思想，中台实现，吧啦吧啦的，给人一种没有实际开发经验的感觉。</pre>
 </div>
 <div created="20210127142614587" creator="TJ" modified="20210127143306673" modifier="TJ" tags="手艺人手记" title="2020-07-21 Why Tailwind CSS">
-<pre>
-在 Twitter 上有一个讨论很有意思。
+<pre>在 Twitter 上有一个讨论很有意思。
 
 &lt;$twitter type=&quot;tweet&quot; tweetID=&quot;1285099312012079104&quot; /&gt;
 
@@ -13844,7 +13848,7 @@ Key Results：
 
 </pre>
 </div>
-<div bag="default" created="20210112062714804" creator="TJ" modified="20210117095040423" modifier="TJ" revision="0" tags="UI开发也不简单 手艺人手记" title="2021-01-12 其实你不需要 unicode-range" type="text/vnd.tiddlywiki">
+<div bag="default" created="20210112062714804" creator="TJ" modified="20210131130708443" modifier="TJ" revision="0" tags="UI开发也不简单 手艺人手记" title="2021-01-12 其实你不需要 unicode-range" type="text/vnd.tiddlywiki">
 <pre>最近有一个需求，所有英文字母和数字使用 `Roboto` 字体，其他文字使用 `Hiragino Sans` 字体。
 
 由于我 CSS 并不算好，本以为很难，所以 Google 了一下，查到了 https://keqingrong.github.io/blog/2019-11-30-different-fonts-in-different-locales
@@ -13856,6 +13860,8 @@ Key Results：
 然后我又查了一些资料，最后从 [[张鑫旭的 blog|https://www.zhangxinxu.com/wordpress/2016/11/css-unicode-range-character-font-face/]] 中找到了原因。原来我们根本就不需要使用 unicode-range 就可以实现上面需求。
 
 [img[https://i.gyazo.com/9e822752680e749f318dcb9306a718c7.png]]
+
+{{如何实现英文和中文使用不同字体？}}
 
 看完张鑫旭的这篇blog，我骄傲的小尾巴也落下来了。😂</pre>
 </div>
@@ -13959,6 +13965,19 @@ ref:
 
 * http://www.ruanyifeng.com/blog/2021/01/weekly-issue-141.html
 * https://planflow.dev/blog/why-mobile-first-is-a-bad-idea/</pre>
+</div>
+<div created="20210131125255929" creator="TJ" modified="20210131133104812" modifier="TJ" tags="手艺人手记" title="2021-01-31如何实现英文和中文不同字重？">
+<pre>一个非常简单的需求：英文使用 Roboto 字体，中文使用 Noto Serif SC 字体，但是英文的字重是 400，中文的字重是 300 。
+
+!! 首先，如何实现英文和中文使用不同字体？
+
+{{如何实现英文和中文使用不同字体？}}
+
+!! 其次，如何实现英文和中文使用不同字重？
+
+{{如何实现英文和中文使用不同字重？}}
+
+</pre>
 </div>
 <div created="20210126010700298" creator="TJ" modified="20210126010909329" modifier="TJ" title="A4 纸笔记法">
 <pre>A4 纸笔记法来自《零秒思考》
@@ -14107,6 +14126,29 @@ refs:
 
 
 </pre>
+</div>
+<div created="20210131130710558" creator="TJ" modified="20210131133033771" modifier="TJ" tags="" title="如何实现英文和中文使用不同字体？">
+<pre>直接把英文字体放在中文字体前面就可以了。
+</pre>
+</div>
+<div created="20210131132859045" creator="TJ" modified="20210131133245701" modifier="TJ" tags="" title="如何实现英文和中文使用不同字重？">
+<pre>其实特别简单，直接只提供所需字重的字体即可。
+
+如果你使用 Goole Font，做法如下：
+
+1. 引入字体
+
+```html
+&lt;style&gt;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&amp;family=Roboto&amp;display=swap');
+&lt;/style&gt;
+```
+
+2. 使用字体
+
+```css
+font-family: 'Roboto', 'Noto Serif SC', serif;
+```</pre>
 </div>
 <div created="20210126010802730" creator="TJ" modified="20210126010937604" modifier="TJ" title="子弹笔记">
 <pre>《子弹笔记》
