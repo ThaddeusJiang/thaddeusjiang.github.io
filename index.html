@@ -210,6 +210,8 @@ Error message and password prompt
 
 <li>$:/palette</li>
 
+<li>$:/plugins/tiddlywiki/googleanalytics</li>
+
 <li>$:/plugins/tiddlywiki/highlight</li>
 
 <li>$:/plugins/tiddlywiki/twitter</li>
@@ -220,7 +222,11 @@ Error message and password prompt
 
 <li>$:/state/advancedsearch/currentTab</li>
 
+<li>$:/state/plugin-info--1529721954-$:/plugins/tiddlywiki/googleanalytics---1403365463</li>
+
 <li>$:/state/plugin-info-2069695326-$:/plugins/tiddlywiki/twitter--1140713763</li>
+
+<li>$:/state/plugin-info-334910430-$:/core---1812962263</li>
 
 <li>$:/state/showeditpreview</li>
 
@@ -354,6 +360,10 @@ Error message and password prompt
 
 <li>2021-01-31 如何实现英文和中文不同字重？</li>
 
+<li>2021-02-01 我使用的 VSCode extensions（JS）</li>
+
+<li>2021-02-08 11 行代码实现邮政编码检索 API</li>
+
 <li>A4 纸笔记法</li>
 
 <li>customize css</li>
@@ -383,6 +393,8 @@ Error message and password prompt
 <li>字体</li>
 
 <li>我写了多少篇《手艺人手记》</li>
+
+<li>我的 Twitter Hashtag</li>
 
 <li>我的选择</li>
 
@@ -446,8 +458,8 @@ Error message and password prompt
 <div created="20210118114647153" creator="TJ" modified="20210118114857049" modifier="TJ" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/save-wiki">
 <pre>show</pre>
 </div>
-<div bag="default" created="20210113045354915" creator="TJ" modified="20210113045354924" modifier="TJ" revision="0" title="$:/config/Plugins/Disabled/$:/plugins/tiddlywiki/googleanalytics" type="text/vnd.tiddlywiki">
-<pre>yes</pre>
+<div bag="default" created="20210113045354915" creator="TJ" modified="20210208142845066" modifier="TJ" revision="0" title="$:/config/Plugins/Disabled/$:/plugins/tiddlywiki/googleanalytics" type="text/vnd.tiddlywiki">
+<pre>no</pre>
 </div>
 <div bag="default" created="20200422091522545" modified="20200422091522555" revision="0" title="$:/config/RelinkOnRename" type="text/vnd.tiddlywiki">
 <pre>yes</pre>
@@ -10331,8 +10343,8 @@ Error message and password prompt
 wakatime
 </pre>
 </div>
-<div bag="default" created="20210113045057532" creator="TJ" modified="20210113045327100" modifier="TJ" revision="0" title="$:/GoogleAnalyticsAccount" type="text/vnd.tiddlywiki">
-<pre>G-3KQSN8XNGG</pre>
+<div bag="default" created="20210113045057532" creator="TJ" modified="20210208142819039" modifier="TJ" revision="0" title="$:/GoogleAnalyticsAccount" type="text/vnd.tiddlywiki">
+<pre>UA-140310136-2</pre>
 </div>
 <div bag="default" revision="0" title="$:/isEncrypted">
 <pre>no</pre>
@@ -10348,6 +10360,30 @@ wakatime
 </div>
 <div bag="default" created="20201220085159410" creator="TJ" modified="20201220085159422" modifier="TJ" revision="0" title="$:/palette" type="text/vnd.tiddlywiki">
 <pre>$:/palettes/Twilight</pre>
+</div>
+<div contributor="Sylvain Comte" dependents="" description="Website visitor statistics from Google" list="readme settings usage" name="Google Analytics" plugin-type="plugin" title="$:/plugins/tiddlywiki/googleanalytics" type="application/json" version="5.1.23">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/plugins/tiddlywiki/googleanalytics/googleanalytics.js&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/googleanalytics.js&quot;,
+            &quot;text&quot;: &quot;/*\\\ntitle: $:/plugins/tiddlywiki/googleanalytics/googleanalytics.js\ntype: application/javascript\nmodule-type: startup\n\nRuns Google Analytics with the account number in the tiddler `$:/GoogleAnalyticsAccount` and the domain name in `$:/GoogleAnalyticsDomain`\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\n// Export name and synchronous status\nexports.name = \&quot;google-analytics\&quot;;\nexports.platforms = [\&quot;browser\&quot;];\nexports.synchronous = true;\n\nvar CONFIG_CONSENT_REQUIRED_TITLE = \&quot;$:/config/cookie-consent-required\&quot;,\n\tCONSENT_TITLE = \&quot;$:/state/consent-banner/accepted\&quot;; // \&quot;\&quot;: undeclared, \&quot;yes\&quot;: accepted, \&quot;no\&quot;: declined\n\nexports.startup = function() {\n\tvar hasInitialised = false,\n\t\tinitialiseGoogleAnalytics = function() {\n\t\t\tconsole.log(\&quot;Initialising Google Analytics\&quot;);\n\t\t\thasInitialised = true;\n\t\t\tvar gaAccount = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsAccount\&quot;,\&quot;\&quot;).replace(/\\n/g,\&quot;\&quot;),\n\t\t\t\tgaDomain = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsDomain\&quot;,\&quot;auto\&quot;).replace(/\\n/g,\&quot;\&quot;);\n\t\t\t// Using ga \&quot;isogram\&quot; function\n\t\t\t(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n\t\t\t(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\n\t\t\tm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n\t\t\t})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\n\t\t\tga('create',gaAccount,gaDomain);\n\t\t\tga('send','pageview');\n\t\t};\n\t// Initialise now if consent isn't required\n\tif($tw.wiki.getTiddlerText(CONFIG_CONSENT_REQUIRED_TITLE) !== \&quot;yes\&quot;) {\n\t\tinitialiseGoogleAnalytics();\n\t} else {\n\t\t// Or has been granted already\n\t\tif($tw.wiki.getTiddlerText(CONSENT_TITLE) === \&quot;yes\&quot;) {\n\t\t\tinitialiseGoogleAnalytics();\n\t\t} else {\n\t\t\t// Or when our config tiddler changes\n\t\t\t$tw.wiki.addEventListener(\&quot;change\&quot;,function(changes) {\n\t\t\t\tif(changes[CONSENT_TITLE]) {\n\t\t\t\t\tif(!hasInitialised &amp;&amp; $tw.wiki.getTiddlerText(CONSENT_TITLE) === \&quot;yes\&quot;) {\n\t\t\t\t\t\tinitialiseGoogleAnalytics();\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t});\n\t\t}\n\t}\n};\n\n\n\n})();\n&quot;,
+            &quot;type&quot;: &quot;application/javascript&quot;,
+            &quot;module-type&quot;: &quot;startup&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/googleanalytics/readme&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/readme&quot;,
+            &quot;text&quot;: &quot;This plugin enables you to use Google Analytics to track access to your online TiddlyWiki document. Based upon the [[official Google code|https://developers.google.com/analytics/devguides/collection/analyticsjs]].\n\nBy default, the user is not asked for permission before initialising Google Analytics. This plugin also optionally integrates with the \&quot;Consent Banner\&quot; plugin (also found in the official plugin library) so that Google Analytics is not initialised until the user grants explicit permission.\n\n[[Source code|https://github.com/Jermolene/TiddlyWiki5/blob/master/plugins/tiddlywiki/googleanalytics]]\n&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/googleanalytics/settings&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/settings&quot;,
+            &quot;text&quot;: &quot;You have only two value to set, only first is mandatory:\n\n# ''[[Google Analytics Account|$:/GoogleAnalyticsAccount]]'': (mandatory) a code of the form `UA-XXXXXX-XX` where X are digits&lt;br/&gt;&lt;$edit-text tiddler=\&quot;$:/GoogleAnalyticsAccount\&quot; default=\&quot;\&quot; tag=\&quot;input\&quot;/&gt;\n\n# ''[[Google Analytics Domain|$:/GoogleAnalyticsDomain]]'': (optional) the website URL where the TiddlyWiki file is published. Defaults to `auto` if not set.&lt;br/&gt;&lt;$edit-text tiddler=\&quot;$:/GoogleAnalyticsDomain\&quot; default=\&quot;\&quot; tag=\&quot;input\&quot;/&gt;\n&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/googleanalytics/usage&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/usage&quot;,
+            &quot;text&quot;: &quot;!! Create a Google Analytics account\n\nIf you don't already have an account:\n\n# Go to the Google Analytics website: http://www.google.com/analytics/\n# Click the ''Access Google Analytics'' button and follow instructions to set up your account\n# Enter the URL where the wiki is hosted\n# Note the Tracking ID for this domain of the form `UA-XXXXXX-XX`\n\n!! Install the plugin on your local copy of the TiddlyWiki\n\n# ''Backup your TiddlyWiki''. Just in case\n# Install the plugin via the plugin manager in control panel\n# Save the TiddlyWiki andrefresh the page to load the plugin\n# Go to [[$:/ControlPanel]] &gt; Plugins tab and unfold the Google Analytics Plugin\n# Go to the //settings// tab and edit the parameters\n# Save the TiddlyWiki\n\n!! Upload the new version of your TiddlyWiki\n\n# Upload the saved TiddlyWiki to TiddlySpot, GitHub, GitLab or other web host\n# Return to your Google Analytics page to check that your site is being tracked\n&quot;
+        }
+    }
+}</pre>
 </div>
 <div author="Joao Bolila" bag="default" dependents="" description="Highlight.js syntax highlighting" list="readme usage howto license" name="Highlight" plugin-type="plugin" revision="0" title="$:/plugins/tiddlywiki/highlight" type="application/json" version="5.1.23">
 <pre>{
@@ -10527,11 +10563,17 @@ wakatime
 <div bag="default" created="20200418124742730" creator="TJ" modified="20210117100047309" modifier="TJ" revision="0" title="$:/SiteTitle" type="text/vnd.tiddlywiki">
 <pre>TJ || 蒋継発</pre>
 </div>
-<div created="20210127142718568" creator="TJ" modified="20210127142718568" modifier="TJ" title="$:/state/advancedsearch/currentTab">
-<pre>$:/core/ui/AdvancedSearch/Standard</pre>
+<div created="20210127142718568" creator="TJ" modified="20210201090113274" modifier="TJ" title="$:/state/advancedsearch/currentTab">
+<pre>$:/core/ui/AdvancedSearch/System</pre>
+</div>
+<div created="20210208142642240" creator="TJ" modified="20210208142848883" modifier="TJ" title="$:/state/plugin-info--1529721954-$:/plugins/tiddlywiki/googleanalytics---1403365463">
+<pre>readme</pre>
 </div>
 <div created="20210120140447688" creator="TJ" modified="20210120140447688" modifier="TJ" title="$:/state/plugin-info-2069695326-$:/plugins/tiddlywiki/twitter--1140713763">
 <pre>usage</pre>
+</div>
+<div created="20210208092658644" creator="TJ" modified="20210208142402253" modifier="TJ" title="$:/state/plugin-info-334910430-$:/core---1812962263">
+<pre>readme</pre>
 </div>
 <div created="20210115065134492" modified="20210115065134492" title="$:/state/showeditpreview">
 <pre>yes</pre>
@@ -10539,8 +10581,8 @@ wakatime
 <div created="20210118050120882" creator="TJ" modified="20210127143205515" modifier="TJ" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div created="20210127142718569" creator="TJ" modified="20210127142718569" modifier="TJ" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Standard</pre>
+<div created="20210127142718569" creator="TJ" modified="20210201090113275" modifier="TJ" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/System</pre>
 </div>
 <div created="20210118050505299" creator="TJ" modified="20210118114302683" modifier="TJ" title="$:/state/tab--1963855381">
 <pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
@@ -10551,14 +10593,14 @@ wakatime
 <div created="20210118114054027" modified="20210118114105779" title="$:/state/tab--959111941">
 <pre>$:/core/ui/ControlPanel/TiddlerFields</pre>
 </div>
-<div created="20210118050139470" creator="TJ" modified="20210118114250968" modifier="TJ" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Appearance</pre>
+<div created="20210118050139470" creator="TJ" modified="20210208142612786" modifier="TJ" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Plugins</pre>
 </div>
-<div created="20210114094530212" creator="TJ" modified="20210126133704414" modifier="TJ" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20210114094530212" creator="TJ" modified="20210208142607213" modifier="TJ" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Tools</pre>
 </div>
-<div created="20210120140450412" creator="TJ" modified="20210122110903030" modifier="TJ" title="$:/state/twitter/usage-195781886-195781886">
-<pre>$:/plugins/tiddlywiki/twitter/usage/tweet</pre>
+<div created="20210120140450412" creator="TJ" modified="20210201092631086" modifier="TJ" title="$:/state/twitter/usage-195781886-195781886">
+<pre>$:/plugins/tiddlywiki/twitter/usage/urltimeline</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
@@ -10566,7 +10608,7 @@ wakatime
 <div created="20210118114135023" creator="T" modified="20210118114135100" modifier="T" title="$:/status/UserName">
 <pre>TJ</pre>
 </div>
-<div created="20210131235616928" creator="TJ" list="[[2021-01-31 如何实现英文和中文不同字重？]] Welcome" modified="20210131235616928" modifier="TJ" title="$:/StoryList">
+<div list="Welcome 手艺人手记 wakatime" title="$:/StoryList">
 <pre></pre>
 </div>
 <div author="JeremyRuston" bag="default" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" revision="0" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23">
@@ -13979,6 +14021,36 @@ ref:
 
 </pre>
 </div>
+<div created="20210201040755011" creator="TJ" modified="20210201040900937" modifier="TJ" tags="" title="2021-02-01 我使用的 VSCode extensions（JS）">
+<pre>```
+code --install-extension octref.vetur \
+code --install-extension editorconfig.editorconfig \
+code --install-extension esbenp.prettier-vscode \
+code --install-extension dbaeumer.vscode-eslint \
+code --install-extension stylelint.vscode-stylelint \
+code --install-extension bradlc.vscode-tailwindcss \
+code --install-extension streetsidesoftware.code-spell-checker \
+code --install-extension yzhang.markdown-all-in-one \
+code --install-extension humao.rest-client \
+code --install-extension wayou.vscode-todo-highlight \
+code --install-extension arjun.swagger-viewer \
+code --install-extension zeplin.zeplin
+```</pre>
+</div>
+<div created="20210208063121656" creator="TJ" modified="20210208063755595" modifier="TJ" tags="" title="2021-02-08 11 行代码实现邮政编码检索 API">
+<pre>open source: https://github.com/ThaddeusJiang/jp-post-api
+
+Sample: 
+
+&lt;iframe src=&quot;https://codesandbox.io/embed/japan-post-api-example-107u2?fontsize=14&amp;hidenavigation=1&amp;theme=dark&amp;view=preview&quot;
+     style=&quot;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&quot;
+     title=&quot;Japan Post API Example&quot;
+     allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot;
+     sandbox=&quot;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;
+   &gt;&lt;/iframe&gt;
+
+其实我主要是不明白，为啥其他人实现这个功能那么复杂？</pre>
+</div>
 <div created="20210126010700298" creator="TJ" modified="20210126010909329" modifier="TJ" title="A4 纸笔记法">
 <pre>A4 纸笔记法来自《零秒思考》
 
@@ -14169,6 +14241,23 @@ https://banana.moe/posts/2016-12-02-serif-cjk-font-in-web
 </div>
 <div created="20210127143428690" creator="TJ" modified="20210127143455220" modifier="TJ" tags="" title="我写了多少篇《手艺人手记》">
 <pre>&lt;$count filter=&quot;[tag[手艺人手记]]&quot;/&gt; </pre>
+</div>
+<div created="20210201090042545" creator="TJ" modified="20210205113033272" modifier="TJ" tags="" title="我的 Twitter Hashtag">
+<pre>&lt;$twitter type=&quot;hashtagButton&quot; hashtag=&quot;开发心得&quot; /&gt;
+
+&lt;$twitter type=&quot;hashtagButton&quot; hashtag=&quot;猫のメロンパンくん🐱&quot; /&gt;
+
+&lt;$twitter type=&quot;hashtagButton&quot; hashtag=&quot;日本什么好吃😋&quot; /&gt;
+
+&lt;$twitter type=&quot;hashtagButton&quot; hashtag=&quot;Reading&quot; /&gt;
+
+&lt;$twitter type=&quot;hashtagButton&quot; hashtag=&quot;myelixirstatus&quot; /&gt;
+
+&lt;$twitter type=&quot;hashtagButton&quot; hashtag=&quot;clubhouse意外收获&quot; /&gt;
+
+
+
+</pre>
 </div>
 <div bag="default" created="20210113025054985" creator="TJ" modified="20210113025336656" modifier="TJ" revision="0" tags="" title="我的选择" type="text/vnd.tiddlywiki">
 <pre>* [[TiddlyWiki]]
