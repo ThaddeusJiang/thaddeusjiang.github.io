@@ -368,6 +368,8 @@ Error message and password prompt
 
 <li>2021-02-15 SEO: 更新网站后，你需要更新 sitemap 吗？</li>
 
+<li>2021-03-13 Customize Vetur for @nuxtjs/compostion-api</li>
+
 <li>A4 纸笔记法</li>
 
 <li>connect me</li>
@@ -10598,7 +10600,7 @@ wakatime
 <div created="20210115065134492" modified="20210115065134492" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div created="20210118050120882" creator="TJ" modified="20210312035242889" modifier="TJ" title="$:/state/sidebar">
+<div created="20210118050120882" creator="TJ" modified="20210313043635256" modifier="TJ" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20210127142718569" creator="TJ" modified="20210201090113275" modifier="TJ" title="$:/state/tab--1498284803">
@@ -10616,7 +10618,7 @@ wakatime
 <div created="20210118050139470" creator="TJ" modified="20210222042650810" modifier="TJ" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
-<div created="20210114094530212" creator="TJ" modified="20210312041710183" modifier="TJ" title="$:/state/tab/sidebar--595412856">
+<div created="20210114094530212" creator="TJ" modified="20210313042627255" modifier="TJ" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Open</pre>
 </div>
 <div created="20210120140450412" creator="TJ" modified="20210312035124754" modifier="TJ" title="$:/state/twitter/usage-195781886-195781886">
@@ -14094,6 +14096,49 @@ https://github.com/ThaddeusJiang/jp-post-api/blob/master/data/update-data.js</pr
 !! 那么 sitemap 还有什么作用？
 
 答：讲真，没什么作用。sitemap 根本不会影响 Google 对网站的排名。</pre>
+</div>
+<div created="20210313042628949" creator="TJ" modified="20210313043510564" modifier="TJ" tags="手艺人手记" title="2021-03-13 Customize Vetur for @nuxtjs/compostion-api">
+<pre>分享一个简单的小技巧。
+
+背景
+
+我目前在使用 nuxt + @nuxtjs/composition-api，使用 VSCode 输入 `ts` 时自动生成下面代码：
+
+```html
+&lt;script lang=&quot;ts&quot;&gt;
+import { defineComponent } from '@vue/composition-api'
+
+export default defineComponent({
+  setup() {
+    
+  },
+})
+&lt;/script&gt;
+```
+
+但是我并不是直接引入 @vue/compsotion-api，我希望引入 @nuxtjs/composition-api。
+
+解决方法：自定义 Vetur Snippet
+
+在 .vscode/vetur/snippets 目录下创建 vue-class-component.vue，如下：
+
+```html
+&lt;template&gt;
+
+&lt;/template&gt;
+
+&lt;script lang=&quot;ts&quot;&gt;
+import { defineComponent } from '@nuxtjs/composition-api'
+
+export default defineComponent({
+  setup() {},
+})
+&lt;/script&gt;
+```
+
+今后只要输入 `vue` 即可。
+
+</pre>
 </div>
 <div created="20210126010700298" creator="TJ" modified="20210126010909329" modifier="TJ" title="A4 纸笔记法">
 <pre>A4 纸笔记法来自《零秒思考》
