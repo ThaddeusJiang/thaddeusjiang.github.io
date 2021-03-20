@@ -47,7 +47,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
-<title>TJ || 蒋継発 — 有自信的 team leader / 擅长前端的 full-stack engineer / 子弹笔记 fan</title>
+<title>TJ || 蒋継発 — 有自信的 team leader / 擅长前端的 full-stack engineer </title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~-->
 
 <!--~~ Raw markup ~~-->
@@ -417,6 +417,8 @@ Error message and password prompt
 <li>我的选择</li>
 
 <li>手艺人手记</li>
+
+<li>目前，这个 Blog 打开可能有点慢</li>
 
 <li>阅读《图形思考》的意外收获</li>
 
@@ -10579,14 +10581,14 @@ wakatime
     }
 }</pre>
 </div>
-<div bag="default" created="20200422093504914" creator="TJ" modified="20210222042726337" modifier="TJ" revision="0" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki">
-<pre>有自信的 team leader / 擅长前端的 full-stack engineer / 子弹笔记 fan</pre>
+<div bag="default" created="20200422093504914" creator="TJ" modified="20210320135548061" modifier="TJ" revision="0" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki">
+<pre>有自信的 team leader / 擅长前端的 full-stack engineer </pre>
 </div>
 <div bag="default" created="20200418124742730" creator="TJ" modified="20210117100047309" modifier="TJ" revision="0" title="$:/SiteTitle" type="text/vnd.tiddlywiki">
 <pre>TJ || 蒋継発</pre>
 </div>
-<div created="20210127142718568" creator="TJ" modified="20210201090113274" modifier="TJ" title="$:/state/advancedsearch/currentTab">
-<pre>$:/core/ui/AdvancedSearch/System</pre>
+<div created="20210127142718568" creator="TJ" modified="20210320134643388" modifier="TJ" title="$:/state/advancedsearch/currentTab">
+<pre>$:/core/ui/AdvancedSearch/Filter</pre>
 </div>
 <div created="20210208142642240" creator="TJ" modified="20210208143329136" modifier="TJ" title="$:/state/plugin-info--1529721954-$:/plugins/tiddlywiki/googleanalytics---1403365463">
 <pre>settings</pre>
@@ -10594,17 +10596,17 @@ wakatime
 <div created="20210120140447688" creator="TJ" modified="20210120140447688" modifier="TJ" title="$:/state/plugin-info-2069695326-$:/plugins/tiddlywiki/twitter--1140713763">
 <pre>usage</pre>
 </div>
-<div created="20210208092658644" creator="TJ" modified="20210208142402253" modifier="TJ" title="$:/state/plugin-info-334910430-$:/core---1812962263">
-<pre>readme</pre>
+<div created="20210208092658644" creator="TJ" modified="20210320134610199" modifier="TJ" title="$:/state/plugin-info-334910430-$:/core---1812962263">
+<pre>contents</pre>
 </div>
 <div created="20210115065134492" modified="20210115065134492" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div created="20210118050120882" creator="TJ" modified="20210313043635256" modifier="TJ" title="$:/state/sidebar">
+<div created="20210118050120882" creator="TJ" modified="20210320140303021" modifier="TJ" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div created="20210127142718569" creator="TJ" modified="20210201090113275" modifier="TJ" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/System</pre>
+<div created="20210127142718569" creator="TJ" modified="20210320134643389" modifier="TJ" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Filter</pre>
 </div>
 <div created="20210118050505299" creator="TJ" modified="20210118114302683" modifier="TJ" title="$:/state/tab--1963855381">
 <pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
@@ -10618,8 +10620,8 @@ wakatime
 <div created="20210118050139470" creator="TJ" modified="20210222042650810" modifier="TJ" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
-<div created="20210114094530212" creator="TJ" modified="20210313042627255" modifier="TJ" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20210114094530212" creator="TJ" modified="20210320140322532" modifier="TJ" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20210120140450412" creator="TJ" modified="20210312035124754" modifier="TJ" title="$:/state/twitter/usage-195781886-195781886">
 <pre>$:/plugins/tiddlywiki/twitter/usage/mentionbutton</pre>
@@ -14246,11 +14248,21 @@ sudo tccutil reset All
 
 https://recoursive.com/2020/03/03/reset_macos_privacy_permissions/</pre>
 </div>
-<div created="20210122101250404" creator="TJ" modified="20210122104238193" modifier="TJ" tags="$:/tags/ViewTemplate" title="My Footer">
-<pre>&lt;$twitter type=&quot;shareButton&quot; url=&quot;@ThaddeusJiang&quot;  text={{{ [&lt;currentTiddler&gt;encodeuricomponent[]addprefix[#]addprefix{$:/info/url/full}] }}} /&gt;
+<div created="20210122101250404" creator="TJ" modified="20210320135104777" modifier="TJ" tags="$:/tags/ViewTemplate" title="My Footer">
+<pre>&lt;$list filter=&quot;[all[current]tag[手艺人手记]]&quot; &gt;
+
+&lt;hr  class=&quot;footer&quot; /&gt;
+
+&lt;$twitter type=&quot;shareButton&quot; url=&quot;@ThaddeusJiang&quot;  text={{{ [&lt;currentTiddler&gt;encodeuricomponent[]addprefix[#]addprefix{$:/info/url/full}] }}} /&gt;
 
 版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</pre>
+
+&lt;style&gt;
+.footer {
+  margin-top: 40px;
+}
+&lt;/style&gt;
+&lt;/$list&gt;</pre>
 </div>
 <div bag="default" created="20201231153737855" creator="TJ" modified="20201231153759673" modifier="TJ" revision="0" tags="" title="My old blog" type="text/vnd.tiddlywiki">
 <pre>https://thaddeusjiang.com/posts</pre>
@@ -14279,7 +14291,7 @@ https://recoursive.com/2020/03/03/reset_macos_privacy_permissions/</pre>
 <div bag="default" created="20210106060128715" creator="TJ" modified="20210106060221635" modifier="TJ" revision="0" tags="" title="wakatime" type="text/vnd.tiddlywiki">
 <pre>&lt;embed src=&quot;https://wakatime.com/share/@ThaddeusJiang/360e9ff9-628e-47c5-8c30-241174f8d094.svg&quot;/&gt;</pre>
 </div>
-<div bag="default" created="20200418124902034" creator="TJ" modified="20210126141703224" modifier="TJ" revision="0" title="Welcome" type="text/vnd.tiddlywiki">
+<div bag="default" created="20200418124902034" creator="TJ" modified="20210320140258813" modifier="TJ" revision="0" title="Welcome" type="text/vnd.tiddlywiki">
 <pre>嗨，欢迎来到我的 Blog。
 
 我的 Blog 系统使用 [[TiddlyWiki|https://tiddlywiki.com/]] 构建。
@@ -14290,20 +14302,15 @@ https://recoursive.com/2020/03/03/reset_macos_privacy_permissions/</pre>
 * 这是一个自产生程序，输出结果就是程序源码
 * 阅读、修改、发布，仅仅需要一个浏览器
 
-我希望这个 Blog 在 100 年后仍然可读。
+我希望这个 Blog 在 100 年后仍然可读，[[目前，这个 Blog 打开可能有点慢]]
 
-&lt;&lt;&lt;.tc-big-quote
-I hope the blog will be readable in 100+ years time.
-&lt;&lt;&lt;Joe Armstrong
+我从哪里接触到这个技术？
+[[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 
-我从哪里学习到这个技术？ 看这里  [[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
-
-如果你也想尝试一下，看这里 [[TiddlyWiki|https://tiddlywiki.com/]]
+如果你也想尝试一下，欢迎访问 https://tiddlywiki.com/
 
 [[Source Code|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]
-
-
-{{Twitter Follow Widget}}</pre>
+</pre>
 </div>
 <div created="20210126005158300" creator="TJ" modified="20210126011438313" modifier="TJ" tags="Reading 2021" title="一次只思考一个角度，让思考更清晰">
 <pre>2021 年第二本书《六顶思考帽》
@@ -14439,6 +14446,11 @@ https://banana.moe/posts/2016-12-02-serif-cjk-font-in-web
 <div bag="default" created="20201220083108305" creator="TJ" modified="20210127143427076" modifier="TJ" revision="0" tags="" title="手艺人手记" type="text/vnd.tiddlywiki">
 <pre>&lt;&lt;list-links filter:&quot;[tag[手艺人手记]!sort[]]&quot;&gt;&gt;
 </pre>
+</div>
+<div created="20210320134215717" creator="TJ" modified="20210320140017002" modifier="TJ" tags="" title="目前，这个 Blog 打开可能有点慢">
+<pre>目前，这个 Blog 打开可能有点慢，这是有意而为。
+
+起因是《黑客与画家》中关于“100年后的编程语言”的描述。</pre>
 </div>
 <div bag="default" created="20210109051756907" creator="TJ" modified="20210126011637880" modifier="TJ" revision="0" tags="Reading 2021" title="阅读《图形思考》的意外收获" type="text/vnd.tiddlywiki">
 <pre>2021 年的第一本书《图形思考》
