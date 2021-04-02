@@ -450,6 +450,8 @@ Error message and password prompt
 
 <li>2021-03-13 Customize Vetur for @nuxtjs/compostion-api</li>
 
+<li>2021-04-02 永远不要再使用巨型 UI 框架了</li>
+
 <li>A4 纸笔记法</li>
 
 <li>connect me</li>
@@ -479,6 +481,8 @@ Error message and password prompt
 <li>Welcome</li>
 
 <li>一次只思考一个角度，让思考更清晰</li>
+
+<li>为什么软件产品不能解决客户的问题？</li>
 
 <li>如何修改页面配色？为什么没有对应 dark mode？</li>
 
@@ -10734,8 +10738,8 @@ wakatime
 <div created="20210114094530212" creator="TJ" modified="20210321141824010" modifier="TJ" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Tools</pre>
 </div>
-<div created="20210120140450412" creator="TJ" modified="20210321140427414" modifier="TJ" title="$:/state/twitter/usage-195781886-195781886">
-<pre>$:/plugins/tiddlywiki/twitter/usage/profiletimeline</pre>
+<div created="20210120140450412" creator="TJ" modified="20210324020009523" modifier="TJ" title="$:/state/twitter/usage-195781886-195781886">
+<pre>$:/plugins/tiddlywiki/twitter/usage/tweet</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
@@ -10743,7 +10747,7 @@ wakatime
 <div created="20210118114135023" creator="T" modified="20210118114135100" modifier="T" title="$:/status/UserName">
 <pre>TJ</pre>
 </div>
-<div list="Welcome 手艺人手记 [[Hire me to help your business (zh)]] wakatime" title="$:/StoryList">
+<div created="20210402134040107" creator="TJ" list="Welcome 手艺人手记 [[2021-04-02 永远不要再使用巨型 UI 框架了]] [[Hire me to help your business (zh)]] wakatime" modified="20210402134040107" modifier="TJ" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20210321135604109" creator="TJ" modified="20210321141834818" modifier="TJ" title="$:/theme">
@@ -14581,6 +14585,46 @@ export default defineComponent({
 
 </pre>
 </div>
+<div created="20210402091041898" creator="TJ" modified="20210402141340041" modifier="TJ" tags="手艺人手记" title="2021-04-02 永远不要再使用巨型 UI 框架了">
+<pre>!! 什么是巨型 UI 框架？
+
+* https://ant.design/
+* https://material.io/
+* ...
+
+!! 为什么不要再使用巨型 UI 框架？
+
+# 巨型 UI 框架为了泛用性，增加了无数极少使用的属性，增加了学习成本。
+# 巨型 UI 框架为了保持人气，频繁升级，造成不必要的维护成本。
+# 巨型 UI 框架为了差异性，定义风格迥异的接口，经验无法轻松应用到其他框架。
+
+!! 事例：
+
+新公司项目使用 antd 开发，最近我们希望加入 dark mode 特性。
+
+我开发过 dark mode，其实设计思路特别简单。
+
+# CSS 中关于颜色的部分全部使用 CSS variables
+# 提供 light.css 和 dark.css 定义 CSS variables
+# 根据用户选择动态加载 light.css 或者 dark.css
+
+&lt;&lt;&lt;.tc-big-quote
+但是，如果你使用 antd，那就麻烦了。
+&lt;&lt;&lt;
+
+细节不想回忆了，太闹心了。列一下提纲吧
+
+# 不得不引入 react-app-rewired 修改 create-react-app 的默认配置。
+# 不得不引入 less.js 来读取 less 中定义的变量。
+# 不得不引入测试大量组件，因为 antd 提供了太多的变量，根本不知道是否遗漏。
+
+如果你不信邪，可以参考下面资料
+
+* https://ant.design/docs/react/customize-theme-cn
+* https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0
+* https://pro.ant.design/blog/change-theme-cn
+</pre>
+</div>
 <div created="20210126010700298" creator="TJ" modified="20210126010909329" modifier="TJ" title="A4 纸笔记法">
 <pre>A4 纸笔记法来自《零秒思考》
 
@@ -14889,6 +14933,19 @@ refs:
 
 
 </pre>
+</div>
+<div created="20210324015815252" creator="TJ" modified="20210324020714068" modifier="TJ" tags="引发共鸣" title="为什么软件产品不能解决客户的问题？">
+<pre>&lt;$twitter type=&quot;tweet&quot; tweetID=&quot;1373767941347418112&quot; /&gt;
+
+&lt;&lt;&lt;.tc-big-quote
+认知偏差在信息传递中产生
+
+Client -&gt; Business Analyst -&gt; Developer -&gt; Code
+
+减少信息传递，让 Developer 与 Client 直接交流。
+
+DDD 中提到“使用统一语言”。
+&lt;&lt;&lt;TJ</pre>
 </div>
 <div created="20210222042532403" creator="TJ" modified="20210222043332254" modifier="TJ" tags="" title="如何修改页面配色？为什么没有对应 dark mode？">
 <pre>&lt;&lt;&lt;.tc-big-quote
