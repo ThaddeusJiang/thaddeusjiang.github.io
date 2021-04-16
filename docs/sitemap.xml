@@ -236,6 +236,12 @@
    </url>
 
    <url>
+      <loc>http://sampledomain.net/2021-04-16-seo-static-page</loc>
+      <lastmod>2021-04-16</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>http://sampledomain.net/posts</loc>
       <lastmod>2021-04-16</lastmod>
       <changefreq>monthly</changefreq>
@@ -243,7 +249,7 @@
 
    <url>
       <loc>http://sampledomain.net/welcome</loc>
-      <lastmod>2021-04-15</lastmod>
+      <lastmod>2021-04-16</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
