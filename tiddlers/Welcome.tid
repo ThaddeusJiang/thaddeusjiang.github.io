@@ -1,0 +1,28 @@
+created: 20200418124902034
+creator: TJ
+modified: 20210415142456658
+modifier: TJ
+tags: $:/plugins/adithyab/tiddlyjam/live
+title: Welcome
+type: text/vnd.tiddlywiki
+
+嗨，欢迎来到我的 Blog。
+
+我的 Blog 系统使用 [[TiddlyWiki|https://tiddlywiki.com/]] 构建。
+
+这意味着：
+
+* 仅仅只有一个 HTML 文件
+* 这是一个自产生程序，输出结果就是程序源码
+* 阅读、修改、发布，仅仅需要一个浏览器
+
+我希望这个 Blog 在 100 年后仍然可读，[[目前，这个 Blog 打开可能有点慢]]
+
+我从哪里接触到这个技术？
+[[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
+
+如果你也想尝试一下，欢迎访问 https://tiddlywiki.com/
+
+[[Source Code|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]
+
+<$twitter type="followButton" screenName="ThaddeusJiang"/>

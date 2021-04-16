@@ -1,0 +1,95 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2019-09-21 更新 Cypress 相关配置 ~ My new website</title>
+<meta name="description" content="最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sampledomain.net/2019-09-21-cypress" />
+<meta property="og:title" content="2019-09-21 更新 Cypress 相关配置 ~ My new website" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="2019-09-21 更新 Cypress 相关配置 ~ My new website" />
+<meta name="twitter:description" content="最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。" />
+<meta name="twitter:image" content="" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/" style="font-weight: 700;">
+       TJsDG
+            </a>
+        </div>
+    </nav>
+<section class="section">
+        <div class="container">
+            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+                <div>
+                    <div class="block">
+                        <a class="button is-link is-inverted" href="/">
+                            <span>&lt;- Home</span>
+                        </a>
+                    </div>
+                    <div class="block content">
+                     <h2 class="title is-3">2019-09-21 更新 Cypress 相关配置</h2>
+                        <div class="subtitle is-6">26th January, 2021</div>
+                <p>最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。</p><h2 class="">旧配置</h2><p>使用在 cypress 文件夹中配置 <code>tsconfig.json</code> 的方式，超简单。内容如下：</p><pre class="json hljs"><code>{
+  <span class="hljs-attr">"compilerOptions"</span>: {
+    <span class="hljs-attr">"allowJs"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"baseUrl"</span>: <span class="hljs-string">"../node_modules"</span>,
+    <span class="hljs-attr">"types"</span>: [<span class="hljs-string">"cypress"</span>]
+  },
+  <span class="hljs-attr">"include"</span>: [<span class="hljs-string">"**/*.*"</span>]
+}</code></pre><h2 class="">新配置</h2><p>新配置分成 2 部分，ESLint 和 jsconfig.json。</p><ul><li>ESLint 负责检查 Cypress 断言的使用是否正确</li><li>jsconfig 负责 Cypress 自动补全</li></ul><h2 class="">ESLint</h2><p>1. 安装 eslint-plugin-cypress</p><pre class="sh hljs"><code>npm install eslint-plugin-cypress --save-dev</code></pre><p>2. 配置 .eslintrc.json</p><pre class="json hljs"><code><span class="hljs-comment">// .eslintrc.json</span>
+{
+  <span class="hljs-attr">"plugins"</span>: [<span class="hljs-string">"cypress"</span>],
+  <span class="hljs-attr">"env"</span>: {
+    <span class="hljs-attr">"cypress/globals"</span>: <span class="hljs-literal">true</span>
+  }
+}</code></pre><h2 class="">jsconfig</h2><p>在项目根目录下创建 .jsconfig.json，配置如下内容：</p><pre class="json hljs"><code><span class="hljs-comment">// .jsconfig.json</span>
+{
+  <span class="hljs-attr">"include"</span>: [<span class="hljs-string">"./node_modules/cypress"</span>, <span class="hljs-string">"cypress/**/*.js"</span>]
+}</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/cypress-io/eslint-plugin-cypress" rel="noopener noreferrer" target="_blank">https://github.com/cypress-io/eslint-plugin-cypress</a></li></ul>
+</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made with <a href="https://tiddlyjam.com"><strong>TiddlyJam</strong></a> by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

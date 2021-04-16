@@ -1,0 +1,80 @@
+created: 20210127135114208
+creator: TJ
+modified: 20210415133409169
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live
+title: 2019-11-26 配置自定义域名邮箱
+type: text/vnd.tiddlywiki
+
+绝大多数 freelancer 都使用自定义域名邮箱。一方面，使用自定义域名邮箱显得更专业，另一方面，可以有效隔绝生活邮件和工作邮件。本文简单介绍一下如何配置自己的自定义域名邮箱。
+
+!! 背景
+
+最近计划开始从事 freelancer 的工作。在网上查了一下，看到使用自定义域名邮箱可以提高客户的信任感，所以开始重度使用自己 `@jifa.name` 邮箱。
+
+在此之前 `@jifa.name` 使用 Yandex Connect 搭建，搭建方法分享在 StackOverflow ，因为只使用它做必要的备份和验证使用，并没有发现问题。
+
+但是随着邮件来往增多，我发现我不能及时回复邮件了。错误提示如下：
+
+[img[https://i.gyazo.com/3e67d941bd9c0c99faabf1bf42f19239.png]]
+
+尝试了很多解决方案，但是都没解决。并且发现 yandex 的英文界面经常出现俄语，实在太难受了。
+不得已，决定从 Yandex Connect 迁移到 Zoho Mail。
+
+!! 为什么选择 Zoho Mail
+
+# zoho mail 免费
+# zoho mail 英文支持好，不会出现不认识的按钮或者菜单
+# 我以前应哟 Zoho notebook，对 Zoho 的软件有一定好感。
+
+!! 如何设置？
+
+首先，介绍几点前提：
+
+* 我的域名是从 [GoDaddy](https://godaddy.com) 购买的
+* 我是用 [Netlify](https://app.netlify.com/) 管理 DNS，而不是 GoDaddy。
+
+!! 第一步：使用 Netlify 管理 DNS
+
+你可以在你的 Netlify Domain 页面添加一个 Domain
+
+[img[https://i.gyazo.com/18c08519a8c4709c405ae9136b6c9fc4.jpg]]
+
+然后点进你的 Domain，你可以在 `Nameservers` 获得 Netlify 的 DNS zoon
+
+[img[https://i.gyazo.com/2fb312d51ddb698f9ebac2d7ceb0b8ce.jpg]]
+
+到 GoDaddy 的 DNS 页面替换到原来的 DNS zoon
+[img[https://i.gyazo.com/17f31adf9ad6ab40387549d501511e40.jpg]]
+
+!! 第二步：配置 MX 记录
+
+我的配置如下：
+
+[img[https://i.gyazo.com/c50be634fd0f2e2a256a2d32d99706ac.jpg]]
+
+!! 第三步：配置 TXT 记录
+
+需要配置 3 条 TXT 记录，分别是 `SPF` `DKIM` `DMARC`，关于他们的作用，简单地说就是为了防止你的邮件被当成垃圾邮件。
+
+* SPF
+[img[https://i.gyazo.com/77ade364fab39dcc08ee5ef111f36d1d.jpg]]
+
+* DKIM
+[img[https://i.gyazo.com/2814987ef32778632f803b5a1b15f4e1.jpg]]
+
+* DMARC
+[img[https://i.gyazo.com/e79dd5bf2ce6f472a97c4a4cfa378b9c.jpg]]
+
+到此位置，你已经配置好自己的自定义域名邮箱了。
+接下来就是使用你狂拽酷炫的邮件地址收发邮件了。
+
+
+refs:
+
+* https://connect.yandex.com/
+* https://stackoverflow.com/a/56238722/5847276
+* https://www.zoho.com/mail/
+* https://zh.wikipedia.org/wiki/MX记录
+* https://en.wikipedia.org/wiki/TXT_record
+* http://lomu.me/post/SPF-DKIM-DMARC-PTR

@@ -1,0 +1,68 @@
+created: 20210122123546257
+creator: TJ
+modified: 20210415133156749
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live iconfont Nuxt.js
+title: 2020-09-09 Inline SVG vs Icon Fonts
+type: text/vnd.tiddlywiki
+
+背景
+
+最近几个项目都是公司内部项目，icon 都是使用免费的第三方资源。通常是 iconfont。
+
+最新的项目是一个红酒电商系统，为了迎合红酒的高端气质，设计团队设计了很多好看的 icon。
+
+使用自定义 icon 迫使我重新思考了如何使用 icon。
+
+选择
+
+选项：
+
+* Inline SVG
+* Icon Font
+
+我参考了《Inline SVG vs Icon Fonts [CAGEMATCH] | CSS Tricks》
+
+结论是 Inline SVG 胜出。
+
+下面分享一下，Nuxt 中使用 Inline SVG
+
+我们项目使用 Nuxt 框架，进而使用 `nuxtjs/svg` 基本配置和代码
+
+```sh
+$ yarn add --dev nuxtjs/svg
+```
+
+```js
+// nuxt.config.js
+export default {
+  buildModules: ["@nuxtjs/svg"],
+};
+```
+
+```html
+<!-- vue -->
+<template>
+  <NuxtLogo />
+</template>
+
+<script>
+  // *.svg?line 是关键
+  import NuxtLogo from "~/assets/nuxt.svg?inline";
+
+  export default {
+    components: { NuxtLogo },
+  };
+</script>
+```
+
+```html
+<!-- output -->
+<svg xmlns="http://www.w3.org/2000/svg"><path></path></svg>
+```
+
+refs:
+
+* https://css-tricks.com/icon-fonts-vs-svg/
+* https://github.com/nuxt-community/svg-module
+

@@ -1,0 +1,119 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2019-11-20 React Testing 3 - Visual Testing ~ My new website</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sampledomain.net/2019-11-20-react-testing-3-visual-testing" />
+<meta property="og:title" content="2019-11-20 React Testing 3 - Visual Testing ~ My new website" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="2019-11-20 React Testing 3 - Visual Testing ~ My new website" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/" style="font-weight: 700;">
+       TJsDG
+            </a>
+        </div>
+    </nav>
+<section class="section">
+        <div class="container">
+            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+                <div>
+                    <div class="block">
+                        <a class="button is-link is-inverted" href="/">
+                            <span>&lt;- Home</span>
+                        </a>
+                    </div>
+                    <div class="block content">
+                     <h2 class="title is-3">2019-11-20 React Testing 3 - Visual Testing</h2>
+                        <div class="subtitle is-6">27th January, 2021</div>
+                <blockquote class="tc-quote tc-big-quote"><p>Visual Testing 是我所接触的测试方法中最直观的，也是效果最明显的。
+</p></blockquote><h2 class="">1. 什么是 Visual Testing？</h2><p>简单的说，Visual Testing 就是从视觉效果上测试。
+更加全面的解释，参见 《What is Visual Testing? A comprehensive explanation》</p><h2 class="">为什么要使用 Visual Testing 呢？</h2><p>最简单的原因就是快速，直观，不易遗漏。</p><h2 class="">2. 如何做 Visual Testing？</h2><p>Percy.io 是一个性价比高的 Visual Testing 平台，对个人项目或者小团队非常实用。</p><p>Percy 提供多种集成方式，本文中选择从 E2E Testing 集成 Visual Testing。</p><p>1. 安装 <code>@percy/cypress</code></p><pre class="bash hljs"><code>yarn add --dev @percy/cypress</code></pre><p>2. 在 <code>cypress/support/commands.js</code> 添加 <code>@percy/cypress</code></p><pre class="js hljs"><code><span class="hljs-comment">// At the top of cypress/support/commands.js</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">"@percy/cypress"</span></code></pre><p>3. 在 <code>cypress/plugins/index.js</code> 添加 <code>percyHealthCheck</code></p><pre class="js hljs"><code><span class="hljs-comment">// In cypress/plugins/index.js</span>
+<span class="hljs-keyword">let</span> percyHealthCheck = <span class="hljs-built_in">require</span>(<span class="hljs-string">"@percy/cypress/task"</span>)
+
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function">(<span class="hljs-params">on, config</span>) =&gt;</span> {
+  on(<span class="hljs-string">"task"</span>, percyHealthCheck)
+}</code></pre><p>4. 在 Cypress 测试代码中添加 Percy 　代码</p><pre class="js hljs"><code><span class="hljs-comment">// cypress/integration/login.js</span>
+it(<span class="hljs-string">"visual testing for login page"</span>, () =&gt; {
+  cy.visit(<span class="hljs-string">"/login"</span>)
+  cy.percySnapshot()
+})</code></pre><p>5. 登陆 [Percy](<a class="tc-tiddlylink-external" href="https://percy.io/" rel="noopener noreferrer" target="_blank">https://percy.io/</a>) 新建项目，并获得 Token</p><p><img src="https://i.gyazo.com/99015684ec24f10d7e5e08839e6a568c.jpg"></p><p>6. 通过 Percy 启动 Cypress</p><pre class="bash hljs"><code>$ PERCY_TOKEN=xxx percy <span class="hljs-built_in">exec</span> -- cypress run</code></pre><h2 class="">3. 常见问题</h2><p>1. 如何自动化测试</p><p>以 GitHub Actions 为例：</p><p>第一步：定义 npm scripts</p><pre class="json hljs"><code>// package.json
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "cy:open": "cypress open",
+  "start-server": "npm start",
+++  "cy:record": "percy exec -- cypress run --record",
+  "cy:ci": "start-server-and-test start-server http://localhost:3000 cy:record"
+},</code></pre><p>第二步： 定义 <code>.github/workflows/pull_request.yml</code></p><pre class="yaml hljs"><code><span class="hljs-attr">name:</span> <span class="hljs-string">"PR Checks"</span>
+
+<span class="hljs-attr">on:</span> <span class="hljs-string">pull_request</span>
+
+<span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">test:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">E2E</span> <span class="hljs-string">Tests</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Check</span> <span class="hljs-string">out</span> <span class="hljs-string">code</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@master</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">dependencies</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">yarn</span> <span class="hljs-string">install</span> <span class="hljs-string">--non-interactive</span> <span class="hljs-string">--no-progress</span> <span class="hljs-string">--frozen-lockfile</span> <span class="hljs-string">--ignore-optional</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">E2E</span> <span class="hljs-string">Tests</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">yarn</span> <span class="hljs-string">cy:ci</span>
+        <span class="hljs-attr">env:</span>
+          <span class="hljs-attr">CYPRESS_RECORD_KEY:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.CYPRESS_RECORD_KEY</span> <span class="hljs-string">}}</span>
+<span class="hljs-string">++</span>          <span class="hljs-attr">PERCY_TOKEN:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.PERCY_TOKEN</span> <span class="hljs-string">}}</span></code></pre><p>source code： <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/react-testing-example/pull/3" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/react-testing-example/pull/3</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://percy.io" rel="noopener noreferrer" target="_blank">https://percy.io</a></li><li><a class="tc-tiddlylink-external" href="https://docs.percy.io/docs/cypress" rel="noopener noreferrer" target="_blank">https://docs.percy.io/docs/cypress</a></li><li>《What is Visual Testing? A comprehensive explanation.》 <a class="tc-tiddlylink-external" href="https://applitools.com/blog/visual-testing" rel="noopener noreferrer" target="_blank">https://applitools.com/blog/visual-testing</a></li></ul>
+</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made with <a href="https://tiddlyjam.com"><strong>TiddlyJam</strong></a> by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

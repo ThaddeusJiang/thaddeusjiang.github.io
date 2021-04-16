@@ -1,0 +1,222 @@
+created: 20210127133818117
+creator: TJ
+modified: 20210415133409162
+modifier: TJ
+tags: React.js 手艺人手记 Cypress.js Testing
+title: 2019-11-19 React Testing 2 - E2E Testing
+type: text/vnd.tiddlywiki
+
+相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。
+
+!! 1. 什么是 E2E Testing？
+
+<<<.tc-big-quote
+笔者认为：E2E Testing 就是从用户角度对软件进行测试。
+<<<
+
+例如：进入“登陆界面”，输入用户名和密码，点击登陆后跳转到“登陆成功”界面。
+
+!! 2. 如何做 E2E Testing？
+
+很幸运，在 E2E Testing 方面，已经有很多开源软件可以使用。
+推荐 Cypress
+
+1. 安装并配置 Cypress
+
+```bash
+yarn add cypress --dev
+
+yarn cypress open
+```
+
+第一次运行 `cypress open`，Cypress 会自动生成测试目录和基本配置。如：
+
+```
+├── cypress
+│   └── fixtures
+│   └── integration
+│   └── plugins
+│   └── support
+```
+
+2. 编写一个登陆界面，并测试
+
+我们约定路由如下：
+
+* `/login` 登陆界面
+* `/` 主页面
+
+```js
+// 登陆界面
+// src/modules/login/index.js
+import React, { useState } from "react"
+import { navigate } from "@reach/router"
+
+export default function Login() {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+
+  return (
+    <div>
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
+      </div>
+
+      <button
+        type="submit"
+        onClick={() => {
+          if (username === "jifa" && password === "password") {
+            navigate("/")
+          }
+        }}
+      >
+        Login
+      </button>
+    </div>
+  )
+}
+```
+
+```js
+// 测试代码
+// cypress/integration/login.js
+/// <reference types="Cypress" />
+
+describe("Login Page", function() {
+  before(function() {
+    cy.fixture("user").as("user")
+  })
+
+  it("fill username and password, login", function() {
+    cy.visit("/login")
+
+    cy.get('input[name="username"]').type(this.user.username)
+    cy.get('input[name="password"]').type(this.user.password)
+
+    cy.get('button[type="submit"]').click()
+
+    cy.contains("HOME")
+  })
+})
+```
+
+```json
+// 测试数据
+// cypress/fixtures/user.json
+{
+  "username": "jifa",
+  "password": "password"
+}
+```
+
+运行测试
+
+```bash
+yarn cypress open
+```
+
+这时 Cypress 会启动如下窗口，点击测试文件即可开始测试。
+
+[img[https://i.gyazo.com/2ce8aa2c6788c5076bbeac6c1c6e71af.jpg]]
+
+!! 3. 常见问题
+
+1. 如何自动补全 Cypress 方法？
+
+在测试文件内添加如下代码：
+
+```js
+/// <reference types="Cypress" />
+```
+
+2. `cy undefined`，如何解决？
+
+安装 [eslint-plugin-cypress](https://github.com/cypress-io/eslint-plugin-cypress)，并配置 `eslintrc.json`
+
+```bash
+yarn add --dev eslint-plugin-cypress
+```
+
+```json
+// eslintrc.json
+{
+  "plugins": ["cypress"]
+}
+```
+
+3. 如何自动化测试？
+
+以 GitHub Actions 为例：
+
+第一步：定义 npm scripts
+
+```json
+// package.json
+"scripts": {
+  "start": "react-scripts start",
+
+  "start-server": "npm start",
+  "cy:record": "cypress run --record",
+  "cy:ci": "start-server-and-test start-server http://localhost:3000 cy:record"
+}
+```
+
+第二步： 定义 `.github/workflows/pull_request.yml`
+
+```yaml
+name: "PR Checks"
+
+on: pull_request
+
+jobs:
+  test:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@master
+
+      - name: Install dependencies
+        run: yarn install --non-interactive --no-progress --frozen-lockfile --ignore-optional
+
+      - name: E2E Tests
+        run: yarn cy:ci
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+```
+
+需要在 GitHub Secrets 定义 `CYPRESS_RECORD_KEY`，如下：
+
+[img[https://i.gyazo.com/825570ffe09b2d6ff69f7b546ba1733d.jpg]]
+
+!! 经验
+
+<<<.tc-big-quote
+其实可以全局安装 Cypress
+<<<
+
+优点是缩短 npm 安装时间。
+
+代码：https://github.com/ThaddeusJiang/react-testing-example/pull/2
+
+refs:
+
+* https://www.cypress.io/

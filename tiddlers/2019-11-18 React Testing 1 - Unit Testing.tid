@@ -1,0 +1,130 @@
+created: 20210127133417016
+creator: TJ
+modified: 20210415133409149
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js
+title: 2019-11-18 React Testing 1 - Unit Testing
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+软件测试中，Unit Testing 是最基础的，也是测试量最大的。
+<<<
+
+
+那么，React 项目如何 Unit Testing呢？
+
+首先，我们要先确定几个前提
+
+* 使用 create-react-app 创建项目
+* 使用 Jest 和 React Testing Library 测试
+* 使用 GitHub Actions 自动化
+
+!! 1. 创建项目，并配置 Jest 和 React Testing Library
+
+```bash
+npx create-react-app testing-demo
+
+cd testing-demo
+yarn add @testing-library/react --dev
+
+```
+
+!! 2. 编写一个 Counter 组件，并测试
+
+<<<.tc-big-quote
+Tips: 测试代码和组件放在同一文件夹下，更易管理。
+<<<
+
+```js
+// src/components/counter/index.js
+import React, { useState } from "react"
+
+export default function Counter() {
+  const [count, setCount] = useState(0)
+  return (
+    <div>
+      <button type="button" onClick={() => setCount(count - 1)}>
+        -
+      </button>
+      <span>{count}</span>
+      <button type="button" onClick={() => setCount(count + 1)}>
+        +
+      </button>
+    </div>
+  )
+}
+
+// src/components/counter/counter.test.js
+import React from "react"
+import { render, fireEvent } from "@testing-library/react"
+import Counter from "."
+
+test("<Counter />", () => {
+  const { getByText } = render(<Counter />)
+
+  expect(getByText("0")).toBeTruthy()
+
+  fireEvent.click(getByText("+"))
+
+  expect(getByText("1")).toBeTruthy()
+
+  fireEvent.click(getByText("-"))
+  fireEvent.click(getByText("-"))
+
+  expect(getByText("-1")).toBeTruthy()
+})
+```
+
+!! 3. 常见问题
+
+* 我应该在哪写 Unit Testing？
+
+没有强制约定，个人认为测试代码和源码放在项目文件夹更容易管理。
+
+如上面例子：测试代码和源码都存放在 `src/components/counter/` 中。
+
+* 自动补全 Jest 函数和断言的？
+
+```bash
+yarn add @types/jest
+```
+
+* 如何查看测试覆盖率？
+
+```bash
+yarn test --coverage
+```
+
+* 如何自动化测试？
+
+以 GitHub Actions 为例：新建 `.github/workflows/pull_request.yml`，并编写如下代码
+
+  ```yaml
+  name: "PR Checks"
+
+  on: pull_request
+
+  jobs:
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@master
+
+      - name: Install dependencies
+        run: yarn install --non-interactive --no-progress --frozen-lockfile --ignore-optional
+
+      - name: Run tests
+        run: yarn test
+        env:
+          CI: true
+```
+
+代码：https://github.com/ThaddeusJiang/react-testing-example/pull/1
+
+
+refs:
+
+* https://testing-library.com/docs/react-testing-library/intro
+* https://jestjs.io/docs/en/tutorial-react

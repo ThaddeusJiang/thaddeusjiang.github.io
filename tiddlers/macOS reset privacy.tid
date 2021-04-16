@@ -1,0 +1,17 @@
+created: 20210117095125308
+creator: TJ
+modified: 20210415133053586
+modifier: TJ
+tags: macOS
+title: macOS reset privacy
+type: text/vnd.tiddlywiki
+
+macOS 中使 App 第一次使用某个目录/文件夹时，总会请求权限，有时候手误点错了，想改回来怎么办？
+
+```sh
+sudo tccutil reset All
+```
+
+参考：
+
+https://recoursive.com/2020/03/03/reset_macos_privacy_permissions/

@@ -1,0 +1,73 @@
+created: 20210122111112782
+creator: TJ
+modified: 20210415133156689
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js
+title: 2018-04-26 React 设置页面标题
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+React 生态系统如此繁荣，以至于无论多小的问题都有开发者发布 library。 但是我们真的需要依赖那么多第三方吗？
+<<<TJ
+
+
+一个超级简单，但是还是需要问 Google 才知道的方法。
+
+需求
+
+React App 中 设置页面标题
+
+这个位置：
+[img[https://user-images.githubusercontent.com/17308201/39289287-6d28c1be-4966-11e8-8c05-ae53dac41b74.png]]
+
+背景
+
+React App 和过去的 jQuery 页面不同，大部分 React App 是单页面应用，即只有一个 `html` 文件。
+而页面标题通常定义在 html 的 `header` 中。如下：
+
+```html
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>我是标题</title>
+</header>
+```
+
+所以我本来以为这个需求很难实现，就和同事说很难。然后他们就相信了。😂😂😂
+
+调查以后才知道。超级简单。
+
+解决方法
+
+```js
+componentDidMount() {
+  document.title = this.props.title
+}
+```
+
+> 注意：
+> 在 render() 方法中 document 并不是 js 对象，而是 HTML 对象。
+> 所以在 render() 中 document.title 无法工作。
+
+所以，如果你想让页面标题随输入内容是变化，可以这么做：
+
+```js
+renderDocumentTitle = () => {
+  const { pageTitle } = this.state
+  document.title = pageTitle === '' ? '我是标题' : pageTitle
+}
+
+...
+render() {
+  this.renderDocumentTitle()
+}
+```
+
+github 上有一个项目 https://github.com/gaearon/react-document-title 实现了这个功能。
+
+但是，我个人不推荐使用它。这么简单的功能何必 `yarn add` 一次呢。
+
+ref:
+
+* https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react

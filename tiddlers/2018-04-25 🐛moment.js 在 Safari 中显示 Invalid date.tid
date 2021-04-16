@@ -1,0 +1,39 @@
+created: 20210122110039282
+creator: TJ
+modified: 20210415133156683
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Moment.js
+title: 2018-04-25 🐛moment.js 在 Safari 中显示 Invalid date
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+对应不同的浏览器规范，可能是前端开发者永远的痛。
+<<<TJ
+
+
+记录一条 bug。
+
+Moment.js 在 Safari 中显示 Invalid date。
+
+bug 代码
+
+```js
+const createdAt = "2018-04-11T08:56:39Z"
+
+const str = moment(new Date(createdAt)).format("YYYY/MM/DD HH:mm")
+
+// Invalid date
+```
+
+解决
+
+```js
+const str =  moment(createdAt, "YYYY-MM-DD HH:mm:ss").format("YYYY/MM/DD HH:mm")
+}
+
+// 2018/04/11 08:56
+```
+
+这是 new Date() 在 Safari 中特殊表现引起的。
+
+Moment.js 是无辜的。

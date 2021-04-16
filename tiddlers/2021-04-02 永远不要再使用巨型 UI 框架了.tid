@@ -1,0 +1,45 @@
+created: 20210402091041898
+creator: TJ
+modified: 20210415142510926
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live
+title: 2021-04-02 永远不要再使用巨型 UI 框架了
+type: text/vnd.tiddlywiki
+
+!! 什么是巨型 UI 框架？
+
+* https://ant.design/
+* https://material.io/
+* ...
+
+!! 为什么不要再使用巨型 UI 框架？
+
+# 巨型 UI 框架为了泛用性，增加了无数极少使用的属性，增加了学习成本。
+# 巨型 UI 框架为了保持人气，频繁升级，造成不必要的维护成本。
+# 巨型 UI 框架为了差异性，定义风格迥异的接口，经验无法轻松应用到其他框架。
+
+!! 事例：
+
+新公司项目使用 antd 开发，最近我们希望加入 dark mode 特性。
+
+我开发过 dark mode，其实设计思路特别简单。
+
+# CSS 中关于颜色的部分全部使用 CSS variables
+# 提供 light.css 和 dark.css 定义 CSS variables
+# 根据用户选择动态加载 light.css 或者 dark.css
+
+<<<.tc-big-quote
+但是，如果你使用 antd，那就麻烦了。
+<<<
+
+细节不想回忆了，太闹心了。列一下提纲吧
+
+# 不得不引入 react-app-rewired 修改 create-react-app 的默认配置。
+# 不得不引入 less.js 来读取 less 中定义的变量。
+# 不得不引入测试大量组件，因为 antd 提供了太多的变量，根本不知道是否遗漏。
+
+如果你不信邪，可以参考下面资料
+
+* https://ant.design/docs/react/customize-theme-cn
+* https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0
+* https://pro.ant.design/blog/change-theme-cn

@@ -1,0 +1,57 @@
+created: 20210127141137768
+creator: TJ
+modified: 20210415133409180
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js Svelte.js
+title: 2020-05-19 What is boilerplate code?
+type: text/vnd.tiddlywiki
+
+终于理解了 Svelte 宣扬的第一条特性 “Build boilerplate-free components” 是什么意思。
+
+<<<.tc-big-quote
+boilerplate code，即编写大量和业务无关的代码。
+<<<
+
+如 React hook：
+
+```js
+const [name, setName] = useState('')
+const [age, setAge] = useState(0)
+const [address, setAddress] = useState('')
+
+return (
+  <div>
+    <input value={name} onChange={(e) => setName(e.target.value)}>
+    <input value={age} onChange={(e) => setAge(e.target.value)}>
+    <input value={address} onChange={(e) => setAddress(e.target.value)}>
+  </div>
+)
+```
+
+其实 setName 和 onChange 等函数完全和业务无关，单纯是为了 React 语法而已。
+
+所以 Svelte 提供 binding 语法
+
+```js
+<script>
+let name = ''
+let age = 0
+let address = ''
+</script>
+
+<input value={name}>
+<input type=number value={age}>
+<input value={address}>
+```
+
+那种编写方法更容易？一目了然
+
+!! 类比：
+
+* 读取文件也是 boilerplate，你必须确认 file 存在，读取完毕后还必须关闭 file。
+* RESTful API 也是 boilerplate，CURD 写到吐。难怪 Ruby on Rails 会那么人气。开发者救星啊！！！
+
+
+refs:
+
+* https://svelte.dev/

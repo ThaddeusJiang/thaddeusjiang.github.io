@@ -1,0 +1,67 @@
+created: 20210126135522466
+creator: TJ
+modified: 20210415133319605
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live ESLint Cypress.js
+title: 2019-09-21 更新 Cypress 相关配置
+type: text/vnd.tiddlywiki
+
+最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。
+
+!! 旧配置
+
+使用在 cypress 文件夹中配置 `tsconfig.json` 的方式，超简单。内容如下：
+
+```json
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": "../node_modules",
+    "types": ["cypress"]
+  },
+  "include": ["**/*.*"]
+}
+```
+
+!! 新配置
+
+新配置分成 2 部分，ESLint 和 jsconfig.json。
+
+* ESLint 负责检查 Cypress 断言的使用是否正确
+* jsconfig 负责 Cypress 自动补全
+
+!! ESLint
+
+1. 安装 eslint-plugin-cypress
+
+```sh
+npm install eslint-plugin-cypress --save-dev
+```
+
+2. 配置 .eslintrc.json
+
+```json
+// .eslintrc.json
+{
+  "plugins": ["cypress"],
+  "env": {
+    "cypress/globals": true
+  }
+}
+```
+
+!! jsconfig
+
+在项目根目录下创建 .jsconfig.json，配置如下内容：
+
+```json
+// .jsconfig.json
+{
+  "include": ["./node_modules/cypress", "cypress/**/*.js"]
+}
+```
+
+
+refs:
+
+* https://github.com/cypress-io/eslint-plugin-cypress

@@ -1,0 +1,149 @@
+created: 20210126135133083
+creator: TJ
+modified: 20210415133319599
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live GraphQL
+title: 2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment
+type: text/vnd.tiddlywiki
+
+不经意间使用 GraphQL 已经一年时间了，
+分享一个自己走过的坑，`多层嵌套 fragment`。
+
+!! 首先，什么是 GraphQL fragment？
+
+<<<.tc-big-quote
+GraphQL includes reusable units called fragments. Fragments let you construct sets of fields, and then include them in queries where you need to.
+<<<
+
+GraphQL fragment 允许我们定义一些常用的属性集，方便重复利用。
+
+使用方法如下，我们定义 TagFragment， 它被利用在 ACardFragment 和 BCardFragment 中。
+
+```js
+const TagFragment = gql`
+  fragment TagFragment {
+    id
+    name
+  }
+`
+
+const ACardFragment = gql`
+  fragment ACard {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+`
+
+const BCardFragment = gql`
+  fragment BCard {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+`
+```
+
+!! 为什么说嵌套 fragment 是反面教材？
+
+这里我们定义 TagFragment、BCardFragment、AFromFragment 如下，并在 AFormQuery 中使用 AFormFragment。
+
+你会发现，虽然 AFormQuery 只使用了 AFormFragment，但是由于多层嵌套 fragment 的原因，你不得不同时引用 BCardFragment 和 TagFragment。
+
+```js
+const TagFragment = gql`
+  fragment TagFragment {
+    id
+    name
+  }
+`
+
+const BCardFragment = gql`
+  fragment BCardFragment {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+`
+
+const AFormFragment = gql`
+  fragment AFormFragment {
+     id
+     name
+     bs {
+       ...BCardFragment
+     }
+  }
+`
+
+// only reference AFormFragment, have to inject BCardFragment and TagFragment
+const AFormQuery = gql`
+  query {
+    ...AFormFragment
+  }
+  ${AFormFragment}
+  ${BCardFragment}
+  ${TagFragment}
+`
+```
+
+!! 如何解决上面问题呢？
+
+其实很简单。
+
+<<<.tc-big-quote
+只需保证每个 fragment 都不向外传递除自己以外的 fragment 即可。
+<<<
+
+如下
+
+```js
+const TagFragment = gql`
+  fragment TagFragment {
+    id
+    name
+  }
+`
+
+const BCardFragment = gql`
+  fragment BCard {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+  ${TagFragment} // inject
+`
+
+const AFormFragment = gql`
+  fragment AFormFragment {
+     id
+     name
+     bs {
+       ...BCardFragment
+     }
+  }
+  ${BCardFragment} // inject
+`
+// only need AFormFragment
+const AFormQuery = gql`
+  query {
+    ...AFormFragment
+  }
+  ${AFormFragment}
+`
+```
+
+希望您可以避开这个坑。
+
+refs:
+
+* https://graphql.org/
+* https://graphql.org/learn/queries/#fragments

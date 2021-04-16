@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+   <url>
+      <loc>http://sampledomain.net/2017-09-11-appium</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2018-04-21-eslint-do-not-use-finddomnode</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2018-04-22-axios</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2018-04-23-ant-design-iconfont</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2018-04-24-js-lodash</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2018-04-25-moment-js-safari-invalid-date</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2018-04-26-react</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2018-04-27</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2018-04-28-react-js-jsx-js</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2018-05-08-jest-css-modules</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2018-05-12-airbnb-eslint</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-05-14-github</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-07-11-jsinspect-jscpd</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-07-15-git-cz</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-09-18-graphql-fragment</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-09-21-cypress</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-09-30-react-intl-3</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-11-08-github-package</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-11-13-20-css</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-11-18-react-testing-1-unit-testing</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-11-20-react-testing-3-visual-testing</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-11-26</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2020-04-22-how-to-decide-responsive-design-break-point</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2020-05-19-what-is-boilerplate-code</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2020-05-30-why-i-choose-gridsome-to-rebuild-my-site</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2020-06-18-micro-frontends-1-what-is-micro-frontends</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2020-06-25-micro-frontends-2-a-demo-made-with-single-spa</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2020-07-07-frontend-handle-authorization</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2020-07-21-why-tailwind-css</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2020-07-30-vue-js-ssr-note</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2020-09-09-inline-svg-vs-icon-fonts</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2021-01-15-nuxt-composition-api-usemeta</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2021-01-18-seo</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2021-01-22-is-mobile-first-wrong</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2021-01-31</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2021-02-08-11-api</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2021-02-15-seo-sitemap</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2021-03-13-customize-vetur-for-nuxtjs-compostion-api</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2021-04-02-ui</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/posts</loc>
+      <lastmod>2021-04-16</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/welcome</loc>
+      <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+</urlset>

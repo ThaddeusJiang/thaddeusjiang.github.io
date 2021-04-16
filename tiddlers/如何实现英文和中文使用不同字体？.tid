@@ -1,0 +1,9 @@
+created: 20210131130710558
+creator: TJ
+modified: 20210415133424786
+modifier: TJ
+tags: 
+title: 如何实现英文和中文使用不同字体？
+type: text/vnd.tiddlywiki
+
+直接把英文字体放在中文字体前面就可以了。

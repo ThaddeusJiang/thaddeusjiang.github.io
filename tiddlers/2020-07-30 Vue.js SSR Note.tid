@@ -1,0 +1,130 @@
+created: 20210122123937270
+creator: TJ
+modified: 20210415133156755
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Vue.js Nuxt.js SSR
+title: 2020-07-30 Vue.js SSR Note
+type: text/vnd.tiddlywiki
+
+作为前端开发者 3 年了，第一次认真学习 SSR。
+
+<<<.tc-big-quote
+SSR 本质上是渲染应用程序的“快照”
+<<<
+
+因为，第一次做 C 端产品。日本最大红酒电商系统，对页面初始化要求特别高。
+
+! 为什么 SSR 可以提高页面初始化速度？
+
+SPA，浏览器需要请求 JS，解析 JS，并渲染页面，再执行 JS 请求数据。
+
+SSR，浏览器请求页面，服务器请求数据（Data），然后将 Data 和 JS 直接组合到 HTML，一次性返回给浏览器。浏览器接到页面可以直接渲染最终结果。
+
+! SSR 优势、劣势
+
+!! 优势
+
+  * 更好的 SEO。因为爬虫爬到的页面已经包含数据
+  * 更快的内容到达时间 (time-to-content) 。
+
+如果是 server 也是 JS 技术栈，还有一个优势就是代码共享。
+
+!! 劣势
+  * 浏览器特定代码需要特定处理
+  * 需要渲染服务器
+  * 更多的服务器负载
+
+Vue SSR 劣势（Virtual-DOM JS framework），因为每个请求都是一个独立的实例，大量占用 CPU 资源。
+
+! 预渲染 vs 服务器端渲染（Prerendering vs SSR）
+
+只是用来改善少数营销页面（例如 /, /about, /contact 等）的 SEO，那么你可能需要预渲染。
+在构建时 (build time) 简单地生成针对特定路由的静态 HTML 文件。
+
+!  哪些需要注意的细节？
+
+# 编写通用代码。注意浏览器特定代码。（window、document 以及 第三方 library）
+# 生命周期。只有 beforeCreate 和 created 可以用。
+# 有副作用的代码只能在 beforeMount 和 mounted 中。
+# 明确服务端的数据请求和客户端的数据请求。
+# 可能需要缓存策略。绝大多数情况，页面级别缓存就足够了。
+# 数据的响应式是多余的。及 `data() {}` 中设置初始值是多余的。
+
+! 将数据存在 Vuex 中
+
+<<<.tc-big-quote
+SSR 本质上是渲染应用程序的“快照”
+<<<
+
+所以如果应用程序依赖异步数据，在开始渲染之前，需要先预期并解析好这些数据。
+
+```js
+// store/modules/foo.js
+export default {
+  namespaced: true,
+  // 重要信息：state 必须是一个函数，
+  // 因此可以创建多个实例化该模块
+  state: () => ({
+    items: {}
+  }),
+  actions: {
+      fetchItem ({ commit }, id) {
+        // `store.dispatch()` 会返回 Promise，
+        // 以便我们能够知道数据在何时更新
+        return fetchItem(id).then(item => {
+          commit('setItem', { id, item })
+        })
+      }
+    },
+    mutations: {
+      setItem (state, { id, item }) {
+        Vue.set(state.items, id, item)
+      }
+    }
+}
+
+```
+
+何时，何地执行 `dispatch action` ？
+合理的做法是在路由组件上放置数据。
+Nuxt 有 `asyncData` 或 `fetch` 函数。
+
+```js
+<!-- Item.vue -->
+<template>
+  <div>{{ item.title }}</div>
+</template>
+
+<script>
+export default {
+  asyncData ({ store, route }) {
+    // 触发 action 后，会返回 Promise
+    return store.dispatch('fetchItem', route.params.id)
+  },
+  computed: {
+    // 从 store 的 state 对象中的获取 item。
+    item () {
+      return this.$store.state.items[this.$route.params.id]
+    }
+  }
+}
+</script>
+```
+
+! SSR 不全是服务器端渲染，也有一部分是浏览器渲染的
+vue 通过 `data-server-rendered` 属性识别哪些 HTML 是服务器渲染的。
+
+```html
+<div id="app" data-server-rendered="true">
+```
+
+因为每个请求都需要一个全新的 Vue 实例，Code Splitting 还是不能少
+
+```js
+const Foo = () => import('./Foo.vue')
+```
+
+refs:
+
+*  https://ssr.vuejs.org/
+* [[https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑]]

@@ -1,0 +1,8 @@
+created: 20210415134154515
+creator: TJ
+modified: 20210415134154535
+modifier: TJ
+title: $:/themes/tiddlywiki/vanilla/settings/codefontfamily
+type: text/vnd.tiddlywiki
+
+"Fira Mono","Liberation Mono",Menlo,Courier,monospace

@@ -1,0 +1,24 @@
+created: 20210208063121656
+creator: TJ
+modified: 20210415133523046
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live
+title: 2021-02-08 11 行代码实现邮政编码检索 API
+type: text/vnd.tiddlywiki
+
+open source: https://github.com/ThaddeusJiang/jp-post-api
+
+Sample:
+
+<iframe src="https://codesandbox.io/embed/japan-post-api-example-107u2?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Japan Post API Example"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+!! 为什么可以 11 行代码实现？
+
+因为我对数据进行了预处理，😂
+
+https://github.com/ThaddeusJiang/jp-post-api/blob/master/data/update-data.js

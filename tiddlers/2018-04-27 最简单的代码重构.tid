@@ -1,0 +1,47 @@
+created: 20210122112055007
+creator: TJ
+modified: 20210415133156696
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live 重构
+title: 2018-04-27 最简单的代码重构
+type: text/vnd.tiddlywiki
+
+一个 Code Review 的心得
+
+<<<.tc-big-quote
+最简单的代码重构，就是把重复代码提取成函数。
+<<<TJ
+
+重构前
+
+[img[https://user-images.githubusercontent.com/17308201/39341071-5cc81a76-4a0c-11e8-837d-ada35b7709df.png]]
+
+其实这个功能超级简单，就是判断一下当前环境是否是 `dcs` 环境。
+
+> dcs: [DreamArts Clound Service](https://www.dreamarts.co.jp/dcs/) 是我司提供的云服务平台。
+
+重构后
+
+```js
+// envUtil.js
+export function isClound() {
+  if (window.config !== undefined) {
+    return window.config.dcs === 1
+  } else {
+    return false
+  }
+}
+
+// use
+import { isClound } from './envUtil'
+
+if ( isClound() ) {
+  ...
+}
+```
+
+所有判断 `dcs` 环境的功能，只要调用 `isClound()` 即可。
+
+当然这段代码还有问题，`window.config.dcs === 1` 的 `1` 应该算是魔法数字，也应该被重构。
+
+将来即使 dcs 判断条件变成 `dcs === 'dcs'`，我们只需要修改一行代码即可。不需要对业务代码进行任何修改。

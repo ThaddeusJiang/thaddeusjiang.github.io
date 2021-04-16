@@ -1,0 +1,58 @@
+created: 20210112125725582
+creator: TJ
+modified: 20210415133035999
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live
+title: 2018-04-22 使用 axios 时遇到的几个问题
+type: text/vnd.tiddlywiki
+
+!! 1. axios 的 baseURL
+
+目前进行的项目是公司主应用下的子应用，所以 API 全都是 `/cms/api/*`。 为了提高写代码效率，我写下来如下代码。
+
+```js
+// fetch.js
+import fetch from "axios"
+
+fetch.defaults.baseURL = "/cms/api"
+
+export default fetch
+```
+
+这样做以后，我们的 API 形如 `/cms/api/users` 时，我们只需要写 `/users` 就可以了。axios 会自动补充前缀。
+
+!! 但是这样做有一个问题
+
+ fetch.defaults.baseURL 是一个全局设置。所以当我们需要请求 /cms/api 以外的 API 时，我们必须覆盖掉 baseURL。
+
+方法：
+
+```js
+import fetch from "./fetch"
+
+const ajaxInstance = fetch.create({
+  baseURL: "",
+})
+
+ajaxInstance.get() // or ajaxInstance.post()
+```
+
+!! 2. axios 使用 `application/x-www-form-urlencoded` 发送参数
+
+axios 默认使用 application/json 发送参数，但是对于一些老旧 API，我们不得不使用application/x-www-form-urlencoded格式。
+
+方法：
+
+```js
+
+const params = new URLSearchParams()
+params.append("query", value)
+
+ajaxInstance.post(apiUrl, params)
+```
+
+
+参考：
+
+* https://ykloveyxk.github.io/2017/02/25/axios全攻略/
+* https://imququ.com/post/four-ways-to-post-data-in-http.html

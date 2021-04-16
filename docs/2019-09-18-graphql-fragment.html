@@ -1,0 +1,176 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment ~ My new website</title>
+<meta name="description" content="不经意间使用 GraphQL 已经一年时间了，">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sampledomain.net/2019-09-18-graphql-fragment" />
+<meta property="og:title" content="2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment ~ My new website" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="不经意间使用 GraphQL 已经一年时间了，" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment ~ My new website" />
+<meta name="twitter:description" content="不经意间使用 GraphQL 已经一年时间了，" />
+<meta name="twitter:image" content="" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/" style="font-weight: 700;">
+       TJsDG
+            </a>
+        </div>
+    </nav>
+<section class="section">
+        <div class="container">
+            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+                <div>
+                    <div class="block">
+                        <a class="button is-link is-inverted" href="/">
+                            <span>&lt;- Home</span>
+                        </a>
+                    </div>
+                    <div class="block content">
+                     <h2 class="title is-3">2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment</h2>
+                        <div class="subtitle is-6">26th January, 2021</div>
+                <p>不经意间使用 GraphQL 已经一年时间了，
+分享一个自己走过的坑，<code>多层嵌套 fragment</code>。</p><h2 class="">首先，什么是 GraphQL fragment？</h2><blockquote class="tc-quote tc-big-quote"><p>GraphQL includes reusable units called fragments. Fragments let you construct sets of fields, and then include them in queries where you need to.
+</p></blockquote><p>GraphQL fragment 允许我们定义一些常用的属性集，方便重复利用。</p><p>使用方法如下，我们定义 TagFragment， 它被利用在 ACardFragment 和 BCardFragment 中。</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> TagFragment = gql<span class="hljs-string">`
+  fragment TagFragment {
+    id
+    name
+  }
+`</span>
+
+<span class="hljs-keyword">const</span> ACardFragment = gql<span class="hljs-string">`
+  fragment ACard {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+`</span>
+
+<span class="hljs-keyword">const</span> BCardFragment = gql<span class="hljs-string">`
+  fragment BCard {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+`</span></code></pre><h2 class="">为什么说嵌套 fragment 是反面教材？</h2><p>这里我们定义 TagFragment、BCardFragment、AFromFragment 如下，并在 AFormQuery 中使用 AFormFragment。</p><p>你会发现，虽然 AFormQuery 只使用了 AFormFragment，但是由于多层嵌套 fragment 的原因，你不得不同时引用 BCardFragment 和 TagFragment。</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> TagFragment = gql<span class="hljs-string">`
+  fragment TagFragment {
+    id
+    name
+  }
+`</span>
+
+<span class="hljs-keyword">const</span> BCardFragment = gql<span class="hljs-string">`
+  fragment BCardFragment {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+`</span>
+
+<span class="hljs-keyword">const</span> AFormFragment = gql<span class="hljs-string">`
+  fragment AFormFragment {
+     id
+     name
+     bs {
+       ...BCardFragment
+     }
+  }
+`</span>
+
+<span class="hljs-comment">// only reference AFormFragment, have to inject BCardFragment and TagFragment</span>
+<span class="hljs-keyword">const</span> AFormQuery = gql<span class="hljs-string">`
+  query {
+    ...AFormFragment
+  }
+  <span class="hljs-subst">${AFormFragment}</span>
+  <span class="hljs-subst">${BCardFragment}</span>
+  <span class="hljs-subst">${TagFragment}</span>
+`</span></code></pre><h2 class="">如何解决上面问题呢？</h2><p>其实很简单。</p><blockquote class="tc-quote tc-big-quote"><p>只需保证每个 fragment 都不向外传递除自己以外的 fragment 即可。
+</p></blockquote><p>如下</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> TagFragment = gql<span class="hljs-string">`
+  fragment TagFragment {
+    id
+    name
+  }
+`</span>
+
+<span class="hljs-keyword">const</span> BCardFragment = gql<span class="hljs-string">`
+  fragment BCard {
+    id
+    name
+    tags {
+      ...TagFragment
+    }
+  }
+  <span class="hljs-subst">${TagFragment}</span> // inject
+`</span>
+
+<span class="hljs-keyword">const</span> AFormFragment = gql<span class="hljs-string">`
+  fragment AFormFragment {
+     id
+     name
+     bs {
+       ...BCardFragment
+     }
+  }
+  <span class="hljs-subst">${BCardFragment}</span> // inject
+`</span>
+<span class="hljs-comment">// only need AFormFragment</span>
+<span class="hljs-keyword">const</span> AFormQuery = gql<span class="hljs-string">`
+  query {
+    ...AFormFragment
+  }
+  <span class="hljs-subst">${AFormFragment}</span>
+`</span></code></pre><p>希望您可以避开这个坑。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://graphql.org/" rel="noopener noreferrer" target="_blank">https://graphql.org/</a></li><li><a class="tc-tiddlylink-external" href="https://graphql.org/learn/queries/#fragments" rel="noopener noreferrer" target="_blank">https://graphql.org/learn/queries/#fragments</a></li></ul>
+</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made with <a href="https://tiddlyjam.com"><strong>TiddlyJam</strong></a> by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

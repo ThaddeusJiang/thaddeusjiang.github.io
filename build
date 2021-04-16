@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rm -rf ./docs/*
+
+tiddlywiki --build tiddlyjam
+mv ./output/* ./docs/
+
+tiddlywiki --build index
+mv ./output/index.html ./docs/index.html
+

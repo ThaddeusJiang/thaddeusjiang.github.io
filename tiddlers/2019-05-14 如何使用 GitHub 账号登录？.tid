@@ -1,0 +1,84 @@
+created: 20210122124458624
+creator: TJ
+modified: 20210415133156760
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live
+title: 2019-05-14 如何使用 GitHub 账号登录？
+type: text/vnd.tiddlywiki
+
+一个特别简单的需求，开发一个使用 GitHub 登陆的功能。
+
+如图：
+
+[img[https://i.gyazo.com/fd8686eff0b781065b1edccefa367169.png]]
+
+TL;DR
+
+# 创建一个 firebase 项目
+# 注册一个 GitHub 应用
+# 代码示例
+
+! 创建 firebase 项目
+
+登录 https://console.firebase.google.com，并创建一个项目。
+进入 Auth 菜单，启用 GitHub。
+
+[img[https://i.gyazo.com/ee6c38969827c543c68ef212adb6dd8f.png]]
+
+客户端 ID 和客户端密钥可以从 GitHub App 完成界面获取。
+
+! 注册一个 GitHub 应用
+
+进入 https://github.com/settings/applications/new
+
+[img[https://i.gyazo.com/75d40005a9a8d9f193819c8e471a7e30.png]]
+
+Homepage URL 和 Callback URL 填写 firebase 回调网址。如 `https://xxx.firebaseapp.com/__/auth/handler`
+
+! 代码示例
+
+```js
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+
+import "./styles.css";
+
+function App() {
+  let firebase = null;
+
+  const [logined, setResult] = useState(false);
+
+  useEffect(() => {
+    firebase = window.firebase;
+  });
+
+  const handleLogin = () => {
+    var provider = new firebase.auth.GithubAuthProvider();
+    provider.addScope("repo");
+    provider.setCustomParameters({
+      allow_signup: "false"
+    });
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(function(result) {
+        setResult("SUCCESS");
+      })
+      .catch(function(error) {
+        setResult("FAIL");
+      });
+  };
+
+  return (
+    <div className="App">
+      <h1>GitHub Login Example</h1>
+      {!logined && <button onClick={handleLogin}>Sign in with GitHub</button>}
+      {logined && "Logined"}
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+```
+> source code: https://codesandbox.io/s/zw27vrzpk3
