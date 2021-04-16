@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20210416002855743
+modified: 20210416121712382
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: Welcome
@@ -25,4 +25,4 @@ type: text/vnd.tiddlywiki
 
 <$twitter type="followButton" screenName="ThaddeusJiang"/>
 
-➡️ [[all my posts|Posts]]
+➡️ [[All my posts|Posts]]

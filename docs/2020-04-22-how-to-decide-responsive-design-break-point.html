@@ -42,7 +42,7 @@
   
 <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="/" style="font-weight: 700;">
+            <a class="navbar-item" href="./" style="font-weight: 700;" title="TJ's Digital Garden">
        TJsDG
             </a>
         </div>
@@ -52,14 +52,14 @@
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
                     <div class="block">
-                        <a class="button is-link is-inverted" href="/">
-                            <span>&lt;- Home</span>
+                        <a class="button is-link is-inverted" href="./">
+                            <span>&lt; Home</span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2020-04-22 How to decide Responsive Design break point?</h2>
                         <div class="subtitle is-6">27th January, 2021</div>
-                <p>这可能是一个事实。</p><p>绝大多数 Web 项目使用 <code>实际设备宽度</code> 作为 Responsive Design 的 break point。</p><p>虽然不知道具体原因是为什么，但是极有可能和 Bootstrap 流行有关。因为 Bootstrap 就使用实际设备（Apple's）的宽度作为 Gird 布局的 break point。</p><p><img src="https://i.gyazo.com/0f746f3b84be7dcb33c510cc82eedbb6.jpg"></p><p>个人认为这种设计只适合通用 framework，并不是银弹。</p><h2 class="">让我们一起看一个实际需求</h2><p>现在我们需要开发一个列表展示页面。</p><p>要求：</p><blockquote class="tc-quote"><p>卡片宽度为 200px，卡片间隔 40px。
+                  <p>这可能是一个事实。</p><p>绝大多数 Web 项目使用 <code>实际设备宽度</code> 作为 Responsive Design 的 break point。</p><p>虽然不知道具体原因是为什么，但是极有可能和 Bootstrap 流行有关。因为 Bootstrap 就使用实际设备（Apple's）的宽度作为 Gird 布局的 break point。</p><p><img src="https://i.gyazo.com/0f746f3b84be7dcb33c510cc82eedbb6.jpg"></p><p>个人认为这种设计只适合通用 framework，并不是银弹。</p><h2 class="">让我们一起看一个实际需求</h2><p>现在我们需要开发一个列表展示页面。</p><p>要求：</p><blockquote class="tc-quote"><p>卡片宽度为 200px，卡片间隔 40px。
 并且手机单列显示，平板或电脑多列显示。</p></blockquote><p>实际效果大致如下：</p><p><img src="https://i.gyazo.com/3c1f4fe292375cf6c1c8944de943f92b.jpg"></p><p>如果我们以设备宽度为break point，我们写出如下代码：</p><pre class="css hljs"><code><span class="hljs-selector-class">.list</span>{
   <span class="hljs-attribute">display</span>: flex;
   <span class="hljs-attribute">flex-direction</span>: column;
@@ -91,7 +91,7 @@
   }
 }</code></pre><p>看一下实际效果</p><p><img src="https://i.gyazo.com/8d8dbd82023553af0a8c3939bfc59ee8.gif"></p><h2 class="">总结</h2><blockquote class="tc-quote tc-big-quote"><p>Responsive Design 应该基于内容，而不是设备。
 </p></blockquote><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://getbootstrap.com/" rel="noopener noreferrer" target="_blank">https://getbootstrap.com/</a></li></ul>
-</div>
+                </div>
                 </div>
                 <hr>
             </div>

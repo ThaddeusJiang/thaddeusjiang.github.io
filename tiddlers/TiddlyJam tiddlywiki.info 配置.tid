@@ -1,0 +1,24 @@
+created: 20210416123941828
+modified: 20210416124450464
+tags: 
+title: TiddlyJam tiddlywiki.info 配置
+type: text/vnd.tiddlywiki
+
+```
+// TiddlyJam tiddlywiki.info 配置
+{
+  "build": {
+    "tiddlyjam":[
+            "--rendertiddlers",
+            "[all[tiddlers+shadows]tag[$:/plugins/adithyab/tiddlyjam/live]]",
+            "$:/plugins/adithyab/tiddlyjam/renderer/base",
+            ".",
+            "text/plain",
+            "--render",
+            "[all[tiddlers+shadows][$:/plugins/adithyab/tiddlyjam/renderer/sitemap]]",
+            "sitemap.xml",
+            "text/plain"
+        ]
+  }
+}
+```

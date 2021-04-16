@@ -1,0 +1,14 @@
+created: 20210416121856841
+modified: 20210416124507178
+tags: $:/plugins/adithyab/tiddlyjam/live
+title: 2021-04-16 使用 TiddlyJam 生成 Static Site
+type: text/vnd.tiddlywiki
+
+* 第一步：安装回 node.js 版本 TiddlyWiki
+* 第二步：将所有文件全部拖拽到新建到 TiddlyWiki
+* 第三步：拖拽 [[$:/plugins/adithyab/tiddlyjam]] 到 TiddlyWiki 
+* 第四步：在 ''tiddlywiki.info'' 中追加 TiddlyJam tiddlywiki.info 配置
+* 第五步：为文章添加 Tag ''$:/plugins/adithyab/tiddlyjam/live''
+* 第六步：运行 `tiddlywiki ---build tiddlyjam`
+
+{{TiddlyJam tiddlywiki.info 配置}}

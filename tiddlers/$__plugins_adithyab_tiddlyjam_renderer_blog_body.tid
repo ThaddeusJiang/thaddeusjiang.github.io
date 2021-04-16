@@ -1,0 +1,32 @@
+created: 20200806142756352
+creator: Adithya_
+modified: 20210416115833203
+modifier: Adithya_
+tags: $:/plugins/adithyab/tiddlyjam/internals
+title: $:/plugins/adithyab/tiddlyjam/renderer/blog/body
+type: text/vnd.tiddlywiki
+
+{{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}
+<section class="section">
+        <div class="container">
+            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+                <div>
+                    <div class="block">
+                        <a class="button is-link is-inverted" href="./">
+                            <span>< Home</span>
+                        </a>
+                    </div>
+                    <div class="block content">
+                     <h2 class="title is-3"><$view field="title" /></h2>
+                        <div class="subtitle is-6"><<get_published_date>></div>
+                  <$list filter="[all[current]]">
+
+                    <$transclude />
+
+                  </$list>
+                </div>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </section>
