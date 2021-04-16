@@ -1,0 +1,19 @@
+created: 20210324015815252
+creator: TJ
+modified: 20210415133523068
+modifier: TJ
+tags: 引发共鸣
+title: 为什么软件产品不能解决客户的问题？
+type: text/vnd.tiddlywiki
+
+<$twitter type="tweet" tweetID="1373767941347418112" />
+
+<<<.tc-big-quote
+认知偏差在信息传递中产生
+
+Client -> Business Analyst -> Developer -> Code
+
+减少信息传递，让 Developer 与 Client 直接交流。
+
+DDD 中提到“使用统一语言”。
+<<<TJ

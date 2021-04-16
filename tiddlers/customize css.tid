@@ -1,0 +1,11 @@
+created: 20210118113445276
+creator: TJ
+modified: 20210415133053574
+modifier: TJ
+tags: $:/tags/Stylesheet
+title: customize css
+type: text/vnd.tiddlywiki
+
+h1, h2, h3, h4, h5 {
+  font-weight: 500;
+}

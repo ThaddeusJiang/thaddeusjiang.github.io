@@ -1,0 +1,102 @@
+created: 20210127132620165
+creator: TJ
+modified: 20210415133409142
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live
+title: 2019-11-13 20% CSS
+type: text/vnd.tiddlywiki
+
+我是一名 Web 开发者，日常工作中主要使用的技术是 JS 和 CSS。相比 JS ，我认为自己没有认真研究过 CSS 的技术细节。虽然如此，但是我有自信可以实现 “任意 UI”。因为我熟练掌握 20% CSS，并擅长查看其他网站的 CSS 源码。
+
+在这里分享一下我的 20% CSS。
+
+[img[https://i.gyazo.com/fc726a706533e4b298ee07d1e85cdeb5.png]]
+
+!! 1. 必须熟练掌握的基本知识
+
+1.1. CSS 选择器
+
+你需要掌握
+
+*  class 选择器
+*  id 选择器
+*  标签选择器
+*  父子选择器，兄弟选择器
+*  属性选择器
+
+1.2. CSS 单位
+
+你需要掌握
+
+* %
+* px
+* rem
+
+1.3 CSS 颜色
+
+你需要掌握
+
+* 十六进制（hex）表示法
+* RGB 表示法
+
+1.4. CSS 边距之间关系
+
+CSS 最基本的边距主要是 `margin` 和 `padding`，他们的关系如下：
+
+[img[https://i.gyazo.com/2537725d5fa341801f2da60e27320455.gif]]
+
+!! 2. 必须熟练掌握的基本场景
+
+2.1 CSS 布局
+
+你需要掌握
+
+* position 位置布局
+* flex 弹性布局
+* float 流布局
+* column 列布局
+
+我有一份非常简洁的 [CSS 布局教程](http://learnlayout.com/)。
+
+ 2.2. CSS 显示
+
+你需要掌握
+
+* display
+**  none/block/inline-block
+*  边框
+**  border
+**  border-radius
+*  颜色
+**  background-color
+**  color
+*  阴影
+**  box-shadow
+**  text-shadow
+*  文本
+**  font-family
+**  font-size
+**  font-weight
+**  text-decoration
+**  word-wrap
+*  伪类
+**  :hover :focus
+**  ::before ::after
+*  ...
+
+2.3 CSS 媒体查询
+
+媒体查询主要应对响应式设计。
+
+Google 提供了一份非常好的响应式设计教程。https://developers.google.com/web/fundamentals/design-and-ux/responsive
+
+!! 3. 重要，但会查文档即可
+
+* 渐变
+* 过渡
+* 动画
+* 2D/3D 转换
+
+最后，本文不是 CSS 教程，更像是一个“迷你关键字列表”。
+
+希望能帮助到你。

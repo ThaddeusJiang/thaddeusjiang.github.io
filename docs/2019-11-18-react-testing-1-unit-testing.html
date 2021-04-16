@@ -1,0 +1,139 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2019-11-18 React Testing 1 - Unit Testing ~ My new website</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sampledomain.net/2019-11-18-react-testing-1-unit-testing" />
+<meta property="og:title" content="2019-11-18 React Testing 1 - Unit Testing ~ My new website" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="2019-11-18 React Testing 1 - Unit Testing ~ My new website" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/" style="font-weight: 700;">
+       TJsDG
+            </a>
+        </div>
+    </nav>
+<section class="section">
+        <div class="container">
+            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+                <div>
+                    <div class="block">
+                        <a class="button is-link is-inverted" href="/">
+                            <span>&lt;- Home</span>
+                        </a>
+                    </div>
+                    <div class="block content">
+                     <h2 class="title is-3">2019-11-18 React Testing 1 - Unit Testing</h2>
+                        <div class="subtitle is-6">27th January, 2021</div>
+                <blockquote class="tc-quote tc-big-quote"><p>软件测试中，Unit Testing 是最基础的，也是测试量最大的。
+</p></blockquote><p>那么，React 项目如何 Unit Testing呢？</p><p>首先，我们要先确定几个前提</p><ul><li>使用 create-react-app 创建项目</li><li>使用 Jest 和 React Testing Library 测试</li><li>使用 GitHub Actions 自动化</li></ul><h2 class="">1. 创建项目，并配置 Jest 和 React Testing Library</h2><pre class="bash hljs"><code>npx create-react-app testing-demo
+
+<span class="hljs-built_in">cd</span> testing-demo
+yarn add @testing-library/react --dev
+</code></pre><h2 class="">2. 编写一个 Counter 组件，并测试</h2><blockquote class="tc-quote tc-big-quote"><p>Tips: 测试代码和组件放在同一文件夹下，更易管理。
+</p></blockquote><pre class="js hljs"><code><span class="hljs-comment">// src/components/counter/index.js</span>
+<span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>)
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> setCount(count - 1)}&gt;
+        -
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{count}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> setCount(count + 1)}&gt;
+        +
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+
+<span class="hljs-comment">// src/components/counter/counter.test.js</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>
+<span class="hljs-keyword">import</span> { render, fireEvent } <span class="hljs-keyword">from</span> <span class="hljs-string">"@testing-library/react"</span>
+<span class="hljs-keyword">import</span> Counter <span class="hljs-keyword">from</span> <span class="hljs-string">"."</span>
+
+test(<span class="hljs-string">"&lt;Counter /&gt;"</span>, () =&gt; {
+  <span class="hljs-keyword">const</span> { getByText } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Counter</span> /&gt;</span></span>)
+
+  expect(getByText(<span class="hljs-string">"0"</span>)).toBeTruthy()
+
+  fireEvent.click(getByText(<span class="hljs-string">"+"</span>))
+
+  expect(getByText(<span class="hljs-string">"1"</span>)).toBeTruthy()
+
+  fireEvent.click(getByText(<span class="hljs-string">"-"</span>))
+  fireEvent.click(getByText(<span class="hljs-string">"-"</span>))
+
+  expect(getByText(<span class="hljs-string">"-1"</span>)).toBeTruthy()
+})</code></pre><h2 class="">3. 常见问题</h2><ul><li>我应该在哪写 Unit Testing？</li></ul><p>没有强制约定，个人认为测试代码和源码放在项目文件夹更容易管理。</p><p>如上面例子：测试代码和源码都存放在 <code>src/components/counter/</code> 中。</p><ul><li>自动补全 Jest 函数和断言的？</li></ul><pre class="bash hljs"><code>yarn add @types/jest</code></pre><ul><li>如何查看测试覆盖率？</li></ul><pre class="bash hljs"><code>yarn <span class="hljs-built_in">test</span> --coverage</code></pre><ul><li>如何自动化测试？</li></ul><p>以 GitHub Actions 为例：新建 <code>.github/workflows/pull_request.yml</code>，并编写如下代码</p><pre class="yaml hljs"><code>  <span class="hljs-attr">name:</span> <span class="hljs-string">"PR Checks"</span>
+
+  <span class="hljs-attr">on:</span> <span class="hljs-string">pull_request</span>
+
+  <span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">test:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">Unit</span> <span class="hljs-string">Tests</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Check</span> <span class="hljs-string">out</span> <span class="hljs-string">code</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@master</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">dependencies</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">yarn</span> <span class="hljs-string">install</span> <span class="hljs-string">--non-interactive</span> <span class="hljs-string">--no-progress</span> <span class="hljs-string">--frozen-lockfile</span> <span class="hljs-string">--ignore-optional</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Run</span> <span class="hljs-string">tests</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">yarn</span> <span class="hljs-string">test</span>
+        <span class="hljs-attr">env:</span>
+          <span class="hljs-attr">CI:</span> <span class="hljs-literal">true</span></code></pre><p>代码：<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/react-testing-example/pull/1" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/react-testing-example/pull/1</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://testing-library.com/docs/react-testing-library/intro" rel="noopener noreferrer" target="_blank">https://testing-library.com/docs/react-testing-library/intro</a></li><li><a class="tc-tiddlylink-external" href="https://jestjs.io/docs/en/tutorial-react" rel="noopener noreferrer" target="_blank">https://jestjs.io/docs/en/tutorial-react</a></li></ul>
+</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made with <a href="https://tiddlyjam.com"><strong>TiddlyJam</strong></a> by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

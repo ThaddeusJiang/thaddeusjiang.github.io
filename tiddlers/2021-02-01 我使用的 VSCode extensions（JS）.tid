@@ -1,0 +1,22 @@
+created: 20210201040755011
+creator: TJ
+modified: 20210415133434127
+modifier: TJ
+tags: 
+title: 2021-02-01 我使用的 VSCode extensions（JS）
+type: text/vnd.tiddlywiki
+
+```
+code --install-extension octref.vetur \
+code --install-extension editorconfig.editorconfig \
+code --install-extension esbenp.prettier-vscode \
+code --install-extension dbaeumer.vscode-eslint \
+code --install-extension stylelint.vscode-stylelint \
+code --install-extension bradlc.vscode-tailwindcss \
+code --install-extension streetsidesoftware.code-spell-checker \
+code --install-extension yzhang.markdown-all-in-one \
+code --install-extension humao.rest-client \
+code --install-extension wayou.vscode-todo-highlight \
+code --install-extension arjun.swagger-viewer \
+code --install-extension zeplin.zeplin
+```

@@ -1,0 +1,48 @@
+created: 20210313042628949
+creator: TJ
+modified: 20210415142537457
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live
+title: 2021-03-13 Customize Vetur for @nuxtjs/compostion-api
+type: text/vnd.tiddlywiki
+
+分享一个简单的小技巧。
+
+背景
+
+我目前在使用 nuxt + @nuxtjs/composition-api，使用 VSCode 输入 `ts` 时自动生成下面代码：
+
+```html
+<script lang="ts">
+import { defineComponent } from '@vue/composition-api'
+
+export default defineComponent({
+  setup() {
+
+  },
+})
+</script>
+```
+
+但是我并不是直接引入 @vue/compsotion-api，我希望引入 @nuxtjs/composition-api。
+
+解决方法：自定义 Vetur Snippet
+
+在 .vscode/vetur/snippets 目录下创建 vue-class-component.vue，如下：
+
+```html
+<template>
+
+</template>
+
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+
+export default defineComponent({
+  setup() {},
+})
+</script>
+```
+
+今后只要输入 `vue` 即可。
+

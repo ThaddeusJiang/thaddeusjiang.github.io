@@ -1,0 +1,30 @@
+created: 20200728102956586
+creator: Adithya_
+description: 
+modified: 20210416002524677
+modifier: Adithya_
+name: Posts
+published: 20210314001527357
+tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals $:/plugins/adithyab/tiddlyjam/live tiddlyjam.com
+title: Posts
+type: text/vnd.tiddlywiki
+
+<section class="section mt-6">
+  <div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <h1 class="title" style="font-size: 400%;">手艺人手记</h1>
+    </div>
+  </div>
+  <div>
+    <div class="container mt-6">
+      <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+        <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[手艺人手记]!sort[title]]">
+          {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose}}
+        </$list>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+{{$:/plugins/nico/shields/stylesheet}}
+</style>

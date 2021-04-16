@@ -1,0 +1,44 @@
+created: 20210115064704257
+creator: TJ
+modified: 20210415133053591
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live
+title: 2021-01-15 Nuxt Composition API useMeta 异步更新
+type: text/vnd.tiddlywiki
+
+我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。
+所以使用了 [[@nuxtjs/composition-api|https://composition-api.nuxtjs.org/]]
+
+一个小需求，从 API 获取数据，更新 document 的 `title` 。
+
+我们使用 `useMeta`
+
+```js
+const { title, meta } = useMeta()
+
+useFetch(async () => {
+  const data  = await someAjax();
+
+  title.value.title = data.title
+})
+```
+
+为什么要写这篇笔记？
+
+因为官方文档太迷惑了，让我浪费了很多时间。
+
+官方文档：
+
+```
+// You can even pass a function to achieve a computed meta
+const message = ref('')
+useMeta(() => ({ title: message.value }))
+```
+
+这段话让我误以为：“如果需要异步更新，就必须以函数形式。”
+
+实际上并不需要。仅以一篇笔记，纪念我失去的时间。
+
+参考
+
+* https://github.com/nuxt-community/composition-api/issues/116#issuecomment-643707422

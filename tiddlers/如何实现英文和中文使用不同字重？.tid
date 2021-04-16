@@ -1,0 +1,25 @@
+created: 20210131132859045
+creator: TJ
+modified: 20210415133424794
+modifier: TJ
+tags: 
+title: 如何实现英文和中文使用不同字重？
+type: text/vnd.tiddlywiki
+
+其实特别简单，直接只提供所需字重的字体即可。
+
+如果你使用 Goole Font，做法如下：
+
+1. 引入字体
+
+```html
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&family=Roboto&display=swap');
+</style>
+```
+
+2. 使用字体
+
+```css
+font-family: 'Roboto', 'Noto Serif SC', serif;
+```

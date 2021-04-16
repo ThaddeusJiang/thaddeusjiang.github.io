@@ -1,0 +1,53 @@
+created: 20210122093937818
+creator: TJ
+modified: 20210415133156669
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Mobile-First
+title: 2021-01-22 Is Mobile-First Wrong?
+type: text/vnd.tiddlywiki
+
+从阮一峰的科技爱好者周刊中看到一篇文章，让我重新思考这个问题。
+
+<<<.tc-big-quote
+Mobile-First 错了吗？
+<<<
+
+毕竟这是我工作中坚信不疑的最佳实践。
+
+先总结一下文章的内容。
+
+<<<
+为什么 Mobile-First 被提倡？
+
+# 在所有 Screen Size 都有更好的 UX
+# 更轻松地组织 CSS Code
+
+为什么 Mobile-First 在实践中并不好？
+
+# 绝大多数 web site 期待的第一显示设备都是 desktop
+# Mobile-First 是不自然的（注：因为你不得不省略一些元素）
+# Mobile-First 让 web site 变得单调
+<<<
+
+我基本行认同文章中提到的观点，尤其是 `Mobile-First 让 web site 变得单调`，这的确值得我们反思，现在的 Web site 基本上都是两列或者单列居中设计，真的是无聊到爆。
+
+但是我会在实际工作中放弃 Mobile-First 吗？
+
+回答：不会
+
+为什么呢？
+
+# Mobile-First 可以帮助我减少 bug，写 Responsive 布局不会遗漏某个 Screen Size 了。
+# 我的工作主要是开发大型系统，而不是个人网页。更轻松地组织 CSS Code 优先于更酷的页面布局。
+# 我的工作主要是开发大型系统，大屏才是我的目标客户。
+
+你怎么看？欢迎在 Twitter 和我讨论
+
+
+
+
+
+ref:
+
+* http://www.ruanyifeng.com/blog/2021/01/weekly-issue-141.html
+* https://planflow.dev/blog/why-mobile-first-is-a-bad-idea/

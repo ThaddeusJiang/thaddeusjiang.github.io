@@ -1,0 +1,30 @@
+created: 20210126135006802
+creator: TJ
+modified: 20210415133319593
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Git
+title: 2019-07-15 使用 git cz 标准化提交记录
+type: text/vnd.tiddlywiki
+
+自从开始使用 git cz 取代 git commit -m，提交记录变得非常干净、漂亮，这整个过程也没有任何额外负担，非常自然。
+
+
+!! 安装 git cz
+
+```sh
+// install
+$ npm install -g commitizen cz-conventional-changelog
+
+// config file
+$ echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
+
+// install vscode extension
+$ code --install-extension axetroy.vscode-changelog-generator
+```
+
+!! 使用
+
+```
+$ git add .
+$ git cz
+```

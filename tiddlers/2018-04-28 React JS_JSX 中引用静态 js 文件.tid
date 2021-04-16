@@ -1,0 +1,44 @@
+created: 20210122115825100
+creator: TJ
+modified: 20210415133156704
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js CKEditor
+title: 2018-04-28 React JS/JSX 中引用静态 js 文件
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+如果你有一个上古时代的 js 文件，你会直接引用它，还是重写一遍？
+<<<TJ
+
+React JS/JSX 中引用静态 js 文件，其实超简单。
+只需要在 componentDidMount 创建一个 `<script>` 标签，并且追加到页面中即可。
+
+```js
+componentDidMount () {
+  const script = document.createElement("script")
+  script.src = "https://cdn..."
+  script.async = true
+
+  document.body.appendChild(script)
+}
+```
+
+!! 应用场景
+
+目前项目是 toB 的内容管理系统，由于某些不可抗力因素影响，不得不对应  CKEditor 4。
+但是 CKEditor 4 并不支持 JS 模块，所以不能够使用 import 导入。
+
+无奈之下只能使用传统方法
+
+```html
+<script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+```
+
+因为只有部分页面使用 CKEditor，在 index.html 中引入 CKEditor 的静态文件有点过分了。
+
+所以我通过组件的 componentDidMount 引入。
+
+ref:
+
+* http://cdn.ckeditor.com/
+* https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx

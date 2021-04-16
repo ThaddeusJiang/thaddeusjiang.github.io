@@ -1,0 +1,103 @@
+created: 20210122120906980
+creator: TJ
+modified: 20210415133156715
+modifier: TJ
+tags: Jest 手艺人手记
+title: 2018-05-09 解决 Jest "SyntaxError Unexpected token import"
+type: text/vnd.tiddlywiki
+
+应该是 `Jest “SyntaxError Unexpected token import”` 最简单的解决方案。
+
+
+!! 背景
+
+React 的 SPA 项目，使用 And Design 作为 UI 框架。
+使用 Jest + Enzyme 进行单体测试。
+
+Antd 使用 `babel-plugin-import`  按需加载。
+.babelrc
+
+```json
+{
+  "presets": ["env", "react", "stage-0"],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": true
+      }
+    ]
+  ]
+}
+```
+
+问题
+
+Jest 执行测试时出现 SyntaxError: Unexpected token import 错误。
+
+[img[https://user-images.githubusercontent.com/17308201/39807414-347f9684-53b7-11e8-878f-1a99c6ea875d.png]]
+
+原因：Jest 无法理解 ES6 的 `import` 特性。
+
+解决方法：
+
+第 1 步：删掉 bebel-plugin-import 配置中 `libraryDirectory` 的部分。
+
+```json
+// .babelrc
+{
+  "presets": ["env", "react", "stage-0"],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
+    ]
+  ]
+}
+```
+
+这时，运行 jest 会出现 ReferenceError: Select is not defined 错误。
+
+[img[https://user-images.githubusercontent.com/17308201/39807911-85bc09e6-53b8-11e8-83d3-fc66830bb5e2.png]]
+
+第 2 步：安装 babel-plugin-transform-es2015-modules-commonjs
+
+```sh
+$ yarn add --dev babel-plugin-transform-es2015-modules-commonjs
+```
+
+更新 .babelrc
+
+```json
+// .babelrc
+{
+  "presets": ["env", "react", "stage-0"],
+  "plugins": [
+    "transform-es2015-modules-commonjs",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
+    ]
+  ]
+}
+```
+
+再次运行 jest，问题解决了。
+
+[img[https://user-images.githubusercontent.com/17308201/39808022-d5250500-53b8-11e8-8158-4b0825482904.png]]
+
+refs:
+
+* https://github.com/ant-design/ant-design/issues/5362
+* https://github.com/ant-design/babel-plugin-import/issues/189
+* https://www.npmjs.com/package/babel-plugin-import
+
+

@@ -1,0 +1,17 @@
+created: 20210222042532403
+creator: TJ
+modified: 20210415133448001
+modifier: TJ
+tags: 
+title: 如何修改页面配色？为什么没有对应 dark mode？
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+你的 blog 太暗了/太亮了，为什么你对应 dark mode？
+<<<
+
+感谢 TiddlyWiki，我不需要做任何开发就提供了多个配色，如果你不喜欢默认配色，可以挑选其他的配色。
+
+[img[https://i.gyazo.com/3e6df3a1591157af1960309d9768440b.jpg]]
+
+这么多配色，为啥要执着于 dark mode 呢？

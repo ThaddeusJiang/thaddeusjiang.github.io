@@ -1,0 +1,44 @@
+created: 20210112130230820
+creator: TJ
+modified: 20210415133035994
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live
+title: 2018-04-23 扩展 Ant Design iconfont
+type: text/vnd.tiddlywiki
+
+我们项目组是 [[Ant Design|https://github.com/ant-design/ant-design]] 的重度用户。 Ant Design 的 Icon 组件提供了很多图标，个人项目基本上足够了。 但是作为公司的项目，既有图标显然不能满足业务需求，所以就需要扩展图标。
+
+其实扩展 Ant Design 的 Icon 的图标特别简单，这里只是做一下记录。
+
+方法
+
+1. 上传你的图标到 https://www.iconfont.cn/，拷贝项目下面生成的 symbol 代码。 我们项目设计师给我的是 svg 文件。
+
+2. 为你的项目引入 `辅助 js`，并添加一段 `全局 CSS`。
+
+```html
+<script src="./iconfont.js"></script>
+
+<style type="text/css">
+  .icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
+</style>
+```
+
+3. 使用新图标
+
+```html
+
+<svg class="icon" aria-hidden="true">
+  <use xlink:href="#icon-xxx"></use>
+</svg>
+```
+
+参考
+
+* http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.15&helptype=code

@@ -1,0 +1,59 @@
+created: 20210122120435908
+creator: TJ
+modified: 20210415133156710
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Jest [[CSS Modules]]
+title: 2018-05-08 Jest 测试 CSS Modules
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+CSS Modules 解决了 CSS 全局作用域的问题，但是也引入了新的不便。
+<<<
+
+
+记录一下，Jest 如何测试 CSS Modules。
+
+!! 背景
+
+React 的 SPA 项目，使用 Parcel.js 作为打包工具。使用 CSS Modules 模块化开发样式。
+
+<<<.tc-big-quote
+Parcel.js：极速零配置 Web 应用打包工具。
+
+注：假的！配置少，但不是 0 配置。
+<<<
+
+!! 问题
+
+Jest 运行测试时无法理解 Less 语法， Less 代码无法转换成 JS 代码。
+
+[img[https://user-images.githubusercontent.com/17308201/39739266-ffe965d6-52ca-11e8-9b08-fccffc594c80.png]]
+
+解决方法
+
+使用 `identity-obj-proxy` mock CSS Modules。
+
+1. install identity-obj-proxy
+
+```bash
+$ yarn add --dev identity-obj-proxy
+```
+
+2. 修改 package.json 中 `jest` 配置
+
+```js
+"jest": {
+  ...
+  "moduleNameMapper": {
+    "\\.(css|less)$": "identity-obj-proxy"
+  }
+},
+```
+
+再次运行 `jest`，Jest 可以理解 Less 语法了。
+
+[img[https://user-images.githubusercontent.com/17308201/39739437-d18fa7c6-52cb-11e8-9ad8-2b2f9a34728d.png]]
+
+ref:
+
+* https://facebook.github.io/jest/docs/en/webpack.html#mocking-css-modules

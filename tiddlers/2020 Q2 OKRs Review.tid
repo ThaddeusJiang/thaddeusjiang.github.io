@@ -1,0 +1,43 @@
+created: 20210122122658225
+creator: TJ
+modified: 20210415133156744
+modifier: TJ
+tags: 
+title: 2020 Q2 OKRs Review
+type: text/vnd.tiddlywiki
+
+2020 Q2 OKRs
+
+<<<
+{{2020 Q2 OKRs}}
+<<<
+
+Objective 1 总结
+
+* 技术文章，完成，分享了超过 5 篇文章。
+* 开源项目，失败，公司没有开源任何项目。
+* Twitter，失败，只有六十几个 follower。
+
+
+Objective 2 总结
+
+*  性能提升，失败，中途被调到其他组。
+* 代码品质，算是完成吧，代码品质得到很大提升，但是根本没写测试代码，是通过提高大家的 code review 能力实现的。
+* Scrum，完成，多次分享 Scrum 开发经验，组织 sprint plan meeting，组织 daily meeting，还组织了 sprint review meeting。teamLab 票务项目组是第一个完成实施 Scrum 的项目组。
+
+Objective 3 总结
+
+*  分享会，完成，举行了超过 5 次分享会。
+*  code review，算是完成吧，虽然只参加了 2 个项目，但是在我的指导下，大家都可以进行 code review 了。
+*  nuxt boilerplate 贡献，3次。
+
+总体总结
+
+总体来讲 Q2 还不错。
+
+*  成功帮助公司发布新产品，https://twitter.com/teamlab_news/status/1262607287295725569?s=20
+* 帮助项目组完成实施 Scrum
+* 写文章，举行分享会，帮助提高 code review 能力， https://scrapbox.io/teamlab-frontend/
+*  涨工资了
+
+

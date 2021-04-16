@@ -1,0 +1,32 @@
+created: 20210122121542912
+creator: TJ
+modified: 20210415133156721
+modifier: TJ
+tags: Jest VSCode 手艺人手记
+title: 2018-05-11 VSCode 如何自动补全 Jest 断言？
+type: text/vnd.tiddlywiki
+
+背景
+
+我是用 VSCode 开发 js 代码，使用 Jest 作为测试框架。安装了` vscode-jest` 插件。
+
+问题
+
+VSCode 不能自动补全 expect 后的 `断言`。
+
+vscode-jest README 上显示的👇的动图，让我误以为 vscode-jest 自带这种自动补全功能。然而它并没有。
+
+[img[https://raw.githubusercontent.com/jest-community/vscode-jest/master/images/vscode-jest.gif]]
+
+解决方法
+
+安装 `@types/jest`，
+
+```bash
+$ yarn add @types/jest --dev
+```
+
+refs:
+
+* https://github.com/jest-community/vscode-jest/issues/78
+* https://github.com/jest-community/vscode-jest

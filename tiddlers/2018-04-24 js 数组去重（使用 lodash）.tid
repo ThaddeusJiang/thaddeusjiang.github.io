@@ -1,0 +1,65 @@
+created: 20210122105735454
+creator: TJ
+modified: 20210415133156676
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Lodash.js
+title: 2018-04-24 js 数组去重（使用 lodash）
+type: text/vnd.tiddlywiki
+
+看上去简单的功能，其实并不简单。简单功能也需要大量测试的支持，这就是为什么 lodash 火爆的原因。
+
+> 推荐一篇文章（与本文无关）https://zhuanlan.zhihu.com/p/35864087
+
+以前 JS 代码写的少，“数组去重”功能写的也少。并没发现下面的方法有什么问题。
+
+```js
+const arr1 = [1, 2, 3, 4, 3, 2, 1]
+const arr2 = arr1.filter((item, index, arr) => arr.indexOf(item) === index)
+```
+
+但是，今天突然发现上面的代码无法完成`对象数组`的去重。
+
+背景
+
+`对象数组`进行去重。
+
+```js
+const arra = [
+  {
+    id: 10010,
+    name: "蒋",
+  },
+  {
+    id: 10011,
+    name: "jiang",
+  },
+  {
+    id: 10011,
+    name: "jiang",
+  },
+]
+const newArra = data.filter((item, index, arr) => arr.indexOf(item) === index)
+// newArra 和 data 一摸一样
+```
+
+解决方法
+
+使用 `lodash 4` 的 `uniqBy` 方法。
+
+1. 安装
+
+```bash
+yarn add lodash
+```
+
+2. 使用
+
+```js
+import _ from "lodash"
+
+const newArra = _.uniqBy(data, "id")
+```
+
+参考：
+
+* https://lodash.com/docs/4.17.5#uniqBy

@@ -1,0 +1,110 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2020-04-22 How to decide Responsive Design break point? ~ My new website</title>
+<meta name="description" content="这可能是一个事实。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sampledomain.net/2020-04-22-how-to-decide-responsive-design-break-point" />
+<meta property="og:title" content="2020-04-22 How to decide Responsive Design break point? ~ My new website" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="这可能是一个事实。" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="2020-04-22 How to decide Responsive Design break point? ~ My new website" />
+<meta name="twitter:description" content="这可能是一个事实。" />
+<meta name="twitter:image" content="" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/" style="font-weight: 700;">
+       TJsDG
+            </a>
+        </div>
+    </nav>
+<section class="section">
+        <div class="container">
+            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+                <div>
+                    <div class="block">
+                        <a class="button is-link is-inverted" href="/">
+                            <span>&lt;- Home</span>
+                        </a>
+                    </div>
+                    <div class="block content">
+                     <h2 class="title is-3">2020-04-22 How to decide Responsive Design break point?</h2>
+                        <div class="subtitle is-6">27th January, 2021</div>
+                <p>这可能是一个事实。</p><p>绝大多数 Web 项目使用 <code>实际设备宽度</code> 作为 Responsive Design 的 break point。</p><p>虽然不知道具体原因是为什么，但是极有可能和 Bootstrap 流行有关。因为 Bootstrap 就使用实际设备（Apple's）的宽度作为 Gird 布局的 break point。</p><p><img src="https://i.gyazo.com/0f746f3b84be7dcb33c510cc82eedbb6.jpg"></p><p>个人认为这种设计只适合通用 framework，并不是银弹。</p><h2 class="">让我们一起看一个实际需求</h2><p>现在我们需要开发一个列表展示页面。</p><p>要求：</p><blockquote class="tc-quote"><p>卡片宽度为 200px，卡片间隔 40px。
+并且手机单列显示，平板或电脑多列显示。</p></blockquote><p>实际效果大致如下：</p><p><img src="https://i.gyazo.com/3c1f4fe292375cf6c1c8944de943f92b.jpg"></p><p>如果我们以设备宽度为break point，我们写出如下代码：</p><pre class="css hljs"><code><span class="hljs-selector-class">.list</span>{
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">align-items</span>: center;
+}
+
+<span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width:</span> <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-class">.list</span> {
+    <span class="hljs-attribute">flex-direction</span>: row;
+    <span class="hljs-attribute">flex-wrap</span>: wrap;
+    <span class="hljs-attribute">justify-content</span>: center;
+  }
+}
+
+<span class="hljs-selector-class">.item</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">20px</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#000</span>;
+}</code></pre><p>此时，如果你使用 iPad 进行测试，很幸运，你会发现一切正常。</p><p>但是，如果你使用 Android 设备去测试，那你可能就要祈祷上帝了。因为 Android 设备的宽度相当任性，你可能遇到宽度为 <code>767px</code> 的设备。</p><p>如果是设备宽度是 767px，上面的代码会如何显示呢？</p><p>结果如下：</p><p><img src="https://i.gyazo.com/d78f49274be9ae18947f60d157065298.jpg"></p><p>页面从 3 列突然变到 1 列</p><h2 class="">为什么会这样呢？</h2><p>因为上面代码存在一个严重的问题，即 Responsive Design 的 break point 和页面展示内容脱节。
+它是基于设备的宽度决定的。</p><h2 class="">正确的做法</h2><blockquote class="tc-quote tc-big-quote"><p>基于内容决定 break point，将内容变化点作为 break point。
+</p></blockquote><h2 class="">基于内容选取 break point</h2><p>同样的要求：</p><blockquote class="tc-quote"><p>卡片宽度为 200px，卡片间隔 40px。
+并且手机单列显示，平板或电脑多列显示。
+</p></blockquote><p>基于内容，我们可以得出页面从单列到多列的变化点是 <code>440px</code>。</p><pre><code>440px = 200px + 40px + 200px</code></pre><p>为了给页面边距预留一些留白，我们将 break point 设置 <code>480px</code>，CSS 如下：</p><pre class="css hljs"><code><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width:</span> <span class="hljs-number">480px</span>) {
+  <span class="hljs-selector-class">.list</span> {
+    <span class="hljs-attribute">flex-direction</span>: row;
+    <span class="hljs-attribute">flex-wrap</span>: wrap;
+    <span class="hljs-attribute">justify-content</span>: center;
+  }
+}</code></pre><p>看一下实际效果</p><p><img src="https://i.gyazo.com/8d8dbd82023553af0a8c3939bfc59ee8.gif"></p><h2 class="">总结</h2><blockquote class="tc-quote tc-big-quote"><p>Responsive Design 应该基于内容，而不是设备。
+</p></blockquote><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://getbootstrap.com/" rel="noopener noreferrer" target="_blank">https://getbootstrap.com/</a></li></ul>
+</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made with <a href="https://tiddlyjam.com"><strong>TiddlyJam</strong></a> by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

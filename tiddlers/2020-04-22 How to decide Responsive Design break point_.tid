@@ -1,0 +1,121 @@
+created: 20210127140423555
+creator: TJ
+modified: 20210415133409174
+modifier: TJ
+tags: 手艺人手记 $:/plugins/adithyab/tiddlyjam/live
+title: 2020-04-22 How to decide Responsive Design break point?
+type: text/vnd.tiddlywiki
+
+这可能是一个事实。
+
+绝大多数 Web 项目使用 `实际设备宽度` 作为 Responsive Design 的 break point。
+
+虽然不知道具体原因是为什么，但是极有可能和 Bootstrap 流行有关。因为 Bootstrap 就使用实际设备（Apple's）的宽度作为 Gird 布局的 break point。
+
+[img[https://i.gyazo.com/0f746f3b84be7dcb33c510cc82eedbb6.jpg]]
+
+个人认为这种设计只适合通用 framework，并不是银弹。
+
+!! 让我们一起看一个实际需求
+现在我们需要开发一个列表展示页面。
+
+要求：
+
+<<<
+卡片宽度为 200px，卡片间隔 40px。
+并且手机单列显示，平板或电脑多列显示。
+
+<<<
+
+实际效果大致如下：
+
+[img[https://i.gyazo.com/3c1f4fe292375cf6c1c8944de943f92b.jpg]]
+
+如果我们以设备宽度为break point，我们写出如下代码：
+
+```css
+.list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.item {
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+  border: 1px solid #000;
+}
+```
+
+此时，如果你使用 iPad 进行测试，很幸运，你会发现一切正常。
+
+但是，如果你使用 Android 设备去测试，那你可能就要祈祷上帝了。因为 Android 设备的宽度相当任性，你可能遇到宽度为 `767px` 的设备。
+
+如果是设备宽度是 767px，上面的代码会如何显示呢？
+
+结果如下：
+
+[img[https://i.gyazo.com/d78f49274be9ae18947f60d157065298.jpg]]
+
+页面从 3 列突然变到 1 列
+
+!! 为什么会这样呢？
+
+因为上面代码存在一个严重的问题，即 Responsive Design 的 break point 和页面展示内容脱节。
+它是基于设备的宽度决定的。
+
+!! 正确的做法
+
+<<<.tc-big-quote
+基于内容决定 break point，将内容变化点作为 break point。
+<<<
+
+!! 基于内容选取 break point
+
+同样的要求：
+
+<<<
+卡片宽度为 200px，卡片间隔 40px。
+并且手机单列显示，平板或电脑多列显示。
+<<<
+
+基于内容，我们可以得出页面从单列到多列的变化点是 `440px`。
+
+```
+440px = 200px + 40px + 200px
+```
+
+为了给页面边距预留一些留白，我们将 break point 设置 `480px`，CSS 如下：
+
+```css
+@media (min-width: 480px) {
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+```
+
+看一下实际效果
+
+[img[https://i.gyazo.com/8d8dbd82023553af0a8c3939bfc59ee8.gif]]
+
+!! 总结
+
+<<<.tc-big-quote
+Responsive Design 应该基于内容，而不是设备。
+<<<
+
+refs:
+
+* https://getbootstrap.com/

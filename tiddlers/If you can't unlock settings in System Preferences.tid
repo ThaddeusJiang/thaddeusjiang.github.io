@@ -1,0 +1,35 @@
+created: 20210118031931894
+creator: TJ
+modified: 20210415133053580
+modifier: TJ
+tags: macOS
+title: If you can't unlock settings in System Preferences
+type: text/vnd.tiddlywiki
+
+中文圈好像没人讨论升级 macOS Big Sur 后，System Preferences 无法解锁的问题。
+
+我最近把公司电脑升级到 macOS Big Sur 了，然后 System Preferences 就无法解锁了。这里
+
+[img[https://i.gyazo.com/3e35d528d77d255db763521145be9beb.jpg]]
+
+<<<.tc-big-quote
+这是 macOS Big Sur 11.1 的一个 bug。
+
+原文：
+While using macOS Big Sur 11.1, your Mac with Apple T2 Security Chip has an issue that requires resetting the SMC. System Preferences should accept your password after you reset the SMC.
+<<<
+
+解决方法
+
+# 关机
+# 同时按住 <kbd>Control</kbd> <kbd>Option</kbd> <kbd>Shift</kbd> 和 <kbd>电源键</kbd> 开机
+
+资料
+
+* https://support.apple.com/en-us/HT203127
+* https://support.apple.com/en-us/HT201295
+
+
+
+
+

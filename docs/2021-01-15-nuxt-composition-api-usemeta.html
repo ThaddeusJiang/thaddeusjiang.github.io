@@ -1,0 +1,88 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2021-01-15 Nuxt Composition API useMeta 异步更新 ~ My new website</title>
+<meta name="description" content="我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sampledomain.net/2021-01-15-nuxt-composition-api-usemeta" />
+<meta property="og:title" content="2021-01-15 Nuxt Composition API useMeta 异步更新 ~ My new website" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="2021-01-15 Nuxt Composition API useMeta 异步更新 ~ My new website" />
+<meta name="twitter:description" content="我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。" />
+<meta name="twitter:image" content="" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/" style="font-weight: 700;">
+       TJsDG
+            </a>
+        </div>
+    </nav>
+<section class="section">
+        <div class="container">
+            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+                <div>
+                    <div class="block">
+                        <a class="button is-link is-inverted" href="/">
+                            <span>&lt;- Home</span>
+                        </a>
+                    </div>
+                    <div class="block content">
+                     <h2 class="title is-3">2021-01-15 Nuxt Composition API useMeta 异步更新</h2>
+                        <div class="subtitle is-6">15th January, 2021</div>
+                <p>我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。
+所以使用了 <a class="tc-tiddlylink-external" href="https://composition-api.nuxtjs.org/" rel="noopener noreferrer" target="_blank">@nuxtjs/composition-api</a></p><p>一个小需求，从 API 获取数据，更新 document 的 <code>title</code> 。</p><p>我们使用 <code>useMeta</code></p><pre class="js hljs"><code><span class="hljs-keyword">const</span> { title, meta } = useMeta()
+
+useFetch(<span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> data  = <span class="hljs-keyword">await</span> someAjax();
+
+  title.value.title = data.title
+})</code></pre><p>为什么要写这篇笔记？</p><p>因为官方文档太迷惑了，让我浪费了很多时间。</p><p>官方文档：</p><pre><code>// You can even pass a function to achieve a computed meta
+const message = ref('')
+useMeta(() =&gt; ({ title: message.value }))</code></pre><p>这段话让我误以为：“如果需要异步更新，就必须以函数形式。”</p><p>实际上并不需要。仅以一篇笔记，纪念我失去的时间。</p><p>参考</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/nuxt-community/composition-api/issues/116#issuecomment-643707422" rel="noopener noreferrer" target="_blank">https://github.com/nuxt-community/composition-api/issues/116#issuecomment-643707422</a></li></ul>
+</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made with <a href="https://tiddlyjam.com"><strong>TiddlyJam</strong></a> by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2019-07-11 从 jsinspect 迁移到 jscpd ~ My new website</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sampledomain.net/2019-07-11-jsinspect-jscpd" />
+<meta property="og:title" content="2019-07-11 从 jsinspect 迁移到 jscpd ~ My new website" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="2019-07-11 从 jsinspect 迁移到 jscpd ~ My new website" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/" style="font-weight: 700;">
+       TJsDG
+            </a>
+        </div>
+    </nav>
+<section class="section">
+        <div class="container">
+            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+                <div>
+                    <div class="block">
+                        <a class="button is-link is-inverted" href="/">
+                            <span>&lt;- Home</span>
+                        </a>
+                    </div>
+                    <div class="block content">
+                     <h2 class="title is-3">2019-07-11 从 jsinspect 迁移到 jscpd</h2>
+                        <div class="subtitle is-6">26th January, 2021</div>
+                <blockquote class="tc-quote tc-big-quote"><p>jscpd 是一个用于检测重复代码的工具，拒绝 copy/pause 从选择优秀的工具开始。
+</p></blockquote><p>目前负责的项目的 package.json 中有如下命令：</p><pre class="json hljs"><code><span class="hljs-comment">//  package.json</span>
+{
+  <span class="hljs-attr">"scripts:"</span>: {
+    <span class="hljs-attr">"check:quality"</span>: <span class="hljs-string">"npx jsinspect -t 50 src"</span>,
+  }
+}</code></pre><p>但是，这只是从上一个项目继承过来的祖传代码，从来没有人使用过。</p><p>一般情况下，我的原则都是没有用的代码，全部删除。
+但是存在必有其存在的道理，先分析一下。</p><ul><li>这段代码有什么作用？<ul><li>jsinspect 检查复制/粘贴，或者类似代码的工具。</li></ul></li><li>为什么没有人使用？<ul><li>我运行了一下，结果得到一大堆 log，十分茫然，不知道接下来要做什么。</li><li>没有简单易懂的结果报告。</li></ul></li></ul><p>从上面分析可以看出，功能还是有用的，最起码能知道项目中有多少重复代码。就是工具选择的不恰当，没有易用性。</p><p>改进方法就是寻找替代方案。
+于是我找到 jscpd</p><h2 class="">jscpd 对比 jsinspect 优势</h2><ol><li>仍在维护。（这点太重要了）</li><li>运行结果内容清晰，且报告比较美观。</li></ol><h2 class="">jscpd 使用</h2><p>官网示例非常简单，推荐直接阅读。</p><p>TL;DR</p><p>1. config file</p><pre class="json hljs"><code>{
+  <span class="hljs-attr">"threshold"</span>: <span class="hljs-number">0.1</span>,
+  <span class="hljs-attr">"reporters"</span>: [<span class="hljs-string">"html"</span>, <span class="hljs-string">"console"</span>],
+  <span class="hljs-attr">"ignore"</span>: [<span class="hljs-string">"**/__snapshots__/**"</span>],
+  <span class="hljs-attr">"absolute"</span>: <span class="hljs-literal">true</span>
+}</code></pre><p>- package.json</p><pre class="json hljs"><code>{
+  <span class="hljs-attr">"scripts:"</span>: {
+    <span class="hljs-attr">"check:quality"</span>: <span class="hljs-string">"npx jscpd src"</span>,
+  }
+}</code></pre><p>运行结果对比：左：jsinspect，右：jscpd
+<img src="https://i.gyazo.com/ed66c11ed7e90eb87c34c9391a055855.jpg"></p><p>对比之后，效果显而易见。jscpd 完胜。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/kucherenko/jscpd" rel="noopener noreferrer" target="_blank">https://github.com/kucherenko/jscpd</a></li></ul>
+</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made with <a href="https://tiddlyjam.com"><strong>TiddlyJam</strong></a> by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

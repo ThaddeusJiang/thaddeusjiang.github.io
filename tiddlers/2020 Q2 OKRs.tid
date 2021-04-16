@@ -1,0 +1,31 @@
+created: 20210122122549764
+creator: TJ
+modified: 20210415133156736
+modifier: TJ
+tags: 
+title: 2020 Q2 OKRs
+type: text/vnd.tiddlywiki
+
+Objective 1. 我希望帮助 team-lab 前端团队提升知名度
+
+KRs：
+
+# 分享 5 篇技术文章
+# 帮助 team-lab 开源项目获得 100 star
+# 个人 Twitter 获得 100名粉丝
+
+Objective 2. 改进 team-lab 订票业务的项目品质
+
+KRs：
+
+# 性能提升，所有页面加载 2s 以内
+# 提升代码品质，实现 Unit Test、E2E Test 自动化测试。
+# 推进 Scrum 开发流程，分享 3 次 Scrum 开发经验。
+
+ Objective 3. 指导新人快速成为优秀的开发者
+
+KRs：
+
+# 举行 5 次分享会，主要涉及状态管理、代码复用性，微前端架构
+# 帮助 5 个项目进行 code review。
+# 帮助完善 nuxt boilerplate 项目，贡献 10 次。

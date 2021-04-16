@@ -1,0 +1,92 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整 ~ My new website</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sampledomain.net/2018-05-12-airbnb-eslint" />
+<meta property="og:title" content="2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整 ~ My new website" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整 ~ My new website" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/" style="font-weight: 700;">
+       TJsDG
+            </a>
+        </div>
+    </nav>
+<section class="section">
+        <div class="container">
+            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+                <div>
+                    <div class="block">
+                        <a class="button is-link is-inverted" href="/">
+                            <span>&lt;- Home</span>
+                        </a>
+                    </div>
+                    <div class="block content">
+                     <h2 class="title is-3">2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整</h2>
+                        <div class="subtitle is-6">22nd January, 2021</div>
+                <blockquote class="tc-quote tc-big-quote"><p>没有完美的解决方案，适合自己的才是最好的。
+</p><cite>TJ</cite></blockquote><p>无分号</p><pre class="js hljs"><code><span class="hljs-string">"semi"</span>: [<span class="hljs-string">"warn"</span>, <span class="hljs-string">"never"</span>],</code></pre><p>允许 console 输出 <code>warn</code> <code>error</code></p><pre class="js hljs"><code><span class="hljs-string">"no-console"</span>: [<span class="hljs-string">"error"</span>, { <span class="hljs-string">"allow"</span>: [<span class="hljs-string">"warn"</span>, <span class="hljs-string">"error"</span>] }],</code></pre><p>允许简单运算符混合运用（ + - \* / 等），依旧禁止复杂运算符混合运用</p><pre class="js hljs"><code><span class="hljs-string">"no-mixed-operators"</span>: [
+    <span class="hljs-string">"error"</span>,
+    {
+        <span class="hljs-string">"groups"</span>: [
+            [<span class="hljs-string">"&amp;"</span>, <span class="hljs-string">"|"</span>, <span class="hljs-string">"^"</span>, <span class="hljs-string">"~"</span>, <span class="hljs-string">"&lt;&lt;"</span>, <span class="hljs-string">"&gt;&gt;"</span>, <span class="hljs-string">"&gt;&gt;&gt;"</span>],
+            [<span class="hljs-string">"=="</span>, <span class="hljs-string">"!="</span>, <span class="hljs-string">"==="</span>, <span class="hljs-string">"!=="</span>, <span class="hljs-string">"&gt;"</span>, <span class="hljs-string">"&gt;="</span>, <span class="hljs-string">"&lt;"</span>, <span class="hljs-string">"&lt;="</span>],
+            [<span class="hljs-string">"&amp;&amp;"</span>, <span class="hljs-string">"||"</span>],
+            [<span class="hljs-string">"in"</span>, <span class="hljs-string">"instanceof"</span>]
+        ],
+        <span class="hljs-string">"allowSamePrecedence"</span>: <span class="hljs-literal">true</span>
+    }
+  ],</code></pre><p>其实还有很多，过段时间公开配置文件。
+</p>
+</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made with <a href="https://tiddlyjam.com"><strong>TiddlyJam</strong></a> by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
