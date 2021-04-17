@@ -18,20 +18,20 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2021-04-17 Create-React-App 性能优化 ~ My new website</title>
-<meta name="description" content="2021 年 04 年 01 日，加入新公司，回到了我曾经很熟悉，现在有点手生的 React 生态。起初有一点忐忑，幸好 React 已经很久大更新了。">
+<title>2021-04-17 Create React App 项目性能优化「将最大文件从 5.1M 减小到 1.4M」 ~ My new website</title>
+<meta name="description" content="2021 年 04 年 01 日，加入新公司，回到了我曾经很熟悉，现在有点手生的 React 生态。起初有一点忐忑，幸好 React 已经很久没有大更新了。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2021-04-17-create-react-app" />
-<meta property="og:title" content="2021-04-17 Create-React-App 性能优化 ~ My new website" />
+<meta property="og:url" content="http://sampledomain.net/2021-04-17-create-react-app-5-1m-1-4m" />
+<meta property="og:title" content="2021-04-17 Create React App 项目性能优化「将最大文件从 5.1M 减小到 1.4M」 ~ My new website" />
 <meta property="og:image" content="" />
-<meta property="og:description" content="2021 年 04 年 01 日，加入新公司，回到了我曾经很熟悉，现在有点手生的 React 生态。起初有一点忐忑，幸好 React 已经很久大更新了。" />
+<meta property="og:description" content="2021 年 04 年 01 日，加入新公司，回到了我曾经很熟悉，现在有点手生的 React 生态。起初有一点忐忑，幸好 React 已经很久没有大更新了。" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2021-04-17 Create-React-App 性能优化 ~ My new website" />
-<meta name="twitter:description" content="2021 年 04 年 01 日，加入新公司，回到了我曾经很熟悉，现在有点手生的 React 生态。起初有一点忐忑，幸好 React 已经很久大更新了。" />
+<meta name="twitter:title" content="2021-04-17 Create React App 项目性能优化「将最大文件从 5.1M 减小到 1.4M」 ~ My new website" />
+<meta name="twitter:description" content="2021 年 04 年 01 日，加入新公司，回到了我曾经很熟悉，现在有点手生的 React 生态。起初有一点忐忑，幸好 React 已经很久没有大更新了。" />
 <meta name="twitter:image" content="" />
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
@@ -57,9 +57,9 @@
                         </a>
                     </div>
                     <div class="block content">
-                     <h2 class="title is-3">2021-04-17 Create-React-App 性能优化</h2>
+                     <h2 class="title is-3">2021-04-17 Create React App 项目性能优化「将最大文件从 5.1M 减小到 1.4M」</h2>
                         <div class="subtitle is-6">17th April, 2021</div>
-                  <p>2021 年 04 年 01 日，加入新公司，回到了我曾经很熟悉，现在有点手生的 React 生态。起初有一点忐忑，幸好 React 已经很久大更新了。</p><p>我们项目使用 Create-React-App 作为打包工具，因为功能的不断增加，bundle 越来越大了，所以我主动做了一点性能优化。</p><blockquote class="tc-quote tc-big-quote"><p>初始页面加载最大文件从 5.1M 减少到 1.4M，文件大小缩小了 3 倍。
+                  <p>2021 年 04 年 01 日，加入新公司，回到了我曾经很熟悉，现在有点手生的 React 生态。起初有一点忐忑，幸好 React 已经很久没有大更新了。</p><p>我们项目使用 Create-React-App 作为打包工具，因为功能的不断增加，bundle 越来越大了，所以我主动做了一点性能优化。</p><blockquote class="tc-quote tc-big-quote"><p>初始页面加载最大文件从 5.1M 减少到 1.4M，文件大小缩小了 3 倍。
 </p></blockquote><h2 class="">before</h2><blockquote><div>最大文件 5.1M</div><div>加载时间 1.15s</div></blockquote><p><img src="https://i.gyazo.com/df061819018ab6f9a82f244e57f7889c.jpg"></p><h2 class="">After</h2><blockquote><div>最大文件 1.4M</div><div>加载时间 327ms</div></blockquote><p><img src="https://i.gyazo.com/7086535351835ea6bd98a64d1c46df2b.jpg"></p><h2 class="">我做了什么？</h2><h3 class="">1. Code Splitting </h3><p>Code Splitting 利用到 React.lazy 和 Suspense，代码如下：</p><pre class="diff hljs"><code><span class="hljs-deletion">- import React, { FC, useContext, useEffect } from 'react';</span>
 <span class="hljs-addition">+ import React, { FC, Suspense, lazy, useContext, useEffect } from 'react';</span>
 
