@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
    <url>
+      <loc>http://sampledomain.net/2017-06-23-git</loc>
+      <lastmod>2021-04-17</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2017-06-30-xss</loc>
+      <lastmod>2021-04-17</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2017-07-06-20-velocity</loc>
+      <lastmod>2021-04-17</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>http://sampledomain.net/2017-09-11-appium</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
@@ -62,6 +80,18 @@
    </url>
 
    <url>
+      <loc>http://sampledomain.net/2018-05-09-jest-syntaxerror-unexpected-token-import</loc>
+      <lastmod>2021-04-17</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2018-05-11-vscode-jest</loc>
+      <lastmod>2021-04-17</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>http://sampledomain.net/2018-05-12-airbnb-eslint</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
@@ -70,6 +100,12 @@
    <url>
       <loc>http://sampledomain.net/2019-05-14-github</loc>
       <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-05-16</loc>
+      <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -118,6 +154,12 @@
    <url>
       <loc>http://sampledomain.net/2019-11-18-react-testing-1-unit-testing</loc>
       <lastmod>2021-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2019-11-19-react-testing-2-e2e-testing</loc>
+      <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -188,6 +230,12 @@
    </url>
 
    <url>
+      <loc>http://sampledomain.net/2021-01-12-unicode-range</loc>
+      <lastmod>2021-04-17</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>http://sampledomain.net/2021-01-15-nuxt-composition-api-usemeta</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
@@ -244,6 +292,12 @@
    <url>
       <loc>http://sampledomain.net/2021-04-16-seo-static-site</loc>
       <lastmod>2021-04-16</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>http://sampledomain.net/2021-04-17-create-react-app</loc>
+      <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

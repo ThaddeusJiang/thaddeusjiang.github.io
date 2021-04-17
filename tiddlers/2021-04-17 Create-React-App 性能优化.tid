@@ -1,0 +1,88 @@
+created: 20210417121054183
+creator: TJ
+modified: 20210417133151688
+modifier: TJ
+tags: $:/plugins/adithyab/tiddlyjam/live 手艺人手记 性能优化
+title: 2021-04-17 Create-React-App 性能优化
+type: text/vnd.tiddlywiki
+
+2021 年 04 年 01 日，加入新公司，回到了我曾经很熟悉，现在有点手生的 React 生态。起初有一点忐忑，幸好 React 已经很久大更新了。
+
+我们项目使用 Create-React-App 作为打包工具，因为功能的不断增加，bundle 越来越大了，所以我主动做了一点性能优化。
+
+<<<.tc-big-quote
+初始页面加载最大文件从 5.1M 减少到 1.4M，文件大小缩小了 3 倍。
+<<<
+
+!! before
+> 最大文件 5.1M
+> 加载时间 1.15s
+
+[img[https://i.gyazo.com/df061819018ab6f9a82f244e57f7889c.jpg]]
+
+!! After
+> 最大文件 1.4M
+> 加载时间 327ms
+
+[img[https://i.gyazo.com/7086535351835ea6bd98a64d1c46df2b.jpg]]
+
+
+!! 我做了什么？
+
+!!! 1. Code Splitting 
+
+Code Splitting 利用到 React.lazy 和 Suspense，代码如下：
+
+```diff
+- import React, { FC, useContext, useEffect } from 'react';
++ import React, { FC, Suspense, lazy, useContext, useEffect } from 'react';
+
+- import LoginPage from './pages/LoginPage';
+- import OtherPage from './pages/OtherPage';
+
++ const LazyLoginPage = lazy(() => import('./pages/LoginPage'));
++ const LazyOtherPage = lazy(() => import('./pages/OtherPage'));
+
+<Router>
++  <Suspense fallback={<Loading />}>
+    <Switch>
+-      <Route path="/login" component={LoginPage} />
+-      <Route path="/other" component={OtherPage} />
++      <Route path="/login" component={LazyLoginPage} />
++      <Route path="/other" component={LazyOtherPage} />
+    </Switch>
++  </Suspense>
+</Router>
+```
+
+!!! 2. Nginx gzip on
+
+```diff
+server {
+    listen       80;
+    server_name  _;
+
+    root /usr/share/app/;
+    index index.html;
+
+    ...
+
++    gzip on;
++    gzip_static on;
++    gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
++    gzip_proxied  any;
++    gzip_vary on;
++    gzip_comp_level 6;
++    gzip_buffers 16 8k;
++    gzip_http_version 1.1;
+}
+```
+
+相关阅读：
+
+* [[2019-05-16 前端性能优化（一）性能评估]]
+
+参考：
+
+* https://reactjs.org/docs/code-splitting.html
+* https://nginx.org/en/docs/http/ngx_http_gzip_module.html

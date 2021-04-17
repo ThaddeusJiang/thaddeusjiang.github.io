@@ -1,0 +1,185 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2019-11-19 React Testing 2 - E2E Testing ~ My new website</title>
+<meta name="description" content="相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sampledomain.net/2019-11-19-react-testing-2-e2e-testing" />
+<meta property="og:title" content="2019-11-19 React Testing 2 - E2E Testing ~ My new website" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="2019-11-19 React Testing 2 - E2E Testing ~ My new website" />
+<meta name="twitter:description" content="相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。" />
+<meta name="twitter:image" content="" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="./" style="font-weight: 700;" title="TJ's Digital Garden">
+       TJsDG
+            </a>
+        </div>
+    </nav>
+<section class="section">
+        <div class="container">
+            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+                <div>
+                    <div class="block">
+                        <a class="button is-link is-inverted" href="./">
+                            <span>&lt; Home</span>
+                        </a>
+                    </div>
+                    <div class="block content">
+                     <h2 class="title is-3">2019-11-19 React Testing 2 - E2E Testing</h2>
+                        <div class="subtitle is-6">27th January, 2021</div>
+                  <p>相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。</p><h2 class="">1. 什么是 E2E Testing？</h2><blockquote class="tc-quote tc-big-quote"><p>笔者认为：E2E Testing 就是从用户角度对软件进行测试。
+</p></blockquote><p>例如：进入“登陆界面”，输入用户名和密码，点击登陆后跳转到“登陆成功”界面。</p><h2 class="">2. 如何做 E2E Testing？</h2><p>很幸运，在 E2E Testing 方面，已经有很多开源软件可以使用。
+推荐 Cypress</p><p>1. 安装并配置 Cypress</p><pre class="bash hljs"><code>yarn add cypress --dev
+
+yarn cypress open</code></pre><p>第一次运行 <code>cypress open</code>，Cypress 会自动生成测试目录和基本配置。如：</p><pre><code>├── cypress
+│   └── fixtures
+│   └── integration
+│   └── plugins
+│   └── support</code></pre><p>2. 编写一个登陆界面，并测试</p><p>我们约定路由如下：</p><ul><li><code>/login</code> 登陆界面</li><li><code>/</code> 主页面</li></ul><pre class="js hljs"><code><span class="hljs-comment">// 登陆界面</span>
+<span class="hljs-comment">// src/modules/login/index.js</span>
+<span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>
+<span class="hljs-keyword">import</span> { navigate } <span class="hljs-keyword">from</span> <span class="hljs-string">"@reach/router"</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Login</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [username, setUsername] = useState(<span class="hljs-string">""</span>)
+  <span class="hljs-keyword">const</span> [password, setPassword] = useState(<span class="hljs-string">""</span>)
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">htmlFor</span>=<span class="hljs-string">"username"</span>&gt;</span>Username:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+          <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+          <span class="hljs-attr">id</span>=<span class="hljs-string">"username"</span>
+          <span class="hljs-attr">name</span>=<span class="hljs-string">"username"</span>
+          <span class="hljs-attr">value</span>=<span class="hljs-string">{username}</span>
+          <span class="hljs-attr">onChange</span>=<span class="hljs-string">{e</span> =&gt;</span> setUsername(e.target.value)}
+        /&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">htmlFor</span>=<span class="hljs-string">"password"</span>&gt;</span>Password:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+          <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span>
+          <span class="hljs-attr">id</span>=<span class="hljs-string">"password"</span>
+          <span class="hljs-attr">name</span>=<span class="hljs-string">"password"</span>
+          <span class="hljs-attr">value</span>=<span class="hljs-string">{password}</span>
+          <span class="hljs-attr">onChange</span>=<span class="hljs-string">{e</span> =&gt;</span> setPassword(e.target.value)}
+        /&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+        <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>
+        <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> {
+          if (username === "jifa" &amp;&amp; password === "password") {
+            navigate("/")
+          }
+        }}
+      &gt;
+        Login
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}</code></pre><pre class="js hljs"><code><span class="hljs-comment">// 测试代码</span>
+<span class="hljs-comment">// cypress/integration/login.js</span>
+<span class="hljs-comment">/// &lt;reference types="Cypress" /&gt;</span>
+
+describe(<span class="hljs-string">"Login Page"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  before(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    cy.fixture(<span class="hljs-string">"user"</span>).as(<span class="hljs-string">"user"</span>)
+  })
+
+  it(<span class="hljs-string">"fill username and password, login"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    cy.visit(<span class="hljs-string">"/login"</span>)
+
+    cy.get(<span class="hljs-string">'input[name="username"]'</span>).type(<span class="hljs-keyword">this</span>.user.username)
+    cy.get(<span class="hljs-string">'input[name="password"]'</span>).type(<span class="hljs-keyword">this</span>.user.password)
+
+    cy.get(<span class="hljs-string">'button[type="submit"]'</span>).click()
+
+    cy.contains(<span class="hljs-string">"HOME"</span>)
+  })
+})</code></pre><pre class="json hljs"><code><span class="hljs-comment">// 测试数据</span>
+<span class="hljs-comment">// cypress/fixtures/user.json</span>
+{
+  <span class="hljs-attr">"username"</span>: <span class="hljs-string">"jifa"</span>,
+  <span class="hljs-attr">"password"</span>: <span class="hljs-string">"password"</span>
+}</code></pre><p>运行测试</p><pre class="bash hljs"><code>yarn cypress open</code></pre><p>这时 Cypress 会启动如下窗口，点击测试文件即可开始测试。</p><p><img src="https://i.gyazo.com/2ce8aa2c6788c5076bbeac6c1c6e71af.jpg"></p><h2 class="">3. 常见问题</h2><p>1. 如何自动补全 Cypress 方法？</p><p>在测试文件内添加如下代码：</p><pre class="js hljs"><code><span class="hljs-comment">/// &lt;reference types="Cypress" /&gt;</span></code></pre><p>2. <code>cy undefined</code>，如何解决？</p><p>安装 [eslint-plugin-cypress](<a class="tc-tiddlylink-external" href="https://github.com/cypress-io/eslint-plugin-cypress" rel="noopener noreferrer" target="_blank">https://github.com/cypress-io/eslint-plugin-cypress</a>)，并配置 <code>eslintrc.json</code></p><pre class="bash hljs"><code>yarn add --dev eslint-plugin-cypress</code></pre><pre class="json hljs"><code><span class="hljs-comment">// eslintrc.json</span>
+{
+  <span class="hljs-attr">"plugins"</span>: [<span class="hljs-string">"cypress"</span>]
+}</code></pre><p>3. 如何自动化测试？</p><p>以 GitHub Actions 为例：</p><p>第一步：定义 npm scripts</p><pre class="json hljs"><code>// package.json
+"scripts": {
+  "start": "react-scripts start",
+
+  "start-server": "npm start",
+  "cy:record": "cypress run --record",
+  "cy:ci": "start-server-and-test start-server http://localhost:3000 cy:record"
+}</code></pre><p>第二步： 定义 <code>.github/workflows/pull_request.yml</code></p><pre class="yaml hljs"><code><span class="hljs-attr">name:</span> <span class="hljs-string">"PR Checks"</span>
+
+<span class="hljs-attr">on:</span> <span class="hljs-string">pull_request</span>
+
+<span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">test:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">E2E</span> <span class="hljs-string">Tests</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Check</span> <span class="hljs-string">out</span> <span class="hljs-string">code</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@master</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">dependencies</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">yarn</span> <span class="hljs-string">install</span> <span class="hljs-string">--non-interactive</span> <span class="hljs-string">--no-progress</span> <span class="hljs-string">--frozen-lockfile</span> <span class="hljs-string">--ignore-optional</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">E2E</span> <span class="hljs-string">Tests</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">yarn</span> <span class="hljs-string">cy:ci</span>
+        <span class="hljs-attr">env:</span>
+          <span class="hljs-attr">CYPRESS_RECORD_KEY:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.CYPRESS_RECORD_KEY</span> <span class="hljs-string">}}</span></code></pre><p>需要在 GitHub Secrets 定义 <code>CYPRESS_RECORD_KEY</code>，如下：</p><p><img src="https://i.gyazo.com/825570ffe09b2d6ff69f7b546ba1733d.jpg"></p><h2 class="">经验</h2><blockquote class="tc-quote tc-big-quote"><p>其实可以全局安装 Cypress
+</p></blockquote><p>优点是缩短 npm 安装时间。</p><p>代码：<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/react-testing-example/pull/2" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/react-testing-example/pull/2</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.cypress.io/" rel="noopener noreferrer" target="_blank">https://www.cypress.io/</a></li></ul>
+                </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made with <a href="https://tiddlyjam.com"><strong>TiddlyJam</strong></a> by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
