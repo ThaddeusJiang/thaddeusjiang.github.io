@@ -18,23 +18,23 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2018-04-21 eslint 提示：Do not use findDOMNode ~ My new website</title>
+<title>2018-04-21 eslint 提示：Do not use findDOMNode ~ TJ's Digital Garden</title>
 <meta name="description" content="记录一条 eslint 提示：">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2018-04-21-eslint-do-not-use-finddomnode" />
-<meta property="og:title" content="2018-04-21 eslint 提示：Do not use findDOMNode ~ My new website" />
+<meta property="og:url" content=".//2018-04-21-eslint-do-not-use-finddomnode" />
+<meta property="og:title" content="2018-04-21 eslint 提示：Do not use findDOMNode ~ TJ's Digital Garden" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="记录一条 eslint 提示：" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2018-04-21 eslint 提示：Do not use findDOMNode ~ My new website" />
+<meta name="twitter:title" content="2018-04-21 eslint 提示：Do not use findDOMNode ~ TJ's Digital Garden" />
 <meta name="twitter:description" content="记录一条 eslint 提示：" />
 <meta name="twitter:image" content="" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
 </head>
 
@@ -53,13 +53,13 @@
                 <div>
                     <div class="block">
                         <a class="button is-link is-inverted" href="./">
-                            <span>&lt; Home</span>
+                            <span>&amp;lt- Home </span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2018-04-21 eslint 提示：Do not use findDOMNode</h2>
                         <div class="subtitle is-6">12th January, 2021</div>
-                  <p>记录一条 eslint 提示：</p><pre><code>[eslint] Do not use findDOMNode (react/no-find-dom-node)</code></pre><p>背景</p><p>使用react-dnd做拖拽功能时，需要判断真实DOM的大小和位置。</p><p>官方示例： <a class="tc-tiddlylink-external" href="https://github.com/react-dnd/react-dnd/blob/164a8048296101e3bcf543df3406ee6dabfdf059/packages/documentation/examples/04%20Sortable/Simple/Card.js#L35" rel="noopener noreferrer" target="_blank">https://github.com/react-dnd/react-dnd/blob/164a8048296101e3bcf543df3406ee6dabfdf059/packages/documentation/examples/04%20Sortable/Simple/Card.js#L35</a></p><p>但是我们项目使用 eslint 检查 js 代码品质。所以出现 👆 提示。</p><p>解决方法</p><pre class="jsx hljs"><code><span class="hljs-comment">// Step 1. render()</span>
+                <p>记录一条 eslint 提示：</p><pre><code>[eslint] Do not use findDOMNode (react/no-find-dom-node)</code></pre><p>背景</p><p>使用react-dnd做拖拽功能时，需要判断真实DOM的大小和位置。</p><p>官方示例： <a class="tc-tiddlylink-external" href="https://github.com/react-dnd/react-dnd/blob/164a8048296101e3bcf543df3406ee6dabfdf059/packages/documentation/examples/04%20Sortable/Simple/Card.js#L35" rel="noopener noreferrer" target="_blank">https://github.com/react-dnd/react-dnd/blob/164a8048296101e3bcf543df3406ee6dabfdf059/packages/documentation/examples/04%20Sortable/Simple/Card.js#L35</a></p><p>但是我们项目使用 eslint 检查 js 代码品质。所以出现 👆 提示。</p><p>解决方法</p><pre class="jsx hljs"><code><span class="hljs-comment">// Step 1. render()</span>
 ;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
   <span class="hljs-attr">ref</span>=<span class="hljs-string">{node</span> =&gt;</span> {
     this.node = node
@@ -71,7 +71,7 @@
 <span class="hljs-comment">// Step 2. function</span>
 component.decoratedComponentInstance.node.getBoundingClientRect()</code></pre><p>参考： <a class="tc-tiddlylink-external" href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md" rel="noopener noreferrer" target="_blank">https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md</a>
 </p>
-                </div>
+</div>
                 </div>
                 <hr>
             </div>

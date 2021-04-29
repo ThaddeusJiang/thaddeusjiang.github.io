@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel><title>TJ's Digital Garden</title>
+   <link>https://thaddeusjiang.com</link>
+   <atom:link href="https://thaddeusjiang.com/rss.xml" rel="self" type="application/rss+xml" />
+   <description>readable in 100+ years time</description>
+   <item>
+      <title>目前，这个 Blog 打开可能有点慢</title>
+      <link>https://thaddeusjiang.com/blog</link>
+      <guid>https://thaddeusjiang.com/blog</guid>
+   </item>
+
+   <item>
+      <title>Welcome</title>
+      <link>https://thaddeusjiang.com/welcome</link>
+      <guid>https://thaddeusjiang.com/welcome</guid>
+   </item>
+
+   <item>
+      <title>Posts</title>
+      <link>https://thaddeusjiang.com/posts</link>
+      <guid>https://thaddeusjiang.com/posts</guid>
+   </item>
+
+   <item>
+      <title>2021-04-29 重启 RSS</title>
+      <link>https://thaddeusjiang.com/2021-04-29-rss</link>
+      <guid>https://thaddeusjiang.com/2021-04-29-rss</guid>
+   </item>
+
+   <item>
+      <title>2021-04-17 Create React App 项目性能优化「将最大文件从 5.1M 减小到 1.4M」</title>
+      <link>https://thaddeusjiang.com/2021-04-17-create-react-app-5-1m-1-4m</link>
+      <guid>https://thaddeusjiang.com/2021-04-17-create-react-app-5-1m-1-4m</guid>
+   </item>
+
+   <item>
+      <title>2021-04-16 向邪恶的 SEO 低头，我部署了 static site 版本</title>
+      <link>https://thaddeusjiang.com/2021-04-16-seo-static-site</link>
+      <guid>https://thaddeusjiang.com/2021-04-16-seo-static-site</guid>
+   </item>
+
+   <item>
+      <title>2021-04-16 使用 TiddlyJam 生成 Static Site</title>
+      <link>https://thaddeusjiang.com/2021-04-16-tiddlyjam-static-site</link>
+      <guid>https://thaddeusjiang.com/2021-04-16-tiddlyjam-static-site</guid>
+   </item>
+
+   <item>
+      <title>2021-04-02 永远不要再使用巨型 UI 框架了</title>
+      <link>https://thaddeusjiang.com/2021-04-02-ui</link>
+      <guid>https://thaddeusjiang.com/2021-04-02-ui</guid>
+   </item>
+
+   <item>
+      <title>2021-03-13 Customize Vetur for @nuxtjs/compostion-api</title>
+      <link>https://thaddeusjiang.com/2021-03-13-customize-vetur-for-nuxtjs-compostion-api</link>
+      <guid>https://thaddeusjiang.com/2021-03-13-customize-vetur-for-nuxtjs-compostion-api</guid>
+   </item>
+
+   <item>
+      <title>2021-02-15 SEO: 更新网站后，你需要更新 sitemap 吗？</title>
+      <link>https://thaddeusjiang.com/2021-02-15-seo-sitemap</link>
+      <guid>https://thaddeusjiang.com/2021-02-15-seo-sitemap</guid>
+   </item>
+
+   <item>
+      <title>2021-02-08 11 行代码实现邮政编码检索 API</title>
+      <link>https://thaddeusjiang.com/2021-02-08-11-api</link>
+      <guid>https://thaddeusjiang.com/2021-02-08-11-api</guid>
+   </item>
+
+   <item>
+      <title>2021-01-31 如何实现英文和中文不同字重？</title>
+      <link>https://thaddeusjiang.com/2021-01-31</link>
+      <guid>https://thaddeusjiang.com/2021-01-31</guid>
+   </item>
+
+   <item>
+      <title>2021-01-22 Is Mobile-First Wrong?</title>
+      <link>https://thaddeusjiang.com/2021-01-22-is-mobile-first-wrong</link>
+      <guid>https://thaddeusjiang.com/2021-01-22-is-mobile-first-wrong</guid>
+   </item>
+
+   <item>
+      <title>2021-01-18 SEO 迷思</title>
+      <link>https://thaddeusjiang.com/2021-01-18-seo</link>
+      <guid>https://thaddeusjiang.com/2021-01-18-seo</guid>
+   </item>
+
+   <item>
+      <title>2021-01-15 Nuxt Composition API useMeta 异步更新</title>
+      <link>https://thaddeusjiang.com/2021-01-15-nuxt-composition-api-usemeta</link>
+      <guid>https://thaddeusjiang.com/2021-01-15-nuxt-composition-api-usemeta</guid>
+   </item>
+
+   <item>
+      <title>2021-01-12 其实你不需要 unicode-range</title>
+      <link>https://thaddeusjiang.com/2021-01-12-unicode-range</link>
+      <guid>https://thaddeusjiang.com/2021-01-12-unicode-range</guid>
+   </item>
+
+   <item>
+      <title>2020-09-09 Inline SVG vs Icon Fonts</title>
+      <link>https://thaddeusjiang.com/2020-09-09-inline-svg-vs-icon-fonts</link>
+      <guid>https://thaddeusjiang.com/2020-09-09-inline-svg-vs-icon-fonts</guid>
+   </item>
+
+   <item>
+      <title>2020-07-30 Vue.js SSR Note</title>
+      <link>https://thaddeusjiang.com/2020-07-30-vue-js-ssr-note</link>
+      <guid>https://thaddeusjiang.com/2020-07-30-vue-js-ssr-note</guid>
+   </item>
+
+   <item>
+      <title>2020-07-21 Why Tailwind CSS</title>
+      <link>https://thaddeusjiang.com/2020-07-21-why-tailwind-css</link>
+      <guid>https://thaddeusjiang.com/2020-07-21-why-tailwind-css</guid>
+   </item>
+
+   <item>
+      <title>2020-07-07 Frontend handle Authorization</title>
+      <link>https://thaddeusjiang.com/2020-07-07-frontend-handle-authorization</link>
+      <guid>https://thaddeusjiang.com/2020-07-07-frontend-handle-authorization</guid>
+   </item>
+
+   <item>
+      <title>2020-06-25 Micro frontends 2: A demo made with single-spa</title>
+      <link>https://thaddeusjiang.com/2020-06-25-micro-frontends-2-a-demo-made-with-single-spa</link>
+      <guid>https://thaddeusjiang.com/2020-06-25-micro-frontends-2-a-demo-made-with-single-spa</guid>
+   </item>
+
+   <item>
+      <title>2020-06-18 Micro frontends 1: What is Micro frontends</title>
+      <link>https://thaddeusjiang.com/2020-06-18-micro-frontends-1-what-is-micro-frontends</link>
+      <guid>https://thaddeusjiang.com/2020-06-18-micro-frontends-1-what-is-micro-frontends</guid>
+   </item>
+
+   <item>
+      <title>2020-05-30 Why I choose Gridsome to rebuild my site</title>
+      <link>https://thaddeusjiang.com/2020-05-30-why-i-choose-gridsome-to-rebuild-my-site</link>
+      <guid>https://thaddeusjiang.com/2020-05-30-why-i-choose-gridsome-to-rebuild-my-site</guid>
+   </item>
+
+   <item>
+      <title>2020-05-19 What is boilerplate code?</title>
+      <link>https://thaddeusjiang.com/2020-05-19-what-is-boilerplate-code</link>
+      <guid>https://thaddeusjiang.com/2020-05-19-what-is-boilerplate-code</guid>
+   </item>
+
+   <item>
+      <title>2020-04-22 How to decide Responsive Design break point?</title>
+      <link>https://thaddeusjiang.com/2020-04-22-how-to-decide-responsive-design-break-point</link>
+      <guid>https://thaddeusjiang.com/2020-04-22-how-to-decide-responsive-design-break-point</guid>
+   </item>
+
+   <item>
+      <title>2019-11-26 配置自定义域名邮箱</title>
+      <link>https://thaddeusjiang.com/2019-11-26</link>
+      <guid>https://thaddeusjiang.com/2019-11-26</guid>
+   </item>
+
+   <item>
+      <title>2019-11-20 React Testing 3 - Visual Testing</title>
+      <link>https://thaddeusjiang.com/2019-11-20-react-testing-3-visual-testing</link>
+      <guid>https://thaddeusjiang.com/2019-11-20-react-testing-3-visual-testing</guid>
+   </item>
+
+   <item>
+      <title>2019-11-19 React Testing 2 - E2E Testing</title>
+      <link>https://thaddeusjiang.com/2019-11-19-react-testing-2-e2e-testing</link>
+      <guid>https://thaddeusjiang.com/2019-11-19-react-testing-2-e2e-testing</guid>
+   </item>
+
+   <item>
+      <title>2019-11-18 React Testing 1 - Unit Testing</title>
+      <link>https://thaddeusjiang.com/2019-11-18-react-testing-1-unit-testing</link>
+      <guid>https://thaddeusjiang.com/2019-11-18-react-testing-1-unit-testing</guid>
+   </item>
+
+   <item>
+      <title>2019-11-13 20% CSS</title>
+      <link>https://thaddeusjiang.com/2019-11-13-20-css</link>
+      <guid>https://thaddeusjiang.com/2019-11-13-20-css</guid>
+   </item>
+
+   <item>
+      <title>2019-11-08 踩了一下 GitHub package 大水坑</title>
+      <link>https://thaddeusjiang.com/2019-11-08-github-package</link>
+      <guid>https://thaddeusjiang.com/2019-11-08-github-package</guid>
+   </item>
+
+   <item>
+      <title>2019-09-30 升级到 react-intl 3</title>
+      <link>https://thaddeusjiang.com/2019-09-30-react-intl-3</link>
+      <guid>https://thaddeusjiang.com/2019-09-30-react-intl-3</guid>
+   </item>
+
+   <item>
+      <title>2019-09-21 更新 Cypress 相关配置</title>
+      <link>https://thaddeusjiang.com/2019-09-21-cypress</link>
+      <guid>https://thaddeusjiang.com/2019-09-21-cypress</guid>
+   </item>
+
+   <item>
+      <title>2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment</title>
+      <link>https://thaddeusjiang.com/2019-09-18-graphql-fragment</link>
+      <guid>https://thaddeusjiang.com/2019-09-18-graphql-fragment</guid>
+   </item>
+
+   <item>
+      <title>2019-07-15 使用 git cz 标准化提交记录</title>
+      <link>https://thaddeusjiang.com/2019-07-15-git-cz</link>
+      <guid>https://thaddeusjiang.com/2019-07-15-git-cz</guid>
+   </item>
+
+   <item>
+      <title>2019-07-11 从 jsinspect 迁移到 jscpd</title>
+      <link>https://thaddeusjiang.com/2019-07-11-jsinspect-jscpd</link>
+      <guid>https://thaddeusjiang.com/2019-07-11-jsinspect-jscpd</guid>
+   </item>
+
+   <item>
+      <title>2019-05-16 前端性能优化（一）性能评估</title>
+      <link>https://thaddeusjiang.com/2019-05-16</link>
+      <guid>https://thaddeusjiang.com/2019-05-16</guid>
+   </item>
+
+   <item>
+      <title>2019-05-14 如何使用 GitHub 账号登录？</title>
+      <link>https://thaddeusjiang.com/2019-05-14-github</link>
+      <guid>https://thaddeusjiang.com/2019-05-14-github</guid>
+   </item>
+
+   <item>
+      <title>2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整</title>
+      <link>https://thaddeusjiang.com/2018-05-12-airbnb-eslint</link>
+      <guid>https://thaddeusjiang.com/2018-05-12-airbnb-eslint</guid>
+   </item>
+
+   <item>
+      <title>2018-05-11 VSCode 如何自动补全 Jest 断言？</title>
+      <link>https://thaddeusjiang.com/2018-05-11-vscode-jest</link>
+      <guid>https://thaddeusjiang.com/2018-05-11-vscode-jest</guid>
+   </item>
+
+   <item>
+      <title>2018-05-09 解决 Jest "SyntaxError Unexpected token import"</title>
+      <link>https://thaddeusjiang.com/2018-05-09-jest-syntaxerror-unexpected-token-import</link>
+      <guid>https://thaddeusjiang.com/2018-05-09-jest-syntaxerror-unexpected-token-import</guid>
+   </item>
+
+   <item>
+      <title>2018-05-08 Jest 测试 CSS Modules</title>
+      <link>https://thaddeusjiang.com/2018-05-08-jest-css-modules</link>
+      <guid>https://thaddeusjiang.com/2018-05-08-jest-css-modules</guid>
+   </item>
+
+   <item>
+      <title>2018-04-28 React JS/JSX 中引用静态 js 文件</title>
+      <link>https://thaddeusjiang.com/2018-04-28-react-js-jsx-js</link>
+      <guid>https://thaddeusjiang.com/2018-04-28-react-js-jsx-js</guid>
+   </item>
+
+   <item>
+      <title>2018-04-27 最简单的代码重构</title>
+      <link>https://thaddeusjiang.com/2018-04-27</link>
+      <guid>https://thaddeusjiang.com/2018-04-27</guid>
+   </item>
+
+   <item>
+      <title>2018-04-26 React 设置页面标题</title>
+      <link>https://thaddeusjiang.com/2018-04-26-react</link>
+      <guid>https://thaddeusjiang.com/2018-04-26-react</guid>
+   </item>
+
+   <item>
+      <title>2018-04-25 🐛moment.js 在 Safari 中显示 Invalid date</title>
+      <link>https://thaddeusjiang.com/2018-04-25-moment-js-safari-invalid-date</link>
+      <guid>https://thaddeusjiang.com/2018-04-25-moment-js-safari-invalid-date</guid>
+   </item>
+
+   <item>
+      <title>2018-04-24 js 数组去重（使用 lodash）</title>
+      <link>https://thaddeusjiang.com/2018-04-24-js-lodash</link>
+      <guid>https://thaddeusjiang.com/2018-04-24-js-lodash</guid>
+   </item>
+
+   <item>
+      <title>2018-04-23 扩展 Ant Design iconfont</title>
+      <link>https://thaddeusjiang.com/2018-04-23-ant-design-iconfont</link>
+      <guid>https://thaddeusjiang.com/2018-04-23-ant-design-iconfont</guid>
+   </item>
+
+   <item>
+      <title>2018-04-22 使用 axios 时遇到的几个问题</title>
+      <link>https://thaddeusjiang.com/2018-04-22-axios</link>
+      <guid>https://thaddeusjiang.com/2018-04-22-axios</guid>
+   </item>
+
+   <item>
+      <title>2018-04-21 eslint 提示：Do not use findDOMNode</title>
+      <link>https://thaddeusjiang.com/2018-04-21-eslint-do-not-use-finddomnode</link>
+      <guid>https://thaddeusjiang.com/2018-04-21-eslint-do-not-use-finddomnode</guid>
+   </item>
+
+   <item>
+      <title>2017-09-11 那么 Appium 到底是怎么工作的呢？</title>
+      <link>https://thaddeusjiang.com/2017-09-11-appium</link>
+      <guid>https://thaddeusjiang.com/2017-09-11-appium</guid>
+   </item>
+
+   <item>
+      <title>2017-07-06 掌握20% 常用的 Velocity</title>
+      <link>https://thaddeusjiang.com/2017-07-06-20-velocity</link>
+      <guid>https://thaddeusjiang.com/2017-07-06-20-velocity</guid>
+   </item>
+
+   <item>
+      <title>2017-06-30 简单总结一下 XSS</title>
+      <link>https://thaddeusjiang.com/2017-06-30-xss</link>
+      <guid>https://thaddeusjiang.com/2017-06-30-xss</guid>
+   </item>
+
+   <item>
+      <title>2017-06-23 分享几个 git 的使用场景</title>
+      <link>https://thaddeusjiang.com/2017-06-23-git</link>
+      <guid>https://thaddeusjiang.com/2017-06-23-git</guid>
+   </item>
+
+</channel>
+</rss>

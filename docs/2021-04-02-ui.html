@@ -18,23 +18,23 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2021-04-02 永远不要再使用巨型 UI 框架了 ~ My new website</title>
+<title>2021-04-02 永远不要再使用巨型 UI 框架了 ~ TJ's Digital Garden</title>
 <meta name="description" content="什么是巨型 UI 框架？">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2021-04-02-ui" />
-<meta property="og:title" content="2021-04-02 永远不要再使用巨型 UI 框架了 ~ My new website" />
+<meta property="og:url" content=".//2021-04-02-ui" />
+<meta property="og:title" content="2021-04-02 永远不要再使用巨型 UI 框架了 ~ TJ's Digital Garden" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="什么是巨型 UI 框架？" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2021-04-02 永远不要再使用巨型 UI 框架了 ~ My new website" />
+<meta name="twitter:title" content="2021-04-02 永远不要再使用巨型 UI 框架了 ~ TJ's Digital Garden" />
 <meta name="twitter:description" content="什么是巨型 UI 框架？" />
 <meta name="twitter:image" content="" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
 </head>
 
@@ -53,15 +53,15 @@
                 <div>
                     <div class="block">
                         <a class="button is-link is-inverted" href="./">
-                            <span>&lt; Home</span>
+                            <span>&amp;lt- Home </span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2021-04-02 永远不要再使用巨型 UI 框架了</h2>
                         <div class="subtitle is-6">2nd April, 2021</div>
-                  <h2 class="">什么是巨型 UI 框架？</h2><ul><li><a class="tc-tiddlylink-external" href="https://ant.design/" rel="noopener noreferrer" target="_blank">https://ant.design/</a></li><li><a class="tc-tiddlylink-external" href="https://material.io/" rel="noopener noreferrer" target="_blank">https://material.io/</a></li><li>...</li></ul><h2 class="">为什么不要再使用巨型 UI 框架？</h2><ol><li>巨型 UI 框架为了泛用性，增加了无数极少使用的属性，增加了学习成本。</li><li>巨型 UI 框架为了保持人气，频繁升级，造成不必要的维护成本。</li><li>巨型 UI 框架为了差异性，定义风格迥异的接口，经验无法轻松应用到其他框架。</li></ol><h2 class="">事例：</h2><p>新公司项目使用 antd 开发，最近我们希望加入 dark mode 特性。</p><p>我开发过 dark mode，其实设计思路特别简单。</p><ol><li>CSS 中关于颜色的部分全部使用 CSS variables</li><li>提供 light.css 和 dark.css 定义 CSS variables</li><li>根据用户选择动态加载 light.css 或者 dark.css</li></ol><blockquote class="tc-quote tc-big-quote"><p>但是，如果你使用 antd，那就麻烦了。
+                <h2 class="">什么是巨型 UI 框架？</h2><ul><li><a class="tc-tiddlylink-external" href="https://ant.design/" rel="noopener noreferrer" target="_blank">https://ant.design/</a></li><li><a class="tc-tiddlylink-external" href="https://material.io/" rel="noopener noreferrer" target="_blank">https://material.io/</a></li><li>...</li></ul><h2 class="">为什么不要再使用巨型 UI 框架？</h2><ol><li>巨型 UI 框架为了泛用性，增加了无数极少使用的属性，增加了学习成本。</li><li>巨型 UI 框架为了保持人气，频繁升级，造成不必要的维护成本。</li><li>巨型 UI 框架为了差异性，定义风格迥异的接口，经验无法轻松应用到其他框架。</li></ol><h2 class="">事例：</h2><p>新公司项目使用 antd 开发，最近我们希望加入 dark mode 特性。</p><p>我开发过 dark mode，其实设计思路特别简单。</p><ol><li>CSS 中关于颜色的部分全部使用 CSS variables</li><li>提供 light.css 和 dark.css 定义 CSS variables</li><li>根据用户选择动态加载 light.css 或者 dark.css</li></ol><blockquote class="tc-quote tc-big-quote"><p>但是，如果你使用 antd，那就麻烦了。
 </p></blockquote><p>细节不想回忆了，太闹心了。列一下提纲吧</p><ol><li>不得不引入 react-app-rewired 修改 create-react-app 的默认配置。</li><li>不得不引入 less.js 来读取 less 中定义的变量。</li><li>不得不引入测试大量组件，因为 antd 提供了太多的变量，根本不知道是否遗漏。</li></ol><p>如果你不信邪，可以参考下面资料</p><ul><li><a class="tc-tiddlylink-external" href="https://ant.design/docs/react/customize-theme-cn" rel="noopener noreferrer" target="_blank">https://ant.design/docs/react/customize-theme-cn</a></li><li><a class="tc-tiddlylink-external" href="https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0" rel="noopener noreferrer" target="_blank">https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0</a></li><li><a class="tc-tiddlylink-external" href="https://pro.ant.design/blog/change-theme-cn" rel="noopener noreferrer" target="_blank">https://pro.ant.design/blog/change-theme-cn</a></li></ul>
-                </div>
+</div>
                 </div>
                 <hr>
             </div>

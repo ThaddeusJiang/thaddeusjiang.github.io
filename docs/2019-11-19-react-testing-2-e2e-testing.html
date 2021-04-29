@@ -18,23 +18,23 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2019-11-19 React Testing 2 - E2E Testing ~ My new website</title>
+<title>2019-11-19 React Testing 2 - E2E Testing ~ TJ's Digital Garden</title>
 <meta name="description" content="相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2019-11-19-react-testing-2-e2e-testing" />
-<meta property="og:title" content="2019-11-19 React Testing 2 - E2E Testing ~ My new website" />
+<meta property="og:url" content=".//2019-11-19-react-testing-2-e2e-testing" />
+<meta property="og:title" content="2019-11-19 React Testing 2 - E2E Testing ~ TJ's Digital Garden" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2019-11-19 React Testing 2 - E2E Testing ~ My new website" />
+<meta name="twitter:title" content="2019-11-19 React Testing 2 - E2E Testing ~ TJ's Digital Garden" />
 <meta name="twitter:description" content="相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。" />
 <meta name="twitter:image" content="" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
 </head>
 
@@ -53,13 +53,13 @@
                 <div>
                     <div class="block">
                         <a class="button is-link is-inverted" href="./">
-                            <span>&lt; Home</span>
+                            <span>&amp;lt- Home </span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2019-11-19 React Testing 2 - E2E Testing</h2>
                         <div class="subtitle is-6">27th January, 2021</div>
-                  <p>相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。</p><h2 class="">1. 什么是 E2E Testing？</h2><blockquote class="tc-quote tc-big-quote"><p>笔者认为：E2E Testing 就是从用户角度对软件进行测试。
+                <p>相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。</p><h2 class="">1. 什么是 E2E Testing？</h2><blockquote class="tc-quote tc-big-quote"><p>笔者认为：E2E Testing 就是从用户角度对软件进行测试。
 </p></blockquote><p>例如：进入“登陆界面”，输入用户名和密码，点击登陆后跳转到“登陆成功”界面。</p><h2 class="">2. 如何做 E2E Testing？</h2><p>很幸运，在 E2E Testing 方面，已经有很多开源软件可以使用。
 推荐 Cypress</p><p>1. 安装并配置 Cypress</p><pre class="bash hljs"><code>yarn add cypress --dev
 
@@ -166,7 +166,7 @@ describe(<span class="hljs-string">"Login Page"</span>, <span class="hljs-functi
         <span class="hljs-attr">env:</span>
           <span class="hljs-attr">CYPRESS_RECORD_KEY:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.CYPRESS_RECORD_KEY</span> <span class="hljs-string">}}</span></code></pre><p>需要在 GitHub Secrets 定义 <code>CYPRESS_RECORD_KEY</code>，如下：</p><p><img src="https://i.gyazo.com/825570ffe09b2d6ff69f7b546ba1733d.jpg"></p><h2 class="">经验</h2><blockquote class="tc-quote tc-big-quote"><p>其实可以全局安装 Cypress
 </p></blockquote><p>优点是缩短 npm 安装时间。</p><p>代码：<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/react-testing-example/pull/2" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/react-testing-example/pull/2</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.cypress.io/" rel="noopener noreferrer" target="_blank">https://www.cypress.io/</a></li></ul>
-                </div>
+</div>
                 </div>
                 <hr>
             </div>

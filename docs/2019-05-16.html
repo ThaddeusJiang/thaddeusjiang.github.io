@@ -18,23 +18,23 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2019-05-16 前端性能优化（一）性能评估 ~ My new website</title>
+<title>2019-05-16 前端性能优化（一）性能评估 ~ TJ's Digital Garden</title>
 <meta name="description" content="前端性能优化是一个老生常谈的话题，是每一个前端开发者都避不开的技术。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2019-05-16" />
-<meta property="og:title" content="2019-05-16 前端性能优化（一）性能评估 ~ My new website" />
+<meta property="og:url" content=".//2019-05-16" />
+<meta property="og:title" content="2019-05-16 前端性能优化（一）性能评估 ~ TJ's Digital Garden" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="前端性能优化是一个老生常谈的话题，是每一个前端开发者都避不开的技术。" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2019-05-16 前端性能优化（一）性能评估 ~ My new website" />
+<meta name="twitter:title" content="2019-05-16 前端性能优化（一）性能评估 ~ TJ's Digital Garden" />
 <meta name="twitter:description" content="前端性能优化是一个老生常谈的话题，是每一个前端开发者都避不开的技术。" />
 <meta name="twitter:image" content="" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
 </head>
 
@@ -53,17 +53,17 @@
                 <div>
                     <div class="block">
                         <a class="button is-link is-inverted" href="./">
-                            <span>&lt; Home</span>
+                            <span>&amp;lt- Home </span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2019-05-16 前端性能优化（一）性能评估</h2>
                         <div class="subtitle is-6">26th January, 2021</div>
-                  <p>前端性能优化是一个老生常谈的话题，是每一个前端开发者都避不开的技术。
+                <p>前端性能优化是一个老生常谈的话题，是每一个前端开发者都避不开的技术。
 本文主要介绍一下性能优化的第一步，也是最重要的一步。如何性能评估。</p><p>为什么说性能评估是最重要的一步呢？</p><blockquote class="tc-quote tc-big-quote"><p>方向错了，再怎么努力也没用。
 </p><cite>柳传志</cite></blockquote><p>性能优化就像水桶效应，应该找到并修复最低的那块木板。</p><p>下面进入正题：</p><p>TL;DR</p><ul><li>使用什么工具？</li><li>工具的使用方法？</li><li>有哪些指标？</li></ul><h2 class="">使用什么工具？</h2><p>一提到性能测试，老一辈的程序员总会说“写脚本测”。但是现在已经是 2019 年了，请不要像原始人一下从头开始。</p><p>这里推荐大家使用 Chrome DevTools Performance</p><h2 class="">工具的使用方法？</h2><p>Chrome DevTools Performance 使用方法很简单。</p><ol><li>使用 incognito 模式打开 Chrome</li><li>打开你想要测试的网页，如 <a class="tc-tiddlylink-external" href="https://jiang.jifa.name" rel="noopener noreferrer" target="_blank">https://jiang.jifa.name</a></li><li>打开 Chrome DevTools，选择 Performance</li><li>点击自动记录按钮</li></ol><p><img src="https://i.gyazo.com/159c7857ffa7cfbbaa7fc37a515f155a.png"></p><p>使用 incognito 模式主要是为了避免 Chrome 插件对测试的影响。
 对于准备测试环境，还有一些其他方法。查看 <a class="tc-tiddlylink-external" href="https://developer.chrome.com/devtools/docs/clean-testing-environment" rel="noopener noreferrer" target="_blank">https://developer.chrome.com/devtools/docs/clean-testing-environment</a></p><h2 class="">有哪些指标？</h2><p>我们可以看到上图中 ④ 显示了一张饼状图。饼状图所对应的表如下：</p><table><tbody><tr class="evenRow"><td align="center">Name</td><td align="center">项目</td></tr><tr class="oddRow"><td align="center">Loading</td><td align="center">HTML 文件</td></tr><tr class="evenRow"><td align="center">Scripting</td><td align="center">脚本</td></tr><tr class="oddRow"><td align="center">Rendering</td><td align="center">样式表</td></tr><tr class="evenRow"><td align="center">Painting</td><td align="center">媒体资源</td></tr><tr class="oddRow"><td align="center">System</td><td align="center">其他资源</td></tr><tr class="evenRow"><td align="center">Idle</td><td align="center">空闲时间</td></tr></tbody></table><p>从上面图中可以看出，我所测试的网页中 <code>Scripting</code> 耗时占了 50% 以上，如果想对其进行性能优化，我们最该优化的地方就是我们的脚本。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference" rel="noopener noreferrer" target="_blank">https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference</a></li></ul>
-                </div>
+</div>
                 </div>
                 <hr>
             </div>

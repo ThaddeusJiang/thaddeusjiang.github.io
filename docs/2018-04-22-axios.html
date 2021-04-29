@@ -18,23 +18,23 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2018-04-22 使用 axios 时遇到的几个问题 ~ My new website</title>
+<title>2018-04-22 使用 axios 时遇到的几个问题 ~ TJ's Digital Garden</title>
 <meta name="description" content="1. axios 的 baseURL">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2018-04-22-axios" />
-<meta property="og:title" content="2018-04-22 使用 axios 时遇到的几个问题 ~ My new website" />
+<meta property="og:url" content=".//2018-04-22-axios" />
+<meta property="og:title" content="2018-04-22 使用 axios 时遇到的几个问题 ~ TJ's Digital Garden" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="1. axios 的 baseURL" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2018-04-22 使用 axios 时遇到的几个问题 ~ My new website" />
+<meta name="twitter:title" content="2018-04-22 使用 axios 时遇到的几个问题 ~ TJ's Digital Garden" />
 <meta name="twitter:description" content="1. axios 的 baseURL" />
 <meta name="twitter:image" content="" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
 </head>
 
@@ -53,13 +53,13 @@
                 <div>
                     <div class="block">
                         <a class="button is-link is-inverted" href="./">
-                            <span>&lt; Home</span>
+                            <span>&amp;lt- Home </span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2018-04-22 使用 axios 时遇到的几个问题</h2>
                         <div class="subtitle is-6">12th January, 2021</div>
-                  <h2 class="">1. axios 的 baseURL</h2><p>目前进行的项目是公司主应用下的子应用，所以 API 全都是 <code>/cms/api/*</code>。 为了提高写代码效率，我写下来如下代码。</p><pre class="js hljs"><code><span class="hljs-comment">// fetch.js</span>
+                <h2 class="">1. axios 的 baseURL</h2><p>目前进行的项目是公司主应用下的子应用，所以 API 全都是 <code>/cms/api/*</code>。 为了提高写代码效率，我写下来如下代码。</p><pre class="js hljs"><code><span class="hljs-comment">// fetch.js</span>
 <span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">"axios"</span>
 
 fetch.defaults.baseURL = <span class="hljs-string">"/cms/api"</span>
@@ -75,7 +75,7 @@ ajaxInstance.get() <span class="hljs-comment">// or ajaxInstance.post()</span></
 params.append(<span class="hljs-string">"query"</span>, value)
 
 ajaxInstance.post(apiUrl, params)</code></pre><p>参考：</p><ul><li><a class="tc-tiddlylink-external" href="https://ykloveyxk.github.io/2017/02/25/axios全攻略/" rel="noopener noreferrer" target="_blank">https://ykloveyxk.github.io/2017/02/25/axios全攻略/</a></li><li><a class="tc-tiddlylink-external" href="https://imququ.com/post/four-ways-to-post-data-in-http.html" rel="noopener noreferrer" target="_blank">https://imququ.com/post/four-ways-to-post-data-in-http.html</a></li></ul>
-                </div>
+</div>
                 </div>
                 <hr>
             </div>

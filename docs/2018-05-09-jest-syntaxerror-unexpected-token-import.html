@@ -18,23 +18,23 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2018-05-09 解决 Jest "SyntaxError Unexpected token import" ~ My new website</title>
+<title>2018-05-09 解决 Jest "SyntaxError Unexpected token import" ~ TJ's Digital Garden</title>
 <meta name="description" content="应该是 Jest “SyntaxError Unexpected token import” 最简单的解决方案。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2018-05-09-jest-syntaxerror-unexpected-token-import" />
-<meta property="og:title" content="2018-05-09 解决 Jest "SyntaxError Unexpected token import" ~ My new website" />
+<meta property="og:url" content=".//2018-05-09-jest-syntaxerror-unexpected-token-import" />
+<meta property="og:title" content="2018-05-09 解决 Jest "SyntaxError Unexpected token import" ~ TJ's Digital Garden" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="应该是 Jest “SyntaxError Unexpected token import” 最简单的解决方案。" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2018-05-09 解决 Jest "SyntaxError Unexpected token import" ~ My new website" />
+<meta name="twitter:title" content="2018-05-09 解决 Jest "SyntaxError Unexpected token import" ~ TJ's Digital Garden" />
 <meta name="twitter:description" content="应该是 Jest “SyntaxError Unexpected token import” 最简单的解决方案。" />
 <meta name="twitter:image" content="" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
 </head>
 
@@ -53,13 +53,13 @@
                 <div>
                     <div class="block">
                         <a class="button is-link is-inverted" href="./">
-                            <span>&lt; Home</span>
+                            <span>&amp;lt- Home </span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2018-05-09 解决 Jest &quot;SyntaxError Unexpected token import&quot;</h2>
                         <div class="subtitle is-6">22nd January, 2021</div>
-                  <p>应该是 <code>Jest “SyntaxError Unexpected token import”</code> 最简单的解决方案。</p><h2 class="">背景</h2><p>React 的 SPA 项目，使用 And Design 作为 UI 框架。
+                <p>应该是 <code>Jest “SyntaxError Unexpected token import”</code> 最简单的解决方案。</p><h2 class="">背景</h2><p>React 的 SPA 项目，使用 And Design 作为 UI 框架。
 使用 Jest + Enzyme 进行单体测试。</p><p>Antd 使用 <code>babel-plugin-import</code>  按需加载。
 .babelrc</p><pre class="json hljs"><code>{
   <span class="hljs-attr">"presets"</span>: [<span class="hljs-string">"env"</span>, <span class="hljs-string">"react"</span>, <span class="hljs-string">"stage-0"</span>],
@@ -99,7 +99,7 @@
     ]
   ]
 }</code></pre><p>再次运行 jest，问题解决了。</p><p><img src="https://user-images.githubusercontent.com/17308201/39808022-d5250500-53b8-11e8-8158-4b0825482904.png"></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/ant-design/ant-design/issues/5362" rel="noopener noreferrer" target="_blank">https://github.com/ant-design/ant-design/issues/5362</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/ant-design/babel-plugin-import/issues/189" rel="noopener noreferrer" target="_blank">https://github.com/ant-design/babel-plugin-import/issues/189</a></li><li><a class="tc-tiddlylink-external" href="https://www.npmjs.com/package/babel-plugin-import" rel="noopener noreferrer" target="_blank">https://www.npmjs.com/package/babel-plugin-import</a></li></ul>
-                </div>
+</div>
                 </div>
                 <hr>
             </div>

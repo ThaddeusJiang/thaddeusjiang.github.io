@@ -1,11 +1,11 @@
 created: 20200728102956586
-creator: Adithya_
-description: 
+creator: TJ
+description:
 modified: 20210416002524677
-modifier: Adithya_
+modifier: TJ
 name: Posts
 published: 20210314001527357
-tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals $:/plugins/adithyab/tiddlyjam/live tiddlyjam.com
+tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals $:/plugins/adithyab/tiddlyjam/live
 title: Posts
 type: text/vnd.tiddlywiki
 
@@ -25,6 +25,3 @@ type: text/vnd.tiddlywiki
     </div>
   </div>
 </section>
-<style>
-{{$:/plugins/nico/shields/stylesheet}}
-</style>

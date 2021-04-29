@@ -18,23 +18,23 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2021-01-31 如何实现英文和中文不同字重？ ~ My new website</title>
+<title>2021-01-31 如何实现英文和中文不同字重？ ~ TJ's Digital Garden</title>
 <meta name="description" content="一个非常简单的需求：英文使用 Roboto 字体，中文使用 Noto Serif SC 字体，但是英文的字重是 400，中文的字重是 300 。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2021-01-31" />
-<meta property="og:title" content="2021-01-31 如何实现英文和中文不同字重？ ~ My new website" />
+<meta property="og:url" content=".//2021-01-31" />
+<meta property="og:title" content="2021-01-31 如何实现英文和中文不同字重？ ~ TJ's Digital Garden" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="一个非常简单的需求：英文使用 Roboto 字体，中文使用 Noto Serif SC 字体，但是英文的字重是 400，中文的字重是 300 。" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2021-01-31 如何实现英文和中文不同字重？ ~ My new website" />
+<meta name="twitter:title" content="2021-01-31 如何实现英文和中文不同字重？ ~ TJ's Digital Garden" />
 <meta name="twitter:description" content="一个非常简单的需求：英文使用 Roboto 字体，中文使用 Noto Serif SC 字体，但是英文的字重是 400，中文的字重是 300 。" />
 <meta name="twitter:image" content="" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
 </head>
 
@@ -53,17 +53,17 @@
                 <div>
                     <div class="block">
                         <a class="button is-link is-inverted" href="./">
-                            <span>&lt; Home</span>
+                            <span>&amp;lt- Home </span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2021-01-31 如何实现英文和中文不同字重？</h2>
                         <div class="subtitle is-6">31st January, 2021</div>
-                  <p>一个非常简单的需求：英文使用 Roboto 字体，中文使用 Noto Serif SC 字体，但是英文的字重是 400，中文的字重是 300 。</p><h2 class="">首先，如何实现英文和中文使用不同字体？</h2><p>直接把英文字体放在中文字体前面就可以了。
+                <p>一个非常简单的需求：英文使用 Roboto 字体，中文使用 Noto Serif SC 字体，但是英文的字重是 400，中文的字重是 300 。</p><h2 class="">首先，如何实现英文和中文使用不同字体？</h2><p>直接把英文字体放在中文字体前面就可以了。
 </p><h2 class="">其次，如何实现英文和中文使用不同字重？</h2><p>其实特别简单，直接只提供所需字重的字体即可。</p><p>如果你使用 Goole Font，做法如下：</p><p>1. 引入字体</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
 <span class="hljs-keyword">@import</span> url(<span class="hljs-string">'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&amp;family=Roboto&amp;display=swap'</span>);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre><p>2. 使用字体</p><pre class="css hljs"><code>font-family: 'Roboto', 'Noto Serif SC', serif;</code></pre>
-                </div>
+</div>
                 </div>
                 <hr>
             </div>

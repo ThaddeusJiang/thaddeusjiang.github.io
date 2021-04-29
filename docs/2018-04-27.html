@@ -18,23 +18,23 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2018-04-27 最简单的代码重构 ~ My new website</title>
+<title>2018-04-27 最简单的代码重构 ~ TJ's Digital Garden</title>
 <meta name="description" content="一个 Code Review 的心得">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2018-04-27" />
-<meta property="og:title" content="2018-04-27 最简单的代码重构 ~ My new website" />
+<meta property="og:url" content=".//2018-04-27" />
+<meta property="og:title" content="2018-04-27 最简单的代码重构 ~ TJ's Digital Garden" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="一个 Code Review 的心得" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2018-04-27 最简单的代码重构 ~ My new website" />
+<meta name="twitter:title" content="2018-04-27 最简单的代码重构 ~ TJ's Digital Garden" />
 <meta name="twitter:description" content="一个 Code Review 的心得" />
 <meta name="twitter:image" content="" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
 </head>
 
@@ -53,13 +53,13 @@
                 <div>
                     <div class="block">
                         <a class="button is-link is-inverted" href="./">
-                            <span>&lt; Home</span>
+                            <span>&amp;lt- Home </span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2018-04-27 最简单的代码重构</h2>
                         <div class="subtitle is-6">22nd January, 2021</div>
-                  <p>一个 Code Review 的心得</p><blockquote class="tc-quote tc-big-quote"><p>最简单的代码重构，就是把重复代码提取成函数。
+                <p>一个 Code Review 的心得</p><blockquote class="tc-quote tc-big-quote"><p>最简单的代码重构，就是把重复代码提取成函数。
 </p><cite>TJ</cite></blockquote><p>重构前</p><p><img src="https://user-images.githubusercontent.com/17308201/39341071-5cc81a76-4a0c-11e8-837d-ada35b7709df.png"></p><p>其实这个功能超级简单，就是判断一下当前环境是否是 <code>dcs</code> 环境。</p><blockquote><div>dcs: [DreamArts Clound Service](<a class="tc-tiddlylink-external" href="https://www.dreamarts.co.jp/dcs/" rel="noopener noreferrer" target="_blank">https://www.dreamarts.co.jp/dcs/</a>) 是我司提供的云服务平台。</div></blockquote><p>重构后</p><pre class="js hljs"><code><span class="hljs-comment">// envUtil.js</span>
 <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isClound</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.config !== <span class="hljs-literal">undefined</span>) {
@@ -75,7 +75,7 @@
 <span class="hljs-keyword">if</span> ( isClound() ) {
   ...
 }</code></pre><p>所有判断 <code>dcs</code> 环境的功能，只要调用 <code>isClound()</code> 即可。</p><p>当然这段代码还有问题，<code>window.config.dcs === 1</code> 的 <code>1</code> 应该算是魔法数字，也应该被重构。</p><p>将来即使 dcs 判断条件变成 <code>dcs === 'dcs'</code>，我们只需要修改一行代码即可。不需要对业务代码进行任何修改。</p>
-                </div>
+</div>
                 </div>
                 <hr>
             </div>

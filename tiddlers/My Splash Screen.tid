@@ -17,7 +17,6 @@ type: text/vnd.tiddlywiki
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 	margin: 20px auto 0;
-//	width: 200px;
 	text-align: center;
 	color: <<colour foreground>>;
 	fill: <<colour foreground>>;
@@ -66,10 +65,10 @@ html body.tc-body {
 }
 
 @keyframes sk-bouncedelay {
-	0%, 80%, 100% { 
+	0%, 80%, 100% {
 	-webkit-transform: scale(0);
 	transform: scale(0);
-	} 40% { 
+	} 40% {
 	-webkit-transform: scale(1.0);
 	transform: scale(1.0);
 	}
@@ -86,7 +85,7 @@ html body.tc-body {
 Please wait while {{$:/SiteTitle}} is loading
 </div>
 
-<!-- Demonstrating how to embed a wikitext SVG graphic --> 
+<!-- Demonstrating how to embed a wikitext SVG graphic -->
 <div class="tc-splash-text">
 {{$:/core/icon||$:/core/templates/plain-text-tiddler}}
 </div>

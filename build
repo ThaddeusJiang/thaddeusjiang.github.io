@@ -6,5 +6,7 @@ tiddlywiki --build tiddlyjam
 mv ./output/* ./docs/
 
 tiddlywiki --build index
-mv ./output/index.html ./docs/index.html
+cp ./output/index.html ./docs/index.html
+# backup to root dir
+mv ./output/index.html ./index.html
 

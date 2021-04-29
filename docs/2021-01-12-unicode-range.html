@@ -18,23 +18,23 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2021-01-12 其实你不需要 unicode-range ~ My new website</title>
+<title>2021-01-12 其实你不需要 unicode-range ~ TJ's Digital Garden</title>
 <meta name="description" content="最近有一个需求，所有英文字母和数字使用 Roboto 字体，其他文字使用 Hiragino Sans 字体。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2021-01-12-unicode-range" />
-<meta property="og:title" content="2021-01-12 其实你不需要 unicode-range ~ My new website" />
+<meta property="og:url" content=".//2021-01-12-unicode-range" />
+<meta property="og:title" content="2021-01-12 其实你不需要 unicode-range ~ TJ's Digital Garden" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="最近有一个需求，所有英文字母和数字使用 Roboto 字体，其他文字使用 Hiragino Sans 字体。" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2021-01-12 其实你不需要 unicode-range ~ My new website" />
+<meta name="twitter:title" content="2021-01-12 其实你不需要 unicode-range ~ TJ's Digital Garden" />
 <meta name="twitter:description" content="最近有一个需求，所有英文字母和数字使用 Roboto 字体，其他文字使用 Hiragino Sans 字体。" />
 <meta name="twitter:image" content="" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
 </head>
 
@@ -53,15 +53,15 @@
                 <div>
                     <div class="block">
                         <a class="button is-link is-inverted" href="./">
-                            <span>&lt; Home</span>
+                            <span>&amp;lt- Home </span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2021-01-12 其实你不需要 unicode-range</h2>
                         <div class="subtitle is-6">12th January, 2021</div>
-                  <p>最近有一个需求，所有英文字母和数字使用 <code>Roboto</code> 字体，其他文字使用 <code>Hiragino Sans</code> 字体。</p><p>由于我 CSS 并不算好，本以为很难，所以 Google 了一下，查到了 <a class="tc-tiddlylink-external" href="https://keqingrong.github.io/blog/2019-11-30-different-fonts-in-different-locales" rel="noopener noreferrer" target="_blank">https://keqingrong.github.io/blog/2019-11-30-different-fonts-in-different-locales</a></p><p>然后一顿操作猛如虎，实现了。自以为是、得意扬扬地翘起了小尾巴。</p><p>不过，我也觉得奇怪。这个需求很常见啊，应该大家都会遇到啊，为啥没听其他开发者提到过 <code>unicode-range</code> 呢？</p><p>然后我又查了一些资料，最后从 <a class="tc-tiddlylink-external" href="https://www.zhangxinxu.com/wordpress/2016/11/css-unicode-range-character-font-face/" rel="noopener noreferrer" target="_blank">张鑫旭的 blog</a> 中找到了原因。原来我们根本就不需要使用 unicode-range 就可以实现上面需求。</p><p><img src="https://i.gyazo.com/9e822752680e749f318dcb9306a718c7.png"></p><p>直接把英文字体放在中文字体前面就可以了。
+                <p>最近有一个需求，所有英文字母和数字使用 <code>Roboto</code> 字体，其他文字使用 <code>Hiragino Sans</code> 字体。</p><p>由于我 CSS 并不算好，本以为很难，所以 Google 了一下，查到了 <a class="tc-tiddlylink-external" href="https://keqingrong.github.io/blog/2019-11-30-different-fonts-in-different-locales" rel="noopener noreferrer" target="_blank">https://keqingrong.github.io/blog/2019-11-30-different-fonts-in-different-locales</a></p><p>然后一顿操作猛如虎，实现了。自以为是、得意扬扬地翘起了小尾巴。</p><p>不过，我也觉得奇怪。这个需求很常见啊，应该大家都会遇到啊，为啥没听其他开发者提到过 <code>unicode-range</code> 呢？</p><p>然后我又查了一些资料，最后从 <a class="tc-tiddlylink-external" href="https://www.zhangxinxu.com/wordpress/2016/11/css-unicode-range-character-font-face/" rel="noopener noreferrer" target="_blank">张鑫旭的 blog</a> 中找到了原因。原来我们根本就不需要使用 unicode-range 就可以实现上面需求。</p><p><img src="https://i.gyazo.com/9e822752680e749f318dcb9306a718c7.png"></p><p>直接把英文字体放在中文字体前面就可以了。
 </p><p>看完张鑫旭的这篇blog，我骄傲的小尾巴也落下来了。😂</p>
-                </div>
+</div>
                 </div>
                 <hr>
             </div>

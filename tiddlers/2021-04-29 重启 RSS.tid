@@ -1,0 +1,85 @@
+created: 20210429130150852
+modified: 20210429135502524
+tags: $:/plugins/adithyab/tiddlyjam/live 手艺人手记
+title: 2021-04-29 重启 RSS
+type: text/vnd.tiddlywiki
+
+其实我非常喜欢 RSS，非常推荐大家也尝试 RSS。
+
+<<<.tc-big-quote
+RSS 让我们可以从容不迫地面对''信息轰炸''，让我们免于被算法洗脑，让我们成为我们自己。
+<<<TJ
+
+feed: https://thaddeusjiang.com/rss.xml
+
+我是如何实现 RSS 的？
+
+Step 1: 实现一个 TiddlyWiki render
+
+```
+created: 20200913085259429
+modified: 20201117084124255
+revision: 0
+tags: $:/plugins/adithyab/tiddlyjam/internals
+title: $:/plugins/adithyab/tiddlyjam/renderer/rss
+type: text/vnd.tiddlywiki
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"&gt;
+&lt;channel&gt;
+
+   &lt;title&gt;{{$:/SiteTitle}}&lt;/title&gt;
+   &lt;link&gt;<$text text={{$:/AbsoluteBaseUrl}}/>&lt;/link&gt;
+   &lt;atom:link href="<$text text={{$:/AbsoluteBaseUrl}}/>/rss.xml" rel="self" type="application/rss+xml" /&gt;
+   &lt;description&gt;{{$:/SiteSubtitle}}&lt;/description&gt;
+
+<$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]!sort[title]]">
+   &lt;item&gt;
+      &lt;title&gt;{{!!title}}&lt;/title&gt;
+      &lt;link&gt;<$text text={{$:/AbsoluteBaseUrl}}/>/<$macrocall $name="tv-get-export-path" title={{!!title}}/>&lt;/link&gt;
+      &lt;guid&gt;<$text text={{$:/AbsoluteBaseUrl}}/>/<$macrocall $name="tv-get-export-path" title={{!!title}}/>&lt;/guid&gt;
+   &lt;/item&gt;
+</$list>
+&lt;/channel&gt;
+&lt;/rss&gt;
+
+```
+
+Step 2: 修改 tiddlywiki.info
+
+```diff
+{
+    "description": "Basic client-server edition",
+    ...
+    "build": {
+        ...
+        "tiddlyjam":[
+            "--rendertiddlers",
+            "[all[tiddlers+shadows]tag[$:/plugins/adithyab/tiddlyjam/live]]",
+            "$:/plugins/adithyab/tiddlyjam/renderer/base",
+            ".",
+            "text/plain",
+            "--render",
+            "[all[tiddlers+shadows][$:/plugins/adithyab/tiddlyjam/renderer/sitemap]]",
+            "sitemap.xml",
+            "text/plain",
++            "--render",
++            "[all[tiddlers+shadows][$:/plugins/adithyab/tiddlyjam/renderer/rss]]",
++            "rss.xml",
++            "text/plain",
+            "--render",
+            "[all[tiddlers+shadows]tag[$:/plugins/adithyab/tiddlyjam/css]]",
+            "[encodeuricomponent[]addprefix[css/]]",
+            "text/plain"
+        ]
+    }
+}
+```
+
+Step 3: 执行
+
+```sh
+tiddlywiki --build tiddlyjam
+```
+
+我已经将代码提交到 TiddlyJam，目前还没有 merge。如果你想提前使用，请查看 https://github.com/ThaddeusJiang/tiddlyjam。

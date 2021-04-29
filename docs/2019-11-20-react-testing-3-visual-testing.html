@@ -18,23 +18,23 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2019-11-20 React Testing 3 - Visual Testing ~ My new website</title>
+<title>2019-11-20 React Testing 3 - Visual Testing ~ TJ's Digital Garden</title>
 <meta name="description" content="">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2019-11-20-react-testing-3-visual-testing" />
-<meta property="og:title" content="2019-11-20 React Testing 3 - Visual Testing ~ My new website" />
+<meta property="og:url" content=".//2019-11-20-react-testing-3-visual-testing" />
+<meta property="og:title" content="2019-11-20 React Testing 3 - Visual Testing ~ TJ's Digital Garden" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2019-11-20 React Testing 3 - Visual Testing ~ My new website" />
+<meta name="twitter:title" content="2019-11-20 React Testing 3 - Visual Testing ~ TJ's Digital Garden" />
 <meta name="twitter:description" content="" />
 <meta name="twitter:image" content="" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
 </head>
 
@@ -53,13 +53,13 @@
                 <div>
                     <div class="block">
                         <a class="button is-link is-inverted" href="./">
-                            <span>&lt; Home</span>
+                            <span>&amp;lt- Home </span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2019-11-20 React Testing 3 - Visual Testing</h2>
                         <div class="subtitle is-6">27th January, 2021</div>
-                  <blockquote class="tc-quote tc-big-quote"><p>Visual Testing 是我所接触的测试方法中最直观的，也是效果最明显的。
+                <blockquote class="tc-quote tc-big-quote"><p>Visual Testing 是我所接触的测试方法中最直观的，也是效果最明显的。
 </p></blockquote><h2 class="">1. 什么是 Visual Testing？</h2><p>简单的说，Visual Testing 就是从视觉效果上测试。
 更加全面的解释，参见 《What is Visual Testing? A comprehensive explanation》</p><h2 class="">为什么要使用 Visual Testing 呢？</h2><p>最简单的原因就是快速，直观，不易遗漏。</p><h2 class="">2. 如何做 Visual Testing？</h2><p>Percy.io 是一个性价比高的 Visual Testing 平台，对个人项目或者小团队非常实用。</p><p>Percy 提供多种集成方式，本文中选择从 E2E Testing 集成 Visual Testing。</p><p>1. 安装 <code>@percy/cypress</code></p><pre class="bash hljs"><code>yarn add --dev @percy/cypress</code></pre><p>2. 在 <code>cypress/support/commands.js</code> 添加 <code>@percy/cypress</code></p><pre class="js hljs"><code><span class="hljs-comment">// At the top of cypress/support/commands.js</span>
 <span class="hljs-keyword">import</span> <span class="hljs-string">"@percy/cypress"</span></code></pre><p>3. 在 <code>cypress/plugins/index.js</code> 添加 <code>percyHealthCheck</code></p><pre class="js hljs"><code><span class="hljs-comment">// In cypress/plugins/index.js</span>
@@ -100,7 +100,7 @@ it(<span class="hljs-string">"visual testing for login page"</span>, () =&gt; {
         <span class="hljs-attr">env:</span>
           <span class="hljs-attr">CYPRESS_RECORD_KEY:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.CYPRESS_RECORD_KEY</span> <span class="hljs-string">}}</span>
 <span class="hljs-string">++</span>          <span class="hljs-attr">PERCY_TOKEN:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.PERCY_TOKEN</span> <span class="hljs-string">}}</span></code></pre><p>source code： <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/react-testing-example/pull/3" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/react-testing-example/pull/3</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://percy.io" rel="noopener noreferrer" target="_blank">https://percy.io</a></li><li><a class="tc-tiddlylink-external" href="https://docs.percy.io/docs/cypress" rel="noopener noreferrer" target="_blank">https://docs.percy.io/docs/cypress</a></li><li>《What is Visual Testing? A comprehensive explanation.》 <a class="tc-tiddlylink-external" href="https://applitools.com/blog/visual-testing" rel="noopener noreferrer" target="_blank">https://applitools.com/blog/visual-testing</a></li></ul>
-                </div>
+</div>
                 </div>
                 <hr>
             </div>

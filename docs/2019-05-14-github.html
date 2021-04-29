@@ -18,23 +18,23 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2019-05-14 如何使用 GitHub 账号登录？ ~ My new website</title>
+<title>2019-05-14 如何使用 GitHub 账号登录？ ~ TJ's Digital Garden</title>
 <meta name="description" content="一个特别简单的需求，开发一个使用 GitHub 登陆的功能。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sampledomain.net/2019-05-14-github" />
-<meta property="og:title" content="2019-05-14 如何使用 GitHub 账号登录？ ~ My new website" />
+<meta property="og:url" content=".//2019-05-14-github" />
+<meta property="og:title" content="2019-05-14 如何使用 GitHub 账号登录？ ~ TJ's Digital Garden" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="一个特别简单的需求，开发一个使用 GitHub 登陆的功能。" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="2019-05-14 如何使用 GitHub 账号登录？ ~ My new website" />
+<meta name="twitter:title" content="2019-05-14 如何使用 GitHub 账号登录？ ~ TJ's Digital Garden" />
 <meta name="twitter:description" content="一个特别简单的需求，开发一个使用 GitHub 登陆的功能。" />
 <meta name="twitter:image" content="" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
 </head>
 
@@ -53,13 +53,13 @@
                 <div>
                     <div class="block">
                         <a class="button is-link is-inverted" href="./">
-                            <span>&lt; Home</span>
+                            <span>&amp;lt- Home </span>
                         </a>
                     </div>
                     <div class="block content">
                      <h2 class="title is-3">2019-05-14 如何使用 GitHub 账号登录？</h2>
                         <div class="subtitle is-6">22nd January, 2021</div>
-                  <p>一个特别简单的需求，开发一个使用 GitHub 登陆的功能。</p><p>如图：</p><p><img src="https://i.gyazo.com/fd8686eff0b781065b1edccefa367169.png"></p><p>TL;DR</p><ol><li>创建一个 firebase 项目</li><li>注册一个 GitHub 应用</li><li>代码示例</li></ol><h1 class="">创建 firebase 项目</h1><p>登录 <a class="tc-tiddlylink-external" href="https://console.firebase.google.com" rel="noopener noreferrer" target="_blank">https://console.firebase.google.com</a>，并创建一个项目。
+                <p>一个特别简单的需求，开发一个使用 GitHub 登陆的功能。</p><p>如图：</p><p><img src="https://i.gyazo.com/fd8686eff0b781065b1edccefa367169.png"></p><p>TL;DR</p><ol><li>创建一个 firebase 项目</li><li>注册一个 GitHub 应用</li><li>代码示例</li></ol><h1 class="">创建 firebase 项目</h1><p>登录 <a class="tc-tiddlylink-external" href="https://console.firebase.google.com" rel="noopener noreferrer" target="_blank">https://console.firebase.google.com</a>，并创建一个项目。
 进入 Auth 菜单，启用 GitHub。</p><p><img src="https://i.gyazo.com/ee6c38969827c543c68ef212adb6dd8f.png"></p><p>客户端 ID 和客户端密钥可以从 GitHub App 完成界面获取。</p><h1 class="">注册一个 GitHub 应用</h1><p>进入 <a class="tc-tiddlylink-external" href="https://github.com/settings/applications/new" rel="noopener noreferrer" target="_blank">https://github.com/settings/applications/new</a></p><p><img src="https://i.gyazo.com/75d40005a9a8d9f193819c8e471a7e30.png"></p><p>Homepage URL 和 Callback URL 填写 firebase 回调网址。如 <code>https://xxx.firebaseapp.com/__/auth/handler</code></p><h1 class="">代码示例</h1><pre class="js hljs"><code><span class="hljs-keyword">import</span> React, { useState, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
 <span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">"react-dom"</span>;
 
@@ -102,7 +102,7 @@
 
 <span class="hljs-keyword">const</span> rootElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"root"</span>);
 ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>, rootElement);</code></pre><blockquote><div>source code: <a class="tc-tiddlylink-external" href="https://codesandbox.io/s/zw27vrzpk3" rel="noopener noreferrer" target="_blank">https://codesandbox.io/s/zw27vrzpk3</a></div></blockquote>
-                </div>
+</div>
                 </div>
                 <hr>
             </div>
