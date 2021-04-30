@@ -36,27 +36,37 @@
 
 <link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
 </head>
 
 <body class="tc-body">
   
 <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="./" style="font-weight: 700;" title="TJ's Digital Garden">
-       TJsDG
+            <a class="navbar-item" href="./" style="font-weight: 700;">
+       TJ's Digital Garden
             </a>
         </div>
     </nav>
+
+<style>
+.blog p:first-of-type {
+font-size: 120%;
+font-style: italic;
+}
+</style>
+
 <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
                     <div class="block">
-                        <a class="button is-link is-inverted" href="./">
-                            <span>&amp;lt- Home </span>
+                        <a class="button is-link is-inverted" href="./posts">
+                            <span>Posts</span>
                         </a>
                     </div>
-                    <div class="block content">
+                    <div class="block content blog">
                      <h2 class="title is-3">2019-11-08 踩了一下 GitHub package 大水坑</h2>
                         <div class="subtitle is-6">26th January, 2021</div>
                 <p>GitHub 今年新发布的功能有很多，有 Actions、Sponsor 和 Package 等等。</p><p>昨天我不小心踩了一下 GitHub package 大水坑，折腾了一下午。</p><p>首先，我的结论是：</p><ol><li>GitHub package 不是开箱即用的</li><li>第三方 CI 尚未完全支持，如 Netlify</li><li>GitHub package 的优势在于支持不同包管理系统</li></ol><h2 class="">1. GitHub package 不是开箱即用的</h2><p>为什么这么说呢？因为我认为 npm 是开箱即用的。
@@ -69,6 +79,11 @@ registry=https://npm.pkg.github.com/OWNER</code></pre><p>4.  package.json 中 na
             </div>
         </div>
     </section>
+
+<style>
+.tc-blog p:first-of-type {
+font-size: 150%
+</style>
 
 <footer class="footer">
     <div class="content has-text-centered">

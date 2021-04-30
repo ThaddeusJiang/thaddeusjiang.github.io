@@ -36,27 +36,37 @@
 
 <link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
 </head>
 
 <body class="tc-body">
   
 <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="./" style="font-weight: 700;" title="TJ's Digital Garden">
-       TJsDG
+            <a class="navbar-item" href="./" style="font-weight: 700;">
+       TJ's Digital Garden
             </a>
         </div>
     </nav>
+
+<style>
+.blog p:first-of-type {
+font-size: 120%;
+font-style: italic;
+}
+</style>
+
 <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
                     <div class="block">
-                        <a class="button is-link is-inverted" href="./">
-                            <span>&amp;lt- Home </span>
+                        <a class="button is-link is-inverted" href="./posts">
+                            <span>Posts</span>
                         </a>
                     </div>
-                    <div class="block content">
+                    <div class="block content blog">
                      <h2 class="title is-3">2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整</h2>
                         <div class="subtitle is-6">22nd January, 2021</div>
                 <blockquote class="tc-quote tc-big-quote"><p>没有完美的解决方案，适合自己的才是最好的。
@@ -79,6 +89,11 @@
             </div>
         </div>
     </section>
+
+<style>
+.tc-blog p:first-of-type {
+font-size: 150%
+</style>
 
 <footer class="footer">
     <div class="content has-text-centered">

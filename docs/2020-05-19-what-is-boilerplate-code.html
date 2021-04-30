@@ -36,27 +36,37 @@
 
 <link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
 </head>
 
 <body class="tc-body">
   
 <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="./" style="font-weight: 700;" title="TJ's Digital Garden">
-       TJsDG
+            <a class="navbar-item" href="./" style="font-weight: 700;">
+       TJ's Digital Garden
             </a>
         </div>
     </nav>
+
+<style>
+.blog p:first-of-type {
+font-size: 120%;
+font-style: italic;
+}
+</style>
+
 <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
                     <div class="block">
-                        <a class="button is-link is-inverted" href="./">
-                            <span>&amp;lt- Home </span>
+                        <a class="button is-link is-inverted" href="./posts">
+                            <span>Posts</span>
                         </a>
                     </div>
-                    <div class="block content">
+                    <div class="block content blog">
                      <h2 class="title is-3">2020-05-19 What is boilerplate code?</h2>
                         <div class="subtitle is-6">27th January, 2021</div>
                 <p>终于理解了 Svelte 宣扬的第一条特性 “Build boilerplate-free components” 是什么意思。</p><blockquote class="tc-quote tc-big-quote"><p>boilerplate code，即编写大量和业务无关的代码。
@@ -85,6 +95,11 @@ let address = ''
             </div>
         </div>
     </section>
+
+<style>
+.tc-blog p:first-of-type {
+font-size: 150%
+</style>
 
 <footer class="footer">
     <div class="content has-text-centered">

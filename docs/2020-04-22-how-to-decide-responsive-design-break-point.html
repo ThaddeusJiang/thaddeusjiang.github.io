@@ -36,27 +36,37 @@
 
 <link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
 
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
 </head>
 
 <body class="tc-body">
   
 <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="./" style="font-weight: 700;" title="TJ's Digital Garden">
-       TJsDG
+            <a class="navbar-item" href="./" style="font-weight: 700;">
+       TJ's Digital Garden
             </a>
         </div>
     </nav>
+
+<style>
+.blog p:first-of-type {
+font-size: 120%;
+font-style: italic;
+}
+</style>
+
 <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
                     <div class="block">
-                        <a class="button is-link is-inverted" href="./">
-                            <span>&amp;lt- Home </span>
+                        <a class="button is-link is-inverted" href="./posts">
+                            <span>Posts</span>
                         </a>
                     </div>
-                    <div class="block content">
+                    <div class="block content blog">
                      <h2 class="title is-3">2020-04-22 How to decide Responsive Design break point?</h2>
                         <div class="subtitle is-6">27th January, 2021</div>
                 <p>这可能是一个事实。</p><p>绝大多数 Web 项目使用 <code>实际设备宽度</code> 作为 Responsive Design 的 break point。</p><p>虽然不知道具体原因是为什么，但是极有可能和 Bootstrap 流行有关。因为 Bootstrap 就使用实际设备（Apple's）的宽度作为 Gird 布局的 break point。</p><p><img src="https://i.gyazo.com/0f746f3b84be7dcb33c510cc82eedbb6.jpg"></p><p>个人认为这种设计只适合通用 framework，并不是银弹。</p><h2 class="">让我们一起看一个实际需求</h2><p>现在我们需要开发一个列表展示页面。</p><p>要求：</p><blockquote class="tc-quote"><p>卡片宽度为 200px，卡片间隔 40px。
@@ -97,6 +107,11 @@
             </div>
         </div>
     </section>
+
+<style>
+.tc-blog p:first-of-type {
+font-size: 150%
+</style>
 
 <footer class="footer">
     <div class="content has-text-centered">

@@ -1,11 +1,12 @@
 created: 20200728102956586
 creator: TJ
 description:
-modified: 20210416002524677
+modified: 20210430134521894
 modifier: TJ
 name: Posts
-published: 20210314001527357
-tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals $:/plugins/adithyab/tiddlyjam/live
+renderer: $:/plugins/adithyab/tiddlyjam/renderer/blog/body
+published: 20210430124614997
+tags: $:/plugins/adithyab/tiddlyjam/category $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live
 title: Posts
 type: text/vnd.tiddlywiki
 
