@@ -50,24 +50,12 @@
         </div>
     </nav>
 
-<style>
-.blog p:first-of-type {
-font-size: 120%;
-font-style: italic;
-}
-</style>
-
-<section class="section">
+    <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
-                    <div class="block">
-                        <a class="button is-link is-inverted" href="./posts">
-                            <span>Posts</span>
-                        </a>
-                    </div>
                     <div class="block content blog">
-                     <h2 class="title is-3">2017-06-23 分享几个 git 的使用场景</h2>
+                      <h2 class="title is-3">2017-06-23 分享几个 git 的使用场景</h2>
                         <div class="subtitle is-6">23rd June, 2017</div>
                 <p>你真的会使用 git 吗？你能回答下面几个问题吗？ 有三个 commit（顺序：CommitA、CommitB、CommitC），它们相互独立，没有依赖。</p><ol><li>在不修改 B、C 的前提下，修改 A，怎么操作？</li><li>合并 A、B、C 为一个 commit，怎么操作？</li><li>调整 A、B、C 的顺序编程 C、B、A，怎么操作？</li></ol><p>作为一个开发，日常工作中不可避免的要使用 git。 当然了，如果你技术无敌、独立承担一个项目、没人干预或者影响你的工作，那么你可能不需要下面这些总结。哈哈哈...</p><p>由于 xxx 原因，我认为应该给项目组的其他人讲讲 git。 因为语言障碍和技术熟练度的障碍，为了让同事们更好地理解并且愿意使用 git 。我不得不一个场景一个方法地讲解，所以有了下面总结。</p><blockquote><div>这难道不是一种成长吗？</div></blockquote><h2 class="">场景 1</h2><p>J 写了一个功能，分成 3 次 commit（顺序：CommitA、CommitB、CommitC）。完成功能之后，他找了 B 先生进行 Code Review，B 先生觉得 CommitB 和 CommitC 没有问题，CommitA 需要进行简单修改。 那么如何在不改变 CommitB 和 CommitC 的前提下，修改 CommitA 呢？
 方法：</p><p>使用 git rebase -i，操作如下</p><p>1.    rebase CommitA、CommitB、CommitC 三个 commit</p><pre><code>$ git rebase -i &lt;parent commit of A&gt;</code></pre><p>2.    edit CommitA，将 Commit A 前面 pick 修改为edit</p><pre><code>edit d3d4537 CommitA
@@ -86,17 +74,13 @@ $ git merge branch_J_dev</code></pre><h2 class="">场景 5</h2><p>如何修改 c
 $ git pull
 $ git merge branch_J_dev</code></pre><p>希望这篇文章对你有帮助。
 </p>
-</div>
+                </div>
                 </div>
                 <hr>
             </div>
         </div>
     </section>
 
-<style>
-.tc-blog p:first-of-type {
-font-size: 150%
-</style>
 
 <footer class="footer">
     <div class="content has-text-centered">

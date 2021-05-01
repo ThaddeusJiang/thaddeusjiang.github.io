@@ -1,25 +1,20 @@
-created: 20200728102956586
-creator: TJ
-description:
-modified: 20210430134521894
-modifier: TJ
-name: Posts
+created: 20210501111721427
+modified: 20210501114931424
 renderer: $:/plugins/adithyab/tiddlyjam/renderer/blog/body
-published: 20210430124614997
-tags: $:/plugins/adithyab/tiddlyjam/category $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live
-title: Posts
+tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page
+title: overview
 type: text/vnd.tiddlywiki
 
 <section class="section mt-6">
   <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <h1 class="title" style="font-size: 400%;">手艺人手记</h1>
+      <h1 class="title" style="font-size: 400%;">{{$:/SiteTitle}}</h1>
     </div>
   </div>
   <div>
     <div class="container mt-6">
       <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-        <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[手艺人手记]!sort[title]]">
+        <$list filter="[tag[手艺人手记]][tag[Reading]] +[!sort[title]]">
           {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose}}
         </$list>
       </div>

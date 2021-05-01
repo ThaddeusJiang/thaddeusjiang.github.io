@@ -50,24 +50,12 @@
         </div>
     </nav>
 
-<style>
-.blog p:first-of-type {
-font-size: 120%;
-font-style: italic;
-}
-</style>
-
-<section class="section">
+    <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
-                    <div class="block">
-                        <a class="button is-link is-inverted" href="./posts">
-                            <span>Posts</span>
-                        </a>
-                    </div>
                     <div class="block content blog">
-                     <h2 class="title is-3">2019-11-19 React Testing 2 - E2E Testing</h2>
+                      <h2 class="title is-3">2019-11-19 React Testing 2 - E2E Testing</h2>
                         <div class="subtitle is-6">27th January, 2021</div>
                 <p>相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。</p><h2 class="">1. 什么是 E2E Testing？</h2><blockquote class="tc-quote tc-big-quote"><p>笔者认为：E2E Testing 就是从用户角度对软件进行测试。
 </p></blockquote><p>例如：进入“登陆界面”，输入用户名和密码，点击登陆后跳转到“登陆成功”界面。</p><h2 class="">2. 如何做 E2E Testing？</h2><p>很幸运，在 E2E Testing 方面，已经有很多开源软件可以使用。
@@ -176,17 +164,13 @@ describe(<span class="hljs-string">"Login Page"</span>, <span class="hljs-functi
         <span class="hljs-attr">env:</span>
           <span class="hljs-attr">CYPRESS_RECORD_KEY:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.CYPRESS_RECORD_KEY</span> <span class="hljs-string">}}</span></code></pre><p>需要在 GitHub Secrets 定义 <code>CYPRESS_RECORD_KEY</code>，如下：</p><p><img src="https://i.gyazo.com/825570ffe09b2d6ff69f7b546ba1733d.jpg"></p><h2 class="">经验</h2><blockquote class="tc-quote tc-big-quote"><p>其实可以全局安装 Cypress
 </p></blockquote><p>优点是缩短 npm 安装时间。</p><p>代码：<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/react-testing-example/pull/2" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/react-testing-example/pull/2</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.cypress.io/" rel="noopener noreferrer" target="_blank">https://www.cypress.io/</a></li></ul>
-</div>
+                </div>
                 </div>
                 <hr>
             </div>
         </div>
     </section>
 
-<style>
-.tc-blog p:first-of-type {
-font-size: 150%
-</style>
 
 <footer class="footer">
     <div class="content has-text-centered">

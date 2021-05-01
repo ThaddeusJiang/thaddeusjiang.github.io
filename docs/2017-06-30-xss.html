@@ -50,24 +50,12 @@
         </div>
     </nav>
 
-<style>
-.blog p:first-of-type {
-font-size: 120%;
-font-style: italic;
-}
-</style>
-
-<section class="section">
+    <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
-                    <div class="block">
-                        <a class="button is-link is-inverted" href="./posts">
-                            <span>Posts</span>
-                        </a>
-                    </div>
                     <div class="block content blog">
-                     <h2 class="title is-3">2017-06-30 简单总结一下 XSS</h2>
+                      <h2 class="title is-3">2017-06-30 简单总结一下 XSS</h2>
                         <div class="subtitle is-6">20th December, 2020</div>
                 <p>你听说过 XSS 吗？</p><p>XSS（Cross-site scripting, 跨站脚本）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。
 研究表明，最近几年 XSS 已经超过 “缓冲区溢出” 成为最流行的攻击方式，有 68%的网站可能遭受此类攻击。</p><p>那么检测一下你是否充分了解 XSS 吧</p><ol><li>XSS 为什么会发生？</li><li>XSS 有几种类型？</li><li>XSS 如何预防和修复？</li></ol><p>如果可以回答 👆3 个问题，这篇文章对你提升是微乎其微的。
@@ -129,17 +117,13 @@ font-style: italic;
 <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"javascript:alert('XSS')"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://xxx.com/yyy.png"</span> <span class="hljs-attr">onerror</span>=<span class="hljs-string">"alert('XSS')"</span> /&gt;</span></code></pre><p>希望这篇文章对你有帮助。
 </p>
-</div>
+                </div>
                 </div>
                 <hr>
             </div>
         </div>
     </section>
 
-<style>
-.tc-blog p:first-of-type {
-font-size: 150%
-</style>
 
 <footer class="footer">
     <div class="content has-text-centered">

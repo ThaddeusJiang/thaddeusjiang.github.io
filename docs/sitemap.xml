@@ -308,8 +308,8 @@
    </url>
 
    <url>
-      <loc>.//posts</loc>
-      <lastmod>2021-04-30</lastmod>
+      <loc>.//2021-05-01</loc>
+      <lastmod>2021-05-01</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -320,8 +320,14 @@
    </url>
 
    <url>
-      <loc>.//blog</loc>
-      <lastmod>2021-04-16</lastmod>
+      <loc>.//overview</loc>
+      <lastmod>2021-05-01</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//website</loc>
+      <lastmod>2021-05-01</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

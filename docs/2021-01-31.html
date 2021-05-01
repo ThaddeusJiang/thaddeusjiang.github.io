@@ -50,40 +50,24 @@
         </div>
     </nav>
 
-<style>
-.blog p:first-of-type {
-font-size: 120%;
-font-style: italic;
-}
-</style>
-
-<section class="section">
+    <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
-                    <div class="block">
-                        <a class="button is-link is-inverted" href="./posts">
-                            <span>Posts</span>
-                        </a>
-                    </div>
                     <div class="block content blog">
-                     <h2 class="title is-3">2021-01-31 如何实现英文和中文不同字重？</h2>
+                      <h2 class="title is-3">2021-01-31 如何实现英文和中文不同字重？</h2>
                         <div class="subtitle is-6">31st January, 2021</div>
                 <p>一个非常简单的需求：英文使用 Roboto 字体，中文使用 Noto Serif SC 字体，但是英文的字重是 400，中文的字重是 300 。</p><h2 class="">首先，如何实现英文和中文使用不同字体？</h2><p>直接把英文字体放在中文字体前面就可以了。
 </p><h2 class="">其次，如何实现英文和中文使用不同字重？</h2><p>其实特别简单，直接只提供所需字重的字体即可。</p><p>如果你使用 Goole Font，做法如下：</p><p>1. 引入字体</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
 <span class="hljs-keyword">@import</span> url(<span class="hljs-string">'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&amp;family=Roboto&amp;display=swap'</span>);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre><p>2. 使用字体</p><pre class="css hljs"><code>font-family: 'Roboto', 'Noto Serif SC', serif;</code></pre>
-</div>
+                </div>
                 </div>
                 <hr>
             </div>
         </div>
     </section>
 
-<style>
-.tc-blog p:first-of-type {
-font-size: 150%
-</style>
 
 <footer class="footer">
     <div class="content has-text-centered">

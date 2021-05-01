@@ -50,24 +50,12 @@
         </div>
     </nav>
 
-<style>
-.blog p:first-of-type {
-font-size: 120%;
-font-style: italic;
-}
-</style>
-
-<section class="section">
+    <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
-                    <div class="block">
-                        <a class="button is-link is-inverted" href="./posts">
-                            <span>Posts</span>
-                        </a>
-                    </div>
                     <div class="block content blog">
-                     <h2 class="title is-3">2018-05-08 Jest 测试 CSS Modules</h2>
+                      <h2 class="title is-3">2018-05-08 Jest 测试 CSS Modules</h2>
                         <div class="subtitle is-6">22nd January, 2021</div>
                 <blockquote class="tc-quote tc-big-quote"><p>CSS Modules 解决了 CSS 全局作用域的问题，但是也引入了新的不便。
 </p></blockquote><p>记录一下，Jest 如何测试 CSS Modules。</p><h2 class="">背景</h2><p>React 的 SPA 项目，使用 Parcel.js 作为打包工具。使用 CSS Modules 模块化开发样式。</p><blockquote class="tc-quote tc-big-quote"><p>Parcel.js：极速零配置 Web 应用打包工具。</p><p>注：假的！配置少，但不是 0 配置。
@@ -77,17 +65,13 @@ font-style: italic;
     <span class="hljs-string">"\\.(css|less)$"</span>: <span class="hljs-string">"identity-obj-proxy"</span>
   }
 },</code></pre><p>再次运行 <code>jest</code>，Jest 可以理解 Less 语法了。</p><p><img src="https://user-images.githubusercontent.com/17308201/39739437-d18fa7c6-52cb-11e8-9ad8-2b2f9a34728d.png"></p><p>ref:</p><ul><li><a class="tc-tiddlylink-external" href="https://facebook.github.io/jest/docs/en/webpack.html#mocking-css-modules" rel="noopener noreferrer" target="_blank">https://facebook.github.io/jest/docs/en/webpack.html#mocking-css-modules</a></li></ul>
-</div>
+                </div>
                 </div>
                 <hr>
             </div>
         </div>
     </section>
 
-<style>
-.tc-blog p:first-of-type {
-font-size: 150%
-</style>
 
 <footer class="footer">
     <div class="content has-text-centered">

@@ -5,9 +5,9 @@
    <atom:link href="https://thaddeusjiang.com/rss.xml" rel="self" type="application/rss+xml" />
    <description>readable in 100+ years time</description>
    <item>
-      <title>目前，这个 Blog 打开可能有点慢</title>
-      <link>https://thaddeusjiang.com/blog</link>
-      <guid>https://thaddeusjiang.com/blog</guid>
+      <title>目前，这个 website 打开可能有点慢</title>
+      <link>https://thaddeusjiang.com/website</link>
+      <guid>https://thaddeusjiang.com/website</guid>
    </item>
 
    <item>
@@ -17,9 +17,15 @@
    </item>
 
    <item>
-      <title>Posts</title>
-      <link>https://thaddeusjiang.com/posts</link>
-      <guid>https://thaddeusjiang.com/posts</guid>
+      <title>overview</title>
+      <link>https://thaddeusjiang.com/overview</link>
+      <guid>https://thaddeusjiang.com/overview</guid>
+   </item>
+
+   <item>
+      <title>2021-05-01 《和佛陀一起吃早餐》</title>
+      <link>https://thaddeusjiang.com/2021-05-01</link>
+      <guid>https://thaddeusjiang.com/2021-05-01</guid>
    </item>
 
    <item>

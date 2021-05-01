@@ -50,24 +50,12 @@
         </div>
     </nav>
 
-<style>
-.blog p:first-of-type {
-font-size: 120%;
-font-style: italic;
-}
-</style>
-
-<section class="section">
+    <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
-                    <div class="block">
-                        <a class="button is-link is-inverted" href="./posts">
-                            <span>Posts</span>
-                        </a>
-                    </div>
                     <div class="block content blog">
-                     <h2 class="title is-3">2018-04-22 使用 axios 时遇到的几个问题</h2>
+                      <h2 class="title is-3">2018-04-22 使用 axios 时遇到的几个问题</h2>
                         <div class="subtitle is-6">12th January, 2021</div>
                 <h2 class="">1. axios 的 baseURL</h2><p>目前进行的项目是公司主应用下的子应用，所以 API 全都是 <code>/cms/api/*</code>。 为了提高写代码效率，我写下来如下代码。</p><pre class="js hljs"><code><span class="hljs-comment">// fetch.js</span>
 <span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">"axios"</span>
@@ -85,17 +73,13 @@ ajaxInstance.get() <span class="hljs-comment">// or ajaxInstance.post()</span></
 params.append(<span class="hljs-string">"query"</span>, value)
 
 ajaxInstance.post(apiUrl, params)</code></pre><p>参考：</p><ul><li><a class="tc-tiddlylink-external" href="https://ykloveyxk.github.io/2017/02/25/axios全攻略/" rel="noopener noreferrer" target="_blank">https://ykloveyxk.github.io/2017/02/25/axios全攻略/</a></li><li><a class="tc-tiddlylink-external" href="https://imququ.com/post/four-ways-to-post-data-in-http.html" rel="noopener noreferrer" target="_blank">https://imququ.com/post/four-ways-to-post-data-in-http.html</a></li></ul>
-</div>
+                </div>
                 </div>
                 <hr>
             </div>
         </div>
     </section>
 
-<style>
-.tc-blog p:first-of-type {
-font-size: 150%
-</style>
 
 <footer class="footer">
     <div class="content has-text-centered">

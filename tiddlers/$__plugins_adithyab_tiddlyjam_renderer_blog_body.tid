@@ -1,6 +1,6 @@
 created: 20200806142756352
 creator: Adithya_
-modified: 20210430140911226
+modified: 20210501111503907
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/blog/body
@@ -8,38 +8,21 @@ type: text/vnd.tiddlywiki
 
 {{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}
 
-<style>
-.blog p:first-of-type {
-font-size: 120%;
-font-style: italic;
-}
-</style>
-
-<section class="section">
+    <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
-                    <div class="block">
-                        <a class="button is-link is-inverted" href="./posts">
-                            <span>Posts</span>
-                        </a>
-                    </div>
                     <div class="block content blog">
-                     <h2 class="title is-3"><$view field="title" /></h2>
+                      <h2 class="title is-3"><$view field="title" /></h2>
                         <div class="subtitle is-6"><<get_published_date>></div>
                 <$list filter="[all[current]]">
 
                     <$transclude />
 
                 </$list>
-</div>
+                </div>
                 </div>
                 <hr />
             </div>
         </div>
     </section>
-
-<style>
-.tc-blog p:first-of-type {
-font-size: 150%
-</style>

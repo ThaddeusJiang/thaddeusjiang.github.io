@@ -50,24 +50,12 @@
         </div>
     </nav>
 
-<style>
-.blog p:first-of-type {
-font-size: 120%;
-font-style: italic;
-}
-</style>
-
-<section class="section">
+    <section class="section">
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
-                    <div class="block">
-                        <a class="button is-link is-inverted" href="./posts">
-                            <span>Posts</span>
-                        </a>
-                    </div>
                     <div class="block content blog">
-                     <h2 class="title is-3">2017-07-06 掌握20% 常用的 Velocity</h2>
+                      <h2 class="title is-3">2017-07-06 掌握20% 常用的 Velocity</h2>
                         <div class="subtitle is-6">20th December, 2020</div>
                 <p>工作以后，我越来越能体会到 80/20 法则的强大。</p><p>这是一个不可否认的事实，常用 20% 的技术可以解决工作中 80% 的场景。
 所以我希望能介绍给你 Velocity 技术 20%，帮助你胜任 80% 的工作。</p><p>废话少说，进入正题。</p><h2 class="">概要</h2><ol><li>Velocity 是什么？</li><li>Velocity 能做什么？</li><li>Velocity 示例</li></ol><h2 class="">1. Velocity 是什么？</h2><p>Velocity 是一个基于 Java 的模版引擎，它提供模版语言用于引用 Java 代码定义的对象。</p><h2 class="">2. Velocity 能做什么？</h2><ol><li>Velocity 能创建 HTML 页面，并预留占位符。（最基本用途）</li><li>Velocity 能基于模板生成 Java，SQL 源代码。（没见过）</li><li>自动生成电子邮件。（没见过）</li><li>读取 XML，并转换成需要的文档格式，通常是 HTML。（没见过）</li></ol><h2 class="">3. Velocity 示例</h2><h3 class="">Velocity 注解</h3><ul><li>单行 <code>##</code></li><li>多行 <code>#* *#</code></li><li>代码块注释(信息) <code>##* *#</code></li></ul><h3 class="">Velocity 变量</h3><p>定义：</p><pre class="java hljs"><code>#set( $foo = "Velocity" )</code></pre><p>使用：</p><pre class="java hljs"><code>$foo
@@ -147,17 +135,13 @@ isAddress()</code></pre><p>4. <code>#if (\$foo)</code></p><p>两种情况都返�
 所以，$foo 和 $bar 都当成字符串进行比较。即使 Java 代码中类型不同，也有可能返回 true。</p><h2 class="">Velocity 严格模式</h2><p>Velocity 1.6 引入**严格引用模式**，通过设置 Velocity 配置属性“runtime.references.strict”为 true 激活。
 当遇到没有定义或者存在歧义的情况 Velocity 将抛出异常。</p><p>希望这篇文章对你有帮助。
 </p>
-</div>
+                </div>
                 </div>
                 <hr>
             </div>
         </div>
     </section>
 
-<style>
-.tc-blog p:first-of-type {
-font-size: 150%
-</style>
 
 <footer class="footer">
     <div class="content has-text-centered">
