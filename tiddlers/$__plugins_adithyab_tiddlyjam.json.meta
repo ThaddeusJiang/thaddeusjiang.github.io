@@ -1,9 +1,9 @@
 created: 20210306160051062
 dependents: 
 description: A CMS and website renderer for TiddlyWiki.
-modified: 20210430132856673
+modified: 20210503074527401
 name: TiddlyJam
 plugin-type: plugin
 title: $:/plugins/adithyab/tiddlyjam
 type: application/json
-version: 0.2.4
+version: 0.2.5
