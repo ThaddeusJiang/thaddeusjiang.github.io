@@ -1,0 +1,119 @@
+created: 20210510143815400
+modified: 20210515112723454
+tags: 
+title: 对比一下 BEM CSS 和 Utility-First CSS
+type: text/vnd.tiddlywiki
+
+需求：一个简单的表格
+
+''传统风格''
+
+```html
+<style>
+.table { ... }
+.table-thead { ... }
+.table-cell { ... }
+.table-tbody { ... }
+.table-row { ... }
+.table-row > .table-cell { ... }
+</style>
+
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th class="table-cell">Name</th>
+      <th class="table-cell">Age</th>
+      <th class="table-cell">Address</th>
+    </tr>
+  </thead>
+  <tbody class="table-body">
+    <tr class="table-row">
+      <td class="table-cell">Jiang</td>
+      <td class="table-cell">29</td>
+      <td class="table-cell">Japan</td>
+    </tr>
+    <tr class="table-row">
+      <td class="table-cell">Jiang</td>
+      <td class="table-cell">29</td>
+      <td class="table-cell">Japan</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+思考：
+
+* 有什么问题？
+
+
+''Utility-First 风格''
+
+```html
+<table class="bg-* m-* font-*">
+  <thead class="bg-* m-* font-*">
+    <tr>
+      <th class="bg-* m-* font-*">Name</th>
+      <th class="bg-* m-* font-*">Age</th>
+      <th class="bg-* m-* font-*">Address</th>
+    </tr>
+  </thead>
+  <tbody class="bg-* m-* font-*">
+    <tr>
+      <td class="bg-* m-* font-*">Jiang</td>
+      <td class="bg-* m-* font-*">29</td>
+      <td class="bg-* m-* font-*">Japan</td>
+    </tr>
+    <tr>
+      <td class="bg-* m-* font-*">Jiang</td>
+      <td class="bg-* m-* font-*">29</td>
+      <td class="bg-* m-* font-*">Japan</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+思考：
+
+* 有什么感觉？
+* 有没有解决上面提到的问题？
+
+''Utility-First 风格 + UI Component''
+
+```html
+const Th = ({children}) => (<th class="bg-* m-* font-*">{{children}}</th>)
+const Td = ({children}) => (<td class="bg-* m-* font-*">{{chilren}}</td>)
+
+<table class="bg-* m-* font-*">
+  <thead class="bg-* m-* font-*">
+    <tr>
+      <Th>Name</Th>
+      <Th>Age</Th>
+      <Th>Address</Th>
+    </tr>
+  </thead>
+  <tbody class="bg-* m-* font-*">
+    <tr>
+      <Td>Jiang</Td>
+      <Td>29</Td>
+      <Td>Japan</Td>
+    </tr>
+    <tr>
+      <Td>Jiang</Td>
+      <Td>29</Td>
+      <Td>Japan</Td>
+    </tr>
+  </tbody>
+</table>
+```
+
+思考：
+
+* 怎么样？
+
+''背后的思想是什么？''
+
+<<<.tc-big-quote
+组合由于继承
+<<<TJ
+
+有一个 YouTube 视频，我之前分享过，大家可以看一下。https://youtu.be/3XaXKiXtNjw

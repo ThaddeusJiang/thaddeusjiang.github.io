@@ -1,0 +1,25 @@
+created: 20210510144425332
+modified: 20210515110703041
+tags: 
+title: 总结 Why we should use Utility-First CSS
+type: text/vnd.tiddlywiki
+
+Utility-First CSS 优点
+
+# 不用起名，不费脑。
+# 责任清晰，开发速度快，容易修改，容易调试。
+# 官方实现，bug 少
+
+Utility-First CSS 缺点
+
+# 将 CSS 结构化转移到 HTML 中，代码写的乱。（我不认同，稍后解释）
+# 不利于爬虫（就是不让你爬）
+# 需要记忆新的 class（比 CSS 少 10 倍）
+
+
+个人观点
+
+* 这不是新技术，这是最基本、最核心的技术。
+* 真正提高开发效率、代码品质、且可以掌握的技术。
+* 尽早采用。
+

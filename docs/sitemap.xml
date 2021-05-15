@@ -314,6 +314,12 @@
    </url>
 
    <url>
+      <loc>.//2021-05-15-why-we-should-use-utility-first-css</loc>
+      <lastmod>2021-05-15</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//welcome</loc>
       <lastmod>2021-05-01</lastmod>
       <changefreq>monthly</changefreq>
@@ -322,6 +328,12 @@
    <url>
       <loc>.//overview</loc>
       <lastmod>2021-05-01</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//</loc>
+      <lastmod>2021-05-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

@@ -1,0 +1,33 @@
+created: 20210510143134689
+modified: 20210515112817308
+tags: 
+title: 在 Utility-First CSS 之前有哪些编写 CSS 的方式
+type: text/vnd.tiddlywiki
+
+* BEM（Block Element Modifier）
+* SCSS
+* CSS-IN-JS
+* CSS Modules
+* ...
+
+''为什么会有这么多种方式？''
+
+要讨论这个问题，首先我们需要问 “这些开发方式试图解决什么问题？”
+
+答：解决 CSS 模块化问题。
+
+那么，CSS 模块化遇到了哪些问题？
+
+<<<.tc-big-quote
+# 全局污染
+# 命名混乱
+# 依赖管理不彻底
+# 无法共享变量
+# 代码压缩不彻底
+<<<https://github.com/camsong/blog/issues/5
+
+
+在上述问题中，“全局污染” 可能是最受开发者诟病的问题了。
+
+我以前也觉得 CSS global scope 是一个问题，但是学习了 Utility-First CSS 以后，我太爱 global scope 了。
+只要使用得当，轻轻松松达到 Less is More 的效果。
