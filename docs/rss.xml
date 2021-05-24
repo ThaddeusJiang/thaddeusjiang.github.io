@@ -33,6 +33,20 @@
    </item>
 
    <item>
+      <title>index</title>
+      <link>https://thaddeusjiang.com/index</link>
+      <guid>https://thaddeusjiang.com/index</guid>
+      <pubDate>Sun, 14 March 2021 9:15:27 +09:00</pubDate>
+   </item>
+
+   <item>
+      <title>404</title>
+      <link>https://thaddeusjiang.com/404</link>
+      <guid>https://thaddeusjiang.com/404</guid>
+      <pubDate>Fri, 11 September 2020 23:14:13 +09:00</pubDate>
+   </item>
+
+   <item>
       <title>2021-05-15 详细介绍一下 why we should use Utility-First CSS</title>
       <link>https://thaddeusjiang.com/2021-05-15-why-we-should-use-utility-first-css</link>
       <guid>https://thaddeusjiang.com/2021-05-15-why-we-should-use-utility-first-css</guid>

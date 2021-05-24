@@ -1,5 +1,5 @@
 created: 20210430124928142
-modified: 20210501111215584
+modified: 20210524133821111
 tags: $:/plugins/adithyab/tiddlyjam/css $:/plugins/adithyab/tiddlyjam/internals
 title: vanilla.css
 type: text/vnd.tiddlywiki
@@ -19,3 +19,7 @@ blockquote.tc-big-quote cite:before { content: "\2014 \2009"; }
 blockquote.tc-big-quote:before { font-family: Georgia, serif; color: #bbb; content: open-quote; font-size: 8em; line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; position: absolute; left: -50px; top: 42px; }
 
 blockquote.tc-big-quote:after { font-family: Georgia, serif; color: #bbb; content: close-quote; font-size: 8em; line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; position: absolute; right: -80px; bottom: -20px; }
+
+body {
+  font-family: serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}

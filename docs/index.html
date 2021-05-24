@@ -259,7 +259,11 @@ Error message and password prompt
 
 <li>$:/plugins/adithyab/tiddlyjam/renderer/base/header</li>
 
+<li>$:/plugins/adithyab/tiddlyjam/renderer/baseurl</li>
+
 <li>$:/plugins/adithyab/tiddlyjam/renderer/blog/body</li>
+
+<li>$:/plugins/adithyab/tiddlyjam/renderer/rss</li>
 
 <li>$:/plugins/adithyab/tiddlyjam/renderer/subtitle</li>
 
@@ -415,6 +419,8 @@ Error message and password prompt
 
 <li>3D Printer</li>
 
+<li>404</li>
+
 <li>A4 纸笔记法</li>
 
 <li>connect me</li>
@@ -430,6 +436,8 @@ Error message and password prompt
 <li>Hire me to help your business (zh)</li>
 
 <li>If you can't unlock settings in System Preferences</li>
+
+<li>index</li>
 
 <li>Links</li>
 
@@ -10868,10 +10876,13 @@ wakatime
         &lt;/div&gt;
     &lt;/nav&gt;</pre>
 </div>
-<div created="20200806142756352" creator="Adithya_" modified="20210501111503907" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200912184237510" modified="20210524131739533" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/baseurl" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>https://thaddeusjiang.com</pre>
+</div>
+<div created="20200806142756352" creator="Adithya_" modified="20210524132503751" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>{{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}
 
-    &lt;section class=&quot;section&quot;&gt;
+
         &lt;div class=&quot;container&quot;&gt;
             &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
                 &lt;div&gt;
@@ -10888,7 +10899,29 @@ wakatime
                 &lt;hr /&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-    &lt;/section&gt;
+
+</pre>
+</div>
+<div created="20200913085259429" modified="20210524131920000" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/rss" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&amp;gt;
+&amp;lt;channel&amp;gt;
+
+   &amp;lt;title&amp;gt;{{$:/SiteTitle}}&amp;lt;/title&amp;gt;
+   &amp;lt;link&amp;gt;&lt;$text text={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}}/&gt;&amp;lt;/link&amp;gt;
+   &amp;lt;atom:link href=&quot;&lt;$text text={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}}/&gt;/rss.xml&quot; rel=&quot;self&quot; type=&quot;application/rss+xml&quot; /&amp;gt;
+   &amp;lt;description&amp;gt;{{$:/SiteSubtitle}}&amp;lt;/description&amp;gt;
+
+&lt;$list filter=&quot;[tag[$:/plugins/adithyab/tiddlyjam/live]!sort[title]]&quot;&gt;
+   &amp;lt;item&amp;gt;
+      &amp;lt;title&amp;gt;{{!!title}}&amp;lt;/title&amp;gt;
+      &amp;lt;link&amp;gt;&lt;$text text={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}}/&gt;/&lt;$macrocall $name=&quot;tv-get-export-path&quot; title={{!!title}}/&gt;&amp;lt;/link&amp;gt;
+      &amp;lt;guid&amp;gt;&lt;$text text={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}}/&gt;/&lt;$macrocall $name=&quot;tv-get-export-path&quot; title={{!!title}}/&gt;&amp;lt;/guid&amp;gt;
+      &amp;lt;pubDate&amp;gt;&lt;$list filter=&quot;[{!!published}is[blank]then{!!created}else{!!published}]&quot;&gt;&lt;$view field=&quot;title&quot; format=&quot;date&quot; template=&quot;ddd, DD MMM YYYY hh:mm:ss TZD&quot; /&gt;&lt;/$list&gt;&amp;lt;/pubDate&amp;gt;
+   &amp;lt;/item&amp;gt;
+&lt;/$list&gt;
+&amp;lt;/channel&amp;gt;
+&amp;lt;/rss&amp;gt;
 </pre>
 </div>
 <div created="20210324010140793" modified="20210430133841352" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/subtitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
@@ -11220,8 +11253,8 @@ wakatime
 <div created="20210415134154515" creator="TJ" modified="20210415134154535" modifier="TJ" title="$:/themes/tiddlywiki/vanilla/settings/codefontfamily" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&quot;Fira Mono&quot;,&quot;Liberation Mono&quot;,Menlo,Courier,monospace</pre>
 </div>
-<div created="20210415134148715" creator="TJ" modified="20210415134148735" modifier="TJ" title="$:/themes/tiddlywiki/vanilla/settings/fontfamily" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;</pre>
+<div created="20210415134148715" creator="TJ" modified="20210524133324146" modifier="TJ" title="$:/themes/tiddlywiki/vanilla/settings/fontfamily" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;</pre>
 </div>
 <div created="20170623082426711" creator="TJ" modified="20210417132548052" modifier="TJ" tags="Git 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2017-06-23 分享几个 git 的使用场景" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>你真的会使用 git 吗？你能回答下面几个问题吗？ 有三个 commit（顺序：CommitA、CommitB、CommitC），它们相互独立，没有依赖。
@@ -14959,6 +14992,18 @@ tiddlywiki --build tiddlyjam
 
 </pre>
 </div>
+<div created="20200814080720075" description="A very generic 404 page." modified="20210524132955999" name="Page not found" published="20200911141413491" tags="$:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/internals" title="404" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
+            &lt;h1 class=&quot;title is-1&quot; &gt;Page not found&lt;/h1&gt;
+            &lt;div&gt;
+                &lt;a href={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}}&gt;Back home?&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+</div>
 <div created="20210126010700298" creator="TJ" modified="20210415133319548" modifier="TJ" title="A4 纸笔记法" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>A4 纸笔记法来自《零秒思考》
 
@@ -15055,6 +15100,27 @@ While using macOS Big Sur 11.1, your Mac with Apple T2 Security Chip has an issu
 
 
 
+</pre>
+</div>
+<div created="20200728102956586" creator="Adithya_" description="A static generator for TiddlyWiki. Inspired by JamStack." modified="20210524132943531" modifier="Adithya_" name="Homepage" published="20210314001527357" tags="$:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals $:/plugins/adithyab/tiddlyjam/live" title="index" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
+            &lt;h1 class=&quot;title is-1&quot;&gt;{{$:/SiteTitle}}&lt;/h1&gt;
+            &lt;div class=&quot;subtitle&quot;&gt;
+                {{$:/SiteSubtitle}}
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;div class=&quot;container mt-6&quot;&gt;
+            &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
+                &lt;$list filter=&quot;[tag[$:/plugins/adithyab/tiddlyjam/live]tag[blog]!sort[published]limit[5]]&quot;&gt;
+                    {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose}}
+                &lt;/$list&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
 </pre>
 </div>
 <div created="20210404143055241" creator="TJ" modified="20210415133523080" modifier="TJ" tags="" title="Links" type="text/vnd.tiddlywiki" revision="0" bag="default">
@@ -15187,11 +15253,11 @@ Please wait while {{$:/SiteTitle}} is loading
 &lt;/div&gt;
 </pre>
 </div>
-<div created="20210501111721427" modified="20210501114931424" renderer="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" tags="$:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page" title="overview" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>&lt;section class=&quot;section mt-6&quot;&gt;
+<div created="20210501111721427" modified="20210524133140400" renderer="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" tags="$:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page" title="overview" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>
   &lt;div class=&quot;container&quot;&gt;
     &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
-      &lt;h1 class=&quot;title&quot; style=&quot;font-size: 400%;&quot;&gt;{{$:/SiteTitle}}&lt;/h1&gt;
+      &lt;h1 class=&quot;title is-1&quot; &gt;{{$:/SiteTitle}}&lt;/h1&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div&gt;
@@ -15203,7 +15269,7 @@ Please wait while {{$:/SiteTitle}} is loading
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/section&gt;
+
 </pre>
 </div>
 <div created="20200503023204668" creator="TJ" modified="20210415132941963" modifier="TJ" title="readable in 100+ years time" type="text/vnd.tiddlywiki" revision="0" bag="default">
@@ -15253,7 +15319,7 @@ Please wait while {{$:/SiteTitle}} is loading
 }
 ```</pre>
 </div>
-<div created="20210430124928142" modified="20210501111215584" tags="$:/plugins/adithyab/tiddlyjam/css $:/plugins/adithyab/tiddlyjam/internals" title="vanilla.css" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210430124928142" modified="20210524133821111" tags="$:/plugins/adithyab/tiddlyjam/css $:/plugins/adithyab/tiddlyjam/internals" title="vanilla.css" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>.tc-btn-big-green { display: inline-block; padding: 8px; margin: 4px 8px 4px 8px; background: #34c734; color: #ffffff; fill: #ffffff; border: none; border-radius: 2px; font-size: 1.2em; line-height: 1.4em; text-decoration: none; }
 
 .tc-btn-big-green svg, .tc-btn-big-green img { height: 2em; width: 2em; vertical-align: middle; fill: #ffffff; }
@@ -15268,7 +15334,11 @@ blockquote.tc-big-quote cite:before { content: &quot;\2014 \2009&quot;; }
 
 blockquote.tc-big-quote:before { font-family: Georgia, serif; color: #bbb; content: open-quote; font-size: 8em; line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; position: absolute; left: -50px; top: 42px; }
 
-blockquote.tc-big-quote:after { font-family: Georgia, serif; color: #bbb; content: close-quote; font-size: 8em; line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; position: absolute; right: -80px; bottom: -20px; }</pre>
+blockquote.tc-big-quote:after { font-family: Georgia, serif; color: #bbb; content: close-quote; font-size: 8em; line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; position: absolute; right: -80px; bottom: -20px; }
+
+body {
+  font-family: serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;;
+}</pre>
 </div>
 <div created="20210106060128715" creator="TJ" modified="20210415132941981" modifier="TJ" tags="" title="wakatime" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;embed src=&quot;https://wakatime.com/share/@ThaddeusJiang/360e9ff9-628e-47c5-8c30-241174f8d094.svg&quot;/&gt;</pre>

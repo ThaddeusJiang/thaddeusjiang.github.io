@@ -1,14 +1,14 @@
 created: 20210501111721427
-modified: 20210501114931424
+modified: 20210524133140400
 renderer: $:/plugins/adithyab/tiddlyjam/renderer/blog/body
 tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page
 title: overview
 type: text/vnd.tiddlywiki
 
-<section class="section mt-6">
+
   <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <h1 class="title" style="font-size: 400%;">{{$:/SiteTitle}}</h1>
+      <h1 class="title is-1" >{{$:/SiteTitle}}</h1>
     </div>
   </div>
   <div>
@@ -20,4 +20,4 @@ type: text/vnd.tiddlywiki
       </div>
     </div>
   </div>
-</section>
+

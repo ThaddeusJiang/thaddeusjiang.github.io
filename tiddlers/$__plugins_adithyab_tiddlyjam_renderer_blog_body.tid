@@ -1,6 +1,6 @@
 created: 20200806142756352
 creator: Adithya_
-modified: 20210501111503907
+modified: 20210524132503751
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/blog/body
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 
 {{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}
 
-    <section class="section">
+
         <div class="container">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
                 <div>
@@ -25,4 +25,4 @@ type: text/vnd.tiddlywiki
                 <hr />
             </div>
         </div>
-    </section>
+

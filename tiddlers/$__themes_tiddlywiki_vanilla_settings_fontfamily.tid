@@ -1,8 +1,8 @@
 created: 20210415134148715
 creator: TJ
-modified: 20210415134148735
+modified: 20210524133324146
 modifier: TJ
 title: $:/themes/tiddlywiki/vanilla/settings/fontfamily
 type: text/vnd.tiddlywiki
 
-"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
+serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"

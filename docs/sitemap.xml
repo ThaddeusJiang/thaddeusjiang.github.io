@@ -2,343 +2,355 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
    <url>
-      <loc>.//2017-06-23-git</loc>
+      <loc>https://thaddeusjiang.com/404</loc>
+      <lastmod>2021-05-24</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://thaddeusjiang.com/2017-06-23-git</loc>
       <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2017-06-30-xss</loc>
+      <loc>https://thaddeusjiang.com/2017-06-30-xss</loc>
       <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2017-07-06-20-velocity</loc>
+      <loc>https://thaddeusjiang.com/2017-07-06-20-velocity</loc>
       <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2017-09-11-appium</loc>
+      <loc>https://thaddeusjiang.com/2017-09-11-appium</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-04-21-eslint-do-not-use-finddomnode</loc>
+      <loc>https://thaddeusjiang.com/2018-04-21-eslint-do-not-use-finddomnode</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-04-22-axios</loc>
+      <loc>https://thaddeusjiang.com/2018-04-22-axios</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-04-23-ant-design-iconfont</loc>
+      <loc>https://thaddeusjiang.com/2018-04-23-ant-design-iconfont</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-04-24-js-lodash</loc>
+      <loc>https://thaddeusjiang.com/2018-04-24-js-lodash</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-04-25-moment-js-safari-invalid-date</loc>
+      <loc>https://thaddeusjiang.com/2018-04-25-moment-js-safari-invalid-date</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-04-26-react</loc>
+      <loc>https://thaddeusjiang.com/2018-04-26-react</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-04-27</loc>
+      <loc>https://thaddeusjiang.com/2018-04-27</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-04-28-react-js-jsx-js</loc>
+      <loc>https://thaddeusjiang.com/2018-04-28-react-js-jsx-js</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-05-08-jest-css-modules</loc>
+      <loc>https://thaddeusjiang.com/2018-05-08-jest-css-modules</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-05-09-jest-syntaxerror-unexpected-token-import</loc>
+      <loc>https://thaddeusjiang.com/2018-05-09-jest-syntaxerror-unexpected-token-import</loc>
       <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-05-11-vscode-jest</loc>
+      <loc>https://thaddeusjiang.com/2018-05-11-vscode-jest</loc>
       <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2018-05-12-airbnb-eslint</loc>
+      <loc>https://thaddeusjiang.com/2018-05-12-airbnb-eslint</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-05-14-github</loc>
+      <loc>https://thaddeusjiang.com/2019-05-14-github</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-05-16</loc>
+      <loc>https://thaddeusjiang.com/2019-05-16</loc>
       <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-07-11-jsinspect-jscpd</loc>
+      <loc>https://thaddeusjiang.com/2019-07-11-jsinspect-jscpd</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-07-15-git-cz</loc>
+      <loc>https://thaddeusjiang.com/2019-07-15-git-cz</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-09-18-graphql-fragment</loc>
+      <loc>https://thaddeusjiang.com/2019-09-18-graphql-fragment</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-09-21-cypress</loc>
+      <loc>https://thaddeusjiang.com/2019-09-21-cypress</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-09-30-react-intl-3</loc>
+      <loc>https://thaddeusjiang.com/2019-09-30-react-intl-3</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-11-08-github-package</loc>
+      <loc>https://thaddeusjiang.com/2019-11-08-github-package</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-11-13-20-css</loc>
+      <loc>https://thaddeusjiang.com/2019-11-13-20-css</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-11-18-react-testing-1-unit-testing</loc>
+      <loc>https://thaddeusjiang.com/2019-11-18-react-testing-1-unit-testing</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-11-19-react-testing-2-e2e-testing</loc>
+      <loc>https://thaddeusjiang.com/2019-11-19-react-testing-2-e2e-testing</loc>
       <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-11-20-react-testing-3-visual-testing</loc>
+      <loc>https://thaddeusjiang.com/2019-11-20-react-testing-3-visual-testing</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2019-11-26</loc>
+      <loc>https://thaddeusjiang.com/2019-11-26</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2020-04-22-how-to-decide-responsive-design-break-point</loc>
+      <loc>https://thaddeusjiang.com/2020-04-22-how-to-decide-responsive-design-break-point</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2020-05-19-what-is-boilerplate-code</loc>
+      <loc>https://thaddeusjiang.com/2020-05-19-what-is-boilerplate-code</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2020-05-30-why-i-choose-gridsome-to-rebuild-my-site</loc>
+      <loc>https://thaddeusjiang.com/2020-05-30-why-i-choose-gridsome-to-rebuild-my-site</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2020-06-18-micro-frontends-1-what-is-micro-frontends</loc>
+      <loc>https://thaddeusjiang.com/2020-06-18-micro-frontends-1-what-is-micro-frontends</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2020-06-25-micro-frontends-2-a-demo-made-with-single-spa</loc>
+      <loc>https://thaddeusjiang.com/2020-06-25-micro-frontends-2-a-demo-made-with-single-spa</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2020-07-07-frontend-handle-authorization</loc>
+      <loc>https://thaddeusjiang.com/2020-07-07-frontend-handle-authorization</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2020-07-21-why-tailwind-css</loc>
+      <loc>https://thaddeusjiang.com/2020-07-21-why-tailwind-css</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2020-07-30-vue-js-ssr-note</loc>
+      <loc>https://thaddeusjiang.com/2020-07-30-vue-js-ssr-note</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2020-09-09-inline-svg-vs-icon-fonts</loc>
+      <loc>https://thaddeusjiang.com/2020-09-09-inline-svg-vs-icon-fonts</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-01-12-unicode-range</loc>
+      <loc>https://thaddeusjiang.com/2021-01-12-unicode-range</loc>
       <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-01-15-nuxt-composition-api-usemeta</loc>
+      <loc>https://thaddeusjiang.com/2021-01-15-nuxt-composition-api-usemeta</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-01-18-seo</loc>
+      <loc>https://thaddeusjiang.com/2021-01-18-seo</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-01-22-is-mobile-first-wrong</loc>
+      <loc>https://thaddeusjiang.com/2021-01-22-is-mobile-first-wrong</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-01-31</loc>
+      <loc>https://thaddeusjiang.com/2021-01-31</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-02-08-11-api</loc>
+      <loc>https://thaddeusjiang.com/2021-02-08-11-api</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-02-15-seo-sitemap</loc>
+      <loc>https://thaddeusjiang.com/2021-02-15-seo-sitemap</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-03-13-customize-vetur-for-nuxtjs-compostion-api</loc>
+      <loc>https://thaddeusjiang.com/2021-03-13-customize-vetur-for-nuxtjs-compostion-api</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-04-02-ui</loc>
+      <loc>https://thaddeusjiang.com/2021-04-02-ui</loc>
       <lastmod>2021-04-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-04-16-tiddlyjam-static-site</loc>
+      <loc>https://thaddeusjiang.com/2021-04-16-tiddlyjam-static-site</loc>
       <lastmod>2021-04-16</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-04-16-seo-static-site</loc>
+      <loc>https://thaddeusjiang.com/2021-04-16-seo-static-site</loc>
       <lastmod>2021-05-01</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-04-17-create-react-app-5-1m-1-4m</loc>
+      <loc>https://thaddeusjiang.com/2021-04-17-create-react-app-5-1m-1-4m</loc>
       <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-04-29-rss</loc>
+      <loc>https://thaddeusjiang.com/2021-04-29-rss</loc>
       <lastmod>2021-04-29</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-05-01</loc>
+      <loc>https://thaddeusjiang.com/2021-05-01</loc>
       <lastmod>2021-05-01</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//2021-05-15-why-we-should-use-utility-first-css</loc>
+      <loc>https://thaddeusjiang.com/2021-05-15-why-we-should-use-utility-first-css</loc>
       <lastmod>2021-05-15</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//welcome</loc>
+      <loc>https://thaddeusjiang.com/welcome</loc>
       <lastmod>2021-05-01</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//overview</loc>
-      <lastmod>2021-05-01</lastmod>
+      <loc>https://thaddeusjiang.com/index</loc>
+      <lastmod>2021-05-24</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//</loc>
+      <loc>https://thaddeusjiang.com/overview</loc>
+      <lastmod>2021-05-24</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://thaddeusjiang.com/</loc>
       <lastmod>2021-05-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
-      <loc>.//website</loc>
+      <loc>https://thaddeusjiang.com/website</loc>
       <lastmod>2021-05-01</lastmod>
       <changefreq>monthly</changefreq>
    </url>
