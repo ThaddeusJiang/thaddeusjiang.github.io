@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel><title>TJ's Digital Garden</title>
+<channel><title>蒋继发</title>
    <link>https://thaddeusjiang.com</link>
    <atom:link href="https://thaddeusjiang.com/rss.xml" rel="self" type="application/rss+xml" />
-   <description>readable in 100+ years time</description>
-   <item>
-      <title>目前，这个 website 打开可能有点慢</title>
-      <link>https://thaddeusjiang.com/website</link>
-      <guid>https://thaddeusjiang.com/website</guid>
-      <pubDate>Sat, 20 March 2021 22:42:15 +09:00</pubDate>
-   </item>
-
+   <description>实用主义的工程师、知识分享者、多语言使用者</description>
    <item>
       <title>我要办一家怎样的公司？</title>
       <link>https://thaddeusjiang.com/</link>
@@ -26,7 +19,7 @@
    </item>
 
    <item>
-      <title>overview</title>
+      <title>Overview</title>
       <link>https://thaddeusjiang.com/overview</link>
       <guid>https://thaddeusjiang.com/overview</guid>
       <pubDate>Sat, 1 May 2021 20:17:21 +09:00</pubDate>

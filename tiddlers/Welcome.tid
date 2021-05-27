@@ -1,12 +1,12 @@
 created: 20200418124902034
 creator: TJ
-modified: 20210501115300680
+modified: 20210527145700377
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: Welcome
 type: text/vnd.tiddlywiki
 
-嗨 👋
+嗨 👋，我是蒋继发，nickname: TJ
 
 欢迎来到我的数字花园,
 本系统使用 [[TiddlyWiki|https://tiddlywiki.com/]] 构建。
@@ -19,19 +19,14 @@ type: text/vnd.tiddlywiki
 
 我希望这个 Blog 在 100 年后仍然可读。
 
-我从哪里接触到这个技术？
-[[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 
-如果你也想尝试一下，最简单的方法就是访问 https://ThaddeusJiang.com 直接进行编辑。
+关注我：[[Twitter|https://twitter.com/ThaddeusJiang]] | [[GitHub|https://github.com/ThaddeusJiang]]
 
-或者访问 TiddlyWiki 官方网站：https://tiddlywiki.com/
+[[阅读其他内容|Overview]]
 
-<a href="https://twitter.com/ThaddeusJiang" class="tc-btn-big-green" style="border-radius:4px;background-color:#5E9FCA;" target="_blank" rel="noopener noreferrer">
-{{$:/core/images/twitter}} Twitter
-</a>
-<a href="https://github.com/ThaddeusJiang" class="tc-btn-big-green" style="border-radius:4px;background-color:#444;" target="_blank" rel="noopener noreferrer">
-{{$:/core/images/github}} GitHub
-</a>
+refs:
 
+* 我从哪里接触到这个技术？[[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 
-! 🔥 [[All my posts|overview]] 🔥
+* 如果你也想尝试一下，最简单的方法就是访问 https://ThaddeusJiang.com 直接进行编辑。或者访问 TiddlyWiki 官方网站：https://tiddlywiki.com/
+

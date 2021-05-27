@@ -1,14 +1,16 @@
 created: 20210501111721427
-modified: 20210524133140400
+creator: TJ
+modified: 20210527144250267
+modifier: TJ
 renderer: $:/plugins/adithyab/tiddlyjam/renderer/blog/body
 tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page
-title: overview
+title: Overview
 type: text/vnd.tiddlywiki
-
 
   <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <h1 class="title is-1" >{{$:/SiteTitle}}</h1>
+      <h1 class="title" >{{$:/SiteTitle}}</h1>
+      <p class="subtitle">{{$:/SiteSubtitle}}</p>
     </div>
   </div>
   <div>
