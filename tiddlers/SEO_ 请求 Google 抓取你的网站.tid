@@ -1,0 +1,18 @@
+created: 20210602070905176
+creator: TJ
+modified: 20210603131443210
+modifier: TJ
+title: SEO: 请求 Google 抓取你的网站
+type: text/vnd.tiddlywiki
+
+如果你的网站刚刚开始，或者知名度极低，很有可能 Google 并不会将你的网站收录到数据库。
+
+但是，你可以主动一点，主动请求 Google 抓取你的网站。
+
+How-To:
+
+你可以在 Google Search Console 中请求 Google 抓取你的网站，不过有一个前提，Google 需要你是网站的主人，即拥有 DNS 配置权力。
+
+[img[https://i.gyazo.com/599a47fd7e8666037e115370cbe17f08.jpg]]
+
+ref: https://search.google.com/search-console

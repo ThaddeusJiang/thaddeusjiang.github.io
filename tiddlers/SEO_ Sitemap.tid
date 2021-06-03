@@ -1,0 +1,19 @@
+created: 20210602072102414
+creator: TJ
+modified: 20210603132703804
+modifier: TJ
+title: SEO: Sitemap
+type: text/vnd.tiddlywiki
+
+站点地图（Sitemap）是一种列有某个网站所有网址（URL）的XML文件，由Google最先发起。利用Sitemaps协议，网站管理员可以列出网站上可以供搜索引擎抓取的URL，并通知给后者。
+
+形如：
+https://thaddeusjiang.com/sitemap.xml
+
+虽然 Sitemap 对于网站来说。不是必须的，但是当你的网站还没有足够名气的时候，规规矩矩地提供 Google 需要的信息，有利无害。
+
+你可以在 Google Search Console 中添加 Sitemap。
+
+[img[https://i.gyazo.com/599a47fd7e8666037e115370cbe17f08.jpg]]
+
+ref: https://search.google.com/search-console

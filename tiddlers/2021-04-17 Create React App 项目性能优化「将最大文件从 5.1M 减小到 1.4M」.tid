@@ -2,7 +2,7 @@ created: 20210417121054183
 creator: TJ
 modified: 20210417135426146
 modifier: TJ
-tags: $:/plugins/adithyab/tiddlyjam/live 手艺人手记 性能优化
+tags: $:/plugins/adithyab/tiddlyjam/live blog 手艺人手记 性能优化
 title: 2021-04-17 Create React App 项目性能优化「将最大文件从 5.1M 减小到 1.4M」
 type: text/vnd.tiddlywiki
 
@@ -29,7 +29,7 @@ type: text/vnd.tiddlywiki
 
 !! 我做了什么？
 
-!!! 1. Code Splitting 
+!!! 1. Code Splitting
 
 Code Splitting 利用到 React.lazy 和 Suspense，代码如下：
 

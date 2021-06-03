@@ -267,6 +267,8 @@ Error message and password prompt
 
 <li>$:/plugins/adithyab/tiddlyjam/renderer/subtitle</li>
 
+<li>$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose</li>
+
 <li>$:/plugins/tiddlywiki/googleanalytics</li>
 
 <li>$:/plugins/tiddlywiki/highlight</li>
@@ -417,17 +419,23 @@ Error message and password prompt
 
 <li>2021-05-15 详细介绍一下 why we should use Utility-First CSS</li>
 
+<li>2021-06-03 写给大家看的 SEO 目录</li>
+
 <li>3D Printer</li>
 
 <li>404</li>
 
 <li>A4 纸笔记法</li>
 
+<li>blog</li>
+
 <li>connect me</li>
 
 <li>CSS Modules 详解及 React 中实践</li>
 
 <li>customize css</li>
+
+<li>Google Search Console</li>
 
 <li>Hire me to help your business</li>
 
@@ -451,6 +459,24 @@ Error message and password prompt
 
 <li>readable in 100+ years time</li>
 
+<li>SEO: mobile friendly</li>
+
+<li>SEO: pagespeed</li>
+
+<li>SEO: Sitemap</li>
+
+<li>SEO: Structured data</li>
+
+<li>SEO: 使用 Lighthouse 审计代码质量</li>
+
+<li>SEO: 增加曝光率</li>
+
+<li>SEO: 提高内容的量和质量</li>
+
+<li>SEO: 请求 Google 抓取你的网站</li>
+
+<li>SEO: 调查特定地区的关键字排名</li>
+
 <li>TiddlyJam Static Site 未支持的 features</li>
 
 <li>TiddlyJam tiddlywiki.info 配置</li>
@@ -465,7 +491,13 @@ Error message and password prompt
 
 <li>为什么软件产品不能解决客户的问题？</li>
 
+<li>为什么需要 SEO</li>
+
+<li>什么是 SEO</li>
+
 <li>什么是 Utility-First CSS</li>
+
+<li>入门级 SEO 可以做什么</li>
 
 <li>关键字</li>
 
@@ -482,6 +514,8 @@ Error message and password prompt
 <li>字体</li>
 
 <li>对比一下 BEM CSS 和 Utility-First CSS</li>
+
+<li>总结 SEO</li>
 
 <li>总结 Why we should use Utility-First CSS</li>
 
@@ -500,6 +534,10 @@ Error message and password prompt
 <li>烧烤架</li>
 
 <li>目前，这个 website 打开可能有点慢</li>
+
+<li>高级 SEO 可以做什么？</li>
+
+<li>高级 SEO 可以做什么？List</li>
 
 </ul>
 </p>
@@ -10425,10 +10463,22 @@ wakatime
 <div created="20210416114957196" modified="20210416114957214" title="$:/GoogleAnalyticsAccount" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>UA-140310136-2</pre>
 </div>
-<div created="20210515104153504" modified="20210515104153504" status="complete" title="$:/Import" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210603125646378" modified="20210603125646378" status="complete" title="$:/Import" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>The following tiddlers were imported:
 
-# [[详细介绍一下 why we should use Utility-First CSS]]</pre>
+# [[什么是 SEO]]
+# [[为什么需要 SEO]]
+# [[入门级 SEO 可以做什么]]
+# [[SEO 请求 Google 抓取你的网页]]
+# [[SEO: pagespeed]]
+# [[SEO: mobile friendly]]
+# [[SEO: sitemap]]
+# [[SEO 审计 website 代码]]
+# [[SEO: structured data]]
+# [[SEO: 增加曝光率]]
+# [[SEO: 提高内容的量和质量]]
+# [[SEO: 调查特定区域内关键字排名]]
+# [[总结 SEO]]</pre>
 </div>
 <div title="$:/isEncrypted" revision="0" bag="default">
 <pre>no</pre>
@@ -10871,23 +10921,31 @@ wakatime
     &lt;/div&gt;
   &lt;/footer&gt;</pre>
 </div>
-<div created="20200728151423521" creator="Adithya_" modified="20210430141140696" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base/header" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>&lt;nav class=&quot;navbar&quot; role=&quot;navigation&quot; aria-label=&quot;main navigation&quot;&gt;
+<div created="20200728151423521" creator="Adithya_" modified="20210603142624615" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base/header" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>  &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4&quot;&gt;
+
+      &lt;nav class=&quot;navbar&quot; role=&quot;navigation&quot; aria-label=&quot;main navigation&quot;&gt;
         &lt;div class=&quot;navbar-brand&quot;&gt;
-            &lt;a class=&quot;navbar-item&quot; href={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}} style=&quot;font-weight: 700;&quot;&gt;
+            &lt;a class=&quot;navbar-item has-background-dark has-text-white	title is-3&quot; href={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}} &gt;
        {{$:/SiteTitle}}
             &lt;/a&gt;
         &lt;/div&gt;
-    &lt;/nav&gt;</pre>
+     &lt;/nav&gt;
+
+     &lt;p class=&quot;mt-4&quot;&gt;{{$:/SiteSubtitle}}&lt;/p&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+</pre>
 </div>
 <div created="20200912184237510" modified="20210524131739533" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/baseurl" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>https://thaddeusjiang.com</pre>
 </div>
-<div created="20200806142756352" creator="Adithya_" modified="20210524132503751" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>{{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}
+<div created="20200806142756352" creator="Adithya_" modified="20210603142650379" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>{{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}      
 
-
-        &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;container mt-5&quot;&gt;
             &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
                 &lt;div&gt;
                     &lt;div class=&quot;block content blog&quot;&gt;
@@ -10930,6 +10988,26 @@ wakatime
 </div>
 <div created="20210324010140793" modified="20210430133841352" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/subtitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>{{$:/SiteSubtitle}}</pre>
+</div>
+<div created="20200806173743683" description="This is a short excerpt about this article." modified="20210603135146845" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>\whitespace trim
+
+&lt;div&gt;
+  &lt;div class=&quot;block&quot;&gt;
+    &lt;h2 class=&quot;title is-4&quot;&gt;
+      &lt;$link&gt;{{!!title}}&lt;/$link&gt;
+    &lt;/h2&gt;
+    &lt;p&gt;
+      &lt;&lt;get_description&gt;&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;block&quot;&gt;
+    &lt;$link&gt;
+      &lt;button class=&quot;button is-link is-outlined&quot;&gt;Read&lt;/button&gt;
+    &lt;/$link&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;hr /&gt;</pre>
 </div>
 <div contributor="Sylvain Comte" created="20210416114428844" dependents="" description="Website visitor statistics from Google" list="readme settings usage" modified="20210416114428844" name="Google Analytics" plugin-type="plugin" title="$:/plugins/tiddlywiki/googleanalytics" type="application/json" version="5.1.23" revision="0" bag="default">
 <pre>{
@@ -11260,7 +11338,7 @@ wakatime
 <div created="20210415134148715" creator="TJ" modified="20210524133324146" modifier="TJ" title="$:/themes/tiddlywiki/vanilla/settings/fontfamily" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;</pre>
 </div>
-<div created="20170623082426711" creator="TJ" modified="20210417132548052" modifier="TJ" tags="Git 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2017-06-23 分享几个 git 的使用场景" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20170623082426711" creator="TJ" modified="20210417132548052" modifier="TJ" tags="Git blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2017-06-23 分享几个 git 的使用场景" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>你真的会使用 git 吗？你能回答下面几个问题吗？ 有三个 commit（顺序：CommitA、CommitB、CommitC），它们相互独立，没有依赖。
 
 # 在不修改 B、C 的前提下，修改 A，怎么操作？
@@ -11425,7 +11503,7 @@ $ git merge branch_J_dev
 希望这篇文章对你有帮助。
 </pre>
 </div>
-<div created="20201220092626235" creator="TJ" modified="20210417132556473" modifier="TJ" tags="XSS 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2017-06-30 简单总结一下 XSS" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20201220092626235" creator="TJ" modified="20210417132556473" modifier="TJ" tags="XSS blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2017-06-30 简单总结一下 XSS" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>你听说过 XSS 吗？
 
 XSS（Cross-site scripting, 跨站脚本）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。
@@ -11598,7 +11676,7 @@ function escapeHtml(value) {
 希望这篇文章对你有帮助。
 </pre>
 </div>
-<div created="20201220093253134" creator="TJ" modified="20210417132613456" modifier="TJ" tags="Velocity 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2017-07-06 掌握20% 常用的 Velocity" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20201220093253134" creator="TJ" modified="20210417132613456" modifier="TJ" tags="Velocity blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2017-07-06 掌握20% 常用的 Velocity" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>工作以后，我越来越能体会到 80/20 法则的强大。
 
 这是一个不可否认的事实，常用 20% 的技术可以解决工作中 80% 的场景。
@@ -11822,7 +11900,7 @@ Velocity 1.6 引入**严格引用模式**，通过设置 Velocity 配置属性�
 希望这篇文章对你有帮助。
 </pre>
 </div>
-<div created="20210112124917563" creator="TJ" modified="20210415133035983" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2017-09-11 那么 Appium 到底是怎么工作的呢？" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210112124917563" creator="TJ" modified="20210415133035983" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2017-09-11 那么 Appium 到底是怎么工作的呢？" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>因为官网文档写的没有梯度，作为新手的我花了好几个小时硬是没看明白它是怎么工作的。 网上教程也基本都是翻译，所以结构很复杂、和其他技术耦合度很高，且没有说明。
 
 我自己总结了一份超简单 Appium 自动化测试示例（Node.js 版)
@@ -11862,7 +11940,7 @@ $ npm run ios-simple
 现在你会了吗？
 </pre>
 </div>
-<div created="20210112125513258" creator="TJ" modified="20210415133035989" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2018-04-21 eslint 提示：Do not use findDOMNode" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210112125513258" creator="TJ" modified="20210415133035989" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2018-04-21 eslint 提示：Do not use findDOMNode" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>记录一条 eslint 提示：
 
 ```
@@ -11896,7 +11974,7 @@ component.decoratedComponentInstance.node.getBoundingClientRect()
 参考： https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
 </pre>
 </div>
-<div created="20210112125725582" creator="TJ" modified="20210415133035999" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2018-04-22 使用 axios 时遇到的几个问题" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210112125725582" creator="TJ" modified="20210415133035999" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2018-04-22 使用 axios 时遇到的几个问题" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>!! 1. axios 的 baseURL
 
 目前进行的项目是公司主应用下的子应用，所以 API 全都是 `/cms/api/*`。 为了提高写代码效率，我写下来如下代码。
@@ -11949,7 +12027,7 @@ ajaxInstance.post(apiUrl, params)
 * https://imququ.com/post/four-ways-to-post-data-in-http.html
 </pre>
 </div>
-<div created="20210112130230820" creator="TJ" modified="20210415133035994" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2018-04-23 扩展 Ant Design iconfont" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210112130230820" creator="TJ" modified="20210415133035994" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2018-04-23 扩展 Ant Design iconfont" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>我们项目组是 [[Ant Design|https://github.com/ant-design/ant-design]] 的重度用户。 Ant Design 的 Icon 组件提供了很多图标，个人项目基本上足够了。 但是作为公司的项目，既有图标显然不能满足业务需求，所以就需要扩展图标。
 
 其实扩展 Ant Design 的 Icon 的图标特别简单，这里只是做一下记录。
@@ -11988,7 +12066,7 @@ ajaxInstance.post(apiUrl, params)
 * http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.15&amp;helptype=code
 </pre>
 </div>
-<div created="20210122105735454" creator="TJ" modified="20210415133156676" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live Lodash.js" title="2018-04-24 js 数组去重（使用 lodash）" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122105735454" creator="TJ" modified="20210415133156676" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Lodash.js" title="2018-04-24 js 数组去重（使用 lodash）" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>看上去简单的功能，其实并不简单。简单功能也需要大量测试的支持，这就是为什么 lodash 火爆的原因。
 
 &gt; 推荐一篇文章（与本文无关）https://zhuanlan.zhihu.com/p/35864087
@@ -12048,7 +12126,7 @@ const newArra = _.uniqBy(data, &quot;id&quot;)
 * https://lodash.com/docs/4.17.5#uniqBy
 </pre>
 </div>
-<div created="20210122110039282" creator="TJ" modified="20210415133156683" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live Moment.js" title="2018-04-25 🐛moment.js 在 Safari 中显示 Invalid date" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122110039282" creator="TJ" modified="20210415133156683" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Moment.js" title="2018-04-25 🐛moment.js 在 Safari 中显示 Invalid date" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;&lt;&lt;.tc-big-quote
 对应不同的浏览器规范，可能是前端开发者永远的痛。
 &lt;&lt;&lt;TJ
@@ -12082,7 +12160,7 @@ const str =  moment(createdAt, &quot;YYYY-MM-DD HH:mm:ss&quot;).format(&quot;YYY
 Moment.js 是无辜的。
 </pre>
 </div>
-<div created="20210122111112782" creator="TJ" modified="20210415133156689" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js" title="2018-04-26 React 设置页面标题" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122111112782" creator="TJ" modified="20210415133156689" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js" title="2018-04-26 React 设置页面标题" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;&lt;&lt;.tc-big-quote
 React 生态系统如此繁荣，以至于无论多小的问题都有开发者发布 library。 但是我们真的需要依赖那么多第三方吗？
 &lt;&lt;&lt;TJ
@@ -12150,7 +12228,7 @@ ref:
 * https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react
 </pre>
 </div>
-<div created="20210122112055007" creator="TJ" modified="20210415133156696" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live 重构" title="2018-04-27 最简单的代码重构" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122112055007" creator="TJ" modified="20210415133156696" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live 重构" title="2018-04-27 最简单的代码重构" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>一个 Code Review 的心得
 
 &lt;&lt;&lt;.tc-big-quote
@@ -12191,7 +12269,7 @@ if ( isClound() ) {
 
 将来即使 dcs 判断条件变成 `dcs === 'dcs'`，我们只需要修改一行代码即可。不需要对业务代码进行任何修改。</pre>
 </div>
-<div created="20210122115825100" creator="TJ" modified="20210415133156704" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js CKEditor" title="2018-04-28 React JS/JSX 中引用静态 js 文件" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122115825100" creator="TJ" modified="20210415133156704" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js CKEditor" title="2018-04-28 React JS/JSX 中引用静态 js 文件" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;&lt;&lt;.tc-big-quote
 如果你有一个上古时代的 js 文件，你会直接引用它，还是重写一遍？
 &lt;&lt;&lt;TJ
@@ -12230,7 +12308,7 @@ ref:
 * https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx
 </pre>
 </div>
-<div created="20210122120435908" creator="TJ" modified="20210415133156710" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live Jest [[CSS Modules]]" title="2018-05-08 Jest 测试 CSS Modules" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122120435908" creator="TJ" modified="20210415133156710" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Jest [[CSS Modules]]" title="2018-05-08 Jest 测试 CSS Modules" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;&lt;&lt;.tc-big-quote
 CSS Modules 解决了 CSS 全局作用域的问题，但是也引入了新的不便。
 &lt;&lt;&lt;
@@ -12284,7 +12362,7 @@ ref:
 * https://facebook.github.io/jest/docs/en/webpack.html#mocking-css-modules
 </pre>
 </div>
-<div created="20210122120906980" creator="TJ" modified="20210417132704234" modifier="TJ" tags="Jest 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2018-05-09 解决 Jest &quot;SyntaxError Unexpected token import&quot;" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122120906980" creator="TJ" modified="20210417132704234" modifier="TJ" tags="Jest blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2018-05-09 解决 Jest &quot;SyntaxError Unexpected token import&quot;" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>应该是 `Jest “SyntaxError Unexpected token import”` 最简单的解决方案。
 
 
@@ -12382,7 +12460,7 @@ refs:
 
 </pre>
 </div>
-<div created="20210122121542912" creator="TJ" modified="20210417132713935" modifier="TJ" tags="Jest VSCode 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2018-05-11 VSCode 如何自动补全 Jest 断言？" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122121542912" creator="TJ" modified="20210417132713935" modifier="TJ" tags="Jest VSCode blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2018-05-11 VSCode 如何自动补全 Jest 断言？" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>背景
 
 我是用 VSCode 开发 js 代码，使用 Jest 作为测试框架。安装了` vscode-jest` 插件。
@@ -12408,7 +12486,7 @@ refs:
 * https://github.com/jest-community/vscode-jest/issues/78
 * https://github.com/jest-community/vscode-jest</pre>
 </div>
-<div created="20210122121934408" creator="TJ" modified="20210415133156726" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live ESLint" title="2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122121934408" creator="TJ" modified="20210415133156726" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live ESLint" title="2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;&lt;&lt;.tc-big-quote
  没有完美的解决方案，适合自己的才是最好的。
 &lt;&lt;&lt;TJ
@@ -12446,7 +12524,7 @@ refs:
 其实还有很多，过段时间公开配置文件。
 </pre>
 </div>
-<div created="20210122124458624" creator="TJ" modified="20210415133156760" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-05-14 如何使用 GitHub 账号登录？" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122124458624" creator="TJ" modified="20210415133156760" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-05-14 如何使用 GitHub 账号登录？" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>一个特别简单的需求，开发一个使用 GitHub 登陆的功能。
 
 如图：
@@ -12525,7 +12603,7 @@ ReactDOM.render(&lt;App /&gt;, rootElement);
 &gt; source code: https://codesandbox.io/s/zw27vrzpk3
 </pre>
 </div>
-<div created="20210126133715856" creator="TJ" modified="20210417132513061" modifier="TJ" tags="性能优化 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-05-16 前端性能优化（一）性能评估" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210126133715856" creator="TJ" modified="20210417132513061" modifier="TJ" tags="性能优化 blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-05-16 前端性能优化（一）性能评估" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>前端性能优化是一个老生常谈的话题，是每一个前端开发者都避不开的技术。
 本文主要介绍一下性能优化的第一步，也是最重要的一步。如何性能评估。
 
@@ -12585,7 +12663,7 @@ refs:
 * https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference
 </pre>
 </div>
-<div created="20210126134418789" creator="TJ" modified="20210415133319587" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-07-11 从 jsinspect 迁移到 jscpd" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210126134418789" creator="TJ" modified="20210415133319587" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-07-11 从 jsinspect 迁移到 jscpd" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;&lt;&lt;.tc-big-quote
 jscpd 是一个用于检测重复代码的工具，拒绝 copy/pause 从选择优秀的工具开始。
 &lt;&lt;&lt;
@@ -12660,7 +12738,7 @@ refs:
 
 * https://github.com/kucherenko/jscpd</pre>
 </div>
-<div created="20210126135006802" creator="TJ" modified="20210415133319593" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live Git" title="2019-07-15 使用 git cz 标准化提交记录" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210126135006802" creator="TJ" modified="20210415133319593" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Git" title="2019-07-15 使用 git cz 标准化提交记录" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>自从开始使用 git cz 取代 git commit -m，提交记录变得非常干净、漂亮，这整个过程也没有任何额外负担，非常自然。
 
 
@@ -12685,7 +12763,7 @@ $ git cz
 ```
 </pre>
 </div>
-<div created="20210126135133083" creator="TJ" modified="20210415133319599" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live GraphQL" title="2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210126135133083" creator="TJ" modified="20210415133319599" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live GraphQL" title="2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>不经意间使用 GraphQL 已经一年时间了，
 分享一个自己走过的坑，`多层嵌套 fragment`。
 
@@ -12828,7 +12906,7 @@ refs:
 * https://graphql.org/
 * https://graphql.org/learn/queries/#fragments</pre>
 </div>
-<div created="20210126135522466" creator="TJ" modified="20210415133319605" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live ESLint Cypress.js" title="2019-09-21 更新 Cypress 相关配置" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210126135522466" creator="TJ" modified="20210415133319605" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live ESLint Cypress.js" title="2019-09-21 更新 Cypress 相关配置" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。
 
 !! 旧配置
@@ -12889,7 +12967,7 @@ refs:
 
 * https://github.com/cypress-io/eslint-plugin-cypress</pre>
 </div>
-<div created="20210126135836440" creator="TJ" modified="20210415133319611" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js" title="2019-09-30 升级到 react-intl 3" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210126135836440" creator="TJ" modified="20210415133319611" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js" title="2019-09-30 升级到 react-intl 3" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>上周把公司项目中 react-intl 升到 v3，做一个简单记录。
 这次升级策略和使用 React Hooks 时一样，不重构现有代码，但是在今后新功能中`积极使用`新的 hook API。
 
@@ -12943,7 +13021,7 @@ refs:
 * https://github.com/facebook/create-react-app
 * https://github.com/flow-typed/flow-typed</pre>
 </div>
-<div created="20210126140418652" creator="TJ" modified="20210415133319617" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-11-08 踩了一下 GitHub package 大水坑" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210126140418652" creator="TJ" modified="20210415133319617" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-11-08 踩了一下 GitHub package 大水坑" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>GitHub 今年新发布的功能有很多，有 Actions、Sponsor 和 Package 等等。
 
 昨天我不小心踩了一下 GitHub package 大水坑，折腾了一下午。
@@ -13013,7 +13091,7 @@ refs:
 * https://github.com/features/package-registry
 * https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line</pre>
 </div>
-<div created="20210127132620165" creator="TJ" modified="20210415133409142" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-11-13 20% CSS" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210127132620165" creator="TJ" modified="20210415133409142" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-11-13 20% CSS" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>我是一名 Web 开发者，日常工作中主要使用的技术是 JS 和 CSS。相比 JS ，我认为自己没有认真研究过 CSS 的技术细节。虽然如此，但是我有自信可以实现 “任意 UI”。因为我熟练掌握 20% CSS，并擅长查看其他网站的 CSS 源码。
 
 在这里分享一下我的 20% CSS。
@@ -13110,7 +13188,7 @@ Google 提供了一份非常好的响应式设计教程。https://developers.goo
 希望能帮助到你。
 </pre>
 </div>
-<div created="20210127133417016" creator="TJ" modified="20210415133409149" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js" title="2019-11-18 React Testing 1 - Unit Testing" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210127133417016" creator="TJ" modified="20210415133409149" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js" title="2019-11-18 React Testing 1 - Unit Testing" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;&lt;&lt;.tc-big-quote
 软件测试中，Unit Testing 是最基础的，也是测试量最大的。
 &lt;&lt;&lt;
@@ -13451,7 +13529,7 @@ refs:
 * https://www.cypress.io/
 </pre>
 </div>
-<div created="20210127134337113" creator="TJ" modified="20210415141214321" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js Testing" title="2019-11-20 React Testing 3 - Visual Testing" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210127134337113" creator="TJ" modified="20210415141214321" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js Testing" title="2019-11-20 React Testing 3 - Visual Testing" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;&lt;&lt;.tc-big-quote
  Visual Testing 是我所接触的测试方法中最直观的，也是效果最明显的。
 &lt;&lt;&lt;
@@ -13571,7 +13649,7 @@ refs:
 
 </pre>
 </div>
-<div created="20210127135114208" creator="TJ" modified="20210415133409169" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-11-26 配置自定义域名邮箱" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210127135114208" creator="TJ" modified="20210415133409169" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-11-26 配置自定义域名邮箱" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>绝大多数 freelancer 都使用自定义域名邮箱。一方面，使用自定义域名邮箱显得更专业，另一方面，可以有效隔绝生活邮件和工作邮件。本文简单介绍一下如何配置自己的自定义域名邮箱。
 
 !! 背景
@@ -13755,7 +13833,7 @@ KRs
 * https://twitter.com/ThaddeusJiang
 &lt;&lt;&lt;</pre>
 </div>
-<div created="20210127140423555" creator="TJ" modified="20210415133409174" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2020-04-22 How to decide Responsive Design break point?" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210127140423555" creator="TJ" modified="20210415133409174" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2020-04-22 How to decide Responsive Design break point?" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>这可能是一个事实。
 
 绝大多数 Web 项目使用 `实际设备宽度` 作为 Responsive Design 的 break point。
@@ -13870,7 +13948,7 @@ refs:
 
 * https://getbootstrap.com/</pre>
 </div>
-<div created="20210127141137768" creator="TJ" modified="20210415133409180" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js Svelte.js" title="2020-05-19 What is boilerplate code?" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210127141137768" creator="TJ" modified="20210415133409180" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live React.js Svelte.js" title="2020-05-19 What is boilerplate code?" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>终于理解了 Svelte 宣扬的第一条特性 “Build boilerplate-free components” 是什么意思。
 
 &lt;&lt;&lt;.tc-big-quote
@@ -13921,7 +13999,7 @@ refs:
 
 * https://svelte.dev/</pre>
 </div>
-<div created="20210127141518807" creator="TJ" modified="20210415133409185" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live Vue.js" title="2020-05-30 Why I choose Gridsome to rebuild my site" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210127141518807" creator="TJ" modified="20210415133409185" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Vue.js" title="2020-05-30 Why I choose Gridsome to rebuild my site" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>作为一个 web developer，我特别讨厌自己不断被新技术诱惑的职业病。
 
 我都快记不得这是第几次重写个人网站了，简直是一错再错。
@@ -13936,7 +14014,7 @@ refs:
 
 最后，希望自己今后能更多专注到 `能力成长`，而不仅仅是`技能成长`。</pre>
 </div>
-<div created="20210127141719413" creator="TJ" modified="20210415133409189" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live Micro-frontends" title="2020-06-18 Micro frontends 1: What is Micro frontends" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210127141719413" creator="TJ" modified="20210415133409189" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Micro-frontends" title="2020-06-18 Micro frontends 1: What is Micro frontends" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>!! 什么是 Micro frontends？
 
 第一次听说 Micro frontends 是在 ThoughtWorks Radars。
@@ -13977,7 +14055,7 @@ refs:
 
 * https://www.thoughtworks.com/radar/techniques/micro-frontends</pre>
 </div>
-<div created="20210127142031784" creator="TJ" modified="20210415133409195" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live Micro-frontends" title="2020-06-25 Micro frontends 2: A demo made with single-spa" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210127142031784" creator="TJ" modified="20210415133409195" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Micro-frontends" title="2020-06-25 Micro frontends 2: A demo made with single-spa" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>介绍了 Micro Frontends 的理论，估计大家还是云里雾里的。
 
 我们用一个实例来展示一下 Micro Frontends 的威力。
@@ -14039,7 +14117,7 @@ XXX 系统
 Micro frontends 更适合 toB 场景。
 &lt;&lt;&lt;</pre>
 </div>
-<div created="20210127142437872" creator="TJ" modified="20210415133409199" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2020-07-07 Frontend handle Authorization" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210127142437872" creator="TJ" modified="20210415133409199" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2020-07-07 Frontend handle Authorization" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>!! 分享一个简单登录认证实现
 我使用 [Axios](https://github.com/axios/axios) 作为 HTTP client。
 
@@ -14096,7 +14174,7 @@ export const login = async ({user, password}) =&gt; {
 
 来面试的同学/前辈们一上来就谈 Vue/React 源码，设计思想，中台实现，吧啦吧啦的，给人一种没有实际开发经验的感觉。</pre>
 </div>
-<div created="20210127142614587" creator="TJ" modified="20210415133409204" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2020-07-21 Why Tailwind CSS" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210127142614587" creator="TJ" modified="20210415133409204" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2020-07-21 Why Tailwind CSS" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>在 Twitter 上有一个讨论很有意思。
 
 &lt;$twitter type=&quot;tweet&quot; tweetID=&quot;1285099312012079104&quot; /&gt;
@@ -14197,7 +14275,7 @@ refs:
 * https://tailwindcss.com/
 </pre>
 </div>
-<div created="20210122123937270" creator="TJ" modified="20210415133156755" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live Vue.js Nuxt.js SSR" title="2020-07-30 Vue.js SSR Note" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122123937270" creator="TJ" modified="20210415133156755" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Vue.js Nuxt.js SSR" title="2020-07-30 Vue.js SSR Note" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>作为前端开发者 3 年了，第一次认真学习 SSR。
 
 &lt;&lt;&lt;.tc-big-quote
@@ -14321,7 +14399,7 @@ refs:
 *  https://ssr.vuejs.org/
 * [[https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑]]</pre>
 </div>
-<div created="20210122123546257" creator="TJ" modified="20210415133156749" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live iconfont Nuxt.js" title="2020-09-09 Inline SVG vs Icon Fonts" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122123546257" creator="TJ" modified="20210415133156749" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live iconfont Nuxt.js" title="2020-09-09 Inline SVG vs Icon Fonts" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>背景
 
 最近几个项目都是公司内部项目，icon 都是使用免费的第三方资源。通常是 iconfont。
@@ -14421,7 +14499,7 @@ Key Results：
 
 </pre>
 </div>
-<div created="20210112062714804" creator="TJ" modified="20210417132950092" modifier="TJ" tags="UI开发也不简单 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-01-12 其实你不需要 unicode-range" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210112062714804" creator="TJ" modified="20210417132950092" modifier="TJ" tags="UI开发也不简单 blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-01-12 其实你不需要 unicode-range" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>最近有一个需求，所有英文字母和数字使用 `Roboto` 字体，其他文字使用 `Hiragino Sans` 字体。
 
 由于我 CSS 并不算好，本以为很难，所以 Google 了一下，查到了 https://keqingrong.github.io/blog/2019-11-30-different-fonts-in-different-locales
@@ -14444,7 +14522,7 @@ Key Results：
 我已经把那些乱七八糟的都删了，只留了一个 HTML。
 使用体验完全没有影响，太赞了。</pre>
 </div>
-<div created="20210115064704257" creator="TJ" modified="20210415133053591" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-01-15 Nuxt Composition API useMeta 异步更新" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210115064704257" creator="TJ" modified="20210415133053591" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-01-15 Nuxt Composition API useMeta 异步更新" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。
 所以使用了 [[@nuxtjs/composition-api|https://composition-api.nuxtjs.org/]]
 
@@ -14482,7 +14560,7 @@ useMeta(() =&gt; ({ title: message.value }))
 
 * https://github.com/nuxt-community/composition-api/issues/116#issuecomment-643707422</pre>
 </div>
-<div created="20210118090549699" creator="TJ" modified="20210415133053568" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-01-18 SEO 迷思" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210118090549699" creator="TJ" modified="20210415133053568" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-01-18 SEO 迷思" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>!! 1. 增加 link 就能提高 SEO
 
 事实：相同 domain 的 link 无论添加多少，都不会对 SEO 有任何影响。所以没有必要在页面中添加多余的 link。
@@ -14492,7 +14570,7 @@ useMeta(() =&gt; ({ title: message.value }))
 事实：h1 标签对 SEO 有影响，但不是必须的。如果 UI design 角度不需要大标题（h1），仅设置 document `title` 就足够了。
 </pre>
 </div>
-<div created="20210122093937818" creator="TJ" modified="20210415133156669" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live Mobile-First" title="2021-01-22 Is Mobile-First Wrong?" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210122093937818" creator="TJ" modified="20210415133156669" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live Mobile-First" title="2021-01-22 Is Mobile-First Wrong?" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>从阮一峰的科技爱好者周刊中看到一篇文章，让我重新思考这个问题。
 
 &lt;&lt;&lt;.tc-big-quote
@@ -14539,7 +14617,7 @@ ref:
 * http://www.ruanyifeng.com/blog/2021/01/weekly-issue-141.html
 * https://planflow.dev/blog/why-mobile-first-is-a-bad-idea/</pre>
 </div>
-<div created="20210131125255929" creator="TJ" modified="20210415133434117" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-01-31 如何实现英文和中文不同字重？" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210131125255929" creator="TJ" modified="20210415133434117" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-01-31 如何实现英文和中文不同字重？" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>一个非常简单的需求：英文使用 Roboto 字体，中文使用 Noto Serif SC 字体，但是英文的字重是 400，中文的字重是 300 。
 
 !! 首先，如何实现英文和中文使用不同字体？
@@ -14568,7 +14646,7 @@ code --install-extension arjun.swagger-viewer \
 code --install-extension zeplin.zeplin
 ```</pre>
 </div>
-<div created="20210208063121656" creator="TJ" modified="20210415133523046" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-02-08 11 行代码实现邮政编码检索 API" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210208063121656" creator="TJ" modified="20210415133523046" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-02-08 11 行代码实现邮政编码检索 API" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>open source: https://github.com/ThaddeusJiang/jp-post-api
 
 Sample:
@@ -14586,7 +14664,7 @@ Sample:
 
 https://github.com/ThaddeusJiang/jp-post-api/blob/master/data/update-data.js</pre>
 </div>
-<div created="20210215143653824" creator="TJ" modified="20210415133447995" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-02-15 SEO: 更新网站后，你需要更新 sitemap 吗？" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210215143653824" creator="TJ" modified="20210415133447995" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-02-15 SEO: 更新网站后，你需要更新 sitemap 吗？" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>!! 当你更新网站 URL 时，你需要更新 sitemap 吗？
 
 答：不需要。因为 Google 会自己去爬取。
@@ -14606,7 +14684,7 @@ https://github.com/ThaddeusJiang/jp-post-api/blob/master/data/update-data.js</pr
 
 答：讲真，没什么作用。sitemap 根本不会影响 Google 对网站的排名。</pre>
 </div>
-<div created="20210313042628949" creator="TJ" modified="20210415142537457" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-03-13 Customize Vetur for @nuxtjs/compostion-api" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210313042628949" creator="TJ" modified="20210415142537457" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-03-13 Customize Vetur for @nuxtjs/compostion-api" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>分享一个简单的小技巧。
 
 背景
@@ -14649,7 +14727,7 @@ export default defineComponent({
 
 </pre>
 </div>
-<div created="20210402091041898" creator="TJ" modified="20210415142510926" modifier="TJ" tags="手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-04-02 永远不要再使用巨型 UI 框架了" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210402091041898" creator="TJ" modified="20210415142510926" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2021-04-02 永远不要再使用巨型 UI 框架了" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>!! 什么是巨型 UI 框架？
 
 * https://ant.design/
@@ -14778,7 +14856,7 @@ refs:
 {{2021-04-16 使用 TiddlyJam 生成 Static Site}}
 </pre>
 </div>
-<div created="20210417121054183" creator="TJ" modified="20210417135426146" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live 手艺人手记 性能优化" title="2021-04-17 Create React App 项目性能优化「将最大文件从 5.1M 减小到 1.4M」" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210417121054183" creator="TJ" modified="20210417135426146" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live blog 手艺人手记 性能优化" title="2021-04-17 Create React App 项目性能优化「将最大文件从 5.1M 减小到 1.4M」" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>2021 年 04 年 01 日，加入新公司，回到了我曾经很熟悉，现在有点手生的 React 生态。起初有一点忐忑，幸好 React 已经很久没有大更新了。
 
 我们项目使用 Create-React-App 作为打包工具，因为功能的不断增加，bundle 越来越大了，所以我主动做了一点性能优化。
@@ -14802,7 +14880,7 @@ refs:
 
 !! 我做了什么？
 
-!!! 1. Code Splitting 
+!!! 1. Code Splitting
 
 Code Splitting 利用到 React.lazy 和 Suspense，代码如下：
 
@@ -14966,7 +15044,7 @@ tiddlywiki --build tiddlyjam
 天呐，这是我读过的，最好的关于上帝的描述。不是上帝的审判，是你的选择。不是因为你相信上帝就可以去天堂，更不是因为你不相信上帝就下地狱。
 </pre>
 </div>
-<div created="20210510141036682" creator="TJ" modified="20210515113419437" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live 手艺人手记 CSS" title="2021-05-15 详细介绍一下 why we should use Utility-First CSS" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210510141036682" creator="TJ" modified="20210515113419437" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live blog 手艺人手记 CSS" title="2021-05-15 详细介绍一下 why we should use Utility-First CSS" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>去年我写了一篇简单的文章解释为什么我使用 Tailwind CSS, [[here|2020-07-21 Why Tailwind CSS]]
 
 团队的成员读了以后反馈说“没讲清楚”，说我又来详细介绍一下 why we should use Utility-First CSS。
@@ -14988,6 +15066,27 @@ tiddlywiki --build tiddlyjam
 {{总结 Why we should use Utility-First CSS}}
 
 </pre>
+</div>
+<div created="20210603125429163" modified="20210603135035540" tags="$:/plugins/adithyab/tiddlyjam/live blog 手艺人手记 SEO" title="2021-06-03 写给大家看的 SEO 目录" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>! 1. 什么是 SEO
+
+{{什么是 SEO}}
+
+! 2. 为什么需要 SEO
+
+{{为什么需要 SEO}}
+
+! 3. 入门级 SEO 可以做什么
+
+{{入门级 SEO 可以做什么}}
+
+! 4. 高级 SEO 可以做什么？
+
+{{高级 SEO 可以做什么？}}
+
+! 总结 SEO
+
+{{总结 SEO}}</pre>
 </div>
 <div created="20210503005408202" modified="20210503005446068" tags="TODO 好物" title="3D Printer" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>想买 3D Printer
@@ -15013,6 +15112,20 @@ tiddlywiki --build tiddlyjam
 
 https://book.douban.com/subject/26260187/</pre>
 </div>
+<div created="20140909110520793" creator="Adithya" description="A place for blogs." modified="20210603142851120" modifier="Adithya_" name="Blog" published="20210603134921046" renderer="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" tags="$:/plugins/adithyab/tiddlyjam/category $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals $:/plugins/adithyab/tiddlyjam/live" title="blog" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>      {{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}
+
+    &lt;div class=&quot;container mt-5&quot;&gt;
+      &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
+        &lt;$list filter=&quot;[tag[手艺人手记]][tag[Reading]] +[!sort[title]]&quot;&gt;
+          {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose}}
+        &lt;/$list&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+</pre>
+</div>
 <div created="20210312034940482" creator="TJ" modified="20210415133448006" modifier="TJ" tags="" title="connect me" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>* email: thaddeusjiang[at]gmail.com
 * twitter &lt;$twitter type=&quot;mentionButton&quot; screenName=&quot;ThaddeusJiang&quot;/&gt;</pre>
@@ -15024,6 +15137,11 @@ https://book.douban.com/subject/26260187/</pre>
 <pre>h1, h2, h3, h4, h5 {
   font-weight: 500;
 }</pre>
+</div>
+<div created="20210603132714227" modified="20210603132735586" tags="" title="Google Search Console" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>[img[https://i.gyazo.com/599a47fd7e8666037e115370cbe17f08.jpg]]
+
+ref: https://search.google.com/search-console</pre>
 </div>
 <div created="20210312034011699" creator="TJ" modified="20210415133523023" modifier="TJ" tags="" title="Hire me to help your business" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>What can I offer to you?
@@ -15297,6 +15415,107 @@ Please wait while {{$:/SiteTitle}} is loading
 
 </pre>
 </div>
+<div created="20210602071703818" creator="TJ" modified="20210603132143850" modifier="TJ" title="SEO: mobile friendly" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>Google 喜欢移动端友好的网站。
+
+移动端友好不仅仅是 Responsive Design，还有低速网络、离线、移动端手势等等。
+
+如果你不知道你的网站是否是移动端友好，mobile-friendly 可以帮助你。
+
+[img[https://i.gyazo.com/353b772980800e47bd37ca26a69f09e8.jpg]]
+
+https://search.google.com/test/mobile-friendly</pre>
+</div>
+<div created="20210602071358689" creator="TJ" modified="20210603131830108" modifier="TJ" title="SEO: pagespeed" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>Google 喜欢 fast website。所以你应该尽可能提供更快的网站。
+
+如果你不知道你的网站是否足够快，那么 Pagespeed 可以帮助你。
+
+[img[https://i.gyazo.com/93f820daa90f113efd39e4f7c41722bf.jpg]]
+
+ref: https://developers.google.com/speed/pagespeed/insights/</pre>
+</div>
+<div created="20210602072102414" creator="TJ" modified="20210603132703804" modifier="TJ" title="SEO: Sitemap" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>站点地图（Sitemap）是一种列有某个网站所有网址（URL）的XML文件，由Google最先发起。利用Sitemaps协议，网站管理员可以列出网站上可以供搜索引擎抓取的URL，并通知给后者。
+
+形如：
+https://thaddeusjiang.com/sitemap.xml
+
+虽然 Sitemap 对于网站来说。不是必须的，但是当你的网站还没有足够名气的时候，规规矩矩地提供 Google 需要的信息，有利无害。
+
+你可以在 Google Search Console 中添加 Sitemap。
+
+[img[https://i.gyazo.com/599a47fd7e8666037e115370cbe17f08.jpg]]
+
+ref: https://search.google.com/search-console
+</pre>
+</div>
+<div created="20210518141420527" creator="TJ" modified="20210603134238689" modifier="TJ" tags="" title="SEO: Structured data" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>结构化数据（Structured data）是一种提供网页相关信息并对网页内容进行分类的标准化格式；例如，食谱网页上会有食材、烹饪时长和温度、卡路里等各类信息。
+
+结构化数据不是一句话两句话就能说清楚点，如果你感兴趣可以阅读《我 2020 年在 teamLab 内部分享会的资料》
+
+https://scrapbox.io/teamlab-frontend/%5BSEO%5D_Structured_Data_Intro</pre>
+</div>
+<div created="20210602072734050" creator="TJ" modified="20210603133252794" modifier="TJ" title="SEO: 使用 Lighthouse 审计代码质量" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>作为 Web 开发者，相信大家一定对 Google DevTool 了若指掌。
+
+Google 会根据网站的质量对网站进行打分，理论上质量越好的网站分数越高。
+
+主要从下面几个方面
+
+# Perfomance
+# Accessibility
+# Best Practices
+# SEO
+# PWA
+
+你可以使用和 Google 一样的工具对你的网站进行自测，这个工具就是 Lighthouse。
+
+[img[https://i.gyazo.com/8f47ebdd1d8a508ac60b77bdd30e2fb7.jpg]]
+
+ref: https://github.com/GoogleChrome/lighthouse</pre>
+</div>
+<div created="20210602073218743" creator="TJ" modified="20210603125646598" modifier="TJ" title="SEO: 增加曝光率" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre># SNS（Twitter、Facebook、WeChat）
+# 业界网站（PR Times、日本の人事部、etc.）
+# 真正地拜访客户
+
+
+反例：
+
+# 购买水军
+# 群发邮件
+# 不合适的广告</pre>
+</div>
+<div created="20210602074415041" creator="TJ" modified="20210603125646619" modifier="TJ" title="SEO: 提高内容的量和质量" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre># 精准定位目标用户
+# 重复、重复、重复
+# 聘请专业写手</pre>
+</div>
+<div created="20210602070905176" creator="TJ" modified="20210603131443210" modifier="TJ" title="SEO: 请求 Google 抓取你的网站" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>如果你的网站刚刚开始，或者知名度极低，很有可能 Google 并不会将你的网站收录到数据库。
+
+但是，你可以主动一点，主动请求 Google 抓取你的网站。
+
+How-To:
+
+你可以在 Google Search Console 中请求 Google 抓取你的网站，不过有一个前提，Google 需要你是网站的主人，即拥有 DNS 配置权力。
+
+[img[https://i.gyazo.com/599a47fd7e8666037e115370cbe17f08.jpg]]
+
+ref: https://search.google.com/search-console
+</pre>
+</div>
+<div created="20210602081829410" creator="TJ" modified="20210603133622700" modifier="TJ" title="SEO: 调查特定地区的关键字排名" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>搜索引擎在不同地区对某个关键字展示的内容可能是不同的，所以要调查关键字排名，必须限定在你的目标地区。
+
+有很多工具可以帮助你调查关键字排名，这里推荐一个免费的，TheHoth
+
+[img[https://i.gyazo.com/ec92bf7a92d9fec2c1c94b91396999e7.jpg]]
+
+refs: https://www.thehoth.com/search-engine-rankings/</pre>
+</div>
 <div created="20210416124755628" modified="20210416125012559" tags="TODO" title="TiddlyJam Static Site 未支持的 features" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre># $:/tags/ViewTemplate
 # Twitter plugin
@@ -15323,8 +15542,9 @@ Please wait while {{$:/SiteTitle}} is loading
 }
 ```</pre>
 </div>
-<div created="20210527144837545" modified="20210527144907067" title="TJ" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>Hi 👋, My Name is Thaddeus Jiang (aka. TJ).</pre>
+<div created="20210527144837545" modified="20210603125423746" title="TJ" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>Hi 👋, My Name is Thaddeus Jiang. 
+中文名：蒋继发。</pre>
 </div>
 <div created="20210430124928142" modified="20210524133821111" tags="$:/plugins/adithyab/tiddlyjam/css $:/plugins/adithyab/tiddlyjam/internals" title="vanilla.css" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>.tc-btn-big-green { display: inline-block; padding: 8px; margin: 4px 8px 4px 8px; background: #34c734; color: #ffffff; fill: #ffffff; border: none; border-radius: 2px; font-size: 1.2em; line-height: 1.4em; text-decoration: none; }
@@ -15350,7 +15570,7 @@ body {
 <div created="20210106060128715" creator="TJ" modified="20210415132941981" modifier="TJ" tags="" title="wakatime" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;embed src=&quot;https://wakatime.com/share/@ThaddeusJiang/360e9ff9-628e-47c5-8c30-241174f8d094.svg&quot;/&gt;</pre>
 </div>
-<div created="20200418124902034" creator="TJ" modified="20210527145700377" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200418124902034" creator="TJ" modified="20210603141732942" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>嗨 👋，我是蒋继发，nickname: TJ
 
 欢迎来到我的数字花园,
@@ -15367,7 +15587,7 @@ body {
 
 关注我：[[Twitter|https://twitter.com/ThaddeusJiang]] | [[GitHub|https://github.com/ThaddeusJiang]]
 
-[[阅读其他内容|Overview]]
+[[阅读其他内容|blog]]
 
 refs:
 
@@ -15390,10 +15610,31 @@ Client -&gt; Business Analyst -&gt; Developer -&gt; Code
 DDD 中提到“使用统一语言”。
 &lt;&lt;&lt;TJ</pre>
 </div>
+<div created="20210602063036100" creator="TJ" modified="20210603125646497" modifier="TJ" title="为什么需要 SEO" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre># 通过 Google 搜索推广在线内容或通过此类内容获利
+# 通过 Google 刊登广告对网站在 Google 的搜索结果中的显示情况没有任何影响</pre>
+</div>
+<div created="20210602062605424" creator="TJ" modified="20210603134427475" modifier="TJ" title="什么是 SEO" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>两种完全不同的解释
+
+# SEO（Search Engine Optimization）搜索引擎优化
+# SEO（Search Engine Optimizer）搜索引擎优化服务商
+
+但是 90% 的人对于 SEO 的理解是第一种，即：
+
+&gt; 搜索引擎优化 (SEO) 通常是指对网站的部分内容进行细微的修改。单独来看，这些修改可能只是细微的改进，但与其他优化结合起来后，则可能会对您的网站的用户体验以及在自然搜索结果中的表现产生显著影响。
+
+</pre>
+</div>
 <div created="20210510142808547" modified="20210515110135956" tags="" title="什么是 Utility-First CSS" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>Utility-First CSS 是 Tailwind CSS 官方宣传的一种编写 CSS 的方式。
 
 简单说：提供大量基础的 CSS classname，然后利用 CSS 的组合能力，想堆砌乐高积木一样编写 CSS。</pre>
+</div>
+<div created="20210602063513952" creator="TJ" modified="20210603125646530" modifier="TJ" title="入门级 SEO 可以做什么" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre># 提高曝光率，提高内容的量和质量（如：在社交媒体发布你的网址）
+# 购买广告（🤔️，你或许会有疑问，让我给你解释）
+# 聘请 SEO（search engine optimizer）</pre>
 </div>
 <div created="20210527144922998" modified="20210527145621096" tags="" title="关键字" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>* 蒋继发
@@ -15610,6 +15851,17 @@ const Td = ({children}) =&gt; (&lt;td class=&quot;bg-* m-* font-*&quot;&gt;{{chi
 有一个 YouTube 视频，我之前分享过，大家可以看一下。https://youtu.be/3XaXKiXtNjw
 </pre>
 </div>
+<div created="20210602082803914" creator="TJ" modified="20210603125646630" modifier="TJ" title="总结 SEO" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>&lt;&lt;&lt;.tc-big-quote
+要么你成为 SEO 专家，要么聘请你信任的 SEO 专家
+&lt;&lt;&lt;TJ
+
+* SEO 是一个费时费力的工作
+* SEO 对早期项目至关重要
+* SEO 很可能花了很多钱，但是没有任何收益，甚至有可能有风险
+
+</pre>
+</div>
 <div created="20210510144425332" modified="20210515110703041" tags="" title="总结 Why we should use Utility-First CSS" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>Utility-First CSS 优点
 
@@ -15684,6 +15936,46 @@ Utility-First CSS 缺点
 <pre>目前，这个 website 打开可能有点慢，这是有意而为。
 
 起因是《黑客与画家》中关于“100年后的编程语言”的描述。</pre>
+</div>
+<div created="20210603130155068" modified="20210603133639176" tags="" title="高级 SEO 可以做什么？" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>!! 1. 请求 Google 抓取你的网站
+
+{{SEO: 请求 Google 抓取你的网站}}
+
+!! 2. 天下武功唯快不破
+
+{{SEO: pagespeed}}
+
+!! 3. 移动端友好
+
+{{SEO: mobile friendly}}
+
+!! 4. 提供站点地图
+
+{{SEO: Sitemap}}
+
+!! 5. 使用 Lighthouse 审计代码质量
+
+{{SEO: 使用 Lighthouse 审计代码质量}}
+
+!! 6. 你或许不太熟悉的“结构化数据”
+
+{{SEO: structured data}}
+
+!! 7. 调查特定地区的关键字排名
+
+{{SEO: 调查特定地区的关键字排名}}
+</pre>
+</div>
+<div created="20210603125953119" modified="20210603134227730" tags="" title="高级 SEO 可以做什么？List" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre># [[SEO: 请求 Google 抓取你的网站]]
+# [[SEO: pagespeed]]
+# [[SEO: mobile friendly]]
+# [[SEO: Sitemap]]
+# [[SEO: 使用 Lighthouse 审计代码质量]]
+# [[SEO: Structured data]]
+# [[SEO: 调查特定区域内关键字排名]]
+</pre>
 </div>
 
 

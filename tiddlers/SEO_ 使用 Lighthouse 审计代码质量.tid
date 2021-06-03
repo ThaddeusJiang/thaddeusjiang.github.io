@@ -1,0 +1,24 @@
+created: 20210602072734050
+creator: TJ
+modified: 20210603133252794
+modifier: TJ
+title: SEO: 使用 Lighthouse 审计代码质量
+type: text/vnd.tiddlywiki
+
+作为 Web 开发者，相信大家一定对 Google DevTool 了若指掌。
+
+Google 会根据网站的质量对网站进行打分，理论上质量越好的网站分数越高。
+
+主要从下面几个方面
+
+# Perfomance
+# Accessibility
+# Best Practices
+# SEO
+# PWA
+
+你可以使用和 Google 一样的工具对你的网站进行自测，这个工具就是 Lighthouse。
+
+[img[https://i.gyazo.com/8f47ebdd1d8a508ac60b77bdd30e2fb7.jpg]]
+
+ref: https://github.com/GoogleChrome/lighthouse
