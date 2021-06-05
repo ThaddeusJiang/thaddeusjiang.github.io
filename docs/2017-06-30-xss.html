@@ -53,13 +53,14 @@
   </div>
       
 
-        <div class="container mt-5">
-            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-                <div>
-                    <div class="block content blog">
-                      <h2 class="title is-3">2017-06-30 简单总结一下 XSS</h2>
-                        <div class="subtitle is-6">20th December, 2020</div>
-                <p>你听说过 XSS 吗？</p><p>XSS（Cross-site scripting, 跨站脚本）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title is-2">2017-06-30 简单总结一下 XSS</h1>
+            <hr>
+
+            <p>你听说过 XSS 吗？</p><p>XSS（Cross-site scripting, 跨站脚本）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。
 研究表明，最近几年 XSS 已经超过 “缓冲区溢出” 成为最流行的攻击方式，有 68%的网站可能遭受此类攻击。</p><p>那么检测一下你是否充分了解 XSS 吧</p><ol><li>XSS 为什么会发生？</li><li>XSS 有几种类型？</li><li>XSS 如何预防和修复？</li></ol><p>如果可以回答 👆3 个问题，这篇文章对你提升是微乎其微的。
 如果不可以，你可以花十分钟左右阅读一下。</p><p>我目前的客户是一家银行，因为企业特性和业务需求，对系统安全高度重视。</p><p>因此，我不得不分析了整个系统，从中找出未对应 XSS 的 Code 。说实话，虽然是企业内部系统，但是代码也不少，看代码看的我都快吐了。</p><blockquote><div>得益于此，让我对<code>XSS</code>的理解更加深了一层。</div></blockquote><h2 class="">1. XSS 为什么会发生？</h2><p>因为用户输入的数据被当成代码执行了。</p><p>那么，为什么用户输入的数据会被当成代码并且被执行呢？
 因为当用户输入尖括号<code>&lt; &gt;</code>，引号<code>'</code> <code>&quot;</code>，斜杠<code>/</code>之类的特殊字符时，可能**破坏原始的代码结构**，导致输入的部分内容被当成代码，并且被执行。</p><p>[小例子]
@@ -119,13 +120,13 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"javascript:alert('XSS')"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://xxx.com/yyy.png"</span> <span class="hljs-attr">onerror</span>=<span class="hljs-string">"alert('XSS')"</span> /&gt;</span></code></pre><p>希望这篇文章对你有帮助。
 </p>
-                </div>
-                </div>
-                <hr>
-            </div>
-        </div>
 
+      </div>
+      <hr>
+  </div>
+</div>        
 
+</div>
 
 <footer class="footer">
     <div class="content has-text-centered">

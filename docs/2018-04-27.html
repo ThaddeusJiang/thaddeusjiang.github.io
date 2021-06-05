@@ -53,13 +53,14 @@
   </div>
       
 
-        <div class="container mt-5">
-            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-                <div>
-                    <div class="block content blog">
-                      <h2 class="title is-3">2018-04-27 最简单的代码重构</h2>
-                        <div class="subtitle is-6">22nd January, 2021</div>
-                <p>一个 Code Review 的心得</p><blockquote class="tc-quote tc-big-quote"><p>最简单的代码重构，就是把重复代码提取成函数。
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title is-2">2018-04-27 最简单的代码重构</h1>
+            <hr>
+
+            <p>一个 Code Review 的心得</p><blockquote class="tc-quote tc-big-quote"><p>最简单的代码重构，就是把重复代码提取成函数。
 </p><cite>TJ</cite></blockquote><p>重构前</p><p><img src="https://user-images.githubusercontent.com/17308201/39341071-5cc81a76-4a0c-11e8-837d-ada35b7709df.png"></p><p>其实这个功能超级简单，就是判断一下当前环境是否是 <code>dcs</code> 环境。</p><blockquote><div>dcs: [DreamArts Clound Service](<a class="tc-tiddlylink-external" href="https://www.dreamarts.co.jp/dcs/" rel="noopener noreferrer" target="_blank">https://www.dreamarts.co.jp/dcs/</a>) 是我司提供的云服务平台。</div></blockquote><p>重构后</p><pre class="js hljs"><code><span class="hljs-comment">// envUtil.js</span>
 <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isClound</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.config !== <span class="hljs-literal">undefined</span>) {
@@ -75,13 +76,13 @@
 <span class="hljs-keyword">if</span> ( isClound() ) {
   ...
 }</code></pre><p>所有判断 <code>dcs</code> 环境的功能，只要调用 <code>isClound()</code> 即可。</p><p>当然这段代码还有问题，<code>window.config.dcs === 1</code> 的 <code>1</code> 应该算是魔法数字，也应该被重构。</p><p>将来即使 dcs 判断条件变成 <code>dcs === 'dcs'</code>，我们只需要修改一行代码即可。不需要对业务代码进行任何修改。</p>
-                </div>
-                </div>
-                <hr>
-            </div>
-        </div>
 
+      </div>
+      <hr>
+  </div>
+</div>        
 
+</div>
 
 <footer class="footer">
     <div class="content has-text-centered">

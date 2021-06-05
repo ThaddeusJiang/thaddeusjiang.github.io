@@ -53,13 +53,14 @@
   </div>
       
 
-        <div class="container mt-5">
-            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-                <div>
-                    <div class="block content blog">
-                      <h2 class="title is-3">2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment</h2>
-                        <div class="subtitle is-6">26th January, 2021</div>
-                <p>不经意间使用 GraphQL 已经一年时间了，
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title is-2">2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment</h1>
+            <hr>
+
+            <p>不经意间使用 GraphQL 已经一年时间了，
 分享一个自己走过的坑，<code>多层嵌套 fragment</code>。</p><h2 class="">首先，什么是 GraphQL fragment？</h2><blockquote class="tc-quote tc-big-quote"><p>GraphQL includes reusable units called fragments. Fragments let you construct sets of fields, and then include them in queries where you need to.
 </p></blockquote><p>GraphQL fragment 允许我们定义一些常用的属性集，方便重复利用。</p><p>使用方法如下，我们定义 TagFragment， 它被利用在 ACardFragment 和 BCardFragment 中。</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> TagFragment = gql<span class="hljs-string">`
   fragment TagFragment {
@@ -157,13 +158,13 @@
   }
   <span class="hljs-subst">${AFormFragment}</span>
 `</span></code></pre><p>希望您可以避开这个坑。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://graphql.org/" rel="noopener noreferrer" target="_blank">https://graphql.org/</a></li><li><a class="tc-tiddlylink-external" href="https://graphql.org/learn/queries/#fragments" rel="noopener noreferrer" target="_blank">https://graphql.org/learn/queries/#fragments</a></li></ul>
-                </div>
-                </div>
-                <hr>
-            </div>
-        </div>
 
+      </div>
+      <hr>
+  </div>
+</div>        
 
+</div>
 
 <footer class="footer">
     <div class="content has-text-centered">

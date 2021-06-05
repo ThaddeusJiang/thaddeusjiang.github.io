@@ -437,6 +437,8 @@ Error message and password prompt
 
 <li>customize css</li>
 
+<li>Draft of '$:/plugins/adithyab/tiddlyjam/renderer/blog/body'</li>
+
 <li>Google Search Console</li>
 
 <li>Hire me to help your business</li>
@@ -10944,25 +10946,26 @@ wakatime
 <div created="20200912184237510" modified="20210524131739533" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/baseurl" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>https://thaddeusjiang.com</pre>
 </div>
-<div created="20200806142756352" creator="Adithya_" modified="20210603142650379" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200806142756352" creator="Adithya_" modified="20210605232931557" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>{{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}      
 
-        &lt;div class=&quot;container mt-5&quot;&gt;
-            &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
-                &lt;div&gt;
-                    &lt;div class=&quot;block content blog&quot;&gt;
-                      &lt;h2 class=&quot;title is-3&quot;&gt;&lt;$view field=&quot;title&quot; /&gt;&lt;/h2&gt;
-                        &lt;div class=&quot;subtitle is-6&quot;&gt;&lt;&lt;get_published_date&gt;&gt;&lt;/div&gt;
-                &lt;$list filter=&quot;[all[current]]&quot;&gt;
+&lt;div class=&quot;container mt-5&quot;&gt;
+  &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
+      &lt;div&gt;
+          &lt;div class=&quot;block content blog&quot;&gt;
+            &lt;h1 class=&quot;title is-2&quot;&gt;&lt;$view field=&quot;title&quot; /&gt;&lt;/h1&gt;
+            &lt;hr /&gt;
 
-                    &lt;$transclude /&gt;
+            &lt;$list filter=&quot;[all[current]]&quot;&gt;
 
-                &lt;/$list&gt;
-                &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;hr /&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
+            &lt;$transclude /&gt;
+
+            &lt;/$list&gt;
+
+      &lt;/div&gt;
+      &lt;hr /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;        
 
 </pre>
 </div>
@@ -15143,6 +15146,9 @@ https://book.douban.com/subject/26260187/</pre>
   font-weight: 500;
 }</pre>
 </div>
+<div created="20210605232707164" modified="20210605232707164" title="Draft of '$:/plugins/adithyab/tiddlyjam/renderer/blog/body'" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre></pre>
+</div>
 <div created="20210603132714227" modified="20210603132735586" tags="" title="Google Search Console" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>[img[https://i.gyazo.com/599a47fd7e8666037e115370cbe17f08.jpg]]
 
@@ -15551,26 +15557,25 @@ refs: https://www.thehoth.com/search-engine-rankings/</pre>
 <pre>Hi 👋, My Name is Thaddeus Jiang. 
 中文名：蒋继发。</pre>
 </div>
-<div created="20210430124928142" modified="20210524133821111" tags="$:/plugins/adithyab/tiddlyjam/css $:/plugins/adithyab/tiddlyjam/internals" title="vanilla.css" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>.tc-btn-big-green { display: inline-block; padding: 8px; margin: 4px 8px 4px 8px; background: #34c734; color: #ffffff; fill: #ffffff; border: none; border-radius: 2px; font-size: 1.2em; line-height: 1.4em; text-decoration: none; }
+<div created="20210430124928142" modified="20210605232421655" tags="$:/plugins/adithyab/tiddlyjam/css $:/plugins/adithyab/tiddlyjam/internals" title="vanilla.css" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>body {
+  font-family: serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;;
+}
 
-.tc-btn-big-green svg, .tc-btn-big-green img { height: 2em; width: 2em; vertical-align: middle; fill: #ffffff; }
+a {
+  word-break: break-all;
+}
 
 blockquote { border-left: 5px solid #bbb; margin-left: 25px; padding-left: 10px; quotes: &quot;\201C&quot;&quot;\201D&quot;&quot;\2018&quot;&quot;\2019&quot;; }
 
 blockquote &gt; div { margin-top: 1em; margin-bottom: 1em; }
 
-blockquote.tc-big-quote { font-family: Georgia, serif; position: relative; background: #f5f5f5; border-left: none; margin-left: 50px; margin-right: 50px; padding: 10px; border-radius: 8px; }
+blockquote.tc-big-quote { font-family: Georgia, serif; position: relative; background: #f5f5f5; border-left: none; margin-left: 50px; padding: 10px; border-radius: 8px; }
 
 blockquote.tc-big-quote cite:before { content: &quot;\2014 \2009&quot;; }
 
 blockquote.tc-big-quote:before { font-family: Georgia, serif; color: #bbb; content: open-quote; font-size: 8em; line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; position: absolute; left: -50px; top: 42px; }
-
-blockquote.tc-big-quote:after { font-family: Georgia, serif; color: #bbb; content: close-quote; font-size: 8em; line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; position: absolute; right: -80px; bottom: -20px; }
-
-body {
-  font-family: serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;;
-}</pre>
+</pre>
 </div>
 <div created="20210106060128715" creator="TJ" modified="20210415132941981" modifier="TJ" tags="" title="wakatime" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;embed src=&quot;https://wakatime.com/share/@ThaddeusJiang/360e9ff9-628e-47c5-8c30-241174f8d094.svg&quot;/&gt;</pre>

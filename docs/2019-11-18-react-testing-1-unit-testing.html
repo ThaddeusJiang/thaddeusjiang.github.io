@@ -53,13 +53,14 @@
   </div>
       
 
-        <div class="container mt-5">
-            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-                <div>
-                    <div class="block content blog">
-                      <h2 class="title is-3">2019-11-18 React Testing 1 - Unit Testing</h2>
-                        <div class="subtitle is-6">27th January, 2021</div>
-                <blockquote class="tc-quote tc-big-quote"><p>软件测试中，Unit Testing 是最基础的，也是测试量最大的。
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title is-2">2019-11-18 React Testing 1 - Unit Testing</h1>
+            <hr>
+
+            <blockquote class="tc-quote tc-big-quote"><p>软件测试中，Unit Testing 是最基础的，也是测试量最大的。
 </p></blockquote><p>那么，React 项目如何 Unit Testing呢？</p><p>首先，我们要先确定几个前提</p><ul><li>使用 create-react-app 创建项目</li><li>使用 Jest 和 React Testing Library 测试</li><li>使用 GitHub Actions 自动化</li></ul><h2 class="">1. 创建项目，并配置 Jest 和 React Testing Library</h2><pre class="bash hljs"><code>npx create-react-app testing-demo
 
 <span class="hljs-built_in">cd</span> testing-demo
@@ -120,13 +121,13 @@ test(<span class="hljs-string">"&lt;Counter /&gt;"</span>, () =&gt; {
         <span class="hljs-attr">run:</span> <span class="hljs-string">yarn</span> <span class="hljs-string">test</span>
         <span class="hljs-attr">env:</span>
           <span class="hljs-attr">CI:</span> <span class="hljs-literal">true</span></code></pre><p>代码：<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/react-testing-example/pull/1" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/react-testing-example/pull/1</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://testing-library.com/docs/react-testing-library/intro" rel="noopener noreferrer" target="_blank">https://testing-library.com/docs/react-testing-library/intro</a></li><li><a class="tc-tiddlylink-external" href="https://jestjs.io/docs/en/tutorial-react" rel="noopener noreferrer" target="_blank">https://jestjs.io/docs/en/tutorial-react</a></li></ul>
-                </div>
-                </div>
-                <hr>
-            </div>
-        </div>
 
+      </div>
+      <hr>
+  </div>
+</div>        
 
+</div>
 
 <footer class="footer">
     <div class="content has-text-centered">

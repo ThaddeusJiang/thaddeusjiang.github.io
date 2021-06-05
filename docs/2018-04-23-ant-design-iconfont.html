@@ -53,13 +53,14 @@
   </div>
       
 
-        <div class="container mt-5">
-            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-                <div>
-                    <div class="block content blog">
-                      <h2 class="title is-3">2018-04-23 扩展 Ant Design iconfont</h2>
-                        <div class="subtitle is-6">12th January, 2021</div>
-                <p>我们项目组是 <a class="tc-tiddlylink-external" href="https://github.com/ant-design/ant-design" rel="noopener noreferrer" target="_blank">Ant Design</a> 的重度用户。 Ant Design 的 Icon 组件提供了很多图标，个人项目基本上足够了。 但是作为公司的项目，既有图标显然不能满足业务需求，所以就需要扩展图标。</p><p>其实扩展 Ant Design 的 Icon 的图标特别简单，这里只是做一下记录。</p><p>方法</p><p>1. 上传你的图标到 <a class="tc-tiddlylink-external" href="https://www.iconfont.cn/" rel="noopener noreferrer" target="_blank">https://www.iconfont.cn/</a>，拷贝项目下面生成的 symbol 代码。 我们项目设计师给我的是 svg 文件。</p><p>2. 为你的项目引入 <code>辅助 js</code>，并添加一段 <code>全局 CSS</code>。</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./iconfont.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title is-2">2018-04-23 扩展 Ant Design iconfont</h1>
+            <hr>
+
+            <p>我们项目组是 <a class="tc-tiddlylink-external" href="https://github.com/ant-design/ant-design" rel="noopener noreferrer" target="_blank">Ant Design</a> 的重度用户。 Ant Design 的 Icon 组件提供了很多图标，个人项目基本上足够了。 但是作为公司的项目，既有图标显然不能满足业务需求，所以就需要扩展图标。</p><p>其实扩展 Ant Design 的 Icon 的图标特别简单，这里只是做一下记录。</p><p>方法</p><p>1. 上传你的图标到 <a class="tc-tiddlylink-external" href="https://www.iconfont.cn/" rel="noopener noreferrer" target="_blank">https://www.iconfont.cn/</a>，拷贝项目下面生成的 symbol 代码。 我们项目设计师给我的是 svg 文件。</p><p>2. 为你的项目引入 <code>辅助 js</code>，并添加一段 <code>全局 CSS</code>。</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./iconfont.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css">
   <span class="hljs-selector-class">.icon</span> {
@@ -73,13 +74,13 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">"#icon-xxx"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></code></pre><p>参考</p><ul><li><a class="tc-tiddlylink-external" href="http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.15&amp;helptype=code" rel="noopener noreferrer" target="_blank">http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.15&amp;helptype=code</a></li></ul>
-                </div>
-                </div>
-                <hr>
-            </div>
-        </div>
 
+      </div>
+      <hr>
+  </div>
+</div>        
 
+</div>
 
 <footer class="footer">
     <div class="content has-text-centered">

@@ -53,13 +53,14 @@
   </div>
       
 
-        <div class="container mt-5">
-            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-                <div>
-                    <div class="block content blog">
-                      <h2 class="title is-3">2020-09-09 Inline SVG vs Icon Fonts</h2>
-                        <div class="subtitle is-6">22nd January, 2021</div>
-                <p>背景</p><p>最近几个项目都是公司内部项目，icon 都是使用免费的第三方资源。通常是 iconfont。</p><p>最新的项目是一个红酒电商系统，为了迎合红酒的高端气质，设计团队设计了很多好看的 icon。</p><p>使用自定义 icon 迫使我重新思考了如何使用 icon。</p><p>选择</p><p>选项：</p><ul><li>Inline SVG</li><li>Icon Font</li></ul><p>我参考了《Inline SVG vs Icon Fonts [CAGEMATCH] | CSS Tricks》</p><p>结论是 Inline SVG 胜出。</p><p>下面分享一下，Nuxt 中使用 Inline SVG</p><p>我们项目使用 Nuxt 框架，进而使用 <code>nuxtjs/svg</code> 基本配置和代码</p><pre class="sh hljs"><code>$ yarn add --dev nuxtjs/svg</code></pre><pre class="js hljs"><code><span class="hljs-comment">// nuxt.config.js</span>
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title is-2">2020-09-09 Inline SVG vs Icon Fonts</h1>
+            <hr>
+
+            <p>背景</p><p>最近几个项目都是公司内部项目，icon 都是使用免费的第三方资源。通常是 iconfont。</p><p>最新的项目是一个红酒电商系统，为了迎合红酒的高端气质，设计团队设计了很多好看的 icon。</p><p>使用自定义 icon 迫使我重新思考了如何使用 icon。</p><p>选择</p><p>选项：</p><ul><li>Inline SVG</li><li>Icon Font</li></ul><p>我参考了《Inline SVG vs Icon Fonts [CAGEMATCH] | CSS Tricks》</p><p>结论是 Inline SVG 胜出。</p><p>下面分享一下，Nuxt 中使用 Inline SVG</p><p>我们项目使用 Nuxt 框架，进而使用 <code>nuxtjs/svg</code> 基本配置和代码</p><pre class="sh hljs"><code>$ yarn add --dev nuxtjs/svg</code></pre><pre class="js hljs"><code><span class="hljs-comment">// nuxt.config.js</span>
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
   <span class="hljs-attr">buildModules</span>: [<span class="hljs-string">"@nuxtjs/svg"</span>],
 };</code></pre><pre class="html hljs"><code><span class="hljs-comment">&lt;!-- vue --&gt;</span>
@@ -76,13 +77,13 @@
   };
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><pre class="html hljs"><code><span class="hljs-comment">&lt;!-- output --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2000/svg"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://css-tricks.com/icon-fonts-vs-svg/" rel="noopener noreferrer" target="_blank">https://css-tricks.com/icon-fonts-vs-svg/</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/nuxt-community/svg-module" rel="noopener noreferrer" target="_blank">https://github.com/nuxt-community/svg-module</a></li></ul>
-                </div>
-                </div>
-                <hr>
-            </div>
-        </div>
 
+      </div>
+      <hr>
+  </div>
+</div>        
 
+</div>
 
 <footer class="footer">
     <div class="content has-text-centered">

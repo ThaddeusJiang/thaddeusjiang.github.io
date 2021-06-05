@@ -53,13 +53,14 @@
   </div>
       
 
-        <div class="container mt-5">
-            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-                <div>
-                    <div class="block content blog">
-                      <h2 class="title is-3">2020-07-30 Vue.js SSR Note</h2>
-                        <div class="subtitle is-6">22nd January, 2021</div>
-                <p>作为前端开发者 3 年了，第一次认真学习 SSR。</p><blockquote class="tc-quote tc-big-quote"><p>SSR 本质上是渲染应用程序的“快照”
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title is-2">2020-07-30 Vue.js SSR Note</h1>
+            <hr>
+
+            <p>作为前端开发者 3 年了，第一次认真学习 SSR。</p><blockquote class="tc-quote tc-big-quote"><p>SSR 本质上是渲染应用程序的“快照”
 </p></blockquote><p>因为，第一次做 C 端产品。日本最大红酒电商系统，对页面初始化要求特别高。</p><h1 class="">为什么 SSR 可以提高页面初始化速度？</h1><p>SPA，浏览器需要请求 JS，解析 JS，并渲染页面，再执行 JS 请求数据。</p><p>SSR，浏览器请求页面，服务器请求数据（Data），然后将 Data 和 JS 直接组合到 HTML，一次性返回给浏览器。浏览器接到页面可以直接渲染最终结果。</p><h1 class="">SSR 优势、劣势</h1><h2 class="">优势</h2><ul><li>更好的 SEO。因为爬虫爬到的页面已经包含数据</li><li>更快的内容到达时间 (time-to-content) 。</li></ul><p>如果是 server 也是 JS 技术栈，还有一个优势就是代码共享。</p><h2 class="">劣势</h2><ul><li>浏览器特定代码需要特定处理</li><li>需要渲染服务器</li><li>更多的服务器负载</li></ul><p>Vue SSR 劣势（Virtual-DOM JS framework），因为每个请求都是一个独立的实例，大量占用 CPU 资源。</p><h1 class="">预渲染 vs 服务器端渲染（Prerendering vs SSR）</h1><p>只是用来改善少数营销页面（例如 /, /about, /contact 等）的 SEO，那么你可能需要预渲染。
 在构建时 (build time) 简单地生成针对特定路由的静态 HTML 文件。</p><h1 class="">哪些需要注意的细节？</h1><ol><li>编写通用代码。注意浏览器特定代码。（window、document 以及 第三方 library）</li><li>生命周期。只有 beforeCreate 和 created 可以用。</li><li>有副作用的代码只能在 beforeMount 和 mounted 中。</li><li>明确服务端的数据请求和客户端的数据请求。</li><li>可能需要缓存策略。绝大多数情况，页面级别缓存就足够了。</li><li>数据的响应式是多余的。及 <code>data() {}</code> 中设置初始值是多余的。</li></ol><h1 class="">将数据存在 Vuex 中</h1><blockquote class="tc-quote tc-big-quote"><p>SSR 本质上是渲染应用程序的“快照”
 </p></blockquote><p>所以如果应用程序依赖异步数据，在开始渲染之前，需要先预期并解析好这些数据。</p><pre class="js hljs"><code><span class="hljs-comment">// store/modules/foo.js</span>
@@ -106,13 +107,13 @@ Nuxt 有 <code>asyncData</code> 或 <code>fetch</code> 函数。</p><pre class="
   }
 }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre><h1 class="">SSR 不全是服务器端渲染，也有一部分是浏览器渲染的</h1><p>vue 通过 <code>data-server-rendered</code> 属性识别哪些 HTML 是服务器渲染的。</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span> <span class="hljs-attr">data-server-rendered</span>=<span class="hljs-string">"true"</span>&gt;</span></code></pre><p>因为每个请求都需要一个全新的 Vue 实例，Code Splitting 还是不能少</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> Foo = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'./Foo.vue'</span>)</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://ssr.vuejs.org/" rel="noopener noreferrer" target="_blank">https://ssr.vuejs.org/</a></li><li><a class="tc-tiddlylink-external" href="https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑" rel="noopener noreferrer" target="_blank">https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑</a></li></ul>
-                </div>
-                </div>
-                <hr>
-            </div>
-        </div>
 
+      </div>
+      <hr>
+  </div>
+</div>        
 
+</div>
 
 <footer class="footer">
     <div class="content has-text-centered">
