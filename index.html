@@ -47,7 +47,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
-<title>蒋继发 — 实用主义的工程师、知识分享者、多语言使用者</title>
+<title>蒋继发 — 工程师、知识分享者、多语言使用者</title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~-->
 
 <!--~~ Raw markup ~~-->
@@ -423,6 +423,8 @@ Error message and password prompt
 
 <li>2021-06-03 写给大家看的 SEO 目录</li>
 
+<li>2021-06-09 React Test 中 act() 有什么作用？</li>
+
 <li>3D Printer</li>
 
 <li>404</li>
@@ -430,6 +432,8 @@ Error message and password prompt
 <li>A4 纸笔记法</li>
 
 <li>blog</li>
+
+<li>Blog Management</li>
 
 <li>connect me</li>
 
@@ -10457,32 +10461,21 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20210415133659045" creator="TJ" modified="20210501114708481" modifier="TJ" title="$:/DefaultTiddlers" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210415133659045" creator="TJ" modified="20210609120230251" modifier="TJ" title="$:/DefaultTiddlers" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>Welcome
 手艺人手记
 [[Hire me to help your business (zh)]]
 wakatime
+[[Blog Management]]
 </pre>
 </div>
 <div created="20210416114957196" modified="20210416114957214" title="$:/GoogleAnalyticsAccount" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>UA-140310136-2</pre>
 </div>
-<div created="20210603125646378" modified="20210603125646378" status="complete" title="$:/Import" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210609113103589" modified="20210609113103589" status="complete" title="$:/Import" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>The following tiddlers were imported:
 
-# [[什么是 SEO]]
-# [[为什么需要 SEO]]
-# [[入门级 SEO 可以做什么]]
-# [[SEO 请求 Google 抓取你的网页]]
-# [[SEO: pagespeed]]
-# [[SEO: mobile friendly]]
-# [[SEO: sitemap]]
-# [[SEO 审计 website 代码]]
-# [[SEO: structured data]]
-# [[SEO: 增加曝光率]]
-# [[SEO: 提高内容的量和质量]]
-# [[SEO: 调查特定区域内关键字排名]]
-# [[总结 SEO]]</pre>
+# [[React/Jest 的 act() 是什么意思？]]</pre>
 </div>
 <div title="$:/isEncrypted" revision="0" bag="default">
 <pre>no</pre>
@@ -11210,8 +11203,8 @@ wakatime
     }
 }</pre>
 </div>
-<div created="20210415133647808" modified="20210527143124705" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>实用主义的工程师、知识分享者、多语言使用者</pre>
+<div created="20210415133647808" creator="TJ" modified="20210609122154958" modifier="TJ" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>工程师、知识分享者、多语言使用者</pre>
 </div>
 <div created="20210415133642268" modified="20210527143113823" title="$:/SiteTitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>蒋继发</pre>
@@ -11219,7 +11212,7 @@ wakatime
 <div title="$:/status/RequireReloadDueToPluginChange" revision="0" bag="default">
 <pre>no</pre>
 </div>
-<div list="Welcome 手艺人手记 [[Hire me to help your business (zh)]] wakatime" title="$:/StoryList" revision="1" bag="default">
+<div list="Welcome 手艺人手记 [[Hire me to help your business (zh)]] wakatime [[Blog Management]]" title="$:/StoryList" revision="1" bag="default">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23" revision="0" bag="default">
@@ -15096,6 +15089,76 @@ tiddlywiki --build tiddlyjam
 
 {{总结 SEO}}</pre>
 </div>
+<div created="20210430053611459" creator="TJ" modified="20210609122501534" modifier="TJ" published="20210609120113833" tags="blog $:/plugins/adithyab/tiddlyjam/live 手艺人手记" title="2021-06-09 React Test 中 act() 有什么作用？" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>可能 Frontend 门槛真的太低了。竟然有自称熟练掌握 React 的人回答不上来 React Test act() 的用途。
+
+如果你在工作中使用 React，那么迟早你会遇到如下的测试代码。
+
+```js
+it(&quot;renders hello world&quot;, () =&gt; {
+  act(() =&gt; {
+    render(&lt;HelloWorld /&gt;, container);
+  });
+  expect(container.textContent).toBe(&quot;Hello, World.&quot;);
+});
+```
+
+但是绝大多数时候，你的测试代码是这样的：
+
+```js
+it(&quot;renders hello world&quot;, () =&gt; {
+  render(&lt;HelloWorld /&gt;, container);
+  expect(container.textContent).toBe(&quot;Hello, World.&quot;);
+});
+```
+
+act() 有什么作用呢？为什么有的时候需要，有的时候却不需要呢？
+
+React Docs 
+
+&gt;When writing UI tests, tasks like rendering, user events, or data fetching can be considered as “units” of interaction with a user interface. react-dom/test-utils provides a helper called act() that makes sure all updates related to these “units” have been processed and applied to the DOM before you make any assertions:
+
+''TL;DR''
+
+很多时候，用户界面（UI）并不能一瞬间就被绘制完成，可能导致断言失败。act() 可以确保断言执行时 UI 已经被绘制完成。
+
+!! act() 效果
+
+no act
+
+[img[https://i.gyazo.com/d779e38551cfc4405010f9e64c41dbfa.png]]
+
+act render
+
+[img[https://i.gyazo.com/5ed0da10697c2a6b8ccf24021b94b893.png]]
+
+那么是不是在所有测试中都应该写 act()？
+
+理论上，写了绝对不会错，不写可能会出错。
+
+不过不用担心，React 社区非常强大，已经有 open source 帮我们完成了这项枯燥乏味的工作。
+
+Thanks testing-library
+
+&gt; All renders and events being fired are wrapped in act, so you don't really need this. 
+
+
+
+!! 我在面试中会如何提问 ?
+
+# 你在项目中写测试吗？
+# 如果 UI 存在异步或者耗时的操作，应该如何测试？
+# 你了解 React test-utils act() 吗？
+# 你能简单讲讲 act() 的原理吗？
+
+
+refs:
+
+* https://reactjs.org/docs/testing-recipes.html#act
+* https://github.com/threepointone/react-act-examples/blob/master/sync.md
+* https://testing-library.com/docs/preact-testing-library/api/#act
+</pre>
+</div>
 <div created="20210503005408202" modified="20210503005446068" tags="TODO 好物" title="3D Printer" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>想买 3D Printer
 
@@ -15120,7 +15183,7 @@ tiddlywiki --build tiddlyjam
 
 https://book.douban.com/subject/26260187/</pre>
 </div>
-<div created="20140909110520793" creator="Adithya" description="A place for blogs." modified="20210603142851120" modifier="Adithya_" name="Blog" published="20210603134921046" renderer="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" tags="$:/plugins/adithyab/tiddlyjam/category $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals $:/plugins/adithyab/tiddlyjam/live" title="blog" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20140909110520793" creator="Adithya" description="A place for blogs." icon="$:/core/images/globe" modified="20210609122030246" modifier="Adithya_" name="Blog" published="20210603134921046" renderer="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" tags="$:/plugins/adithyab/tiddlyjam/category $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals $:/plugins/adithyab/tiddlyjam/live" title="blog" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>      {{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}
 
     &lt;div class=&quot;container mt-5&quot;&gt;
@@ -15133,6 +15196,9 @@ https://book.douban.com/subject/26260187/</pre>
   &lt;/div&gt;
 
 </pre>
+</div>
+<div created="20210609120033694" modified="20210609120052126" tags="" title="Blog Management" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>[[TiddlyJam Dashboard]]</pre>
 </div>
 <div created="20210312034940482" creator="TJ" modified="20210415133448006" modifier="TJ" tags="" title="connect me" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>* email: thaddeusjiang[at]gmail.com
@@ -15154,52 +15220,53 @@ https://book.douban.com/subject/26260187/</pre>
 
 ref: https://search.google.com/search-console</pre>
 </div>
-<div created="20210312034011699" creator="TJ" modified="20210415133523023" modifier="TJ" tags="" title="Hire me to help your business" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210312034011699" creator="TJ" modified="20210609121845243" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live" title="Hire me to help your business" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>What can I offer to you?
 
-# Agile development team building
-# Web Application Design and Development
+# Agile development team Building
+# SEO Support
+# MVP (minimum viable product) Development
 
 My Rate
 
-# Short-term projects not less than $60/h
-# Long-term projects no less than $50/h
+# Short-term project: $1500/project ~
+# Long-term project: $50/h ~
 
 ! Connect me
 
 {{connect me}}</pre>
 </div>
-<div created="20210312035415211" creator="TJ" modified="20210415133523013" modifier="TJ" tags="" title="Hire me to help your business (ja)" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210312035415211" creator="TJ" modified="20210609121853418" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live" title="Hire me to help your business (ja)" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>! 私を雇ってあなたのビジネスを支援する
 
 私は何を提供できるのか？
 
 # Agile 開発チーム構築
-# Web 設計と開発
+# SEO 支援
+# Web /iOS 設計と開発
 
 単価
 
-# 短期案件は ¥10,000円/時間（約月100万円）
-# 中長案件は ¥8,500円/時間（約月85万円）
-
-&gt; 説明：私は週４で、一ヶ月に約100時間を働きます。
+# 短期案件：¥20万円/案件〜
+# 中長案件：¥8500円/時間〜
 
 連絡先
 
 {{connect me}}</pre>
 </div>
-<div created="20210312034539794" creator="TJ" modified="20210415133523029" modifier="TJ" tags="" title="Hire me to help your business (zh)" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>! 雇佣我帮助您的业务 [[日本語|Hire me to help your business (ja)]] / [[English|Hire me to help your business]]
+<div created="20210312034539794" creator="TJ" modified="20210609121838212" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live" title="Hire me to help your business (zh)" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>! 雇佣我帮助您的业务 [[English|Hire me to help your business]] / [[日本語|Hire me to help your business (ja)]]
 
 我能为您提供什么？
 
-# 敏捷开发团队建设
-# Web 设计与开发
+# 指导组建敏捷开发团队
+# SEO 支援
+# Web / iOS 设计与开发
 
 我的价格
 
-# 短期项目不低于 600元/小时
-# 长期期项目 不低于 500元/小时
+# 短期项目：10000 RMB/项目 ~
+# 长期期项目：500 RMB/小时 ~
 
 ! Connect me
 

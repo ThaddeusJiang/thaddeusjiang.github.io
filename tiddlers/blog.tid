@@ -1,7 +1,8 @@
 created: 20140909110520793
 creator: Adithya
 description: A place for blogs.
-modified: 20210603142851120
+icon: $:/core/images/globe
+modified: 20210609122030246
 modifier: Adithya_
 name: Blog
 published: 20210603134921046
