@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20210603141732942
+modified: 20210613131936898
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: Welcome
@@ -27,6 +27,6 @@ type: text/vnd.tiddlywiki
 refs:
 
 * 我从哪里接触到这个技术？[[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
-
-* 如果你也想尝试一下，最简单的方法就是访问 https://ThaddeusJiang.com 直接进行编辑。或者访问 TiddlyWiki 官方网站：https://tiddlywiki.com/
+* 如果你也想尝试一下，访问 https://ThaddeusJiang.com 直接编辑。
+* TiddlyWiki：https://tiddlywiki.com/
 
