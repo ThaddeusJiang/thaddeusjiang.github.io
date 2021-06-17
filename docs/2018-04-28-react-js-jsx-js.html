@@ -49,7 +49,7 @@
        蒋继发 (ThaddeusJiang)
             </a>
         </div>
-     </nav></p><p><p class="mt-4">工程师、知识分享者、多语言使用者</p></p></div>
+     </nav></p><p><p class="mt-4">工程师、分享者、多语言使用者</p></p></div>
   </div>
       
 
@@ -70,18 +70,18 @@
   <span class="hljs-built_in">document</span>.body.appendChild(script)
 }</code></pre><h2 class="">应用场景</h2><p>目前项目是 toB 的内容管理系统，由于某些不可抗力因素影响，不得不对应  CKEditor 4。
 但是 CKEditor 4 并不支持 JS 模块，所以不能够使用 import 导入。</p><p>无奈之下只能使用传统方法</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>因为只有部分页面使用 CKEditor，在 index.html 中引入 CKEditor 的静态文件有点过分了。</p><p>所以我通过组件的 componentDidMount 引入。</p><p>ref:</p><ul><li><a class="tc-tiddlylink-external" href="http://cdn.ckeditor.com/" rel="noopener noreferrer" target="_blank">http://cdn.ckeditor.com/</a></li><li><a class="tc-tiddlylink-external" href="https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx" rel="noopener noreferrer" target="_blank">https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx</a></li></ul>
-
+          </div>
       </div>
       <hr>
   </div>
-</div>        
+</div>     
 
-</div>
+
 
 <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        Made with <a href="https://tiddlyjam.com"><strong>TiddlyJam</strong></a> by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
       </p>
     </div>
   </footer>
