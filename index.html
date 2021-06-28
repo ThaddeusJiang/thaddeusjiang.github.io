@@ -47,7 +47,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
-<title>蒋继发 (ThaddeusJiang) — 工程师、分享者、多语言使用者</title>
+<title>蒋继发 (ThaddeusJiang) — 在日本做 SaaS，工程师 / 事业企划 / SEO顾问</title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~-->
 
 <!--~~ Raw markup ~~-->
@@ -331,6 +331,8 @@ Error message and password prompt
 
 <li>2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整</li>
 
+<li>2018-08-16 Say Goodbye to '../' '../../' '../../../'</li>
+
 <li>2019-05-14 如何使用 GitHub 账号登录？</li>
 
 <li>2019-05-16 前端性能优化（一）性能评估</li>
@@ -429,6 +431,8 @@ Error message and password prompt
 
 <li>2021-06-13 《SaaS创业路线图》相见恨晚的创业指导手册</li>
 
+<li>2021-06-20 《BtoBマーケティングの戦略と実践》 帮助我认识到 BtoB Marketing 战略大于战术</li>
+
 <li>3D Printer</li>
 
 <li>404</li>
@@ -438,6 +442,8 @@ Error message and password prompt
 <li>blog</li>
 
 <li>Blog Management</li>
+
+<li>BtoB Marketing Keywords</li>
 
 <li>connect me</li>
 
@@ -474,6 +480,8 @@ Error message and password prompt
 <li>readable in 100+ years time</li>
 
 <li>Reading</li>
+
+<li>SaaS ACV 死亡谷</li>
 
 <li>SEO: mobile friendly</li>
 
@@ -10472,11 +10480,9 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20210415133659045" creator="TJ" modified="20210609120230251" modifier="TJ" title="$:/DefaultTiddlers" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210415133659045" creator="TJ" modified="20210628054109784" modifier="TJ" title="$:/DefaultTiddlers" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>Welcome
-手艺人手记
 [[Hire me to help your business (zh)]]
-wakatime
 [[Blog Management]]
 </pre>
 </div>
@@ -11214,8 +11220,8 @@ wakatime
     }
 }</pre>
 </div>
-<div created="20210415133647808" creator="TJ" modified="20210617132841201" modifier="TJ" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>工程师、分享者、多语言使用者</pre>
+<div created="20210415133647808" creator="TJ" modified="20210628054039363" modifier="TJ" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>在日本做 SaaS，工程师 / 事业企划 / SEO顾问</pre>
 </div>
 <div created="20210415133642268" modified="20210616013410788" title="$:/SiteTitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>蒋继发 (ThaddeusJiang)</pre>
@@ -11223,7 +11229,7 @@ wakatime
 <div title="$:/status/RequireReloadDueToPluginChange" revision="0" bag="default">
 <pre>no</pre>
 </div>
-<div list="Welcome 手艺人手记 [[Hire me to help your business (zh)]] wakatime [[Blog Management]]" title="$:/StoryList" revision="1" bag="default">
+<div list="Welcome [[Hire me to help your business (zh)]] [[Blog Management]]" title="$:/StoryList" revision="1" bag="default">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23" revision="0" bag="default">
@@ -12535,6 +12541,117 @@ refs:
 
 其实还有很多，过段时间公开配置文件。
 </pre>
+</div>
+<div created="20210628052732497" modified="20210628053557806" tags="blog $:/plugins/adithyab/tiddlyjam/live 手艺人手记 babeljs ESLint VSCode" title="2018-08-16 Say Goodbye to '../' '../../' '../../../'" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>开发 JavaScript 时，你有没有遇到过这样的情况。
+
+页面复用大量共通组件，这些共通组件大体都在同一个文件夹下。但是由于组件分割和文件夹层级较深的缘故，你可能常常会写出如下代码：
+
+```js
+// some.js
+import VodMediaPlayer from '../../../components/VodVideo/VodMediaPlayer'
+import VideoInfo from '../../../components/VodVideo/VideoInfo'
+import RecommendList from '../../../components/RecommendList/RecommendList'
+import Comment from '../../../components/Comment/Comment'
+import { get, mediaPath } from '../../../util/fetch'
+import { API_VIDEO, API_CHANNEL } from '../../../util/constants'
+```
+
+你知道自己在键盘上敲击 `../` `../../` `../../../` 时浪费了多少时间吗？
+
+&lt;&lt;&lt;.tc-big-quote
+时间就是金钱。
+&lt;&lt;&lt;名言
+
+为了解决这种问题，主流的前端工具都给出了解决方案。
+
+本文介绍如何使用 babel plugin 的解决方案。
+
+!! 正文
+
+首先我们选择 babel-plugin-module-resolver。
+
+1. 安装
+
+```
+$ npm install --save-dev babel-plugin-module-resolver
+```
+
+2. 配置 .babelrc
+
+```json
+{
+  &quot;presets&quot;: [&quot;env&quot;, &quot;react&quot;],
+  &quot;plugins&quot;: [
+    [&quot;module-resolver&quot;, {
+      &quot;root&quot;: [&quot;./&quot;],
+      &quot;alias&quot;: {
+        &quot;components&quot;: &quot;./src/components&quot;,
+        &quot;util&quot;: &quot;./src/util&quot;
+      }
+    }]
+}
+```
+
+这时你的代码可以修改为如下：
+
+```js
+// some.js
+import VodMediaPlayer from 'components/VodVideo/VodMediaPlayer'
+import VideoInfo from 'components/VodVideo/VideoInfo'
+import RecommendList from 'components/RecommendList/RecommendList'
+import Comment from 'components/Comment/Comment'
+import { get, mediaPath } from 'util/fetch'
+import { API_VIDEO, API_CHANNEL } from 'util/constants'
+```
+
+注意： 如果你使用了 eslint，这时 eslint 会报错，因为它不能处理新的写法。
+
+3. 添加对应的 eslint plugin
+
+我们选择 eslint-import-resolver-babel-module
+
+```
+$ npm install --save-dev eslint-plugin-import eslint-import-resolver-babel-module
+```
+
+配置 .eslintrc
+
+```json
+&quot;settings&quot;: {
+  &quot;import/resolver&quot;: {
+    &quot;babel-module&quot;: {}
+  }
+}
+```
+
+注意： 这时 eslint 不会报错了， 但是你会发现你点击 import 后面的组件名， VSCode 不会自动跳转到组件定义。
+
+4. 在项目根目录下添加 jsconfig.json 解决
+
+```json
+{
+  &quot;compilerOptions&quot;: {
+    &quot;baseUrl&quot;: &quot;.&quot;,
+    &quot;paths&quot;: {
+      &quot;components/*&quot;: [&quot;src/components/*&quot;],
+      &quot;util/*&quot;: [&quot;src/util/*&quot;],
+      &quot;locales/*&quot;: [&quot;src/locales/*&quot;]
+    }
+  }
+}
+```
+
+到此为止，我们终于可以 ''Say Goodbye to '../' '../../' '../../../''' 了。
+
+refs:
+
+* https://github.com/tleunen/babel-plugin-module-resolver
+* https://github.com/tleunen/eslint-import-resolver-babel-module
+
+&lt;&lt;&lt;
+本文曾发布于 segmentfualt，https://segmentfault.com/a/1190000016033668
+&lt;&lt;&lt;</pre>
 </div>
 <div created="20210122124458624" creator="TJ" modified="20210415133156760" modifier="TJ" tags="blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live" title="2019-05-14 如何使用 GitHub 账号登录？" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>一个特别简单的需求，开发一个使用 GitHub 登陆的功能。
@@ -15225,6 +15342,29 @@ ref:
 
 * Zenport: https://zenport.io/</pre>
 </div>
+<div created="20210620021315728" modified="20210620135133795" tags="Reading $:/plugins/adithyab/tiddlyjam/live" title="2021-06-20 《BtoBマーケティングの戦略と実践》 帮助我认识到 BtoB Marketing 战略大于战术" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>这本书算是我阅读了[[《SaaS创业路线图》]]后的一个补充，从SaaS创业公司外部的视角审视 BtoB Marketing，帮助我认识到 BtoB Marketing 战略大于战术。
+
+BtoB 和 toC 产品由于其目标客户的不同，Marketing 的方式方法也不尽相同。
+toC 市场效果极佳的方案，toB 市场则可能极差。如下：
+
+[img[https://i.gyazo.com/d3ec57fe4ffa0380919d70f47dc0e697.jpg]]
+
+根据[[《引爆点》]]中提到的观点，toC 市场需要借助一些社会热点或者话题炒作取得爆炸式增长，如果toB 市场不假思索地照搬，可能会损害品牌形象，让目标客户避而远之。从长远角度考虑，弊大于利。
+
+`TODO:`
+
+由于 toB 产品的签约通常需要讨论和审批，且购买流程较长，所以相比直截了当的让客户购买，
+
+
+
+
+keywords: 
+
+{{BtoB Marketing Keywords}}
+
+</pre>
+</div>
 <div created="20210503005408202" modified="20210503005446068" tags="TODO 好物" title="3D Printer" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>想买 3D Printer
 
@@ -15265,6 +15405,10 @@ https://book.douban.com/subject/26260187/</pre>
 </div>
 <div created="20210609120033694" modified="20210609120052126" tags="" title="Blog Management" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>[[TiddlyJam Dashboard]]</pre>
+</div>
+<div created="20210620023356815" modified="20210620024639909" tags="" title="BtoB Marketing Keywords" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>* LTV（Life Time Value）客户生命周期价值
+* ACV（Average Contract Value）年度合同价值</pre>
 </div>
 <div created="20210312034940482" creator="TJ" modified="20210609122742103" modifier="TJ" tags="" title="connect me" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>* email: thaddeusjiang[at]gmail.com
@@ -15567,6 +15711,14 @@ Please wait while {{$:/SiteTitle}} is loading
 </div>
 <div created="20210613132257727" icon="" modified="20210617135739543" title="Reading" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre></pre>
+</div>
+<div created="20210620031225744" modified="20210620031325710" tags="" title="SaaS ACV 死亡谷" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>根据 Blossom Street Ventures 对美国 37 家 SaaS 的调查，平均年费在 $15,000 ~ $25,000 的公司数为 0 。
+
+这个区间也被称为 SaaS ACV 死亡谷。
+
+[img[https://i.gyazo.com/d048b81da404781acd6270d5e532c13a.jpg]]
+</pre>
 </div>
 <div created="20210602071703818" creator="TJ" modified="20210603132143850" modifier="TJ" title="SEO: mobile friendly" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>Google 喜欢移动端友好的网站。

@@ -3,7 +3,7 @@
 <channel><title>蒋继发 (ThaddeusJiang)</title>
    <link>https://thaddeusjiang.com</link>
    <atom:link href="https://thaddeusjiang.com/rss.xml" rel="self" type="application/rss+xml" />
-   <description>工程师、分享者、多语言使用者</description>
+   <description>在日本做 SaaS，工程师 / 事业企划 / SEO顾问</description>
    <item>
       <title>Welcome</title>
       <link>https://thaddeusjiang.com/welcome</link>
@@ -58,6 +58,13 @@
       <link>https://thaddeusjiang.com/404</link>
       <guid>https://thaddeusjiang.com/404</guid>
       <pubDate>Fri, 11 September 2020 23:14:13 +09:00</pubDate>
+   </item>
+
+   <item>
+      <title>2021-06-20 《BtoBマーケティングの戦略と実践》 帮助我认识到 BtoB Marketing 战略大于战术</title>
+      <link>https://thaddeusjiang.com/2021-06-20-btob-btob-marketing</link>
+      <guid>https://thaddeusjiang.com/2021-06-20-btob-btob-marketing</guid>
+      <pubDate>Sun, 20 June 2021 11:13:15 +09:00</pubDate>
    </item>
 
    <item>
@@ -338,6 +345,13 @@
       <link>https://thaddeusjiang.com/2019-05-14-github</link>
       <guid>https://thaddeusjiang.com/2019-05-14-github</guid>
       <pubDate>Fri, 22 January 2021 21:44:58 +09:00</pubDate>
+   </item>
+
+   <item>
+      <title>2018-08-16 Say Goodbye to '../' '../../' '../../../'</title>
+      <link>https://thaddeusjiang.com/2018-08-16-say-goodbye-to</link>
+      <guid>https://thaddeusjiang.com/2018-08-16-say-goodbye-to</guid>
+      <pubDate>Mon, 28 June 2021 14:27:32 +09:00</pubDate>
    </item>
 
    <item>

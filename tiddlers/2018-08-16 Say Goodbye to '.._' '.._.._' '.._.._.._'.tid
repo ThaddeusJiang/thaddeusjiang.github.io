@@ -1,0 +1,115 @@
+created: 20210628052732497
+modified: 20210628053557806
+tags: blog $:/plugins/adithyab/tiddlyjam/live 手艺人手记 babeljs ESLint VSCode
+title: 2018-08-16 Say Goodbye to '../' '../../' '../../../'
+type: text/vnd.tiddlywiki
+
+开发 JavaScript 时，你有没有遇到过这样的情况。
+
+页面复用大量共通组件，这些共通组件大体都在同一个文件夹下。但是由于组件分割和文件夹层级较深的缘故，你可能常常会写出如下代码：
+
+```js
+// some.js
+import VodMediaPlayer from '../../../components/VodVideo/VodMediaPlayer'
+import VideoInfo from '../../../components/VodVideo/VideoInfo'
+import RecommendList from '../../../components/RecommendList/RecommendList'
+import Comment from '../../../components/Comment/Comment'
+import { get, mediaPath } from '../../../util/fetch'
+import { API_VIDEO, API_CHANNEL } from '../../../util/constants'
+```
+
+你知道自己在键盘上敲击 `../` `../../` `../../../` 时浪费了多少时间吗？
+
+<<<.tc-big-quote
+时间就是金钱。
+<<<名言
+
+为了解决这种问题，主流的前端工具都给出了解决方案。
+
+本文介绍如何使用 babel plugin 的解决方案。
+
+!! 正文
+
+首先我们选择 babel-plugin-module-resolver。
+
+1. 安装
+
+```
+$ npm install --save-dev babel-plugin-module-resolver
+```
+
+2. 配置 .babelrc
+
+```json
+{
+  "presets": ["env", "react"],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "components": "./src/components",
+        "util": "./src/util"
+      }
+    }]
+}
+```
+
+这时你的代码可以修改为如下：
+
+```js
+// some.js
+import VodMediaPlayer from 'components/VodVideo/VodMediaPlayer'
+import VideoInfo from 'components/VodVideo/VideoInfo'
+import RecommendList from 'components/RecommendList/RecommendList'
+import Comment from 'components/Comment/Comment'
+import { get, mediaPath } from 'util/fetch'
+import { API_VIDEO, API_CHANNEL } from 'util/constants'
+```
+
+注意： 如果你使用了 eslint，这时 eslint 会报错，因为它不能处理新的写法。
+
+3. 添加对应的 eslint plugin
+
+我们选择 eslint-import-resolver-babel-module
+
+```
+$ npm install --save-dev eslint-plugin-import eslint-import-resolver-babel-module
+```
+
+配置 .eslintrc
+
+```json
+"settings": {
+  "import/resolver": {
+    "babel-module": {}
+  }
+}
+```
+
+注意： 这时 eslint 不会报错了， 但是你会发现你点击 import 后面的组件名， VSCode 不会自动跳转到组件定义。
+
+4. 在项目根目录下添加 jsconfig.json 解决
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["src/components/*"],
+      "util/*": ["src/util/*"],
+      "locales/*": ["src/locales/*"]
+    }
+  }
+}
+```
+
+到此为止，我们终于可以 ''Say Goodbye to '../' '../../' '../../../''' 了。
+
+refs:
+
+* https://github.com/tleunen/babel-plugin-module-resolver
+* https://github.com/tleunen/eslint-import-resolver-babel-module
+
+<<<
+本文曾发布于 segmentfualt，https://segmentfault.com/a/1190000016033668
+<<<
