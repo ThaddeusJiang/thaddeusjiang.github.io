@@ -1,12 +1,8 @@
 created: 20210430124928142
-modified: 20210605232421655
+modified: 20210629020555575
 tags: $:/plugins/adithyab/tiddlyjam/css $:/plugins/adithyab/tiddlyjam/internals
 title: vanilla.css
 type: text/vnd.tiddlywiki
-
-body {
-  font-family: serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-}
 
 a {
   word-break: break-all;
