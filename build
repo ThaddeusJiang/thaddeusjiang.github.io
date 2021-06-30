@@ -7,6 +7,7 @@ mv ./output/* ./docs/
 
 tiddlywiki --build index
 cp ./output/index.html ./docs/index.html
-# backup to root dir
-mv ./output/index.html ./index.html
 
+echo "thaddeusjiang.com" > ./docs/CNAME
+
+mv ./output/index.html ./index.html
