@@ -57,7 +57,7 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title is-2">2018-04-21 eslint 提示：Do not use findDOMNode</h1>
+            <h1 class="title">2018-04-21 eslint 提示：Do not use findDOMNode</h1>
             <hr>
 
             <p>记录一条 eslint 提示：</p><pre><code>[eslint] Do not use findDOMNode (react/no-find-dom-node)</code></pre><p>背景</p><p>使用react-dnd做拖拽功能时，需要判断真实DOM的大小和位置。</p><p>官方示例： <a class="tc-tiddlylink-external" href="https://github.com/react-dnd/react-dnd/blob/164a8048296101e3bcf543df3406ee6dabfdf059/packages/documentation/examples/04%20Sortable/Simple/Card.js#L35" rel="noopener noreferrer" target="_blank">https://github.com/react-dnd/react-dnd/blob/164a8048296101e3bcf543df3406ee6dabfdf059/packages/documentation/examples/04%20Sortable/Simple/Card.js#L35</a></p><p>但是我们项目使用 eslint 检查 js 代码品质。所以出现 👆 提示。</p><p>解决方法</p><pre class="jsx hljs"><code><span class="hljs-comment">// Step 1. render()</span>

@@ -1,6 +1,6 @@
 created: 20200806173743683
 description: This is a short excerpt about this article.
-modified: 20210603135146845
+modified: 20210705120539253
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose
 type: text/vnd.tiddlywiki
@@ -9,17 +9,12 @@ type: text/vnd.tiddlywiki
 
 <div>
   <div class="block">
-    <h2 class="title is-4">
+    <h2 class="subtitle">
       <$link>{{!!title}}</$link>
     </h2>
     <p>
       <<get_description>>
     </p>
-  </div>
-  <div class="block">
-    <$link>
-      <button class="button is-link is-outlined">Read</button>
-    </$link>
   </div>
 </div>
 <hr />
