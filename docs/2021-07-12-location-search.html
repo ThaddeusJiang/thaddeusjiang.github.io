@@ -1,0 +1,93 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2021-07-12 分享一种无敌好用的 Location:search 的格式 ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2021-07-12-location-search" />
+<meta property="og:title" content="2021-07-12 分享一种无敌好用的 Location:search 的格式 ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="2021-07-12 分享一种无敌好用的 Location:search 的格式 ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="" />
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="https://thaddeusjiang.com">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本做 SaaS，工程师 / 事业企划 / SEO顾问</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2021-07-12 分享一种无敌好用的 Location:search 的格式</h1>
+            <hr>
+
+            <blockquote class="tc-quote tc-big-quote"><p>这应该是我第一次提倡 “不使用 Web 标准”。
+</p></blockquote><p>本文想讨论一下 Location:search 的格式。</p><p>Location:search 通常被称为 query string 或者 search string，是 W3C 标准。
+形如 <code>?q=word&amp;field1=any1&amp;field1=any2</code>。</p><p>现代浏览器提供 URLSearchParams 和 URL.searchParams 两个接口，以方便从查询字符串中解析出查询参数。</p><p>如果你是本文的目标读者，那你一定可以数量使用这两个接口中任意一个。如果你不会用这两个接口，推荐阅读：<a class="tc-tiddlylink-external" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Location/search" rel="noopener noreferrer" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/API/Location/search</a></p><h2 class="">W3C 标准的 Location:search 格式有哪些问题？</h2><ol><li>顺序无关。形如 <code>?q=a&amp;other=b&amp;q=c</code> 是被允许的</li><li>没有类型。search 只支持字符串，准确地说是 <code>string | string[] | null</code></li><li>对于多值参数，没有统一格式。如 <code>?q=a&amp;q=b</code>、<code>?q=a,b</code>、<code>'q[]=b&amp;q[]=a'</code>、<code>q[1]=b&amp;q[0]=a</code> 效果一致</li></ol><p>在 Typescript 没有如此流行的时代，我没发现 W3C 标准的 Location:search 有什么问题。
+但是当我在 Typescript 下处理 search string，我简直快被逼疯了。</p><p>每天我都被太多无聊的问题烦恼，如：</p><ol><li>含有分隔符的数字是允许的吗？如 <code>?price=10,100</code> 到底表示两个 price 分别是 10 和 100，还是一个 price 值为 10100 ？</li><li>如何表示 boolean 值？ <code>?hidden=true</code> vs. <code>hidden=1</code></li><li>API 支持哪一种数组？<code>?q=a&amp;q=b</code>、<code>?q=a,b</code>、<code>'q[]=b&amp;q[]=a'</code> 还是 <code>q[1]=b&amp;q[0]=a</code> ？</li></ol><h2 class="">非标准，但无敌好用的格式</h2><p>因为标准 Location:search 有上面提到的诸多问题，逼迫我们不得不离开标准，另辟蹊径。</p><p>这里我推荐一种无敌好用的格式。</p><blockquote class="tc-quote tc-big-quote"><p>使用 JSON 作为 Location:search，形如：<code>?q={ userIds: [1,2,3], page: 0, pageSize: 20, readOnly: true }</code> 
+</p></blockquote><p>虽然我们不能继续使用 URLSearchParams 和 URL.searchParams 解析查询参数，但是 <code>JSON.parse(string)</code> 可以平滑地接棒。更重要的是 JSON.parse() 是支持类型的。</p><h2 class="">今后，我们的代码</h2><p>解析 URL</p><pre class="js hljs"><code><span class="hljs-comment">// URL: https://example.com/featureA?{ userIds: [1,2,3], page: 0, pageSize: 20, readonly: true }</span>
+<span class="hljs-keyword">const</span> { userIds, page, pageSize, readonly } = <span class="hljs-built_in">JSON</span>.parse(location.search.string(<span class="hljs-number">1</span>))
+<span class="hljs-comment">// userIds: [1,2,3]</span>
+<span class="hljs-comment">// page: 0 </span>
+<span class="hljs-comment">// pageSize: 20</span>
+<span class="hljs-comment">// readonly: true</span></code></pre><p>追加参数到 URL</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> params = { <span class="hljs-attr">userIds</span>: [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], <span class="hljs-attr">page</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">pageSize</span>: <span class="hljs-number">20</span>, <span class="hljs-attr">readonly</span>: <span class="hljs-literal">true</span> }
+location.replace(<span class="hljs-string">`/featureA?<span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify(params)}</span>`</span>)
+<span class="hljs-comment">// URL: https://example.com/featureA?{ userIds: [1,2,3], page: 0, pageSize: 20, readonly: true }</span></code></pre><p>简单又好用对吧？</p><p>其实我也是刚刚学会这个方法，因为太喜欢了，迫不及待地想和大家分享。
+</p>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+category: 手艺人笔记
+created: 20210712130720507
+modified: 20210712142135447
+published: 20210712142135429
+tags: blog 手艺人手记 $:/plugins/adithyab/tiddlyjam/live
+title: 2021-07-12 分享一种无敌好用的 Location:search 的格式
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+这应该是我第一次提倡 “不使用 Web 标准”。
+<<<
+
+本文想讨论一下 Location:search 的格式。
+
+Location:search 通常被称为 query string 或者 search string，是 W3C 标准。
+形如 `?q=word&field1=any1&field1=any2`。
+
+现代浏览器提供 URLSearchParams 和 URL.searchParams 两个接口，以方便从查询字符串中解析出查询参数。
+
+如果你是本文的目标读者，那你一定可以数量使用这两个接口中任意一个。如果你不会用这两个接口，推荐阅读：https://developer.mozilla.org/zh-CN/docs/Web/API/Location/search
+
+!! W3C 标准的 Location:search 格式有哪些问题？
+
+# 顺序无关。形如 `?q=a&other=b&q=c` 是被允许的
+# 没有类型。search 只支持字符串，准确地说是 `string | string[] | null`
+# 对于多值参数，没有统一格式。如 `?q=a&q=b`、`?q=a,b`、`'q[]=b&q[]=a'`、`q[1]=b&q[0]=a` 效果一致
+
+在 Typescript 没有如此流行的时代，我没发现 W3C 标准的 Location:search 有什么问题。
+但是当我在 Typescript 下处理 search string，我简直快被逼疯了。
+
+每天我都被太多无聊的问题烦恼，如：
+
+# 含有分隔符的数字是允许的吗？如 `?price=10,100` 到底表示两个 price 分别是 10 和 100，还是一个 price 值为 10100 ？
+# 如何表示 boolean 值？ `?hidden=true` vs. `hidden=1`
+# API 支持哪一种数组？`?q=a&q=b`、`?q=a,b`、`'q[]=b&q[]=a'` 还是 `q[1]=b&q[0]=a` ？
+
+!! 非标准，但无敌好用的格式
+
+因为标准 Location:search 有上面提到的诸多问题，逼迫我们不得不离开标准，另辟蹊径。
+
+这里我推荐一种无敌好用的格式。
+
+<<<.tc-big-quote
+使用 JSON 作为 Location:search，形如：`?q={ userIds: [1,2,3], page: 0, pageSize: 20, readOnly: true }` 
+<<<
+
+虽然我们不能继续使用 URLSearchParams 和 URL.searchParams 解析查询参数，但是 `JSON.parse(string)` 可以平滑地接棒。更重要的是 JSON.parse() 是支持类型的。
+
+!! 今后，我们的代码
+
+解析 URL
+
+```js
+// URL: https://example.com/featureA?{ userIds: [1,2,3], page: 0, pageSize: 20, readonly: true }
+const { userIds, page, pageSize, readonly } = JSON.parse(location.search.string(1))
+// userIds: [1,2,3]
+// page: 0 
+// pageSize: 20
+// readonly: true
+```
+
+追加参数到 URL
+
+```js
+const params = { userIds: [1,2,3], page: 0, pageSize: 20, readonly: true }
+location.replace(`/featureA?${JSON.stringify(params)}`)
+// URL: https://example.com/featureA?{ userIds: [1,2,3], page: 0, pageSize: 20, readonly: true }
+```
+
+简单又好用对吧？
+
+其实我也是刚刚学会这个方法，因为太喜欢了，迫不及待地想和大家分享。
