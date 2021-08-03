@@ -12,9 +12,9 @@
    </item>
 
    <item>
-      <title>My other articles</title>
-      <link>https://thaddeusjiang.com/my-other-articles</link>
-      <guid>https://thaddeusjiang.com/my-other-articles</guid>
+      <title>My other articles (Archived)</title>
+      <link>https://thaddeusjiang.com/my-other-articles-archived</link>
+      <guid>https://thaddeusjiang.com/my-other-articles-archived</guid>
       <pubDate>Thu, 17 June 2021 23:30:8 +09:00</pubDate>
    </item>
 
@@ -58,6 +58,13 @@
       <link>https://thaddeusjiang.com/404</link>
       <guid>https://thaddeusjiang.com/404</guid>
       <pubDate>Fri, 11 September 2020 23:14:13 +09:00</pubDate>
+   </item>
+
+   <item>
+      <title>2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint</title>
+      <link>https://thaddeusjiang.com/2021-08-03-terraform-azure-app-service-custom-domains-and-certificate-thumbprint</link>
+      <guid>https://thaddeusjiang.com/2021-08-03-terraform-azure-app-service-custom-domains-and-certificate-thumbprint</guid>
+      <pubDate>Tue, 3 August 2021 21:38:44 +09:00</pubDate>
    </item>
 
    <item>

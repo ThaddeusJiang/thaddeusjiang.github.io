@@ -455,6 +455,8 @@ Error message and password prompt
 
 <li>2021-07-12 分享一种无敌好用的 Location:search 的格式</li>
 
+<li>2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint</li>
+
 <li>3D Printer</li>
 
 <li>404</li>
@@ -493,7 +495,7 @@ Error message and password prompt
 
 <li>My Footer</li>
 
-<li>My other articles</li>
+<li>My other articles (Archived)</li>
 
 <li>My Splash Screen</li>
 
@@ -10999,15 +11001,15 @@ Error message and password prompt
 <div created="20200912184237510" modified="20210524131739533" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/baseurl" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>https://thaddeusjiang.com</pre>
 </div>
-<div created="20200806142756352" creator="Adithya_" modified="20210705115445760" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200806142756352" creator="Adithya_" modified="20210803124452971" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>{{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}      
 
 &lt;div class=&quot;container mt-5&quot;&gt;
   &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
       &lt;div&gt;
+          &lt;h1 class=&quot;title&quot;&gt;&lt;$view field=&quot;title&quot; /&gt;&lt;/h1&gt;
+          &lt;hr /&gt;
           &lt;div class=&quot;block content blog&quot;&gt;
-            &lt;h1 class=&quot;title&quot;&gt;&lt;$view field=&quot;title&quot; /&gt;&lt;/h1&gt;
-            &lt;hr /&gt;
 
             &lt;$list filter=&quot;[all[current]]&quot;&gt;
 
@@ -15539,6 +15541,99 @@ location.replace(`/featureA?${JSON.stringify(params)}`)
 其实我也是刚刚学会这个方法，因为太喜欢了，迫不及待地想和大家分享。
 </pre>
 </div>
+<div created="20210803123254476" modified="20210803135620012" published="20210803123844552" tags="Azure DevOps Terraform blog $:/plugins/adithyab/tiddlyjam/live" title="2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>本文想分享一个具体的配置方法，为了照顾对 Azure portal 和 Terraform 不熟悉的朋友，我将使用 UI 和 Code 对比的方式说明。
+
+!! 背景
+
+我目前在开发一个人才管理（Talent Management）的 SaaS 产品。因为是一个 ToB 产品并且还在初级阶段，所以架构上没有那么复杂。依托云平台的水平扩展能力，我们采用“Single App Service, Multiple Custom domains” 的架构。
+
+虽然架构很简单，但是本着“自动化一切可以被自动化的工作”的大原则，我还是使用了 Terraform。
+
+!!  为什么我想写这篇文章？
+
+由于 Terraform 是一个通用工具，为了兼容不同云平台的资源和指令，不可避免的做了一些抽象。但是这种抽象导致了 Terraform 中资源名称和指令并不完全等于云平台（没错，这里就是想说 MicroSoft Azure）的资源名称和指令。
+
+这种资源名称、指令以及构建流程的差异让不太熟练的我，花了好几个小时阅读官方文档、StackOverflow。而且我也不确定下一次我还能不能记得这些内容。
+
+所以，我觉得有必要记录下来。
+
+!! 正文
+
+UI：
+
+''Step 1: 在 DNS Zoon 中配置一个 CNAME 记录''
+
+依次进入 DNS zones &gt; DNS zone 页面，点击 `Record set`，如图：
+
+注意：record 应该是 CNAME
+
+[img[https://i.gyazo.com/fae29a7e16184bdeb71cf3a61287635d.jpg]]
+
+''Step 2: 在 App Service 中配置 Custom domain''
+
+依次进入 App Services &gt; App Service &gt; Settings &gt; Custom domains 页面，点击 `Add custom domain`，如图：
+
+[img[https://i.gyazo.com/d8278748c0d99abf858988790892c369.jpg]]
+
+''Step 3: 为 App Service 的 Custom domain 配置 Certificate Thumbprint''
+
+依次进入 App Services &gt; App Service &gt; Settings &gt; TLS/SSL Settings，点击 `Add TSL/SSL binding`，如图：
+
+[img[https://i.gyazo.com/df2953a533eeeea08c58cc9ea7e0d046.jpg]]
+
+
+Terraform：
+
+```
+data &quot;azurerm_dns_zone&quot; &quot;app&quot; {
+  name                = &quot;thaddeusjiang.work&quot;
+  resource_group_name = &quot;thaddeusjiang-dev&quot;
+}
+
+# Step 1: 添加 CNAME 记录
+resource &quot;azurerm_dns_cname_record&quot; &quot;app&quot; {
+  name                = var.subdomain
+  zone_name           = data.azurerm_dns_zone.app.name
+  resource_group_name = data.azurerm_dns_zone.app.resource_group_name
+  ttl                 = 300
+  record              = &quot;saas-dev.thaddeusjiang.work&quot;
+}
+
+data &quot;azurerm_app_service&quot; &quot;app&quot; {
+  name                = &quot;saas-dev&quot;
+  resource_group_name = &quot;saas-dev&quot;
+}
+
+resource &quot;azurerm_dns_txt_record&quot; &quot;app&quot; {
+  name                = &quot;asuid.${azurerm_dns_cname_record.app.name}&quot;
+  zone_name           = data.azurerm_dns_zone.app.name
+  resource_group_name = data.azurerm_dns_zone.app.resource_group_name
+  ttl                 = 300
+  record {
+    value = data.azurerm_app_service.app.custom_domain_verification_id
+  }
+}
+
+# Step 2: 添加 Custom domain 
+resource &quot;azurerm_app_service_custom_hostname_binding&quot; &quot;app&quot; {
+  hostname            = &quot;${var.subdomain}.thaddeusjiang.work&quot;
+  app_service_name    = data.azurerm_app_service.app.name
+  resource_group_name = data.azurerm_app_service.app.resource_group_name
+  depends_on          = [azurerm_dns_txt_record.app]
+
+  # Step 3: TLS/SSL bindings
+  ssl_state  = &quot;SniEnabled&quot;
+  thumbprint = &quot;6F72D0121F88382D82C336793xxxxxxxxxxxxx&quot;
+}
+```
+
+参考：
+
+* [[azurerm_dns_cname_record|https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_cname_record]]
+* [[azurerm_app_service_custom_hostname_binding |https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_custom_hostname_binding]]
+* [[azurerm_app_service_certificate_binding|https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_certificate_binding]]</pre>
+</div>
 <div created="20210503005408202" modified="20210503005446068" tags="TODO 好物" title="3D Printer" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>想买 3D Printer
 
@@ -15762,12 +15857,12 @@ https://recoursive.com/2020/03/03/reset_macos_privacy_permissions/</pre>
 
 &lt;/$list&gt;</pre>
 </div>
-<div created="20210617143008317" modified="20210617145444116" tags="$:/plugins/adithyab/tiddlyjam/live" title="My other articles" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>*【teamLab Frontend Blog】https://scrapbox.io/teamlab-frontend/TJ
-*【SegmentFault】https://segmentfault.com/blog/jiang-jifa
-*【知乎】https://www.zhihu.com/people/thaddeusjiang
+<div created="20210617143008317" modified="20210803134818237" tags="$:/plugins/adithyab/tiddlyjam/live" title="My other articles (Archived)" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>* 日本語【teamLab Frontend Blog】https://scrapbox.io/teamlab-frontend/TJ
 *【博客园】https://www.cnblogs.com/FlightButterfly/
-*【CSDN】https://blog.csdn.net/wpjjf123</pre>
+*【知乎】https://www.zhihu.com/people/thaddeusjiang/posts
+*【CSDN】https://blog.csdn.net/wpjjf123
+*【SegmentFault】https://segmentfault.com/blog/jiang-jifa</pre>
 </div>
 <div created="20180927082601825" creator="TJ" modified="20210415133523063" modifier="TJ" tags="$:/tags/RawMarkupWikified/TopBody" title="My Splash Screen" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>\import [[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]
@@ -16036,7 +16131,7 @@ blockquote.tc-big-quote cite:before { content: &quot;\2014 \2009&quot;; }</pre>
 <div created="20210106060128715" creator="TJ" modified="20210415132941981" modifier="TJ" tags="" title="wakatime" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;embed src=&quot;https://wakatime.com/share/@ThaddeusJiang/360e9ff9-628e-47c5-8c30-241174f8d094.svg&quot;/&gt;</pre>
 </div>
-<div created="20200418124902034" creator="TJ" modified="20210615012342868" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200418124902034" creator="TJ" modified="20210803134708708" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>嗨 👋，我是蒋继发，nickname: TJ
 
 欢迎来到我的数字花园,
@@ -16050,7 +16145,9 @@ blockquote.tc-big-quote cite:before { content: &quot;\2014 \2009&quot;; }</pre>
 
 我希望这个 Blog 在 100 年后仍然可读。
 
-[[阅读其他内容|blog]]
+[[文章列表|blog]]
+
+[[My other articles (Archived)]]
 
 关注：[[Twitter|https://twitter.com/ThaddeusJiang]] | [[GitHub|https://github.com/ThaddeusJiang]] | [[RSS|https://thaddeusjiang.com/rss.xml]]
 

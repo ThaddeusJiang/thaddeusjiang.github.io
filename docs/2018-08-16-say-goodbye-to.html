@@ -56,11 +56,9 @@
 <div class="container mt-5">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="title">2018-08-16 Say Goodbye to '../' '../../' '../../../'</h1>
-            <hr>
-
-            <p>开发 JavaScript 时，你有没有遇到过这样的情况。</p><p>页面复用大量共通组件，这些共通组件大体都在同一个文件夹下。但是由于组件分割和文件夹层级较深的缘故，你可能常常会写出如下代码：</p><pre class="js hljs"><code><span class="hljs-comment">// some.js</span>
+          <h1 class="title">2018-08-16 Say Goodbye to '../' '../../' '../../../'</h1>
+          <hr>
+          <div class="block content blog"><p>开发 JavaScript 时，你有没有遇到过这样的情况。</p><p>页面复用大量共通组件，这些共通组件大体都在同一个文件夹下。但是由于组件分割和文件夹层级较深的缘故，你可能常常会写出如下代码：</p><pre class="js hljs"><code><span class="hljs-comment">// some.js</span>
 <span class="hljs-keyword">import</span> VodMediaPlayer <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../components/VodVideo/VodMediaPlayer'</span>
 <span class="hljs-keyword">import</span> VideoInfo <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../components/VodVideo/VideoInfo'</span>
 <span class="hljs-keyword">import</span> RecommendList <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../components/RecommendList/RecommendList'</span>
@@ -97,8 +95,7 @@ import { API_VIDEO, API_CHANNEL } <span class="hljs-keyword">from</span> <span c
     }
   }
 }</code></pre><p>到此为止，我们终于可以 <strong>Say Goodbye to '../' '../../' '../../../</strong>' 了。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/tleunen/babel-plugin-module-resolver" rel="noopener noreferrer" target="_blank">https://github.com/tleunen/babel-plugin-module-resolver</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/tleunen/eslint-import-resolver-babel-module" rel="noopener noreferrer" target="_blank">https://github.com/tleunen/eslint-import-resolver-babel-module</a></li></ul><blockquote class="tc-quote"><p>本文曾发布于 segmentfualt，<a class="tc-tiddlylink-external" href="https://segmentfault.com/a/1190000016033668" rel="noopener noreferrer" target="_blank">https://segmentfault.com/a/1190000016033668</a>
-</p></blockquote>
-          </div>
+</p></blockquote></div>
       </div>
       <hr>
   </div>

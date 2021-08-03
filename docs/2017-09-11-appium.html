@@ -56,19 +56,16 @@
 <div class="container mt-5">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="title">2017-09-11 那么 Appium 到底是怎么工作的呢？</h1>
-            <hr>
-
-            <p>因为官网文档写的没有梯度，作为新手的我花了好几个小时硬是没看明白它是怎么工作的。 网上教程也基本都是翻译，所以结构很复杂、和其他技术耦合度很高，且没有说明。</p><p>我自己总结了一份超简单 Appium 自动化测试示例（Node.js 版)</p><p>本示例，默认在 Mac（已安装 XCode、Node.js）测试 iOS app。</p><h2 class="">那么 Appium 到底是怎么工作的呢？</h2><p>1. 首先，你需要启动一个 Appium 服务（它会接收你发出的测试指令，并控制 App 完成相关动作）。</p><pre><code>// 安装
+          <h1 class="title">2017-09-11 那么 Appium 到底是怎么工作的呢？</h1>
+          <hr>
+          <div class="block content blog"><p>因为官网文档写的没有梯度，作为新手的我花了好几个小时硬是没看明白它是怎么工作的。 网上教程也基本都是翻译，所以结构很复杂、和其他技术耦合度很高，且没有说明。</p><p>我自己总结了一份超简单 Appium 自动化测试示例（Node.js 版)</p><p>本示例，默认在 Mac（已安装 XCode、Node.js）测试 iOS app。</p><h2 class="">那么 Appium 到底是怎么工作的呢？</h2><p>1. 首先，你需要启动一个 Appium 服务（它会接收你发出的测试指令，并控制 App 完成相关动作）。</p><pre><code>// 安装
 $ npm install -g appium
 // 启动 appium 服务
 $ appium</code></pre><p>2. 然后，你需要 build 一个可以自动化测试的 app 包。 使用下面命令 build，在 <code>./build/Release-iphonesimulator/</code> 得到 XXX.app。 我测试的 app 放在目录 <code>./apps/</code></p><pre><code>$ xcodebuild -sdk iphonesimulator10.3
 // iphonesimulator 代表模拟器
 // 10.3 是 iOS 版本</code></pre><p>3. 再然后，你需要写一段测试代码。 你可以得到一个特别特别简单例子 <a class="tc-tiddlylink tc-tiddlylink-missing" href="./appium-sample-node.html">Appium-Sample-Node</a>。 因为 Appium 本身功能很弱，我们依赖 wd.js、mocha.js 和 chai.js 完成测试代码。</p><blockquote><div>wd.js 优雅地获取 App 元素，如按钮（button）、文字（label）等等。</div><div>mocha.js 优雅地做测试前准备、测试后处理 。</div><div>chai.js 优雅地使用断言。</div></blockquote><p>4. 最后一步，执行你的测试代码。 如果你的 mocha 是全局安装，$ npm run ios-simple可以替换成$ mocha ios-simple.js</p><pre><code>$ cd Appium-Sample-Node &amp;&amp; npm install
 $ npm run ios-simple</code></pre><p>现在你会了吗？
-</p>
-          </div>
+</p></div>
       </div>
       <hr>
   </div>

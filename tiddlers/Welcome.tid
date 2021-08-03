@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20210615012342868
+modified: 20210803134708708
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: Welcome
@@ -19,7 +19,9 @@ type: text/vnd.tiddlywiki
 
 我希望这个 Blog 在 100 年后仍然可读。
 
-[[阅读其他内容|blog]]
+[[文章列表|blog]]
+
+[[My other articles (Archived)]]
 
 关注：[[Twitter|https://twitter.com/ThaddeusJiang]] | [[GitHub|https://github.com/ThaddeusJiang]] | [[RSS|https://thaddeusjiang.com/rss.xml]]
 

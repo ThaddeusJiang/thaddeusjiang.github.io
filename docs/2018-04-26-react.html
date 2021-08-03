@@ -56,11 +56,9 @@
 <div class="container mt-5">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="title">2018-04-26 React 设置页面标题</h1>
-            <hr>
-
-            <blockquote class="tc-quote tc-big-quote"><p>React 生态系统如此繁荣，以至于无论多小的问题都有开发者发布 library。 但是我们真的需要依赖那么多第三方吗？
+          <h1 class="title">2018-04-26 React 设置页面标题</h1>
+          <hr>
+          <div class="block content blog"><blockquote class="tc-quote tc-big-quote"><p>React 生态系统如此繁荣，以至于无论多小的问题都有开发者发布 library。 但是我们真的需要依赖那么多第三方吗？
 </p><cite>TJ</cite></blockquote><p>一个超级简单，但是还是需要问 Google 才知道的方法。</p><p>需求</p><p>React App 中 设置页面标题</p><p>这个位置：
 <img src="https://user-images.githubusercontent.com/17308201/39289287-6d28c1be-4966-11e8-8c05-ae53dac41b74.png"></p><p>背景</p><p>React App 和过去的 jQuery 页面不同，大部分 React App 是单页面应用，即只有一个 <code>html</code> 文件。
 而页面标题通常定义在 html 的 <code>header</code> 中。如下：</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -78,8 +76,7 @@
 ...
 render() {
   <span class="hljs-keyword">this</span>.renderDocumentTitle()
-}</code></pre><p>github 上有一个项目 <a class="tc-tiddlylink-external" href="https://github.com/gaearon/react-document-title" rel="noopener noreferrer" target="_blank">https://github.com/gaearon/react-document-title</a> 实现了这个功能。</p><p>但是，我个人不推荐使用它。这么简单的功能何必 <code>yarn add</code> 一次呢。</p><p>ref:</p><ul><li><a class="tc-tiddlylink-external" href="https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react" rel="noopener noreferrer" target="_blank">https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react</a></li></ul>
-          </div>
+}</code></pre><p>github 上有一个项目 <a class="tc-tiddlylink-external" href="https://github.com/gaearon/react-document-title" rel="noopener noreferrer" target="_blank">https://github.com/gaearon/react-document-title</a> 实现了这个功能。</p><p>但是，我个人不推荐使用它。这么简单的功能何必 <code>yarn add</code> 一次呢。</p><p>ref:</p><ul><li><a class="tc-tiddlylink-external" href="https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react" rel="noopener noreferrer" target="_blank">https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react</a></li></ul></div>
       </div>
       <hr>
   </div>

@@ -56,11 +56,9 @@
 <div class="container mt-5">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="title">2018-04-28 React JS/JSX 中引用静态 js 文件</h1>
-            <hr>
-
-            <blockquote class="tc-quote tc-big-quote"><p>如果你有一个上古时代的 js 文件，你会直接引用它，还是重写一遍？
+          <h1 class="title">2018-04-28 React JS/JSX 中引用静态 js 文件</h1>
+          <hr>
+          <div class="block content blog"><blockquote class="tc-quote tc-big-quote"><p>如果你有一个上古时代的 js 文件，你会直接引用它，还是重写一遍？
 </p><cite>TJ</cite></blockquote><p>React JS/JSX 中引用静态 js 文件，其实超简单。
 只需要在 componentDidMount 创建一个 <code>&lt;script&gt;</code> 标签，并且追加到页面中即可。</p><pre class="js hljs"><code>componentDidMount () {
   <span class="hljs-keyword">const</span> script = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"script"</span>)
@@ -69,8 +67,7 @@
 
   <span class="hljs-built_in">document</span>.body.appendChild(script)
 }</code></pre><h2 class="">应用场景</h2><p>目前项目是 toB 的内容管理系统，由于某些不可抗力因素影响，不得不对应  CKEditor 4。
-但是 CKEditor 4 并不支持 JS 模块，所以不能够使用 import 导入。</p><p>无奈之下只能使用传统方法</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>因为只有部分页面使用 CKEditor，在 index.html 中引入 CKEditor 的静态文件有点过分了。</p><p>所以我通过组件的 componentDidMount 引入。</p><p>ref:</p><ul><li><a class="tc-tiddlylink-external" href="http://cdn.ckeditor.com/" rel="noopener noreferrer" target="_blank">http://cdn.ckeditor.com/</a></li><li><a class="tc-tiddlylink-external" href="https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx" rel="noopener noreferrer" target="_blank">https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx</a></li></ul>
-          </div>
+但是 CKEditor 4 并不支持 JS 模块，所以不能够使用 import 导入。</p><p>无奈之下只能使用传统方法</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>因为只有部分页面使用 CKEditor，在 index.html 中引入 CKEditor 的静态文件有点过分了。</p><p>所以我通过组件的 componentDidMount 引入。</p><p>ref:</p><ul><li><a class="tc-tiddlylink-external" href="http://cdn.ckeditor.com/" rel="noopener noreferrer" target="_blank">http://cdn.ckeditor.com/</a></li><li><a class="tc-tiddlylink-external" href="https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx" rel="noopener noreferrer" target="_blank">https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx</a></li></ul></div>
       </div>
       <hr>
   </div>

@@ -56,18 +56,15 @@
 <div class="container mt-5">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="title">2019-09-30 升级到 react-intl 3</h1>
-            <hr>
-
-            <p>上周把公司项目中 react-intl 升到 v3，做一个简单记录。
+          <h1 class="title">2019-09-30 升级到 react-intl 3</h1>
+          <hr>
+          <div class="block content blog"><p>上周把公司项目中 react-intl 升到 v3，做一个简单记录。
 这次升级策略和使用 React Hooks 时一样，不重构现有代码，但是在今后新功能中<code>积极使用</code>新的 hook API。</p><h2 class="">第一步 更新 package.json</h2><p>我直接使用 <code>npm install react-intl@latest</code> 升级到最近版本。</p><h2 class="">第二步 修复 Breaking API Changes</h2><p>我的项目中涉及到 <code>FormattedRelative</code> API。超级简单，就是改个名字而已。</p><p><img src="https://i.gyazo.com/83fd1e9ce1981486f75da48bcb8b7ce8.png"></p><h2 class="">第三步 移除遗留代码</h2><p>我说的是 <code>addLocaleData</code> API。因为我的项目是 to B 项目，客户统一使用 Chrome， 没有必要支持 IE11 等浏览器。
 所以我将涉及 <code>addLocaleData</code> 代码也一并移除了。
 <img src="https://i.gyazo.com/c7612e4218d3338bc24f84640bdedf6f.png"></p><h2 class="">第四步 更新 snapshot testing</h2><p>这步是必不可少的，我们项目使用 create-react-app 构建。</p><p>执行</p><pre><code>yarn test --updateSnapshot</code></pre><h2 class="">第五步 更新 flow-typed</h2><p>我们项目使用 flow 进行类型定义，npm script 定义如下：</p><pre class="json hljs"><code><span class="hljs-comment">// package.json</span>
 {
   <span class="hljs-attr">"flow-typed"</span>: <span class="hljs-string">"rimraf flow-typed/npm &amp;&amp; npx flow-typed install --ignoreDeps dev bundled peer"</span>
-}</code></pre><p>执行</p><pre><code>yarn flow-typed</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/formatjs/react-intl" rel="noopener noreferrer" target="_blank">https://github.com/formatjs/react-intl</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/formatjs/react-intl/blob/master/docs/Upgrade-Guide.md" rel="noopener noreferrer" target="_blank">https://github.com/formatjs/react-intl/blob/master/docs/Upgrade-Guide.md</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/facebook/create-react-app" rel="noopener noreferrer" target="_blank">https://github.com/facebook/create-react-app</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/flow-typed/flow-typed" rel="noopener noreferrer" target="_blank">https://github.com/flow-typed/flow-typed</a></li></ul>
-          </div>
+}</code></pre><p>执行</p><pre><code>yarn flow-typed</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/formatjs/react-intl" rel="noopener noreferrer" target="_blank">https://github.com/formatjs/react-intl</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/formatjs/react-intl/blob/master/docs/Upgrade-Guide.md" rel="noopener noreferrer" target="_blank">https://github.com/formatjs/react-intl/blob/master/docs/Upgrade-Guide.md</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/facebook/create-react-app" rel="noopener noreferrer" target="_blank">https://github.com/facebook/create-react-app</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/flow-typed/flow-typed" rel="noopener noreferrer" target="_blank">https://github.com/flow-typed/flow-typed</a></li></ul></div>
       </div>
       <hr>
   </div>

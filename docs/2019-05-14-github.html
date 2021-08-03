@@ -56,11 +56,9 @@
 <div class="container mt-5">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="title">2019-05-14 如何使用 GitHub 账号登录？</h1>
-            <hr>
-
-            <p>一个特别简单的需求，开发一个使用 GitHub 登陆的功能。</p><p>如图：</p><p><img src="https://i.gyazo.com/fd8686eff0b781065b1edccefa367169.png"></p><p>TL;DR</p><ol><li>创建一个 firebase 项目</li><li>注册一个 GitHub 应用</li><li>代码示例</li></ol><h1 class="">创建 firebase 项目</h1><p>登录 <a class="tc-tiddlylink-external" href="https://console.firebase.google.com" rel="noopener noreferrer" target="_blank">https://console.firebase.google.com</a>，并创建一个项目。
+          <h1 class="title">2019-05-14 如何使用 GitHub 账号登录？</h1>
+          <hr>
+          <div class="block content blog"><p>一个特别简单的需求，开发一个使用 GitHub 登陆的功能。</p><p>如图：</p><p><img src="https://i.gyazo.com/fd8686eff0b781065b1edccefa367169.png"></p><p>TL;DR</p><ol><li>创建一个 firebase 项目</li><li>注册一个 GitHub 应用</li><li>代码示例</li></ol><h1 class="">创建 firebase 项目</h1><p>登录 <a class="tc-tiddlylink-external" href="https://console.firebase.google.com" rel="noopener noreferrer" target="_blank">https://console.firebase.google.com</a>，并创建一个项目。
 进入 Auth 菜单，启用 GitHub。</p><p><img src="https://i.gyazo.com/ee6c38969827c543c68ef212adb6dd8f.png"></p><p>客户端 ID 和客户端密钥可以从 GitHub App 完成界面获取。</p><h1 class="">注册一个 GitHub 应用</h1><p>进入 <a class="tc-tiddlylink-external" href="https://github.com/settings/applications/new" rel="noopener noreferrer" target="_blank">https://github.com/settings/applications/new</a></p><p><img src="https://i.gyazo.com/75d40005a9a8d9f193819c8e471a7e30.png"></p><p>Homepage URL 和 Callback URL 填写 firebase 回调网址。如 <code>https://xxx.firebaseapp.com/__/auth/handler</code></p><h1 class="">代码示例</h1><pre class="js hljs"><code><span class="hljs-keyword">import</span> React, { useState, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
 <span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">"react-dom"</span>;
 
@@ -102,8 +100,7 @@
 }
 
 <span class="hljs-keyword">const</span> rootElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"root"</span>);
-ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>, rootElement);</code></pre><blockquote><div>source code: <a class="tc-tiddlylink-external" href="https://codesandbox.io/s/zw27vrzpk3" rel="noopener noreferrer" target="_blank">https://codesandbox.io/s/zw27vrzpk3</a></div></blockquote>
-          </div>
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>, rootElement);</code></pre><blockquote><div>source code: <a class="tc-tiddlylink-external" href="https://codesandbox.io/s/zw27vrzpk3" rel="noopener noreferrer" target="_blank">https://codesandbox.io/s/zw27vrzpk3</a></div></blockquote></div>
       </div>
       <hr>
   </div>
