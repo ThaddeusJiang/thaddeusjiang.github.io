@@ -269,6 +269,8 @@ Error message and password prompt
 
 <li>$:/plugins/adithyab/tiddlyjam</li>
 
+<li>$:/plugins/adithyab/tiddlyjam/renderer/base</li>
+
 <li>$:/plugins/adithyab/tiddlyjam/renderer/base/footer</li>
 
 <li>$:/plugins/adithyab/tiddlyjam/renderer/base/header</li>
@@ -10965,6 +10967,51 @@ Error message and password prompt
         }
     }
 }</pre>
+</div>
+<div created="20200728141157165" creator="Adithya_" modified="20210804140017132" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>\whitespace trim
+\define tv-wikilink-template() $uri_doubleencoded$.html
+\define tv-config-toolbar-icons() no
+\define tv-config-toolbar-text() no
+\define tv-config-toolbar-class() tc-btn-invisible
+\import [[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]
+`
+&lt;!doctype html&gt;
+&lt;html lang=&quot;zh&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot; /&gt;
+
+  &lt;meta name=&quot;generator&quot; content=&quot;TiddlyWiki&quot; /&gt;
+  &lt;meta name=&quot;tiddlywiki-version&quot; content=&quot;`{{$:/core/templates/version}}`&quot; /&gt;
+
+  &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
+  &lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot; /&gt;
+  &lt;meta name=&quot;mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
+
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;&gt;
+
+  &lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;
+
+  &lt;link id=&quot;faviconLink&quot; rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot;&gt;
+
+`{{||$:/plugins/adithyab/tiddlyjam/renderer/base/seotags}}
+  {{$:/plugins/adithyab/tiddlyjam/renderer/base/imports}}
+  `
+&lt;/head&gt;
+
+&lt;body class=&quot;tc-body&quot;&gt;
+  `
+  &lt;$wikify name=&quot;output&quot; text={{$:/plugins/adithyab/tiddlyjam/renderer/base/converter}} mode=&quot;inline&quot; output=&quot;html&quot;&gt;
+    &lt;$text text=&lt;&lt;output&gt;&gt;/&gt;
+  &lt;/$wikify&gt;
+
+{{$:/plugins/adithyab/tiddlyjam/renderer/base/footer||$:/plugins/adithyab/tiddlyjam/htmlify}}
+	
+  `
+&lt;/body&gt;
+&lt;/html&gt;
+`</pre>
 </div>
 <div created="20200728151702786" creator="Adithya_" modified="20210617135133160" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base/footer" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>  &lt;footer class=&quot;footer&quot;&gt;
