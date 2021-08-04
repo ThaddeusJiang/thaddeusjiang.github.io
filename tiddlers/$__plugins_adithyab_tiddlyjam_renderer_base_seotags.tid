@@ -1,0 +1,35 @@
+created: 20200814062847162
+description: safe
+modified: 20210804134742217
+name: correct
+tags: $:/plugins/adithyab/tiddlyjam/internals
+title: $:/plugins/adithyab/tiddlyjam/renderer/base/seotags
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+
+`<title>`<<get_title>>`</title>
+<meta name="description" content="`<<get_description>>`">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="`<<get_absolute_url>>`" />
+<meta property="og:title" content="`<<get_title>>`" />
+<meta property="og:image" content="`<<get_image>>`" />
+<meta property="og:description" content="`<<get_description>>`" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="`<<get_title>>`" />
+<meta name="twitter:description" content="`<<get_description>>`" />
+<meta name="twitter:image" content="`<<get_image>>`" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>

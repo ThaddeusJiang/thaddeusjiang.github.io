@@ -263,8 +263,6 @@ Error message and password prompt
 
 <li>$:/GoogleAnalyticsAccount</li>
 
-<li>$:/Import</li>
-
 <li>$:/isEncrypted</li>
 
 <li>$:/language/DefaultNewTiddlerTitle</li>
@@ -274,6 +272,8 @@ Error message and password prompt
 <li>$:/plugins/adithyab/tiddlyjam/renderer/base/footer</li>
 
 <li>$:/plugins/adithyab/tiddlyjam/renderer/base/header</li>
+
+<li>$:/plugins/adithyab/tiddlyjam/renderer/base/seotags</li>
 
 <li>$:/plugins/adithyab/tiddlyjam/renderer/baseurl</li>
 
@@ -10534,11 +10534,6 @@ Error message and password prompt
 <div created="20210416114957196" modified="20210416114957214" title="$:/GoogleAnalyticsAccount" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>UA-140310136-2</pre>
 </div>
-<div created="20210721121702890" modified="20210721121702890" status="complete" title="$:/Import" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>The following tiddlers were imported:
-
-# [[2021 Q3(789) OKRs]]</pre>
-</div>
 <div title="$:/isEncrypted" revision="0" bag="default">
 <pre>no</pre>
 </div>
@@ -10996,6 +10991,36 @@ Error message and password prompt
 
     &lt;/div&gt;
   &lt;/div&gt;
+</pre>
+</div>
+<div created="20200814062847162" description="safe" modified="20210804134742217" name="correct" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base/seotags" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>\whitespace trim
+
+`&lt;title&gt;`&lt;&lt;get_title&gt;&gt;`&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;`&lt;&lt;get_description&gt;&gt;`&quot;&gt;
+
+&lt;meta property=&quot;og:type&quot; content=&quot;article&quot; /&gt;
+&lt;meta property=&quot;og:url&quot; content=&quot;`&lt;&lt;get_absolute_url&gt;&gt;`&quot; /&gt;
+&lt;meta property=&quot;og:title&quot; content=&quot;`&lt;&lt;get_title&gt;&gt;`&quot; /&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;`&lt;&lt;get_image&gt;&gt;`&quot; /&gt;
+&lt;meta property=&quot;og:description&quot; content=&quot;`&lt;&lt;get_description&gt;&gt;`&quot; /&gt;
+
+&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;
+&lt;meta name=&quot;twitter:site&quot; content=&quot;@ThaddeusJiang&quot;&gt;
+&lt;meta name=&quot;twitter:creator&quot; content=&quot;@ThaddeusJiang&quot;&gt;
+&lt;meta name=&quot;twitter:title&quot; content=&quot;`&lt;&lt;get_title&gt;&gt;`&quot; /&gt;
+&lt;meta name=&quot;twitter:description&quot; content=&quot;`&lt;&lt;get_description&gt;&gt;`&quot; /&gt;
+&lt;meta name=&quot;twitter:image&quot; content=&quot;`&lt;&lt;get_image&gt;&gt;`&quot; /&gt;
+
+&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;
+&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-140310136-2&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+&lt;/script&gt;
 </pre>
 </div>
 <div created="20200912184237510" modified="20210524131739533" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/baseurl" type="text/vnd.tiddlywiki" revision="0" bag="default">
