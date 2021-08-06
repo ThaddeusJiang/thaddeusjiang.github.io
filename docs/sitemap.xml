@@ -411,19 +411,13 @@
 
    <url>
       <loc>https://thaddeusjiang.com/welcome</loc>
-      <lastmod>2021-08-03</lastmod>
+      <lastmod>2021-08-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>https://thaddeusjiang.com/blog</loc>
       <lastmod>2021-07-03</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>https://thaddeusjiang.com/index</loc>
-      <lastmod>2021-05-24</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

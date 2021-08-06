@@ -117,8 +117,31 @@ Nuxt 有 <code>asyncData</code> 或 <code>fetch</code> 函数。</p><pre class="
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre><h1 class="">SSR 不全是服务器端渲染，也有一部分是浏览器渲染的</h1><p>vue 通过 <code>data-server-rendered</code> 属性识别哪些 HTML 是服务器渲染的。</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span> <span class="hljs-attr">data-server-rendered</span>=<span class="hljs-string">"true"</span>&gt;</span></code></pre><p>因为每个请求都需要一个全新的 Vue 实例，Code Splitting 还是不能少</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> Foo = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'./Foo.vue'</span>)</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://ssr.vuejs.org/" rel="noopener noreferrer" target="_blank">https://ssr.vuejs.org/</a></li><li><a class="tc-tiddlylink-external" href="https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑" rel="noopener noreferrer" target="_blank">https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑</a></li></ul></div>
       </div>
       <hr>
+     <div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+
+</div>
+
+<style>
+.copyright {
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f4f4f4;
+  opacity: 0.6;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style> 
   </div>
-</div>     
+</div>    
+
+
 
 
 

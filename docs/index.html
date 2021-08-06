@@ -275,6 +275,8 @@ Error message and password prompt
 
 <li>$:/plugins/adithyab/tiddlyjam/renderer/base/header</li>
 
+<li>$:/plugins/adithyab/tiddlyjam/renderer/base/license</li>
+
 <li>$:/plugins/adithyab/tiddlyjam/renderer/base/seotags</li>
 
 <li>$:/plugins/adithyab/tiddlyjam/renderer/baseurl</li>
@@ -467,6 +469,8 @@ Error message and password prompt
 
 <li>blog</li>
 
+<li>Blog License</li>
+
 <li>Blog Management</li>
 
 <li>BtoB Marketing Keywords</li>
@@ -487,15 +491,11 @@ Error message and password prompt
 
 <li>If you can't unlock settings in System Preferences</li>
 
-<li>index</li>
-
 <li>Keywords</li>
 
 <li>Links</li>
 
 <li>macOS reset privacy</li>
-
-<li>My Footer</li>
 
 <li>My other articles (Archived)</li>
 
@@ -10968,7 +10968,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200728141157165" creator="Adithya_" modified="20210804140017132" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200728141157165" creator="Adithya_" modified="20210806130758862" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>\whitespace trim
 \define tv-wikilink-template() $uri_doubleencoded$.html
 \define tv-config-toolbar-icons() no
@@ -11006,6 +11006,7 @@ Error message and password prompt
     &lt;$text text=&lt;&lt;output&gt;&gt;/&gt;
   &lt;/$wikify&gt;
 
+
 {{$:/plugins/adithyab/tiddlyjam/renderer/base/footer||$:/plugins/adithyab/tiddlyjam/htmlify}}
 	
   `
@@ -11040,6 +11041,29 @@ Error message and password prompt
   &lt;/div&gt;
 </pre>
 </div>
+<div created="20210806130919026" creator="Adithya_" modified="20210806131852044" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base/license" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>&lt;div class=&quot;copyright&quot;&gt;
+&lt;strong&gt;
+&lt;a href=&quot;https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh&quot;&gt;
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+&lt;/a&gt;
+&lt;/strong&gt;
+
+&lt;/div&gt;
+
+&lt;style&gt;
+.copyright {
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+  background-color: &lt;&lt;colour page-background&gt;&gt;;
+  opacity: 0.6;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+&lt;/style&gt;</pre>
+</div>
 <div created="20200814062847162" description="safe" modified="20210804134742217" name="correct" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base/seotags" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>\whitespace trim
 
@@ -11073,7 +11097,7 @@ Error message and password prompt
 <div created="20200912184237510" modified="20210524131739533" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/baseurl" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>https://thaddeusjiang.com</pre>
 </div>
-<div created="20200806142756352" creator="Adithya_" modified="20210803124452971" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200806142756352" creator="Adithya_" modified="20210806132016341" modifier="Adithya_" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/blog/body" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>{{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}      
 
 &lt;div class=&quot;container mt-5&quot;&gt;
@@ -11091,8 +11115,11 @@ Error message and password prompt
           &lt;/div&gt;
       &lt;/div&gt;
       &lt;hr /&gt;
+     {{$:/plugins/adithyab/tiddlyjam/renderer/base/license}} 
   &lt;/div&gt;
-&lt;/div&gt;     
+&lt;/div&gt;    
+
+
 
 </pre>
 </div>
@@ -15744,6 +15771,32 @@ https://book.douban.com/subject/26260187/</pre>
 
 </pre>
 </div>
+<div created="20210122101250404" creator="TJ" modified="20210806132936293" modifier="TJ" tags="$:/tags/ViewTemplate" title="Blog License" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>&lt;$list filter=&quot;[all[current]tag[blog]]&quot; &gt;
+
+&lt;footer class=&quot;copyright&quot;&gt;
+
+&lt;strong&gt;
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+&lt;/strong&gt;
+
+&lt;/footer&gt;
+
+&lt;style&gt;
+.copyright {
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+  background-color: &lt;&lt;colour page-background&gt;&gt;;
+  opacity: 0.6;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+&lt;/style&gt;
+
+&lt;/$list&gt;</pre>
+</div>
 <div created="20210609120033694" modified="20210609120052126" tags="" title="Blog Management" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>[[TiddlyJam Dashboard]]</pre>
 </div>
@@ -15848,27 +15901,6 @@ While using macOS Big Sur 11.1, your Mac with Apple T2 Security Chip has an issu
 
 </pre>
 </div>
-<div created="20200728102956586" creator="Adithya_" description="A static generator for TiddlyWiki. Inspired by JamStack." modified="20210524132943531" modifier="Adithya_" name="Homepage" published="20210314001527357" tags="$:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals $:/plugins/adithyab/tiddlyjam/live" title="index" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>
-    &lt;div class=&quot;container&quot;&gt;
-        &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
-            &lt;h1 class=&quot;title is-1&quot;&gt;{{$:/SiteTitle}}&lt;/h1&gt;
-            &lt;div class=&quot;subtitle&quot;&gt;
-                {{$:/SiteSubtitle}}
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-        &lt;div class=&quot;container mt-6&quot;&gt;
-            &lt;div class=&quot;column is-6-desktop is-offset-3-desktop is-8 is-offset-2&quot;&gt;
-                &lt;$list filter=&quot;[tag[$:/plugins/adithyab/tiddlyjam/live]tag[blog]!sort[published]limit[5]]&quot;&gt;
-                    {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose}}
-                &lt;/$list&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-</pre>
-</div>
 <div created="20210617131919935" modified="20210617132824953" tags="" title="Keywords" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>* [[SaaS]]
 * [[SEO]]
@@ -15902,32 +15934,6 @@ sudo tccutil reset All
 参考：
 
 https://recoursive.com/2020/03/03/reset_macos_privacy_permissions/</pre>
-</div>
-<div created="20210122101250404" creator="TJ" modified="20210415133523051" modifier="TJ" tags="$:/tags/ViewTemplate" title="My Footer" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>&lt;$list filter=&quot;[all[current]tag[手艺人手记]]&quot; &gt;
-
-&lt;footer class=&quot;copyright&quot;&gt;
-
-&lt;strong&gt;
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-&lt;/strong&gt;
-
-&lt;/footer&gt;
-
-&lt;style&gt;
-.copyright {
-  margin-top: 2.5rem;
-  padding: 0.5rem 1rem;
-  background-color: &lt;&lt;colour page-background&gt;&gt;;
-  opacity: 0.6;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-&lt;/style&gt;
-
-&lt;/$list&gt;</pre>
 </div>
 <div created="20210617143008317" modified="20210803134818237" tags="$:/plugins/adithyab/tiddlyjam/live" title="My other articles (Archived)" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>* 日本語【teamLab Frontend Blog】https://scrapbox.io/teamlab-frontend/TJ
@@ -16203,7 +16209,7 @@ blockquote.tc-big-quote cite:before { content: &quot;\2014 \2009&quot;; }</pre>
 <div created="20210106060128715" creator="TJ" modified="20210415132941981" modifier="TJ" tags="" title="wakatime" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;embed src=&quot;https://wakatime.com/share/@ThaddeusJiang/360e9ff9-628e-47c5-8c30-241174f8d094.svg&quot;/&gt;</pre>
 </div>
-<div created="20200418124902034" creator="TJ" modified="20210803134708708" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200418124902034" creator="TJ" modified="20210806132545448" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>嗨 👋，我是蒋继发，nickname: TJ
 
 欢迎来到我的数字花园,
