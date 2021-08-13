@@ -1,0 +1,12 @@
+created: 20210813144439594
+modified: 20210813144757391
+tags: 
+title: Setup og-image for TiddlyWiki
+type: text/vnd.tiddlywiki
+
+* https://github.com/vercel/og-image
+* params
+
+# title
+# base image
+# images

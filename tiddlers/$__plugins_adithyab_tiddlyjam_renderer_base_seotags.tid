@@ -1,6 +1,6 @@
 created: 20200814062847162
 description: safe
-modified: 20210804134742217
+modified: 20210813145501280
 name: correct
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/seotags
@@ -14,7 +14,7 @@ type: text/vnd.tiddlywiki
 <meta property="og:type" content="article" />
 <meta property="og:url" content="`<<get_absolute_url>>`" />
 <meta property="og:title" content="`<<get_title>>`" />
-<meta property="og:image" content="`<<get_image>>`" />
+<meta property="og:image" content="`<<get_og_image>>`" />
 <meta property="og:description" content="`<<get_description>>`" />
 
 <meta name="twitter:card" content="summary_large_image">

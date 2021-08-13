@@ -283,6 +283,8 @@ Error message and password prompt
 
 <li>$:/plugins/adithyab/tiddlyjam/renderer/blog/body</li>
 
+<li>$:/plugins/adithyab/tiddlyjam/renderer/macros</li>
+
 <li>$:/plugins/adithyab/tiddlyjam/renderer/rss</li>
 
 <li>$:/plugins/adithyab/tiddlyjam/renderer/subtitle</li>
@@ -491,9 +493,13 @@ Error message and password prompt
 
 <li>If you can't unlock settings in System Preferences</li>
 
+<li>k6</li>
+
 <li>Keywords</li>
 
 <li>Links</li>
+
+<li>Load testing</li>
 
 <li>macOS reset privacy</li>
 
@@ -525,11 +531,15 @@ Error message and password prompt
 
 <li>SEO: 调查特定地区的关键字排名</li>
 
+<li>Setup og-image for TiddlyWiki</li>
+
 <li>TiddlyJam Static Site 未支持的 features</li>
 
 <li>TiddlyJam tiddlywiki.info 配置</li>
 
 <li>TJ</li>
+
+<li>TJStack</li>
 
 <li>vanilla.css</li>
 
@@ -11064,7 +11074,7 @@ Error message and password prompt
 }
 &lt;/style&gt;</pre>
 </div>
-<div created="20200814062847162" description="safe" modified="20210804134742217" name="correct" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base/seotags" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200814062847162" description="safe" modified="20210813145501280" name="correct" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base/seotags" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>\whitespace trim
 
 `&lt;title&gt;`&lt;&lt;get_title&gt;&gt;`&lt;/title&gt;
@@ -11073,7 +11083,7 @@ Error message and password prompt
 &lt;meta property=&quot;og:type&quot; content=&quot;article&quot; /&gt;
 &lt;meta property=&quot;og:url&quot; content=&quot;`&lt;&lt;get_absolute_url&gt;&gt;`&quot; /&gt;
 &lt;meta property=&quot;og:title&quot; content=&quot;`&lt;&lt;get_title&gt;&gt;`&quot; /&gt;
-&lt;meta property=&quot;og:image&quot; content=&quot;`&lt;&lt;get_image&gt;&gt;`&quot; /&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;`&lt;&lt;get_og_image&gt;&gt;`&quot; /&gt;
 &lt;meta property=&quot;og:description&quot; content=&quot;`&lt;&lt;get_description&gt;&gt;`&quot; /&gt;
 
 &lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;
@@ -11121,6 +11131,49 @@ Error message and password prompt
 
 
 
+</pre>
+</div>
+<div created="20200806162755767" modified="20210813145257582" tags="$:/plugins/adithyab/tiddlyjam/internals $:/tags/Macro" title="$:/plugins/adithyab/tiddlyjam/renderer/macros" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>\whitespace trim
+
+\define get_description()
+&lt;!--
+\outline Gets the description by extracting the first paragraph (uses the newline operator) and then rendering it using Wikify
+--&gt;&lt;$list filter=&quot;[all[current]get[description]]&quot;&gt;{{!!title}}&lt;/$list&gt;&lt;$list filter=&quot;[all[current]!has[description]]&quot;&gt;&lt;$vars lf=&quot;
+&quot;&gt;&lt;$list filter=&quot;[&lt;currentTiddler&gt;get[text]split&lt;lf&gt;trim[]!is[blank]limit[1]]&quot; variable=&quot;thisline&quot;&gt;&lt;$wikify name=&quot;out&quot; text=&lt;&lt;thisline&gt;&gt;}&gt;&lt;&lt;out&gt;&gt;&lt;/$wikify&gt;&lt;/$list&gt;&lt;/$vars&gt;&lt;/$list&gt;
+\end
+
+\define get_published_date()
+&lt;$list filter=&quot;[{!!published}is[blank]then{!!created}else{!!published}]&quot;&gt;&lt;$view field=&quot;title&quot; format=&quot;date&quot; template=&quot;DDth MMM, YYYY&quot; /&gt;&lt;/$list&gt;
+\end
+
+\define get_title()
+&lt;$text text={{{ [&lt;currentTiddler&gt;get[name]else&lt;currentTiddler&gt;] }}} /&gt; ~ {{$:/plugins/adithyab/tiddlyjam/renderer/title}}
+\end
+
+\define get_og_image()
+https://og-image-tj.vercel.app/$text text={{{ [&lt;currentTiddler&gt;get[name]else&lt;currentTiddler&gt;] }}} /&gt; ~ {{$:/plugins/adithyab/tiddlyjam/renderer/title}}
+\end
+
+\define get_display_name()
+&lt;$text text={{{ [&lt;currentTiddler&gt;get[name]else&lt;currentTiddler&gt;] }}} /&gt;
+\end
+
+\define get_relative_url()
+/&lt;$macrocall $name=&quot;tv-get-export-path&quot; title={{!!title}}/&gt;
+\end
+
+\define get_absolute_url()
+&lt;$wikify name=&quot;url&quot; text=&lt;&lt;get_relative_url&gt;&gt;&gt;&lt;$text text={{{ [&lt;url&gt;addprefix{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}] }}}/&gt;&lt;/$wikify&gt;
+\end
+
+\define get_page_uniqueid()
+&lt;$view field=&quot;created&quot;/&gt;
+\end
+
+\define tweet-this(url,title,description)
+&lt;a href=&quot;https://twitter.com/intent/tweet?source=$url$&amp;text=$title$%20$description$&amp;via=adithyab&quot; target=&quot;_blank&quot; title=&quot;Tweet&quot;&gt;&lt;img alt=&quot;Tweet&quot; src=&quot;social-icons/Twitter.png&quot; /&gt;&lt;/a&gt;
+\end
 </pre>
 </div>
 <div created="20200913085259429" modified="20210524131920000" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/rss" type="text/vnd.tiddlywiki" revision="0" bag="default">
@@ -15901,6 +15954,9 @@ While using macOS Big Sur 11.1, your Mac with Apple T2 Security Chip has an issu
 
 </pre>
 </div>
+<div created="20210808123801101" modified="20210808123801320" tags="熟悉" title="k6" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre></pre>
+</div>
 <div created="20210617131919935" modified="20210617132824953" tags="" title="Keywords" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>* [[SaaS]]
 * [[SEO]]
@@ -15923,6 +15979,11 @@ While using macOS Big Sur 11.1, your Mac with Apple T2 Security Chip has an issu
 <pre>* [[My Radar 2021|https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1Z6OaMWFSfLEGYJZrjCXJg3FMbpnwuV18o-L39njeCbo%2Fedit%3Fusp%3Dsharing]]
 
 </pre>
+</div>
+<div created="20210808123652282" modified="20210808123729741" tags="" title="Load testing" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>Load testing 负载测试
+
+[[k6]]</pre>
 </div>
 <div created="20210117095125308" creator="TJ" modified="20210415133053586" modifier="TJ" tags="macOS" title="macOS reset privacy" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>macOS 中使 App 第一次使用某个目录/文件夹时，总会请求权限，有时候手误点错了，想改回来怎么办？
@@ -16163,6 +16224,15 @@ ref: https://search.google.com/search-console
 
 refs: https://www.thehoth.com/search-engine-rankings/</pre>
 </div>
+<div created="20210813144439594" modified="20210813144757391" tags="" title="Setup og-image for TiddlyWiki" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>* https://github.com/vercel/og-image
+* params
+
+# title
+# base image
+# images
+</pre>
+</div>
 <div created="20210416124755628" modified="20210416125012559" tags="TODO" title="TiddlyJam Static Site 未支持的 features" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre># $:/tags/ViewTemplate
 # Twitter plugin
@@ -16192,6 +16262,15 @@ refs: https://www.thehoth.com/search-engine-rankings/</pre>
 <div created="20210527144837545" modified="20210603125423746" title="TJ" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>Hi 👋, My Name is Thaddeus Jiang. 
 中文名：蒋继发。</pre>
+</div>
+<div created="20210808123353188" modified="20210808123637474" tags="" title="TJStack" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>* 事业规划
+* 项目管理
+* PM
+* 开发
+* [[测试]]
+* 数据分析
+</pre>
 </div>
 <div created="20210430124928142" modified="20210705122038222" tags="$:/plugins/adithyab/tiddlyjam/css $:/plugins/adithyab/tiddlyjam/internals" title="vanilla.css" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>a {
