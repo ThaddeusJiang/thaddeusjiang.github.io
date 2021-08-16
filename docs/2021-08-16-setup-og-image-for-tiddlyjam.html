@@ -1,0 +1,120 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2021-08-16 Setup og-image for TiddlyJam ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="又控制没不住自己，给自己的 TiddlyJam 网站添加了 Open Graph image。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2021-08-16-setup-og-image-for-tiddlyjam" />
+<meta property="og:title" content="2021-08-16 Setup og-image for TiddlyJam ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2021-08-16 Setup og-image for TiddlyJam.png?fontSize=50px" />
+<meta property="og:description" content="又控制没不住自己，给自己的 TiddlyJam 网站添加了 Open Graph image。" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2021-08-16 Setup og-image for TiddlyJam ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="又控制没不住自己，给自己的 TiddlyJam 网站添加了 Open Graph image。" />
+<meta name="twitter:image" content="" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="https://thaddeusjiang.com">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本做 SaaS，工程师 / 事业企划 / SEO顾问</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title">2021-08-16 Setup og-image for TiddlyJam</h1>
+          <hr>
+          <div class="block content blog"><p>又控制没不住自己，给自己的 TiddlyJam 网站添加了 Open Graph image。
+原本使用 TiddlyJam 就是为了不折腾这些花里胡哨的技术，结果还是抵不住诱惑。😮‍💨</p><p>既然已经做了，就把方法分享一下吧。</p><h2 class="">首先，我是用的是 vercel/og-image| 动态生成 Open Graph。</h2><p>不过官方版本尚不支持中文/日文，所以我添加了中文支持。</p><p>Before: 
+<img src="https://og-image.vercel.app/2021-08-03%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Terraform%20%E9%85%8D%E7%BD%AE%20Azure%20App%20Service%20Custom%20domains%20and%20Certificate%20Thumbprint?fontSize=50px"></p><p>After: 
+<img src="https://og-image-zh.vercel.app/2021-08-03%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Terraform%20%E9%85%8D%E7%BD%AE%20Azure%20App%20Service%20Custom%20domains%20and%20Certificate%20Thumbprint?fontSize=50px"></p><p><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/og-image/commit/6219fe4eee8f2a831c0c5b375027c0ffa321d295" rel="noopener noreferrer" target="_blank">code</a></p><h2 class="">然后，我修改了 TiddlyJam 的 renderer_base_seotags.tid 和 tiddlyjam_renderer_macros.tid。</h2><p>主要就是将 og:image 设为我部署在 vercel 的 or-image-zh API。</p><pre><code>// renderer_base_seotags.tid
+
+&lt;meta property=&quot;og:image&quot; content=&quot;`&lt;&lt;get_og_image&gt;&gt;`&quot; /&gt;</code></pre><pre><code>// tiddlyjam_renderer_macros.tid
+
+ \define get_og_image()
+https://og-image-zh.vercel.app/&lt;$text text={{{ [&lt;currentTiddler&gt;get[name]else&lt;currentTiddler&gt;] }}} /&gt;
+ \end</code></pre><p>相关链接：</p><ul><li><a class="tc-tiddlylink-external" href="https://ogp.me/" rel="noopener noreferrer" target="_blank">https://ogp.me/</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/vercel/og-image" rel="noopener noreferrer" target="_blank">https://github.com/vercel/og-image</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/tiddlyjam" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/tiddlyjam</a></li></ul></div>
+      </div>
+      <hr>
+     <div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+
+</div>
+
+<style>
+.copyright {
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f4f4f4;
+  opacity: 0.6;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style> 
+  </div>
+</div>    
+
+
+
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

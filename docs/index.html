@@ -463,6 +463,8 @@ Error message and password prompt
 
 <li>2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint</li>
 
+<li>2021-08-16 Setup og-image for TiddlyJam</li>
+
 <li>3D Printer</li>
 
 <li>404</li>
@@ -530,8 +532,6 @@ Error message and password prompt
 <li>SEO: 请求 Google 抓取你的网站</li>
 
 <li>SEO: 调查特定地区的关键字排名</li>
-
-<li>Setup og-image for TiddlyWiki</li>
 
 <li>TiddlyJam Static Site 未支持的 features</li>
 
@@ -11133,7 +11133,7 @@ Error message and password prompt
 
 </pre>
 </div>
-<div created="20200806162755767" modified="20210813145257582" tags="$:/plugins/adithyab/tiddlyjam/internals $:/tags/Macro" title="$:/plugins/adithyab/tiddlyjam/renderer/macros" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200806162755767" modified="20210816134534663" tags="$:/plugins/adithyab/tiddlyjam/internals $:/tags/Macro" title="$:/plugins/adithyab/tiddlyjam/renderer/macros" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>\whitespace trim
 
 \define get_description()
@@ -11152,7 +11152,7 @@ Error message and password prompt
 \end
 
 \define get_og_image()
-https://og-image-tj.vercel.app/$text text={{{ [&lt;currentTiddler&gt;get[name]else&lt;currentTiddler&gt;] }}} /&gt; ~ {{$:/plugins/adithyab/tiddlyjam/renderer/title}}
+https://og-image-zh.vercel.app/&lt;$text text={{{ [&lt;currentTiddler&gt;get[name]else&lt;currentTiddler&gt;] }}} /&gt;.png?fontSize=50px
 \end
 
 \define get_display_name()
@@ -15786,6 +15786,51 @@ resource &quot;azurerm_app_service_custom_hostname_binding&quot; &quot;app&quot;
 * [[azurerm_app_service_custom_hostname_binding |https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_custom_hostname_binding]]
 * [[azurerm_app_service_certificate_binding|https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_certificate_binding]]</pre>
 </div>
+<div created="20210813144439594" modified="20210816141916712" published="20210816141854664" tags="blog $:/plugins/adithyab/tiddlyjam/live SEO TiddlyWiki" title="2021-08-16 Setup og-image for TiddlyJam" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<pre>又控制没不住自己，给自己的 TiddlyJam 网站添加了 Open Graph image。
+原本使用 TiddlyJam 就是为了不折腾这些花里胡哨的技术，结果还是抵不住诱惑。😮‍💨
+
+既然已经做了，就把方法分享一下吧。
+
+!! 首先，我是用的是 vercel/og-image| 动态生成 Open Graph。
+不过官方版本尚不支持中文/日文，所以我添加了中文支持。
+
+Before: 
+[img[https://og-image.vercel.app/2021-08-03%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Terraform%20%E9%85%8D%E7%BD%AE%20Azure%20App%20Service%20Custom%20domains%20and%20Certificate%20Thumbprint?fontSize=50px]]
+
+After: 
+[img[https://og-image-zh.vercel.app/2021-08-03%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Terraform%20%E9%85%8D%E7%BD%AE%20Azure%20App%20Service%20Custom%20domains%20and%20Certificate%20Thumbprint?fontSize=50px]]
+
+[[code|https://github.com/ThaddeusJiang/og-image/commit/6219fe4eee8f2a831c0c5b375027c0ffa321d295]]
+
+!! 然后，我修改了 TiddlyJam 的 renderer_base_seotags.tid 和 tiddlyjam_renderer_macros.tid。
+
+主要就是将 og:image 设为我部署在 vercel 的 or-image-zh API。
+
+```
+// renderer_base_seotags.tid
+
+&lt;meta property=&quot;og:image&quot; content=&quot;`&lt;&lt;get_og_image&gt;&gt;`&quot; /&gt;
+```
+
+```
+// tiddlyjam_renderer_macros.tid
+
+ \define get_og_image()
+https://og-image-zh.vercel.app/&lt;$text text={{{ [&lt;currentTiddler&gt;get[name]else&lt;currentTiddler&gt;] }}} /&gt;
+ \end
+```
+
+
+
+
+
+相关链接：
+
+* https://ogp.me/
+* https://github.com/vercel/og-image
+* https://github.com/ThaddeusJiang/tiddlyjam</pre>
+</div>
 <div created="20210503005408202" modified="20210503005446068" tags="TODO 好物" title="3D Printer" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>想买 3D Printer
 
@@ -16224,15 +16269,6 @@ ref: https://search.google.com/search-console
 
 refs: https://www.thehoth.com/search-engine-rankings/</pre>
 </div>
-<div created="20210813144439594" modified="20210813144757391" tags="" title="Setup og-image for TiddlyWiki" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>* https://github.com/vercel/og-image
-* params
-
-# title
-# base image
-# images
-</pre>
-</div>
 <div created="20210416124755628" modified="20210416125012559" tags="TODO" title="TiddlyJam Static Site 未支持的 features" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre># $:/tags/ViewTemplate
 # Twitter plugin
@@ -16288,7 +16324,7 @@ blockquote.tc-big-quote cite:before { content: &quot;\2014 \2009&quot;; }</pre>
 <div created="20210106060128715" creator="TJ" modified="20210415132941981" modifier="TJ" tags="" title="wakatime" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;embed src=&quot;https://wakatime.com/share/@ThaddeusJiang/360e9ff9-628e-47c5-8c30-241174f8d094.svg&quot;/&gt;</pre>
 </div>
-<div created="20200418124902034" creator="TJ" modified="20210806132545448" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200418124902034" creator="TJ" modified="20210816142223861" modifier="TJ" tags="$:/plugins/adithyab/tiddlyjam/live" title="Welcome" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>嗨 👋，我是蒋继发，nickname: TJ
 
 欢迎来到我的数字花园,
@@ -16304,11 +16340,11 @@ blockquote.tc-big-quote cite:before { content: &quot;\2014 \2009&quot;; }</pre>
 
 [[文章列表|blog]]
 
-[[My other articles (Archived)]]
+[[过往文章|My other articles (Archived)]]
 
-关注：[[Twitter|https://twitter.com/ThaddeusJiang]] | [[GitHub|https://github.com/ThaddeusJiang]] | [[RSS|https://thaddeusjiang.com/rss.xml]]
+关注我：[[Twitter|https://twitter.com/ThaddeusJiang]] | [[GitHub|https://github.com/ThaddeusJiang]] | [[RSS|https://thaddeusjiang.com/rss.xml]]
 
-refs:
+FAQ:
 
 * 我从哪里接触到这个技术？[[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 * 如果你也想尝试一下，访问 https://ThaddeusJiang.com 直接编辑。
