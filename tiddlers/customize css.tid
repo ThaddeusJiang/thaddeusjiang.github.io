@@ -1,11 +1,16 @@
 created: 20210118113445276
 creator: TJ
-modified: 20210415133053574
+modified: 20210818132742578
 modifier: TJ
 tags: $:/tags/Stylesheet
 title: customize css
 type: text/vnd.tiddlywiki
 
 h1, h2, h3, h4, h5 {
-  font-weight: 500;
+  font-weight: 600;
+}
+
+.tc-tiddler-body  h4 {
+    font-size: 1.25em;
+    margin-bottom: .8em;
 }

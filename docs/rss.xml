@@ -40,6 +40,13 @@
    </item>
 
    <item>
+      <title>DevOps</title>
+      <link>https://thaddeusjiang.com/devops</link>
+      <guid>https://thaddeusjiang.com/devops</guid>
+      <pubDate>Wed, 18 August 2021 23:26: +09:00</pubDate>
+   </item>
+
+   <item>
       <title>blog</title>
       <link>https://thaddeusjiang.com/blog</link>
       <guid>https://thaddeusjiang.com/blog</guid>
@@ -51,6 +58,13 @@
       <link>https://thaddeusjiang.com/404</link>
       <guid>https://thaddeusjiang.com/404</guid>
       <pubDate>Fri, 11 September 2020 23:14:13 +09:00</pubDate>
+   </item>
+
+   <item>
+      <title>2021-08-18 Deploying Serverless functions to Azure Function App</title>
+      <link>https://thaddeusjiang.com/2021-08-18-deploying-serverless-functions-to-azure-function-app</link>
+      <guid>https://thaddeusjiang.com/2021-08-18-deploying-serverless-functions-to-azure-function-app</guid>
+      <pubDate>Wed, 18 August 2021 23:28:37 +09:00</pubDate>
    </item>
 
    <item>

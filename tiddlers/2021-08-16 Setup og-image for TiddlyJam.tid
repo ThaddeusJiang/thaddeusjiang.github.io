@@ -1,5 +1,5 @@
 created: 20210813144439594
-modified: 20210816141916712
+modified: 20210818132253296
 published: 20210816141854664
 tags: blog $:/plugins/adithyab/tiddlyjam/live SEO TiddlyWiki
 title: 2021-08-16 Setup og-image for TiddlyJam
@@ -10,7 +10,7 @@ type: text/vnd.tiddlywiki
 
 既然已经做了，就把方法分享一下吧。
 
-!! 首先，我是用的是 vercel/og-image| 动态生成 Open Graph。
+!!!! 首先，我是用的是 vercel/og-image| 动态生成 Open Graph。
 不过官方版本尚不支持中文/日文，所以我添加了中文支持。
 
 Before: 
@@ -21,7 +21,7 @@ After:
 
 [[code|https://github.com/ThaddeusJiang/og-image/commit/6219fe4eee8f2a831c0c5b375027c0ffa321d295]]
 
-!! 然后，我修改了 TiddlyJam 的 renderer_base_seotags.tid 和 tiddlyjam_renderer_macros.tid。
+!!!! 然后，我修改了 TiddlyJam 的 renderer_base_seotags.tid 和 tiddlyjam_renderer_macros.tid。
 
 主要就是将 og:image 设为我部署在 vercel 的 or-image-zh API。
 

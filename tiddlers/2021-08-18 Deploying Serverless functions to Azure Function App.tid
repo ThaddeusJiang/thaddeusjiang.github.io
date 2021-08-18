@@ -1,0 +1,105 @@
+created: 20210818131137787
+modified: 20210818142837852
+published: 20210818142837835
+tags: Azure Serverless GitHub [[A/B testing]] blog $:/plugins/adithyab/tiddlyjam/live
+title: 2021-08-18 Deploying Serverless functions to Azure Function App
+type: text/vnd.tiddlywiki
+
+Serverless functions 我已经玩的有点烦了，每个项目都用不同的 Cloud，每次都要变化工作流。原本期待一劳永逸的 Serverless Framework 弱的不行，k8s 有感觉是杀鸡用牛刀。难受😣
+
+算了，不提了，进入正文。
+
+这一次是 Azure Function App，我想记录一下如何部署 Serverless functions 到 Azure Function App，并支持 Deployment slots 做一下 A/B testing。
+
+两种方式
+
+# VSCode Extension
+# GitHub Actions
+
+!!!! 1. VSCode Extension
+
+使用 VSCode Extension 部署 Azure Function App 非常方便，也是我开发时最常用的方式。
+VSCode Extension 用法也很简单，这里介绍一点特殊的，官方文档没有教的内容。
+
+如果你和我一样，打算使用 Deployment slots 做 `A/B testing`。
+
+VSCode Extension 的菜单就比较深了
+
+[img[https://i.gyazo.com/a00e30807af5d3a3f6cd6c402096c8d2.jpg]]
+
+正确的部署菜单
+
+[img[https://i.gyazo.com/97e914f00f711cbeb9dffc344b997d8b.jpg]]
+
+!!!! 2. GitHub Actions
+
+由于 MicroSoft 财大气粗，已经将 GitHub 收入麾下，Azure Function App 也支持使用 GitHub Actions 部署。
+
+Azure Portal UI 
+
+[img[https://i.gyazo.com/be02ad6fc63897f26a5a67fd3b5419a4.jpg]]
+
+不过，很遗憾，只通过 Azure Portal UI 你并不能成功部署你的 functions。除非你编写了一个 [[hello world]]
+
+估计你也会遇到下面几个问题
+
+# `Error: package.json not found.`
+# `Error: Package deployment using ZIP Deploy failed. Refer logs for more details.`
+# HTTP `CORS`
+
+怎么解决？
+
+1.  `Error: package.json not found.`
+
+这个问题，通常是因为你的 serverless functions 并不在根目录（root），你需要在 yaml 文件中配置 `package`
+
+```yml
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1.3.2
+      id: fa
+      with:
+        app-name: 'smartcompany-admin'
+        package: './functions'
+```
+
+2.   `Error: Package deployment using ZIP Deploy failed. Refer logs for more details.`
+
+这个问题，是因为 Azure Function App Deployment 默认是从 Azure Storage 获取源码。而我们选择使用 GitHub。
+
+你需要删除 Azure Function App 环境变量
+
+[img[https://i.gyazo.com/bf40ad3c5ef02cb74840ebec66058d3a.jpg]]
+
+3.  HTTP `CORS`
+
+这是一个非常常见，但很多初级程序员始终搞不清楚的问题。
+
+解决方案：添加 Allowed Origins
+
+[img[https://i.gyazo.com/d8096b2ee786c6be7cf39d54da5ae068.jpg]]
+
+!!!! GitHub Actions 如何支持 Deploy slots？
+
+你需要在 yaml 文件中配置 `slot-name`
+
+```yml
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1.3.2
+      id: fa
+      with:
+        app-name: 'smartcompany-admin'
+        slot-name: 'dev'
+        package: './functions'
+```
+
+又是一篇笔记。
+
+最近我负责的项目已经进入发布前的准备阶段，一大堆 [[DevOps]] 的工作要做，团队缺少 DevOps 专家，没有办法只能自己上了。
+
+还做了一个简单的 service management System，等项目发布了，打算整理一下（移除敏感内容）后开源出来。
+
+----
+
+links
+
+* https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

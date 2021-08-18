@@ -387,7 +387,19 @@
 
    <url>
       <loc>https://thaddeusjiang.com/2021-08-16-setup-og-image-for-tiddlyjam</loc>
-      <lastmod>2021-08-16</lastmod>
+      <lastmod>2021-08-18</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://thaddeusjiang.com/2021-08-18-deploying-serverless-functions-to-azure-function-app</loc>
+      <lastmod>2021-08-18</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://thaddeusjiang.com/devops</loc>
+      <lastmod>2021-08-18</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
