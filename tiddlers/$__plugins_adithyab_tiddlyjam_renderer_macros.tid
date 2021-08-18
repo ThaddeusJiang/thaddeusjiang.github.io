@@ -1,5 +1,5 @@
 created: 20200806162755767
-modified: 20210816134534663
+modified: 20210818143619616
 tags: $:/plugins/adithyab/tiddlyjam/internals $:/tags/Macro
 title: $:/plugins/adithyab/tiddlyjam/renderer/macros
 type: text/vnd.tiddlywiki
@@ -24,6 +24,11 @@ type: text/vnd.tiddlywiki
 \define get_og_image()
 https://og-image-zh.vercel.app/<$text text={{{ [<currentTiddler>get[name]else<currentTiddler>] }}} />.png?fontSize=50px
 \end
+
+\define get_social_image()
+https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg
+\end
+
 
 \define get_display_name()
 <$text text={{{ [<currentTiddler>get[name]else<currentTiddler>] }}} />

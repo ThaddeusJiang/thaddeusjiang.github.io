@@ -11078,7 +11078,7 @@ Error message and password prompt
 }
 &lt;/style&gt;</pre>
 </div>
-<div created="20200814062847162" description="safe" modified="20210818131824154" name="correct" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base/seotags" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200814062847162" description="safe" modified="20210818143517179" name="correct" tags="$:/plugins/adithyab/tiddlyjam/internals" title="$:/plugins/adithyab/tiddlyjam/renderer/base/seotags" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>\whitespace trim
 
 `&lt;title&gt;`&lt;&lt;get_title&gt;&gt;`&lt;/title&gt;
@@ -11095,6 +11095,7 @@ Error message and password prompt
 &lt;meta name=&quot;twitter:creator&quot; content=&quot;@ThaddeusJiang&quot;&gt;
 &lt;meta name=&quot;twitter:title&quot; content=&quot;`&lt;&lt;get_title&gt;&gt;`&quot; /&gt;
 &lt;meta name=&quot;twitter:description&quot; content=&quot;`&lt;&lt;get_description&gt;&gt;`&quot; /&gt;
+&lt;meta name=&quot;twitter:image&quot; content=&quot;`&lt;&lt;get_social_image&gt;&gt;`&quot; /&gt;
 
 &lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;
 &lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-140310136-2&quot;&gt;&lt;/script&gt;
@@ -11136,7 +11137,7 @@ Error message and password prompt
 
 </pre>
 </div>
-<div created="20200806162755767" modified="20210816134534663" tags="$:/plugins/adithyab/tiddlyjam/internals $:/tags/Macro" title="$:/plugins/adithyab/tiddlyjam/renderer/macros" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20200806162755767" modified="20210818143619616" tags="$:/plugins/adithyab/tiddlyjam/internals $:/tags/Macro" title="$:/plugins/adithyab/tiddlyjam/renderer/macros" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>\whitespace trim
 
 \define get_description()
@@ -11157,6 +11158,11 @@ Error message and password prompt
 \define get_og_image()
 https://og-image-zh.vercel.app/&lt;$text text={{{ [&lt;currentTiddler&gt;get[name]else&lt;currentTiddler&gt;] }}} /&gt;.png?fontSize=50px
 \end
+
+\define get_social_image()
+https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg
+\end
+
 
 \define get_display_name()
 &lt;$text text={{{ [&lt;currentTiddler&gt;get[name]else&lt;currentTiddler&gt;] }}} /&gt;
