@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20210816142223861
+modified: 20210906021637673
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: Welcome
@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 嗨 👋，我是蒋继发，nickname: TJ
 
 欢迎来到我的数字花园,
-本系统使用 [[TiddlyWiki|https://tiddlywiki.com/]] 构建。
+本系统使用 TiddlyWiki 构建。
 
 这意味着：
 
@@ -29,5 +29,5 @@ FAQ:
 
 * 我从哪里接触到这个技术？[[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 * 如果你也想尝试一下，访问 https://ThaddeusJiang.com 直接编辑。
-* TiddlyWiki：https://tiddlywiki.com/
+* TiddlyWiki https://tiddlywiki.com/
 
