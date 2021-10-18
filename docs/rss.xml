@@ -3,7 +3,7 @@
 <channel><title>蒋继发 (ThaddeusJiang)</title>
    <link>https://thaddeusjiang.com</link>
    <atom:link href="https://thaddeusjiang.com/rss.xml" rel="self" type="application/rss+xml" />
-   <description>在日本做 SaaS，工程师 / 事业企划 / SEO顾问</description>
+   <description>在日本做 SaaS，工程师 / 顾问</description>
    <item>
       <title>Welcome</title>
       <link>https://thaddeusjiang.com/welcome</link>
@@ -58,6 +58,13 @@
       <link>https://thaddeusjiang.com/404</link>
       <guid>https://thaddeusjiang.com/404</guid>
       <pubDate>Fri, 11 September 2020 23:14:13 +09:00</pubDate>
+   </item>
+
+   <item>
+      <title>2021-10-18 聊聊 start-up(小公司) 招聘工程师</title>
+      <link>https://thaddeusjiang.com/2021-10-18-start-up</link>
+      <guid>https://thaddeusjiang.com/2021-10-18-start-up</guid>
+      <pubDate>Mon, 18 October 2021 23:12:40 +09:00</pubDate>
    </item>
 
    <item>

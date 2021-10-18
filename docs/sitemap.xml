@@ -404,6 +404,12 @@
    </url>
 
    <url>
+      <loc>https://thaddeusjiang.com/2021-10-18-start-up</loc>
+      <lastmod>2021-10-18</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>https://thaddeusjiang.com/devops</loc>
       <lastmod>2021-08-18</lastmod>
       <changefreq>monthly</changefreq>
@@ -435,7 +441,7 @@
 
    <url>
       <loc>https://thaddeusjiang.com/welcome</loc>
-      <lastmod>2021-09-06</lastmod>
+      <lastmod>2021-10-02</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
