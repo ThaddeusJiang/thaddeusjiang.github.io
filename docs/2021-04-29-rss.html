@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.1.23" />
+  <meta name="tiddlywiki-version" content="5.2.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -76,20 +76,20 @@ tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/rss
 type: text/vnd.tiddlywiki
 
-&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
-&amp;lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&amp;gt;
+&amp;lt;?xml version="1.0" encoding="UTF-8"?&amp;gt;
+&amp;lt;rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"&amp;gt;
 &amp;lt;channel&amp;gt;
 
    &amp;lt;title&amp;gt;{{$:/SiteTitle}}&amp;lt;/title&amp;gt;
    &amp;lt;link&amp;gt;&lt;$text text={{$:/AbsoluteBaseUrl}}/&gt;&amp;lt;/link&amp;gt;
-   &amp;lt;atom:link href=&quot;&lt;$text text={{$:/AbsoluteBaseUrl}}/&gt;/rss.xml&quot; rel=&quot;self&quot; type=&quot;application/rss+xml&quot; /&amp;gt;
+   &amp;lt;atom:link href="&lt;$text text={{$:/AbsoluteBaseUrl}}/&gt;/rss.xml" rel="self" type="application/rss+xml" /&amp;gt;
    &amp;lt;description&amp;gt;{{$:/SiteSubtitle}}&amp;lt;/description&amp;gt;
 
-&lt;$list filter=&quot;[tag[$:/plugins/adithyab/tiddlyjam/live]!sort[title]]&quot;&gt;
+&lt;$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]!sort[title]]"&gt;
    &amp;lt;item&amp;gt;
       &amp;lt;title&amp;gt;{{!!title}}&amp;lt;/title&amp;gt;
-      &amp;lt;link&amp;gt;&lt;$text text={{$:/AbsoluteBaseUrl}}/&gt;/&lt;$macrocall $name=&quot;tv-get-export-path&quot; title={{!!title}}/&gt;&amp;lt;/link&amp;gt;
-      &amp;lt;guid&amp;gt;&lt;$text text={{$:/AbsoluteBaseUrl}}/&gt;/&lt;$macrocall $name=&quot;tv-get-export-path&quot; title={{!!title}}/&gt;&amp;lt;/guid&amp;gt;
+      &amp;lt;link&amp;gt;&lt;$text text={{$:/AbsoluteBaseUrl}}/&gt;/&lt;$macrocall $name="tv-get-export-path" title={{!!title}}/&gt;&amp;lt;/link&amp;gt;
+      &amp;lt;guid&amp;gt;&lt;$text text={{$:/AbsoluteBaseUrl}}/&gt;/&lt;$macrocall $name="tv-get-export-path" title={{!!title}}/&gt;&amp;lt;/guid&amp;gt;
    &amp;lt;/item&amp;gt;
 &lt;/$list&gt;
 &amp;lt;/channel&amp;gt;

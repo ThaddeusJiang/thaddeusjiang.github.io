@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.1.23" />
+  <meta name="tiddlywiki-version" content="5.2.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -70,17 +70,17 @@
           <hr>
           <div class="block content blog"><p>2021 年 04 月 16 日，我向邪恶的 SEO 低头了，😂</p><p>我部署了 static site 版本<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/welcome" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/welcome</a></p><p>目前还有没有完全对应所有 features，如果你想查看 TiddlyWiki 版本，请访问 <a class="tc-tiddlylink-external" href="https://ThaddeusJiang.com" rel="noopener noreferrer" target="_blank">https://ThaddeusJiang.com</a></p><h2 class="">手顺</h2><ul><li>第一步：安装回 node.js 版本 TiddlyWiki</li><li>第二步：将所有文件全部拖拽到新建到 TiddlyWiki</li><li>第三步：拖拽 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./plugins-adithyab-tiddlyjam.html">$:/plugins/adithyab/tiddlyjam</a> 到 TiddlyWiki </li><li>第四步：在 <strong>tiddlywiki.info</strong> 中追加 TiddlyJam tiddlywiki.info 配置</li><li>第五步：为文章添加 Tag <strong><a class="tc-tiddlylink tc-tiddlylink-shadow" href="./plugins-adithyab-tiddlyjam-live.html">$:/plugins/adithyab/tiddlyjam/live</a></strong></li><li>第六步：运行 <code>tiddlywiki ---build tiddlyjam</code></li></ul><pre><code>// TiddlyJam tiddlywiki.info 配置
 {
-  &quot;build&quot;: {
-    &quot;tiddlyjam&quot;:[
-            &quot;--rendertiddlers&quot;,
-            &quot;[all[tiddlers+shadows]tag[$:/plugins/adithyab/tiddlyjam/live]]&quot;,
-            &quot;$:/plugins/adithyab/tiddlyjam/renderer/base&quot;,
-            &quot;.&quot;,
-            &quot;text/plain&quot;,
-            &quot;--render&quot;,
-            &quot;[all[tiddlers+shadows][$:/plugins/adithyab/tiddlyjam/renderer/sitemap]]&quot;,
-            &quot;sitemap.xml&quot;,
-            &quot;text/plain&quot;
+  "build": {
+    "tiddlyjam":[
+            "--rendertiddlers",
+            "[all[tiddlers+shadows]tag[$:/plugins/adithyab/tiddlyjam/live]]",
+            "$:/plugins/adithyab/tiddlyjam/renderer/base",
+            ".",
+            "text/plain",
+            "--render",
+            "[all[tiddlers+shadows][$:/plugins/adithyab/tiddlyjam/renderer/sitemap]]",
+            "sitemap.xml",
+            "text/plain"
         ]
   }
 }</code></pre></div>

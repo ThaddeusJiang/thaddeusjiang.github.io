@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.1.23" />
+  <meta name="tiddlywiki-version" content="5.2.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -73,7 +73,7 @@
 <img src="https://og-image.vercel.app/2021-08-03%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Terraform%20%E9%85%8D%E7%BD%AE%20Azure%20App%20Service%20Custom%20domains%20and%20Certificate%20Thumbprint?fontSize=50px"></p><p>After: 
 <img src="https://og-image-zh.vercel.app/2021-08-03%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Terraform%20%E9%85%8D%E7%BD%AE%20Azure%20App%20Service%20Custom%20domains%20and%20Certificate%20Thumbprint?fontSize=50px"></p><p><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/og-image/commit/6219fe4eee8f2a831c0c5b375027c0ffa321d295" rel="noopener noreferrer" target="_blank">code</a></p><h4 class="">然后，我修改了 TiddlyJam 的 renderer_base_seotags.tid 和 tiddlyjam_renderer_macros.tid。</h4><p>主要就是将 og:image 设为我部署在 vercel 的 or-image-zh API。</p><pre><code>// renderer_base_seotags.tid
 
-&lt;meta property=&quot;og:image&quot; content=&quot;`&lt;&lt;get_og_image&gt;&gt;`&quot; /&gt;</code></pre><pre><code>// tiddlyjam_renderer_macros.tid
+&lt;meta property="og:image" content="`&lt;&lt;get_og_image&gt;&gt;`" /&gt;</code></pre><pre><code>// tiddlyjam_renderer_macros.tid
 
  \define get_og_image()
 https://og-image-zh.vercel.app/&lt;$text text={{{ [&lt;currentTiddler&gt;get[name]else&lt;currentTiddler&gt;] }}} /&gt;

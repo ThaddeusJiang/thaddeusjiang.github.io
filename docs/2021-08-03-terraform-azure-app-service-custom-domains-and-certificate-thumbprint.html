@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.1.23" />
+  <meta name="tiddlywiki-version" content="5.2.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -68,27 +68,27 @@
       <div>
           <h1 class="title">2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint</h1>
           <hr>
-          <div class="block content blog"><p>本文想分享一个具体的配置方法，为了照顾对 Azure portal 和 Terraform 不熟悉的朋友，我将使用 UI 和 Code 对比的方式说明。</p><h2 class="">背景</h2><p>我目前在开发一个人才管理（Talent Management）的 SaaS 产品。因为是一个 ToB 产品并且还在初级阶段，所以架构上没有那么复杂。依托云平台的水平扩展能力，我们采用“Single App Service, Multiple Custom domains” 的架构。</p><p>虽然架构很简单，但是本着“自动化一切可以被自动化的工作”的大原则，我还是使用了 Terraform。</p><h2 class="">为什么我想写这篇文章？</h2><p>由于 Terraform 是一个通用工具，为了兼容不同云平台的资源和指令，不可避免的做了一些抽象。但是这种抽象导致了 Terraform 中资源名称和指令并不完全等于云平台（没错，这里就是想说 MicroSoft Azure）的资源名称和指令。</p><p>这种资源名称、指令以及构建流程的差异让不太熟练的我，花了好几个小时阅读官方文档、StackOverflow。而且我也不确定下一次我还能不能记得这些内容。</p><p>所以，我觉得有必要记录下来。</p><h2 class="">正文</h2><p>UI：</p><p><strong>Step 1: 在 DNS Zoon 中配置一个 CNAME 记录</strong></p><p>依次进入 DNS zones &gt; DNS zone 页面，点击 <code>Record set</code>，如图：</p><p>注意：record 应该是 CNAME</p><p><img src="https://i.gyazo.com/fae29a7e16184bdeb71cf3a61287635d.jpg"></p><p><strong>Step 2: 在 App Service 中配置 Custom domain</strong></p><p>依次进入 App Services &gt; App Service &gt; Settings &gt; Custom domains 页面，点击 <code>Add custom domain</code>，如图：</p><p><img src="https://i.gyazo.com/d8278748c0d99abf858988790892c369.jpg"></p><p><strong>Step 3: 为 App Service 的 Custom domain 配置 Certificate Thumbprint</strong></p><p>依次进入 App Services &gt; App Service &gt; Settings &gt; TLS/SSL Settings，点击 <code>Add TSL/SSL binding</code>，如图：</p><p><img src="https://i.gyazo.com/df2953a533eeeea08c58cc9ea7e0d046.jpg"></p><p>Terraform：</p><pre><code>data &quot;azurerm_dns_zone&quot; &quot;app&quot; {
-  name                = &quot;thaddeusjiang.work&quot;
-  resource_group_name = &quot;thaddeusjiang-dev&quot;
+          <div class="block content blog"><p>本文想分享一个具体的配置方法，为了照顾对 Azure portal 和 Terraform 不熟悉的朋友，我将使用 UI 和 Code 对比的方式说明。</p><h2 class="">背景</h2><p>我目前在开发一个人才管理（Talent Management）的 SaaS 产品。因为是一个 ToB 产品并且还在初级阶段，所以架构上没有那么复杂。依托云平台的水平扩展能力，我们采用“Single App Service, Multiple Custom domains” 的架构。</p><p>虽然架构很简单，但是本着“自动化一切可以被自动化的工作”的大原则，我还是使用了 Terraform。</p><h2 class="">为什么我想写这篇文章？</h2><p>由于 Terraform 是一个通用工具，为了兼容不同云平台的资源和指令，不可避免的做了一些抽象。但是这种抽象导致了 Terraform 中资源名称和指令并不完全等于云平台（没错，这里就是想说 MicroSoft Azure）的资源名称和指令。</p><p>这种资源名称、指令以及构建流程的差异让不太熟练的我，花了好几个小时阅读官方文档、StackOverflow。而且我也不确定下一次我还能不能记得这些内容。</p><p>所以，我觉得有必要记录下来。</p><h2 class="">正文</h2><p>UI：</p><p><strong>Step 1: 在 DNS Zoon 中配置一个 CNAME 记录</strong></p><p>依次进入 DNS zones &gt; DNS zone 页面，点击 <code>Record set</code>，如图：</p><p>注意：record 应该是 CNAME</p><p><img src="https://i.gyazo.com/fae29a7e16184bdeb71cf3a61287635d.jpg"></p><p><strong>Step 2: 在 App Service 中配置 Custom domain</strong></p><p>依次进入 App Services &gt; App Service &gt; Settings &gt; Custom domains 页面，点击 <code>Add custom domain</code>，如图：</p><p><img src="https://i.gyazo.com/d8278748c0d99abf858988790892c369.jpg"></p><p><strong>Step 3: 为 App Service 的 Custom domain 配置 Certificate Thumbprint</strong></p><p>依次进入 App Services &gt; App Service &gt; Settings &gt; TLS/SSL Settings，点击 <code>Add TSL/SSL binding</code>，如图：</p><p><img src="https://i.gyazo.com/df2953a533eeeea08c58cc9ea7e0d046.jpg"></p><p>Terraform：</p><pre><code>data "azurerm_dns_zone" "app" {
+  name                = "thaddeusjiang.work"
+  resource_group_name = "thaddeusjiang-dev"
 }
 
 # Step 1: 添加 CNAME 记录
-resource &quot;azurerm_dns_cname_record&quot; &quot;app&quot; {
+resource "azurerm_dns_cname_record" "app" {
   name                = var.subdomain
   zone_name           = data.azurerm_dns_zone.app.name
   resource_group_name = data.azurerm_dns_zone.app.resource_group_name
   ttl                 = 300
-  record              = &quot;saas-dev.thaddeusjiang.work&quot;
+  record              = "saas-dev.thaddeusjiang.work"
 }
 
-data &quot;azurerm_app_service&quot; &quot;app&quot; {
-  name                = &quot;saas-dev&quot;
-  resource_group_name = &quot;saas-dev&quot;
+data "azurerm_app_service" "app" {
+  name                = "saas-dev"
+  resource_group_name = "saas-dev"
 }
 
-resource &quot;azurerm_dns_txt_record&quot; &quot;app&quot; {
-  name                = &quot;asuid.${azurerm_dns_cname_record.app.name}&quot;
+resource "azurerm_dns_txt_record" "app" {
+  name                = "asuid.${azurerm_dns_cname_record.app.name}"
   zone_name           = data.azurerm_dns_zone.app.name
   resource_group_name = data.azurerm_dns_zone.app.resource_group_name
   ttl                 = 300
@@ -98,15 +98,15 @@ resource &quot;azurerm_dns_txt_record&quot; &quot;app&quot; {
 }
 
 # Step 2: 添加 Custom domain 
-resource &quot;azurerm_app_service_custom_hostname_binding&quot; &quot;app&quot; {
-  hostname            = &quot;${var.subdomain}.thaddeusjiang.work&quot;
+resource "azurerm_app_service_custom_hostname_binding" "app" {
+  hostname            = "${var.subdomain}.thaddeusjiang.work"
   app_service_name    = data.azurerm_app_service.app.name
   resource_group_name = data.azurerm_app_service.app.resource_group_name
   depends_on          = [azurerm_dns_txt_record.app]
 
   # Step 3: TLS/SSL bindings
-  ssl_state  = &quot;SniEnabled&quot;
-  thumbprint = &quot;6F72D0121F88382D82C336793xxxxxxxxxxxxx&quot;
+  ssl_state  = "SniEnabled"
+  thumbprint = "6F72D0121F88382D82C336793xxxxxxxxxxxxx"
 }</code></pre><p>参考：</p><ul><li><a class="tc-tiddlylink-external" href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_cname_record" rel="noopener noreferrer" target="_blank">azurerm_dns_cname_record</a></li><li><a class="tc-tiddlylink-external" href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_custom_hostname_binding" rel="noopener noreferrer" target="_blank">azurerm_app_service_custom_hostname_binding </a></li><li><a class="tc-tiddlylink-external" href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_certificate_binding" rel="noopener noreferrer" target="_blank">azurerm_app_service_certificate_binding</a></li></ul></div>
       </div>
       <hr>
