@@ -1,23 +1,23 @@
 created: 20200418124902034
 creator: TJ
-modified: 20211002084901009
+modified: 20211117003040845
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: Welcome
 type: text/vnd.tiddlywiki
 
-嗨 👋，我是蒋继发，short name is `TJ`
+嗨 👋，我是蒋继发，You can also call me `TJ`
 
 欢迎来到我的数字花园,
 本系统使用 TiddlyWiki 构建。
 
 这意味着：
 
-* 只有一个 HTML 文件
-* 这是一个 Quine (自产生程序)，输出结果亦是程序源码
-* 阅读、修改、发布，仅仅需要 Browser (浏览器)
+* 只有一个 HTML 文件。
+* 这是一个 Quine (自产生程序)，输出结果亦是程序源码。
+* 零依赖，永久可用。
 
-此数字花园 100 年后仍然可读。
+此数字花园 1000 年后仍然可用。
 
 [[文章列表|blog]]
 
@@ -27,6 +27,10 @@ type: text/vnd.tiddlywiki
 
 FAQ:
 
+* 为什么相信 1000 后依然可用？
+*# 相信互联网档案馆的未来，https://web.archive.org/web/*/Thaddeusjiang.com 
+*# 使用 TiddlyWiki 构建
+*# open source: https://github.com/ThaddeusJiang/thaddeusjiang.github.io
 * 我从哪里接触到这个技术？[[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 * Quine 是什么？ [[https://en.wikipedia.org/wiki/Quine_(computing)]]
 
