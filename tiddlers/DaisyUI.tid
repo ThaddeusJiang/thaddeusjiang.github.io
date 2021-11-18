@@ -1,0 +1,19 @@
+created: 20210823084709591
+creator: TJ
+modified: 20211118122812142
+modifier: TJ
+tags: TechRadar TechRadar:语言&框架 TechRadar:采纳
+title: DaisyUI
+type: text/vnd.tiddlywiki
+
+Tailwind CSS Components
+
+https://github.com/saadeghi/daisyui
+
+<<<.tc-big-quote
+编写 Theme 的方式很优雅
+<<<
+
+
+类似Library
+[[TailwindUI]]

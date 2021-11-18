@@ -1,0 +1,17 @@
+created: 20210802013157964
+creator: TJ
+modified: 20211118122812289
+modifier: TJ
+tags: TechRadar TechRadar:工具 TechRadar:暂缓
+title: Locust
+type: text/vnd.tiddlywiki
+
+https://locust.io/
+
+性能测试工具
+
+* python 
+
+竞争对手
+
+[[k6]]

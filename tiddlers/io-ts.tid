@@ -1,0 +1,10 @@
+created: 20210418084121746
+creator: TJ
+modified: 20211118122812635
+modifier: TJ
+tags: TechRadar TechRadar:语言&框架 TechRadar:评估
+title: io-ts
+type: text/vnd.tiddlywiki
+
+如果获取的数据与 TypeScript 类型定义不一致时，可能导致运行时错误。
+io-ts 可以帮助我们优雅地解决这个问题。

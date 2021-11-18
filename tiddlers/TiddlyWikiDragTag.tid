@@ -1,0 +1,9 @@
+created: 20211118123126569
+modified: 20211118123230118
+tags: TiddlyWiki:HowTo
+title: TiddlyWikiDragTag
+type: text/vnd.tiddlywiki
+
+```
+{{TechRadar||$:/core/ui/TagTemplate}}
+```

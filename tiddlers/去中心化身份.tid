@@ -1,0 +1,15 @@
+created: 20210418083730529
+creator: TJ
+modified: 20211118122812753
+modifier: TJ
+tags: TechRadar TechRadar:技术 感兴趣，想尝试
+title: 去中心化身份
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+不依赖任何中性化权威并且永远不能被剥夺的任何人、组织或事物的终身可转移身份。
+<<<
+
+它在隐私方面的应用：客户健康应用、政府医疗基础设施和公司法律身份。
+
+如果想快速应用去中心化身份，你可以平复 [[Sovrin Network]] [[Hyperledger Aries]] [[Indy]] 等开源软件。

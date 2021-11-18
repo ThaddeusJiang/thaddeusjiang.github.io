@@ -1,0 +1,12 @@
+created: 20210418083458817
+creator: TJ
+modified: 20211118122812743
+modifier: TJ
+tags: TechRadar TechRadar:技术 TechRadar:评估
+title: 单页应用（SPA）注入
+type: text/vnd.tiddlywiki
+
+''绞杀榕模式'' 常常被用作一流系统现代化改造的默认策略，新代码包围在旧代码周围，并慢慢地实现旧代码的能力来满足所需功能。这是一种“由外而内”的方式。
+
+“从内到外”的方式来替换遗留系统，我们可以向旧应用 HTML 文档嵌入新的单页应用。
+只要用户能够容忍性能问题，新的单页应用不需要与原框架保持一致。

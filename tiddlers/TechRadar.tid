@@ -1,0 +1,30 @@
+created: 20211108125413083
+creator: TJ
+modified: 20211118122812059
+modifier: TJ
+tags: 
+title: TechRadar
+type: text/vnd.tiddlywiki
+
+灵感来自 ThoughtWorks Radar，由 TJ 更新和维护。
+
+相同点：
+
+* 内容：技术、平台、工具、语言&框架。
+* 评价等级：采纳、试验、评估、暂缓。
+* 公开
+
+不同点：
+
+* 所有内容都经过 TJ 在公司项目或个人项目中验证。
+* 保留成熟或已经成为行业标准的内容，删除内容的时机是 TJ 不再使用。
+* 每周更新。
+
+{{TechRadar||$:/core/ui/TagTemplate}}
+
+{{TechRadar:采纳||$:/core/ui/TagTemplate}} {{TechRadar:试验||$:/core/ui/TagTemplate}}
+
+{{TechRadar:评估||$:/core/ui/TagTemplate}} {{TechRadar:暂缓||$:/core/ui/TagTemplate}}
+
+
+

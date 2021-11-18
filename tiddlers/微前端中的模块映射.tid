@@ -1,0 +1,9 @@
+created: 20210418083825961
+creator: TJ
+modified: 20211118122812774
+modifier: TJ
+tags: TechRadar TechRadar:技术 TechRadar:评估
+title: 微前端中的模块映射
+type: text/vnd.tiddlywiki
+
+新标准模块映射，可以通过 SystemJS polyfill 支持其他浏览器。

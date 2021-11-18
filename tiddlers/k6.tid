@@ -1,5 +1,13 @@
-created: 20210808123801101
-modified: 20210808123801320
-tags: 熟悉
+created: 20210608022156509
+creator: TJ
+modified: 20211118122812033
+modifier: TJ
+tags: TechRadar TechRadar:工具 TechRadar:采纳
 title: k6
 type: text/vnd.tiddlywiki
+
+现代化性能测试工具
+
+A modern load testing tool, using Go and JavaScript - https://k6.io
+
+[img[https://i.gyazo.com/912cd4c26d81f1e2a8e139f0410f18d4.jpg]]

@@ -1,0 +1,23 @@
+created: 20210516112157964
+creator: TJ
+modified: 20211118122812661
+modifier: TJ
+tags: TechRadar TechRadar:工具 TechRadar:评估
+title: pipedream
+type: text/vnd.tiddlywiki
+
+https://github.com/PipedreamHQ/pipedream
+
+
+可以实现类似 IFTTT 一样的 workflows 功能。
+
+其实类似的工具/平台有很多
+
+* https://zapier.com/
+* https://n8n.io/
+* https://pipedream.com/
+
+pipedream 优势
+
+其实也不是非常清楚 pipedream 和 n8n 哪个更优秀。
+

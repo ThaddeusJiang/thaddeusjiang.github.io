@@ -1,0 +1,18 @@
+created: 20210418084240755
+creator: TJ
+modified: 20211118122812494
+modifier: TJ
+tags: TechRadar TechRadar:语言&框架
+title: SWR
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+使用方式和 [[React-Query]] 几乎一致，而且我已经熟练 React-Query 了。
+<<<
+
+
+state-while-revalidate
+更新的同时使用过期数据的 HTTP 缓存策略。
+
+告诫：
+仅在应用程序应返回过期数据时才使用 SWR 缓存策略。

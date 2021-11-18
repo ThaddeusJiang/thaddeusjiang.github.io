@@ -1,0 +1,17 @@
+created: 20210418094816165
+creator: TJ
+modified: 20211118122812345
+modifier: TJ
+tags: TechRadar TechRadar:工具 TechRadar:试验
+title: Playwright
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+在 SamrtCompany SaaS frontend 中试验。
+<<<
+
+Playwright 允许你使用同一套 API，为 Chromium、Firefox 和 WebKit 编写的 web UI 测试。
+
+竞争对手
+
+[[CypressJS]]

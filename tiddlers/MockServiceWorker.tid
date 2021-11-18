@@ -1,0 +1,11 @@
+created: 20211019125703500
+creator: TJ
+modified: 20211118122812322
+modifier: TJ
+tags: TechRadar TechRadar:语言&框架 TechRadar:试验
+title: MockServiceWorker
+type: text/vnd.tiddlywiki
+
+https://github.com/mswjs/msw
+
+比 json-server 更加方便，同时支持 browser 和 node.js。

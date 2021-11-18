@@ -1,0 +1,12 @@
+created: 20210516112823619
+creator: TJ
+modified: 20211118122812785
+modifier: TJ
+tags: TechRadar:技术 TechRadar:试验 TechRadar
+title: 时序数据库
+type: text/vnd.tiddlywiki
+
+对于时序数据，时序数据库是追加的选择。
+
+* InfluxDB
+* Elasticsearch 实现

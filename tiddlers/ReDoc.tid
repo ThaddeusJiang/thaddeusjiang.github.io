@@ -1,0 +1,32 @@
+created: 20210914121600440
+creator: TJ
+modified: 20211118122812384
+modifier: TJ
+tags: TechRadar TechRadar:工具 TechRadar:暂缓
+title: ReDoc
+type: text/vnd.tiddlywiki
+
+RESTful API doc tool
+
+https://github.com/Redocly/redoc
+
+* 好看
+* error code 清晰
+* 可以结合 sample code
+
+Coda API 使用这个工具，很棒。
+
+可以自动生产语言的实现。有点类似 Postman
+
+https://github.com/Redocly/redoc
+
+<<<.tc-big-quote
+2021-04-01
+我已经在 3 个项目中使用过了，经过了 [[试验]]，全面 [[采纳]]
+<<<
+
+<<<.tc-big-quote
+2021-09-27
+
+使用 Smaregi API 时，发现 redoc 管理大型的 API 文档时很卡。
+<<<

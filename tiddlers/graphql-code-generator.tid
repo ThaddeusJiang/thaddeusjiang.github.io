@@ -1,0 +1,16 @@
+created: 20210621134800139
+creator: TJ
+modified: 20211118122812623
+modifier: TJ
+tags: TechRadar TechRadar:语言&框架 TechRadar:评估
+title: graphql-code-generator
+type: text/vnd.tiddlywiki
+
+是否真的需要呢？
+
+* 我自己很讨厌 generate code
+* 但是 type 真的很烦
+
+https://github.com/dotansimha/graphql-code-generator
+
+https://www.graphql-code-generator.com/docs/plugins/typescript-react-query#usage-examples

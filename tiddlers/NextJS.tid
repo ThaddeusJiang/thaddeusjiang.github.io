@@ -1,0 +1,22 @@
+created: 20210418084150627
+creator: TJ
+modified: 20211118122812334
+modifier: TJ
+tags: TechRadar TechRadar:采纳 TechRadar:语言&框架
+title: NextJS
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+React 项目，首选。
+<<<
+
+理由：
+
+# 简化配置
+# 提供常见问题的标准解决方案
+# popular
+
+
+一站式零配置的框架，提供简化的路由、hot reload，默认提供服务器渲染、SEO和改善初始加载时间等功能。
+
+庞大的社区

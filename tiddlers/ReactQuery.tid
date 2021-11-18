@@ -1,0 +1,16 @@
+created: 20210516024907921
+creator: TJ
+modified: 20211118122812433
+modifier: TJ
+tags: TechRadar TechRadar:语言&框架 TechRadar:采纳
+title: ReactQuery
+type: text/vnd.tiddlywiki
+
+简化 data fetch 时 Race Conditions 问题。
+
+https://github.com/tannerlinsley/react-query
+
+<<<
+Race Conditions
+https://zh-hans.reactjs.org/docs/concurrent-mode-suspense.html#suspense-and-race-conditions
+<<<

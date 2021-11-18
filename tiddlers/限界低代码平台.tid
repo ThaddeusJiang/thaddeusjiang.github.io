@@ -1,0 +1,18 @@
+created: 20210418083652312
+creator: TJ
+modified: 20211118122812795
+modifier: TJ
+tags: TechRadar TechRadar:语言&框架 TechRadar:评估
+title: 限界低代码平台
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+限界
+<<<
+
+
+缺点：
+
+# 很难应用诸如版本控制之类的优秀的工程实践。
+# 测试困难
+# 很容易超出原本的限界

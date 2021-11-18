@@ -1,0 +1,13 @@
+created: 20210830061849817
+creator: TJ
+modified: 20211118122812398
+modifier: TJ
+tags: TechRadar TechRadar:语言&框架 TechRadar:评估
+title: ReactCharts
+type: text/vnd.tiddlywiki
+
+示例太少，而且交互不可控。
+
+应该对比 [[d3]]
+
+https://react-charts.tanstack.com/docs/api

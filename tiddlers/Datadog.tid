@@ -1,0 +1,13 @@
+created: 20210516023924031
+creator: TJ
+modified: 20211118122812156
+modifier: TJ
+tags: TechRadar TechRadar:平台
+title: Datadog
+type: text/vnd.tiddlywiki
+
+傻瓜式 log 记录、管理、分析 SaaS 平台。和 Sentry 做了简单对比，相对功能更全。
+
+Why not Sentry？
+
+# backend 希望记录更全面的 log，Sentry 仅针对异常，无法满足 backend。

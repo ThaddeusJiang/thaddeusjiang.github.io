@@ -1,0 +1,60 @@
+created: 20211104140712515
+creator: TJ
+modified: 20211118233134977
+modifier: TJ
+tags: 
+title: LiveViewTest
+type: text/vnd.tiddlywiki
+
+!# Contents
+
+#  LiveView Testing
+# Testing Events
+# Testing function components
+# Testing stateful components
+
+
+! #  LiveView Testing
+
+```Elixir
+test "connected mount", %{conn: conn} do
+  {:ok, _view, html} = live(conn, "/my-path")
+  assert html =~ "<h1>My Connected View</h1>"
+end
+```
+
+! # Testing Events
+
+```Elixir
+{:ok, view, _html} = live(conn, "/thermo")
+
+assert view
+       |> element("button#inc")
+       |> render_click() =~ "The temperature is: 31℉"
+```
+
+
+! # Testing function components
+
+```Elixir
+import Phoenix.LiveView.Helpers
+import Phoenix.LiveViewTest
+
+test "greets" do
+  assert rendered_to_string(~H"""
+         <MyComponents.greet name="Mary" />
+         """) ==
+           "<div>Hello, Mary!</div>"
+end
+```
+
+!# Testing stateful components
+
+```Elixir
+{:ok, view, html} = live(conn, "/users")
+html = view |> element("#user-13 a", "Delete") |> render_click()
+refute html =~ "user-13"
+refute view |> element("#user-13") |> has_element?()
+```
+
+https://hexdocs.pm/phoenix_live_view/Phoenix.LiveViewTest.html#content

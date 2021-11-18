@@ -1,0 +1,15 @@
+created: 20210915101656234
+creator: TJ
+modified: 20211118122812369
+modifier: TJ
+tags: TechRadar TechRadar:语言&框架 TechRadar:评估
+title: RamdaJS
+type: text/vnd.tiddlywiki
+
+https://github.com/ramda/ramda
+
+JavaScript 函数式编程辅助库，比 [[lodash]] 更函数式。
+
+非常酷。
+
+[[Zenport]] 使用过一次，很好用。

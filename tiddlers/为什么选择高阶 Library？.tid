@@ -1,0 +1,14 @@
+created: 20210516025328033
+creator: TJ
+modified: 20211118233821269
+modifier: TJ
+tags: AnswerMyOwnQuestion
+title: 为什么选择高阶 Library？
+type: text/vnd.tiddlywiki
+
+高阶 library 会导致依赖过度，难以维护的问题。但是为什么还要采用呢？
+
+# 经过大量测试的统一实现
+# 减少 boilerplate code
+# 标准 boilerplate code
+

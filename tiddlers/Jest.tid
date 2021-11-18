@@ -1,0 +1,13 @@
+created: 20210830062045833
+creator: TJ
+modified: 20211118122812243
+modifier: TJ
+tags: TechRadar TechRadar:采纳 TechRadar:语言&框架
+title: Jest
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+JS Test 首选
+<<<
+
+https://jestjs.io/zh-Hans/docs/26.x/expect#expectnotstringmatchingstring--regexp
