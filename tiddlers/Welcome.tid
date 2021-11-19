@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20211117003040845
+modified: 20211119134127245
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: Welcome
@@ -25,6 +25,7 @@ type: text/vnd.tiddlywiki
 
 关注我：[[Twitter|https://twitter.com/ThaddeusJiang]] | [[GitHub|https://github.com/ThaddeusJiang]] | [[RSS|https://thaddeusjiang.com/rss.xml]]
 
+
 FAQ:
 
 * 为什么相信 1000 后依然可用？
@@ -33,4 +34,3 @@ FAQ:
 *# open source: https://github.com/ThaddeusJiang/thaddeusjiang.github.io
 * 我从哪里接触到这个技术？[[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 * Quine 是什么？ [[https://en.wikipedia.org/wiki/Quine_(computing)]]
-

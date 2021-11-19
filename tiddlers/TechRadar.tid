@@ -1,8 +1,8 @@
 created: 20211108125413083
 creator: TJ
-modified: 20211118122812059
+modified: 20211119132650416
 modifier: TJ
-tags: 
+tags: TechRadar
 title: TechRadar
 type: text/vnd.tiddlywiki
 
@@ -17,10 +17,9 @@ type: text/vnd.tiddlywiki
 不同点：
 
 * 所有内容都经过 TJ 在公司项目或个人项目中验证。
-* 保留成熟或已经成为行业标准的内容，删除内容的时机是 TJ 不再使用。
-* 每周更新。
+* 保留成熟或已经成为行业标准的内容，不会因为大家熟知而移除。
+* 随时更新，而不是每半年才发布。
 
-{{TechRadar||$:/core/ui/TagTemplate}}
 
 {{TechRadar:采纳||$:/core/ui/TagTemplate}} {{TechRadar:试验||$:/core/ui/TagTemplate}}
 
