@@ -1,0 +1,14 @@
+created: 20211202013037772
+creator: TJ
+modified: 20211202013151088
+modifier: TJ
+tags: TechRadar TechRadar:语言&框架 TechRadar:试验
+title: AutolinkerJs
+
+如果项目中有如下需求，可以尝试一下
+
+* 自动识别网址（形如 https://ThaddeusJiang.com/Welcome）
+* 自动识别 mention（形如 @ThaddeusJiang）
+* 自动识别 hashtag（形如 #技术交流与分享）
+
+https://github.com/gregjacobs/Autolinker.js

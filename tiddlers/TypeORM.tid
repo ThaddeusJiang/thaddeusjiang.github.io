@@ -1,0 +1,12 @@
+created: 20211201093529253
+creator: TJ
+modified: 20211201093652000
+modifier: TJ
+tags: TechRadar TechRadar:语言&框架 TechRadar:试验
+title: TypeORM
+
+TypeORM supports both Active Record and Data Mapper patterns, 
+
+Its goal is to always support the latest JavaScript features 
+
+https://github.com/typeorm/typeorm
