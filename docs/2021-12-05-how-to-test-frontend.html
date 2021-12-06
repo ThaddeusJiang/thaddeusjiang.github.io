@@ -1,0 +1,138 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.0" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2021-12-05 How To Test Frontend ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="2021 年的最后一个月，重新思考一下 Frontend Testing。对于 Frontend，我们要如何保证项目的品质？">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2021-12-05-how-to-test-frontend" />
+<meta property="og:title" content="2021-12-05 How To Test Frontend ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="2021 年的最后一个月，重新思考一下 Frontend Testing。对于 Frontend，我们要如何保证项目的品质？" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2021-12-05 How To Test Frontend.png?fontSize=50px" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2021-12-05 How To Test Frontend ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="2021 年的最后一个月，重新思考一下 Frontend Testing。对于 Frontend，我们要如何保证项目的品质？" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="https://thaddeusjiang.com">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，Love OSS</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title">2021-12-05 How To Test Frontend</h1>
+          <hr>
+          <div class="block content blog"><p>2021 年的最后一个月，重新思考一下 Frontend Testing。对于 Frontend，我们要如何保证项目的品质？</p><p>其实，对于 Frontend Testing 我没有太多独特的见解。我对 Frontend Testing 的理解，大部分是来自其他优秀的工程师的分享，少部分是自己的一些工程实践。对于我自己，Frontend Testing 有哪些内容是值得拿出来分享的？</p><h2 class="">1. 测试一定要整合到 CI/CD 中</h2><p>这是我个人的经验，测试一定要整合到 CI/CD 中。一方面，如果测试没有整合到 CI/CD 中，那么测试就不能阻止我们发布包含错误的产品到生产环境，也就是没有保证品质。另一方面，如果测试没有整合到 CI/CD 将无形地增加开发者的工作量，开发者不得不手动执行测试。很多开发者并不是不愿意编写测试代码，只是不愿意等待测试代码漫长的执行过程。</p><h2 class="">2. 倒金字塔的测试优先级</h2><p>相信绝大多数软件工程专业毕业的的开发者（学院派）都曾被教育 Unit Testing 大于 Integration Testing 的测试覆盖原则，就像金字塔。</p><p>但是，最新的工程实践提出了相反的意见。越来越多的开发者认为 Integration Testing 大于 Unit Testing，甚至 End-to-End Testing 最大。</p><blockquote class="tc-quote tc-big-quote"><p>Write tests. Not too many. Mostly integration. 
+</p><cite>rauchg</cite></blockquote><h2 class="">3. Frontend 特有的 Visual Testing</h2><p>Visual Testing 是 Frontend 特有的测试类型。如果你参与的 Frontend 项目还没有引入 Visual Testing，我强烈建议你研究一下。我想说：“Visual Testing saved my life.”</p><p>关于 Visual Testing，我也提倡遵守倒金字塔的优先顺序，这可能和绝大多数开发者的观点有所不同。</p><p>那么，是否我认为 Component Visual Testing 不需要？答案是否定的。
+如果项目有足够的时间、预算，我觉得 Component Visual Testing 是 Nice to have。请视情况而定。</p><h2 class="">4. 不要忘记测试你的 Utils</h2><p>请不要简单的认为 Frontend 仅仅是 UI，这是低级的 Backend 和低级的 PM 才会犯的错误。随着软件行业的发展，越来越多的功能被移动到了 Frontend。Frontend 不再只是简简单单地展示数据了。Frontend 中包含了越来越多的复杂逻辑，请不要忘记测试这部分代码。</p><blockquote class="tc-quote tc-big-quote"><p>优秀的 Frontend 项目，页面展示和逻辑处理一定是相互独立的，所以不要忘记测试你的 Utils。
+</p><cite>TJ</cite></blockquote><h2 class="">5. React Testing Example</h2><p><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/react-testing-example" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/react-testing-example</a></p><p>这是我曾经做内部分享时创建的项目，目的是展示 React 项目如何进行测试。
+很久没有更新了，不过大致思路和本篇文章没有改变。
+可以当作本篇文章的实践参考吧。</p><h2 class="">6. Nice To Have</h2><ol><li>最好覆盖不同的屏幕大小。</li><li>最好可以保留测试截屏或录屏。</li><li>最好使用 JS 社区的测试框架、工具和平台。</li><li>...</li></ol><h2 class="">最后，推荐一些我很喜欢的 Frontend 测试框架、工具和平台</h2><ul><li>TypeScript</li><li>Jest</li><li>Cypress</li><li>Mock Service Worker</li><li>GitHub Actions</li><li>Checkly</li><li>...</li></ul><p>参考</p><ul><li><a class="tc-tiddlylink-external" href="https://rauchg.com/2020/develop-preview-test" rel="noopener noreferrer" target="_blank">Develop, Preview, Test</a></li><li><a class="tc-tiddlylink-external" href="https://kentcdodds.com/blog/write-tests" rel="noopener noreferrer" target="_blank">Write tests. Not too many. Mostly integration.</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/swyx/status/1261202288476971008" rel="noopener noreferrer" target="_blank">Integration &gt; Unit tests is the new conventional wisdom.</a></li></ul></div>
+      </div>
+      <hr>
+     <div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style> 
+  </div>
+</div>    
+
+
+
+
+<div class="comment giscus">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

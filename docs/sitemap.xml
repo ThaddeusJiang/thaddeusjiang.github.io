@@ -171,7 +171,7 @@
 
    <url>
       <loc>https://thaddeusjiang.com/2019-11-19-react-testing-2-e2e-testing</loc>
-      <lastmod>2021-04-17</lastmod>
+      <lastmod>2021-12-05</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -412,6 +412,12 @@
    <url>
       <loc>https://thaddeusjiang.com/2021-11-06</loc>
       <lastmod>2021-11-06</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://thaddeusjiang.com/2021-12-05-how-to-test-frontend</loc>
+      <lastmod>2021-12-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
