@@ -1,6 +1,6 @@
 created: 20211205125355466
 description: safe
-modified: 20211205132219990
+modified: 20211207074821338
 name: correct
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/comment
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 
 \whitespace trim
 
-`<div class="comment giscus">
+`<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
 </div>
 
 <script async src="https://giscus.app/client.js"
