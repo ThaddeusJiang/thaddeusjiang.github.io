@@ -1,6 +1,6 @@
 created: 20200814062847162
 description: safe
-modified: 20211205130811054
+modified: 20211207090204928
 name: correct
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/seotags
@@ -16,6 +16,7 @@ type: text/vnd.tiddlywiki
 <meta property="og:title" content="`<<get_title>>`" />
 <meta property="og:description" content="`<<get_description>>`" />
 <meta property="og:image" content="`<<get_og_image>>`" />
+<meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">

@@ -1,5 +1,5 @@
 created: 20200806162755767
-modified: 20210818143619616
+modified: 20211207085825801
 tags: $:/plugins/adithyab/tiddlyjam/internals $:/tags/Macro
 title: $:/plugins/adithyab/tiddlyjam/renderer/macros
 type: text/vnd.tiddlywiki
@@ -18,7 +18,7 @@ type: text/vnd.tiddlywiki
 \end
 
 \define get_title()
-<$text text={{{ [<currentTiddler>get[name]else<currentTiddler>] }}} /> ~ {{$:/plugins/adithyab/tiddlyjam/renderer/title}}
+<$text text={{{ [<currentTiddler>get[name]else<currentTiddler>] }}} /> 
 \end
 
 \define get_og_image()
