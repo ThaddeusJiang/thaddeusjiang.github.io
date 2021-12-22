@@ -1,0 +1,12 @@
+created: 20210303065613885
+modified: 20211222133942861
+tags: 
+title: enoteca 敏捷开发 失败总结
+type: text/vnd.tiddlywiki
+
+# backlog task 设置困难，task 应该以功能为单位，应该是包含 API 和 UI 的整体。
+# scrum planning meeting 太鸡肋了，大家并没有真正的理解 task 难度，也没有给出正确的 point
+#* review meeting 倒是不错，大家可以分享一下这周都干了什么。
+# 没有 backlog 和 sprint plan 的概念，planning meeting 应该是从 backlog 移动到 sprint planning，而不是直接新建。
+
+ 
