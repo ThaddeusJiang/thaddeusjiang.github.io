@@ -3,7 +3,7 @@
 <channel><title>蒋继发 (ThaddeusJiang)</title>
    <link>https://thaddeusjiang.com</link>
    <atom:link href="https://thaddeusjiang.com/rss.xml" rel="self" type="application/rss+xml" />
-   <description>在日本开发 SaaS 产品，Love OSS</description>
+   <description>在日本开发 SaaS 产品，爱猫、爱读书、爱大海</description>
    <item>
       <title>Welcome</title>
       <link>https://thaddeusjiang.com/welcome</link>
@@ -58,6 +58,13 @@
       <link>https://thaddeusjiang.com/2021-12-28-phoenix-test-css</link>
       <guid>https://thaddeusjiang.com/2021-12-28-phoenix-test-css</guid>
       <pubDate>Tue, 28 December 2021 10:47:34 +09:00</pubDate>
+   </item>
+
+   <item>
+      <title>2021-12-28 My failure in 2021</title>
+      <link>https://thaddeusjiang.com/2021-12-28-my-failure-in-2021</link>
+      <guid>https://thaddeusjiang.com/2021-12-28-my-failure-in-2021</guid>
+      <pubDate>Tue, 28 December 2021 17:51:54 +09:00</pubDate>
    </item>
 
    <item>
