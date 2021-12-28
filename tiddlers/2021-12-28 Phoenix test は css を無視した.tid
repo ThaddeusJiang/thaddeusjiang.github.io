@@ -1,0 +1,26 @@
+created: 20211228013132804
+modified: 20211228014916283
+published: 20211228014734414
+tags: language:Elixir blog category:Tech lang:日本語 $:/plugins/adithyab/tiddlyjam/live
+title: 2021-12-28 Phoenix test は css を無視した
+type: text/vnd.tiddlywiki
+
+Phoenix live_view で Responsive Design 画面を実装して、テストを実行する時、下記のケースが失敗した。
+
+[img[https://user-images.githubusercontent.com/17308201/146661452-378f97f7-d5df-4ed8-ae5a-c86e5f1d84c5.jpg]]
+
+
+原因：
+
+Responsive Design 画面を実装する時、同じ目的なボタンが2つを実装した。
+ボタンは css で制限して、SP画面もPC画面も唯一ボタンが表示されている。
+ユーザーは使う時問題がない、Phoenix test 時 css を無視して失敗した。
+
+
+解決方法：
+
+# ボタンを物理的に唯一にする
+# test code を修正する
+
+
+
