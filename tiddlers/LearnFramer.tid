@@ -1,0 +1,32 @@
+created: 20220125125904777
+modified: 20220126020720816
+tags: TechRadar:工具 TechRadar:试验 TechRadar
+title: LearnFramer
+type: text/vnd.tiddlywiki
+
+Framer 是制作高保真原型的工具，简单易用的同时，做出来的成果还很好看。
+
+教程：https://framer.com/projects/learn
+
+# 基础学习
+## [done] Screen, Frame, Scroll, Page
+# Interactive Components
+## [done] hover, variant, variables
+# Layout
+# Components
+# Scroll
+# Transitions
+# Scroll Animations
+# Sticky Scrolling
+# Gamepad Triggers
+# Animating with Delays
+# Examples
+## Photo Views
+## To Do App
+## Video Player
+## Tab Bar
+## Music Player
+## Menu Transitions
+
+
+Next to learn: https://framer.com/projects/Volt-Prototyping-Starter-Kit-Tutorial-copy--4lHcscQSaPDc5AuAKOnr-hcjW3?_ga=2.174925474.1086351692.1607332606-1077426429.1604407124&steps=51-121-179.5-277-366-440.5-533-570-674.5-777.5-831-921&title=Volt+Interactive+Tutorial&tutorial=9OcYIJb5Fk4&node=zRbTfR9Yb
