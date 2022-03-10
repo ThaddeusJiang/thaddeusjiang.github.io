@@ -1,8 +1,8 @@
 created: 20210415134038704
 creator: TJ
-modified: 20210415141812392
+modified: 20220310124814663
 modifier: TJ
 title: $:/themes/tiddlywiki/vanilla/options/sidebarlayout
 type: text/vnd.tiddlywiki
 
-fixed-fluid
+fluid-fixed
