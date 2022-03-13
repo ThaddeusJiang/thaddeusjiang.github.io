@@ -1,0 +1,133 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.1" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2018-04-27 最简单的代码重构 ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="一个 Code Review 的心得">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2018-04-27–zui-jian-dan-de-dai-ma-zhong-gou" />
+<meta property="og:title" content="2018-04-27 最简单的代码重构 ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="一个 Code Review 的心得" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2018-04-27 最简单的代码重构.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2018-04-27 最简单的代码重构 ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="一个 Code Review 的心得" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2018-04-27 最简单的代码重构</h1>
+            <hr>
+
+            <p>一个 Code Review 的心得</p><blockquote class="tc-quote tc-big-quote"><p>最简单的代码重构，就是把重复代码提取成函数。
+</p><cite>TJ</cite></blockquote><p>重构前</p><p><img src="https://user-images.githubusercontent.com/17308201/39341071-5cc81a76-4a0c-11e8-837d-ada35b7709df.png"></p><p>其实这个功能超级简单，就是判断一下当前环境是否是 <code>dcs</code> 环境。</p><blockquote><div>dcs: [DreamArts Clound Service](<a class="tc-tiddlylink-external" href="https://www.dreamarts.co.jp/dcs/" rel="noopener noreferrer" target="_blank">https://www.dreamarts.co.jp/dcs/</a>) 是我司提供的云服务平台。</div></blockquote><p>重构后</p><pre class="js hljs"><code><span class="hljs-comment">// envUtil.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isClound</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.config !== <span class="hljs-literal">undefined</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.config.dcs === <span class="hljs-number">1</span>
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+  }
+}
+
+<span class="hljs-comment">// use</span>
+<span class="hljs-keyword">import</span> { isClound } <span class="hljs-keyword">from</span> <span class="hljs-string">'./envUtil'</span>
+
+<span class="hljs-keyword">if</span> ( isClound() ) {
+  ...
+}</code></pre><p>所有判断 <code>dcs</code> 环境的功能，只要调用 <code>isClound()</code> 即可。</p><p>当然这段代码还有问题，<code>window.config.dcs === 1</code> 的 <code>1</code> 应该算是魔法数字，也应该被重构。</p><p>将来即使 dcs 判断条件变成 <code>dcs === 'dcs'</code>，我们只需要修改一行代码即可。不需要对业务代码进行任何修改。</p>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

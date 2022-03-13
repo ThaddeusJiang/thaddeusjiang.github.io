@@ -1,5 +1,5 @@
 created: 20200806162755767
-modified: 20211207085825801
+modified: 20220313020325331
 tags: $:/plugins/adithyab/tiddlyjam/internals $:/tags/Macro
 title: $:/plugins/adithyab/tiddlyjam/renderer/macros
 type: text/vnd.tiddlywiki
@@ -18,7 +18,7 @@ type: text/vnd.tiddlywiki
 \end
 
 \define get_title()
-<$text text={{{ [<currentTiddler>get[name]else<currentTiddler>] }}} /> 
+<$text text={{{ [<currentTiddler>get[name]else<currentTiddler>] }}} /> ~ {{$:/plugins/adithyab/tiddlyjam/renderer/title}}
 \end
 
 \define get_og_image()
@@ -29,7 +29,6 @@ https://og-image-zh.vercel.app/<$text text={{{ [<currentTiddler>get[name]else<cu
 https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg
 \end
 
-
 \define get_display_name()
 <$text text={{{ [<currentTiddler>get[name]else<currentTiddler>] }}} />
 \end
@@ -39,7 +38,7 @@ https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg
 \end
 
 \define get_absolute_url()
-<$wikify name="url" text=<<get_relative_url>>><$text text={{{ [<url>addprefix{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}] }}}/></$wikify>
+<$text text={{$:/AbsoluteBaseUrl}}/>/<$macrocall $name="tv-get-export-path" title={{!!title}}/>
 \end
 
 \define get_page_uniqueid()

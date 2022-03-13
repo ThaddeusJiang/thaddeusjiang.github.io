@@ -18,12 +18,12 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2021-08-18 Deploying Serverless functions to Azure Function App </title>
+<title>2021-08-18 Deploying Serverless functions to Azure Function App ~ 蒋继发 (ThaddeusJiang)</title>
 <meta name="description" content="Serverless functions 我已经玩的有点烦了，每个项目都用不同的 Cloud，每次都要变化工作流。原本期待一劳永逸的 Serverless Framework 弱的不行，k8s 有感觉是杀鸡用牛刀。难受😣">
 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://thaddeusjiang.com/2021-08-18-deploying-serverless-functions-to-azure-function-app" />
-<meta property="og:title" content="2021-08-18 Deploying Serverless functions to Azure Function App " />
+<meta property="og:title" content="2021-08-18 Deploying Serverless functions to Azure Function App ~ 蒋继发 (ThaddeusJiang)" />
 <meta property="og:description" content="Serverless functions 我已经玩的有点烦了，每个项目都用不同的 Cloud，每次都要变化工作流。原本期待一劳永逸的 Serverless Framework 弱的不行，k8s 有感觉是杀鸡用牛刀。难受😣" />
 <meta property="og:image" content="https://og-image-zh.vercel.app/2021-08-18 Deploying Serverless functions to Azure Function App.png?fontSize=50px" />
 <meta property="article:author" content="@ThaddeusJiang" />
@@ -31,7 +31,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="2021-08-18 Deploying Serverless functions to Azure Function App " />
+<meta name="twitter:title" content="2021-08-18 Deploying Serverless functions to Azure Function App ~ 蒋继发 (ThaddeusJiang)" />
 <meta name="twitter:description" content="Serverless functions 我已经玩的有点烦了，每个项目都用不同的 Cloud，每次都要变化工作流。原本期待一劳永逸的 Serverless Framework 弱的不行，k8s 有感觉是杀鸡用牛刀。难受😣" />
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
 
@@ -49,6 +49,7 @@
 
 <link rel="stylesheet" href="./css/vanilla.css"/>
 
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="tc-body">
@@ -56,7 +57,7 @@
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="https://thaddeusjiang.com">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
        蒋继发 (ThaddeusJiang)
             </a>
         </div>
@@ -67,9 +68,11 @@
 <div class="container mt-5">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <h1 class="title">2021-08-18 Deploying Serverless functions to Azure Function App</h1>
-          <hr>
-          <div class="block content blog"><p>Serverless functions 我已经玩的有点烦了，每个项目都用不同的 Cloud，每次都要变化工作流。原本期待一劳永逸的 Serverless Framework 弱的不行，k8s 有感觉是杀鸡用牛刀。难受😣</p><p>算了，不提了，进入正文。</p><p>这一次是 Azure Function App，我想记录一下如何部署 Serverless functions 到 Azure Function App，并支持 Deployment slots 做一下 A/B testing。</p><p>两种方式</p><ol><li>VSCode Extension</li><li>GitHub Actions</li></ol><h4 class="">1. VSCode Extension</h4><p>使用 VSCode Extension 部署 Azure Function App 非常方便，也是我开发时最常用的方式。
+          <div class="block content blog">
+            <h1 class="title">2021-08-18 Deploying Serverless functions to Azure Function App</h1>
+            <hr>
+
+            <p>Serverless functions 我已经玩的有点烦了，每个项目都用不同的 Cloud，每次都要变化工作流。原本期待一劳永逸的 Serverless Framework 弱的不行，k8s 有感觉是杀鸡用牛刀。难受😣</p><p>算了，不提了，进入正文。</p><p>这一次是 Azure Function App，我想记录一下如何部署 Serverless functions 到 Azure Function App，并支持 Deployment slots 做一下 A/B testing。</p><p>两种方式</p><ol><li>VSCode Extension</li><li>GitHub Actions</li></ol><h4 class="">1. VSCode Extension</h4><p>使用 VSCode Extension 部署 Azure Function App 非常方便，也是我开发时最常用的方式。
 VSCode Extension 用法也很简单，这里介绍一点特殊的，官方文档没有教的内容。</p><p>如果你和我一样，打算使用 Deployment slots 做 <code>A/B testing</code>。</p><p>VSCode Extension 的菜单就比较深了</p><p><img src="https://i.gyazo.com/a00e30807af5d3a3f6cd6c402096c8d2.jpg"></p><p>正确的部署菜单</p><p><img src="https://i.gyazo.com/97e914f00f711cbeb9dffc344b997d8b.jpg"></p><h4 class="">2. GitHub Actions</h4><p>由于 MicroSoft 财大气粗，已经将 GitHub 收入麾下，Azure Function App 也支持使用 GitHub Actions 部署。</p><p>Azure Portal UI </p><p><img src="https://i.gyazo.com/be02ad6fc63897f26a5a67fd3b5419a4.jpg"></p><p>不过，很遗憾，只通过 Azure Portal UI 你并不能成功部署你的 functions。除非你编写了一个 <a class="tc-tiddlylink tc-tiddlylink-missing" href="./hello-world.html">hello world</a></p><p>估计你也会遇到下面几个问题</p><ol><li><code>Error: package.json not found.</code></li><li><code>Error: Package deployment using ZIP Deploy failed. Refer logs for more details.</code></li><li>HTTP <code>CORS</code></li></ol><p>怎么解决？</p><p>1.  <code>Error: package.json not found.</code></p><p>这个问题，通常是因为你的 serverless functions 并不在根目录（root），你需要在 yaml 文件中配置 <code>package</code></p><pre class="yml hljs"><code>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">'Run Azure Functions Action'</span>
       <span class="hljs-attr">uses:</span> <span class="hljs-string">Azure/functions-action@v1.3.2</span>
       <span class="hljs-attr">id:</span> <span class="hljs-string">fa</span>
@@ -81,31 +84,12 @@ VSCode Extension 用法也很简单，这里介绍一点特殊的，官方文档
       <span class="hljs-attr">with:</span>
         <span class="hljs-attr">app-name:</span> <span class="hljs-string">'smartcompany-admin'</span>
         <span class="hljs-attr">slot-name:</span> <span class="hljs-string">'dev'</span>
-        <span class="hljs-attr">package:</span> <span class="hljs-string">'./functions'</span></code></pre><p>又是一篇笔记。</p><p>最近我负责的项目已经进入发布前的准备阶段，一大堆 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./devops.html">DevOps</a> 的工作要做，团队缺少 DevOps 专家，没有办法只能自己上了。</p><p>还做了一个简单的 service management System，等项目发布了，打算整理一下（移除敏感内容）后开源出来。</p><hr><p>links</p><ul><li><a class="tc-tiddlylink-external" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions" rel="noopener noreferrer" target="_blank">https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions</a></li></ul></div>
+        <span class="hljs-attr">package:</span> <span class="hljs-string">'./functions'</span></code></pre><p>又是一篇笔记。</p><p>最近我负责的项目已经进入发布前的准备阶段，一大堆 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./devops.html">DevOps</a> 的工作要做，团队缺少 DevOps 专家，没有办法只能自己上了。</p><p>还做了一个简单的 service management System，等项目发布了，打算整理一下（移除敏感内容）后开源出来。</p><hr><p>links</p><ul><li><a class="tc-tiddlylink-external" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions" rel="noopener noreferrer" target="_blank">https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions</a></li></ul>
+          </div>
       </div>
       <hr>
-     <div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style> 
   </div>
-</div>    
-
-
+</div>     
 
 
 <div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">

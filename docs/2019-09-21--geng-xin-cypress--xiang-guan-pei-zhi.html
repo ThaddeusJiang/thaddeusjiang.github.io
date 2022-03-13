@@ -1,0 +1,134 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.1" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2019-09-21 更新 Cypress 相关配置 ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2019-09-21–geng-xin-cypress–xiang-guan-pei-zhi" />
+<meta property="og:title" content="2019-09-21 更新 Cypress 相关配置 ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2019-09-21 更新 Cypress 相关配置.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2019-09-21 更新 Cypress 相关配置 ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2019-09-21 更新 Cypress 相关配置</h1>
+            <hr>
+
+            <p>最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。</p><h2 class="">旧配置</h2><p>使用在 cypress 文件夹中配置 <code>tsconfig.json</code> 的方式，超简单。内容如下：</p><pre class="json hljs"><code>{
+  <span class="hljs-attr">"compilerOptions"</span>: {
+    <span class="hljs-attr">"allowJs"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"baseUrl"</span>: <span class="hljs-string">"../node_modules"</span>,
+    <span class="hljs-attr">"types"</span>: [<span class="hljs-string">"cypress"</span>]
+  },
+  <span class="hljs-attr">"include"</span>: [<span class="hljs-string">"**/*.*"</span>]
+}</code></pre><h2 class="">新配置</h2><p>新配置分成 2 部分，ESLint 和 jsconfig.json。</p><ul><li>ESLint 负责检查 Cypress 断言的使用是否正确</li><li>jsconfig 负责 Cypress 自动补全</li></ul><h2 class="">ESLint</h2><p>1. 安装 eslint-plugin-cypress</p><pre class="sh hljs"><code>npm install eslint-plugin-cypress --save-dev</code></pre><p>2. 配置 .eslintrc.json</p><pre class="json hljs"><code><span class="hljs-comment">// .eslintrc.json</span>
+{
+  <span class="hljs-attr">"plugins"</span>: [<span class="hljs-string">"cypress"</span>],
+  <span class="hljs-attr">"env"</span>: {
+    <span class="hljs-attr">"cypress/globals"</span>: <span class="hljs-literal">true</span>
+  }
+}</code></pre><h2 class="">jsconfig</h2><p>在项目根目录下创建 .jsconfig.json，配置如下内容：</p><pre class="json hljs"><code><span class="hljs-comment">// .jsconfig.json</span>
+{
+  <span class="hljs-attr">"include"</span>: [<span class="hljs-string">"./node_modules/cypress"</span>, <span class="hljs-string">"cypress/**/*.js"</span>]
+}</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/cypress-io/eslint-plugin-cypress" rel="noopener noreferrer" target="_blank">https://github.com/cypress-io/eslint-plugin-cypress</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

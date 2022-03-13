@@ -2,10 +2,10 @@
 
 rm -rf ./docs/*
 
-tiddlywiki --build tiddlyjam
+npx tiddlywiki --build index
+
+mv ./output/index.html ./docs/wiki.html
+
+npx tiddlywiki --build tiddlyjam
+
 mv ./output/* ./docs/
-
-tiddlywiki --build index
-cp ./output/index.html ./docs/index.html
-
-mv ./output/index.html ./index.html

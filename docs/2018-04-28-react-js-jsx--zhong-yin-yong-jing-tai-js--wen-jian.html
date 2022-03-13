@@ -1,0 +1,127 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.1" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2018-04-28 React JS/JSX 中引用静态 js 文件 ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2018-04-28-react-js-jsx–zhong-yin-yong-jing-tai-js–wen-jian" />
+<meta property="og:title" content="2018-04-28 React JS/JSX 中引用静态 js 文件 ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2018-04-28 React JS/JSX 中引用静态 js 文件.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2018-04-28 React JS/JSX 中引用静态 js 文件 ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2018-04-28 React JS/JSX 中引用静态 js 文件</h1>
+            <hr>
+
+            <blockquote class="tc-quote tc-big-quote"><p>如果你有一个上古时代的 js 文件，你会直接引用它，还是重写一遍？
+</p><cite>TJ</cite></blockquote><p>React JS/JSX 中引用静态 js 文件，其实超简单。
+只需要在 componentDidMount 创建一个 <code>&lt;script&gt;</code> 标签，并且追加到页面中即可。</p><pre class="js hljs"><code>componentDidMount () {
+  <span class="hljs-keyword">const</span> script = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"script"</span>)
+  script.src = <span class="hljs-string">"https://cdn..."</span>
+  script.async = <span class="hljs-literal">true</span>
+
+  <span class="hljs-built_in">document</span>.body.appendChild(script)
+}</code></pre><h2 class="">应用场景</h2><p>目前项目是 toB 的内容管理系统，由于某些不可抗力因素影响，不得不对应  CKEditor 4。
+但是 CKEditor 4 并不支持 JS 模块，所以不能够使用 import 导入。</p><p>无奈之下只能使用传统方法</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>因为只有部分页面使用 CKEditor，在 index.html 中引入 CKEditor 的静态文件有点过分了。</p><p>所以我通过组件的 componentDidMount 引入。</p><p>ref:</p><ul><li><a class="tc-tiddlylink-external" href="http://cdn.ckeditor.com/" rel="noopener noreferrer" target="_blank">http://cdn.ckeditor.com/</a></li><li><a class="tc-tiddlylink-external" href="https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx" rel="noopener noreferrer" target="_blank">https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

