@@ -5,9 +5,55 @@
    <link>https://thaddeusjiang.com</link>
    <description>在日本开发 SaaS 产品，爱猫、爱读书、爱大海</description>
    <item>
+      <title>2022-03-14 DevOps 三级进化</title>
+      <link>https://thaddeusjiang.com/2022-03-14-devops–san-ji-jin-hua</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2022-03-14 DevOps 三级进化</h1>
+            <hr>
+
+            <p>从结果来看，这是一个十分简单的小项目，能做的只是通过 UI 创建和维护 Azure Cloud 资源。
+但是从过程来看，这是一次标准的渐进式开发，是我最擅长的领域。</p><p>并且项目没有开源，有点空口无凭的感觉。
+但是因为和几个朋友分享过，朋友们夸我做的不错，于是我决定还是分享出来吧。</p><p>TL;DR</p><ul><li>Staging 1: Manual in Azure Portal<ul><li>有熟练使用 Azure Portal 的技术者可以使用，且需要几个小时。</li></ul></li><li>Staging 2: Command Line instead of Manual<ul><li>会使用 Command Line 的技术者都可以使用，只需要几分钟。</li></ul></li><li>Staging 3: UI instead of Command Line<ul><li>任何人都可以使用，异步处理，一分钟以内完成。</li></ul></li></ul><h2 class="">Staging 1: Manual in Azure Portal</h2><blockquote><div>只有熟练使用 Azure Portal 的技术者可以使用，且需要几个小时。</div></blockquote><p>SmartCompany 是一个前后端分离的项目，backend 使用 Javalin 提供 REST API，frontend 使用 React 提供 SPA，然后将两者通过 docker-compose 整合在一起，部署在 Azure。</p><p>先说一下，我刚刚加入项目的时候，是怎么创建和维护 Azure Cloud 资源的吧。</p><p>我们有一个 README 文件，里面记录了：</p><ul><li>如何将 docker-compose 发布到 Azure App Service。</li><li>如何创建 Azure CosmosDB。</li><li>如何创建 Azure Storage</li><li>如何创建 DNS。</li><li>如何将它们整合到一起。</li></ul><p>如果你需要创建一个环境，就可以一边看着 README，一边打开 Azure Portal UI 操作了。</p><p><img src="https://user-images.githubusercontent.com/17308201/158159797-397d909a-c3f1-48d4-90c4-602017506876.png"></p><h2 class="">Staging 2: Command Line instead of Manual</h2><blockquote><div>会使用 Command Line 的技术者都可以使用，只需要几分钟。</div></blockquote><p>因为团队中几乎所有工程师都专注于 Backend 或者 Frontend，我加入了后，DevOps 就由我顺便承担了。
+而且我太笨了，我几乎无法通过 README 成功启动一个复杂的项目。（我从大学就发现自己这方面的问题了， Network 课程的实操课全是😭）</p><p>由于我的动手能力真的太差了，我一直是 Command Line 的忠实用户。
+于是我创建了一个 terraform 文件，大致如：<a class="tc-tiddlylink-external" href="https://gist.github.com/ThaddeusJiang/2473709158c4b3f57455fdd920c31304" rel="noopener noreferrer" target="_blank">https://gist.github.com/ThaddeusJiang/2473709158c4b3f57455fdd920c31304</a></p><p>从此之后，我创建环境基本上只需要：</p><pre><code>$ terraform plan
+$ terraform apply </code></pre><p>不过，很遗憾这个阶段，还是只有我一个人使用这个项目。
+后来我将这个项目交接给其他小伙伴，现在已经有 48 Commits 了。nice 👍</p><h2 class="">Staging 3: UI instead of Command Line</h2><blockquote><div>任何人都可以使用，异步处理，一分钟以内完成。</div></blockquote><p>我们做一个 SaaS 产品，SaaS 产品的标配就是注册即用。由于我们是 ToB SaaS，每个潜在客户都需要有专门的 Sales 和 Support 支持。
+为了更好地符合这种业务流程。我们有一个特殊的要求：“那就是 Sales 和 Support 同事可以创建，更新，停用客户的环境（or Account）”。</p><p>因为 Sales 和 Support 并不是技术者，让他们使用 Command Line 太过于强人所难了。
+所以我创建了一个 Web App，目的是“提供简单易用的 UI 创建和维护环境，不需要使用命令行”。</p><p>从技术角度，这个 Web App 有什么？</p><ol><li>Azure Functions: 创建 Serverless App 并提供 REST API。</li><li>Next.js: 创建 SPA 提供 UI。</li><li>GitHub Actions: CICD for API。</li><li>Vercel: CICD for UI，并通过 Vercel Functions 提供 Auth 认证。</li><li>Terraform: 创建 mojito-admin 所需要 Infrastructure。</li></ol><p>我会尽快开源代码的，<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/mojito-admin" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/mojito-admin</a></p><h2 class="">最后</h2><p>DevOps 工作不仅仅是创建 DB 和 App，还包括 monitoring，backup/restore 等等，
+本着自动化一切的基本原则，我计划将剩余的 DevOps works 也都整合到 mojito-admin。</p><p>由于我个人能力和精力有限，并且项目更需要我做一些 <strong>业务梳理</strong>和<strong>功能设计</strong>的工作，我实在是分身乏术。
+非常欢迎对我提到的这些工作感兴趣的朋友加入我们团队，关于我们团队的一些信息，请查看我的 Tweets 如果想进一步欢迎邮件联系我。
+</p>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Mon, 14 March 2022 20:44:12 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2022-03-14-devops–san-ji-jin-hua</guid>      
+   </item>
+
+   <item>
       <title>2022-03-10 计划转行做【产品经理】了</title>
       <link>https://thaddeusjiang.com/2022-03-10–ji-hua-zhuan-xing-zuo–chan-pin-jing-li–liao</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -44,7 +90,7 @@
    <item>
       <title>2022-02-28 工作日的公园就像世外桃源</title>
       <link>https://thaddeusjiang.com/2022-02-28–gong-zuo-ri-de-gong-yuan-jiu-xiang-shi-wai-tao-yuan</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -79,7 +125,7 @@
    <item>
       <title>2022-01-23 珈琲 さくらの家</title>
       <link>https://thaddeusjiang.com/2022-01-23–jia---—jia</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -116,7 +162,7 @@
    <item>
       <title>2022-01-03 《傅雷家书》读后感</title>
       <link>https://thaddeusjiang.com/2022-01-03—fu-lei-jia-shu–du-hou-gan</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -154,7 +200,7 @@
    <item>
       <title>2021-12-28 Phoenix test は css を無視した</title>
       <link>https://thaddeusjiang.com/2021-12-28-phoenix-test—css-—</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -191,7 +237,7 @@
    <item>
       <title>2021-12-28 My failure in 2021</title>
       <link>https://thaddeusjiang.com/2021-12-28-my-failure-in-2021</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -236,7 +282,7 @@ Sprint Planning 让团队的每个人都了解我们需要集中攻克的任务�
    <item>
       <title>2021-12-05 How To Test Frontend</title>
       <link>https://thaddeusjiang.com/2021-12-05-how-to-test-frontend</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -276,7 +322,7 @@ Sprint Planning 让团队的每个人都了解我们需要集中攻克的任务�
    <item>
       <title>2021-11-06 《卡片笔记写作法》-让我明白写作不应该从空白页开始</title>
       <link>https://thaddeusjiang.com/2021-11-06—ka-pian-bi-ji-xie-zuo-fa—rang-wo-ming-bai-xie-zuo-bu-ying-gai-cong-kong-bai-ye-kai-shi</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -315,7 +361,7 @@ Sprint Planning 让团队的每个人都了解我们需要集中攻克的任务�
    <item>
       <title>2021-10-18 聊聊 start-up(小公司) 招聘工程师</title>
       <link>https://thaddeusjiang.com/2021-10-18–liao-liao-start-up–xiao-gong-si—zhao-pin-gong-cheng-shi</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -354,7 +400,7 @@ Sprint Planning 让团队的每个人都了解我们需要集中攻克的任务�
    <item>
       <title>2021-08-29 原来鲁迅生活的年代和我们如此相似</title>
       <link>https://thaddeusjiang.com/2021-08-29–yuan-lai-lu-xun-sheng-huo-de-nian-dai-he-wo-men-ru-ci-xiang-si</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -394,7 +440,7 @@ Sprint Planning 让团队的每个人都了解我们需要集中攻克的任务�
    <item>
       <title>2021-08-18 Deploying Serverless functions to Azure Function App</title>
       <link>https://thaddeusjiang.com/2021-08-18-deploying-serverless-functions-to-azure-function-app</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -441,7 +487,7 @@ VSCode Extension 用法也很简单，这里介绍一点特殊的，官方文档
    <item>
       <title>2021-08-16 Setup og-image for TiddlyJam</title>
       <link>https://thaddeusjiang.com/2021-08-16-setup-og-image-for-tiddlyjam</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -485,7 +531,7 @@ https://og-image-zh.vercel.app/&lt;$text text={{{ [&lt;currentTiddler&gt;get[nam
    <item>
       <title>2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint</title>
       <link>https://thaddeusjiang.com/2021-08-03–ru-he-shi-yong-terraform–pei-zhi-azure-app-service-custom-domains-and-certificate-thumbprint</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -559,7 +605,7 @@ resource "azurerm_app_service_custom_hostname_binding" "app" {
    <item>
       <title>2021-07-12 分享一种无敌好用的 Location:search 的格式</title>
       <link>https://thaddeusjiang.com/2021-07-12–fen-xiang-yi-zhong-wu-di-hao-yong-de-location-search–de-ge-shi</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -606,7 +652,7 @@ location.replace(<span class="hljs-string">`/featureA?<span class="hljs-subst">$
    <item>
       <title>2021-07-03 《有钱人和你想的不一样》美式成功学让人讨厌不起来</title>
       <link>https://thaddeusjiang.com/2021-07-03—you-qian-ren-he-ni-xiang-de-bu-yi-yang–mei-shi-cheng-gong-xue-rang-ren-tao-yan-bu-qi-lai</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -643,7 +689,7 @@ location.replace(<span class="hljs-string">`/featureA?<span class="hljs-subst">$
    <item>
       <title>2021-06-13 《SaaS创业路线图》相见恨晚的创业指导手册</title>
       <link>https://thaddeusjiang.com/2021-06-13–saas-chuang-ye-lu-xian-tu–xiang-jian-hen-wan-de-chuang-ye-zhi-dao-shou-ce</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -680,7 +726,7 @@ location.replace(<span class="hljs-string">`/featureA?<span class="hljs-subst">$
    <item>
       <title>2021-06-09 React Test 中 act() 有什么作用？</title>
       <link>https://thaddeusjiang.com/2021-06-09-react-test–zhong-act-—you-shi-me-zuo-yong-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -723,7 +769,7 @@ location.replace(<span class="hljs-string">`/featureA?<span class="hljs-subst">$
    <item>
       <title>2021-06-03 写给大家看的 SEO 目录</title>
       <link>https://thaddeusjiang.com/2021-06-03–xie-gei-da-jia-kan-de-seo–mu-lu</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -762,7 +808,7 @@ location.replace(<span class="hljs-string">`/featureA?<span class="hljs-subst">$
    <item>
       <title>2021-05-15 详细介绍一下 why we should use Utility-First CSS</title>
       <link>https://thaddeusjiang.com/2021-05-15–xiang-xi-jie-shao-yi-xia-why-we-should-use-utility-first-css</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -873,7 +919,7 @@ const Td = ({children}) =&gt; (<span class="hljs-tag">&lt;<span class="hljs-name
    <item>
       <title>2021-04-29 重启 RSS</title>
       <link>https://thaddeusjiang.com/2021-04-29–zhong-qi-rss</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -960,7 +1006,7 @@ type: text/vnd.tiddlywiki
    <item>
       <title>2021-04-17 Create React App 项目性能优化「将最大文件从 5.1M 减小到 1.4M」</title>
       <link>https://thaddeusjiang.com/2021-04-17-create-react-app–xiang-mu-xing-nen-you-hua–jiang-zui-da-wen-jian-cong-5-1m–jian-xiao-dao-1-4m-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1031,7 +1077,7 @@ type: text/vnd.tiddlywiki
    <item>
       <title>2021-04-16 向邪恶的 SEO 低头，我部署了 static site 版本</title>
       <link>https://thaddeusjiang.com/2021-04-16–xiang-xie-e-de-seo–di-tou–wo-bu-shu-liao-static-site–ban-ben</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1081,7 +1127,7 @@ type: text/vnd.tiddlywiki
    <item>
       <title>2021-04-15 阅读《图形思考》的意外收获</title>
       <link>https://thaddeusjiang.com/2021-04-15–yue-du–tu-xing-si-kao–de-yi-wai-shou-huo</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1118,7 +1164,7 @@ type: text/vnd.tiddlywiki
    <item>
       <title>2021-04-02 永远不要再使用巨型 UI 框架了</title>
       <link>https://thaddeusjiang.com/2021-04-02–yong-yuan-bu-yao-zai-shi-yong-ju-xing-ui–kuang-jia-liao</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1154,7 +1200,7 @@ type: text/vnd.tiddlywiki
    <item>
       <title>2021-03-13 Customize Vetur for @nuxtjs/compostion-api</title>
       <link>https://thaddeusjiang.com/2021-03-13-customize-vetur-for–nuxtjs-compostion-api</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1207,7 +1253,7 @@ type: text/vnd.tiddlywiki
    <item>
       <title>2021-02-15 SEO: 更新网站后，你需要更新 sitemap 吗？</title>
       <link>https://thaddeusjiang.com/2021-02-15-seo—geng-xin-wang-zhan-hou–ni-xu-yao-geng-xin-sitemap–ma-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1242,7 +1288,7 @@ type: text/vnd.tiddlywiki
    <item>
       <title>2021-02-08 11 行代码实现邮政编码检索 API</title>
       <link>https://thaddeusjiang.com/2021-02-08-11–xing-dai-ma-shi-xian-you-zheng-bian-ma-jian-suo-api</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1277,7 +1323,7 @@ type: text/vnd.tiddlywiki
    <item>
       <title>2021-01-31 如何实现英文和中文不同字重？</title>
       <link>https://thaddeusjiang.com/2021-01-31–ru-he-shi-xian-ying-wen-he-zhong-wen-bu-tong-zi-zhong-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1315,7 +1361,7 @@ type: text/vnd.tiddlywiki
    <item>
       <title>2021-01-22 Is Mobile-First Wrong?</title>
       <link>https://thaddeusjiang.com/2021-01-22-is-mobile-first-wrong-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1351,7 +1397,7 @@ type: text/vnd.tiddlywiki
    <item>
       <title>2021-01-18 SEO 迷思</title>
       <link>https://thaddeusjiang.com/2021-01-18-seo–mi-si</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1387,7 +1433,7 @@ type: text/vnd.tiddlywiki
    <item>
       <title>2021-01-15 Nuxt Composition API useMeta 异步更新</title>
       <link>https://thaddeusjiang.com/2021-01-15-nuxt-composition-api-usemeta–yi-bu-geng-xin</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1431,7 +1477,7 @@ useMeta(() =&gt; ({ title: message.value }))</code></pre><p>这段话让我误�
    <item>
       <title>2021-01-12 其实你不需要 unicode-range</title>
       <link>https://thaddeusjiang.com/2021-01-12–qi-shi-ni-bu-xu-yao-unicode-range</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1467,7 +1513,7 @@ useMeta(() =&gt; ({ title: message.value }))</code></pre><p>这段话让我误�
    <item>
       <title>2021-01-11 《图形思考》图解展现你的逻辑思考能力</title>
       <link>https://thaddeusjiang.com/2021-01-11—tu-xing-si-kao–tu-jie-zhan-xian-ni-de-luo-ji-si-kao-nen-li</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1502,7 +1548,7 @@ useMeta(() =&gt; ({ title: message.value }))</code></pre><p>这段话让我误�
    <item>
       <title>2020-09-09 Inline SVG vs Icon Fonts</title>
       <link>https://thaddeusjiang.com/2020-09-09-inline-svg-vs-icon-fonts</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1553,7 +1599,7 @@ useMeta(() =&gt; ({ title: message.value }))</code></pre><p>这段话让我误�
    <item>
       <title>2020-07-30 Vue.js SSR Note</title>
       <link>https://thaddeusjiang.com/2020-07-30-vue-js-ssr-note</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1634,7 +1680,7 @@ Nuxt 有 <code>asyncData</code> 或 <code>fetch</code> 函数。</p><pre class="
    <item>
       <title>2020-07-21 Why Tailwind CSS</title>
       <link>https://thaddeusjiang.com/2020-07-21-why-tailwind-css</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1712,7 +1758,7 @@ Tailwind CSS 则让我使用了“高级语言”，不需要再过度专注语�
    <item>
       <title>2020-07-07 Frontend handle Authorization</title>
       <link>https://thaddeusjiang.com/2020-07-07-frontend-handle-authorization</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1761,7 +1807,7 @@ Tailwind CSS 则让我使用了“高级语言”，不需要再过度专注语�
    <item>
       <title>2020-06-25 Micro frontends 2: A demo made with single-spa</title>
       <link>https://thaddeusjiang.com/2020-06-25-micro-frontends-2–a-demo-made-with-single-spa</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1806,7 +1852,7 @@ Tailwind CSS 则让我使用了“高级语言”，不需要再过度专注语�
    <item>
       <title>2020-06-18 Micro frontends 1: What is Micro frontends</title>
       <link>https://thaddeusjiang.com/2020-06-18-micro-frontends-1–what-is-micro-frontends</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1845,7 +1891,7 @@ Tailwind CSS 则让我使用了“高级语言”，不需要再过度专注语�
    <item>
       <title>2020-05-30 Why I choose Gridsome to rebuild my site</title>
       <link>https://thaddeusjiang.com/2020-05-30-why-i-choose-gridsome-to-rebuild-my-site</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1880,7 +1926,7 @@ Tailwind CSS 则让我使用了“高级语言”，不需要再过度专注语�
    <item>
       <title>2020-05-19 What is boilerplate code?</title>
       <link>https://thaddeusjiang.com/2020-05-19-what-is-boilerplate-code-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -1934,7 +1980,7 @@ let address = ''
    <item>
       <title>2020-04-22 How to decide Responsive Design break point?</title>
       <link>https://thaddeusjiang.com/2020-04-22-how-to-decide-responsive-design-break-point-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2000,7 +2046,7 @@ let address = ''
    <item>
       <title>2019-11-26 配置自定义域名邮箱</title>
       <link>https://thaddeusjiang.com/2019-11-26–pei-zhi-zi-ding-yi-yu-ming-you-xiang</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2038,7 +2084,7 @@ let address = ''
    <item>
       <title>2019-11-20 React Testing 3 - Visual Testing</title>
       <link>https://thaddeusjiang.com/2019-11-20-react-testing-3—visual-testing</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2113,7 +2159,7 @@ it(<span class="hljs-string">"visual testing for login page"</span>, () =&gt; {
    <item>
       <title>2019-11-19 React Testing 2 - E2E Testing</title>
       <link>https://thaddeusjiang.com/2019-11-19-react-testing-2—e2e-testing</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2254,7 +2300,7 @@ describe(<span class="hljs-string">"Login Page"</span>, <span class="hljs-functi
    <item>
       <title>2019-11-18 React Testing 1 - Unit Testing</title>
       <link>https://thaddeusjiang.com/2019-11-18-react-testing-1—unit-testing</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2349,7 +2395,7 @@ test(<span class="hljs-string">"&lt;Counter /&gt;"</span>, () =&gt; {
    <item>
       <title>2019-11-13 20% CSS</title>
       <link>https://thaddeusjiang.com/2019-11-13-20–css</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2385,7 +2431,7 @@ test(<span class="hljs-string">"&lt;Counter /&gt;"</span>, () =&gt; {
    <item>
       <title>2019-11-08 踩了一下 GitHub package 大水坑</title>
       <link>https://thaddeusjiang.com/2019-11-08–cai-liao-yi-xia-github-package–da-shui-kang</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2423,7 +2469,7 @@ registry=https://npm.pkg.github.com/OWNER</code></pre><p>4.  package.json 中 na
    <item>
       <title>2019-09-30 升级到 react-intl 3</title>
       <link>https://thaddeusjiang.com/2019-09-30–sheng-ji-dao-react-intl-3</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2464,7 +2510,7 @@ registry=https://npm.pkg.github.com/OWNER</code></pre><p>4.  package.json 中 na
    <item>
       <title>2019-09-21 更新 Cypress 相关配置</title>
       <link>https://thaddeusjiang.com/2019-09-21–geng-xin-cypress–xiang-guan-pei-zhi</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2515,7 +2561,7 @@ registry=https://npm.pkg.github.com/OWNER</code></pre><p>4.  package.json 中 na
    <item>
       <title>2019-09-18 GraphQL 反面案例 - 多层嵌套 fragment</title>
       <link>https://thaddeusjiang.com/2019-09-18-graphql–fan-mian-an-li-—duo-ceng-qian-tao-fragment</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2647,7 +2693,7 @@ registry=https://npm.pkg.github.com/OWNER</code></pre><p>4.  package.json 中 na
    <item>
       <title>2019-07-15 使用 git cz 标准化提交记录</title>
       <link>https://thaddeusjiang.com/2019-07-15–shi-yong-git-cz–biao-zhun-hua-ti-jiao-ji-lu</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2690,7 +2736,7 @@ $ git cz</code></pre>
    <item>
       <title>2019-07-11 从 jsinspect 迁移到 jscpd</title>
       <link>https://thaddeusjiang.com/2019-07-11–cong-jsinspect–qian-yi-dao-jscpd</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2743,7 +2789,7 @@ $ git cz</code></pre>
    <item>
       <title>2019-05-16 前端性能优化（一）性能评估</title>
       <link>https://thaddeusjiang.com/2019-05-16–qian-duan-xing-nen-you-hua–yi–xing-nen-ping-gu</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2781,7 +2827,7 @@ $ git cz</code></pre>
    <item>
       <title>2019-05-14 如何使用 GitHub 账号登录？</title>
       <link>https://thaddeusjiang.com/2019-05-14–ru-he-shi-yong-github–zhang-hao-deng-lu-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2858,7 +2904,7 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
    <item>
       <title>2018-08-16 Say Goodbye to '../' '../../' '../../../'</title>
       <link>https://thaddeusjiang.com/2018-08-16-say-goodbye-to------------------------—</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2930,7 +2976,7 @@ import { API_VIDEO, API_CHANNEL } <span class="hljs-keyword">from</span> <span c
    <item>
       <title>2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整</title>
       <link>https://thaddeusjiang.com/2018-05-12–zai-airbnb–de-eslint–ji-chu-shang–wo-zuo-liao-na-xie-diao-zheng</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -2978,7 +3024,7 @@ import { API_VIDEO, API_CHANNEL } <span class="hljs-keyword">from</span> <span c
    <item>
       <title>2018-05-11 VSCode 如何自动补全 Jest 断言？</title>
       <link>https://thaddeusjiang.com/2018-05-11-vscode–ru-he-zi-dong-bu-quan-jest–duan-yan-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3013,7 +3059,7 @@ import { API_VIDEO, API_CHANNEL } <span class="hljs-keyword">from</span> <span c
    <item>
       <title>2018-05-09 解决 Jest "SyntaxError Unexpected token import"</title>
       <link>https://thaddeusjiang.com/2018-05-09–jie-jue-jest–syntaxerror-unexpected-token-import-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3087,7 +3133,7 @@ import { API_VIDEO, API_CHANNEL } <span class="hljs-keyword">from</span> <span c
    <item>
       <title>2018-05-08 Jest 测试 CSS Modules</title>
       <link>https://thaddeusjiang.com/2018-05-08-jest–ce-shi-css-modules</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3129,7 +3175,7 @@ import { API_VIDEO, API_CHANNEL } <span class="hljs-keyword">from</span> <span c
    <item>
       <title>2018-04-28 React JS/JSX 中引用静态 js 文件</title>
       <link>https://thaddeusjiang.com/2018-04-28-react-js-jsx–zhong-yin-yong-jing-tai-js–wen-jian</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3173,7 +3219,7 @@ import { API_VIDEO, API_CHANNEL } <span class="hljs-keyword">from</span> <span c
    <item>
       <title>2018-04-27 最简单的代码重构</title>
       <link>https://thaddeusjiang.com/2018-04-27–zui-jian-dan-de-dai-ma-zhong-gou</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3223,7 +3269,7 @@ import { API_VIDEO, API_CHANNEL } <span class="hljs-keyword">from</span> <span c
    <item>
       <title>2018-04-26 React 设置页面标题</title>
       <link>https://thaddeusjiang.com/2018-04-26-react–she-zhi-ye-mian-biao-ti</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3276,7 +3322,7 @@ render() {
    <item>
       <title>2018-04-25 🐛moment.js 在 Safari 中显示 Invalid date</title>
       <link>https://thaddeusjiang.com/2018-04-25—moment-js–zai-safari–zhong-xian-shi-invalid-date</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3320,7 +3366,7 @@ render() {
    <item>
       <title>2018-04-24 js 数组去重（使用 lodash）</title>
       <link>https://thaddeusjiang.com/2018-04-24-js–shu-zu-qu-zhong–shi-yong-lodash-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3373,7 +3419,7 @@ render() {
    <item>
       <title>2018-04-23 扩展 Ant Design iconfont</title>
       <link>https://thaddeusjiang.com/2018-04-23–kuo-zhan-ant-design-iconfont</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3421,7 +3467,7 @@ render() {
    <item>
       <title>2018-04-22 使用 axios 时遇到的几个问题</title>
       <link>https://thaddeusjiang.com/2018-04-22–shi-yong-axios–shi-yu-dao-de-ji-ge-wen-ti</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3471,7 +3517,7 @@ ajaxInstance.post(apiUrl, params)</code></pre><p>参考：</p><ul><li><a class="
    <item>
       <title>2018-04-21 eslint 提示：Do not use findDOMNode</title>
       <link>https://thaddeusjiang.com/2018-04-21-eslint–ti-shi-do-not-use-finddomnode</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3517,7 +3563,7 @@ component.decoratedComponentInstance.node.getBoundingClientRect()</code></pre><p
    <item>
       <title>2017-09-11 那么 Appium 到底是怎么工作的呢？</title>
       <link>https://thaddeusjiang.com/2017-09-11–na-me-appium–dao-di-shi-zen-me-gong-zuo-de-ne-</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3559,7 +3605,7 @@ $ npm run ios-simple</code></pre><p>现在你会了吗？
    <item>
       <title>2017-07-06 掌握20% 常用的 Velocity</title>
       <link>https://thaddeusjiang.com/2017-07-06–zhang-wo20—chang-yong-de-velocity</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3671,7 +3717,7 @@ isAddress()</code></pre><p>4. <code>#if (\$foo)</code></p><p>两种情况都返�
    <item>
       <title>2017-06-30 简单总结一下 XSS</title>
       <link>https://thaddeusjiang.com/2017-06-30–jian-dan-zong-jie-yi-xia-xss</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
@@ -3765,7 +3811,7 @@ isAddress()</code></pre><p>4. <code>#if (\$foo)</code></p><p>两种情况都返�
    <item>
       <title>2017-06-23 分享几个 git 的使用场景</title>
       <link>https://thaddeusjiang.com/2017-06-23–fen-xiang-ji-ge-git–de-shi-yong-chang-jing</link>
-			<description><![CDATA[this is 
+			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
