@@ -1,8 +1,8 @@
 created: 20210415134148715
 creator: TJ
-modified: 20220307001216682
+modified: 20220327111217750
 modifier: TJ
 title: $:/themes/tiddlywiki/vanilla/settings/fontfamily
 type: text/vnd.tiddlywiki
 
-Kaiti SC,"Source Sans Pro",Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"
+"SFMono-Regular",Weibei SC,Consolas,"Liberation Mono",Menlo,Courier,monospace

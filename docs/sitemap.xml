@@ -249,13 +249,19 @@
 
    <url>
       <loc>.//2021-01-11—tu-xing-si-kao–tu-jie-zhan-xian-ni-de-luo-ji-si-kao-nen-li</loc>
-      <lastmod>2021-06-30</lastmod>
+      <lastmod>2022-03-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>.//2021-01-12–qi-shi-ni-bu-xu-yao-unicode-range</loc>
       <lastmod>2021-06-17</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2021-01-14–zhe-ge-bo-ke-zhi-you-yi-ge-html</loc>
+      <lastmod>2022-03-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -309,7 +315,13 @@
 
    <url>
       <loc>.//2021-04-15–yue-du–tu-xing-si-kao–de-yi-wai-shou-huo</loc>
-      <lastmod>2021-07-03</lastmod>
+      <lastmod>2022-03-27</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2021-04-16—liu-ding-si-kao-mao–yi-ci-zhi-si-kao-yi-ge-jiao-du–rang-si-kao-geng-qing-xi</loc>
+      <lastmod>2022-03-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -339,7 +351,7 @@
 
    <url>
       <loc>.//2021-05-01—he-fu-tuo-yi-qi-chi-zao-can-</loc>
-      <lastmod>2021-05-01</lastmod>
+      <lastmod>2022-03-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -363,13 +375,19 @@
 
    <url>
       <loc>.//2021-06-13–saas-chuang-ye-lu-xian-tu–xiang-jian-hen-wan-de-chuang-ye-zhi-dao-shou-ce</loc>
-      <lastmod>2021-07-03</lastmod>
+      <lastmod>2022-03-27</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2021-06-20–btob------—lue–jian—bang-zhu-wo-ren-shi-dao-btob-marketing–zhan-lue-da-yu-zhan-shu</loc>
+      <lastmod>2022-03-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>.//2021-07-03—you-qian-ren-he-ni-xiang-de-bu-yi-yang–mei-shi-cheng-gong-xue-rang-ren-tao-yan-bu-qi-lai</loc>
-      <lastmod>2021-07-03</lastmod>
+      <lastmod>2022-03-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -398,8 +416,8 @@
    </url>
 
    <url>
-      <loc>.//2021-08-29–yuan-lai-lu-xun-sheng-huo-de-nian-dai-he-wo-men-ru-ci-xiang-si</loc>
-      <lastmod>2021-09-05</lastmod>
+      <loc>.//2021-08-29—na-han–yuan-lai-lu-xun-sheng-huo-de-nian-dai-he-wo-men-ru-ci-xiang-si</loc>
+      <lastmod>2022-03-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -411,7 +429,7 @@
 
    <url>
       <loc>.//2021-11-06—ka-pian-bi-ji-xie-zuo-fa—rang-wo-ming-bai-xie-zuo-bu-ying-gai-cong-kong-bai-ye-kai-shi</loc>
-      <lastmod>2021-11-06</lastmod>
+      <lastmod>2022-03-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -435,7 +453,7 @@
 
    <url>
       <loc>.//2022-01-03—fu-lei-jia-shu–du-hou-gan</loc>
-      <lastmod>2022-01-28</lastmod>
+      <lastmod>2022-03-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -460,6 +478,12 @@
    <url>
       <loc>.//2022-03-14-devops–san-ji-jin-hua</loc>
       <lastmod>2022-03-14</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2022-03-27–du–yu-jun-chan-pin-fang-fa-lun-</loc>
+      <lastmod>2022-03-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

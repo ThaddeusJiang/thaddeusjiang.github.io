@@ -1,6 +1,6 @@
 created: 20211117001409176
-modified: 20220310130218010
+modified: 20220327111224846
 title: $:/themes/tiddlywiki/vanilla/settings/editorfontfamily
 type: text/vnd.tiddlywiki
 
-Kaiti SC,"SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace
+"SFMono-Regular",Weibei SC,Consolas,"Liberation Mono",Menlo,Courier,monospace

@@ -1,8 +1,8 @@
 created: 20210415134154515
 creator: TJ
-modified: 20211117001416604
+modified: 20220327111222095
 modifier: TJ
 title: $:/themes/tiddlywiki/vanilla/settings/codefontfamily
 type: text/vnd.tiddlywiki
 
-Inconsolata,"SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace
+"SFMono-Regular",Weibei SC,Consolas,"Liberation Mono",Menlo,Courier,monospace
