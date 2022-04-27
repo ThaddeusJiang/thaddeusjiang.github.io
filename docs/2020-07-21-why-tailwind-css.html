@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.2.1" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -79,18 +79,18 @@ Tailwind CSS 则让我使用了“高级语言”，不需要再过度专注语�
 的确，对于熟练使用 CSS 的开发者来说，Tailwind CSS 提供的 class 增加了记忆成本。
 但是，对于并不熟练 CSS 的开发者来说，CSS 的记忆成本更高。
 并且，CSS 粒度过细，开发量非常大。</p><h2 class="">2. 更小的 CSS bundle</h2><p>这是一个意外的收获，我也是偶然发现的。
-例如：为了风格统一，我们需要在绝大多数标签上使用圆角。</p><p>使用 Tailwind CSS 开发，只需要一个 class</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rounded"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+例如：为了风格统一，我们需要在绝大多数标签上使用圆角。</p><p>使用 Tailwind CSS 开发，只需要一个 class</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;rounded&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rounded"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;rounded&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rounded"</span> /&gt;</span></code></pre><p>一般的 CSS 开发方式，需要三个 class</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;rounded&quot;</span> /&gt;</span></code></pre><p>一般的 CSS 开发方式，需要三个 class</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;button&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"image"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;image&quot;</span> /&gt;</span>
 
 
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
 <span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
 }
@@ -102,7 +102,7 @@ Tailwind CSS 则让我使用了“高级语言”，不需要再过度专注语�
 <span class="hljs-selector-class">.images</span> {
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
 }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre><p>Tailwind CSS 顺便减少的 CSS 文件大小。</p><h2 class="">3. 统一的实现减少了 bug</h2><p>还以圆角为例，大家有没有在项目中看到过下面代码？</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre><p>Tailwind CSS 顺便减少的 CSS 文件大小。</p><h2 class="">3. 统一的实现减少了 bug</h2><p>还以圆角为例，大家有没有在项目中看到过下面代码？</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
 <span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
 }

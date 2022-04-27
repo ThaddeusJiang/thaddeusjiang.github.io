@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.2.1" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -72,23 +72,23 @@
             <h1 class="title">2021-03-13 Customize Vetur for @nuxtjs/compostion-api</h1>
             <hr>
 
-            <p>分享一个简单的小技巧。</p><p>背景</p><p>我目前在使用 nuxt + @nuxtjs/composition-api，使用 VSCode 输入 <code>ts</code> 时自动生成下面代码：</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"ts"</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">import</span> { defineComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">'@vue/composition-api'</span>
+            <p>分享一个简单的小技巧。</p><p>背景</p><p>我目前在使用 nuxt + @nuxtjs/composition-api，使用 VSCode 输入 <code>ts</code> 时自动生成下面代码：</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;ts&quot;</span>&gt;</span><span class="language-javascript">
+<span class="hljs-keyword">import</span> { defineComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@vue/composition-api&#x27;</span>
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineComponent({
-  setup() {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineComponent</span>({
+  <span class="hljs-title function_">setup</span>(<span class="hljs-params"></span>) {
 
   },
 })
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>但是我并不是直接引入 @vue/compsotion-api，我希望引入 @nuxtjs/composition-api。</p><p>解决方法：自定义 Vetur Snippet</p><p>在 .vscode/vetur/snippets 目录下创建 vue-class-component.vue，如下：</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>但是我并不是直接引入 @vue/compsotion-api，我希望引入 @nuxtjs/composition-api。</p><p>解决方法：自定义 Vetur Snippet</p><p>在 .vscode/vetur/snippets 目录下创建 vue-class-component.vue，如下：</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"ts"</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">import</span> { defineComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">'@nuxtjs/composition-api'</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;ts&quot;</span>&gt;</span><span class="language-javascript">
+<span class="hljs-keyword">import</span> { defineComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@nuxtjs/composition-api&#x27;</span>
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineComponent({
-  setup() {},
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineComponent</span>({
+  <span class="hljs-title function_">setup</span>(<span class="hljs-params"></span>) {},
 })
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>今后只要输入 <code>vue</code> 即可。</p>
           </div>

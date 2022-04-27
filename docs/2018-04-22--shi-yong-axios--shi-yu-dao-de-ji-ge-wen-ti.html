@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.2.1" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -72,22 +72,22 @@
             <h1 class="title">2018-04-22 使用 axios 时遇到的几个问题</h1>
             <hr>
 
-            <h2 class="">1. axios 的 baseURL</h2><p>目前进行的项目是公司主应用下的子应用，所以 API 全都是 <code>/cms/api/*</code>。 为了提高写代码效率，我写下来如下代码。</p><pre class="js hljs"><code><span class="hljs-comment">// fetch.js</span>
-<span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">"axios"</span>
+            <h2 class="">1. axios 的 baseURL</h2><p>目前进行的项目是公司主应用下的子应用，所以 API 全都是 <code>/cms/api/*</code>。 为了提高写代码效率，我写下来如下代码。</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// fetch.js</span>
+<span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>
 
-fetch.defaults.baseURL = <span class="hljs-string">"/cms/api"</span>
+fetch.<span class="hljs-property">defaults</span>.<span class="hljs-property">baseURL</span> = <span class="hljs-string">&quot;/cms/api&quot;</span>
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> fetch</code></pre><p>这样做以后，我们的 API 形如 <code>/cms/api/users</code> 时，我们只需要写 <code>/users</code> 就可以了。axios 会自动补充前缀。</p><h2 class="">但是这样做有一个问题</h2><p>fetch.defaults.baseURL 是一个全局设置。所以当我们需要请求 /cms/api 以外的 API 时，我们必须覆盖掉 baseURL。</p><p>方法：</p><pre class="js hljs"><code><span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">"./fetch"</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> fetch</code></pre><p>这样做以后，我们的 API 形如 <code>/cms/api/users</code> 时，我们只需要写 <code>/users</code> 就可以了。axios 会自动补充前缀。</p><h2 class="">但是这样做有一个问题</h2><p>fetch.defaults.baseURL 是一个全局设置。所以当我们需要请求 /cms/api 以外的 API 时，我们必须覆盖掉 baseURL。</p><p>方法：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./fetch&quot;</span>
 
-<span class="hljs-keyword">const</span> ajaxInstance = fetch.create({
-  <span class="hljs-attr">baseURL</span>: <span class="hljs-string">""</span>,
+<span class="hljs-keyword">const</span> ajaxInstance = fetch.<span class="hljs-title function_">create</span>({
+  <span class="hljs-attr">baseURL</span>: <span class="hljs-string">&quot;&quot;</span>,
 })
 
-ajaxInstance.get() <span class="hljs-comment">// or ajaxInstance.post()</span></code></pre><h2 class="">2. axios 使用 <code>application/x-www-form-urlencoded</code> 发送参数</h2><p>axios 默认使用 application/json 发送参数，但是对于一些老旧 API，我们不得不使用application/x-www-form-urlencoded格式。</p><p>方法：</p><pre class="js hljs"><code>
-<span class="hljs-keyword">const</span> params = <span class="hljs-keyword">new</span> URLSearchParams()
-params.append(<span class="hljs-string">"query"</span>, value)
+ajaxInstance.<span class="hljs-title function_">get</span>() <span class="hljs-comment">// or ajaxInstance.post()</span></code></pre><h2 class="">2. axios 使用 <code>application/x-www-form-urlencoded</code> 发送参数</h2><p>axios 默认使用 application/json 发送参数，但是对于一些老旧 API，我们不得不使用application/x-www-form-urlencoded格式。</p><p>方法：</p><pre class="hljs"><code class="js hljs">
+<span class="hljs-keyword">const</span> params = <span class="hljs-keyword">new</span> <span class="hljs-title class_">URLSearchParams</span>()
+params.<span class="hljs-title function_">append</span>(<span class="hljs-string">&quot;query&quot;</span>, value)
 
-ajaxInstance.post(apiUrl, params)</code></pre><p>参考：</p><ul><li><a class="tc-tiddlylink-external" href="https://ykloveyxk.github.io/2017/02/25/axios全攻略/" rel="noopener noreferrer" target="_blank">https://ykloveyxk.github.io/2017/02/25/axios全攻略/</a></li><li><a class="tc-tiddlylink-external" href="https://imququ.com/post/four-ways-to-post-data-in-http.html" rel="noopener noreferrer" target="_blank">https://imququ.com/post/four-ways-to-post-data-in-http.html</a></li></ul>
+ajaxInstance.<span class="hljs-title function_">post</span>(apiUrl, params)</code></pre><p>参考：</p><ul><li><a class="tc-tiddlylink-external" href="https://ykloveyxk.github.io/2017/02/25/axios全攻略/" rel="noopener noreferrer" target="_blank">https://ykloveyxk.github.io/2017/02/25/axios全攻略/</a></li><li><a class="tc-tiddlylink-external" href="https://imququ.com/post/four-ways-to-post-data-in-http.html" rel="noopener noreferrer" target="_blank">https://imququ.com/post/four-ways-to-post-data-in-http.html</a></li></ul>
           </div>
       </div>
       <hr>

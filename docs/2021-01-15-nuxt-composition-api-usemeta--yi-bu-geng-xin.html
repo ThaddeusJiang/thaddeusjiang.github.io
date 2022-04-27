@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.2.1" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -73,12 +73,12 @@
             <hr>
 
             <p>我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。
-所以使用了 <a class="tc-tiddlylink-external" href="https://composition-api.nuxtjs.org/" rel="noopener noreferrer" target="_blank">@nuxtjs/composition-api</a></p><p>一个小需求，从 API 获取数据，更新 document 的 <code>title</code> 。</p><p>我们使用 <code>useMeta</code></p><pre class="js hljs"><code><span class="hljs-keyword">const</span> { title, meta } = useMeta()
+所以使用了 <a class="tc-tiddlylink-external" href="https://composition-api.nuxtjs.org/" rel="noopener noreferrer" target="_blank">@nuxtjs/composition-api</a></p><p>一个小需求，从 API 获取数据，更新 document 的 <code>title</code> 。</p><p>我们使用 <code>useMeta</code></p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> { title, meta } = <span class="hljs-title function_">useMeta</span>()
 
-useFetch(<span class="hljs-keyword">async</span> () =&gt; {
-  <span class="hljs-keyword">const</span> data  = <span class="hljs-keyword">await</span> someAjax();
+<span class="hljs-title function_">useFetch</span>(<span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> data  = <span class="hljs-keyword">await</span> <span class="hljs-title function_">someAjax</span>();
 
-  title.value.title = data.title
+  title.<span class="hljs-property">value</span>.<span class="hljs-property">title</span> = data.<span class="hljs-property">title</span>
 })</code></pre><p>为什么要写这篇笔记？</p><p>因为官方文档太迷惑了，让我浪费了很多时间。</p><p>官方文档：</p><pre><code>// You can even pass a function to achieve a computed meta
 const message = ref('')
 useMeta(() =&gt; ({ title: message.value }))</code></pre><p>这段话让我误以为：“如果需要异步更新，就必须以函数形式。”</p><p>实际上并不需要。仅以一篇笔记，纪念我失去的时间。</p><p>参考</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/nuxt-community/composition-api/issues/116#issuecomment-643707422" rel="noopener noreferrer" target="_blank">https://github.com/nuxt-community/composition-api/issues/116#issuecomment-643707422</a></li></ul>

@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.2.1" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -72,25 +72,25 @@
             <h1 class="title">2018-04-24 js 数组去重（使用 lodash）</h1>
             <hr>
 
-            <p>看上去简单的功能，其实并不简单。简单功能也需要大量测试的支持，这就是为什么 lodash 火爆的原因。</p><blockquote><div>推荐一篇文章（与本文无关）<a class="tc-tiddlylink-external" href="https://zhuanlan.zhihu.com/p/35864087" rel="noopener noreferrer" target="_blank">https://zhuanlan.zhihu.com/p/35864087</a></div></blockquote><p>以前 JS 代码写的少，“数组去重”功能写的也少。并没发现下面的方法有什么问题。</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> arr1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]
-<span class="hljs-keyword">const</span> arr2 = arr1.filter(<span class="hljs-function">(<span class="hljs-params">item, index, arr</span>) =&gt;</span> arr.indexOf(item) === index)</code></pre><p>但是，今天突然发现上面的代码无法完成<code>对象数组</code>的去重。</p><p>背景</p><p><code>对象数组</code>进行去重。</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> arra = [
+            <p>看上去简单的功能，其实并不简单。简单功能也需要大量测试的支持，这就是为什么 lodash 火爆的原因。</p><blockquote><div>推荐一篇文章（与本文无关）<a class="tc-tiddlylink-external" href="https://zhuanlan.zhihu.com/p/35864087" rel="noopener noreferrer" target="_blank">https://zhuanlan.zhihu.com/p/35864087</a></div></blockquote><p>以前 JS 代码写的少，“数组去重”功能写的也少。并没发现下面的方法有什么问题。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> arr1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]
+<span class="hljs-keyword">const</span> arr2 = arr1.<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">item, index, arr</span>) =&gt;</span> arr.<span class="hljs-title function_">indexOf</span>(item) === index)</code></pre><p>但是，今天突然发现上面的代码无法完成<code>对象数组</code>的去重。</p><p>背景</p><p><code>对象数组</code>进行去重。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> arra = [
   {
     <span class="hljs-attr">id</span>: <span class="hljs-number">10010</span>,
-    <span class="hljs-attr">name</span>: <span class="hljs-string">"蒋"</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;蒋&quot;</span>,
   },
   {
     <span class="hljs-attr">id</span>: <span class="hljs-number">10011</span>,
-    <span class="hljs-attr">name</span>: <span class="hljs-string">"jiang"</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;jiang&quot;</span>,
   },
   {
     <span class="hljs-attr">id</span>: <span class="hljs-number">10011</span>,
-    <span class="hljs-attr">name</span>: <span class="hljs-string">"jiang"</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;jiang&quot;</span>,
   },
 ]
-<span class="hljs-keyword">const</span> newArra = data.filter(<span class="hljs-function">(<span class="hljs-params">item, index, arr</span>) =&gt;</span> arr.indexOf(item) === index)
-<span class="hljs-comment">// newArra 和 data 一摸一样</span></code></pre><p>解决方法</p><p>使用 <code>lodash 4</code> 的 <code>uniqBy</code> 方法。</p><p>1. 安装</p><pre class="bash hljs"><code>yarn add lodash</code></pre><p>2. 使用</p><pre class="js hljs"><code><span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">"lodash"</span>
+<span class="hljs-keyword">const</span> newArra = data.<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">item, index, arr</span>) =&gt;</span> arr.<span class="hljs-title function_">indexOf</span>(item) === index)
+<span class="hljs-comment">// newArra 和 data 一摸一样</span></code></pre><p>解决方法</p><p>使用 <code>lodash 4</code> 的 <code>uniqBy</code> 方法。</p><p>1. 安装</p><pre class="hljs"><code class="bash hljs">yarn add lodash</code></pre><p>2. 使用</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;lodash&quot;</span>
 
-<span class="hljs-keyword">const</span> newArra = _.uniqBy(data, <span class="hljs-string">"id"</span>)</code></pre><p>参考：</p><ul><li><a class="tc-tiddlylink-external" href="https://lodash.com/docs/4.17.5#uniqBy" rel="noopener noreferrer" target="_blank">https://lodash.com/docs/4.17.5#uniqBy</a></li></ul>
+<span class="hljs-keyword">const</span> newArra = _.<span class="hljs-title function_">uniqBy</span>(data, <span class="hljs-string">&quot;id&quot;</span>)</code></pre><p>参考：</p><ul><li><a class="tc-tiddlylink-external" href="https://lodash.com/docs/4.17.5#uniqBy" rel="noopener noreferrer" target="_blank">https://lodash.com/docs/4.17.5#uniqBy</a></li></ul>
           </div>
       </div>
       <hr>

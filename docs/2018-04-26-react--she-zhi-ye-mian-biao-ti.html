@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.2.1" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -74,22 +74,22 @@
 
             <blockquote class="tc-quote tc-big-quote"><p>React 生态系统如此繁荣，以至于无论多小的问题都有开发者发布 library。 但是我们真的需要依赖那么多第三方吗？
 </p><cite>TJ</cite></blockquote><p>一个超级简单，但是还是需要问 Google 才知道的方法。</p><p>需求</p><p>React App 中 设置页面标题</p><p>这个位置：
-<img src="https://user-images.githubusercontent.com/17308201/39289287-6d28c1be-4966-11e8-8c05-ae53dac41b74.png"></p><p>背景</p><p>React App 和过去的 jQuery 页面不同，大部分 React App 是单页面应用，即只有一个 <code>html</code> 文件。
-而页面标题通常定义在 html 的 <code>header</code> 中。如下：</p><pre class="html hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ie=edge"</span>&gt;</span>
+<img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/39289287-6d28c1be-4966-11e8-8c05-ae53dac41b74.png"></p><p>背景</p><p>React App 和过去的 jQuery 页面不同，大部分 React App 是单页面应用，即只有一个 <code>html</code> 文件。
+而页面标题通常定义在 html 的 <code>header</code> 中。如下：</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;ie=edge&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>我是标题<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span></code></pre><p>所以我本来以为这个需求很难实现，就和同事说很难。然后他们就相信了。😂😂😂</p><p>调查以后才知道。超级简单。</p><p>解决方法</p><pre class="js hljs"><code>componentDidMount() {
-  <span class="hljs-built_in">document</span>.title = <span class="hljs-keyword">this</span>.props.title
-}</code></pre><blockquote><div>注意：</div><div>在 render() 方法中 document 并不是 js 对象，而是 HTML 对象。</div><div>所以在 render() 中 document.title 无法工作。</div></blockquote><p>所以，如果你想让页面标题随输入内容是变化，可以这么做：</p><pre class="js hljs"><code>renderDocumentTitle = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> { pageTitle } = <span class="hljs-keyword">this</span>.state
-  <span class="hljs-built_in">document</span>.title = pageTitle === <span class="hljs-string">''</span> ? <span class="hljs-string">'我是标题'</span> : pageTitle
+<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span></code></pre><p>所以我本来以为这个需求很难实现，就和同事说很难。然后他们就相信了。😂😂😂</p><p>调查以后才知道。超级简单。</p><p>解决方法</p><pre class="hljs"><code class="js hljs"><span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">props</span>.<span class="hljs-property">title</span>
+}</code></pre><blockquote><div>注意：</div><div>在 render() 方法中 document 并不是 js 对象，而是 HTML 对象。</div><div>所以在 render() 中 document.title 无法工作。</div></blockquote><p>所以，如果你想让页面标题随输入内容是变化，可以这么做：</p><pre class="hljs"><code class="js hljs">renderDocumentTitle = <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">const</span> { pageTitle } = <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>
+  <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = pageTitle === <span class="hljs-string">&#x27;&#x27;</span> ? <span class="hljs-string">&#x27;我是标题&#x27;</span> : pageTitle
 }
 
 ...
-render() {
-  <span class="hljs-keyword">this</span>.renderDocumentTitle()
+<span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">renderDocumentTitle</span>()
 }</code></pre><p>github 上有一个项目 <a class="tc-tiddlylink-external" href="https://github.com/gaearon/react-document-title" rel="noopener noreferrer" target="_blank">https://github.com/gaearon/react-document-title</a> 实现了这个功能。</p><p>但是，我个人不推荐使用它。这么简单的功能何必 <code>yarn add</code> 一次呢。</p><p>ref:</p><ul><li><a class="tc-tiddlylink-external" href="https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react" rel="noopener noreferrer" target="_blank">https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react</a></li></ul>
           </div>
       </div>

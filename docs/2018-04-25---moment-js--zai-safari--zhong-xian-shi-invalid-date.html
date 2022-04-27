@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.2.1" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -73,11 +73,11 @@
             <hr>
 
             <blockquote class="tc-quote tc-big-quote"><p>对应不同的浏览器规范，可能是前端开发者永远的痛。
-</p><cite>TJ</cite></blockquote><p>记录一条 bug。</p><p>Moment.js 在 Safari 中显示 Invalid date。</p><p>bug 代码</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> createdAt = <span class="hljs-string">"2018-04-11T08:56:39Z"</span>
+</p><cite>TJ</cite></blockquote><p>记录一条 bug。</p><p>Moment.js 在 Safari 中显示 Invalid date。</p><p>bug 代码</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> createdAt = <span class="hljs-string">&quot;2018-04-11T08:56:39Z&quot;</span>
 
-<span class="hljs-keyword">const</span> str = moment(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(createdAt)).format(<span class="hljs-string">"YYYY/MM/DD HH:mm"</span>)
+<span class="hljs-keyword">const</span> str = <span class="hljs-title function_">moment</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(createdAt)).<span class="hljs-title function_">format</span>(<span class="hljs-string">&quot;YYYY/MM/DD HH:mm&quot;</span>)
 
-<span class="hljs-comment">// Invalid date</span></code></pre><p>解决</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> str =  moment(createdAt, <span class="hljs-string">"YYYY-MM-DD HH:mm:ss"</span>).format(<span class="hljs-string">"YYYY/MM/DD HH:mm"</span>)
+<span class="hljs-comment">// Invalid date</span></code></pre><p>解决</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> str =  <span class="hljs-title function_">moment</span>(createdAt, <span class="hljs-string">&quot;YYYY-MM-DD HH:mm:ss&quot;</span>).<span class="hljs-title function_">format</span>(<span class="hljs-string">&quot;YYYY/MM/DD HH:mm&quot;</span>)
 }
 
 <span class="hljs-comment">// 2018/04/11 08:56</span></code></pre><p>这是 new Date() 在 Safari 中特殊表现引起的。</p><p>Moment.js 是无辜的。

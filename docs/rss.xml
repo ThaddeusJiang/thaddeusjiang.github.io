@@ -5,6 +5,51 @@
    <link>https://thaddeusjiang.com</link>
    <description>在日本开发 SaaS 产品，爱猫、爱读书、爱大海</description>
    <item>
+      <title>2022-04-27 Scenario-Focused Engineering 读后感</title>
+      <link>https://thaddeusjiang.com/2022-04-27-scenario-focused-engineering–du-hou-gan</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2022-04-27 Scenario-Focused Engineering 读后感</h1>
+            <hr>
+
+            <p>先说结论，这本书写的十分冗长，内容也虎头蛇尾，读这本书真的累得半死。虽然整体感受不佳，但是还是有一点点小收获的，勉强及格吧。</p><p>因为我要转行做产品经理，一位创业的朋友给我推荐了《Scenario-Focused Engineering》。
+朋友曾经在微软工作过，这本书是微软内部出版的书籍，暂时没找到中文版。</p><p>我和同事吃午饭闲聊时，分享了一下这本书的内容，以下是我们的对话摘要：</p><blockquote><div>J 是我，Z 是我同事。</div></blockquote><p>J: “上次那个谁分享的《Scenario-Focused Engineering》，我看了。还不错，你读了吗？”</p><p>Z: “没有，那本书除了书名以外，还有其他内容吗？”</p><p>J: “没有。不过就像《极简主义》和《It Doesn't Have To Be Crazy At Work》一样，书名虽然已经概括了整本书的核心，但是书中还是有很多细节不读一下是理解不了的。”</p><p>J: “作者蛮擅长讲故事的，有几个小故事我记得挺清楚的，我给你讲讲。”</p><h2 class="">第一个小故事讲的是 End-to-End User Experiences</h2><p>J: “故事的大概是：作者在上班的路上心情特别好，因为他买了一辆小汽车，他迫不及待地想和同事分享。
+为什么他想和同事分享他的小汽车呢？
+说来话长，作者一家人前一段时间去了欧洲旅行，在欧洲没有美国那种油老虎的汽车，只能租到小汽车，刚开始作者还有点担心小汽车能不能容纳一家人，不过在欧洲的旅行时开的小汽车体验非常好，让作者爱上了小汽车。
+作者回到美国以后，就像买一个在欧洲旅行时开的那种小汽车，但是作者发现在美国那种小汽车比较少，作者又花了一些精力终于买到了心心念念的小汽车。”</p><p>J: “所以，你觉得作者仅仅是因为买了汽车就心情愉悦，迫不及待地想和同事分享吗？
+不是的，是作者在旅行中体验过小汽车的美好，又在美国买到了比较稀有的小汽车，这个完整的过程才让作者心情愉悦，迫不及待的想和同事分享。”</p><p>J: “通过作者的小故事，作者想表达的是用户体验不单单是功能的堆砌，不是简单的性能的对比，用户体验是一个完整的过程。作者推荐通过 End-to-End Experiences 让用户心情愉悦，并想要和朋友分享你的产品。”</p><p>原文：</p><blockquote class="tc-quote tc-big-quote"><p>Can you build something your customers will truly love, so much so that the would go out of their way to recommend it to a friend?
+</p><cite>《Scenario-Focused Engineering》</cite></blockquote><h2 class="">第二个小故事我也不知道作者想讲什么，不过我现在还记忆犹新</h2><p>故事是曾经 Nintendo 有一款体重秤风靡美国。
+作为一款体重秤，Nintendo 的体重秤采用纯白的配色，一反常态的左右脚分离设计，的确是与众不同。
+<img class=" tc-image-loading" src="https://i.gyazo.com/b80f9ace9dfa5c7f98d1242bc9229d2d.jpg"></p><p>所以，你觉得 Nintendo 的体重秤是因为这些外形的特立独行而风靡美国吗？
+不是的，是因为这款体重秤可以链接 Nintendo 的游戏机打游戏，😂</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/8b1845345f9fa2951d93332eed95e631.jpg"></p><p>原文：</p><blockquote class="tc-quote tc-big-quote"><p>Customters want their problems solved, from their point of view, as seamless end-to-end experiences.
+</p><cite>《Scenario-Focused Engineering》</cite></blockquote><p>最后，我并不推荐这本书，因为从客观角度，它只能算及格。但是我分享一句我喜欢的日本语：“読んだ損する本がいない”。</p>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Wed, 27 April 2022 23:58:41 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2022-04-27-scenario-focused-engineering–du-hou-gan</guid>      
+   </item>
+
+   <item>
       <title>2022-03-27 读《俞军产品方法论》</title>
       <link>https://thaddeusjiang.com/2022-03-27–du–yu-jun-chan-pin-fang-fa-lun-</link>
 			<description><![CDATA[
@@ -72,7 +117,7 @@
 
             <p>从结果来看，这是一个十分简单的小项目，能做的只是通过 UI 创建和维护 Azure Cloud 资源。
 但是从过程来看，这是一次标准的渐进式开发，是我最擅长的领域。</p><p>并且项目没有开源，有点空口无凭的感觉。
-但是因为和几个朋友分享过，朋友们夸我做的不错，于是我决定还是分享出来吧。</p><p>TL;DR</p><ul><li>Staging 1: Manual in Azure Portal<ul><li>有熟练使用 Azure Portal 的技术者可以使用，且需要几个小时。</li></ul></li><li>Staging 2: Command Line instead of Manual<ul><li>会使用 Command Line 的技术者都可以使用，只需要几分钟。</li></ul></li><li>Staging 3: UI instead of Command Line<ul><li>任何人都可以使用，异步处理，一分钟以内完成。</li></ul></li></ul><h2 class="">Staging 1: Manual in Azure Portal</h2><blockquote><div>只有熟练使用 Azure Portal 的技术者可以使用，且需要几个小时。</div></blockquote><p>SmartCompany 是一个前后端分离的项目，backend 使用 Javalin 提供 REST API，frontend 使用 React 提供 SPA，然后将两者通过 docker-compose 整合在一起，部署在 Azure。</p><p>先说一下，我刚刚加入项目的时候，是怎么创建和维护 Azure Cloud 资源的吧。</p><p>我们有一个 README 文件，里面记录了：</p><ul><li>如何将 docker-compose 发布到 Azure App Service。</li><li>如何创建 Azure CosmosDB。</li><li>如何创建 Azure Storage</li><li>如何创建 DNS。</li><li>如何将它们整合到一起。</li></ul><p>如果你需要创建一个环境，就可以一边看着 README，一边打开 Azure Portal UI 操作了。</p><p><img src="https://user-images.githubusercontent.com/17308201/158159797-397d909a-c3f1-48d4-90c4-602017506876.png"></p><h2 class="">Staging 2: Command Line instead of Manual</h2><blockquote><div>会使用 Command Line 的技术者都可以使用，只需要几分钟。</div></blockquote><p>因为团队中几乎所有工程师都专注于 Backend 或者 Frontend，我加入了后，DevOps 就由我顺便承担了。
+但是因为和几个朋友分享过，朋友们夸我做的不错，于是我决定还是分享出来吧。</p><p>TL;DR</p><ul><li>Staging 1: Manual in Azure Portal<ul><li>有熟练使用 Azure Portal 的技术者可以使用，且需要几个小时。</li></ul></li><li>Staging 2: Command Line instead of Manual<ul><li>会使用 Command Line 的技术者都可以使用，只需要几分钟。</li></ul></li><li>Staging 3: UI instead of Command Line<ul><li>任何人都可以使用，异步处理，一分钟以内完成。</li></ul></li></ul><h2 class="">Staging 1: Manual in Azure Portal</h2><blockquote><div>只有熟练使用 Azure Portal 的技术者可以使用，且需要几个小时。</div></blockquote><p>SmartCompany 是一个前后端分离的项目，backend 使用 Javalin 提供 REST API，frontend 使用 React 提供 SPA，然后将两者通过 docker-compose 整合在一起，部署在 Azure。</p><p>先说一下，我刚刚加入项目的时候，是怎么创建和维护 Azure Cloud 资源的吧。</p><p>我们有一个 README 文件，里面记录了：</p><ul><li>如何将 docker-compose 发布到 Azure App Service。</li><li>如何创建 Azure CosmosDB。</li><li>如何创建 Azure Storage</li><li>如何创建 DNS。</li><li>如何将它们整合到一起。</li></ul><p>如果你需要创建一个环境，就可以一边看着 README，一边打开 Azure Portal UI 操作了。</p><p><img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/158159797-397d909a-c3f1-48d4-90c4-602017506876.png"></p><h2 class="">Staging 2: Command Line instead of Manual</h2><blockquote><div>会使用 Command Line 的技术者都可以使用，只需要几分钟。</div></blockquote><p>因为团队中几乎所有工程师都专注于 Backend 或者 Frontend，我加入了后，DevOps 就由我顺便承担了。
 而且我太笨了，我几乎无法通过 README 成功启动一个复杂的项目。（我从大学就发现自己这方面的问题了， Network 课程的实操课全是😭）</p><p>由于我的动手能力真的太差了，我一直是 Command Line 的忠实用户。
 于是我创建了一个 terraform 文件，大致如：<a class="tc-tiddlylink-external" href="https://gist.github.com/ThaddeusJiang/2473709158c4b3f57455fdd920c31304" rel="noopener noreferrer" target="_blank">https://gist.github.com/ThaddeusJiang/2473709158c4b3f57455fdd920c31304</a></p><p>从此之后，我创建环境基本上只需要：</p><pre><code>$ terraform plan
 $ terraform apply </code></pre><p>不过，很遗憾这个阶段，还是只有我一个人使用这个项目。
@@ -92,43 +137,6 @@ $ terraform apply </code></pre><p>不过，很遗憾这个阶段，还是只有�
 ]]></description>
       <pubDate>Mon, 14 March 2022 20:44:12 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/2022-03-14-devops–san-ji-jin-hua</guid>      
-   </item>
-
-   <item>
-      <title>2022-03-10 计划转行做【产品经理】了</title>
-      <link>https://thaddeusjiang.com/2022-03-10–ji-hua-zhuan-xing-zuo–chan-pin-jing-li–liao</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
-            </a>
-        </div>
-     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
-  </div>
-      
-
-<div class="container mt-5">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="title">2022-03-10 计划转行做【产品经理】了</h1>
-            <hr>
-
-            <p>其实这个想法很早以前就有了。不过人嘛，总是患得患失不敢轻易做出改变。</p><p><img src="https://user-images.githubusercontent.com/17308201/157680990-19ed5730-3344-4805-8071-84649a15b887.jpg"></p><p>为什么我想做产品？</p><p>虽然我很擅长编写代码，不过相较于编写复杂的算法，我其实只是单纯喜欢创造的快感。所以我对开发高性能、高并发、高可用的后台服务其实没什么兴趣，AI 更是完全提不起兴趣。这注定我无法成为顶尖的“技术专家”。</p><p>虽然我有多年 tech leader 的经验，但是我发现在公司里 tech leader 其实并没有多少可以发挥的空间。受限于项目经费、团队成员、发布期限等等原因，tech leader 经常会做出一些自己觉得可耻的决定（例如：开发某些自己非常反感的产品，删减掉自己引以为傲的功能等等）。</p><p>但是我发现产品经理就没有这些烦恼，产品经理可以天马行空地想象，产品经理可以用 PPT / prototype 演示自己的灵感，产品经理可以独立构想自己的作品。</p><p>我和一些朋友交流这个想法时，大家都以为我是想成为像 Jobs 和 Linus 一样的人。
-其实我虽然十分推崇他们的做事风格，但是毕竟没有直接接触过，他们对我的影响其实没有很大。</p><p>真正让我产生做产品的想法是两位中文领域的高手，一位是 61 ，另一位是刘少楠。</p><p>我是从 ScreenOff 开始变成 61 的粉丝的，第一次使用 ScreenOff 时我脑子里的想法就是：“这才是让我怦然心动的 App”，随后我陆续使用了谜底科技的【方块小子】【谜底时钟】。</p><blockquote><div>从技术角度看，能说谜底科技的 App 技术有多难，多高端吗？其实并没有。但是谜底科技的产品就是让我有一个愉悦感，一种舒适感，一种清风拂面、柳暗花明的感觉。</div></blockquote><p>我应该是 flomo 的早期用户了，不过我一直潜水也没有加少楠和 Light 的微信（虽然有很多机会可以加）。
-我每天都在使用 flomo，没有高深的使用心得，没有不明觉厉的方法论。我只是把 flomo 当成一个树洞，记录一些读书笔记和心中苦闷而已。</p><blockquote><div>从技术角度，flomo 功能有多强大，有很多革命性创新吗？其实并没有。但是 flomo 是我最常用的产品，是我个人秘密的宝库。</div></blockquote><p>真实工作中的苦闷让我萌生了对开发的厌倦感，61 和 少楠的作品激发了我对产品的一点点期待。另外最近读的一本书《启示录》和一个在日本创业的朋友（Felo.me）让我最终决定要做出这个改变。</p><p><img src="https://user-images.githubusercontent.com/17308201/157674139-e07dad9f-a9ca-4a13-8fb4-c76adce9c086.png"></p><p><img src="https://user-images.githubusercontent.com/17308201/157671566-85605938-3c91-47c1-865f-5449ce4e75a7.jpg"></p><p>祝我好运吧，希望我能在新的领域里做的开心，做的快乐。</p><p>最后，推荐关注他们。</p><ul><li><a class="tc-tiddlylink-external" href="https://twitter.com/liuyi0922" rel="noopener noreferrer" target="_blank">https://twitter.com/liuyi0922</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/plidezus" rel="noopener noreferrer" target="_blank">https://twitter.com/plidezus</a></li></ul>
-          </div>
-      </div>
-      <hr>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Thu, 10 March 2022 23:52:47 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2022-03-10–ji-hua-zhuan-xing-zuo–chan-pin-jing-li–liao</guid>      
    </item>
 
 </channel>

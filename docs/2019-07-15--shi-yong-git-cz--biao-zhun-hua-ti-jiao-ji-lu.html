@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.2.1" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -72,11 +72,11 @@
             <h1 class="title">2019-07-15 使用 git cz 标准化提交记录</h1>
             <hr>
 
-            <p>自从开始使用 git cz 取代 git commit -m，提交记录变得非常干净、漂亮，这整个过程也没有任何额外负担，非常自然。</p><h2 class="">安装 git cz</h2><pre class="sh hljs"><code>// install
+            <p>自从开始使用 git cz 取代 git commit -m，提交记录变得非常干净、漂亮，这整个过程也没有任何额外负担，非常自然。</p><h2 class="">安装 git cz</h2><pre class="hljs"><code class="sh hljs">// install
 $ npm install -g commitizen cz-conventional-changelog
 
 // config file
-$ <span class="hljs-built_in">echo</span> <span class="hljs-string">'{ "path": "cz-conventional-changelog" }'</span> &gt; ~/.czrc
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;{ &quot;path&quot;: &quot;cz-conventional-changelog&quot; }&#x27;</span> &gt; ~/.czrc
 
 // install vscode extension
 $ code --install-extension axetroy.vscode-changelog-generator</code></pre><h2 class="">使用</h2><pre><code>$ git add .

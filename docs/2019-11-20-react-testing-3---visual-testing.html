@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.2.1" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -74,26 +74,26 @@
 
             <blockquote class="tc-quote tc-big-quote"><p>Visual Testing 是我所接触的测试方法中最直观的，也是效果最明显的。
 </p></blockquote><h2 class="">1. 什么是 Visual Testing？</h2><p>简单的说，Visual Testing 就是从视觉效果上测试。
-更加全面的解释，参见 《What is Visual Testing? A comprehensive explanation》</p><h2 class="">为什么要使用 Visual Testing 呢？</h2><p>最简单的原因就是快速，直观，不易遗漏。</p><h2 class="">2. 如何做 Visual Testing？</h2><p>Percy.io 是一个性价比高的 Visual Testing 平台，对个人项目或者小团队非常实用。</p><p>Percy 提供多种集成方式，本文中选择从 E2E Testing 集成 Visual Testing。</p><p>1. 安装 <code>@percy/cypress</code></p><pre class="bash hljs"><code>yarn add --dev @percy/cypress</code></pre><p>2. 在 <code>cypress/support/commands.js</code> 添加 <code>@percy/cypress</code></p><pre class="js hljs"><code><span class="hljs-comment">// At the top of cypress/support/commands.js</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">"@percy/cypress"</span></code></pre><p>3. 在 <code>cypress/plugins/index.js</code> 添加 <code>percyHealthCheck</code></p><pre class="js hljs"><code><span class="hljs-comment">// In cypress/plugins/index.js</span>
-<span class="hljs-keyword">let</span> percyHealthCheck = <span class="hljs-built_in">require</span>(<span class="hljs-string">"@percy/cypress/task"</span>)
+更加全面的解释，参见 《What is Visual Testing? A comprehensive explanation》</p><h2 class="">为什么要使用 Visual Testing 呢？</h2><p>最简单的原因就是快速，直观，不易遗漏。</p><h2 class="">2. 如何做 Visual Testing？</h2><p>Percy.io 是一个性价比高的 Visual Testing 平台，对个人项目或者小团队非常实用。</p><p>Percy 提供多种集成方式，本文中选择从 E2E Testing 集成 Visual Testing。</p><p>1. 安装 <code>@percy/cypress</code></p><pre class="hljs"><code class="bash hljs">yarn add --dev @percy/cypress</code></pre><p>2. 在 <code>cypress/support/commands.js</code> 添加 <code>@percy/cypress</code></p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// At the top of cypress/support/commands.js</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;@percy/cypress&quot;</span></code></pre><p>3. 在 <code>cypress/plugins/index.js</code> 添加 <code>percyHealthCheck</code></p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// In cypress/plugins/index.js</span>
+<span class="hljs-keyword">let</span> percyHealthCheck = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;@percy/cypress/task&quot;</span>)
 
-<span class="hljs-built_in">module</span>.exports = <span class="hljs-function">(<span class="hljs-params">on, config</span>) =&gt;</span> {
-  on(<span class="hljs-string">"task"</span>, percyHealthCheck)
-}</code></pre><p>4. 在 Cypress 测试代码中添加 Percy 　代码</p><pre class="js hljs"><code><span class="hljs-comment">// cypress/integration/login.js</span>
-it(<span class="hljs-string">"visual testing for login page"</span>, () =&gt; {
-  cy.visit(<span class="hljs-string">"/login"</span>)
-  cy.percySnapshot()
-})</code></pre><p>5. 登陆 [Percy](<a class="tc-tiddlylink-external" href="https://percy.io/" rel="noopener noreferrer" target="_blank">https://percy.io/</a>) 新建项目，并获得 Token</p><p><img src="https://i.gyazo.com/99015684ec24f10d7e5e08839e6a568c.jpg"></p><p>6. 通过 Percy 启动 Cypress</p><pre class="bash hljs"><code>$ PERCY_TOKEN=xxx percy <span class="hljs-built_in">exec</span> -- cypress run</code></pre><h2 class="">3. 常见问题</h2><p>1. 如何自动化测试</p><p>以 GitHub Actions 为例：</p><p>第一步：定义 npm scripts</p><pre class="json hljs"><code>// package.json
-"scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "cy:open": "cypress open",
-  "start-server": "npm start",
-++  "cy:record": "percy exec -- cypress run --record",
-  "cy:ci": "start-server-and-test start-server http://localhost:3000 cy:record"
-},</code></pre><p>第二步： 定义 <code>.github/workflows/pull_request.yml</code></p><pre class="yaml hljs"><code><span class="hljs-attr">name:</span> <span class="hljs-string">"PR Checks"</span>
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-function">(<span class="hljs-params">on, config</span>) =&gt;</span> {
+  <span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;task&quot;</span>, percyHealthCheck)
+}</code></pre><p>4. 在 Cypress 测试代码中添加 Percy 　代码</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// cypress/integration/login.js</span>
+<span class="hljs-title function_">it</span>(<span class="hljs-string">&quot;visual testing for login page&quot;</span>, <span class="hljs-function">() =&gt;</span> {
+  cy.<span class="hljs-title function_">visit</span>(<span class="hljs-string">&quot;/login&quot;</span>)
+  cy.<span class="hljs-title function_">percySnapshot</span>()
+})</code></pre><p>5. 登陆 [Percy](<a class="tc-tiddlylink-external" href="https://percy.io/" rel="noopener noreferrer" target="_blank">https://percy.io/</a>) 新建项目，并获得 Token</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/99015684ec24f10d7e5e08839e6a568c.jpg"></p><p>6. 通过 Percy 启动 Cypress</p><pre class="hljs"><code class="bash hljs">$ PERCY_TOKEN=xxx percy <span class="hljs-built_in">exec</span> -- cypress run</code></pre><h2 class="">3. 常见问题</h2><p>1. 如何自动化测试</p><p>以 GitHub Actions 为例：</p><p>第一步：定义 npm scripts</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// package.json</span>
+<span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;start&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;react-scripts start&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;react-scripts build&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;test&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;react-scripts test&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;cy:open&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cypress open&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;start-server&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;npm start&quot;</span><span class="hljs-punctuation">,</span>
+++  <span class="hljs-attr">&quot;cy:record&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;percy exec -- cypress run --record&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;cy:ci&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;start-server-and-test start-server http://localhost:3000 cy:record&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span></code></pre><p>第二步： 定义 <code>.github/workflows/pull_request.yml</code></p><pre class="hljs"><code class="yaml hljs"><span class="hljs-attr">name:</span> <span class="hljs-string">&quot;PR Checks&quot;</span>
 
 <span class="hljs-attr">on:</span> <span class="hljs-string">pull_request</span>
 

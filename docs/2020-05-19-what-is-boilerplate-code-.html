@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.2.1" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -73,9 +73,9 @@
             <hr>
 
             <p>终于理解了 Svelte 宣扬的第一条特性 “Build boilerplate-free components” 是什么意思。</p><blockquote class="tc-quote tc-big-quote"><p>boilerplate code，即编写大量和业务无关的代码。
-</p></blockquote><p>如 React hook：</p><pre class="js hljs"><code><span class="hljs-keyword">const</span> [name, setName] = useState(<span class="hljs-string">''</span>)
-<span class="hljs-keyword">const</span> [age, setAge] = useState(<span class="hljs-number">0</span>)
-<span class="hljs-keyword">const</span> [address, setAddress] = useState(<span class="hljs-string">''</span>)
+</p></blockquote><p>如 React hook：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> [name, setName] = <span class="hljs-title function_">useState</span>(<span class="hljs-string">&#x27;&#x27;</span>)
+<span class="hljs-keyword">const</span> [age, setAge] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>)
+<span class="hljs-keyword">const</span> [address, setAddress] = <span class="hljs-title function_">useState</span>(<span class="hljs-string">&#x27;&#x27;</span>)
 
 <span class="hljs-keyword">return</span> (
   &lt;div&gt;
@@ -83,10 +83,10 @@
     &lt;input value={age} onChange={(e) =&gt; setAge(e.target.value)}&gt;
     &lt;input value={address} onChange={(e) =&gt; setAddress(e.target.value)}&gt;
   &lt;/div&gt;
-)</code></pre><p>其实 setName 和 onChange 等函数完全和业务无关，单纯是为了 React 语法而已。</p><p>所以 Svelte 提供 binding 语法</p><pre class="js hljs"><code>&lt;script&gt;
-let name = ''
-let age = 0
-let address = ''
+)</code></pre><p>其实 setName 和 onChange 等函数完全和业务无关，单纯是为了 React 语法而已。</p><p>所以 Svelte 提供 binding 语法</p><pre class="hljs"><code class="js hljs">&lt;script&gt;
+<span class="hljs-keyword">let</span> name = <span class="hljs-string">&#x27;&#x27;</span>
+<span class="hljs-keyword">let</span> age = <span class="hljs-number">0</span>
+<span class="hljs-keyword">let</span> address = <span class="hljs-string">&#x27;&#x27;</span>
 &lt;/script&gt;
 
 &lt;input value={name}&gt;

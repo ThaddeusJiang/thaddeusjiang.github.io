@@ -2,12 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
    <url>
-      <loc>.//404</loc>
-      <lastmod>2021-05-24</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//2017-06-23–fen-xiang-ji-ge-git–de-shi-yong-chang-jing</loc>
       <lastmod>2021-04-17</lastmod>
       <changefreq>monthly</changefreq>
@@ -488,6 +482,24 @@
    </url>
 
    <url>
+      <loc>.//2022-04-27-scenario-focused-engineering–du-hou-gan</loc>
+      <lastmod>2022-04-27</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//404</loc>
+      <lastmod>2021-05-24</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//blog</loc>
+      <lastmod>2022-03-13</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//devops</loc>
       <lastmod>2021-08-18</lastmod>
       <changefreq>monthly</changefreq>
@@ -512,6 +524,12 @@
    </url>
 
    <url>
+      <loc>.//index</loc>
+      <lastmod>2022-03-13</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//my-other-articles–archived-</loc>
       <lastmod>2021-08-03</lastmod>
       <changefreq>monthly</changefreq>
@@ -519,18 +537,6 @@
 
    <url>
       <loc>.//welcome</loc>
-      <lastmod>2022-03-13</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//blog</loc>
-      <lastmod>2022-03-13</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//index</loc>
       <lastmod>2022-03-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
