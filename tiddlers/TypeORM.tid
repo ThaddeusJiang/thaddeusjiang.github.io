@@ -1,8 +1,9 @@
 created: 20211201093529253
 creator: TJ
-modified: 20211201093652000
+modified: 20220423090811367
 modifier: TJ
-tags: TechRadar TechRadar:语言&框架 TechRadar:试验
+revision: 0
+tags: TechRadar TechRadar:试验 TechRadar:语言&框架
 title: TypeORM
 
 TypeORM supports both Active Record and Data Mapper patterns, 

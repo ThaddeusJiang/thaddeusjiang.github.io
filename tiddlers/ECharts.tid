@@ -1,0 +1,11 @@
+created: 20220220034431067
+modified: 20220423090811395
+revision: 0
+tags: TechRadar TechRadar:暂缓
+title: ECharts
+
+<<<.tc-big-quote
+永远不要使用 ECharts。
+
+ECharts 最大的问题就是：不同图形，参数不一样。导致无法掌握，难道我要学习全部 charts 的参数吗？
+<<<TJ
