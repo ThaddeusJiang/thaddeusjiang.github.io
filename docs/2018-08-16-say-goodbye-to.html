@@ -1,0 +1,155 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2018-08-16 Say Goodbye to '../' '../../' '../../../' ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="开发 JavaScript 时，你有没有遇到过这样的情况。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2018-08-16-say-goodbye-to" />
+<meta property="og:title" content="2018-08-16 Say Goodbye to '../' '../../' '../../../' ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="开发 JavaScript 时，你有没有遇到过这样的情况。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2018-08-16 Say Goodbye to '../' '../../' '../../../'.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2018-08-16 Say Goodbye to '../' '../../' '../../../' ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="开发 JavaScript 时，你有没有遇到过这样的情况。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2018-08-16 Say Goodbye to '../' '../../' '../../../'</h1>
+            <hr>
+
+            <p>开发 JavaScript 时，你有没有遇到过这样的情况。</p><p>页面复用大量共通组件，这些共通组件大体都在同一个文件夹下。但是由于组件分割和文件夹层级较深的缘故，你可能常常会写出如下代码：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// some.js</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">VodMediaPlayer</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../../components/VodVideo/VodMediaPlayer&#x27;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">VideoInfo</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../../components/VodVideo/VideoInfo&#x27;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">RecommendList</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../../components/RecommendList/RecommendList&#x27;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">Comment</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../../components/Comment/Comment&#x27;</span>
+<span class="hljs-keyword">import</span> { get, mediaPath } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../../util/fetch&#x27;</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-variable constant_">API_VIDEO</span>, <span class="hljs-variable constant_">API_CHANNEL</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../../util/constants&#x27;</span></code></pre><p>你知道自己在键盘上敲击 <code>../</code> <code>../../</code> <code>../../../</code> 时浪费了多少时间吗？</p><blockquote class="tc-quote tc-big-quote"><p>时间就是金钱。
+</p><cite>名言</cite></blockquote><p>为了解决这种问题，主流的前端工具都给出了解决方案。</p><p>本文介绍如何使用 babel plugin 的解决方案。</p><h2 class="">正文</h2><p>首先我们选择 babel-plugin-module-resolver。</p><p>1. 安装</p><pre><code>$ npm install --save-dev babel-plugin-module-resolver</code></pre><p>2. 配置 .babelrc</p><pre class="hljs"><code class="json hljs"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;presets&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;env&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;react&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;plugins&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;module-resolver&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;root&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;./&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;alias&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;components&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;./src/components&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;util&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;./src/util&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre><p>这时你的代码可以修改为如下：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// some.js</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">VodMediaPlayer</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;components/VodVideo/VodMediaPlayer&#x27;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">VideoInfo</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;components/VodVideo/VideoInfo&#x27;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">RecommendList</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;components/RecommendList/RecommendList&#x27;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">Comment</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;components/Comment/Comment&#x27;</span>
+<span class="hljs-keyword">import</span> { get, mediaPath } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;util/fetch&#x27;</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-variable constant_">API_VIDEO</span>, <span class="hljs-variable constant_">API_CHANNEL</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;util/constants&#x27;</span></code></pre><p>注意： 如果你使用了 eslint，这时 eslint 会报错，因为它不能处理新的写法。</p><p>3. 添加对应的 eslint plugin</p><p>我们选择 eslint-import-resolver-babel-module</p><pre><code>$ npm install --save-dev eslint-plugin-import eslint-import-resolver-babel-module</code></pre><p>配置 .eslintrc</p><pre class="hljs"><code class="json hljs"><span class="hljs-attr">&quot;settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;import/resolver&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;babel-module&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre><p>注意： 这时 eslint 不会报错了， 但是你会发现你点击 import 后面的组件名， VSCode 不会自动跳转到组件定义。</p><p>4. 在项目根目录下添加 jsconfig.json 解决</p><pre class="hljs"><code class="json hljs"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;compilerOptions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;baseUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;.&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;paths&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;components/*&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;src/components/*&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;util/*&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;src/util/*&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;locales/*&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;src/locales/*&quot;</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre><p>到此为止，我们终于可以 <strong>Say Goodbye to '../' '../../' '../../../</strong>' 了。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/tleunen/babel-plugin-module-resolver" rel="noopener noreferrer" target="_blank">https://github.com/tleunen/babel-plugin-module-resolver</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/tleunen/eslint-import-resolver-babel-module" rel="noopener noreferrer" target="_blank">https://github.com/tleunen/eslint-import-resolver-babel-module</a></li></ul><blockquote class="tc-quote"><p>本文曾发布于 segmentfualt，<a class="tc-tiddlylink-external" href="https://segmentfault.com/a/1190000016033668" rel="noopener noreferrer" target="_blank">https://segmentfault.com/a/1190000016033668</a>
+</p></blockquote>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

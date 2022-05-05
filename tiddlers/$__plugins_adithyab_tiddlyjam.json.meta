@@ -6,4 +6,4 @@ name: TiddlyJam
 plugin-type: plugin
 title: $:/plugins/adithyab/tiddlyjam
 type: application/json
-version: 0.2.6
+version: 0.2.7

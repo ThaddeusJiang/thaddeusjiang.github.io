@@ -1,0 +1,136 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2018-04-26 React 设置页面标题 ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2018-04-26-react-she-zhi-ye-mian-biao-ti" />
+<meta property="og:title" content="2018-04-26 React 设置页面标题 ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2018-04-26 React 设置页面标题.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2018-04-26 React 设置页面标题 ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2018-04-26 React 设置页面标题</h1>
+            <hr>
+
+            <blockquote class="tc-quote tc-big-quote"><p>React 生态系统如此繁荣，以至于无论多小的问题都有开发者发布 library。 但是我们真的需要依赖那么多第三方吗？
+</p><cite>TJ</cite></blockquote><p>一个超级简单，但是还是需要问 Google 才知道的方法。</p><p>需求</p><p>React App 中 设置页面标题</p><p>这个位置：
+<img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/39289287-6d28c1be-4966-11e8-8c05-ae53dac41b74.png"></p><p>背景</p><p>React App 和过去的 jQuery 页面不同，大部分 React App 是单页面应用，即只有一个 <code>html</code> 文件。
+而页面标题通常定义在 html 的 <code>header</code> 中。如下：</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;ie=edge&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>我是标题<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span></code></pre><p>所以我本来以为这个需求很难实现，就和同事说很难。然后他们就相信了。😂😂😂</p><p>调查以后才知道。超级简单。</p><p>解决方法</p><pre class="hljs"><code class="js hljs"><span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">props</span>.<span class="hljs-property">title</span>
+}</code></pre><blockquote><div>注意：</div><div>在 render() 方法中 document 并不是 js 对象，而是 HTML 对象。</div><div>所以在 render() 中 document.title 无法工作。</div></blockquote><p>所以，如果你想让页面标题随输入内容是变化，可以这么做：</p><pre class="hljs"><code class="js hljs">renderDocumentTitle = <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">const</span> { pageTitle } = <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>
+  <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = pageTitle === <span class="hljs-string">&#x27;&#x27;</span> ? <span class="hljs-string">&#x27;我是标题&#x27;</span> : pageTitle
+}
+
+...
+<span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">renderDocumentTitle</span>()
+}</code></pre><p>github 上有一个项目 <a class="tc-tiddlylink-external" href="https://github.com/gaearon/react-document-title" rel="noopener noreferrer" target="_blank">https://github.com/gaearon/react-document-title</a> 实现了这个功能。</p><p>但是，我个人不推荐使用它。这么简单的功能何必 <code>yarn add</code> 一次呢。</p><p>ref:</p><ul><li><a class="tc-tiddlylink-external" href="https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react" rel="noopener noreferrer" target="_blank">https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

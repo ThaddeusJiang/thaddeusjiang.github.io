@@ -1,0 +1,126 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2021-06-09 React Test 中 act() 有什么作用？ ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="可能 Frontend 门槛真的太低了。竟然有自称熟练掌握 React 的人回答不上来 React Test act() 的用途。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2021-06-09-react-test-zhong-act-you-shi-me-zuo-yong" />
+<meta property="og:title" content="2021-06-09 React Test 中 act() 有什么作用？ ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="可能 Frontend 门槛真的太低了。竟然有自称熟练掌握 React 的人回答不上来 React Test act() 的用途。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2021-06-09 React Test 中 act() 有什么作用？.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2021-06-09 React Test 中 act() 有什么作用？ ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="可能 Frontend 门槛真的太低了。竟然有自称熟练掌握 React 的人回答不上来 React Test act() 的用途。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2021-06-09 React Test 中 act() 有什么作用？</h1>
+            <hr>
+
+            <p>可能 Frontend 门槛真的太低了。竟然有自称熟练掌握 React 的人回答不上来 React Test act() 的用途。</p><p>如果你在工作中使用 React，那么迟早你会遇到如下的测试代码。</p><pre class="hljs"><code class="js hljs"><span class="hljs-title function_">it</span>(<span class="hljs-string">&quot;renders hello world&quot;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">act</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HelloWorld</span> /&gt;</span></span>, container);
+  });
+  <span class="hljs-title function_">expect</span>(container.<span class="hljs-property">textContent</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-string">&quot;Hello, World.&quot;</span>);
+});</code></pre><p>但是绝大多数时候，你的测试代码是这样的：</p><pre class="hljs"><code class="js hljs"><span class="hljs-title function_">it</span>(<span class="hljs-string">&quot;renders hello world&quot;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HelloWorld</span> /&gt;</span></span>, container);
+  <span class="hljs-title function_">expect</span>(container.<span class="hljs-property">textContent</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-string">&quot;Hello, World.&quot;</span>);
+});</code></pre><p>act() 有什么作用呢？为什么有的时候需要，有的时候却不需要呢？</p><p>React Docs </p><blockquote><div>When writing UI tests, tasks like rendering, user events, or data fetching can be considered as “units” of interaction with a user interface. react-dom/test-utils provides a helper called act() that makes sure all updates related to these “units” have been processed and applied to the DOM before you make any assertions:</div></blockquote><p><strong>TL;DR</strong></p><p>很多时候，用户界面（UI）并不能一瞬间就被绘制完成，可能导致断言失败。act() 可以确保断言执行时 UI 已经被绘制完成。</p><h2 class="">act() 效果</h2><p>no act</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/d779e38551cfc4405010f9e64c41dbfa.png"></p><p>act render</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/5ed0da10697c2a6b8ccf24021b94b893.png"></p><p>那么是不是在所有测试中都应该写 act()？</p><p>理论上，写了绝对不会错，不写可能会出错。</p><p>不过不用担心，React 社区非常强大，已经有 open source 帮我们完成了这项枯燥乏味的工作。</p><p>Thanks testing-library</p><blockquote><div>All renders and events being fired are wrapped in act, so you don't really need this. </div></blockquote><h2 class="">我在面试中会如何提问 ?</h2><ol><li>你在项目中写测试吗？</li><li>如果 UI 存在异步或者耗时的操作，应该如何测试？</li><li>你了解 React test-utils act() 吗？</li><li>你能简单讲讲 act() 的原理吗？</li></ol><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://reactjs.org/docs/testing-recipes.html#act" rel="noopener noreferrer" target="_blank">https://reactjs.org/docs/testing-recipes.html#act</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/threepointone/react-act-examples/blob/master/sync.md" rel="noopener noreferrer" target="_blank">https://github.com/threepointone/react-act-examples/blob/master/sync.md</a></li><li><a class="tc-tiddlylink-external" href="https://testing-library.com/docs/preact-testing-library/api/#act" rel="noopener noreferrer" target="_blank">https://testing-library.com/docs/preact-testing-library/api/#act</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

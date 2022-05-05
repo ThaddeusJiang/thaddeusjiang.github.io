@@ -1,0 +1,119 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2021-04-02 永远不要再使用巨型 UI 框架了 ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="什么是巨型 UI 框架？">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2021-04-02-yong-yuan-bu-yao-zai-shi-yong-ju-xing-ui-kuang-jia-liao" />
+<meta property="og:title" content="2021-04-02 永远不要再使用巨型 UI 框架了 ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="什么是巨型 UI 框架？" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2021-04-02 永远不要再使用巨型 UI 框架了.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2021-04-02 永远不要再使用巨型 UI 框架了 ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="什么是巨型 UI 框架？" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2021-04-02 永远不要再使用巨型 UI 框架了</h1>
+            <hr>
+
+            <h2 class="">什么是巨型 UI 框架？</h2><ul><li><a class="tc-tiddlylink-external" href="https://ant.design/" rel="noopener noreferrer" target="_blank">https://ant.design/</a></li><li><a class="tc-tiddlylink-external" href="https://material.io/" rel="noopener noreferrer" target="_blank">https://material.io/</a></li><li>...</li></ul><h2 class="">为什么不要再使用巨型 UI 框架？</h2><ol><li>巨型 UI 框架为了泛用性，增加了无数极少使用的属性，增加了学习成本。</li><li>巨型 UI 框架为了保持人气，频繁升级，造成不必要的维护成本。</li><li>巨型 UI 框架为了差异性，定义风格迥异的接口，经验无法轻松应用到其他框架。</li></ol><h2 class="">事例：</h2><p>新公司项目使用 antd 开发，最近我们希望加入 dark mode 特性。</p><p>我开发过 dark mode，其实设计思路特别简单。</p><ol><li>CSS 中关于颜色的部分全部使用 CSS variables</li><li>提供 light.css 和 dark.css 定义 CSS variables</li><li>根据用户选择动态加载 light.css 或者 dark.css</li></ol><blockquote class="tc-quote tc-big-quote"><p>但是，如果你使用 antd，那就麻烦了。
+</p></blockquote><p>细节不想回忆了，太闹心了。列一下提纲吧</p><ol><li>不得不引入 react-app-rewired 修改 create-react-app 的默认配置。</li><li>不得不引入 less.js 来读取 less 中定义的变量。</li><li>不得不引入测试大量组件，因为 antd 提供了太多的变量，根本不知道是否遗漏。</li></ol><p>如果你不信邪，可以参考下面资料</p><ul><li><a class="tc-tiddlylink-external" href="https://ant.design/docs/react/customize-theme-cn" rel="noopener noreferrer" target="_blank">https://ant.design/docs/react/customize-theme-cn</a></li><li><a class="tc-tiddlylink-external" href="https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0" rel="noopener noreferrer" target="_blank">https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0</a></li><li><a class="tc-tiddlylink-external" href="https://pro.ant.design/blog/change-theme-cn" rel="noopener noreferrer" target="_blank">https://pro.ant.design/blog/change-theme-cn</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

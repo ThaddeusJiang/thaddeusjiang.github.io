@@ -6,7 +6,7 @@
    <description>在日本开发 SaaS 产品，爱猫、爱读书、爱大海</description>
    <item>
       <title>2022-04-27 Scenario-Focused Engineering 读后感</title>
-      <link>https://thaddeusjiang.com/2022-04-27-scenario-focused-engineering–du-hou-gan</link>
+      <link>https://thaddeusjiang.com/2022-04-27-scenario-focused-engineering-du-hou-gan</link>
 			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
@@ -46,12 +46,12 @@
 
 ]]></description>
       <pubDate>Wed, 27 April 2022 23:58:41 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2022-04-27-scenario-focused-engineering–du-hou-gan</guid>      
+			<guid>https://thaddeusjiang.com/2022-04-27-scenario-focused-engineering-du-hou-gan</guid>      
    </item>
 
    <item>
       <title>2022-03-27 读《俞军产品方法论》</title>
-      <link>https://thaddeusjiang.com/2022-03-27–du–yu-jun-chan-pin-fang-fa-lun-</link>
+      <link>https://thaddeusjiang.com/2022-03-27-du-yu-jun-chan-pin-fang-fa-lun</link>
 			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
@@ -80,7 +80,7 @@
 宝洁最初产生产品经理的原因也是因为香皂的产品质量无法拉开差距，香皂的生产技术也无法拉开差距。
 看来产品经理的工作似乎回到了最初的样子。</p><p>哈哈哈，看来现在转产品对于我来说是一个不错的时机。我太喜欢那些返璞归真的东西了，相信从我的 blog 使用的技术你也能看出来。</p><p>最后，我想客观的评价一下这本书，就像曾经在豆瓣上做的事情一样。</p><p>我给这本书 4 星（★★★★☆），首先书中干货很多，对于一个想要成为产品经理的人来说，是一本十分推荐的书籍。
 其次这本书的编辑也很厉害，开篇 3 篇高质量的推荐序，第一章和第二章直接点题详细讨论俞军产品方法论，正文结束后又直接通过附录的形式展示作者曾经公开发表的内容，实现首尾呼应。
-不过，老实说第三章和第四章真的挺枯燥的，有点堆砌概念强行凑字数的感觉，我完全没看下去。😂</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://podcasts.apple.com/jp/podcast/%E4%B8%89%E4%BA%94%E7%8E%AF/id1475113228?i=1000544207187" rel="noopener noreferrer" target="_blank">No.54 跟少楠聊聊做 flomo 的新体会，以及什么是 indie</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#2022-03-10--ji-hua-zhuan-xing-zuo--chan-pin-jing-li--liao">2022-03-10 计划转行做【产品经理】了</a></li></ul>
+不过，老实说第三章和第四章真的挺枯燥的，有点堆砌概念强行凑字数的感觉，我完全没看下去。😂</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://podcasts.apple.com/jp/podcast/%E4%B8%89%E4%BA%94%E7%8E%AF/id1475113228?i=1000544207187" rel="noopener noreferrer" target="_blank">No.54 跟少楠聊聊做 flomo 的新体会，以及什么是 indie</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#2022-03-10-ji-hua-zhuan-xing-zuo-chan-pin-jing-li-liao">2022-03-10 计划转行做【产品经理】了</a></li></ul>
           </div>
       </div>
       <hr>
@@ -90,12 +90,12 @@
 
 ]]></description>
       <pubDate>Sun, 27 March 2022 22:12: +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2022-03-27–du–yu-jun-chan-pin-fang-fa-lun-</guid>      
+			<guid>https://thaddeusjiang.com/2022-03-27-du-yu-jun-chan-pin-fang-fa-lun</guid>      
    </item>
 
    <item>
       <title>2022-03-14 DevOps 三级进化</title>
-      <link>https://thaddeusjiang.com/2022-03-14-devops–san-ji-jin-hua</link>
+      <link>https://thaddeusjiang.com/2022-03-14-devops-san-ji-jin-hua</link>
 			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
@@ -136,7 +136,7 @@ $ terraform apply </code></pre><p>不过，很遗憾这个阶段，还是只有�
 
 ]]></description>
       <pubDate>Mon, 14 March 2022 20:44:12 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2022-03-14-devops–san-ji-jin-hua</guid>      
+			<guid>https://thaddeusjiang.com/2022-03-14-devops-san-ji-jin-hua</guid>      
    </item>
 
 </channel>

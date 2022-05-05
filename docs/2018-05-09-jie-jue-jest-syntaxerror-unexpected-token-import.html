@@ -1,0 +1,157 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2018-05-09 解决 Jest "SyntaxError Unexpected token import" ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="应该是 Jest “SyntaxError Unexpected token import” 最简单的解决方案。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2018-05-09-jie-jue-jest-syntaxerror-unexpected-token-import" />
+<meta property="og:title" content="2018-05-09 解决 Jest "SyntaxError Unexpected token import" ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="应该是 Jest “SyntaxError Unexpected token import” 最简单的解决方案。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2018-05-09 解决 Jest "SyntaxError Unexpected token import".png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2018-05-09 解决 Jest "SyntaxError Unexpected token import" ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="应该是 Jest “SyntaxError Unexpected token import” 最简单的解决方案。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2018-05-09 解决 Jest "SyntaxError Unexpected token import"</h1>
+            <hr>
+
+            <p>应该是 <code>Jest “SyntaxError Unexpected token import”</code> 最简单的解决方案。</p><h2 class="">背景</h2><p>React 的 SPA 项目，使用 And Design 作为 UI 框架。
+使用 Jest + Enzyme 进行单体测试。</p><p>Antd 使用 <code>babel-plugin-import</code>  按需加载。
+.babelrc</p><pre class="hljs"><code class="json hljs"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;presets&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;env&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;react&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;stage-0&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;plugins&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">[</span>
+      <span class="hljs-string">&quot;import&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;libraryName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;antd&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;libraryDirectory&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;es&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre><p>问题</p><p>Jest 执行测试时出现 SyntaxError: Unexpected token import 错误。</p><p><img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/39807414-347f9684-53b7-11e8-878f-1a99c6ea875d.png"></p><p>原因：Jest 无法理解 ES6 的 <code>import</code> 特性。</p><p>解决方法：</p><p>第 1 步：删掉 bebel-plugin-import 配置中 <code>libraryDirectory</code> 的部分。</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// .babelrc</span>
+<span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;presets&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;env&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;react&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;stage-0&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;plugins&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">[</span>
+      <span class="hljs-string">&quot;import&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;libraryName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;antd&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre><p>这时，运行 jest 会出现 ReferenceError: Select is not defined 错误。</p><p><img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/39807911-85bc09e6-53b8-11e8-83d3-fc66830bb5e2.png"></p><p>第 2 步：安装 babel-plugin-transform-es2015-modules-commonjs</p><pre class="hljs"><code class="sh hljs">$ yarn add --dev babel-plugin-transform-es2015-modules-commonjs</code></pre><p>更新 .babelrc</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// .babelrc</span>
+<span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;presets&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;env&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;react&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;stage-0&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;plugins&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-string">&quot;transform-es2015-modules-commonjs&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">[</span>
+      <span class="hljs-string">&quot;import&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;libraryName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;antd&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre><p>再次运行 jest，问题解决了。</p><p><img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/39808022-d5250500-53b8-11e8-8158-4b0825482904.png"></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/ant-design/ant-design/issues/5362" rel="noopener noreferrer" target="_blank">https://github.com/ant-design/ant-design/issues/5362</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/ant-design/babel-plugin-import/issues/189" rel="noopener noreferrer" target="_blank">https://github.com/ant-design/babel-plugin-import/issues/189</a></li><li><a class="tc-tiddlylink-external" href="https://www.npmjs.com/package/babel-plugin-import" rel="noopener noreferrer" target="_blank">https://www.npmjs.com/package/babel-plugin-import</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

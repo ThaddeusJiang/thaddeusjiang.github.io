@@ -1,0 +1,160 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2019-05-14 如何使用 GitHub 账号登录？ ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="一个特别简单的需求，开发一个使用 GitHub 登陆的功能。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2019-05-14-ru-he-shi-yong-github-zhang-hao-deng-lu" />
+<meta property="og:title" content="2019-05-14 如何使用 GitHub 账号登录？ ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="一个特别简单的需求，开发一个使用 GitHub 登陆的功能。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2019-05-14 如何使用 GitHub 账号登录？.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2019-05-14 如何使用 GitHub 账号登录？ ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="一个特别简单的需求，开发一个使用 GitHub 登陆的功能。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2019-05-14 如何使用 GitHub 账号登录？</h1>
+            <hr>
+
+            <p>一个特别简单的需求，开发一个使用 GitHub 登陆的功能。</p><p>如图：</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/fd8686eff0b781065b1edccefa367169.png"></p><p>TL;DR</p><ol><li>创建一个 firebase 项目</li><li>注册一个 GitHub 应用</li><li>代码示例</li></ol><h1 class="">创建 firebase 项目</h1><p>登录 <a class="tc-tiddlylink-external" href="https://console.firebase.google.com" rel="noopener noreferrer" target="_blank">https://console.firebase.google.com</a>，并创建一个项目。
+进入 Auth 菜单，启用 GitHub。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/ee6c38969827c543c68ef212adb6dd8f.png"></p><p>客户端 ID 和客户端密钥可以从 GitHub App 完成界面获取。</p><h1 class="">注册一个 GitHub 应用</h1><p>进入 <a class="tc-tiddlylink-external" href="https://github.com/settings/applications/new" rel="noopener noreferrer" target="_blank">https://github.com/settings/applications/new</a></p><p><img class=" tc-image-loading" src="https://i.gyazo.com/75d40005a9a8d9f193819c8e471a7e30.png"></p><p>Homepage URL 和 Callback URL 填写 firebase 回调网址。如 <code>https://xxx.firebaseapp.com/__/auth/handler</code></p><h1 class="">代码示例</h1><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useState, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">ReactDOM</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react-dom&quot;</span>;
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;./styles.css&quot;</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">let</span> firebase = <span class="hljs-literal">null</span>;
+
+  <span class="hljs-keyword">const</span> [logined, setResult] = <span class="hljs-title function_">useState</span>(<span class="hljs-literal">false</span>);
+
+  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> {
+    firebase = <span class="hljs-variable language_">window</span>.<span class="hljs-property">firebase</span>;
+  });
+
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">handleLogin</span> = (<span class="hljs-params"></span>) =&gt; {
+    <span class="hljs-keyword">var</span> provider = <span class="hljs-keyword">new</span> firebase.<span class="hljs-property">auth</span>.<span class="hljs-title class_">GithubAuthProvider</span>();
+    provider.<span class="hljs-title function_">addScope</span>(<span class="hljs-string">&quot;repo&quot;</span>);
+    provider.<span class="hljs-title function_">setCustomParameters</span>({
+      <span class="hljs-attr">allow_signup</span>: <span class="hljs-string">&quot;false&quot;</span>
+    });
+    firebase
+      .<span class="hljs-title function_">auth</span>()
+      .<span class="hljs-title function_">signInWithPopup</span>(provider)
+      .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) {
+        <span class="hljs-title function_">setResult</span>(<span class="hljs-string">&quot;SUCCESS&quot;</span>);
+      })
+      .<span class="hljs-title function_">catch</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) {
+        <span class="hljs-title function_">setResult</span>(<span class="hljs-string">&quot;FAIL&quot;</span>);
+      });
+  };
+
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;App&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>GitHub Login Example<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      {!logined &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleLogin}</span>&gt;</span>Sign in with GitHub<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>}
+      {logined &amp;&amp; &quot;Logined&quot;}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+
+<span class="hljs-keyword">const</span> rootElement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;root&quot;</span>);
+<span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>, rootElement);</code></pre><blockquote><div>source code: <a class="tc-tiddlylink-external" href="https://codesandbox.io/s/zw27vrzpk3" rel="noopener noreferrer" target="_blank">https://codesandbox.io/s/zw27vrzpk3</a></div></blockquote>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

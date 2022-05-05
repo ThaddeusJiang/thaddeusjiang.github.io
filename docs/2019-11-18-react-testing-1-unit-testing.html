@@ -1,0 +1,178 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2019-11-18 React Testing 1 - Unit Testing ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2019-11-18-react-testing-1-unit-testing" />
+<meta property="og:title" content="2019-11-18 React Testing 1 - Unit Testing ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2019-11-18 React Testing 1 - Unit Testing.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2019-11-18 React Testing 1 - Unit Testing ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2019-11-18 React Testing 1 - Unit Testing</h1>
+            <hr>
+
+            <blockquote class="tc-quote tc-big-quote"><p>软件测试中，Unit Testing 是最基础的，也是测试量最大的。
+</p></blockquote><p>那么，React 项目如何 Unit Testing呢？</p><p>首先，我们要先确定几个前提</p><ul><li>使用 create-react-app 创建项目</li><li>使用 Jest 和 React Testing Library 测试</li><li>使用 GitHub Actions 自动化</li></ul><h2 class="">1. 创建项目，并配置 Jest 和 React Testing Library</h2><pre class="hljs"><code class="bash hljs">npx create-react-app testing-demo
+
+<span class="hljs-built_in">cd</span> testing-demo
+yarn add @testing-library/react --dev
+</code></pre><h2 class="">2. 编写一个 Counter 组件，并测试</h2><blockquote class="tc-quote tc-big-quote"><p>Tips: 测试代码和组件放在同一文件夹下，更易管理。
+</p></blockquote><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// src/components/counter/index.js</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Counter</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> [count, setCount] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>)
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> setCount(count - 1)}&gt;
+        -
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{count}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> setCount(count + 1)}&gt;
+        +
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+
+<span class="hljs-comment">// src/components/counter/counter.test.js</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>
+<span class="hljs-keyword">import</span> { render, fireEvent } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@testing-library/react&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">Counter</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;.&quot;</span>
+
+<span class="hljs-title function_">test</span>(<span class="hljs-string">&quot;&lt;Counter /&gt;&quot;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">const</span> { getByText } = <span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Counter</span> /&gt;</span></span>)
+
+  <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">getByText</span>(<span class="hljs-string">&quot;0&quot;</span>)).<span class="hljs-title function_">toBeTruthy</span>()
+
+  fireEvent.<span class="hljs-title function_">click</span>(<span class="hljs-title function_">getByText</span>(<span class="hljs-string">&quot;+&quot;</span>))
+
+  <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">getByText</span>(<span class="hljs-string">&quot;1&quot;</span>)).<span class="hljs-title function_">toBeTruthy</span>()
+
+  fireEvent.<span class="hljs-title function_">click</span>(<span class="hljs-title function_">getByText</span>(<span class="hljs-string">&quot;-&quot;</span>))
+  fireEvent.<span class="hljs-title function_">click</span>(<span class="hljs-title function_">getByText</span>(<span class="hljs-string">&quot;-&quot;</span>))
+
+  <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">getByText</span>(<span class="hljs-string">&quot;-1&quot;</span>)).<span class="hljs-title function_">toBeTruthy</span>()
+})</code></pre><h2 class="">3. 常见问题</h2><ul><li>我应该在哪写 Unit Testing？</li></ul><p>没有强制约定，个人认为测试代码和源码放在项目文件夹更容易管理。</p><p>如上面例子：测试代码和源码都存放在 <code>src/components/counter/</code> 中。</p><ul><li>自动补全 Jest 函数和断言的？</li></ul><pre class="hljs"><code class="bash hljs">yarn add @types/jest</code></pre><ul><li>如何查看测试覆盖率？</li></ul><pre class="hljs"><code class="bash hljs">yarn <span class="hljs-built_in">test</span> --coverage</code></pre><ul><li>如何自动化测试？</li></ul><p>以 GitHub Actions 为例：新建 <code>.github/workflows/pull_request.yml</code>，并编写如下代码</p><pre class="hljs"><code class="yaml hljs">  <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;PR Checks&quot;</span>
+
+  <span class="hljs-attr">on:</span> <span class="hljs-string">pull_request</span>
+
+  <span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">test:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">Unit</span> <span class="hljs-string">Tests</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Check</span> <span class="hljs-string">out</span> <span class="hljs-string">code</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@master</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">dependencies</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">yarn</span> <span class="hljs-string">install</span> <span class="hljs-string">--non-interactive</span> <span class="hljs-string">--no-progress</span> <span class="hljs-string">--frozen-lockfile</span> <span class="hljs-string">--ignore-optional</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Run</span> <span class="hljs-string">tests</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">yarn</span> <span class="hljs-string">test</span>
+        <span class="hljs-attr">env:</span>
+          <span class="hljs-attr">CI:</span> <span class="hljs-literal">true</span></code></pre><p>代码：<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/react-testing-example/pull/1" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/react-testing-example/pull/1</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://testing-library.com/docs/react-testing-library/intro" rel="noopener noreferrer" target="_blank">https://testing-library.com/docs/react-testing-library/intro</a></li><li><a class="tc-tiddlylink-external" href="https://jestjs.io/docs/en/tutorial-react" rel="noopener noreferrer" target="_blank">https://jestjs.io/docs/en/tutorial-react</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

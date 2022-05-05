@@ -1,0 +1,127 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2018-04-25 🐛moment.js 在 Safari 中显示 Invalid date ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2018-04-25-moment-js-zai-safari-zhong-xian-shi-invalid-date" />
+<meta property="og:title" content="2018-04-25 🐛moment.js 在 Safari 中显示 Invalid date ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2018-04-25 🐛moment.js 在 Safari 中显示 Invalid date.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2018-04-25 🐛moment.js 在 Safari 中显示 Invalid date ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2018-04-25 🐛moment.js 在 Safari 中显示 Invalid date</h1>
+            <hr>
+
+            <blockquote class="tc-quote tc-big-quote"><p>对应不同的浏览器规范，可能是前端开发者永远的痛。
+</p><cite>TJ</cite></blockquote><p>记录一条 bug。</p><p>Moment.js 在 Safari 中显示 Invalid date。</p><p>bug 代码</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> createdAt = <span class="hljs-string">&quot;2018-04-11T08:56:39Z&quot;</span>
+
+<span class="hljs-keyword">const</span> str = <span class="hljs-title function_">moment</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(createdAt)).<span class="hljs-title function_">format</span>(<span class="hljs-string">&quot;YYYY/MM/DD HH:mm&quot;</span>)
+
+<span class="hljs-comment">// Invalid date</span></code></pre><p>解决</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> str =  <span class="hljs-title function_">moment</span>(createdAt, <span class="hljs-string">&quot;YYYY-MM-DD HH:mm:ss&quot;</span>).<span class="hljs-title function_">format</span>(<span class="hljs-string">&quot;YYYY/MM/DD HH:mm&quot;</span>)
+}
+
+<span class="hljs-comment">// 2018/04/11 08:56</span></code></pre><p>这是 new Date() 在 Safari 中特殊表现引起的。</p><p>Moment.js 是无辜的。
+</p>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
