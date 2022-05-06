@@ -1,0 +1,109 @@
+created: 20220429041909878
+creator: TJ
+modified: 20220506115212658
+modifier: TJ
+tags: 2022 weekly $:/plugins/adithyab/tiddlyjam/live blog
+title: E001-初次见面，请多关照
+type: text/vnd.tiddlywiki
+
+大家好，欢迎阅读蒋继发的《每周分享》。
+
+这是蒋继发的《每周分享》的第一篇，今后会在每周五发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些工作经验、日本生活体验以及阅读感受等等。
+
+其实我很早就想开始《每周分享》了，起因是我每周都会阅读阮一峰老师的《科技爱好者周刊》，并且非常喜欢这种形式。不过的确是因为没有行动力，所以一直没有开始。最近工作上不太开心，很多想做的事情做不出来，想分享的内容分享不出去，所以我想和素未谋面的各位分享一下，希望可以找到志同道合的朋友。
+
+废话少说，我们开始正题吧。
+
+!! 首先，分享几篇开发笔记
+
+!!! 1. HTML 语义元素
+
+随着互联网的发展，市场对 Frontend Developer 的需求越来越大了，很多新加入 Frontend 的小伙伴因为过早的使用高度封装的组件库，倒是对 HTML 语义元素掌握的非常差，几乎是 `div` 一把梭。
+
+但是 HTML 语义元素其实是很重要的，我想分享几个 HTML 语义元素。
+希望大家今后能根据业务实际含义使用正确的 HTML 元素：
+
+# `<em>` 标记出需要用户着重阅读的内容
+# `<strong>` 标记出重要中内容
+# `<i>` 仅仅表示斜体
+# `<b>` 仅仅表示粗体
+
+举个例子：Emphasis vs. Strong
+
+`<em>` 用于改变一个句子的意思，比如：“我//''喜欢''//胡萝卜” 和“我喜欢//''胡萝卜''//”，分别强调喜欢和胡萝卜。
+
+`<strong>` 用来对一个句子的部分增加重要性，比如 “''警告''! 这非常危险。”
+
+<<<.tc-big-quote
+虽然 CSS 也能实现斜体、粗体或者斜体且加粗的视觉效果，但是却丢失了语义。
+<<<TJ
+
+!!! 2. Mocking API for Frontend
+
+互联网产品通常要同时对应多种终端，例如：Web、App 甚至第三方平台，所以目前前后端分离是主流。
+前后端分离在代码层级实现了解耦，但是没有解决路径依赖，Frontend 功能还是依赖 Backend 的实现。这时 Mocking API for Frontend 就出现了。
+
+如果没有 Mock，Application 和 Server 的关系：
+[img[https://i.gyazo.com/891a5b7a0ebe007e7f8e7c06344932e3.jpg]]
+
+我不想分享如何 mocking API，我只分享 mocking API 的种类。
+
+2 种不同类型的 Mocking API
+
+1. Mocking the request client
+[img[https://i.gyazo.com/eca22c4e52c85626760820a7c768c783.jpg]]
+
+2. Mocking the server
+[img[https://i.gyazo.com/c05918da1d8a5409b773c724ed1d1923.jpg]]
+
+
+!! 然后，分享几个 Twitter bookmarks
+
+1. native API for deep copying objects in JS
+
+[img[https://pbs.twimg.com/media/FRc2xCqXIAAQeQU?format=jpg&name=medium]]
+
+我十分喜欢图解。
+根据研究发现，人脑对图像的记忆是强于对文字的记忆的，很多时候通过文字展示的知识看过很多遍却经常忘记。
+这时候如果能用图解的方式展示出来，通常可以记得更久。
+
+2. 软件应该是美丽的
+
+<<<.tc-big-quote
+Notion 的巨幅户外广告，居然是一点一点手绘出来的巨型壁画。Notion 风格的手绘小人，展示了科技公司里与众不同的诗意和文艺气息。
+<<<倪爽
+
+我非常认同“软件应该是美丽的”，这句话让我想起《黑客与画家》，黑客与画家都是创造者，那么他们创造出来的东西都应该是美丽的。美丽有许多不同的层面，不仅仅是视觉上，软件架构也应该美丽的，软件工作流程也应该是美丽的，从事软件开发的工程师的心灵也应该是美丽的。
+
+!! 最后，分享几个我很喜欢的 OSS
+
+1. react-query
+
+我从 2020 年就开始使用 react-query，官网介绍：“Hooks for fetching, caching and updating asynchronous data in React”，但是我更喜欢另外一个介绍：“the popular async state management library”。
+
+因为使用 react-query，我开始真正理解 async state management，我才能自由地运用 API，URL，LocalStorage/SessionStorage，JS runtime 管理应用程序的状态。
+react-query 不仅仅给我提供了方便的 library 让我提高开发效率，react-query 更教会了我如何管理应用程序的异步状态。
+
+<<<.tc-big-quote
+我们创造了工具，工具反过来塑造我们。
+<<<没找到出处
+
+第二个：react-table
+
+react-table 和 react-query 是同一个作者（Tanner Linsley）,我是他的 big fan。
+我喜欢 react-table 的原因也是一样，react-table 教会了我如何开发一个 Table UI，并且如何扩展 Table UI 以满足各式各样的需求。
+
+不过 react-table 并不是一个 Component Library，你无法直接使用它，如果你希望像使用 MUI 一样开发 Table UI，可以试试：https://github.com/ThaddeusJiang/react-advanced-table
+
+以上就是本次分享的全部内容，十分感谢你看到这里。
+
+欢迎订阅蒋继发的《每周分享》，每周五更新。蒋继发目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，可以分享一些工作经验、日本生活体验以及阅读感受等等。
+
+refs:
+
+* https://www.ruanyifeng.com/blog/weekly/
+* https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html
+* https://twitter.com/builderio/status/1519743620529766401?s=20&t=qDnb9ATGMXTEY4laBACDPg
+* https://twitter.com/nishuang/status/1509268418440142851?s=20&t=JtOF3I0igwcD6DIvZuzqXw
+* https://github.com/tannerlinsley/react-query
+* https://github.com/TanStack/react-table
