@@ -495,7 +495,7 @@
 
    <url>
       <loc>.//blog</loc>
-      <lastmod>2022-05-06</lastmod>
+      <lastmod>2022-05-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -507,13 +507,19 @@
 
    <url>
       <loc>.//e001-chu-ci-jian-mian-qing-duo-guan-zhao</loc>
-      <lastmod>2022-05-06</lastmod>
+      <lastmod>2022-05-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>.//e002-jia-qi-qing-hao-hao-xiu-xi</loc>
-      <lastmod>2022-05-06</lastmod>
+      <lastmod>2022-05-13</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//e003-ni-you-jian-dan-kong-ju-zheng-ma</loc>
+      <lastmod>2022-05-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -555,7 +561,7 @@
 
    <url>
       <loc>.//welcome</loc>
-      <lastmod>2022-03-13</lastmod>
+      <lastmod>2022-05-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

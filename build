@@ -4,7 +4,7 @@ rm -rf ./docs/*
 
 npx tiddlywiki --build index
 
-cp ./output/index.html ./docs/blog-admin.html
+cp ./output/index.html ./docs/admin.html
 cp ./output/index.html ./index.html
 
 npx tiddlywiki --build tiddlyjam

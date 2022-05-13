@@ -5,6 +5,43 @@
    <link>https://thaddeusjiang.com</link>
    <description>在日本开发 SaaS 产品，爱猫、爱读书、爱大海</description>
    <item>
+      <title>E003-你有简单恐惧症吗</title>
+      <link>https://thaddeusjiang.com/e003-ni-you-jian-dan-kong-ju-zheng-ma</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">E003-你有简单恐惧症吗</h1>
+            <hr>
+
+            <p>大家好，欢迎阅读第三期的《每周分享》。</p><p>我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些 SaaS 工作经历、日本生活体验以及读书感受等等。<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/weekly/issues" rel="noopener noreferrer" target="_blank">欢迎大家来和我讨论或者投稿</a></p><h2 class="">本周随笔</h2><p>很多人有简单恐惧症，我有复杂恐惧症。</p><p>简单恐惧症是我看李笑来的《韭菜的自我修养》中学到的概念，大概的意思是：想要解决一个问题，在简单方法和复杂方法之间绝大多数人会选择复杂的方法。他们有一种简单恐惧症，他们会怀疑这么简单真的可以嘛？如果这么简单就能办到为什么其他人没有办到。</p><p>事实上并不是因为简单的方法不好，仅仅是因为绝大多数人有简单恐惧症。</p><p>很多人有简单恐惧症，我有复杂恐惧症。我发现我不喜欢复杂的东西。举几个小例子：笔记工具是内容创造者必不可少的工具，各种强大的工具琳琅满目，如 Notion, Obsidian, Roam Research, Logseq 等等，不过我最中意 flomo。恰恰是因为它很简单，不复杂。另外我也做一点点投资，不过我只定投标普500。</p><h2 class="">本周阅读</h2><p>1. 读了《编程原则》我终于知道为什么很多软件工程师自称“手艺人”</p><p>很早之前我就发现很多软件工程师喜欢自称“手艺人”，但是并不知道为什么。</p><p>本周我阅读了Max Kanatde的《编程原则》，在第19章《量化开发效率》中我终于找到了非常形象且简单易懂的解释。</p><blockquote class="tc-quote tc-big-quote"><p>“电脑程序员”和“木匠”类似，是一门手艺，不是一份职业。</p><p>木匠的工作内容可能是家具维修，搭建房屋，或者制作桌椅，因为工作内容的不同他的工作成果也会不同，可能是把故障的家具修好，一栋新房子，或者漂亮的餐桌，但绝对不能说他的工作成果是一堆木头。</p><p>就像木匠的工作成果不是木头，程序员的工作成果也不是代码，而是用代码实现的各式各样的产品，有可能是用来看书的 ebook reader, 和朋友交流的 messager，或者将复杂数据可视化的 Charts 等等。
+</p></blockquote><h2 class="">本周 Twitter 收藏</h2><p>1. Figma、Notion越做越开放，联动的软件越来越多。微信、各国产办公软件越做越割裂，只开放给同一阵营的产品。</p><p>我在 2021 年 03 月也发出过类似的感叹，感觉遇到知己了。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/fc149d5701c3f666dd2e7601fc9a2532.png"></p><p>2. 图解：React 中 4 种 Data-Fetch 和 Render 顺序</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/8414907329a5d7b6f4224b654e42641c.jpg"></p><p>这应该是一道非常不错的面试题，各位面试官可以收藏一下。
+可以提问的点：</p><ol><li>不同的执行顺序，有什么优缺点？适用的场景有哪些？</li><li>实际项目中使用哪种顺序？要求写伪代码或者真实代码。</li><li>候选人是否对这个问题有更深的理解，或者独到的见解？</li><li>...</li></ol><p>3. 企业信息化建设的终局：从 excel 导入数据，把数据导出到 excel</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/f9d1ccf16b4fe25145f104bf8c05056e.jpg"></p><p>😂 说的太对了！</p><p>我在补充几点：</p><ol><li>ToB SaaS 最后都会加上【Workflow 功能】</li><li>ToB SaaS 最后都会加上【Form Definition 功能】</li><li>ToB SaaS 最后都会加上【数值 Auto-Calculate 功能】</li></ol><p>最后，为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://twitter.com/gua_intl/status/1524274829398253568?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng" rel="noopener noreferrer" target="_blank">https://twitter.com/gua_intl/status/1524274829398253568?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/dai_shi/status/1234640507478794240?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng" rel="noopener noreferrer" target="_blank">https://twitter.com/dai_shi/status/1234640507478794240?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/syhily/status/1522737810872045569?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng" rel="noopener noreferrer" target="_blank">https://twitter.com/syhily/status/1522737810872045569?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Fri, 13 May 2022 21:35:32 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/e003-ni-you-jian-dan-kong-ju-zheng-ma</guid>      
+   </item>
+
+   <item>
       <title>E002-假期请好好休息</title>
       <link>https://thaddeusjiang.com/e002-jia-qi-qing-hao-hao-xiu-xi</link>
 			<description><![CDATA[
@@ -50,7 +87,7 @@
 
 
 ]]></description>
-      <pubDate>Thu, 5 May 2022 16:29:53 +09:00</pubDate>
+      <pubDate>Fri, 13 May 2022 21:35:31 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/e002-jia-qi-qing-hao-hao-xiu-xi</guid>      
    </item>
 
@@ -97,53 +134,8 @@ react-query 不仅仅给我提供了方便的 library 让我提高开发效率�
 
 
 ]]></description>
-      <pubDate>Fri, 29 April 2022 13:19:9 +09:00</pubDate>
+      <pubDate>Fri, 13 May 2022 21:35:30 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/e001-chu-ci-jian-mian-qing-duo-guan-zhao</guid>      
-   </item>
-
-   <item>
-      <title>2022-04-27 Scenario-Focused Engineering 读后感</title>
-      <link>https://thaddeusjiang.com/2022-04-27-scenario-focused-engineering-du-hou-gan</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
-            </a>
-        </div>
-     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
-  </div>
-      
-
-<div class="container mt-5">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="title">2022-04-27 Scenario-Focused Engineering 读后感</h1>
-            <hr>
-
-            <p>先说结论，这本书写的十分冗长，内容也虎头蛇尾，读这本书真的累得半死。虽然整体感受不佳，但是还是有一点点小收获的，勉强及格吧。</p><p>因为我要转行做产品经理，一位创业的朋友给我推荐了《Scenario-Focused Engineering》。
-朋友曾经在微软工作过，这本书是微软内部出版的书籍，暂时没找到中文版。</p><p>我和同事吃午饭闲聊时，分享了一下这本书的内容，以下是我们的对话摘要：</p><blockquote><div>J 是我，Z 是我同事。</div></blockquote><p>J: “上次那个谁分享的《Scenario-Focused Engineering》，我看了。还不错，你读了吗？”</p><p>Z: “没有，那本书除了书名以外，还有其他内容吗？”</p><p>J: “没有。不过就像《极简主义》和《It Doesn't Have To Be Crazy At Work》一样，书名虽然已经概括了整本书的核心，但是书中还是有很多细节不读一下是理解不了的。”</p><p>J: “作者蛮擅长讲故事的，有几个小故事我记得挺清楚的，我给你讲讲。”</p><h2 class="">第一个小故事讲的是 End-to-End User Experiences</h2><p>J: “故事的大概是：作者在上班的路上心情特别好，因为他买了一辆小汽车，他迫不及待地想和同事分享。
-为什么他想和同事分享他的小汽车呢？
-说来话长，作者一家人前一段时间去了欧洲旅行，在欧洲没有美国那种油老虎的汽车，只能租到小汽车，刚开始作者还有点担心小汽车能不能容纳一家人，不过在欧洲的旅行时开的小汽车体验非常好，让作者爱上了小汽车。
-作者回到美国以后，就像买一个在欧洲旅行时开的那种小汽车，但是作者发现在美国那种小汽车比较少，作者又花了一些精力终于买到了心心念念的小汽车。”</p><p>J: “所以，你觉得作者仅仅是因为买了汽车就心情愉悦，迫不及待地想和同事分享吗？
-不是的，是作者在旅行中体验过小汽车的美好，又在美国买到了比较稀有的小汽车，这个完整的过程才让作者心情愉悦，迫不及待的想和同事分享。”</p><p>J: “通过作者的小故事，作者想表达的是用户体验不单单是功能的堆砌，不是简单的性能的对比，用户体验是一个完整的过程。作者推荐通过 End-to-End Experiences 让用户心情愉悦，并想要和朋友分享你的产品。”</p><p>原文：</p><blockquote class="tc-quote tc-big-quote"><p>Can you build something your customers will truly love, so much so that the would go out of their way to recommend it to a friend?
-</p><cite>《Scenario-Focused Engineering》</cite></blockquote><h2 class="">第二个小故事我也不知道作者想讲什么，不过我现在还记忆犹新</h2><p>故事是曾经 Nintendo 有一款体重秤风靡美国。
-作为一款体重秤，Nintendo 的体重秤采用纯白的配色，一反常态的左右脚分离设计，的确是与众不同。
-<img class=" tc-image-loading" src="https://i.gyazo.com/b80f9ace9dfa5c7f98d1242bc9229d2d.jpg"></p><p>所以，你觉得 Nintendo 的体重秤是因为这些外形的特立独行而风靡美国吗？
-不是的，是因为这款体重秤可以链接 Nintendo 的游戏机打游戏，😂</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/8b1845345f9fa2951d93332eed95e631.jpg"></p><p>原文：</p><blockquote class="tc-quote tc-big-quote"><p>Customters want their problems solved, from their point of view, as seamless end-to-end experiences.
-</p><cite>《Scenario-Focused Engineering》</cite></blockquote><p>最后，我并不推荐这本书，因为从客观角度，它只能算及格。但是我分享一句我喜欢的日本语：“読んだ損する本がいない”。</p>
-          </div>
-      </div>
-      <hr>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Wed, 27 April 2022 23:58:41 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2022-04-27-scenario-focused-engineering-du-hou-gan</guid>      
    </item>
 
 </channel>

@@ -1,7 +1,7 @@
 created: 20140909110520793
 creator: Adithya
 description: 
-modified: 20220506114631885
+modified: 20220513123127044
 modifier: Adithya_
 name: Blog
 published: 20220313025404926
@@ -19,14 +19,14 @@ type: text/vnd.tiddlywiki
     <div>
         <div class="container mt-6">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-                <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[blog]!sort[title]limit[3]]">
+                <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[blog]!tag[weekly]!sort[title]limit[3]]">
                     {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose}}
                 </$list>
             </div>
         </div>
         <div class="container mt-6">
             <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-                <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[blog]!sort[title]rest[3]]">
+                <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[blog]!tag[weekly]!sort[title]rest[3]]">
                     {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_compact}}
                 </$list>
             </div>
