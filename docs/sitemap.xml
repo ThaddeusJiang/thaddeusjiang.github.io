@@ -488,12 +488,6 @@
    </url>
 
    <url>
-      <loc>.//404</loc>
-      <lastmod>2021-05-24</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//blog</loc>
       <lastmod>2022-05-13</lastmod>
       <changefreq>monthly</changefreq>
