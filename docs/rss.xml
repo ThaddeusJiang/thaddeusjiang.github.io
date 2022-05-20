@@ -5,6 +5,42 @@
    <link>https://thaddeusjiang.com</link>
    <description>在日本开发 SaaS 产品，爱猫、爱读书、爱大海</description>
    <item>
+      <title>E004-朋友是积累下来的</title>
+      <link>https://thaddeusjiang.com/e004-peng-you-shi-ji-lei-xia-lai-de</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">E004-朋友是积累下来的</h1>
+            <hr>
+
+            <p>大家好，欢迎阅读蒋继发的《每周分享》第 4 期。</p><p>蒋继发的《每周分享》每周五发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些 SaaS 工作经历、日本生活体验以及读书感受等等。<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/weekly/issues" rel="noopener noreferrer" target="_blank">欢迎大家来和我讨论或者投稿</a></p><h2 class="">朋友是积累下来的</h2><blockquote class="tc-quote tc-big-quote"><p>真正的朋友不会因为你的偶然过失而离开，真正的朋友只会因为不再认可你的人品和价值观而离开。
+</p><cite>TJ</cite></blockquote><p>如果你订阅了这份分享，相信你已经知道了我本周的经历，我在 Twitter 被骂的很惨。其实被骂没什么，我不太介意。毕竟连我最喜欢几位分享者（袁腾飞老师、罗翔老师、阮一峰老师）也经常被骂。我比较介意的是我的朋友们会不会因此而误会我，因为对我来说朋友们比路人重要 <strong>10,000 倍</strong>。幸好，我的朋友们没有误会我，我真的感觉人间值得。</p><p>我想说几句话：</p><p>朋友是积累下来的，而不是拓展出来的。大家有没有这样的感受，从我们出生、读书、出国、一直到工作，我们遇到了无数的人，但是当你想要找人聊天时，能真的张开嘴的朋友其实并不多。大部分曾经的朋友已经变得不那么亲密，现在依然亲密的才是你真正的朋友。</p><p>真正的朋友，当你做了一些错事，一些傻逼的事，他们依然留着你的联系方式，不会因为你的不经意间的过错而离开。真正的朋友只会因为不再认可你的人品和价值观而离开。所以只要做一个 nice 的人，做一个始终保持正确价值观的人，真正的朋友永远都不会离开。</p><h2 class="">关于 Code Review</h2><blockquote><div>我被骂以后，一位推友发的推，我非常同意，我已经收藏了，今后我会按照这些要求自己。</div></blockquote><p>正确的 review</p><ul><li>（建议）我觉得这里可以这样写……因为……</li><li>（不懂）这里为什么要这么写？</li><li>（讨论）为什么没有用……？</li></ul><p>错误的 review：</p><ul><li>你改这里有什么用？</li><li>看到这里我知道你为什么总是xxx了，你这个废物！</li></ul><p>review原则：</p><p>什么问题都可以讨论，某些地方可以声明自己在 picky。但是一定对事不对人。</p><p>最后，为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。分享内容同步在我的个人网站：<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/weekly" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/weekly</a> 。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://twitter.com/laixintao/status/1526596745433468930?s=20&amp;t=a-QcY9WTb8TURDyqw00aGQ" rel="noopener noreferrer" target="_blank">https://twitter.com/laixintao/status/1526596745433468930?s=20&amp;t=a-QcY9WTb8TURDyqw00aGQ</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Fri, 20 May 2022 18:27:5 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/e004-peng-you-shi-ji-lei-xia-lai-de</guid>      
+   </item>
+
+   <item>
       <title>E003-你有简单恐惧症吗</title>
       <link>https://thaddeusjiang.com/e003-ni-you-jian-dan-kong-ju-zheng-ma</link>
 			<description><![CDATA[
@@ -89,53 +125,6 @@
 ]]></description>
       <pubDate>Fri, 13 May 2022 21:35:31 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/e002-jia-qi-qing-hao-hao-xiu-xi</guid>      
-   </item>
-
-   <item>
-      <title>E001-初次见面，请多关照</title>
-      <link>https://thaddeusjiang.com/e001-chu-ci-jian-mian-qing-duo-guan-zhao</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
-            </a>
-        </div>
-     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
-  </div>
-      
-
-<div class="container mt-5">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="title">E001-初次见面，请多关照</h1>
-            <hr>
-
-            <p>大家好，欢迎阅读蒋继发的《每周分享》。</p><p>这是蒋继发的《每周分享》的第一篇，今后会在每周五发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些工作经验、日本生活体验以及阅读感受等等。</p><p>其实我很早就想开始《每周分享》了，起因是我每周都会阅读阮一峰老师的《科技爱好者周刊》，并且非常喜欢这种形式。不过的确是因为没有行动力，所以一直没有开始。最近工作上不太开心，很多想做的事情做不出来，想分享的内容分享不出去，所以我想和素未谋面的各位分享一下，希望可以找到志同道合的朋友。</p><p>废话少说，我们开始正题吧。</p><h2 class="">首先，分享几篇开发笔记</h2><h3 class="">1. HTML 语义元素</h3><p>随着互联网的发展，市场对 Frontend Developer 的需求越来越大了，很多新加入 Frontend 的小伙伴因为过早的使用高度封装的组件库，倒是对 HTML 语义元素掌握的非常差，几乎是 <code>div</code> 一把梭。</p><p>但是 HTML 语义元素其实是很重要的，我想分享几个 HTML 语义元素。
-希望大家今后能根据业务实际含义使用正确的 HTML 元素：</p><ol><li><code>&lt;em&gt;</code> 标记出需要用户着重阅读的内容</li><li><code>&lt;strong&gt;</code> 标记出重要中内容</li><li><code>&lt;i&gt;</code> 仅仅表示斜体</li><li><code>&lt;b&gt;</code> 仅仅表示粗体</li></ol><p>举个例子：Emphasis vs. Strong</p><p><code>&lt;em&gt;</code> 用于改变一个句子的意思，比如：“我<em><strong>喜欢</strong></em>胡萝卜” 和“我喜欢<em><strong>胡萝卜</strong></em>”，分别强调喜欢和胡萝卜。</p><p><code>&lt;strong&gt;</code> 用来对一个句子的部分增加重要性，比如 “<strong>警告</strong>! 这非常危险。”</p><blockquote class="tc-quote tc-big-quote"><p>虽然 CSS 也能实现斜体、粗体或者斜体且加粗的视觉效果，但是却丢失了语义。
-</p><cite>TJ</cite></blockquote><h3 class="">2. Mocking API for Frontend</h3><p>互联网产品通常要同时对应多种终端，例如：Web、App 甚至第三方平台，所以目前前后端分离是主流。
-前后端分离在代码层级实现了解耦，但是没有解决路径依赖，Frontend 功能还是依赖 Backend 的实现。这时 Mocking API for Frontend 就出现了。</p><p>如果没有 Mock，Application 和 Server 的关系：
-<img class=" tc-image-loading" src="https://i.gyazo.com/891a5b7a0ebe007e7f8e7c06344932e3.jpg"></p><p>我不想分享如何 mocking API，我只分享 mocking API 的种类。</p><p>2 种不同类型的 Mocking API</p><p>1. Mocking the request client
-<img class=" tc-image-loading" src="https://i.gyazo.com/eca22c4e52c85626760820a7c768c783.jpg"></p><p>2. Mocking the server
-<img class=" tc-image-loading" src="https://i.gyazo.com/c05918da1d8a5409b773c724ed1d1923.jpg"></p><h2 class="">然后，分享几个 Twitter bookmarks</h2><p>1. native API for deep copying objects in JS</p><p><img class=" tc-image-loading" src="https://pbs.twimg.com/media/FRc2xCqXIAAQeQU?format=jpg&amp;name=medium"></p><p>我十分喜欢图解。
-根据研究发现，人脑对图像的记忆是强于对文字的记忆的，很多时候通过文字展示的知识看过很多遍却经常忘记。
-这时候如果能用图解的方式展示出来，通常可以记得更久。</p><p>2. 软件应该是美丽的</p><blockquote class="tc-quote tc-big-quote"><p>Notion 的巨幅户外广告，居然是一点一点手绘出来的巨型壁画。Notion 风格的手绘小人，展示了科技公司里与众不同的诗意和文艺气息。
-</p><cite>倪爽</cite></blockquote><p>我非常认同“软件应该是美丽的”，这句话让我想起《黑客与画家》，黑客与画家都是创造者，那么他们创造出来的东西都应该是美丽的。美丽有许多不同的层面，不仅仅是视觉上，软件架构也应该美丽的，软件工作流程也应该是美丽的，从事软件开发的工程师的心灵也应该是美丽的。</p><h2 class="">最后，分享几个我很喜欢的 OSS</h2><p>1. react-query</p><p>我从 2020 年就开始使用 react-query，官网介绍：“Hooks for fetching, caching and updating asynchronous data in React”，但是我更喜欢另外一个介绍：“the popular async state management library”。</p><p>因为使用 react-query，我开始真正理解 async state management，我才能自由地运用 API，URL，LocalStorage/SessionStorage，JS runtime 管理应用程序的状态。
-react-query 不仅仅给我提供了方便的 library 让我提高开发效率，react-query 更教会了我如何管理应用程序的异步状态。</p><blockquote class="tc-quote tc-big-quote"><p>我们创造了工具，工具反过来塑造我们。
-</p><cite>没找到出处</cite></blockquote><p>第二个：react-table</p><p>react-table 和 react-query 是同一个作者（Tanner Linsley）,我是他的 big fan。
-我喜欢 react-table 的原因也是一样，react-table 教会了我如何开发一个 Table UI，并且如何扩展 Table UI 以满足各式各样的需求。</p><p>不过 react-table 并不是一个 Component Library，你无法直接使用它，如果你希望像使用 MUI 一样开发 Table UI，可以试试：<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/react-advanced-table" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/react-advanced-table</a></p><p>以上就是本次分享的全部内容，十分感谢你看到这里。</p><p>欢迎订阅蒋继发的《每周分享》，每周五更新。蒋继发目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，可以分享一些工作经验、日本生活体验以及阅读感受等等。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.ruanyifeng.com/blog/weekly/" rel="noopener noreferrer" target="_blank">https://www.ruanyifeng.com/blog/weekly/</a></li><li><a class="tc-tiddlylink-external" href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html" rel="noopener noreferrer" target="_blank">https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/builderio/status/1519743620529766401?s=20&amp;t=qDnb9ATGMXTEY4laBACDPg" rel="noopener noreferrer" target="_blank">https://twitter.com/builderio/status/1519743620529766401?s=20&amp;t=qDnb9ATGMXTEY4laBACDPg</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/nishuang/status/1509268418440142851?s=20&amp;t=JtOF3I0igwcD6DIvZuzqXw" rel="noopener noreferrer" target="_blank">https://twitter.com/nishuang/status/1509268418440142851?s=20&amp;t=JtOF3I0igwcD6DIvZuzqXw</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/tannerlinsley/react-query" rel="noopener noreferrer" target="_blank">https://github.com/tannerlinsley/react-query</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/TanStack/react-table" rel="noopener noreferrer" target="_blank">https://github.com/TanStack/react-table</a></li></ul>
-          </div>
-      </div>
-      <hr>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Fri, 13 May 2022 21:35:30 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/e001-chu-ci-jian-mian-qing-duo-guan-zhao</guid>      
    </item>
 
 </channel>
