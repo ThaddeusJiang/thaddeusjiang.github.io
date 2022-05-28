@@ -5,6 +5,42 @@
    <link>https://thaddeusjiang.com</link>
    <description>在日本开发 SaaS 产品，爱猫、爱读书、爱大海</description>
    <item>
+      <title>E005-日本明星 SaaS 企业 SmartHR</title>
+      <link>https://thaddeusjiang.com/e005-ri-ben-ming-xing-saas-qi-ye-smarthr</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">E005-日本明星 SaaS 企业 SmartHR</h1>
+            <hr>
+
+            <p>大家好，欢迎阅读蒋继发的《每周分享》。</p><p>这是蒋继发的《每周分享》的第五篇，今后会在每周四发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些工作经验、日本生活体验以及阅读感受等等。</p><h2 class="">本期的主题《日本明星 SaaS 企业 SmartHR》</h2><p>想大家分享日推上非常火的一款 SaaS 产品以及其背后的公司 SmartHR。</p><p>SmartHR 可能是近两年日推上最火的 SaaS 产品了，我从 2020 年最开始关注 SmartHR 了，属于慢慢地路转粉。</p><p>自从 SmartHR 推出了【年末调整】功能，日推上就开始出现大量 SmartHR 的粉丝以及拥护者，他们经常在推特上分享他们有多喜爱这款产品。甚至有部分网友表示在找工作时面试的公司如果没有导入 SmartHR，他们就不考虑这家公司了。这是多么忠实的粉丝啊，也可以看出他们有多么喜欢 SmartHR。</p><p>SmartHR 是一个非常开放的公司，所以如果大家想了解它，网上可以找到很多资料。我想从一名 HRTech 从业者和 SmartHR fan 的角度分享一下我为什么关注它。</p><h2 class="">1. SmartHR 的功能对日本人来说非常重要</h2><p>以年末调整为例，年末调整是日本人不可避免的事。</p><blockquote class="tc-quote tc-big-quote"><p>世界上唯有死亡和税收不可避免！
+</p></blockquote><p>没有 SmartHR 之前，年末调整简直是灾难。公司人事部门会提前几个月为每位员工准备需要填写的资料，然后发放给个人，个人填写好自己的收入和免税扣除以后再返回给人事部门，人事部门一份一份的检查大家填写的是否正确，如果有错误需要找个人修改，等待公司所有人都没有错误以后再提交到政府的税务部门。想象一下，如果一个公司有 101 个人时，这项工作有多么繁重、无聊、浪费生命。更何况稍微大一点的公司可能有 500+ 或者 1000+ 的员工，在日本的大公司里年末调整就像每年一次的灾难。</p><p>SmartHR 提供的年末调整将整个流程电子化，并简化了准备、发放、编写、检查、提交等过程，据日推上网友分享，使用 SmartHR 后个人基本上可以在 30 分钟内完成。如此便利的工具，使用者怎么可能不爱它？</p><p>下面是 SmartHR 官方公开的平均的年末调整耗时。</p><p><img class="tc-image tc-image-loading" src="https://i.gyazo.com/307f7797da9001be5a57b7660cecec99.png" width="320"></p><h2 class="">2. SmartHR 技术驱动且拥抱开源</h2><p>SmartHR 是一个技术驱动的公司，不知道是不是因为创业者是技术出身的原因，SmartHR 非常积极地拥抱开源，并乐于分享。<a class="tc-tiddlylink-external" href="https://github.com/kufu" rel="noopener noreferrer" target="_blank">SmartHR 的 GitHub</a> 上有很多非常实用的项目，例如：kiji, tsubaki,  smarthr-ui 等等。这些项目很大程度上和 SmartHR 的业务是存在利益关系的，把这些代码开源出来在日本甚至全世界都是非常罕见的，毕竟这个社会并不总是良性竞争。</p><p>另外 SmartHR 很早就提供了公开 API 方便其他产品对接，非常的硅谷有没有？ </p><h2 class="">3. SmartHR 创始人是一个非常有魅力的人</h2><p>SmartHR 创始人叫 Shoji Miyata，喜欢写博客，喜欢海钓。我最开始关注 SmartHR 就是因为 Miyata 桑的个人魅力。分享几篇 Miyata 桑的博客，如果你看不懂日本语推荐用翻译软件阅读一下。</p><ul><li><a class="tc-tiddlylink-external" href="https://blog.shojimiyata.com/entry/2019/12/03/132635" rel="noopener noreferrer" target="_blank">権限移譲する技術</a></li><li><a class="tc-tiddlylink-external" href="https://blog.shojimiyata.com/entry/miyata_to_serizawa" rel="noopener noreferrer" target="_blank">SmartHR の社長を退任します</a></li><li><a class="tc-tiddlylink-external" href="https://blog.shojimiyata.com/entry/naming_smarthr_nstock" rel="noopener noreferrer" target="_blank">社名やプロダクトのネーミング方法 （SmartHR と Nstock と失敗例）</a></li></ul><p>我对 Miyata 桑的评价，他是技术者创业的典范，有技术、懂客户、愿意放权。他热爱生活、热爱分享，并且不安于现状不断挑战自己。</p><p>以上就是本次分享的全部内容，十分感谢你看到这里。</p><p>最后，为了方便大家订阅《蒋继发的每周分享》我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。内容同步发布在<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/weekly" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/weekly</a> 。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://smarthr.jp/" rel="noopener noreferrer" target="_blank">https://smarthr.jp/</a></li><li><a class="tc-tiddlylink-external" href="https://blog.shojimiyata.com/" rel="noopener noreferrer" target="_blank">https://blog.shojimiyata.com/</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/miyata_shoji" rel="noopener noreferrer" target="_blank">https://twitter.com/miyata_shoji</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Sat, 28 May 2022 14:45:9 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/e005-ri-ben-ming-xing-saas-qi-ye-smarthr</guid>      
+   </item>
+
+   <item>
       <title>E004-朋友是积累下来的</title>
       <link>https://thaddeusjiang.com/e004-peng-you-shi-ji-lei-xia-lai-de</link>
 			<description><![CDATA[
@@ -75,56 +111,6 @@
 ]]></description>
       <pubDate>Fri, 13 May 2022 21:35:32 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/e003-ni-you-jian-dan-kong-ju-zheng-ma</guid>      
-   </item>
-
-   <item>
-      <title>E002-假期请好好休息</title>
-      <link>https://thaddeusjiang.com/e002-jia-qi-qing-hao-hao-xiu-xi</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
-            </a>
-        </div>
-     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
-  </div>
-      
-
-<div class="container mt-5">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="title">E002-假期请好好休息</h1>
-            <hr>
-
-            <p>大家好，欢迎阅读蒋继发的《每周分享》。</p><p>这是蒋继发的《每周分享》第二篇，每周五发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些工作经验、日本生活体验以及读书笔记等等。<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/weekly/issues" rel="noopener noreferrer" target="_blank">欢迎投稿</a></p><p>本周是日本的黄金周，连休好爽啊，😄
-因为本周一直在外面玩，所以分享的内容中工作和技术相关的比较少，主要是一些阅读和游记。</p><h2 class="">1. 效率被高估了，休息被严重低估了</h2><blockquote class="tc-quote tc-big-quote"><p>Efficiency is highly overrated; Goofing off is highly underrated. Regularly scheduled sabbaths, sabbaticals, vacations, breaks, aimless walks and time off are essential for top performance of any kind. The best work ethic requires a good rest ethic.
-</p><cite>《失控》作者 KK</cite></blockquote><p>相信大家最近也被凯文·凯利的新文章《103 Bits of Advice I Wish I Had Known》刷屏了吧。
-如果是，🤝；如果不是，也没有任何关系。103 条人生建议中，我对上面的内容特别赞同。其实在我高中时，我的班主任就说过类似的话。</p><blockquote class="tc-quote tc-big-quote"><p>不会玩的孩子，多半也不会学习。
-</p><cite>蒋继发的高中班主任</cite></blockquote><p>当然，我的高中班主任没有 KK 那么有影响力，有可能连我们班级的同学也不一定把她的话当一回事。不过，多年以来我的确会偶尔想起她的教导。休息真的很重要，不要相信创业成功都要 996 / 007 的屁话；不要被成功学中早起是人生赢家的故事欺骗。科学研究发现，人的大脑需要足够的休息才能高效、准确地处理信息。</p><p>休息是为了更好地工作。
-我看过一部关于比尔盖茨的纪录片，纪录片中“比尔盖茨每年都会给自己一周时间不做任何工作，去一个没有外界打扰的林间小屋，一个人看书、思考。”
-说实话比尔盖茨离我们还是太远了，没有什么参考意义。
-我又想举 61 的例子了，哈哈哈
-天呐，我真的是 61 的超级粉丝。61 是谜底科技的主理人，开发了 OffScreen, MDClock, 便捷社区等非常受欢迎的产品，绝对是非常棒的创造者。不过，如果你关注他的 Twitter，你会发现他是一个非常懂得享受生活的人。</p><p>所以，希望大家都可以努力工作，并且享受生活。</p><h2 class="">2. 黄金周假期我去了富士山🗻</h2><p>承接上面的分享，休息是为了更好的工作。
-黄金周假期我去了富士山游玩，富士山真的太美了，留连忘返。</p><p>分享几个我去了的地方，如果大家也想去富士山游玩，可以 memo 一下，哈哈哈</p><p>1. 忍野八海：潺潺的流水发出哗啦啦的声音让人有一种平静感，清澈池水可以清晰的倒影出富士山。</p><p><img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/167119658-211b534f-00e2-41cc-9899-2ff4dfab4ce9.png"></p><p>2. 月江寺大門商店街：昭和风的商店街尽显日本的审美和文化，或许这是一条天路，通往富士山顶的天路。</p><p><img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/167119914-1c521fca-59f9-4bc5-a73b-2810ff836b23.png"></p><p>3. 河口湖天上山公園：富士山和城市同时映入眼帘，大自然和人类文明竟是如此的相得益彰。</p><p><img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/167120415-cab11d4f-b581-486b-9ae8-16c5956df2a5.png"></p><p>手机里拍了几十上百张照片，还有很多想分享的，限于篇幅有限，就先分享 3 张吧。哈哈哈</p><p>BTW，自从我拿到日本的驾照以后，每次出去玩我都会自驾游。非常推荐大家考驾照，因为自驾游的自由度是电车旅行无法企及的，想走就走，想停就停。
-唯一的缺点可能就是开长途有点累吧。</p><p>我知道在中国生活的朋友正在被“清零政策”，无法享受大自然的美好。
-我不知道说什么，不知道是应该鼓励还是安慰，这种无力感也深深地折磨着我，这就是为什么我喜欢读鲁迅，喜欢阅读民国的历史，我相信总有一天中国将会改变，中国人将会过上自由、平等且富足幸福的生活。
-希望大家可以不被个人无法改变的事实影响，保持良好的心态，坚持到社会回到正轨上的那一天。</p><h2 class="">3. 图解即战力</h2><p>我真的太喜欢图解了，图解让复杂的内容变得容易理解；图解让冗长的内容变得容易记忆；图解让模糊不清的内容变得清晰且明确。</p><p>那么本周我看到哪些值得分享的图解了呢？</p><p>1. 你认为客户需要的产品 vs. 客户真正需要的产品
-<img class=" tc-image-loading" src="https://pbs.twimg.com/media/FQjZisNXMBQnrGB?format=jpg&amp;name=4096x4096"></p><p>2. What is React Provider Hell ?
-<img class=" tc-image-loading" src="https://pbs.twimg.com/media/FPrq4-zVUAAx5kQ?format=jpg&amp;name=small"></p><p>3. 如何使用现代 JS 获取数字输入框中的数字
-<img class=" tc-image-loading" src="https://pbs.twimg.com/media/FPNcgQdUcAAUHwm?format=jpg&amp;name=small"></p><p>最后，为了方便大家订阅《蒋继发的每周分享》，我也开始使用 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/</a> 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。</p><p>refs: </p><ul><li><a class="tc-tiddlylink-external" href="https://kk.org/thetechnium/103-bits-of-advice-i-wish-i-had-known/" rel="noopener noreferrer" target="_blank">https://kk.org/thetechnium/103-bits-of-advice-i-wish-i-had-known/</a></li><li><a class="tc-tiddlylink-external" href="https://61.life/" rel="noopener noreferrer" target="_blank">https://61.life/</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/Steve8708/status/1509653389453324299" rel="noopener noreferrer" target="_blank">https://twitter.com/Steve8708/status/1509653389453324299</a></li></ul>
-          </div>
-      </div>
-      <hr>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Fri, 13 May 2022 21:35:31 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/e002-jia-qi-qing-hao-hao-xiu-xi</guid>      
    </item>
 
 </channel>
