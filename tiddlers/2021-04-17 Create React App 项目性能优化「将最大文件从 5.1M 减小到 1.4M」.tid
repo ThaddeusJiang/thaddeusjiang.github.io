@@ -1,8 +1,8 @@
 created: 20210417121054183
 creator: TJ
-modified: 20210617140000364
+modified: 20220530133528839
 modifier: TJ
-tags: $:/plugins/adithyab/tiddlyjam/live 手艺人手记 性能优化 blog React.js
+tags: $:/plugins/adithyab/tiddlyjam/live React.js blog 性能优化
 title: 2021-04-17 Create React App 项目性能优化「将最大文件从 5.1M 减小到 1.4M」
 type: text/vnd.tiddlywiki
 

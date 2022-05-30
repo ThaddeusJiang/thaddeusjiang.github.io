@@ -1,6 +1,6 @@
 created: 20210628052732497
-modified: 20210628053557806
-tags: blog $:/plugins/adithyab/tiddlyjam/live 手艺人手记 babeljs ESLint VSCode
+modified: 20220530133528836
+tags: $:/plugins/adithyab/tiddlyjam/live ESLint VSCode babeljs blog
 title: 2018-08-16 Say Goodbye to '../' '../../' '../../../'
 type: text/vnd.tiddlywiki
 
