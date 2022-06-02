@@ -5,6 +5,44 @@
    <link>https://thaddeusjiang.com</link>
    <description>在日本开发 SaaS 产品，爱猫、爱读书、爱大海</description>
    <item>
+      <title>E006-分享一些 frontend 相关的工作记录</title>
+      <link>https://thaddeusjiang.com/e006-fen-xiang-yi-xie-frontend-xiang-guan-de-gong-zuo-ji-lu</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">E006-分享一些 frontend 相关的工作记录</h1>
+            <hr>
+
+            <p>欢迎阅读蒋继发的《每周分享》第六期，本期主要是分享一些 frontend 相关的工作记录。</p><p>蒋继发的《每周分享》每周四发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些工作经验、日本生活体验以及阅读感受等等。</p><h1 class="">本周有哪些工作方面的内容可以和大家分享？</h1><h2 class="">1. <a class="tc-tiddlylink-external" href="https://github.com/formkit/auto-animate" rel="noopener noreferrer" target="_blank">AutoAnimate</a> - Add motion to your apps with a single line of code.</h2><p>偶然发现这个 library，虽然算不上功能强大，但是 1 行代码添加动画效果对于一些小型项目的确很有吸引力。我可能会在自己的 Toy Project 中尝试一下。</p><p>不过我并不推荐这个 library，理由很简单，它的功能不够强，再稍微大型一点的项目中就无法满足需求了。例如：没有提供拖拽（DnD）相关支持，没有大量的示例（Samples）。</p><h2 class="">2. <a class="tc-tiddlylink-external" href="https://twitter.com/DavidKPiano/status/1521920584975667201" rel="noopener noreferrer" target="_blank">useEffect tip: don't</a></h2><p>本周和团队分享了这个 React.js 技巧：useEffect tip: don't，演讲视频：<a class="tc-tiddlylink-external" href="https://youtu.be/Ck-e3hd3pKw?t=3993" rel="noopener noreferrer" target="_blank">https://youtu.be/Ck-e3hd3pKw?t=3993</a></p><blockquote class="tc-quote tc-big-quote"><p>“会 React.js”和“真的会 React.js”之间的差距就像“会写字”和“会写小说”一样遥远。
+</p><cite>TJ</cite></blockquote><p>看过很多 developer 说 React.js 很简单，几天就能学会。
+React.js 难吗？说实话我认为 Raect.js 有点难，至少我自己经常犯错。不过这不可怕，可怕的是我能看出来其他人的代码是错的，但是我说不明白为什么。就像我知道  1 + 1 = 3 是错误的，但是我说不来为什么；就像我知道红色和蓝色 1:1 混合可以得到紫色，但是我说不出来为什么。这感觉真的太糟糕了。</p><p>没有实际代码，我无法解释 React.js 到底哪里难。我只能推荐几个改变我思维方式的资源，希望它们也能帮助大家真正掌握 React.js。</p><ol><li>State so simple, it goes without saying</li><li>Using Composition in React to Avoid "Prop Drilling"</li><li>A Complete Guide to useEffect</li></ol><h2 class="">3. <a class="tc-tiddlylink-external" href="https://twitter.com/ThaddeusJiang/status/1531792953278369792" rel="noopener noreferrer" target="_blank">loading is loading, error is error, empty is empty</a></h2><p>你有没有写过这样的代码？</p><pre class="hljs"><code class="js hljs">{!data &amp;&amp; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Loading</span> /&gt;</span></span> }
+{ error &amp;&amp; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ErrorMessage</span> /&gt;</span></span> }</code></pre><p>效果如下：</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/070c74f77b38c14584ed3a68ff2865af.png"></p><p>我原本以为这是一个很简单的概念，但是看过 n 多次上门的代码以后我开始认真思考这个问题。为什么那么多人不懂这个概念？后来我想明白了，这个概念对计算机科学专业科班出身的人很简单，因为这是一个状态机（State Machine）。但是对于没有计算机基础的开发者，状态机是一个非常陌生的概念。</p><p>如果你不知道状态机，我推荐你学习一下。相信你会在软件开发领域更上一层楼。</p><h1 class="">本周有哪些生活方面的内容可以和大家分享？</h1><p>上个周末是 5 月份的最后一个周末，我又去参加读书会了。我非常喜欢读书会活动，我自己是一个不擅长社交的人，新认识的朋友通常就是加个微信就结束了，通常不会主动约出来见见面。读书会每个月都有聚会，不需要我主动，只需要在指定的时间到达指定的地点就好了，简直太适合我了。并且，读书会的朋友们都是真的爱读书，可能是兴趣相投，我太爱他们了，读书会就是我在日本的精神港湾。</p><p>5月的读书会我分享了《ビジネスモデルの未来予報図51》</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/dd8dab06bf0a423bc51fd44a3c92509f.jpg"></p><p>这本书有点像杂志，内容非常零散，每个内容通常只有1～2页的篇幅，主要就是介绍了一些未来可能流行起来的商业或者服务。当作拓展视野的休闲读物还不错，有几个商业点子还挺有意思的，例如：人造流星雨、深海龙宫（酒店或者度假村）、自动化妆仪等等。</p><p>以上就是本次分享的全部内容，十分感谢你看到这里。</p><p>最后，为了方便大家订阅《蒋继发的每周分享》我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。内容同步发布在<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/weekly" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/weekly</a> 。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/jamiebuilds/unstated" rel="noopener noreferrer" target="_blank">https://github.com/jamiebuilds/unstated</a></li><li><a class="tc-tiddlylink-external" href="https://www.youtube.com/watch?v=3XaXKiXtNjw" rel="noopener noreferrer" target="_blank">https://www.youtube.com/watch?v=3XaXKiXtNjw</a></li><li><a class="tc-tiddlylink-external" href="https://overreacted.io/a-complete-guide-to-useeffect/" rel="noopener noreferrer" target="_blank">https://overreacted.io/a-complete-guide-to-useeffect/</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Thu, 2 June 2022 22:59:2 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/e006-fen-xiang-yi-xie-frontend-xiang-guan-de-gong-zuo-ji-lu</guid>      
+   </item>
+
+   <item>
       <title>E005-日本明星 SaaS 企业 SmartHR</title>
       <link>https://thaddeusjiang.com/e005-ri-ben-ming-xing-saas-qi-ye-smarthr</link>
 			<description><![CDATA[
@@ -74,43 +112,6 @@
 ]]></description>
       <pubDate>Fri, 20 May 2022 18:27:5 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/e004-peng-you-shi-ji-lei-xia-lai-de</guid>      
-   </item>
-
-   <item>
-      <title>E003-你有简单恐惧症吗</title>
-      <link>https://thaddeusjiang.com/e003-ni-you-jian-dan-kong-ju-zheng-ma</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
-            </a>
-        </div>
-     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
-  </div>
-      
-
-<div class="container mt-5">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="title">E003-你有简单恐惧症吗</h1>
-            <hr>
-
-            <p>大家好，欢迎阅读第三期的《每周分享》。</p><p>我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些 SaaS 工作经历、日本生活体验以及读书感受等等。<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/weekly/issues" rel="noopener noreferrer" target="_blank">欢迎大家来和我讨论或者投稿</a></p><h2 class="">本周随笔</h2><p>很多人有简单恐惧症，我有复杂恐惧症。</p><p>简单恐惧症是我看李笑来的《韭菜的自我修养》中学到的概念，大概的意思是：想要解决一个问题，在简单方法和复杂方法之间绝大多数人会选择复杂的方法。他们有一种简单恐惧症，他们会怀疑这么简单真的可以嘛？如果这么简单就能办到为什么其他人没有办到。</p><p>事实上并不是因为简单的方法不好，仅仅是因为绝大多数人有简单恐惧症。</p><p>很多人有简单恐惧症，我有复杂恐惧症。我发现我不喜欢复杂的东西。举几个小例子：笔记工具是内容创造者必不可少的工具，各种强大的工具琳琅满目，如 Notion, Obsidian, Roam Research, Logseq 等等，不过我最中意 flomo。恰恰是因为它很简单，不复杂。另外我也做一点点投资，不过我只定投标普500。</p><h2 class="">本周阅读</h2><p>1. 读了《编程原则》我终于知道为什么很多软件工程师自称“手艺人”</p><p>很早之前我就发现很多软件工程师喜欢自称“手艺人”，但是并不知道为什么。</p><p>本周我阅读了Max Kanatde的《编程原则》，在第19章《量化开发效率》中我终于找到了非常形象且简单易懂的解释。</p><blockquote class="tc-quote tc-big-quote"><p>“电脑程序员”和“木匠”类似，是一门手艺，不是一份职业。</p><p>木匠的工作内容可能是家具维修，搭建房屋，或者制作桌椅，因为工作内容的不同他的工作成果也会不同，可能是把故障的家具修好，一栋新房子，或者漂亮的餐桌，但绝对不能说他的工作成果是一堆木头。</p><p>就像木匠的工作成果不是木头，程序员的工作成果也不是代码，而是用代码实现的各式各样的产品，有可能是用来看书的 ebook reader, 和朋友交流的 messager，或者将复杂数据可视化的 Charts 等等。
-</p></blockquote><h2 class="">本周 Twitter 收藏</h2><p>1. Figma、Notion越做越开放，联动的软件越来越多。微信、各国产办公软件越做越割裂，只开放给同一阵营的产品。</p><p>我在 2021 年 03 月也发出过类似的感叹，感觉遇到知己了。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/fc149d5701c3f666dd2e7601fc9a2532.png"></p><p>2. 图解：React 中 4 种 Data-Fetch 和 Render 顺序</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/8414907329a5d7b6f4224b654e42641c.jpg"></p><p>这应该是一道非常不错的面试题，各位面试官可以收藏一下。
-可以提问的点：</p><ol><li>不同的执行顺序，有什么优缺点？适用的场景有哪些？</li><li>实际项目中使用哪种顺序？要求写伪代码或者真实代码。</li><li>候选人是否对这个问题有更深的理解，或者独到的见解？</li><li>...</li></ol><p>3. 企业信息化建设的终局：从 excel 导入数据，把数据导出到 excel</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/f9d1ccf16b4fe25145f104bf8c05056e.jpg"></p><p>😂 说的太对了！</p><p>我在补充几点：</p><ol><li>ToB SaaS 最后都会加上【Workflow 功能】</li><li>ToB SaaS 最后都会加上【Form Definition 功能】</li><li>ToB SaaS 最后都会加上【数值 Auto-Calculate 功能】</li></ol><p>最后，为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://twitter.com/gua_intl/status/1524274829398253568?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng" rel="noopener noreferrer" target="_blank">https://twitter.com/gua_intl/status/1524274829398253568?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/dai_shi/status/1234640507478794240?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng" rel="noopener noreferrer" target="_blank">https://twitter.com/dai_shi/status/1234640507478794240?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/syhily/status/1522737810872045569?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng" rel="noopener noreferrer" target="_blank">https://twitter.com/syhily/status/1522737810872045569?s=21&amp;t=-xV86M5NOyBqf4-eWuG6ng</a></li></ul>
-          </div>
-      </div>
-      <hr>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Fri, 13 May 2022 21:35:32 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/e003-ni-you-jian-dan-kong-ju-zheng-ma</guid>      
    </item>
 
 </channel>
