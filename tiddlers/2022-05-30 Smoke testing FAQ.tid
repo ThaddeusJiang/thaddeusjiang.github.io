@@ -1,5 +1,5 @@
 created: 20220530125057324
-modified: 20220530135130909
+modified: 20220601015303054
 published: 20220530133636879
 tags: blog Testing $:/plugins/adithyab/tiddlyjam/live
 title: 2022-05-30 Smoke testing FAQ
@@ -28,4 +28,4 @@ Smoke testing（冒烟测试）是软件测试的一种。网上有很多关于�
 
 refs:
 
-* https://en.wikipedia.org/wiki/Smoke_testing_(software)
+* [[https://en.wikipedia.org/wiki/Smoke_testing_(software)]]
