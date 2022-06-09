@@ -5,6 +5,53 @@
    <link>https://thaddeusjiang.com</link>
    <description>在日本开发 SaaS 产品，爱猫、爱读书、爱大海</description>
    <item>
+      <title>E007-年轻人不是想摸鱼，前辈不是想说教</title>
+      <link>https://thaddeusjiang.com/e007-nian-qing-ren-bu-shi-xiang-mo-yu-qian-bei-bu-shi-xiang-shuo-jiao</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">E007-年轻人不是想摸鱼，前辈不是想说教</h1>
+            <hr>
+
+            <p>欢迎阅读蒋继发的《每周分享》第七期，本期分享一下公司其他同事的内部分享。</p><p>蒋继发的《每周分享》每周四发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些工作经验、日本生活体验以及阅读感受等等。</p><h2 class="">年轻人不是想摸鱼，前辈不是想说教</h2><blockquote><div>这是公司其他同事的内部分享，我觉得讲的挺好的，整理一下分享给大家。</div></blockquote><p>摘要：</p><p>一个大叔（阿姨）是饮食店的管理，店里有二十几岁的年轻人打工。
+大叔发现年轻人总是在工作时间玩手机，于是对年轻人说：“上班不要经常玩手机”。年轻人解释自己是在做笔记。大叔看到的是年轻人上班玩手机，年轻人觉得大叔喜欢说教。因为这件事大叔和年轻人关系变差了。
+ 
+从旁观者角度，你可能会觉得这很正常啊，年纪大的人做笔记使用纸和笔，年轻人做笔记基本上是手机。但是没有直接和对方说出自己的感受，年纪大的人可能觉得年轻人上班不好好工作，年轻人可能觉得年纪大的人管的太多。
+ 
+横向展开：</p><p>其实绝大多数人的工作环境也是一样的，一些工作经验比较多的人总会想分享自己的工作经验，帮助年轻人成长。例如：参加会议要做笔记、白天有突发事件晚上补上工作时间、每天下班前都要 commit 自己的工作等等等。年轻人可能已经用其他的方式做了同样的事，例如：使用 app 自动记录会议记录、即使在办私事时也用手机就把工作做了，每天上班前 commit 前一天的工作等等。
+ 
+但是年纪大的人和年轻人难免有生活、工作方式上的不同，如果不能理解对方的感受，很容易出现各种不愉快。这时候直接说出自己的感受，大家可以更好地站在对方的角度思考问题，可以避免很多不愉快。</p><p>例如：</p><p>年轻人可以直接和年纪大的人说：“我已经使用 App 记录会议笔记了，下次不用提醒我拿纸和笔了。”
+	
+年纪大的人可以直接说：“要求你拿纸和笔是为了让你学会记录会议笔记，不是要求你一定要用纸和笔。”</p><blockquote class="tc-quote tc-big-quote"><p>年轻人不是想摸鱼，前辈不是想说教。
+年轻人只是习惯的使用 Smart Phone，前辈只是想用自己的经验帮助年轻人成长。
+</p><cite>TJ</cite></blockquote><p>以上就是本次分享的全部内容，十分感谢你看到这里。</p><p>为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。分享内容同步在我的个人网站：<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/weekly" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/weekly</a> 。
+</p>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Thu, 9 June 2022 22:22:4 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/e007-nian-qing-ren-bu-shi-xiang-mo-yu-qian-bei-bu-shi-xiang-shuo-jiao</guid>      
+   </item>
+
+   <item>
       <title>E006-分享一些 frontend 相关的工作记录</title>
       <link>https://thaddeusjiang.com/e006-fen-xiang-yi-xie-frontend-xiang-guan-de-gong-zuo-ji-lu</link>
 			<description><![CDATA[
@@ -76,42 +123,6 @@ React.js 难吗？说实话我认为 Raect.js 有点难，至少我自己经常�
 ]]></description>
       <pubDate>Sat, 28 May 2022 14:45:9 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/e005-ri-ben-ming-xing-saas-qi-ye-smarthr</guid>      
-   </item>
-
-   <item>
-      <title>E004-朋友是积累下来的</title>
-      <link>https://thaddeusjiang.com/e004-peng-you-shi-ji-lei-xia-lai-de</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
-            </a>
-        </div>
-     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
-  </div>
-      
-
-<div class="container mt-5">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="title">E004-朋友是积累下来的</h1>
-            <hr>
-
-            <p>大家好，欢迎阅读蒋继发的《每周分享》第 4 期。</p><p>蒋继发的《每周分享》每周五发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些 SaaS 工作经历、日本生活体验以及读书感受等等。<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/weekly/issues" rel="noopener noreferrer" target="_blank">欢迎大家来和我讨论或者投稿</a></p><h2 class="">朋友是积累下来的</h2><blockquote class="tc-quote tc-big-quote"><p>真正的朋友不会因为你的偶然过失而离开，真正的朋友只会因为不再认可你的人品和价值观而离开。
-</p><cite>TJ</cite></blockquote><p>如果你订阅了这份分享，相信你已经知道了我本周的经历，我在 Twitter 被骂的很惨。其实被骂没什么，我不太介意。毕竟连我最喜欢几位分享者（袁腾飞老师、罗翔老师、阮一峰老师）也经常被骂。我比较介意的是我的朋友们会不会因此而误会我，因为对我来说朋友们比路人重要 <strong>10,000 倍</strong>。幸好，我的朋友们没有误会我，我真的感觉人间值得。</p><p>我想说几句话：</p><p>朋友是积累下来的，而不是拓展出来的。大家有没有这样的感受，从我们出生、读书、出国、一直到工作，我们遇到了无数的人，但是当你想要找人聊天时，能真的张开嘴的朋友其实并不多。大部分曾经的朋友已经变得不那么亲密，现在依然亲密的才是你真正的朋友。</p><p>真正的朋友，当你做了一些错事，一些傻逼的事，他们依然留着你的联系方式，不会因为你的不经意间的过错而离开。真正的朋友只会因为不再认可你的人品和价值观而离开。所以只要做一个 nice 的人，做一个始终保持正确价值观的人，真正的朋友永远都不会离开。</p><h2 class="">关于 Code Review</h2><blockquote><div>我被骂以后，一位推友发的推，我非常同意，我已经收藏了，今后我会按照这些要求自己。</div></blockquote><p>正确的 review</p><ul><li>（建议）我觉得这里可以这样写……因为……</li><li>（不懂）这里为什么要这么写？</li><li>（讨论）为什么没有用……？</li></ul><p>错误的 review：</p><ul><li>你改这里有什么用？</li><li>看到这里我知道你为什么总是xxx了，你这个废物！</li></ul><p>review原则：</p><p>什么问题都可以讨论，某些地方可以声明自己在 picky。但是一定对事不对人。</p><p>最后，为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。分享内容同步在我的个人网站：<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/weekly" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/weekly</a> 。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://twitter.com/laixintao/status/1526596745433468930?s=20&amp;t=a-QcY9WTb8TURDyqw00aGQ" rel="noopener noreferrer" target="_blank">https://twitter.com/laixintao/status/1526596745433468930?s=20&amp;t=a-QcY9WTb8TURDyqw00aGQ</a></li></ul>
-          </div>
-      </div>
-      <hr>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Fri, 20 May 2022 18:27:5 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/e004-peng-you-shi-ji-lei-xia-lai-de</guid>      
    </item>
 
 </channel>
