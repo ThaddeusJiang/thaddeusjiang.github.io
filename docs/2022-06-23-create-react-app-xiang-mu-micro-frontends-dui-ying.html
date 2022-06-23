@@ -1,0 +1,157 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.2" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2022-06-23 create-react-app 项目 micro-frontends 对应 ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="如何将 create-react-app 项目迁移成 micro-frontends（微前端） 项目？">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2022-06-23-create-react-app-xiang-mu-micro-frontends-dui-ying" />
+<meta property="og:title" content="2022-06-23 create-react-app 项目 micro-frontends 对应 ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="如何将 create-react-app 项目迁移成 micro-frontends（微前端） 项目？" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2022-06-23 create-react-app 项目 micro-frontends 对应.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2022-06-23 create-react-app 项目 micro-frontends 对应 ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="如何将 create-react-app 项目迁移成 micro-frontends（微前端） 项目？" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2022-06-23 create-react-app 项目 micro-frontends 对应</h1>
+            <hr>
+
+            <p>如何将 create-react-app 项目迁移成 micro-frontends（微前端） 项目？</p><blockquote><div>前提：我的微前端项目主要使用 single-spa </div></blockquote><h2 class="">Demo 演示</h2><p><img class=" tc-image-loading" src="https://i.gyazo.com/06afa3d205648f474916135e36c11c5a.png"></p><h2 class="">How-to</h2><p>我主要参考的是 <a class="tc-tiddlylink-external" href="https://single-spa.js.org/docs/faq/#create-react-app" rel="noopener noreferrer" target="_blank">https://single-spa.js.org/docs/faq/#create-react-app</a> 的 option 1 和 option 3。</p><p>为什么？</p><ol><li>option 1 足够简单，便于解释原理。</li><li>option 3 和公司的核心项目使用的技术相同。</li></ol><h2 class="">option 1: Remove react-scripts and then run create-single-spa on your project</h2><p>1. 直接在项目路径下执行 create-single-spa</p><pre><code>npx create-single-spa
+
+// orgName: "thaddeusjiang"
+// projectName: "legacy"</code></pre><p>2. App.js 重命名成 <code>root.component.js</code></p><p>3. 在 spa-root-config 中使用 <code>@thaddeusjiang/legacy</code></p><p>启动你的 spa-root-config 项目，效果如下：</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/cb416d7b491f9359fcb29867aa8c781a.png"></p><h2 class="">option 2: Use react-app-rewired to modify the webpack config.</h2><p>1. 安装 react-app-rewired-single-spa</p><pre><code>npm install react-app-rewired-single-spa</code></pre><p>2. 修改 config-overrides.js</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// config-overrides.js</span>
+<span class="hljs-keyword">const</span> {
+  rewiredSingleSpa,
+  rewiredSingleSpaDevServer,
+} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;react-app-rewired-single-spa&quot;</span>);
+
+<span class="hljs-comment">// use `customize-cra`</span>
+<span class="hljs-keyword">const</span> { override, overrideDevServer } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;customize-cra&quot;</span>);
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">webpack</span>: <span class="hljs-title function_">override</span>(
+    <span class="hljs-title function_">rewiredSingleSpa</span>({
+      <span class="hljs-attr">orgName</span>: <span class="hljs-string">&quot;thaddeusjiang&quot;</span>,
+      <span class="hljs-attr">projectName</span>: <span class="hljs-string">&quot;legacy&quot;</span>,
+      <span class="hljs-attr">entry</span>: <span class="hljs-string">&quot;./src/thaddeus-legacy.js&quot;</span>,
+      <span class="hljs-attr">reactPackagesAsExternal</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">peerDepsAsExternal</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">orgPackagesAsExternal</span>: <span class="hljs-literal">true</span>,
+    })
+  ),
+  <span class="hljs-attr">devServer</span>: <span class="hljs-title function_">overrideDevServer</span>(<span class="hljs-title function_">rewiredSingleSpaDevServer</span>()),
+};</code></pre><p>3. 创建 thaddeusjiang-legacy.js</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">ReactDOM</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react-dom&quot;</span>;
+<span class="hljs-keyword">import</span> singleSpaReact <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;single-spa-react&quot;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">Root</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./App&quot;</span>;
+
+<span class="hljs-keyword">const</span> lifecycles = <span class="hljs-title function_">singleSpaReact</span>({
+  <span class="hljs-title class_">React</span>,
+  <span class="hljs-title class_">ReactDOM</span>,
+  <span class="hljs-attr">rootComponent</span>: <span class="hljs-title class_">Root</span>,
+  <span class="hljs-title function_">errorBoundary</span>(<span class="hljs-params">err, info, props</span>) {
+    <span class="hljs-comment">// Customize the root error boundary for your microfrontend here.</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+  },
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> { bootstrap, mount, unmount } = lifecycles;</code></pre><p>4. 在 spa-root-config 项目中使用 @thaddeusjiang/legacy</p><p>启动你的 spa-root-config 项目，效果如下：</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/89dd9d9ee7e72118b439516da45919f9.png"></p><h2 class="">总结</h2><p>两种方法其实是殊途同归，主要做了下面 3 件事。</p><ol><li>single-spa application 需要提供 lifecycles 才能在 single-spa root-config 中使用。</li><li>import-maps 需要 JavaScript module，所以需要通过 webpack 打包。</li><li>single-spa-layout 控制 single-spa 的 route、application 以及 DOM 。</li></ol><p>ref:</p><ul><li><a class="tc-tiddlylink-external" href="https://single-spa.js.org/docs/faq/#create-react-app" rel="noopener noreferrer" target="_blank">https://single-spa.js.org/docs/faq/#create-react-app</a></li><li><a class="tc-tiddlylink-external" href="https://gist.github.com/joeldenning/79f2592086ad132fae8ee5aae054c0b6" rel="noopener noreferrer" target="_blank">https://gist.github.com/joeldenning/79f2592086ad132fae8ee5aae054c0b6</a></li><li><a class="tc-tiddlylink-external" href="https://single-spa.js.org/docs/ecosystem-react/#create-react-app" rel="noopener noreferrer" target="_blank">https://single-spa.js.org/docs/ecosystem-react/#create-react-app</a></li><li><a class="tc-tiddlylink-external" href="https://single-spa.js.org/docs/building-applications#registered-application-lifecycle" rel="noopener noreferrer" target="_blank">https://single-spa.js.org/docs/building-applications#registered-application-lifecycle</a></li><li><a class="tc-tiddlylink-external" href="https://single-spa.js.org/docs/layout-overview" rel="noopener noreferrer" target="_blank">https://single-spa.js.org/docs/layout-overview</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+</div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

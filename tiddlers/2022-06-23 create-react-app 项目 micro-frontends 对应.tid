@@ -1,0 +1,123 @@
+created: 20220623054254322
+modified: 20220623063443816
+published: 20220623063443816
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2022-06-23 create-react-app 项目 micro-frontends 对应
+type: text/vnd.tiddlywiki
+
+如何将 create-react-app 项目迁移成 micro-frontends（微前端） 项目？
+
+> 前提：我的微前端项目主要使用 single-spa 
+
+!! Demo 演示
+
+[img[https://i.gyazo.com/06afa3d205648f474916135e36c11c5a.png]]
+
+!! How-to
+
+我主要参考的是 https://single-spa.js.org/docs/faq/#create-react-app 的 option 1 和 option 3。
+
+为什么？
+
+# option 1 足够简单，便于解释原理。
+# option 3 和公司的核心项目使用的技术相同。
+
+!! option 1: Remove react-scripts and then run create-single-spa on your project
+
+1. 直接在项目路径下执行 create-single-spa
+
+```
+npx create-single-spa
+
+// orgName: "thaddeusjiang"
+// projectName: "legacy"
+```
+
+2. App.js 重命名成 `root.component.js`
+
+3. 在 spa-root-config 中使用 `@thaddeusjiang/legacy`
+
+启动你的 spa-root-config 项目，效果如下：
+
+[img[https://i.gyazo.com/cb416d7b491f9359fcb29867aa8c781a.png]]
+
+
+!! option 2: Use react-app-rewired to modify the webpack config.
+
+1. 安装 react-app-rewired-single-spa
+
+```
+npm install react-app-rewired-single-spa
+```
+
+2. 修改 config-overrides.js
+
+```js
+// config-overrides.js
+const {
+  rewiredSingleSpa,
+  rewiredSingleSpaDevServer,
+} = require("react-app-rewired-single-spa");
+
+// use `customize-cra`
+const { override, overrideDevServer } = require("customize-cra");
+
+module.exports = {
+  webpack: override(
+    rewiredSingleSpa({
+      orgName: "thaddeusjiang",
+      projectName: "legacy",
+      entry: "./src/thaddeus-legacy.js",
+      reactPackagesAsExternal: true,
+      peerDepsAsExternal: true,
+      orgPackagesAsExternal: true,
+    })
+  ),
+  devServer: overrideDevServer(rewiredSingleSpaDevServer()),
+};
+```
+
+3. 创建 thaddeusjiang-legacy.js
+
+```js
+import React from "react";
+import ReactDOM from "react-dom";
+import singleSpaReact from "single-spa-react";
+import Root from "./App";
+
+const lifecycles = singleSpaReact({
+  React,
+  ReactDOM,
+  rootComponent: Root,
+  errorBoundary(err, info, props) {
+    // Customize the root error boundary for your microfrontend here.
+    return null;
+  },
+});
+
+export const { bootstrap, mount, unmount } = lifecycles;
+```
+
+4. 在 spa-root-config 项目中使用 @thaddeusjiang/legacy
+
+启动你的 spa-root-config 项目，效果如下：
+
+[img[https://i.gyazo.com/89dd9d9ee7e72118b439516da45919f9.png]]
+
+!! 总结
+
+两种方法其实是殊途同归，主要做了下面 3 件事。
+
+# single-spa application 需要提供 lifecycles 才能在 single-spa root-config 中使用。
+# import-maps 需要 JavaScript module，所以需要通过 webpack 打包。
+# single-spa-layout 控制 single-spa 的 route、application 以及 DOM 。
+
+
+ref:
+
+* https://single-spa.js.org/docs/faq/#create-react-app
+* https://gist.github.com/joeldenning/79f2592086ad132fae8ee5aae054c0b6
+* https://single-spa.js.org/docs/ecosystem-react/#create-react-app
+* https://single-spa.js.org/docs/building-applications#registered-application-lifecycle
+* https://single-spa.js.org/docs/layout-overview
+

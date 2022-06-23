@@ -18,21 +18,21 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2020-06-25 Micro frontends 2: A demo made with single-spa ~ 蒋继发 (ThaddeusJiang)</title>
-<meta name="description" content="介绍了 Micro Frontends 的理论，估计大家还是云里雾里的。">
+<title>2020-06-25 micro-frontends 2: A demo made with single-spa ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="介绍了 micro-frontends 的理论，估计大家还是云里雾里的。">
 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://thaddeusjiang.com/2020-06-25-micro-frontends-2-a-demo-made-with-single-spa" />
-<meta property="og:title" content="2020-06-25 Micro frontends 2: A demo made with single-spa ~ 蒋继发 (ThaddeusJiang)" />
-<meta property="og:description" content="介绍了 Micro Frontends 的理论，估计大家还是云里雾里的。" />
-<meta property="og:image" content="https://og-image-zh.vercel.app/2020-06-25 Micro frontends 2: A demo made with single-spa.png?fontSize=50px" />
+<meta property="og:title" content="2020-06-25 micro-frontends 2: A demo made with single-spa ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="介绍了 micro-frontends 的理论，估计大家还是云里雾里的。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2020-06-25 micro-frontends 2: A demo made with single-spa.png?fontSize=50px" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="2020-06-25 Micro frontends 2: A demo made with single-spa ~ 蒋继发 (ThaddeusJiang)" />
-<meta name="twitter:description" content="介绍了 Micro Frontends 的理论，估计大家还是云里雾里的。" />
+<meta name="twitter:title" content="2020-06-25 micro-frontends 2: A demo made with single-spa ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="介绍了 micro-frontends 的理论，估计大家还是云里雾里的。" />
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -69,19 +69,19 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2020-06-25 Micro frontends 2: A demo made with single-spa</h1>
+            <h1 class="title">2020-06-25 micro-frontends 2: A demo made with single-spa</h1>
             <hr>
 
-            <p>介绍了 Micro Frontends 的理论，估计大家还是云里雾里的。</p><p>我们用一个实例来展示一下 Micro Frontends 的威力。</p><h2 class="">A demo made with single-spa</h2><p><iframe height="600px" src="https://mf-dog.netlify.app/" width="100%"></iframe></p><p>这是一个非常简单的应用，只有一个菜单和两个页面。
+            <p>介绍了 micro-frontends 的理论，估计大家还是云里雾里的。</p><p>我们用一个实例来展示一下 micro-frontends 的威力。</p><h2 class="">A demo made with single-spa</h2><p><iframe height="600px" src="https://mf-dog.netlify.app/" width="100%"></iframe></p><p>这是一个非常简单的应用，只有一个菜单和两个页面。
 通常情况下，对于如此简单的应用，我们通常不需要考虑什么架构问题。
 不过为了演示效果嘛。</p><h2 class="">使用了哪些 library？</h2><p>基本的 library 有 3 个</p><ol><li>[single-spa](<a class="tc-tiddlylink-external" href="https://github.com/single-spa/single-spa" rel="noopener noreferrer" target="_blank">https://github.com/single-spa/single-spa</a>)</li><li>[systemjs](<a class="tc-tiddlylink-external" href="https://github.com/systemjs/systemjs" rel="noopener noreferrer" target="_blank">https://github.com/systemjs/systemjs</a>)</li><li>[import-map-overrides](<a class="tc-tiddlylink-external" href="https://github.com/joeldenning/import-map-overrides/" rel="noopener noreferrer" target="_blank">https://github.com/joeldenning/import-map-overrides/</a>)</li></ol><p>大家可以猜一下，这个应用一共有几个 repository ？</p><p>答案：4</p><p>为什么需要 4 个 repository 呢？它们有什么作用？</p><ol><li>使用 single-spa 实现 MicroFrontends，我们需要一个 config app 用来管理全部 app 的状态。</li><li>我们有 2 个页面，我们把分别独立成 app。</li><li>公共组件和主题也独立成 app。</li></ol><p>我们一共使用了 4 个 app，为了 CI/CD 方便，我们使用了 4 个 repository。
-当然，你也可以使用 monorepo 管理。</p><h2 class="">这难道不是更复杂了吗？</h2><p>对于如此简单的应用，Micro frontends 确实没有必要。
-但是，Micro frontends 的场景并不是简单应用，而是庞大且错中复杂的企业级应用。
+当然，你也可以使用 monorepo 管理。</p><h2 class="">这难道不是更复杂了吗？</h2><p>对于如此简单的应用，micro-frontends 确实没有必要。
+但是，micro-frontends 的场景并不是简单应用，而是庞大且错中复杂的企业级应用。
 可能很多人来自互联网公司，主要开发 toC 产品，没有 toB 系统开发经历。</p><p>我简单介绍一个我参与的一个 toB 产品的背景，如下：</p><pre><code>XXX 系统
 2020 年启动，第一版计划 2022 年上线。
 业务模块 100+
 参与开发人员 50+
-上线后，继续添加功能</code></pre><p>请问这样的项目有什么问题？</p><ol><li>开发周期长，2020 年流行的技术可能 2022 年已经是落后的技术了。</li><li>参与人数众多，如果不能清晰的划分业务模块的话，实际开发过程中会出现大量冲突，影响进度。</li><li>持续添加功能，为了减少回归测试工作量，隔离是必须的。</li></ol><p>综上所述，</p><blockquote class="tc-quote tc-big-quote"><p>Micro frontends 更适合 toB 场景。
+上线后，继续添加功能</code></pre><p>请问这样的项目有什么问题？</p><ol><li>开发周期长，2020 年流行的技术可能 2022 年已经是落后的技术了。</li><li>参与人数众多，如果不能清晰的划分业务模块的话，实际开发过程中会出现大量冲突，影响进度。</li><li>持续添加功能，为了减少回归测试工作量，隔离是必须的。</li></ol><p>综上所述，</p><blockquote class="tc-quote tc-big-quote"><p>micro-frontends 更适合 toB 场景。
 </p></blockquote>
           </div>
       </div>
