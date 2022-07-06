@@ -1,0 +1,69 @@
+created: 20220706133118914
+modified: 20220706142342336
+published: 20220706142342336
+tags: weekly blog $:/plugins/adithyab/tiddlyjam/live
+title: E010-bugs什么时候修复？features值不值得做？
+type: text/vnd.tiddlywiki
+
+大家好，欢迎阅读《蒋继发的每周分享》第10期。本期的主题是《bugs什么时候修复？features值不值得做？》。
+
+我叫蒋继发，目前在日本做 HR 领域的 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些 SaaS 项目工作经验、日本生活体验以及阅读感受等等。《蒋继发的每周分享》会在每周四发送，欢迎大家通过 [[RSS|https://thaddeusjiang.com/rss.xml]] 或者 [[Revue|https://www.getrevue.co/profile/thaddeusjiang]] 订阅。
+
+我先和各位订阅的读者道个歉，上周我没有更新《每周分享》，因为上周工作太忙了，实在没有力气了，十分抱歉。
+
+!! bugs 什么时候修复？
+
+[img[https://i.gyazo.com/ed54a712ecbc4acdb01100fdeced61cd.jpg]]
+
+这是之前看到的一个图，非常赞同，已在公司内部的分享，也分享给大家。
+
+根据这张图我们可以非常轻松的判断出 bugs 应该在什么时候被修复。
+
+list:
+
+# 如果 bugs 影响到超过 30% 用户使用核心功能，`Fix Now`
+# 如果 bugs 影响到超过 30% 用户使用基础功能，`Fix Now`
+# 如果 bugs 影响到超过 30% 用户，但是不影响使用，Fix Next Spring
+# 如果 bugs 影响范围在 11% to 30% 用户使用核心功能，Fix Next Spring
+# 如果 bugs 影响范围在 11% to 30% 用户使用基础功能，Fix Next Spring
+# 如果 bugs 影响范围在 11% to 30% 用户，即使不影响使用，Fix Next Spring
+# 如果 bugs 影响 0% to 10% 用户使用核心功能，Fix Next Spring
+# 如果 bugs 影响 0% to 10% 用户使用非核心功能，Backlog
+# 如果 bugs 影响 0% to 10% 用户，且不影响使用，Backlog
+
+上面列表是针对 bugs 的，通常情况下如果 issue 已经被确认是 bug 的话，就不存在做不做的问题了，肯定要修复，只是需要确认什么时候做即可。但是如果是针对 features 呢？
+
+!! features 值不值得做？
+
+我参考上面的图片制作了 features 版本的交叉图
+
+[img[https://i.gyazo.com/b268e954309e05d6589e86f0fa418780.png]]
+
+list:
+
+# 如果 features 可以为用户提供数量级的收益，如果无法提供将短期内会给公司带来损失，例如：客户解约。Do
+# 如果 features 可以为用户提供数量级的收益，如果无法提供短期内也不会给公司带来损失，但是公司收益会减缓或停滞。Do
+# 如果 features 可以为用户提供数量级的收益，从短期角度不会给公司带来损失或受益。Plan
+# 如果features 是相关行业必备功能，如果无法提供将短期内会给公司带来损失，例如：客户解约。Do
+# 如果features 是相关行业必备功能，如果无法提供短期内也不会给公司带来损失，但是公司收益会减缓或停滞。Plan
+# 如果features 是相关行业必备功能，从短期角度不会给公司带来影响。Plan
+# 如果 features 只会让一部分用户感到开心，即使短期内会给公司带来损失。`Do not`
+# 如果 features 只会让一部分用户感到开心，即使短期内会让公司收益减缓或者停滞。`Do not`
+# 如果 features 只会让一部分用户感到开心，从短期角度不会给公司带来损失或受益。`Do not`
+
+!! 80/20 法则
+
+上面的公式也适用于 80/20 法则，实际工作中难免会有一部分工作属于 20% 范畴，希望大家可以随机应变。
+
+我开发了一个简单的网页大家只需要动动鼠标就可以计算出“bugs 什么时候修复？”和“ features 值不值得做？”了，欢迎大家使用 https://priority-matrix.vercel.app/
+
+
+以上就是本次分享的全部内容，十分感谢你看到这里。
+
+为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 https://www.getrevue.co/profile/thaddeusjiang 订阅 Email 推送。分享内容同步在我的个人网站：https://thaddeusjiang.com/weekly 。
+
+参考：
+
+* https://twitter.com/ThaddeusJiang/status/1542697460199350274?s=20&t=VjeGyIt9eiATQ3JhcejHNQ
+* https://github.com/ThaddeusJiang/priority-matrix-app
+* https://github.com/ThaddeusJiang/priority-matrix-web
