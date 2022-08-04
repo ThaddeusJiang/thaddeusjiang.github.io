@@ -1,0 +1,74 @@
+created: 20220804122629548
+modified: 20220804134916144
+published: 20220804134852897
+tags: weekly blog $:/plugins/adithyab/tiddlyjam/live
+title: E011-既可以马拉松，也可以百米冲刺
+type: text/vnd.tiddlywiki
+
+大家好，欢迎阅读《蒋继发的每周分享》第11期。本期的主题是“既可以马拉松，也可以百米冲刺”
+
+我叫蒋继发，目前在日本做 HR 领域的 SaaS 产品，爱猫、爱读书、爱户外。所以，我可以分享一些软件开发工作经验、日本生活体验以及阅读感受等等。《蒋继发的每周分享》会在每周四发送，欢迎大家订阅。
+
+!! 既可以马拉松，也可以百米冲刺
+
+7月份肝了一个月，累死我了。😭
+ 
+7月份我开始了一个新项目 romu.smartcompany.dev，它一个面向日本的人事劳务系统。
+我花了一个月时间进行市场调查，需求分析，并开发出产品原型，基本上达到了我的最初期待。我想和大家分享一下我对这个项目最初的期待和一个月的效果。
+
+首先，这个项目是一个实验项目，我想用一个月时间验证下面几件事：
+
+# 我做一个人事劳务 SaaS，是否可以让 HR 部门同事工作更轻松？
+# 我开发的 saas-starter 是否适合 ToB 产品的开发，是否可以提高开发效率？
+# 我能不能组建一个手术刀团队，并领导开发一个优秀的产品？
+
+7月份努努力我基本上完成了我最开始的目标：
+
+# 和 HR 部门同事沟通，他们表示期待我在做的产品，原型基本上可用。
+# 在我的 saas-starter 基础上，我们成功构建了一套基于 microfrontends 和 NoSQL 的 SaaS 项目。
+# 感谢公司的支持，我一个月时间就组建了一个 13人的团队，并完成了原型开发、积累下大量文档资料、并解释清楚了团队风格和产品期待。
+
+其实我不太喜欢这种短期内高强度开发模式，但是有时候我们的确需要既可以跑马拉松，也可以百米冲刺。
+
+Original Note:
+[img[https://i.gyazo.com/35437ba5858e27004ac3fc2721f95a1e.png]]
+
+!! 周末去海边露营⛺️了，很舒服。
+
+其实我早就买好露营的装备了，可是拖延症严重，各种给自己找借口找理由，终于在7月末真正露营了。分享几张照片：
+
+[img[https://i.gyazo.com/e3cdd5f7549a8fade12b9c73e035f365.png]]
+[img[https://i.gyazo.com/e63a2b9aff57d23c077d8eccec91e9fd.png]]
+[img[https://i.gyazo.com/9d14de10010c99ad0d01ee63b7b1390f.png]]
+
+!! 本月再读《ひろゆき流 ずるい問題解決の技術》
+
+<<<.tc-big-quote
+ネット検索はスマホするな
+<<<ひろゆき
+
+这是作者的 my rules。这个rules 的优点就是一定可以找到结果，手机屏幕太小了很容易找不到合适的结果。不管对不对，我发现像这种成功过的人都有自己的 my rules，西村博之是这样， dhh 也是，伊隆马斯克也是。
+这挺好的，我记得在 dhh 的《It Doesn't Have to Be Crazy at Work》中也有这这样一句话“Draw a Line in the Sand.”
+
+我也应该有自己的 my rules。
+
+<<<.tc-big-quote
+みんなが満足する解決策はない、解決策は必ず誰か損する
+<<<ひろゆき
+
+这句话正好和最近在看的美剧《指定幸存者》的剧情相呼应，美剧中总统提名大法官，无论总统以及白宫的工作人员如何提名，民主党和共和党都不满意。最后总统不得不放弃提名第9名大法官，先让被提名的8名大法官（民主党 4 人，共和党 4 人）就职。
+
+以上就是本次分享的全部内容，十分感谢你看到这里。
+
+为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 https://www.getrevue.co/profile/thaddeusjiang 订阅 Email 推送。分享内容同步在我的个人网站：https://thaddeusjiang.com/weekly 。
+
+
+相关链接:
+
+* [[外科手术团队|https://en.wikipedia.org/wiki/The_Mythical_Man-Month#The_surgical_team]] 《人月神话》
+* [[Micro Frontends|https://martinfowler.com/articles/micro-frontends.html]]
+* [[Micro Frontends Examples|https://github.com/ThaddeusJiang?tab=repositories&q=spa&type=&language=&sort=]]
+* [[《ひろゆき流 ずるい問題解決の技術》|https://www.amazon.co.jp/%E3%81%B2%E3%82%8D%E3%82%86%E3%81%8D%E6%B5%81-%E3%81%9A%E3%82%8B%E3%81%84%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA%E3%81%AE%E6%8A%80%E8%A1%93-%E8%A5%BF%E6%9D%91-%E5%8D%9A%E4%B9%8B/dp/4833424444]]
+* [[《指定幸存者》|https://en.wikipedia.org/wiki/Designated_survivor]]
+
+

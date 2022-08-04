@@ -3,7 +3,51 @@
 <channel>
    <title>蒋继发 (ThaddeusJiang)</title>
    <link>https://thaddeusjiang.com</link>
-   <description>在日本开发 SaaS 产品，爱猫、爱读书、爱大海</description>
+   <description>在日本开发 SaaS 产品，爱猫、爱读书、爱户外</description>
+   <item>
+      <title>E011-既可以马拉松，也可以百米冲刺</title>
+      <link>https://thaddeusjiang.com/e011-ji-ke-yi-ma-la-song-ye-ke-yi-bai-mi-chong-ci</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱户外</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">E011-既可以马拉松，也可以百米冲刺</h1>
+            <hr>
+
+            <p>大家好，欢迎阅读《蒋继发的每周分享》第11期。本期的主题是“既可以马拉松，也可以百米冲刺”</p><p>我叫蒋继发，目前在日本做 HR 领域的 SaaS 产品，爱猫、爱读书、爱户外。所以，我可以分享一些软件开发工作经验、日本生活体验以及阅读感受等等。《蒋继发的每周分享》会在每周四发送，欢迎大家订阅。</p><h2 class="">既可以马拉松，也可以百米冲刺</h2><p>7月份肝了一个月，累死我了。😭
+ 
+7月份我开始了一个新项目 romu.smartcompany.dev，它一个面向日本的人事劳务系统。
+我花了一个月时间进行市场调查，需求分析，并开发出产品原型，基本上达到了我的最初期待。我想和大家分享一下我对这个项目最初的期待和一个月的效果。</p><p>首先，这个项目是一个实验项目，我想用一个月时间验证下面几件事：</p><ol><li>我做一个人事劳务 SaaS，是否可以让 HR 部门同事工作更轻松？</li><li>我开发的 saas-starter 是否适合 ToB 产品的开发，是否可以提高开发效率？</li><li>我能不能组建一个手术刀团队，并领导开发一个优秀的产品？</li></ol><p>7月份努努力我基本上完成了我最开始的目标：</p><ol><li>和 HR 部门同事沟通，他们表示期待我在做的产品，原型基本上可用。</li><li>在我的 saas-starter 基础上，我们成功构建了一套基于 microfrontends 和 NoSQL 的 SaaS 项目。</li><li>感谢公司的支持，我一个月时间就组建了一个 13人的团队，并完成了原型开发、积累下大量文档资料、并解释清楚了团队风格和产品期待。</li></ol><p>其实我不太喜欢这种短期内高强度开发模式，但是有时候我们的确需要既可以跑马拉松，也可以百米冲刺。</p><p>Original Note:
+<img class=" tc-image-loading" src="https://i.gyazo.com/35437ba5858e27004ac3fc2721f95a1e.png"></p><h2 class="">周末去海边露营⛺️了，很舒服。</h2><p>其实我早就买好露营的装备了，可是拖延症严重，各种给自己找借口找理由，终于在7月末真正露营了。分享几张照片：</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/e3cdd5f7549a8fade12b9c73e035f365.png">
+<img class=" tc-image-loading" src="https://i.gyazo.com/e63a2b9aff57d23c077d8eccec91e9fd.png">
+<img class=" tc-image-loading" src="https://i.gyazo.com/9d14de10010c99ad0d01ee63b7b1390f.png"></p><h2 class="">本月再读《ひろゆき流 ずるい問題解決の技術》</h2><blockquote class="tc-quote tc-big-quote"><p>ネット検索はスマホするな
+</p><cite>ひろゆき</cite></blockquote><p>这是作者的 my rules。这个rules 的优点就是一定可以找到结果，手机屏幕太小了很容易找不到合适的结果。不管对不对，我发现像这种成功过的人都有自己的 my rules，西村博之是这样， dhh 也是，伊隆马斯克也是。
+这挺好的，我记得在 dhh 的《It Doesn't Have to Be Crazy at Work》中也有这这样一句话“Draw a Line in the Sand.”</p><p>我也应该有自己的 my rules。</p><blockquote class="tc-quote tc-big-quote"><p>みんなが満足する解決策はない、解決策は必ず誰か損する
+</p><cite>ひろゆき</cite></blockquote><p>这句话正好和最近在看的美剧《指定幸存者》的剧情相呼应，美剧中总统提名大法官，无论总统以及白宫的工作人员如何提名，民主党和共和党都不满意。最后总统不得不放弃提名第9名大法官，先让被提名的8名大法官（民主党 4 人，共和党 4 人）就职。</p><p>以上就是本次分享的全部内容，十分感谢你看到这里。</p><p>为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。分享内容同步在我的个人网站：<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/weekly" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/weekly</a> 。</p><p>相关链接:</p><ul><li><a class="tc-tiddlylink-external" href="https://en.wikipedia.org/wiki/The_Mythical_Man-Month#The_surgical_team" rel="noopener noreferrer" target="_blank">外科手术团队</a> 《人月神话》</li><li><a class="tc-tiddlylink-external" href="https://martinfowler.com/articles/micro-frontends.html" rel="noopener noreferrer" target="_blank">Micro Frontends</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang?tab=repositories&amp;q=spa&amp;type=&amp;language=&amp;sort=" rel="noopener noreferrer" target="_blank">Micro Frontends Examples</a></li><li><a class="tc-tiddlylink-external" href="https://www.amazon.co.jp/%E3%81%B2%E3%82%8D%E3%82%86%E3%81%8D%E6%B5%81-%E3%81%9A%E3%82%8B%E3%81%84%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA%E3%81%AE%E6%8A%80%E8%A1%93-%E8%A5%BF%E6%9D%91-%E5%8D%9A%E4%B9%8B/dp/4833424444" rel="noopener noreferrer" target="_blank">《ひろゆき流 ずるい問題解決の技術》</a></li><li><a class="tc-tiddlylink-external" href="https://en.wikipedia.org/wiki/Designated_survivor" rel="noopener noreferrer" target="_blank">《指定幸存者》</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Thu, 4 August 2022 22:48:52 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/e011-ji-ke-yi-ma-la-song-ye-ke-yi-bai-mi-chong-ci</guid>      
+   </item>
+
    <item>
       <title>E010-bugs什么时候修复？features值不值得做？</title>
       <link>https://thaddeusjiang.com/e010-bugs-shi-me-shi-hou-xiu-fu-features-zhi-bu-zhi-de-zuo</link>
@@ -15,7 +59,7 @@
        蒋继发 (ThaddeusJiang)
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱户外</p></p></div>
   </div>
       
 
@@ -50,7 +94,7 @@
        蒋继发 (ThaddeusJiang)
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
+     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱户外</p></p></div>
   </div>
       
 
@@ -75,53 +119,6 @@
 ]]></description>
       <pubDate>Thu, 23 June 2022 22:56:45 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/e009-wo-shi-zen-me-xuan-ze-library-de</guid>      
-   </item>
-
-   <item>
-      <title>E007-年轻人不是想摸鱼，前辈不是想说教</title>
-      <link>https://thaddeusjiang.com/e007-nian-qing-ren-bu-shi-xiang-mo-yu-qian-bei-bu-shi-xiang-shuo-jiao</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
-            </a>
-        </div>
-     </nav></p><p><p class="mt-4">在日本开发 SaaS 产品，爱猫、爱读书、爱大海</p></p></div>
-  </div>
-      
-
-<div class="container mt-5">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="title">E007-年轻人不是想摸鱼，前辈不是想说教</h1>
-            <hr>
-
-            <p>欢迎阅读蒋继发的《每周分享》第七期，本期分享一下公司其他同事的内部分享。</p><p>蒋继发的《每周分享》每周四发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些工作经验、日本生活体验以及阅读感受等等。</p><h2 class="">年轻人不是想摸鱼，前辈不是想说教</h2><blockquote><div>这是公司其他同事的内部分享，我觉得讲的挺好的，整理一下分享给大家。</div></blockquote><p>摘要：</p><p>一个大叔（阿姨）是饮食店的管理，店里有二十几岁的年轻人打工。
-大叔发现年轻人总是在工作时间玩手机，于是对年轻人说：“上班不要经常玩手机”。年轻人解释自己是在做笔记。大叔看到的是年轻人上班玩手机，年轻人觉得大叔喜欢说教。因为这件事大叔和年轻人关系变差了。
- 
-从旁观者角度，你可能会觉得这很正常啊，年纪大的人做笔记使用纸和笔，年轻人做笔记基本上是手机。但是没有直接和对方说出自己的感受，年纪大的人可能觉得年轻人上班不好好工作，年轻人可能觉得年纪大的人管的太多。
- 
-横向展开：</p><p>其实绝大多数人的工作环境也是一样的，一些工作经验比较多的人总会想分享自己的工作经验，帮助年轻人成长。例如：参加会议要做笔记、白天有突发事件晚上补上工作时间、每天下班前都要 commit 自己的工作等等等。年轻人可能已经用其他的方式做了同样的事，例如：使用 app 自动记录会议记录、即使在办私事时也用手机就把工作做了，每天上班前 commit 前一天的工作等等。
- 
-但是年纪大的人和年轻人难免有生活、工作方式上的不同，如果不能理解对方的感受，很容易出现各种不愉快。这时候直接说出自己的感受，大家可以更好地站在对方的角度思考问题，可以避免很多不愉快。</p><p>例如：</p><p>年轻人可以直接和年纪大的人说：“我已经使用 App 记录会议笔记了，下次不用提醒我拿纸和笔了。”
-	
-年纪大的人可以直接说：“要求你拿纸和笔是为了让你学会记录会议笔记，不是要求你一定要用纸和笔。”</p><blockquote class="tc-quote tc-big-quote"><p>年轻人不是想摸鱼，前辈不是想说教。
-年轻人只是习惯的使用 Smart Phone，前辈只是想用自己的经验帮助年轻人成长。
-</p><cite>TJ</cite></blockquote><p>以上就是本次分享的全部内容，十分感谢你看到这里。</p><p>为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。分享内容同步在我的个人网站：<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/weekly" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/weekly</a> 。
-</p>
-          </div>
-      </div>
-      <hr>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Thu, 9 June 2022 22:22:4 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/e007-nian-qing-ren-bu-shi-xiang-mo-yu-qian-bei-bu-shi-xiang-shuo-jiao</guid>      
    </item>
 
 </channel>
