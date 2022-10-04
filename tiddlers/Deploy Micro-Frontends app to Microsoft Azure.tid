@@ -1,0 +1,42 @@
+created: 20220912113622673
+modified: 20220912115844847
+tags: 
+title: Deploy Micro-Frontends app to Microsoft Azure
+type: text/vnd.tiddlywiki
+
+我们公司想要打造 all-in-one 的 HR SaaS。目前我们计划了人才管理、人事劳务、考勤以及薪资 4 个主产品。我负责的人事劳务产品刷先采用了 Micro-Frontends 架构，为了兼容已有的产品线，我不得不将 Micro-Frontends app 部署到 Microsoft Azure Cloud 上。
+
+虽然从理论上看 Micro-Frontends app 和普通的 website 也没有什么区别，就是 build 出一系列的 HTML、CSS、JS 文件，然后使用一个 hosting service 将它们公开出去。但是由于采用的 framework 不同，route-rules 不同，hosting service 不同，这里面还是有一些小坑需要有人来踩的。
+
+TL;DR
+
+# 部署 Micro-Frontends 应用到 Microsoft Azure 需要使用的云服务
+# 上传 Micro-Frontends 应用到 Azure Storage
+# 使用 Azure DNS Zoon 创建 CNAME 
+# 配置 Azure Frontdoor 将所有的 /romu/* 重定向到 Azure Storage
+# 效果
+# 核心代码
+
+
+!! # 使用到哪些云服务？
+
+# 使用 Azure Storage 存储网页资源
+# 使用 Azure DNS zones 配置域名
+# 使用 Azure Front Door and CDN profiles 做路由分发
+
+
+
+!! # 上传 Micro-Frontends 应用到 Azure Storage
+
+!! # 使用 Azure DNS Zoon 创建 CNAME 
+
+!!# 配置 Azure Frontdoor 将所有的 /romu/* 重定向到 Azure Storage
+
+!! # 效果
+
+!!# 核心代码
+
+
+! refs
+
+* [[網頁寄存服務|https://zh.wikipedia.org/wiki/%E7%B6%B2%E9%A0%81%E5%AF%84%E5%AD%98%E6%9C%8D%E5%8B%99]]
