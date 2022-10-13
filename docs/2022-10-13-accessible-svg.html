@@ -18,21 +18,21 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>Hire me to help your business (zh) ~ 蒋继发 (ThaddeusJiang)</title>
-<meta name="description" content="雇佣我帮助您的事业 / 日本語">
+<title>2022-10-13 Accessible SVG ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="1. 作为 img，使用 alt">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://thaddeusjiang.com/hire-me-to-help-your-business-zh" />
-<meta property="og:title" content="Hire me to help your business (zh) ~ 蒋继发 (ThaddeusJiang)" />
-<meta property="og:description" content="雇佣我帮助您的事业 / 日本語" />
-<meta property="og:image" content="https://og-image-zh.vercel.app/Hire me to help your business (zh).png?fontSize=50px" />
+<meta property="og:url" content="https://thaddeusjiang.com/2022-10-13-accessible-svg" />
+<meta property="og:title" content="2022-10-13 Accessible SVG ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="1. 作为 img，使用 alt" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2022-10-13 Accessible SVG.png?fontSize=50px" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="Hire me to help your business (zh) ~ 蒋继发 (ThaddeusJiang)" />
-<meta name="twitter:description" content="雇佣我帮助您的事业 / 日本語" />
+<meta name="twitter:title" content="2022-10-13 Accessible SVG ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="1. 作为 img，使用 alt" />
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -69,10 +69,15 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">Hire me to help your business (zh)</h1>
+            <h1 class="title">2022-10-13 Accessible SVG</h1>
             <hr>
 
-            <h1 class="">雇佣我帮助您的事业 / <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./hire-me-to-help-your-business-ja.html">日本語</a></h1><p>我能为您提供什么？</p><ol><li>指导组建敏捷开发团队</li><li>日本 SaaS 行业咨询</li><li>Web 开发</li></ol><p>我的价格</p><ol><li>短期项目：¥10000元～ /案件</li><li>中长期：¥500元～ /小时</li></ol><h1 class="">Connect me</h1>
+            <p>1. 作为 img，使用 <code>alt</code></p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;linktofile.svg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Pixels, my super cute cat&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;img&quot;</span>&gt;</span></code></pre><p>2. 在 SVG 内部添加 <code>&lt;title&gt;</code></p><pre class="hljs"><code class="svg hljs"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;img&quot;</span>&gt;</span> 
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Supports Mobile Devices<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></code></pre><p>3. 使用 <code>aria-labelledby</code></p><pre class="hljs"><code class="svg hljs"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;img&quot;</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">&quot;timeline-title&gt; 
+  ...
+&lt;/svg&gt;</span></span></code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://css-tricks.com/accessible-svgs/" rel="noopener noreferrer" target="_blank">https://css-tricks.com/accessible-svgs/</a></li></ul>
           </div>
       </div>
       <hr>

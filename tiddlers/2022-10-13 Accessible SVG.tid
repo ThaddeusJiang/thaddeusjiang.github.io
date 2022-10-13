@@ -1,0 +1,36 @@
+created: 20210705043539743
+creator: TJ
+modified: 20221013055611842
+modifier: TJ
+published: 20221013055432532
+tags: Frontend blog $:/plugins/adithyab/tiddlyjam/live
+title: 2022-10-13 Accessible SVG
+type: text/vnd.tiddlywiki
+
+1. 作为 img，使用 `alt`
+
+```html
+<img src="linktofile.svg" alt="Pixels, my super cute cat" role="img">
+```
+
+2. 在 SVG 内部添加 `<title>`
+
+```svg
+<svg role="img"> 
+  <title>Supports Mobile Devices</title>
+  ...
+</svg>
+```
+
+
+3. 使用 `aria-labelledby`
+
+```svg
+<svg role="img" aria-labelledby="timeline-title> 
+  ...
+</svg>
+```
+
+refs:
+
+* https://css-tricks.com/accessible-svgs/

@@ -512,6 +512,12 @@
    </url>
 
    <url>
+      <loc>.//2022-10-13-accessible-svg</loc>
+      <lastmod>2022-10-13</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//blog</loc>
       <lastmod>2022-05-13</lastmod>
       <changefreq>monthly</changefreq>
