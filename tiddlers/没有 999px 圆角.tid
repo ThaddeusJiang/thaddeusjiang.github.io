@@ -1,0 +1,12 @@
+created: 20220506003713415
+creator: ThaddeusJiang
+modified: 20220924091143583
+modifier: ThaddeusJiang
+tags: Works/DesignSystem published
+title: 没有 999px 圆角
+type: text/vnd.tiddlywiki
+
+再明确一下，我们系统中 button，input 的圆角是固定的，没有下面这种圆角。
+如果 Design System 中没有，请更新一下 Design System。
+
+[img[https://i.gyazo.com/f35230fb4d7ee9120f0bc53319e55148.png]]

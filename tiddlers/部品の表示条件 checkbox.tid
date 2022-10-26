@@ -1,0 +1,19 @@
+created: 20220107051358932
+creator: TJ
+modified: 20220924091143584
+modifier: ThaddeusJiang
+tags: published
+title: 部品の表示条件 checkbox
+type: text/vnd.tiddlywiki
+
+SC_SAAS-6001 [backend] 人事評価　部品の表示条件 計算式が表示を制限できない
+
+```
+array("Q1") IN [期間]
+```
+
+理想
+
+```
+[期間] contains "Q1"
+```

@@ -1,0 +1,54 @@
+created: 20220321012913324
+creator: TJ
+modified: 20220924091143534
+modifier: ThaddeusJiang
+tags: Works/面试/Backend published
+title: API - pagination
+type: text/vnd.tiddlywiki
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range
+
+HTTP [[Content-Range|ContentRange]]
+
+```js
+Content-Range: <unit> <range-start>-<range-end>/<size>
+
+Content-Range: bytes 201-300/67589
+```
+
+client compute currentPage
+
+url?page=2&pagesize=200
+
+边界值
+
+```
+Content-Range: bytes 0-0/0
+
+Content-Range: bytes 1-67/67
+
+Content-Range: bytes 21-30/51
+```
+
+page pagesize 必须以 client 为准，是否可以 next page 需要根据
+
+```javascript
+Content-Range: <unit> <range-start>-<range-end>/<size>
+// Content-Range: bytes 21-30/31
+
+// page = 3
+// pagesize = 10
+// total = 31
+
+first = (page - 1) * pagesize + 1
+// 21 = (3 - 1) * 10 + 1
+
+last = page * pagesize < total ? page * pagesize : total
+// 31 = 3 * 10 < 31 ? 30 : 31
+
+const hasNextPage = total > page * pagesize
+// true = 31 > 3 * 10
+
+
+
+```

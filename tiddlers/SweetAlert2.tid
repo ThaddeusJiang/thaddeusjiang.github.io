@@ -1,0 +1,11 @@
+created: 20220617083627425
+creator: ThaddeusJiang
+modified: 20220924091143570
+modifier: ThaddeusJiang
+tags: TechRadar TechRadar:放弃 published
+title: SweetAlert2
+type: text/vnd.tiddlywiki
+
+个人项目中强烈推荐，工作项目中因为不容易和 CSS framework 配合和自定义 theme，放弃。
+
+https://github.com/sweetalert2/sweetalert2

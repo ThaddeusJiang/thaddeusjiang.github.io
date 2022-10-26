@@ -1,0 +1,21 @@
+created: 20200611055706784
+creator: TJ
+modified: 20220924091143577
+modifier: ThaddeusJiang
+tags: published
+title: where should use micro-frontends?
+tmap.id: 15eb0ea2-acd7-4bd0-8eee-733f34e1422b
+type: text/vnd.tiddlywiki
+
+Where should use micro-frontends, where not?
+
+!! Should
+# 长生命周期项目
+# 复杂项目
+# 多人合作项目
+
+!! Shouldn't
+# 简单的 web site
+# MVP
+# 没有经验丰富的架构师
+

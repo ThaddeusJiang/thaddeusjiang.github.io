@@ -1,0 +1,30 @@
+created: 20220318092605661
+creator: TJ
+modified: 20220924091143575
+modifier: ThaddeusJiang
+tags: Works/面试/Backend published
+title: Web Image URL
+type: text/vnd.tiddlywiki
+
+安全性
+
+```js
+export const generateDirPhotoUrl = (
+    photoDirUrl?: string,
+    memberId?: string,
+    photoSas?: string,
+    updatedAt?: string,
+): string | undefined => {
+    if (!memberId) {
+        return '';
+    }
+
+    // photoDirUrl: url
+    // photoSas: login session
+    // front-door route-rules https://dev.smartcompany.work/photos
+    const defaultDirUrl = 'https://smartcompanydev.blob.core.windows.net/photos';
+    return `${photoDirUrl || defaultDirUrl}/${memberId}.png${
+        photoSas ? `?updateAt=${updatedAt}&${photoSas}` : ''
+    }`;
+};
+```

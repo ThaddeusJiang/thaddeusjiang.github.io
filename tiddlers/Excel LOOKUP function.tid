@@ -1,0 +1,17 @@
+created: 20220331073202119
+creator: TJ
+modified: 20220924091143550
+modifier: ThaddeusJiang
+tags: published
+title: Excel LOOKUP function
+type: text/vnd.tiddlywiki
+
+```
+LOOKUP(4.19, A2:A6, B2:B6)
+
+LOOKUP(lookup_value, lookup_vector, [result_vector])
+```
+
+https://support.microsoft.com/en-us/office/lookup-function-446d94af-663b-451d-8251-369d5e3864cb
+
+[img[https://user-images.githubusercontent.com/17308201/161002555-a2ee1d24-a7b9-4f86-9993-8f2f87bcc275.png]]

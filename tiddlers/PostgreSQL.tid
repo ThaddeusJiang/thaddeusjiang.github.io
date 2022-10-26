@@ -1,0 +1,13 @@
+created: 20220923124723287
+creator: ThaddeusJiang
+modified: 20220924091143563
+modifier: ThaddeusJiang
+tags: published
+title: PostgreSQL
+type: text/vnd.tiddlywiki
+
+社区非常喜欢，很多优秀的工具和 Framework 都是使用 PostgreSQL。
+
+AWS 调查说：如果要支持 row 级别的权限控制，只能使用 PostgreSQL。文章链接忘记了，其实我也没仔细看。😂
+
+不过，我喜欢 psql，容易使用。

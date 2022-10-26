@@ -1,0 +1,60 @@
+created: 20220314020119595
+creator: TJ
+modified: 20220924091143568
+modifier: ThaddeusJiang
+tags: published
+title: SeriesAskForm 设计
+type: text/vnd.tiddlywiki
+
+支持 Series 的问卷调查功能。
+当然也支持评价，内容不重要，重要的是 Series。
+
+!! Roles
+
+# SeriesAskForm 设计者
+# SeriesAskForm 使用者
+# AskForm 回答者
+
+!! UserStories
+
+每个月末发送 Email 或者通知，调查一下员工 remote 工作情况，及时发现问题，预防和解决一些问题。
+
+!! RoleStories
+
+* SeriesAskForm 使用者：设置定时启动，自动给目标用户发送 Email/Notification。
+* AskForm 回答者：打开 Form，回答，提交（允许匿名提交）。
+* SeriesAskForm 使用者：查看回答情况，分析结果，对比过去结果，结束本次调查。
+
+另外：
+
+* SeriesAskForm 使用者：可以查看可用的调查。
+* SeriesAskForm 设计者：定义 Form，定义 Flow
+
+!! EvidenceFlow
+
+[img[https://pbs.twimg.com/media/FNxvTh3VgAYdmxD?format=jpg&name=4096x4096]]
+https://excalidraw.com/#json=nCTuyrAyjN0j-UsshPT8k,leNUctXF8eUCMx8y5X0bnw
+
+!! Data
+
+* Schemas
+** SeriesDefinitions
+*** FormDefinitions
+** Series
+** Forms
+** (optional) Notifications (type: App, Email)
+
+!! API
+
+GraphQL
+
+* mutations
+** crud SeriesDefinitions
+** crud Series
+** crud Forms
+** crud Others (Notifications)
+* queries:
+** all/one SeriesDefinitions
+** all/one Series
+** all/one Forms
+** all/one Others (Notifinications)

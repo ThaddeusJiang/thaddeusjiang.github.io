@@ -1,0 +1,12 @@
+created: 20210601020708806
+creator: TJ
+modified: 20220924091143573
+modifier: ThaddeusJiang
+tags: published 优秀的设计不是不可附加，而是无可删减
+title: UI: 真的每个 Search(Select) 都要做成高级 SearchBox 吗
+type: text/vnd.tiddlywiki
+
+高级 SearchBox 定义
+
+* 记录 search history
+* 推荐内容

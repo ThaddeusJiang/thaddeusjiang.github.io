@@ -1,0 +1,20 @@
+created: 20210312052110506
+creator: TJ
+modified: 20220924091143559
+modifier: ThaddeusJiang
+tags: [[offline first, slow network first.]] published
+title: Make your web apps work offline 注意细节
+type: text/vnd.tiddlywiki
+
+# Task 1 — Cache Static Assets
+# Task 2— Cache Dynamic Assets
+# Task 3 — Build an Optimistic UI
+# Task 4 — Queue User Actions for Resync
+
+<<<.tc-big-quote
+理解这个清单，然后挑选一个 library，不需要自己从 0 实现。
+<<<TJ
+
+refs:
+
+* https://medium.com/swlh/how-to-make-your-web-apps-work-offline-be6f27dd28e

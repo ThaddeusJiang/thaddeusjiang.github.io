@@ -1,0 +1,11 @@
+created: 20220930014527184
+modified: 20220930014644503
+tags: published
+title: 为什么不能用 JS 实现 responsive image
+type: text/vnd.tiddlywiki
+
+当浏览器开始加载一个页面, 它会在主解析器开始加载和解析页面的 CSS 和 JavaScript 之前先下载 (预加载) 任意的图片。这是一个非常有用的技巧，平均下来减少了页面加载时间的20%。
+
+但是, 这对响应式图片一点帮助都没有, 所以需要类似 srcset的实现方法。因为你不能先加载好 <img> 元素后, 再用 JavaScript 检测可视窗口的宽度，如果觉得大小不合适，再动态地加载小的图片替换已经加载好的图片，这样的话, 原始的图像已经被加载了, 然后你又加载了小的图像, 这样的做法对于响应式图像的理念来说，是很糟糕的。
+
+https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images

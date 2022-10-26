@@ -1,0 +1,13 @@
+created: 20211003041407317
+creator: TJ
+modified: 20220924091143540
+modifier: ThaddeusJiang
+tags: how-to published
+title: CMD 查看 port
+type: text/vnd.tiddlywiki
+
+```
+lsof -i tcp:3000 
+
+kill -9 <PID>
+```

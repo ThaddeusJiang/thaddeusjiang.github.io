@@ -1,0 +1,16 @@
+created: 20210611010642283
+creator: TJ
+modified: 20220924091143584
+modifier: ThaddeusJiang
+tags: published
+title: 自定义 Form 定义修改后，数据怎么办？
+type: text/vnd.tiddlywiki
+
+数据怎么办？
+
+# 新增和删除不受影响
+# 修改
+## `推荐` 方案1: 新建一个 field
+## 方案2: 根据 field 变化更新数据
+
+新增数据或许不是最优解

@@ -1,0 +1,40 @@
+created: 20210428085426722
+creator: TJ
+modified: 20220924091143553
+modifier: ThaddeusJiang
+tags: AI published
+title: Gensim Word2Vec 模型
+type: text/vnd.tiddlywiki
+
+```python
+# 引入 word2vec
+from gensim.models import word2vec
+
+# 引入日志配置
+import logging
+
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+
+# 引入数据集
+raw_sentences = ["the quick brown fox jumps over the lazy dogs","yoyoyo you go home now to sleep"]
+
+# 切分词汇
+sentences= [s.encode('utf-8').split() for s in sentences]
+
+# 构建模型
+model = word2vec.Word2Vec(sentences, min_count=1)
+
+# 进行相关性比较
+model.similarity('dogs','you')
+```
+
+
+Gensim中 Word2Vec 模型的期望输入是进过分词的句子列表，即是某个二维数组。
+
+这里我们调用Word2Vec创建模型实际上会对数据执行两次迭代操作，第一轮操作会统计词频来构建内部的词典数结构，第二轮操作会进行神经网络训练，而这两个步骤是可以分步进行的，这样对于某些不可重复的流（譬如 Kafka 等流式数据中）可以手动控制：
+
+```python
+model = gensim.models.Word2Vec(iter=1)  # an empty model, no training yet
+model.build_vocab(some_sentences)  # can be a non-repeatable, 1-pass generator
+model.train(other_sentences)  # can be a non-repeatable, 1-pass generator
+```

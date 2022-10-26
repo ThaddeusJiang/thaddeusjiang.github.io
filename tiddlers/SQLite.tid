@@ -1,0 +1,11 @@
+created: 20220923125036963
+creator: ThaddeusJiang
+modified: 20220924091143570
+modifier: ThaddeusJiang
+tags: published
+title: SQLite
+type: text/vnd.tiddlywiki
+
+基于文件的 Database，可以安装在任何设备上，甚至网页里。
+
+功能也很强大，其实作为个人使用非常棒，自己的公司的项目也可以使用。别人的公司的项目，还是算了，没必要。

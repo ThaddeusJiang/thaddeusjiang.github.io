@@ -1,0 +1,19 @@
+created: 20210415021900383
+creator: TJ
+modified: 20220924091143557
+modifier: ThaddeusJiang
+tags: published [[toB 必备功能]]
+title: List 型部品
+type: text/vnd.tiddlywiki
+
+成果：在分支feat/SC_SAAS-1743上实现了验证了list部品的 以及疏通了部分layoutSetting的设计思路 。验证了新的实现思路的可行性，以及相比原来的实现能够减少
+20%～30%的逻辑
+
+困难：
+在疏通layoutSetting的实现思路和验证list部品的过程中，发现以下几点困难
+
+#  由于更改了实现思路（新增加了整行拖动+resize），其他的部品都需要重新修改
+#  layoutSetting本身页面需要整个重构
+#  对layoutSetting页面相应的的API的不够熟悉（目前正在做的）
+#  部品原本存在的一些bug 在新的实现上怎么对应
+#  技术实现难点（用比较好的方式限制list部品嵌套 限制list部品单独一行 实现比较手感好的拖动等等）

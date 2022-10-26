@@ -1,0 +1,24 @@
+created: 20210615035932772
+creator: TJ
+modified: 20220924091143535
+modifier: ThaddeusJiang
+tags: published 功能：Cool
+title: Auto Logout Session Timeout
+type: text/vnd.tiddlywiki
+
+https://javascript.plainenglish.io/building-an-auto-logout-session-timeout-with-react-using-hooks-e7804ef973ec
+
+
+思考：
+
+# 有一个 checker 用来检查 Cookie 是否过期
+# 设置一个 timer，但用户长时间未操作界面时，自动 logout
+## 这个 timer 要在用户操作页面时不断重置 `有解决办法吗？`
+# 但 Cookie 过期时，Ask API Session 是否过期
+
+
+<<<.tc-big-quote
+在用户调用api成功之后更新 timer
+
+因为后端对cookie有效期的延长，仅仅会在api调用之后更新
+<<<

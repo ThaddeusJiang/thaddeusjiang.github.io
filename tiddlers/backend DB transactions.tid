@@ -1,0 +1,24 @@
+created: 20220417094654552
+creator: TJ
+modified: 20220924091143536
+modifier: ThaddeusJiang
+tags: frameworks/AdonisJS published
+title: backend DB transactions
+type: text/vnd.tiddlywiki
+
+```js
+const trx = await Database.transaction()
+
+try {
+  await trx
+    .insertQuery()
+    .table('users')
+    .insert({ username: 'virk' })
+
+  await trx.commit()
+} catch (error) {
+  await trx.rollback()
+}
+```
+
+https://docs.adonisjs.com/guides/database/transactions

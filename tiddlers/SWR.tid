@@ -1,19 +1,24 @@
-created: 20210418084240755
+created: 20210423135601109
 creator: TJ
-modified: 20220423090811365
-modifier: TJ
-revision: 0
-tags: TechRadar TechRadar:语言&框架
+modified: 20220924091143570
+modifier: ThaddeusJiang
+tags: published
 title: SWR
 type: text/vnd.tiddlywiki
 
-<<<.tc-big-quote
-使用方式和 [[React-Query]] 几乎一致，而且我已经熟练 React-Query 了。
-<<<
+We highly recommend it if you’re `fetching data on the client side`. It handles caching, revalidation, focus tracking, refetching on interval, and more. We won’t cover the details here, but here’s an example usage:
 
 
-state-while-revalidate
-更新的同时使用过期数据的 HTTP 缓存策略。
+```js
+import useSWR from 'swr'
 
-告诫：
-仅在应用程序应返回过期数据时才使用 SWR 缓存策略。
+function Profile() {
+  const { data, error } = useSWR('/api/user', fetch)
+
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+  return <div>hello {data.name}!</div>
+}
+```
+
+[[ReactQuery]]

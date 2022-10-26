@@ -1,0 +1,10 @@
+created: 20220929083649822
+modified: 20220929084116985
+tags: published
+title: 多 SPA 如何共享登录状态？
+type: text/vnd.tiddlywiki
+
+* 像我们公司的产品，所有 SPA 使用相同域名，所以 apps 可以共享 localStorage 和 Cookie
+** 人才管理 app `/talent` 
+** 人事劳务 app `/romu`
+** 工时打卡 app `/kintai`

@@ -1,14 +1,26 @@
 created: 20220411140135959
 creator: TJ
-modified: 20220422082536777
-modifier: TJ
-tags: TechRadar
+modified: 20220924091143553
+modifier: ThaddeusJiang
+tags: TechRadar TechRadar:暂缓 TechRadar:语言&框架 published
 title: HeadlessUI
+type: text/vnd.tiddlywiki
 
 https://headlessui.dev/
+
+https://github.com/tailwindlabs/headlessui
+
+headless UI framework
+
+<<<.tc-big-quote
+Dialog 没有声明式 trigger，每次都需要定义 state，不好用。
+
+@radix-ui/react-alert-dialog 更好用。
+<<<TJ
+
+[[radix-ui]]
 
 
 [[DaisyUI]]
 
-* [[TechRadar:语言&框架]]
-* [[TechRadar:暂缓]]
+

@@ -1,0 +1,17 @@
+created: 20220521071017531
+creator: ThaddeusJiang
+modified: 20220924091143537
+modifier: ThaddeusJiang
+tags: published
+title: Blitz
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+UI 不要抱死在 React 上，拥抱 micro-frontends。
+想想 jQuery 和 Bootstrap CSS。
+<<<TJ
+
+
+https://blitzjs.com/
+
+The Fullstack React Framework

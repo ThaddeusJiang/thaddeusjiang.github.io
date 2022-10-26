@@ -1,0 +1,14 @@
+created: 20210509125146819
+creator: TJ
+modified: 20220924091143557
+modifier: ThaddeusJiang
+tags: published
+title: Linux jq
+type: text/vnd.tiddlywiki
+
+jq可以对json数据进行分片、过滤、映射和转换，和sed、awk、grep等命令一样，都可以让你轻松地把玩文本。它能轻松地把你拥有的数据转换成你期望的格式，而且需要写的程序通常也比你期望的更加简短。
+
+
+jq是用C编写，没有运行时依赖，所以几乎可以运行在任何系统上。预编译的二进制文件可以直接在Linux、OS X和windows系统上运行，当然在linux和OS X系统你需要赋与其可执行权限；在linux系统中也可以直接用yum安装。
+下载页面：
+https://stedolan.github.io/jq/download/

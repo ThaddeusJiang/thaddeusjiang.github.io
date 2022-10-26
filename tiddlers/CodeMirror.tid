@@ -1,0 +1,17 @@
+created: 20220512004241483
+creator: ThaddeusJiang
+modified: 20220924091143541
+modifier: ThaddeusJiang
+tags: TechRadar TechRadar:语言&框架 published
+title: CodeMirror
+type: text/vnd.tiddlywiki
+
+https://github.com/scniro/react-codemirror2
+
+vs. 
+
+https://github.com/react-monaco-editor/react-monaco-editor
+
+虽然 Monaco Editor 有 VS Code，但是没有 Code Mirror 简单易用。
+
+[[hahha,众人皆醉我独醒]]

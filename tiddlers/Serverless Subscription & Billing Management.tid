@@ -1,0 +1,12 @@
+created: 20210610045637351
+creator: TJ
+modified: 20220924091143569
+modifier: ThaddeusJiang
+tags: SideProjects published
+title: Serverless Subscription & Billing Management
+type: text/vnd.tiddlywiki
+
+# firebase auth signIn
+# fetch / create customer
+# customer checkout Session 
+# checkout Session checkoutLink / portalLink

@@ -1,0 +1,15 @@
+created: 20220527091936493
+creator: ThaddeusJiang
+modified: 20220924091143558
+modifier: ThaddeusJiang
+tags: meta/细节 published
+title: log 是否要全部输出？
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+并不是越多越好的典型的案例。
+<<<TJ
+
+
+通过某种手段对log进行限制，比如仅仅输出前100条。以及有错误的输出一下。
+避免帝京大学8000人的CSV，输出8000条log，造成网络性能，CPU性能下降，datadog料金增加

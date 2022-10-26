@@ -1,0 +1,33 @@
+created: 20220406010823720
+creator: TJ
+modified: 20220924091143533
+modifier: ThaddeusJiang
+tags: published
+title: AdvancedTable query URL 设计
+type: text/vnd.tiddlywiki
+
+URLs
+
+* talents
+* talents?q=
+* talents?columns=
+* ...
+* talents?viewid=
+* talents?viewid=&q=
+* talents?viewid=&columns=[]
+* talents?viewid=&filter={}
+* talents?viewid=&sort=[]
+
+
+
+解释：
+
+* 在没有 view 时可以操作 q, columns, filter, sort ，并且可以保存成 view。
+* 选择 view 自动反映 view 包含的 q, columns, filter, sort 
+* q, columns, filter, sort 可以覆盖 view
+* 保存/更新 view 后清理 URL
+** 人才一览中保存 view 仅自己可见，共有 view 需要在 setup 页面做。
+
+* URL 尽量和 API 保持一致，但是不用完全一致，例如：filter
+** API 中 filter 包含了 q
+** UI 中 filter 不需要包含 q

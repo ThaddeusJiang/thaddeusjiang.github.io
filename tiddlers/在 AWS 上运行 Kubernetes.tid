@@ -1,0 +1,11 @@
+created: 20210510131920470
+creator: TJ
+modified: 20220924091143579
+modifier: ThaddeusJiang
+tags: k8s published
+title: 在 AWS 上运行 Kubernetes
+type: text/vnd.tiddlywiki
+
+* Amazon EC2
+* Amazon EKS
+* Amazon ECR

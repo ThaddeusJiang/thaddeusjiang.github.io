@@ -1,0 +1,17 @@
+created: 20220517011002782
+creator: ThaddeusJiang
+modified: 20220924091143535
+modifier: ThaddeusJiang
+tags: features/功能设计 published
+title: AutoCalculate toggle
+type: text/vnd.tiddlywiki
+
+NoCode App 基本设计
+
+自动计算 Input 有哪些类型？
+
+# default
+# readonly
+# editable
+
+不要设计通用的自动计算 Input，应该让不同类型的 Input 支持自动计算，例如 number, date etc.

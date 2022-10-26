@@ -1,0 +1,16 @@
+created: 20220519073952244
+creator: ThaddeusJiang
+modified: 20220924091143538
+modifier: ThaddeusJiang
+tags: published
+title: Check that button is disabled in react-testing-library
+type: text/vnd.tiddlywiki
+
+`closest`
+
+```js
+expect(getByText(/Click me/i).closest('button')).toBeDisabled();
+
+```
+
+TestingLibrary

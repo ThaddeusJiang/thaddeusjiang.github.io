@@ -1,0 +1,38 @@
+created: 20210515074457751
+creator: TJ
+modified: 20220924091143542
+modifier: ThaddeusJiang
+tags: published 经验
+title: Create the next immutable state by mutating the current one
+type: text/vnd.tiddlywiki
+
+https://github.com/immerjs/immer
+
+[img[https://i.gyazo.com/2cb379df94261c2f107ab157c4037cea.png]]
+
+React setState example
+
+```js
+/**
+ * Classic React.setState with a deep merge
+ */
+onBirthDayClick1 = () => {
+    this.setState(prevState => ({
+        user: {
+            ...prevState.user,
+            age: prevState.user.age + 1
+        }
+    }))
+}
+/**
+ * ...But, since setState accepts functions,
+ * we can just create a curried producer and further simplify!
+ */
+onBirthDayClick2 = () => {
+    this.setState(
+        produce(draft => {
+            draft.user.age += 1
+        })
+    )
+}
+```

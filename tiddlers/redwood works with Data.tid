@@ -1,0 +1,19 @@
+created: 20220603141438527
+creator: ThaddeusJiang
+modified: 20220924091143566
+modifier: ThaddeusJiang
+tags: RedwoodJS published
+title: redwood works with Data
+type: text/vnd.tiddlywiki
+
+
+resolvers
+
+# posts()
+# post({ id })
+# createPost({ input })
+# updatePost({ id, input })
+# deletePost({ id })
+
+
+[[RedwoodJS 学习笔记]]

@@ -1,0 +1,18 @@
+created: 20220602015907068
+creator: ThaddeusJiang
+modified: 20220924091143535
+modifier: ThaddeusJiang
+tags: TechRadar TechRadar:语言&框架 published
+title: AutoAnimate
+type: text/vnd.tiddlywiki
+
+https://auto-animate.formkit.com/#examples
+
+features:
+
+# list: add and remove 
+# list: DnD
+# cards
+# x/y axis
+# accordion - 这个其实使用 HTML details + summary 更好
+# form validation

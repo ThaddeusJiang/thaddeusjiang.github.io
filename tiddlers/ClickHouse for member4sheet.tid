@@ -1,0 +1,29 @@
+created: 20220326011728371
+creator: TJ
+modified: 20220924091143538
+modifier: ThaddeusJiang
+tags: published
+title: ClickHouse for member4sheet
+type: text/vnd.tiddlywiki
+
+
+目录
+
+# member4sheet 目前的实现方式
+# 如何在 ClickHouse 下实现
+# 实际操作
+
+!!# member4sheet 目前的实现方式
+
+* Members
+* DataSheetDefinition
+* DataSheetContent
+
+通过代码将 datasheet 合并到一个 json 中。[[去 documents 和 DB 确认一下 member4sheet 的实现]]
+
+!!# 如何在 ClickHouse 下实现
+
+
+!!# 实际操作
+
+

@@ -1,9 +1,8 @@
 created: 20211108125413083
 creator: TJ
-modified: 20220513123449700
-modifier: TJ
-revision: 0
-tags: TechRadar
+modified: 20220924091143571
+modifier: ThaddeusJiang
+tags: TechRadar published
 title: TechRadar
 type: text/vnd.tiddlywiki
 
@@ -25,7 +24,7 @@ type: text/vnd.tiddlywiki
 {{TechRadar:采纳||$:/core/ui/TagTemplate}} 
 {{TechRadar:评估||$:/core/ui/TagTemplate}} 
 {{TechRadar:试验||$:/core/ui/TagTemplate}} 
-{{TechRadar:暂缓||$:/core/ui/TagTemplate}} 
+{{TechRadar:放弃||$:/core/ui/TagTemplate}} 
 
 
 

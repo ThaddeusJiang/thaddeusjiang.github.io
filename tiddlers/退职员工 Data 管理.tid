@@ -1,0 +1,25 @@
+created: 20210719222734644
+creator: TJ
+modified: 20220924091143584
+modifier: ThaddeusJiang
+tags: features/我觉得必要的 published [[toB 必备功能]] 业务建模
+title: 退职员工 Data 管理
+type: text/vnd.tiddlywiki
+
+* 如何处理退职员工的数据？
+
+作为一个 talent management system，即使员工退职了，数据也应该保存并作为资源使用。
+但是，处于数据安全和隐私的角度，一般用户不能随意查看。
+
+所以
+
+* 大原则：UI 上不再显示退职员工
+** 但是 admin / management user / special user 可以查看
+** 数据分析的后台数据，可以使用退职员工数据。
+
+如何处理退职员工数据不断扩大的问题？
+
+* 客户是否要为退职员工的数据存储付费？
+** 要。有服务就应该付费。
+* 客户：可登陆的 user 减少了，费用没有减少，很奇怪。
+* 答：确实。可以制定多种付费规则，如 `登陆用户 + 数据`

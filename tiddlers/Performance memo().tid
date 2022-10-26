@@ -1,0 +1,15 @@
+created: 20210403125744916
+creator: TJ
+modified: 20220924091143562
+modifier: ThaddeusJiang
+tags: published
+title: Performance memo()
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+Using memo() too often will lead to degraded performance. Only use memo() when you know it will improve rendering. When in doubt, benchmark!
+<<<
+
+这简直是至理名言。
+
+https://github.com/jorgebucaran/hyperapp/blob/main/docs/api/memo.md#performance

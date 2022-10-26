@@ -1,0 +1,11 @@
+created: 20211110020038229
+creator: TJ
+modified: 20220924091143584
+modifier: ThaddeusJiang
+tags: published
+title: 防止CodeRepository泄漏机密信息
+type: text/vnd.tiddlywiki
+
+* https://spectralops.io/blog/top-9-git-secret-scanning-tools/
+* https://microsoft.github.io/code-with-engineering-playbook/continuous-integration/dev-sec-ops/secret-management/recipes/detect-secrets/
+* https://docs.gitlab.com/ee/user/application_security/secret_detection/#configuration

@@ -1,0 +1,20 @@
+created: 20200701042947146
+creator: TJ
+modified: 20220924091143556
+modifier: ThaddeusJiang
+tags: Works/面试/Frontend published
+title: JsPromise
+tmap.id: 4b5711ee-722e-4720-8f1a-5794c6ab7e62
+type: text/vnd.tiddlywiki
+
+* new Promise
+* return Promise
+* Promise resolve reject
+* Promise then catch
+* sync await
+* 如何优雅的处理 error？
+* 如何统一处理 error 又不失 customize？
+
+
+* 一个基础函数是 async，当嵌套特别多层去调用它时，中间过程需要加 await 吗？
+** 中间过程可以只传递函数名

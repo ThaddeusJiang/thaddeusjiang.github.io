@@ -1,18 +1,13 @@
-created: 20211204003850674
-modified: 20211204004500054
-tags: TechRadar:试验
+created: 20220521070518710
+creator: ThaddeusJiang
+modified: 20220924091143567
+modifier: ThaddeusJiang
+tags: TechRadar TechRadar:试验 TechRadar:语言&框架 published
 title: RedwoodJS
+type: text/vnd.tiddlywiki
 
-The JS App Framework for Startups
+[[Blitz]]/[[Redwood]]are providing an all-in-one Rails-like DX with CLI, code scaffolding, etc, where [[Remix]] is just the react framework part.
 
-https://github.com/redwoodjs/redwood
+https://twitter.com/flybayer/status/1319673656306524162?s=20&t=77k3IntNNAqCN08tNiB8tA
 
-<<<.tc-big-quote
-RedwoodJS 作为一个 fullstack framework，file structure 设计的很漂亮，值得学习一下。
-
-不过，要不要学习如何使用它，保持开放态度。毕竟类似的 framework 有很多。
-例如：
-
-* RemixJS
-* KeystoneJS
-<<<TJ
+[img[https://i.gyazo.com/e20e6dfd0a54685c8f80dc66916ec3c4.png]]

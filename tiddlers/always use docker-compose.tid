@@ -1,0 +1,11 @@
+created: 20220411012341786
+creator: TJ
+modified: 20220924091143534
+modifier: ThaddeusJiang
+tags: published
+title: always use docker-compose
+type: text/vnd.tiddlywiki
+
+不要直接运行 docker container，使用 docker-compose 运行 docker container。
+
+因为直接 docker run，container name 是随机的，不可读。

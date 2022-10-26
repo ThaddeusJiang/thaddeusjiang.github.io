@@ -1,0 +1,13 @@
+created: 20210510131806307
+creator: TJ
+modified: 20220924091143584
+modifier: ThaddeusJiang
+tags: k8s published
+title: 选择 Kubernetes 的原因
+type: text/vnd.tiddlywiki
+
+* 大规模运行应用程序
+* 无缝迁移应用程序
+** 从本地开发机器无缝迁移到云中的生产部署。
+* 随处运行
+* 添加新功能

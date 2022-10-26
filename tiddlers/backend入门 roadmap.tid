@@ -1,0 +1,35 @@
+created: 20220515021328588
+creator: ThaddeusJiang
+modified: 20220924091143536
+modifier: ThaddeusJiang
+tags: published roadmap
+title: backend入门 roadmap
+type: text/vnd.tiddlywiki
+
+# 可以开发 CRUD API
+## REST API
+### REST 规范
+### HTTP Status 规范
+## DB 操作
+### RDB
+#### ORM
+#### query
+##### 连表查询
+##### 求和，求平均值运算
+##### group by 等等
+#### mutation
+##### validation
+#### seed data
+#### 性能调查
+# export / import
+## CSV
+### 特殊情况：分隔符，空白符，换行符等等
+## Excel
+## PDF
+### 如何处理分页？
+### 如何处理宽度？
+# 开发 batch
+## crontab 语法
+
+
+[[如何成为一名合格的 backend developer]]
