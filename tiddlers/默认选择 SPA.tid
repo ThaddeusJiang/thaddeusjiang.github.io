@@ -1,0 +1,8 @@
+created: 20221107004431032
+modified: 20221107104527769
+title: 默认选择 SPA
+type: text/vnd.tiddlywiki
+
+只有单一功能的应用可以继续使用 SPA 架构，例如前面提到的 Excalidraw。对于复杂业务的应用不再推荐采用 SPA。
+
+[[服务器端驱动 UI]] 和 [[single-spa]] 也可以提供 SPA 一样的无页面刷新用户体验，而且更容易扩张，更容易应付大型应用。

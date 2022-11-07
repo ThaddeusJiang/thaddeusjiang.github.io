@@ -1,0 +1,14 @@
+created: 20221101023356548
+modified: 20221101023812918
+tags: 
+title: 关于是否需要开发 React Component
+
+
+我会考虑是哪种级别的组件：
+
+# Cancel Button, Save Button, Form Input/Label/ErrorMessage 我不会封装 React Component，我一般很直接平铺 HTML + CSS
+# Modal, SearchSelect, DataTable, Pagination 我会封装 React Component，因为里面有一些 JS 逻辑。（这也是 radix 和 headlessUI 做的事情）
+
+对了，我分装了一下 Pagination Component，不过还没有发布 npm。在犹豫是否有必要。
+
+https://github.com/ThaddeusJiang/omakase-ui

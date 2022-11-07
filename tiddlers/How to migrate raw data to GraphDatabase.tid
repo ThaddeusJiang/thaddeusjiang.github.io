@@ -1,0 +1,10 @@
+created: 20221031091404519
+modified: 20221031091819256
+tags: 
+title: How to migrate raw data to GraphDatabase
+
+可以直接 CSV 导入 nebula-importer
+
+https://docs.nebula-graph.com.cn/3.2.0/nebula-importer/use-importer/#docker
+
+[[GraphDatabase]]

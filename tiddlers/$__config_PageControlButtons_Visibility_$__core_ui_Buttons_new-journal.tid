@@ -1,6 +1,7 @@
-created: 20210429132636569
-modified: 20211022035554609
+created: 20200504150621926
+modified: 20200521145820607
+tags: $:/giffmex/stroll
 title: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-journal
 type: text/vnd.tiddlywiki
 
-hide
+show

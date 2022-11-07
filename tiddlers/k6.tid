@@ -1,13 +1,15 @@
 created: 20210608022156509
 creator: TJ
-modified: 20220924091143556
+modified: 20221107101141304
 modifier: ThaddeusJiang
 tags: TechRadar TechRadar:工具 TechRadar:采纳 published
 title: k6
 type: text/vnd.tiddlywiki
 
-现代化性能测试工具
+k6 是一款现代化性能测试工具，对比 locust 的优势是可以使用 JavaScript 编写测试用例，且可以自由扩展报表。
 
-A modern load testing tool, using Go and JavaScript - https://k6.io
+这是一份 k6 vs. locust
 
 [img[https://i.gyazo.com/912cd4c26d81f1e2a8e139f0410f18d4.jpg]]
+
+我的 k6 starter: https://github.com/ThaddeusJiang/alexander

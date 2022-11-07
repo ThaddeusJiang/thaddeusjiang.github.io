@@ -1,0 +1,9 @@
+created: 20221107004431019
+modified: 20221107100358744
+title: 组件视觉回归测试
+type: text/vnd.tiddlywiki
+
+其实就是 Visual Testing，我正在使用 Chromatic 进行视觉回归测试。我非常喜欢 Visual Testing，我以前分享过很多次，欢迎阅读后和我讨论：
+
+* [[2019-11-20 React Testing 3 - Visual Testing]]
+* https://twitter.com/ThaddeusJiang/status/1479462809323065345

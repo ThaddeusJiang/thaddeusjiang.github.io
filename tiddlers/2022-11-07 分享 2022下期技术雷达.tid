@@ -1,0 +1,117 @@
+created: 20221107042548001
+modified: 20221107110746989
+published: 20221107105919130
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2022-11-07 分享 2022下期技术雷达
+type: text/vnd.tiddlywiki
+
+技术雷达是 ThoughtWorks 发布的技术报告，比较客观，且非常具有前瞻性，我每一期都看。不过 ThoughtWorks 的技术雷达设计的领域过于全面，所以我每次都会把自己关心的内容整理一下自用。这是一篇内部分享，也分享给公司以外的大家。
+
+ThoughtWorks 从技术、平台、工具、语言&框架等 4 方面，将内容分为采纳、试验、评估、暂缓等 4 种级别。我也一样从技术、平台、工具、语言&框架等 4 方面整理，不过我的评价级别是以我个人为对象分为 `我正在使用` `我想要尝试` `我保持观望` `我已经不再使用` 4 个级别。
+
+ok，让我们开始正文：
+
+<<<.tc-big-quote
+!! 我正在使用
+
+# 技术
+## 组件视觉回归测试 `试验`
+## 服务器端驱动 UI `评估`
+# 平台
+## Colima `试验`
+# 工具
+## k6 `采纳`
+## Excalidraw `试验`
+# 语言&框架
+## ReactQuery `采纳`
+<<<TJ
+
+!! 组件视觉回归测试
+
+{{组件视觉回归测试}}
+
+!! 服务器端驱动 UI
+
+{{服务器端驱动 UI}}
+
+!! Colima
+
+{{Colima}}
+
+!! k6
+
+{{k6}}
+
+!! Excalidraw
+
+{{Excalidraw}}
+
+!! ReactQuery
+
+{{ReactQuery}}
+
+<<<.tc-big-quote
+!! 我想要尝试
+
+# 工具
+## Harness 云服务成本管理 `评估`
+## infracost `评估`
+# 语言&框架
+## Yjs `采纳`
+## Connect `评估`
+<<<TJ
+
+云服务成本管理是云原生时代躲不过去的工作，越早掌握越少被坑钱。
+
+我准备试试 Harness 和 infracost。
+
+!! Yjs
+
+{{Yjs}}
+
+!! Connect
+
+{{Connect}}
+
+<<<.tc-big-quote
+!! 我保持观望的
+
+# 语言&框架
+## Svelte `试验`
+## Ladle `试验`
+## Astro `评估`
+## Bun `评估`
+<<<TJ
+
+!! Svelte
+
+{{Svelte}}
+
+!! Ladle, Astro
+
+我知道他们是不错的技术，不过我还是想看看社区领袖的选择。
+
+!! Bun
+
+{{Bun}}
+
+<<<.tc-big-quote
+!! 我已经不再使用
+
+# 技术
+## 默认选择 SPA `暂缓`
+# 语言&框架
+## Cypress组件测试 `评估`
+<<<TJ
+
+!! 默认选择 SPA
+
+{{默认选择 SPA}}
+
+!! Cypress组件测试
+
+{{Cypress组件测试}}
+
+! 结束语
+
+😂 写的有点多，其实我想说的比这个还多，好期待和大家一起交流技术啊。欢迎大家来 discord 和我聊天，我的频道（邀请制）里有很多大神哟。

@@ -1,0 +1,6 @@
+created: 20200128153730498
+list: $:/.giffmex/ViewTemplate/title $:/core/ui/ViewTemplate/title $:/core/ui/ViewTemplate/unfold $:/core/ui/ViewTemplate/subtitle $:/core/ui/ViewTemplate/tags $:/core/ui/ViewTemplate/classic $:/core/ui/ViewTemplate/body $:/.giffmex/ViewTemplate/viewfullnotes $:/.giffmex/ViewTemplate/refscontext $:/.giffmex/ViewTemplate/refslinks $:/.giffmex/ViewTemplate/refstranscludecollapse
+modified: 20200805141521207
+tags: $:/giffmex/stroll
+title: $:/tags/ViewTemplate
+type: text/vnd.tiddlywiki

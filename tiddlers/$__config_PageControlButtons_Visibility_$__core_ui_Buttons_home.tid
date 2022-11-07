@@ -1,8 +1,7 @@
-created: 20210415133737356
-creator: TJ
-modified: 20210415133737367
-modifier: TJ
+created: 20200502172232641
+modified: 20200521145819082
+tags: $:/giffmex/stroll
 title: $:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home
 type: text/vnd.tiddlywiki
 
-show
+reveal

@@ -1,0 +1,13 @@
+author: Mario Pietsch
+core-version: >=5.1.15
+created: 20201231135216000
+dependents: 
+description: Internal links are added to tabs if selected
+list: readme license history
+modified: 20201231135219229
+name: Link to Tabs
+plugin-type: plugin
+tags: $:/giffmex/stroll
+title: $:/plugins/wikilabs/link-to-tabs
+type: application/json
+version: 2.0.1

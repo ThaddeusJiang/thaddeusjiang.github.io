@@ -1,0 +1,19 @@
+created: 20221107101702280
+modified: 20221107102748000
+tags: 
+title: React State Management
+
+
+React State Management 是 React 最难的地方之一，展开讲可以讲很多内容。不过大家应该明确区分下面几种级别的 state management
+
+# Component State: props, state
+# Context
+# library: redux, jotai, ReactQuery 
+
+我不推荐使用 ReactQuery setQeuryData 管理全部的状态，但是如果读写状态会出现错误，倒是可以使用 React Query 来解决一下，例如：读写 localStorage, Cookie, 以及 JSON.parse 等等。
+
+不过 jotai atomWithStorage 处理上面问题也挺优雅的，不妨一试。
+
+refs:
+* https://github.com/tanstack/query
+* https://jotai.org/docs/utils/atom-with-storage

@@ -1,0 +1,17 @@
+created: 20221107051639242
+modified: 20221107064048622
+tags: 
+title: TiDB
+
+问题
+
+# TiDB 使用哪些场景？
+## MVP 开发使用 TiDB 算不算杀鸡用牛刀？
+# 如果我不在乎查询效率，TiDB 和 BI 工具有什么区别？
+# 是否有 JavaScript ORM？ https://www.prisma.io/ 可以吗？
+# Local dev
+
+找到答案了
+
+# 是否可以部署在 Azure？How to? [[ref|https://docs.pingcap.com/tidb-in-kubernetes/dev/deploy-on-azure-aks]]
+# 是否支持存储 schemaless 数据，例如 JSON？[[ref|https://docs.pingcap.com/tidb/stable/data-type-json]]

@@ -1,0 +1,14 @@
+created: 20221102082715911
+modified: 20221102082829407
+tags: $$结论
+title: UI: 不再使用 fixed header
+
+header 固定在页面顶端是一种过时的设计，很多产品已经放弃这种设计了。
+
+所以，我们也没有做固定header。
+
+另外，mobile 友好，大家可以看看自己使用的 app，应该是没有做固定header设计的。
+
+
+当然，如果 frontend 做到向下滚动时自动显示 header，就更棒了。
+大家可以试试 iOS 的 safari 是怎么设计的。

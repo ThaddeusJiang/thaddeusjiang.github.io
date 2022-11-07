@@ -1,0 +1,10 @@
+author: Saq Imtiaz
+created: 20200803172923614
+description: Editor AutoList - editor extension to automatically continue lists
+modified: 20201231123515553
+name: Editor AutoList
+plugin-type: plugin
+tags: $:/giffmex/stroll
+title: $:/plugins/sq/editor-autolist
+type: application/json
+version: 0.1.10

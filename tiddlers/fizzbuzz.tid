@@ -1,0 +1,8 @@
+created: 20221102051348905
+modified: 20221102051445483
+tags: 
+title: fizzbuzz
+
+请实现一个遍历至 100 的 for loop 循环，在能被 3 整除时输出 “fizz”，在能被 5 整除时输出 “buzz”，在能同时被 3 和 5 整除时输出 “fizzbuzz”。
+
+[[写代码]]

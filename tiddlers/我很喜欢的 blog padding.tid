@@ -1,0 +1,11 @@
+created: 20221101014637415
+modified: 20221101015149599
+tags: $$喜欢
+title: 我很喜欢的 blog padding
+
+
+* 上下左右：4vw
+* width >= 768px `width: 75%, max-width: 1400px`
+* width < 768px `width: 100%`
+
+https://standd.io/blog/why-we-picked-elixir

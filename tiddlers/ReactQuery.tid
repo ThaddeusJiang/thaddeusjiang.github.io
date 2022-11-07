@@ -1,7 +1,38 @@
 created: 20220907015057165
 creator: ThaddeusJiang
-modified: 20220924091143564
+modified: 20221107103215332
 modifier: ThaddeusJiang
 tags: TechRadar TechRadar:语言&框架 TechRadar:采纳 published
 title: ReactQuery
 type: text/vnd.tiddlywiki
+
+我已经使用 React Query 好多年了，我经常安利给其他开发者。
+
+* https://mobile.twitter.com/search?f=tweets&q=react%20query%20from%3AThaddeusJiang%20
+
+补充几句
+
+# react-query 不是 API client library，和 axios、fetch 等定位不一样。
+# react-query 已经不仅仅是异步数据 library 了，它现在更是一个异步数据状态管理 framework，更是一个优雅的缓存解决方案。
+# react-query 最新版更名 @tanstack/query，可以应用到任意的 JS framework，如果你够强，甚至可以用在 Server Side。
+
+补充几句
+
+* react-query 作者的 ui.dev 的课程非常棒，这笔钱值得花。
+
+关于 ReactQuery 缓存技巧
+
+# 取消 Window Focus Refetching，使用手动触发请求
+# mutate data 主动 queryClient.invalidateQueries({ queryKey: ['todos'] })
+# queryKey: 尽量和 API 保持一致，形如：["members"] ["members", id] ["members", { filter, sort }]
+
+good key: ["members"] ["members", id]
+
+bad key: ["members"] ["members_${id}"]
+
+因为 useQuery([members_${id}])，没有使用 useQuery(["members"]) 的缓存。
+
+refs
+
+* react-query 作者的课程 https://ui.dev/react-query?from=tanstack
+* https://tanstack.com/query/v4/docs/guides/window-focus-refetching

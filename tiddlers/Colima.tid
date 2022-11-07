@@ -1,0 +1,9 @@
+created: 20221107004431023
+modified: 20221107100756808
+title: Colima
+type: text/vnd.tiddlywiki
+
+因为 Docker Desktop 开始收费，大家都在寻找 Docker Desktop 的替代品。其实有很多选项，碰巧我和 ThoughtWorks 选择相同而已。
+
+我是从哪里看到 Colima 的？
+答：https://dev.to/swyx/running-docker-without-docker-desktop-339h

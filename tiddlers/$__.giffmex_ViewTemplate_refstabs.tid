@@ -1,0 +1,22 @@
+caption: Tabs
+created: 20201206231841162
+list-after: $:/core/ui/ViewTemplate/body
+modified: 20221028010738088
+tags: $:/giffmex/refs $:/giffmex/stroll $:/tags/ViewTemplate
+title: $:/.giffmex/ViewTemplate/refstabs
+type: text/vnd.tiddlywiki
+
+<span class="viewtemplatebigtext">
+
+<$reveal type="nomatch" stateTitle=<<folded-state>> text="hide" tag="div" retain="yes" animate="yes">
+
+<hr>
+
+<$vars searchme=<<currentTiddler>> searchspx={{{ [<currentTiddler>escaperegexp[]]}}} >
+
+<<tabs '[!is[system]all[current]backlinks[]!tag[hide]sort[title]] -[is[current]]' '' '$:/state/tab/strolltabs' 'tc-vertical'>>
+</$vars>
+
+</$reveal>
+
+</span>

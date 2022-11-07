@@ -1,0 +1,10 @@
+created: 20221102071431369
+modified: 20221102093931801
+tags: $$应该尝试
+title: tldraw
+
+https://github.com/tldraw/tldraw
+
+虽然可以 export 出 SVG 文件，但是不能 import SVG 文件。
+
+有一点点不方便。

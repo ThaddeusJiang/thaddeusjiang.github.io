@@ -1,0 +1,8 @@
+caption: {{$:/language/ControlPanel/StoryView/Caption}}
+created: 20200502183313235
+modified: 20200521145819732
+tags: $:/tags/ControlPanel/Appearance $:/giffmex/stroll
+title: $:/core/ui/ControlPanel/StoryView
+type: text/vnd.tiddlywiki
+
+{{$:/snippets/viewswitcher}}
