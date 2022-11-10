@@ -1,6 +1,6 @@
 created: 20221110060651165
-modified: 20221110061355434
-tags: 
+modified: 20221110062429478
+tags: published
 title: Dockerfile 永远使用Exec表示法
 
 ```dockerfile
@@ -20,4 +20,4 @@ ENTRYPOINT ["/bin/ping","-c","3"]
 CMD ["localhost"]            /bin/ping -c 3 localhost
 ```
 
-[[Dockerfile: RUN CMD ENTRYPOINT 区别]]
+[[Dockerfile RUN CMD ENTRYPOINT 区别]]

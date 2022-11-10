@@ -2,7 +2,6 @@ created: 20220930014527184
 modified: 20220930014644503
 tags: published
 title: 为什么不能用 JS 实现 responsive image
-type: text/vnd.tiddlywiki
 
 当浏览器开始加载一个页面, 它会在主解析器开始加载和解析页面的 CSS 和 JavaScript 之前先下载 (预加载) 任意的图片。这是一个非常有用的技巧，平均下来减少了页面加载时间的20%。
 
