@@ -1,0 +1,22 @@
+created: 20221109044233097
+modified: 20221109045246852
+tags: 
+title: 多业务线产品 frontend 架构设计
+
+
+frontend 分层
+
+# 应用层
+# 业务层 -> [[MicroFrontends]]
+# UI 组件（复杂组件，基础组件）-> [[npm]]
+# 工具链 
+
+
+
+回答：
+
+# 使用 API Gateway 部署 MicroFrontends：我同意。（原本就是这么设计的，不过被否决了。
+# 【业务组件】和【复杂UI组件】使用 npm 管理：我也同意。（人才项目和劳务项目分别都有在实践，可以查看项目中以 @thaddeusjiang 和 @omakase-ui 开头的依赖
+# 没有主应用和子应用的概念。（因为我最开始的设计是参考 Google Gmail， Google Calendar 和 Google Drive 的关系。每个应用都是独立产品。提供交互方式，但是不合并。
+# 【基础 UI 组件库】：回归 HTML + CSS 的做法，不使用 JS（React），这是我个人的判断。（劳务项目已经在实践
+# 不统一工具链，鼓励尝试不同的工具链，防止工具链僵化。

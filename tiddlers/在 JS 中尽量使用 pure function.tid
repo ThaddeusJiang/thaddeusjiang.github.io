@@ -1,0 +1,7 @@
+created: 20221109072200780
+modified: 20221109072509155
+tags: 
+title: 在 JS 中尽量使用 pure function
+
+
+# 不要用 variable 来复用 UI，要使用 Component
