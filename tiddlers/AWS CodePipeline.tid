@@ -1,9 +1,0 @@
-created: 20210418084756082
-creator: TJ
-modified: 20220924091143536
-modifier: ThaddeusJiang
-tags: TechRadar TechRadar:放弃 TechRadar:语言&框架 published
-title: AWS CodePipeline
-type: text/vnd.tiddlywiki
-
-CI/CD 不应该过度依赖平台，且应该和版本管理结合紧密。

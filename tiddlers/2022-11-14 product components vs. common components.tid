@@ -1,0 +1,36 @@
+created: 20221114023343507
+modified: 20221114031932764
+published: 20221114031932763
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2022-11-14 product components vs. common components
+
+做前端开发的，没有人不曾想过开发一套自己的 components library 让大家使用。
+
+我刚开始做 frontend 时也做过类似的事情，不过我的代码只是在内部被使用，并没有在公共区域被使用。为什么呢？
+
+首先，开发业务产品和开发通用组件库的思维是完全不一样的。
+
+* 开发业务产品：要统一性，要限制自由发挥。
+* 开发通用组件库：要通用性，要支持自由发挥。
+
+因为思维方式的不同，所采用的 API 也就不同。
+
+* 开发业务产品：尽量少的 props，内嵌 styles。
+* 开发通用组件库：尽量多的 props，外部定义 styles。
+
+!! 想要业务产品组件库
+
+* 不要执着自由度，大胆内嵌 styles，不需要公开的 API 就不公开。
+
+!! 想要通用组件库
+
+* 追求绝对的自由度，不要基于 Headful UI Framework 二次开发。
+
+如果你的公司有信心和实力维护一套自己的通用组件库，你可以在一些 Headless UI Framework 上进行二次开发，例如：Radix UI和 Headless UI。
+基于 Headful UI Framework 进行二次开发也不是不行，但是 UI framework 如果没有提供全面覆盖 styles 的方法，你就惨了。没错，我说的就是 MUI、Ant Design 等等。
+千万不要太高估 Custom Theme 技术，Custom 能力绝对是有限的，Headful UI Framework 内嵌的 styles 是你永远绕不过的坑。
+
+refs
+
+* https://www.radix-ui.com/
+* https://headlessui.com/

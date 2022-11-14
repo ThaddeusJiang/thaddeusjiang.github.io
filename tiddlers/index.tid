@@ -1,46 +1,35 @@
 created: 20220313022643471
 description: 在日本开发 SaaS 产品，爱猫、爱读书、爱大海
-modified: 20220519141006004
+modified: 20221114031628512
 name: HomePage
 tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals
 title: index
 type: text/vnd.tiddlywiki
 
 <section class="section mt-6">
-  <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div class="notification is-primary ">
-        <strong>Re-Designing ... </strong>
-      </div>
+    <div class="container">
+        <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+            <div class="notification is-primary ">
+                <strong>Re-Designing ... </strong>
+            </div>
 
-      <h1 class="title" >{{$:/SiteTitle}}</h1>
-      <div class="subtitle">
-        {{$:/SiteSubtitle}}
-      </div>
+            <h1 class="title">{{$:/SiteTitle}}</h1>
+            <div class="subtitle">
+                {{$:/SiteSubtitle}}
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div>
-    <div class="container mt-6">
-      <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-<div class="card">
-  <footer class="card-footer">
-    <span class="card-footer-item is-3 is-primary">[[Blog|blog]]</span>
-    <span class="card-footer-item is-3 is-primary">[[Weekly|weekly]]</span>
-  </footer>
-</div>
-      </div>
+    <div>
+        <div class="container mt-4">
+            <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+                <h2 class="title">Latest Blogs</h2>
+                <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[blog]!sort[published]limit[3]]">
+                    {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose}}
+                </$list>
+                <p class="subtitle">[[see more|blog]]</p>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <div>
-    <div class="container mt-6">
-      <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-        <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[blog]!sort[published]limit[3]]">
-          {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose}}
-        </$list>
-      </div>
-    </div>
-  </div>
 
 </section>

@@ -1,0 +1,21 @@
+created: 20200814080720075
+description: Page not found
+modified: 20221114032340562
+name: Page not found
+published: 20200911141413491
+tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/internals
+title: 404
+type: text/vnd.tiddlywiki
+
+<section class="section mt-6">
+    <div class="container">
+        <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+            <h1 class="title">Page not found</h1>
+            <div>
+                <h2 class="subtitle">🔍<a href="/wiki">Search</a></h2>
+            </div>
+
+            [img[404.png]]
+        </div>
+    </div>
+</section>

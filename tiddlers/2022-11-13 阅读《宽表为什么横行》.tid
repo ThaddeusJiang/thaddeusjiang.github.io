@@ -1,0 +1,40 @@
+created: 20221114010319722
+modified: 20221114031933361
+published: 20221114031933360
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2022-11-13 阅读《宽表为什么横行》
+
+!! 什么是宽表？
+
+就是用关系型数据库（RDB）平铺所有数据的所有属性。
+
+为什么大家乐此不疲地使用宽表？
+
+# 提高查询性能。RDB 关联查询会导致性能急剧下降，一张表可以提高性能。
+
+!! 宽表的缺点
+
+# 数据冗余容量大
+# 不符合 ACID (Atomicity Consistency Isolation Durability)
+
+
+!! 如何提高关联查询的性能？（aka 如何消灭宽表）
+
+使用列式数据库
+
+什么是列式数据库？
+
+数据库独立存储每个列的数据。可以直接查询某列的数据，而不需要遍历所有数据。
+
+!! 可以使用的技术
+
+# TiDB 同时支持行存储和列存储的 NewSQL 数据库
+# ClickHouse 被广泛使用的列式数据库
+# SurrealDB （展示不了解技术细节）
+
+
+原文：https://mp.weixin.qq.com/s/o9mXCfZrT4_LA_PogmryvQ
+
+refs:
+
+* https://en.wikipedia.org/wiki/Column-oriented_DBMS

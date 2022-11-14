@@ -1,9 +1,0 @@
-created: 20210514093821333
-creator: TJ
-modified: 20220924091143545
-modifier: ThaddeusJiang
-tags: published
-title: Deploy static-rendered Next.js websites on Azure Static Web Apps
-type: text/vnd.tiddlywiki
-
-https://docs.microsoft.com/en-us/azure/static-web-apps/deploy-nextjs

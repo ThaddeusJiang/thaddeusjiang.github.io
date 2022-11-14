@@ -1,5 +1,5 @@
 created: 20200806180100109
-modified: 20221004043843986
+modified: 20221114025955213
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/templates/blog_compact
 type: text/vnd.tiddlywiki
@@ -8,7 +8,6 @@ type: text/vnd.tiddlywiki
 <div>
   <div class="block">
     <h2 class="subtitle"><$link>{{!!title}}</$link></h2>
-    <div class=""><<get_published_date>></div>
   </div>
 </div>
 <hr/>

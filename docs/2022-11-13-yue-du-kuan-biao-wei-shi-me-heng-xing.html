@@ -18,21 +18,21 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2021-01-18 SEO 迷思 ~ 蒋继发 (ThaddeusJiang)</title>
-<meta name="description" content="1. 增加 link 就能提高 SEO">
+<title>2022-11-13 阅读《宽表为什么横行》 ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="什么是宽表？">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://thaddeusjiang.com/2021-01-18-seo-mi-si" />
-<meta property="og:title" content="2021-01-18 SEO 迷思 ~ 蒋继发 (ThaddeusJiang)" />
-<meta property="og:description" content="1. 增加 link 就能提高 SEO" />
-<meta property="og:image" content="https://og-image-zh.vercel.app/2021-01-18 SEO 迷思.png?fontSize=50px" />
+<meta property="og:url" content="https://thaddeusjiang.com/2022-11-13-yue-du-kuan-biao-wei-shi-me-heng-xing" />
+<meta property="og:title" content="2022-11-13 阅读《宽表为什么横行》 ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="什么是宽表？" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2022-11-13 阅读《宽表为什么横行》.png?fontSize=50px" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="2021-01-18 SEO 迷思 ~ 蒋继发 (ThaddeusJiang)" />
-<meta name="twitter:description" content="1. 增加 link 就能提高 SEO" />
+<meta name="twitter:title" content="2022-11-13 阅读《宽表为什么横行》 ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="什么是宽表？" />
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -69,11 +69,10 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2021-01-18 SEO 迷思</h1>
+            <h1 class="title">2022-11-13 阅读《宽表为什么横行》</h1>
             <hr>
 
-            <h2 class="">1. 增加 link 就能提高 SEO</h2><p>事实：相同 domain 的 link 无论添加多少，都不会对 SEO 有任何影响。所以没有必要在页面中添加多余的 link。</p><h2 class="">2. 每个页面都要有且仅有一个 <code>&lt;h1&gt;</code></h2><p>事实：h1 标签对 SEO 有影响，但不是必须的。如果 UI design 角度不需要大标题（h1），仅设置 document <code>title</code> 就足够了。
-</p>
+            <h2 class="">什么是宽表？</h2><p>就是用关系型数据库（RDB）平铺所有数据的所有属性。</p><p>为什么大家乐此不疲地使用宽表？</p><ol><li>提高查询性能。RDB 关联查询会导致性能急剧下降，一张表可以提高性能。</li></ol><h2 class="">宽表的缺点</h2><ol><li>数据冗余容量大</li><li>不符合 ACID (Atomicity Consistency Isolation Durability)</li></ol><h2 class="">如何提高关联查询的性能？（aka 如何消灭宽表）</h2><p>使用列式数据库</p><p>什么是列式数据库？</p><p>数据库独立存储每个列的数据。可以直接查询某列的数据，而不需要遍历所有数据。</p><h2 class="">可以使用的技术</h2><ol><li>TiDB 同时支持行存储和列存储的 NewSQL 数据库</li><li>ClickHouse 被广泛使用的列式数据库</li><li>SurrealDB （展示不了解技术细节）</li></ol><p>原文：<a class="tc-tiddlylink-external" href="https://mp.weixin.qq.com/s/o9mXCfZrT4_LA_PogmryvQ" rel="noopener noreferrer" target="_blank">https://mp.weixin.qq.com/s/o9mXCfZrT4_LA_PogmryvQ</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://en.wikipedia.org/wiki/Column-oriented_DBMS" rel="noopener noreferrer" target="_blank">https://en.wikipedia.org/wiki/Column-oriented_DBMS</a></li></ul>
           </div>
       </div>
       <hr>

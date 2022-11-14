@@ -1,9 +1,0 @@
-created: 20210418094558088
-creator: TJ
-modified: 20220924091143536
-modifier: ThaddeusJiang
-tags: TechRadar TechRadar:工具 TechRadar:试验 published
-title: axe-core
-type: text/vnd.tiddlywiki
-
-开源可访问性（a11y）测试引擎，整合到构建流程，提供早起反馈。
