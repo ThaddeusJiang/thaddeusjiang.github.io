@@ -1,0 +1,8 @@
+created: 20221115023847196
+modified: 20221115024540994
+tags: 
+title: 永远不要再重复造轮子了
+
+# BI 或者 Dashboard 功能：可以直接在 app 中嵌入 Metabase。 [[see|https://www.metabase.com/product/embedded-analytics]]
+# CRUD and filter, sort, pagination: RDB 可以直接使用 Prisma Studio [[see|https://www.prisma.io/studio]]
+## NoSQL or NewSQL `怎么办`？

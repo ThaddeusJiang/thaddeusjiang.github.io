@@ -1,0 +1,52 @@
+created: 20221114093731474
+modified: 20221115061119653
+published: 20221115061119650
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2022-11-15 monorepo vs. multi-repo
+type: text/vnd.tiddlywiki
+
+最近被讨论 monorepo 讨论的有点烦了。分享一下我对于 monorepo 的理解
+
+<<<.tc-big-quote
+事实上 monorepo 是在鼓励自治，而不是统一规范。
+
+* 小公司应该用 monorepo
+* 大公司应该用 multi-repo，或者拆分成多个小公司
+* 超大规模公司应该拆分成多个大公司。
+<<<TJ
+
+在 SmartCompany 开发代码，我使用 multi-repo；开发 OSS 我使用 monorepo。
+
+为什么我不使用 monorepo 管理 micro-frontends？
+
+* 因为我想让 micro-frontends 的 sub-apps 可以像 library 一样被复用，让它们跨产品被使用。
+* 使用 monorepo 管理 sub-apps，会导致大家误会 sub-apps 属于某个产品，导致其无法被复用。
+* 使用 monorepo，如果我开个新的项目，难道不要把所有的代码都复制一份吗？
+
+
+! 追加说明
+
+* 我希望共同的业务代码可以跨项目复用，不属于某个项目
+* 我希望每个 micro-frontends 可以
+** 独立 test
+** 独立 build
+** 独立 deploy
+* 整体部署只是 copy file，没有 build 过程， build time 是常量，而不是 n * frontends
+* 我希望每个 micro-frontends 有独立的 version (git commit hash)
+* 我希望部署 
+** ✅ micro-frontends
+*** (共同功能)micro-auth-app
+*** (共同功能)micro-account-app
+*** (共同功能)micro-datasheet-app
+*** (共同功能)micro-sso-app
+*** talent-app
+*** romu-app
+*** kintai-app
+** ❌ frontends
+*** talent-app
+*** romu-app
+*** kintai-app
+
+如果不推荐 monorepo，但是过度分散的 repos 导致大家有抵触情绪，该怎么办？
+
+可以试试 [[git subtree|https://www.atlassian.com/git/tutorials/git-subtree]]，只需要写好 local repo 的 README 即可使用。比 git submodule 好用。
