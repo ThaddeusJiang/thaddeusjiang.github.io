@@ -5,8 +5,8 @@
    <link>https://thaddeusjiang.com</link>
    <description>在日本做 SaaS，爱猫、爱读书、爱自由</description>
    <item>
-      <title>E011-既可以马拉松，也可以百米冲刺</title>
-      <link>https://thaddeusjiang.com/e011-ji-ke-yi-ma-la-song-ye-ke-yi-bai-mi-chong-ci</link>
+      <title>2022-11-21 我很少使用 Enum</title>
+      <link>https://thaddeusjiang.com/2022-11-21-wo-hen-shao-shi-yong-enum</link>
 			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
@@ -23,19 +23,10 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">E011-既可以马拉松，也可以百米冲刺</h1>
+            <h1 class="title">2022-11-21 我很少使用 Enum</h1>
             <hr>
 
-            <p>大家好，欢迎阅读《蒋继发的每周分享》第11期。本期的主题是“既可以马拉松，也可以百米冲刺”</p><p>我叫蒋继发，目前在日本做 HR 领域的 SaaS 产品，爱猫、爱读书、爱户外。所以，我可以分享一些软件开发工作经验、日本生活体验以及阅读感受等等。《蒋继发的每周分享》会在每周四发送，欢迎大家订阅。</p><h2 class="">既可以马拉松，也可以百米冲刺</h2><p>7月份肝了一个月，累死我了。😭
- 
-7月份我开始了一个新项目 romu.smartcompany.dev，它一个面向日本的人事劳务系统。
-我花了一个月时间进行市场调查，需求分析，并开发出产品原型，基本上达到了我的最初期待。我想和大家分享一下我对这个项目最初的期待和一个月的效果。</p><p>首先，这个项目是一个实验项目，我想用一个月时间验证下面几件事：</p><ol><li>我做一个人事劳务 SaaS，是否可以让 HR 部门同事工作更轻松？</li><li>我开发的 saas-starter 是否适合 ToB 产品的开发，是否可以提高开发效率？</li><li>我能不能组建一个手术刀团队，并领导开发一个优秀的产品？</li></ol><p>7月份努努力我基本上完成了我最开始的目标：</p><ol><li>和 HR 部门同事沟通，他们表示期待我在做的产品，原型基本上可用。</li><li>在我的 saas-starter 基础上，我们成功构建了一套基于 microfrontends 和 NoSQL 的 SaaS 项目。</li><li>感谢公司的支持，我一个月时间就组建了一个 13人的团队，并完成了原型开发、积累下大量文档资料、并解释清楚了团队风格和产品期待。</li></ol><p>其实我不太喜欢这种短期内高强度开发模式，但是有时候我们的确需要既可以跑马拉松，也可以百米冲刺。</p><p>Original Note:
-<img class=" tc-image-loading" src="https://i.gyazo.com/35437ba5858e27004ac3fc2721f95a1e.png"></p><h2 class="">周末去海边露营⛺️了，很舒服。</h2><p>其实我早就买好露营的装备了，可是拖延症严重，各种给自己找借口找理由，终于在7月末真正露营了。分享几张照片：</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/e3cdd5f7549a8fade12b9c73e035f365.png">
-<img class=" tc-image-loading" src="https://i.gyazo.com/e63a2b9aff57d23c077d8eccec91e9fd.png">
-<img class=" tc-image-loading" src="https://i.gyazo.com/9d14de10010c99ad0d01ee63b7b1390f.png"></p><h2 class="">本月再读《ひろゆき流 ずるい問題解決の技術》</h2><blockquote class="tc-quote tc-big-quote"><p>ネット検索はスマホするな
-</p><cite>ひろゆき</cite></blockquote><p>这是作者的 my rules。这个rules 的优点就是一定可以找到结果，手机屏幕太小了很容易找不到合适的结果。不管对不对，我发现像这种成功过的人都有自己的 my rules，西村博之是这样， dhh 也是，伊隆马斯克也是。
-这挺好的，我记得在 dhh 的《It Doesn't Have to Be Crazy at Work》中也有这这样一句话“Draw a Line in the Sand.”</p><p>我也应该有自己的 my rules。</p><blockquote class="tc-quote tc-big-quote"><p>みんなが満足する解決策はない、解決策は必ず誰か損する
-</p><cite>ひろゆき</cite></blockquote><p>这句话正好和最近在看的美剧《指定幸存者》的剧情相呼应，美剧中总统提名大法官，无论总统以及白宫的工作人员如何提名，民主党和共和党都不满意。最后总统不得不放弃提名第9名大法官，先让被提名的8名大法官（民主党 4 人，共和党 4 人）就职。</p><p>以上就是本次分享的全部内容，十分感谢你看到这里。</p><p>为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。分享内容同步在我的个人网站：<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/weekly" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/weekly</a> 。</p><p>相关链接:</p><ul><li><a class="tc-tiddlylink-external" href="https://en.wikipedia.org/wiki/The_Mythical_Man-Month#The_surgical_team" rel="noopener noreferrer" target="_blank">外科手术团队</a> 《人月神话》</li><li><a class="tc-tiddlylink-external" href="https://martinfowler.com/articles/micro-frontends.html" rel="noopener noreferrer" target="_blank">Micro Frontends</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang?tab=repositories&amp;q=spa&amp;type=&amp;language=&amp;sort=" rel="noopener noreferrer" target="_blank">Micro Frontends Examples</a></li><li><a class="tc-tiddlylink-external" href="https://www.amazon.co.jp/%E3%81%B2%E3%82%8D%E3%82%86%E3%81%8D%E6%B5%81-%E3%81%9A%E3%82%8B%E3%81%84%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA%E3%81%AE%E6%8A%80%E8%A1%93-%E8%A5%BF%E6%9D%91-%E5%8D%9A%E4%B9%8B/dp/4833424444" rel="noopener noreferrer" target="_blank">《ひろゆき流 ずるい問題解決の技術》</a></li><li><a class="tc-tiddlylink-external" href="https://en.wikipedia.org/wiki/Designated_survivor" rel="noopener noreferrer" target="_blank">《指定幸存者》</a></li></ul>
+            <p>一个很重要的原因就是“命名真的太难了”。</p><p>很多开发者喜欢用 Enum 类型存储状态数据，但是我很少使用 Enum，主要是因为起名太难了。</p><h1 class="">实际的例子（日本语）：</h1><p>这是我在开发的一个【工资计算系统】的计算方法的类型，写出这些方法的英文对于我来说真的很吃力，我还是喜欢用数字表示。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/41dea8025f3fc17fc71a2dc681d2b885.png"></p><p>如果你觉得上面例子还好，我们换几个例子：</p><p>【工作时间计算系统】的单位:</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/afd6b0527004f0961517546d5e252eff.png"></p><p>【工资计算系统】的工作时间和工作天数，不多，也就三四十项吧。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/451e406f4bd33cb2ba99b334437688fa.gif"></p><p>大家能理解我为什么很少使用 Enum 了吗？😂😂😂</p><p>顺便一提，我真的没有遇到过必须使用 Enum 才能解决的技术问题。</p>
           </div>
       </div>
       <hr>
@@ -44,13 +35,13 @@
 
 
 ]]></description>
-      <pubDate>Thu, 4 August 2022 22:48:52 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/e011-ji-ke-yi-ma-la-song-ye-ke-yi-bai-mi-chong-ci</guid>      
+      <pubDate>Mon, 21 November 2022 18:51:26 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2022-11-21-wo-hen-shao-shi-yong-enum</guid>      
    </item>
 
    <item>
-      <title>E010-bugs什么时候修复？features值不值得做？</title>
-      <link>https://thaddeusjiang.com/e010-bugs-shi-me-shi-hou-xiu-fu-features-zhi-bu-zhi-de-zuo</link>
+      <title>2022-11-15 monorepo vs. multi-repo</title>
+      <link>https://thaddeusjiang.com/2022-11-15-monorepo-vs-multi-repo</link>
 			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
@@ -67,10 +58,11 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">E010-bugs什么时候修复？features值不值得做？</h1>
+            <h1 class="title">2022-11-15 monorepo vs. multi-repo</h1>
             <hr>
 
-            <p>大家好，欢迎阅读《蒋继发的每周分享》第10期。本期的主题是《bugs什么时候修复？features值不值得做？》。</p><p>我叫蒋继发，目前在日本做 HR 领域的 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些 SaaS 项目工作经验、日本生活体验以及阅读感受等等。《蒋继发的每周分享》会在每周四发送，欢迎大家通过 <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 或者 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">Revue</a> 订阅。</p><p>我先和各位订阅的读者道个歉，上周我没有更新《每周分享》，因为上周工作太忙了，实在没有力气了，十分抱歉。</p><h2 class="">bugs 什么时候修复？</h2><p><img class=" tc-image-loading" src="https://i.gyazo.com/ed54a712ecbc4acdb01100fdeced61cd.jpg"></p><p>这是之前看到的一个图，非常赞同，已在公司内部的分享，也分享给大家。</p><p>根据这张图我们可以非常轻松的判断出 bugs 应该在什么时候被修复。</p><p>list:</p><ol><li>如果 bugs 影响到超过 30% 用户使用核心功能，<code>Fix Now</code></li><li>如果 bugs 影响到超过 30% 用户使用基础功能，<code>Fix Now</code></li><li>如果 bugs 影响到超过 30% 用户，但是不影响使用，Fix Next Spring</li><li>如果 bugs 影响范围在 11% to 30% 用户使用核心功能，Fix Next Spring</li><li>如果 bugs 影响范围在 11% to 30% 用户使用基础功能，Fix Next Spring</li><li>如果 bugs 影响范围在 11% to 30% 用户，即使不影响使用，Fix Next Spring</li><li>如果 bugs 影响 0% to 10% 用户使用核心功能，Fix Next Spring</li><li>如果 bugs 影响 0% to 10% 用户使用非核心功能，Backlog</li><li>如果 bugs 影响 0% to 10% 用户，且不影响使用，Backlog</li></ol><p>上面列表是针对 bugs 的，通常情况下如果 issue 已经被确认是 bug 的话，就不存在做不做的问题了，肯定要修复，只是需要确认什么时候做即可。但是如果是针对 features 呢？</p><h2 class="">features 值不值得做？</h2><p>我参考上面的图片制作了 features 版本的交叉图</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/b268e954309e05d6589e86f0fa418780.png"></p><p>list:</p><ol><li>如果 features 可以为用户提供数量级的收益，如果无法提供将短期内会给公司带来损失，例如：客户解约。Do</li><li>如果 features 可以为用户提供数量级的收益，如果无法提供短期内也不会给公司带来损失，但是公司收益会减缓或停滞。Do</li><li>如果 features 可以为用户提供数量级的收益，从短期角度不会给公司带来损失或受益。Plan</li><li>如果features 是相关行业必备功能，如果无法提供将短期内会给公司带来损失，例如：客户解约。Do</li><li>如果features 是相关行业必备功能，如果无法提供短期内也不会给公司带来损失，但是公司收益会减缓或停滞。Plan</li><li>如果features 是相关行业必备功能，从短期角度不会给公司带来影响。Plan</li><li>如果 features 只会让一部分用户感到开心，即使短期内会给公司带来损失。<code>Do not</code></li><li>如果 features 只会让一部分用户感到开心，即使短期内会让公司收益减缓或者停滞。<code>Do not</code></li><li>如果 features 只会让一部分用户感到开心，从短期角度不会给公司带来损失或受益。<code>Do not</code></li></ol><h2 class="">80/20 法则</h2><p>上面的公式也适用于 80/20 法则，实际工作中难免会有一部分工作属于 20% 范畴，希望大家可以随机应变。</p><p>我开发了一个简单的网页大家只需要动动鼠标就可以计算出“bugs 什么时候修复？”和“ features 值不值得做？”了，欢迎大家使用 <a class="tc-tiddlylink-external" href="https://priority-matrix.vercel.app/" rel="noopener noreferrer" target="_blank">https://priority-matrix.vercel.app/</a></p><p>以上就是本次分享的全部内容，十分感谢你看到这里。</p><p>为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。分享内容同步在我的个人网站：<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/weekly" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/weekly</a> 。</p><p>参考：</p><ul><li><a class="tc-tiddlylink-external" href="https://twitter.com/ThaddeusJiang/status/1542697460199350274?s=20&amp;t=VjeGyIt9eiATQ3JhcejHNQ" rel="noopener noreferrer" target="_blank">https://twitter.com/ThaddeusJiang/status/1542697460199350274?s=20&amp;t=VjeGyIt9eiATQ3JhcejHNQ</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/priority-matrix-app" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/priority-matrix-app</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/priority-matrix-web" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/priority-matrix-web</a></li></ul>
+            <p>最近被讨论 monorepo 讨论的有点烦了。分享一下我对于 monorepo 的理解</p><blockquote class="tc-quote tc-big-quote"><p>事实上 monorepo 是在鼓励自治，而不是统一规范。</p><ul><li>小公司应该用 monorepo</li><li>大公司应该用 multi-repo，或者拆分成多个小公司</li><li>超大规模公司应该拆分成多个大公司。</li></ul><cite>TJ</cite></blockquote><p>在 SmartCompany 开发代码，我使用 multi-repo；开发 OSS 我使用 monorepo。</p><p>为什么我不使用 monorepo 管理 micro-frontends？</p><ul><li>因为我想让 micro-frontends 的 sub-apps 可以像 library 一样被复用，让它们跨产品被使用。</li><li>使用 monorepo 管理 sub-apps，会导致大家误会 sub-apps 属于某个产品，导致其无法被复用。</li><li>使用 monorepo，如果我开个新的项目，难道不要把所有的代码都复制一份吗？</li></ul><h1 class="">追加说明</h1><ul><li>我希望共同的业务代码可以跨项目复用，不属于某个项目</li><li>我希望每个 micro-frontends 可以<ul><li>独立 test</li><li>独立 build</li><li>独立 deploy</li></ul></li><li>整体部署只是 copy file，没有 build 过程， build time 是常量，而不是 n * frontends</li><li>我希望每个 micro-frontends 有独立的 version (git commit hash)</li><li>我希望部署 <ul><li>✅ micro-frontends<ul><li>(共同功能)micro-auth-app</li><li>(共同功能)micro-account-app</li><li>(共同功能)micro-datasheet-app</li><li>(共同功能)micro-sso-app</li><li>talent-app</li><li>romu-app</li><li>kintai-app</li></ul></li><li>❌ frontends<ul><li>talent-app</li><li>romu-app</li><li>kintai-app</li></ul></li></ul></li></ul><p>如果不推荐 monorepo，但是过度分散的 repos 导致大家有抵触情绪，该怎么办？</p><p>可以试试 <a class="tc-tiddlylink-external" href="https://www.atlassian.com/git/tutorials/git-subtree" rel="noopener noreferrer" target="_blank">git subtree</a>，只需要写好 local repo 的 README 即可使用。比 git submodule 好用。
+</p>
           </div>
       </div>
       <hr>
@@ -79,13 +71,13 @@
 
 
 ]]></description>
-      <pubDate>Wed, 6 July 2022 23:23:42 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/e010-bugs-shi-me-shi-hou-xiu-fu-features-zhi-bu-zhi-de-zuo</guid>      
+      <pubDate>Tue, 15 November 2022 15:11:19 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2022-11-15-monorepo-vs-multi-repo</guid>      
    </item>
 
    <item>
-      <title>E009-我是怎么选择 library 的？</title>
-      <link>https://thaddeusjiang.com/e009-wo-shi-zen-me-xuan-ze-library-de</link>
+      <title>2022-11-14 product components vs. common components</title>
+      <link>https://thaddeusjiang.com/2022-11-14-product-components-vs-common-components</link>
 			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
@@ -102,13 +94,12 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">E009-我是怎么选择 library 的？</h1>
+            <h1 class="title">2022-11-14 product components vs. common components</h1>
             <hr>
 
-            <p>大家好，欢迎阅读《蒋继发的每周分享》第九期。本期的主题是“如何选择 library？”</p><p>我叫蒋继发，目前在日本做 HR 领域的 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些 SaaS 项目工作经验、日本生活体验以及阅读感受等等。《蒋继发的每周分享》会在每周四发送，欢迎大家订阅。</p><h2 class="">如何选择 library？</h2><p>大家是如何选择 library 的？有什么判断标准嘛？</p><p>我有几个自己的标准，可能不够严谨，但是自从我定下来这套标准以后几乎没有在 library 选择上迷茫过了，分享给大家，希望大家也能讨论 library 选择困难症。</p><ol><li>适合团队，即使不是高手也可以正确使用。</li><li>开发效率，Done is Better Than Perfect.</li><li>我喜欢，使用自己喜欢的工具工作才会快乐。</li></ol><p>简单解释一下：</p><blockquote class="tc-quote tc-big-quote"><p>1. 适合团队，即使不是高手也可以正确使用。
-</p><cite>TJ</cite></blockquote><p>可能是因为公司的规模、行业的热度或者自己的固执，我几乎没有参加过全精英的团队，大多数时候团队成员的能力水平参差不齐，有时甚至有刚刚入门不久的成员。最开始，我是不服气的，我天真地认为大家都有一颗上进的心，虽然不需要“狼性文化”、“996”等脑残的行为，但是全身心投入工作，不懂就学的态度还是要有的。所以我曾经一度会在项目中提倡那些非常优雅但学习曲线陡峭的技术，例如 D3.js Ramda.js Xstate 等等。</p><p>但是，随着带领的管队越来愈大，负责的项目越来越重要，在团队合作和项目稳定迭代的双重压力下，我开始把适合团队放在越来愈重要的位置了。不得不说对于大型业务项目来说，项目的品质的确符合木桶效应，的确是最短的板决定了项目最后的成果。</p><blockquote class="tc-quote tc-big-quote"><p>2. 开发效率，Done is Better Than Perfect.
-</p><cite>TJ</cite></blockquote><p>后面这句话不是我说的，是 Facebook CEO 扎克伯格说的。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/705f300b689519b501aff97dfaf850d7.jpg"></p><p>不过如果大家做过项目负责人，需要为产品的进度负责的话，一定会理解这句话的。事实的确如此。</p><blockquote class="tc-quote tc-big-quote"><p>3. 我喜欢，使用自己喜欢的工具工作才会快乐。
-</p><cite>TJ</cite></blockquote><p>虽然我喜欢的不一定是最好的选择，但是大多数时候都不太差，这是经过多年的项目经历不断 feedback 的结果，也让我觉来越自信了。</p><p>起初我不知道怎么和团队成员解释这种类似摸着石头过河却每次都能不呛水的神奇经历，后来我从书中找到了解释，这是一种专家直觉。诺贝尔奖得主丹尼尔·卡尼曼在《思考，快与慢》中提到专业人士经过长期的专业训练，能直觉性地应用特殊的理论模型来分析问题。</p><p>并且我认为快乐地工作一定比痛苦地工作更容易创造价值，使用自己喜欢的工具就是一种让工作变快乐的途径。</p><p>以上就是本次分享的全部内容，十分感谢你看到这里。</p><p>为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。分享内容同步在我的个人网站：<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/weekly" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/weekly</a> 。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://d3js.org/" rel="noopener noreferrer" target="_blank">https://d3js.org/</a></li><li><a class="tc-tiddlylink-external" href="https://ramdajs.com/" rel="noopener noreferrer" target="_blank">https://ramdajs.com/</a></li><li><a class="tc-tiddlylink-external" href="https://xstate.js.org/" rel="noopener noreferrer" target="_blank">https://xstate.js.org/</a></li><li><a class="tc-tiddlylink-external" href="https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow" rel="noopener noreferrer" target="_blank">https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow</a></li></ul>
+            <p>做前端开发的，没有人不曾想过开发一套自己的 components library 让大家使用。</p><p>我刚开始做 frontend 时也做过类似的事情，不过我的代码只是在内部被使用，并没有在公共区域被使用。为什么呢？</p><p>首先，开发业务产品和开发通用组件库的思维是完全不一样的。</p><ul><li>开发业务产品：要统一性，要限制自由发挥。</li><li>开发通用组件库：要通用性，要支持自由发挥。</li></ul><p>因为思维方式的不同，所采用的 API 也就不同。</p><ul><li>开发业务产品：尽量少的 props，内嵌 styles。</li><li>开发通用组件库：尽量多的 props，外部定义 styles。</li></ul><h2 class="">想要业务产品组件库</h2><ul><li>不要执着自由度，大胆内嵌 styles，不需要公开的 API 就不公开。</li></ul><h2 class="">想要通用组件库</h2><ul><li>追求绝对的自由度，不要基于 Headful UI Framework 二次开发。</li></ul><p>如果你的公司有信心和实力维护一套自己的通用组件库，你可以在一些 Headless UI Framework 上进行二次开发，例如：Radix UI和 Headless UI。
+基于 Headful UI Framework 进行二次开发也不是不行，但是 UI framework 如果没有提供全面覆盖 styles 的方法，你就惨了。没错，我说的就是 MUI、Ant Design 等等。
+千万不要太高估 Custom Theme 技术，Custom 能力绝对是有限的，Headful UI Framework 内嵌的 styles 是你永远绕不过的坑。</p><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://www.radix-ui.com/" rel="noopener noreferrer" target="_blank">https://www.radix-ui.com/</a></li><li><a class="tc-tiddlylink-external" href="https://headlessui.com/" rel="noopener noreferrer" target="_blank">https://headlessui.com/</a></li></ul>
           </div>
       </div>
       <hr>
@@ -117,8 +108,8 @@
 
 
 ]]></description>
-      <pubDate>Thu, 23 June 2022 22:56:45 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/e009-wo-shi-zen-me-xuan-ze-library-de</guid>      
+      <pubDate>Mon, 14 November 2022 12:19:32 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2022-11-14-product-components-vs-common-components</guid>      
    </item>
 
 </channel>
