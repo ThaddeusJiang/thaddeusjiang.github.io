@@ -638,5 +638,44 @@
     },
     {
         "title": "$:/AdvancedSearch"
+    },
+    {
+        "title": "Blog Management",
+        "fromPageRect": {
+            "top": 405.09375,
+            "left": 810,
+            "width": 123.609375,
+            "right": 933.609375,
+            "bottom": 426.09375,
+            "height": 21
+        }
+    },
+    {
+        "title": "2022-11-21 我很少使用 Enum",
+        "fromPageRect": {
+            "top": 316.75,
+            "left": 828,
+            "width": 248.75,
+            "right": 1076.75,
+            "bottom": 341.75,
+            "height": 25
+        }
+    },
+    {
+        "title": "$:/Import",
+        "fromPageRect": {
+            "top": 766.6875,
+            "left": 871.328125,
+            "width": 12.828125,
+            "right": 884.15625,
+            "bottom": 779.6875,
+            "height": 13
+        }
+    },
+    {
+        "title": "Draft of '2022-11-21'"
+    },
+    {
+        "title": "Draft of '$:/Import'"
     }
 ]

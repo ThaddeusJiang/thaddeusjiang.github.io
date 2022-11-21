@@ -1,0 +1,30 @@
+created: 20221121085036655
+modified: 20221121095126643
+published: 20221121095126642
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2022-11-21 我很少使用 Enum
+type: text/vnd.tiddlywiki
+
+一个很重要的原因就是“命名真的太难了”。
+
+很多开发者喜欢用 Enum 类型存储状态数据，但是我很少使用 Enum，主要是因为起名太难了。
+
+! 实际的例子（日本语）：
+
+这是我在开发的一个【工资计算系统】的计算方法的类型，写出这些方法的英文对于我来说真的很吃力，我还是喜欢用数字表示。
+
+[img[https://i.gyazo.com/41dea8025f3fc17fc71a2dc681d2b885.png]]
+
+如果你觉得上面例子还好，我们换几个例子：
+
+【工作时间计算系统】的单位:
+
+[img[https://i.gyazo.com/afd6b0527004f0961517546d5e252eff.png]]
+
+【工资计算系统】的工作时间和工作天数，不多，也就三四十项吧。
+
+[img[https://i.gyazo.com/451e406f4bd33cb2ba99b334437688fa.gif]]
+
+大家能理解我为什么很少使用 Enum 了吗？😂😂😂
+
+顺便一提，我真的没有遇到过必须使用 Enum 才能解决的技术问题。

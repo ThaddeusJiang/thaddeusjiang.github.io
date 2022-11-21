@@ -1,0 +1,14 @@
+created: 20221117061724778
+modified: 20221117062040148
+tags: 
+title: 像 AddressForm 这种通用组件，发布 npm 不方便使用怎么办？
+
+使用 `npx degit` 直接复制代码片段，不用考虑 npm build 造成的依赖问题。
+
+```
+npm degit ThaddeusJiang/omakase-ui/apps/web/pages/AddressForm AddressForm
+
+yarn add react-hook-form @hookform/resolvers yup
+yarn add --dev @hookform/devtools
+```
+
