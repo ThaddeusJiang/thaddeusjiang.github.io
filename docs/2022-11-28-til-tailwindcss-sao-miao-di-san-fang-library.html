@@ -1,0 +1,110 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.3" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2022-11-28 TIL: TailwindCSS 扫描第三方 library ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="今天我学会了一个新技巧，让 TailwindCSS 扫描第三方 library，开心。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2022-11-28-til-tailwindcss-sao-miao-di-san-fang-library" />
+<meta property="og:title" content="2022-11-28 TIL: TailwindCSS 扫描第三方 library ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="今天我学会了一个新技巧，让 TailwindCSS 扫描第三方 library，开心。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2022-11-28 TIL: TailwindCSS 扫描第三方 library.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2022-11-28 TIL: TailwindCSS 扫描第三方 library ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="今天我学会了一个新技巧，让 TailwindCSS 扫描第三方 library，开心。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2022-11-28 TIL: TailwindCSS 扫描第三方 library</h1>
+            <hr>
+
+            <p>今天我学会了一个新技巧，让 TailwindCSS 扫描第三方 library，开心。</p><p>我以前是打包出 CSS，然后通过 import 引入，形如：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">DataTable</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@omakase-ui/react-table&#x27;</span>;
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@omakase-ui/react-table/dist/index.css&#x27;</span>;
+
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">DataTable</span> <span class="hljs-attr">columns</span>=<span class="hljs-string">{columns}</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{data}</span> <span class="hljs-attr">sort</span>=<span class="hljs-string">{[</span>&#x27;<span class="hljs-attr">name</span>&#x27;, &#x27;<span class="hljs-attr">asc</span>&#x27;]} /&gt;</span></span>;</code></pre><p>这样做有一个问题，打包以后的 index.css 已经把变量替换成具体的值了，没有办法通过 tailwind.config.js 覆盖。</p><h1 class="">新技巧：配置 tailwind.config.js</h1><pre class="hljs"><code class="diff hljs">// tailwind.config.js
+<span class="hljs-addition">+ const path = require(&quot;path&quot;);</span>
+
+module.exports = {
+  content: [
+    &quot;./src/**/*{js,ts,jsx,tsx}&quot;,
+<span class="hljs-addition">+    path.join(</span>
+<span class="hljs-addition">+      require.resolve(&quot;@omakase-ui/react-table&quot;),</span>
+<span class="hljs-addition">+      &quot;../**/*.{js,ts,jsx,tsx}&quot;</span>
+<span class="hljs-addition">+    ),</span>
+  ],
+  theme: {},
+  plugins: [],
+};</code></pre><p>就可以用 theme 中的内容覆盖第三方 library 的 Tailwind CSS 了。</p><p>其实 Tailwind CSS 官方文档有这个技巧，但是以前没注意，自己开发 Components Library 遇到瓶颈才去认真开文档，😂 😂 😂</p>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+
+<footer>
+    <div class="content has-text-centered">
+      <p>
+        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

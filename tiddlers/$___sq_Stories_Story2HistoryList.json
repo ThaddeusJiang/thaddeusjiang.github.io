@@ -640,23 +640,28 @@
         "title": "$:/AdvancedSearch"
     },
     {
-        "title": "$:/plugins/adithyab/tiddlyjam/renderer/rss",
+        "title": "Blog Management",
         "fromPageRect": {
-            "top": 352.34375,
-            "left": 817,
-            "width": 279.9375,
-            "right": 1096.9375,
-            "bottom": 373.34375,
+            "top": 449.5,
+            "left": 570,
+            "width": 123.6015625,
+            "right": 693.6015625,
+            "bottom": 470.5,
             "height": 21
         }
     },
     {
-        "title": "Draft of '$:/plugins/adithyab/tiddlyjam/renderer/rss'"
-    },
-    {
-        "title": "$:/plugins/adithyab/tiddlyjam/renderer/rss"
-    },
-    {
         "title": "$:/AdvancedSearch"
+    },
+    {
+        "title": "blog",
+        "fromPageRect": {
+            "top": 401.5,
+            "left": 570,
+            "width": 28.7421875,
+            "right": 598.7421875,
+            "bottom": 422.5,
+            "height": 21
+        }
     }
 ]

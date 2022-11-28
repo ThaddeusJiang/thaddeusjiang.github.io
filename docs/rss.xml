@@ -5,6 +5,58 @@
    <link>https://thaddeusjiang.com</link>
    <description>在日本做 SaaS，爱猫、爱读书、爱自由</description>
    <item>
+      <title>2022-11-28 TIL: TailwindCSS 扫描第三方 library</title>
+      <link>https://thaddeusjiang.com/2022-11-28-til-tailwindcss-sao-miao-di-san-fang-library</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2022-11-28 TIL: TailwindCSS 扫描第三方 library</h1>
+            <hr>
+
+            <p>今天我学会了一个新技巧，让 TailwindCSS 扫描第三方 library，开心。</p><p>我以前是打包出 CSS，然后通过 import 引入，形如：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">DataTable</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@omakase-ui/react-table&#x27;</span>;
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@omakase-ui/react-table/dist/index.css&#x27;</span>;
+
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">DataTable</span> <span class="hljs-attr">columns</span>=<span class="hljs-string">{columns}</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{data}</span> <span class="hljs-attr">sort</span>=<span class="hljs-string">{[</span>&#x27;<span class="hljs-attr">name</span>&#x27;, &#x27;<span class="hljs-attr">asc</span>&#x27;]} /&gt;</span></span>;</code></pre><p>这样做有一个问题，打包以后的 index.css 已经把变量替换成具体的值了，没有办法通过 tailwind.config.js 覆盖。</p><h1 class="">新技巧：配置 tailwind.config.js</h1><pre class="hljs"><code class="diff hljs">// tailwind.config.js
+<span class="hljs-addition">+ const path = require(&quot;path&quot;);</span>
+
+module.exports = {
+  content: [
+    &quot;./src/**/*{js,ts,jsx,tsx}&quot;,
+<span class="hljs-addition">+    path.join(</span>
+<span class="hljs-addition">+      require.resolve(&quot;@omakase-ui/react-table&quot;),</span>
+<span class="hljs-addition">+      &quot;../**/*.{js,ts,jsx,tsx}&quot;</span>
+<span class="hljs-addition">+    ),</span>
+  ],
+  theme: {},
+  plugins: [],
+};</code></pre><p>就可以用 theme 中的内容覆盖第三方 library 的 Tailwind CSS 了。</p><p>其实 Tailwind CSS 官方文档有这个技巧，但是以前没注意，自己开发 Components Library 遇到瓶颈才去认真开文档，😂 😂 😂</p>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Mon, 28 November 2022 18:11:30 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2022-11-28-til-tailwindcss-sao-miao-di-san-fang-library</guid>      
+   </item>
+
+   <item>
       <title>2022-11-21 我很少使用 Enum</title>
       <link>https://thaddeusjiang.com/2022-11-21-wo-hen-shao-shi-yong-enum</link>
 			<description><![CDATA[
@@ -73,43 +125,6 @@
 ]]></description>
       <pubDate>Tue, 15 November 2022 15:11:19 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/2022-11-15-monorepo-vs-multi-repo</guid>      
-   </item>
-
-   <item>
-      <title>2022-11-14 product components vs. common components</title>
-      <link>https://thaddeusjiang.com/2022-11-14-product-components-vs-common-components</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
-            </a>
-        </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
-  </div>
-      
-
-<div class="container mt-5">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="title">2022-11-14 product components vs. common components</h1>
-            <hr>
-
-            <p>做前端开发的，没有人不曾想过开发一套自己的 components library 让大家使用。</p><p>我刚开始做 frontend 时也做过类似的事情，不过我的代码只是在内部被使用，并没有在公共区域被使用。为什么呢？</p><p>首先，开发业务产品和开发通用组件库的思维是完全不一样的。</p><ul><li>开发业务产品：要统一性，要限制自由发挥。</li><li>开发通用组件库：要通用性，要支持自由发挥。</li></ul><p>因为思维方式的不同，所采用的 API 也就不同。</p><ul><li>开发业务产品：尽量少的 props，内嵌 styles。</li><li>开发通用组件库：尽量多的 props，外部定义 styles。</li></ul><h2 class="">想要业务产品组件库</h2><ul><li>不要执着自由度，大胆内嵌 styles，不需要公开的 API 就不公开。</li></ul><h2 class="">想要通用组件库</h2><ul><li>追求绝对的自由度，不要基于 Headful UI Framework 二次开发。</li></ul><p>如果你的公司有信心和实力维护一套自己的通用组件库，你可以在一些 Headless UI Framework 上进行二次开发，例如：Radix UI和 Headless UI。
-基于 Headful UI Framework 进行二次开发也不是不行，但是 UI framework 如果没有提供全面覆盖 styles 的方法，你就惨了。没错，我说的就是 MUI、Ant Design 等等。
-千万不要太高估 Custom Theme 技术，Custom 能力绝对是有限的，Headful UI Framework 内嵌的 styles 是你永远绕不过的坑。</p><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://www.radix-ui.com/" rel="noopener noreferrer" target="_blank">https://www.radix-ui.com/</a></li><li><a class="tc-tiddlylink-external" href="https://headlessui.com/" rel="noopener noreferrer" target="_blank">https://headlessui.com/</a></li></ul>
-          </div>
-      </div>
-      <hr>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Mon, 14 November 2022 12:19:32 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2022-11-14-product-components-vs-common-components</guid>      
    </item>
 
 </channel>

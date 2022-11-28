@@ -1,0 +1,43 @@
+created: 20221128080137370
+modified: 20221128091130889
+published: 20221128091130889
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2022-11-28 TIL: TailwindCSS 扫描第三方 library
+type: text/vnd.tiddlywiki
+
+今天我学会了一个新技巧，让 TailwindCSS 扫描第三方 library，开心。
+
+我以前是打包出 CSS，然后通过 import 引入，形如：
+
+```js
+import { DataTable } from '@omakase-ui/react-table';
+
+import '@omakase-ui/react-table/dist/index.css';
+
+<DataTable columns={columns} data={data} sort={['name', 'asc']} />;
+```
+
+这样做有一个问题，打包以后的 index.css 已经把变量替换成具体的值了，没有办法通过 tailwind.config.js 覆盖。
+
+! 新技巧：配置 tailwind.config.js
+
+```diff
+// tailwind.config.js
++ const path = require("path");
+
+module.exports = {
+  content: [
+    "./src/**/*{js,ts,jsx,tsx}",
++    path.join(
++      require.resolve("@omakase-ui/react-table"),
++      "../**/*.{js,ts,jsx,tsx}"
++    ),
+  ],
+  theme: {},
+  plugins: [],
+};
+```
+
+就可以用 theme 中的内容覆盖第三方 library 的 Tailwind CSS 了。
+
+其实 Tailwind CSS 官方文档有这个技巧，但是以前没注意，自己开发 Components Library 遇到瓶颈才去认真开文档，😂 😂 😂
