@@ -5,6 +5,41 @@
    <link>https://thaddeusjiang.com</link>
    <description>在日本做 SaaS，爱猫、爱读书、爱自由</description>
    <item>
+      <title>2022-12-4 秩父旅行</title>
+      <link>https://thaddeusjiang.com/2022-12-4-zhi-fu-lv-xing</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
+       蒋继发 (ThaddeusJiang)
+            </a>
+        </div>
+     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+  </div>
+      
+
+<div class="container mt-5">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="title">2022-12-4 秩父旅行</h1>
+            <hr>
+
+            <p>这次旅行真的很不错，时间充裕，内容丰富，既没有玩的不尽兴匆匆忙忙回家的苦闷，也没有因为内容太少而觉得无聊，或者浪费时间和钱。希望今后的旅行多些此类的体验，少一些不尽兴，少一些无聊。</p><p>秩父夜祭の屋台（花车表演）很有意思，这是我第一次参加这种祭り，很不一样的体验。而且我很佩服日本人可以将文化保护的这么好，无论是老人、成年人还是小朋友都可以参加其中，找到属于自己的快乐。日本人的小朋友真幸运，有这样真实的文化传承活动，而不是像中国的孩子一样只能从书中或者电视上了解自己的民族和国家的历史、文化。想想20年，30年后，日本的年轻人一定比中国的年轻人更有活力、更有朝气、更有创造力，因为他们有丰富的童年生活和真实的文化参与的记忆。童年记忆是一个人成年后能够持续探索世界的原动力。</p><p>旅行其实很简单，旅行就是离开自己每天生活的环境，去新鲜的环境体验不一样的生活，吃吃喝喝、走走停停、听听当地人的故事、看看当地的建筑。</p><p>秩父第一天在站前的一家居酒屋🏮吃的小吃，这家小店真的很棒，每一道菜都很精致，非常上相，且味道很好，真是色香味俱全，简直是旅行记录的最佳选择。肉豆腐十分软烂，爆炒猪心炒的恰到火候，吃起来十分脆爽，秩父のみそキャベツ也非常棒。</p><p>秩父第二天几乎一直在吃路边摊，太棒了，我太喜欢吃路边摊了。祭り就是要吃路边摊，边走边吃，烧鸟、炒面、炸鸡块、日式卤煮等等，不在乎好吃，不在乎价格，要的就是这种热闹的气氛。</p><p>因为要开车，在集市的两天都没喝酒，不过还是买了当地的地酒【秩父錦】，现在正在边写游记边喝，味道还不错。喝着秩父的地酒，写着秩父的游记，仿佛旅行还没有结束，开心🥳。</p><p>最后还是想记录一下，阔别三年的花火大会，太棒了。三年没看花火大会了，真的感觉这三年的夏天非常不完整。三年，被新冠疫情夺走的三年，对无数人造成了无法衡量且无法弥补的伤害，TMD竟然没有人需要出来道歉，这世界真TM无语。</p>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Sun, 4 December 2022 21:38:22 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2022-12-4-zhi-fu-lv-xing</guid>      
+   </item>
+
+   <item>
       <title>2022-11-28 TIL: TailwindCSS 扫描第三方 library</title>
       <link>https://thaddeusjiang.com/2022-11-28-til-tailwindcss-sao-miao-di-san-fang-library</link>
 			<description><![CDATA[
@@ -89,42 +124,6 @@ module.exports = {
 ]]></description>
       <pubDate>Mon, 21 November 2022 18:51:26 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/2022-11-21-wo-hen-shao-shi-yong-enum</guid>      
-   </item>
-
-   <item>
-      <title>2022-11-15 monorepo vs. multi-repo</title>
-      <link>https://thaddeusjiang.com/2022-11-15-monorepo-vs-multi-repo</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
-            </a>
-        </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
-  </div>
-      
-
-<div class="container mt-5">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="title">2022-11-15 monorepo vs. multi-repo</h1>
-            <hr>
-
-            <p>最近被讨论 monorepo 讨论的有点烦了。分享一下我对于 monorepo 的理解</p><blockquote class="tc-quote tc-big-quote"><p>事实上 monorepo 是在鼓励自治，而不是统一规范。</p><ul><li>小公司应该用 monorepo</li><li>大公司应该用 multi-repo，或者拆分成多个小公司</li><li>超大规模公司应该拆分成多个大公司。</li></ul><cite>TJ</cite></blockquote><p>在 SmartCompany 开发代码，我使用 multi-repo；开发 OSS 我使用 monorepo。</p><p>为什么我不使用 monorepo 管理 micro-frontends？</p><ul><li>因为我想让 micro-frontends 的 sub-apps 可以像 library 一样被复用，让它们跨产品被使用。</li><li>使用 monorepo 管理 sub-apps，会导致大家误会 sub-apps 属于某个产品，导致其无法被复用。</li><li>使用 monorepo，如果我开个新的项目，难道不要把所有的代码都复制一份吗？</li></ul><h1 class="">追加说明</h1><ul><li>我希望共同的业务代码可以跨项目复用，不属于某个项目</li><li>我希望每个 micro-frontends 可以<ul><li>独立 test</li><li>独立 build</li><li>独立 deploy</li></ul></li><li>整体部署只是 copy file，没有 build 过程， build time 是常量，而不是 n * frontends</li><li>我希望每个 micro-frontends 有独立的 version (git commit hash)</li><li>我希望部署 <ul><li>✅ micro-frontends<ul><li>(共同功能)micro-auth-app</li><li>(共同功能)micro-account-app</li><li>(共同功能)micro-datasheet-app</li><li>(共同功能)micro-sso-app</li><li>talent-app</li><li>romu-app</li><li>kintai-app</li></ul></li><li>❌ frontends<ul><li>talent-app</li><li>romu-app</li><li>kintai-app</li></ul></li></ul></li></ul><p>如果不推荐 monorepo，但是过度分散的 repos 导致大家有抵触情绪，该怎么办？</p><p>可以试试 <a class="tc-tiddlylink-external" href="https://www.atlassian.com/git/tutorials/git-subtree" rel="noopener noreferrer" target="_blank">git subtree</a>，只需要写好 local repo 的 README 即可使用。比 git submodule 好用。
-</p>
-          </div>
-      </div>
-      <hr>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Tue, 15 November 2022 15:11:19 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2022-11-15-monorepo-vs-multi-repo</guid>      
    </item>
 
 </channel>

@@ -649,19 +649,5 @@
             "bottom": 470.5,
             "height": 21
         }
-    },
-    {
-        "title": "$:/AdvancedSearch"
-    },
-    {
-        "title": "blog",
-        "fromPageRect": {
-            "top": 401.5,
-            "left": 570,
-            "width": 28.7421875,
-            "right": 598.7421875,
-            "bottom": 422.5,
-            "height": 21
-        }
     }
 ]
