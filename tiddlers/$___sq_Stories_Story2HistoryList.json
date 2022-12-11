@@ -642,12 +642,58 @@
     {
         "title": "Blog Management",
         "fromPageRect": {
-            "top": 449.5,
-            "left": 570,
+            "top": 517.9140625,
+            "left": 454,
             "width": 123.6015625,
-            "right": 693.6015625,
-            "bottom": 470.5,
+            "right": 577.6015625,
+            "bottom": 538.9140625,
             "height": 21
         }
+    },
+    {
+        "title": "$:/AdvancedSearch"
+    },
+    {
+        "title": "Blog Management",
+        "fromPageRect": {
+            "top": 517.9140625,
+            "left": 454,
+            "width": 123.6015625,
+            "right": 577.6015625,
+            "bottom": 538.9140625,
+            "height": 21
+        }
+    },
+    {
+        "title": "Draft of 'Blog Management'"
+    },
+    {
+        "title": "Blog Admin"
+    },
+    {
+        "title": "Draft of 'Blog Admin'"
+    },
+    {
+        "title": "Blog Admin"
+    },
+    {
+        "title": "$:/AdvancedSearch"
+    },
+    {
+        "title": "Blog License",
+        "fromPageRect": {
+            "top": 517.9140625,
+            "left": 454,
+            "width": 84.890625,
+            "right": 538.890625,
+            "bottom": 538.9140625,
+            "height": 21
+        }
+    },
+    {
+        "title": "Draft of 'Blog License'"
+    },
+    {
+        "title": "Blog License"
     }
 ]

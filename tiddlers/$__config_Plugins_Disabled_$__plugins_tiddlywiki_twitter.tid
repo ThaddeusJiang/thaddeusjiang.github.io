@@ -1,5 +1,6 @@
 created: 20211206034129312
-modified: 20211206034129312
+modified: 20221211070418755
 title: $:/config/Plugins/Disabled/$:/plugins/tiddlywiki/twitter
+type: text/vnd.tiddlywiki
 
-yes
+no

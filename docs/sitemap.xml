@@ -566,8 +566,14 @@
    </url>
 
    <url>
-      <loc>.//2022-12-4-zhi-fu-lv-xing</loc>
-      <lastmod>2022-12-04</lastmod>
+      <loc>.//2022-12-04-zhi-fu-lv-xing</loc>
+      <lastmod>2022-12-11</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2022-12-11-yan-tian-xian-sheng-ru-shi-shuo</loc>
+      <lastmod>2022-12-11</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -579,7 +585,7 @@
 
    <url>
       <loc>.//blog</loc>
-      <lastmod>2022-05-13</lastmod>
+      <lastmod>2022-12-11</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -651,7 +657,7 @@
 
    <url>
       <loc>.//faq</loc>
-      <lastmod>2022-05-28</lastmod>
+      <lastmod>2022-12-11</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -669,7 +675,7 @@
 
    <url>
       <loc>.//index</loc>
-      <lastmod>2022-11-14</lastmod>
+      <lastmod>2022-12-11</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

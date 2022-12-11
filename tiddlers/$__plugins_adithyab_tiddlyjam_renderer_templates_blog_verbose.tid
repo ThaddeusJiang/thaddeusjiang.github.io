@@ -1,6 +1,6 @@
 created: 20200806173743683
 description: This is a short excerpt about this article.
-modified: 20210705120539253
+modified: 20221211071318752
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose
 type: text/vnd.tiddlywiki
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 \whitespace trim
 
 <div>
-  <div class="block">
+  <div class="block mt-4">
     <h2 class="subtitle">
       <$link>{{!!title}}</$link>
     </h2>
@@ -17,4 +17,3 @@ type: text/vnd.tiddlywiki
     </p>
   </div>
 </div>
-<hr />

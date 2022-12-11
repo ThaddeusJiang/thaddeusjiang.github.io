@@ -1,12 +1,12 @@
 created: 20220313022643471
 description: 在日本开发 SaaS 产品，爱猫、爱读书、爱大海
-modified: 20221114031628512
+modified: 20221211073434516
 name: HomePage
 tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals
 title: index
 type: text/vnd.tiddlywiki
 
-<section class="section mt-6">
+<section class="section">
     <div class="container">
         <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
             <div class="notification is-primary ">
@@ -27,7 +27,7 @@ type: text/vnd.tiddlywiki
                 <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[blog]!sort[published]limit[3]]">
                     {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose}}
                 </$list>
-                <p class="subtitle">[[see more|blog]]</p>
+                <p class="subtitle mt-5">[[see more|blog]]</p>
             </div>
         </div>
     </div>

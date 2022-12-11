@@ -1,5 +1,5 @@
 created: 20220313030411430
-modified: 20220528055416198
+modified: 20221211065855351
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: FAQ
 type: text/vnd.tiddlywiki
@@ -7,6 +7,6 @@ type: text/vnd.tiddlywiki
 * Open Source: https://github.com/ThaddeusJiang/thaddeusjiang.github.io
 ** readonly URL: https://thaddeusjiang.com
 ** full features URL: https://thaddeusjiang.github.io
-* 互联网档案馆备份： https://web.archive.org/web/*/Thaddeusjiang.com
+* 互联网档案馆备份： https://web.archive.org/web/*/thaddeusjiang.com
 * Quine 是什么？ [[https://en.wikipedia.org/wiki/Quine_(computing)]]
 * 我从哪里接触到这个技术？[[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki|https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
