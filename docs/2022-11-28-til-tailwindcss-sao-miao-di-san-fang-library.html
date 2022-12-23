@@ -55,21 +55,24 @@
 <body class="tc-body">
   
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+     </nav>
+    </div>
   </div>
       
 
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2022-11-28 TIL: TailwindCSS 扫描第三方 library</h1>
+            <h1 class="subtitle">2022-11-28 TIL: TailwindCSS 扫描第三方 library</h1>
             <hr>
 
             <p>今天我学会了一个新技巧，让 TailwindCSS 扫描第三方 library，开心。</p><p>我以前是打包出 CSS，然后通过 import 引入，形如：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">DataTable</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@omakase-ui/react-table&#x27;</span>;
@@ -98,11 +101,10 @@ module.exports = {
 
 
 
-<footer class="section">
+<hr>
+  <footer class="section">    
     <div class="content has-text-centered">
-      <p>
-        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
-      </p>
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
 

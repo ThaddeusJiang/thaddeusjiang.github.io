@@ -55,21 +55,24 @@
 <body class="tc-body">
   
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+     </nav>
+    </div>
   </div>
       
 
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2022-11-13 阅读《宽表为什么横行》</h1>
+            <h1 class="subtitle">2022-11-13 阅读《宽表为什么横行》</h1>
             <hr>
 
             <h2 class="">什么是宽表？</h2><p>就是用关系型数据库（RDB）平铺所有数据的所有属性。</p><p>为什么大家乐此不疲地使用宽表？</p><ol><li>提高查询性能。RDB 关联查询会导致性能急剧下降，一张表可以提高性能。</li></ol><h2 class="">宽表的缺点</h2><ol><li>数据冗余容量大</li><li>不符合 ACID (Atomicity Consistency Isolation Durability)</li></ol><h2 class="">如何提高关联查询的性能？（aka 如何消灭宽表）</h2><p>使用列式数据库</p><p>什么是列式数据库？</p><p>数据库独立存储每个列的数据。可以直接查询某列的数据，而不需要遍历所有数据。</p><h2 class="">可以使用的技术</h2><ol><li>TiDB 同时支持行存储和列存储的 NewSQL 数据库</li><li>ClickHouse 被广泛使用的列式数据库</li><li>SurrealDB （展示不了解技术细节）</li></ol><p>原文：<a class="tc-tiddlylink-external" href="https://mp.weixin.qq.com/s/o9mXCfZrT4_LA_PogmryvQ" rel="noopener noreferrer" target="_blank">https://mp.weixin.qq.com/s/o9mXCfZrT4_LA_PogmryvQ</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://en.wikipedia.org/wiki/Column-oriented_DBMS" rel="noopener noreferrer" target="_blank">https://en.wikipedia.org/wiki/Column-oriented_DBMS</a></li></ul>
@@ -81,11 +84,10 @@
 
 
 
-<footer class="section">
+<hr>
+  <footer class="section">    
     <div class="content has-text-centered">
-      <p>
-        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
-      </p>
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
 

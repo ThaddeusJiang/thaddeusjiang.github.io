@@ -1,6 +1,6 @@
 created: 20200806173743683
 description: This is a short excerpt about this article.
-modified: 20221211071318752
+modified: 20221223143234555
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose
 type: text/vnd.tiddlywiki
@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 
 <div>
   <div class="block mt-4">
-    <h2 class="subtitle">
+    <h2 class="subtitle truncate">
       <$link>{{!!title}}</$link>
     </h2>
     <p>

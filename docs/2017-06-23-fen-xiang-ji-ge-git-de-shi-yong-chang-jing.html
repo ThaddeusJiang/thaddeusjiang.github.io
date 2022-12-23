@@ -55,21 +55,24 @@
 <body class="tc-body">
   
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+     </nav>
+    </div>
   </div>
       
 
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2017-06-23 分享几个 git 的使用场景</h1>
+            <h1 class="subtitle">2017-06-23 分享几个 git 的使用场景</h1>
             <hr>
 
             <p>你真的会使用 git 吗？你能回答下面几个问题吗？ 有三个 commit（顺序：CommitA、CommitB、CommitC），它们相互独立，没有依赖。</p><ol><li>在不修改 B、C 的前提下，修改 A，怎么操作？</li><li>合并 A、B、C 为一个 commit，怎么操作？</li><li>调整 A、B、C 的顺序编程 C、B、A，怎么操作？</li></ol><p>作为一个开发，日常工作中不可避免的要使用 git。 当然了，如果你技术无敌、独立承担一个项目、没人干预或者影响你的工作，那么你可能不需要下面这些总结。哈哈哈...</p><p>由于 xxx 原因，我认为应该给项目组的其他人讲讲 git。 因为语言障碍和技术熟练度的障碍，为了让同事们更好地理解并且愿意使用 git 。我不得不一个场景一个方法地讲解，所以有了下面总结。</p><blockquote><div>这难道不是一种成长吗？</div></blockquote><h2 class="">场景 1</h2><p>J 写了一个功能，分成 3 次 commit（顺序：CommitA、CommitB、CommitC）。完成功能之后，他找了 B 先生进行 Code Review，B 先生觉得 CommitB 和 CommitC 没有问题，CommitA 需要进行简单修改。 那么如何在不改变 CommitB 和 CommitC 的前提下，修改 CommitA 呢？
@@ -97,11 +100,10 @@ $ git merge branch_J_dev</code></pre><p>希望这篇文章对你有帮助。
 
 
 
-<footer class="section">
+<hr>
+  <footer class="section">    
     <div class="content has-text-centered">
-      <p>
-        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
-      </p>
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
 

@@ -55,21 +55,24 @@
 <body class="tc-body">
   
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+     </nav>
+    </div>
   </div>
       
 
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2018-04-21 eslint 提示：Do not use findDOMNode</h1>
+            <h1 class="subtitle">2018-04-21 eslint 提示：Do not use findDOMNode</h1>
             <hr>
 
             <p>记录一条 eslint 提示：</p><pre><code>[eslint] Do not use findDOMNode (react/no-find-dom-node)</code></pre><p>背景</p><p>使用react-dnd做拖拽功能时，需要判断真实DOM的大小和位置。</p><p>官方示例： <a class="tc-tiddlylink-external" href="https://github.com/react-dnd/react-dnd/blob/164a8048296101e3bcf543df3406ee6dabfdf059/packages/documentation/examples/04%20Sortable/Simple/Card.js#L35" rel="noopener noreferrer" target="_blank">https://github.com/react-dnd/react-dnd/blob/164a8048296101e3bcf543df3406ee6dabfdf059/packages/documentation/examples/04%20Sortable/Simple/Card.js#L35</a></p><p>但是我们项目使用 eslint 检查 js 代码品质。所以出现 👆 提示。</p><p>解决方法</p><pre class="hljs"><code class="jsx hljs"><span class="hljs-comment">// Step 1. render()</span>
@@ -92,11 +95,10 @@ component.<span class="hljs-property">decoratedComponentInstance</span>.<span cl
 
 
 
-<footer class="section">
+<hr>
+  <footer class="section">    
     <div class="content has-text-centered">
-      <p>
-        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
-      </p>
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
 

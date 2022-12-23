@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20221113125727253
+modified: 20221223145414579
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: Welcome
@@ -15,6 +15,6 @@ type: text/vnd.tiddlywiki
 * 这是一个 Quine (自产生程序)。
 * 零依赖，永久可用。
 
-[[blog]] | [[weekly]] | [[rss|https://thaddeusjiang.com/rss.xml]] |
+[[blog]] | [[weekly]] | [[RSS|https://thaddeusjiang.com/rss.xml]] |
 [[Twitter|https://twitter.com/ThaddeusJiang]] | [[GitHub|https://github.com/ThaddeusJiang]] |
 [[FAQ]] | [[Wiki|https://thaddeusjiang.com/wiki]]

@@ -55,21 +55,24 @@
 <body class="tc-body">
   
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+     </nav>
+    </div>
   </div>
       
 
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2022-11-15 monorepo vs. multi-repo</h1>
+            <h1 class="subtitle">2022-11-15 monorepo vs. multi-repo</h1>
             <hr>
 
             <p>最近被讨论 monorepo 讨论的有点烦了。分享一下我对于 monorepo 的理解</p><blockquote class="tc-quote tc-big-quote"><p>事实上 monorepo 是在鼓励自治，而不是统一规范。</p><ul><li>小公司应该用 monorepo</li><li>大公司应该用 multi-repo，或者拆分成多个小公司</li><li>超大规模公司应该拆分成多个大公司。</li></ul><cite>TJ</cite></blockquote><p>在 SmartCompany 开发代码，我使用 multi-repo；开发 OSS 我使用 monorepo。</p><p>为什么我不使用 monorepo 管理 micro-frontends？</p><ul><li>因为我想让 micro-frontends 的 sub-apps 可以像 library 一样被复用，让它们跨产品被使用。</li><li>使用 monorepo 管理 sub-apps，会导致大家误会 sub-apps 属于某个产品，导致其无法被复用。</li><li>使用 monorepo，如果我开个新的项目，难道不要把所有的代码都复制一份吗？</li></ul><h1 class="">追加说明</h1><ul><li>我希望共同的业务代码可以跨项目复用，不属于某个项目</li><li>我希望每个 micro-frontends 可以<ul><li>独立 test</li><li>独立 build</li><li>独立 deploy</li></ul></li><li>整体部署只是 copy file，没有 build 过程， build time 是常量，而不是 n * frontends</li><li>我希望每个 micro-frontends 有独立的 version (git commit hash)</li><li>我希望部署 <ul><li>✅ micro-frontends<ul><li>(共同功能)micro-auth-app</li><li>(共同功能)micro-account-app</li><li>(共同功能)micro-datasheet-app</li><li>(共同功能)micro-sso-app</li><li>talent-app</li><li>romu-app</li><li>kintai-app</li></ul></li><li>❌ frontends<ul><li>talent-app</li><li>romu-app</li><li>kintai-app</li></ul></li></ul></li></ul><p>如果不推荐 monorepo，但是过度分散的 repos 导致大家有抵触情绪，该怎么办？</p><p>可以试试 <a class="tc-tiddlylink-external" href="https://www.atlassian.com/git/tutorials/git-subtree" rel="noopener noreferrer" target="_blank">git subtree</a>，只需要写好 local repo 的 README 即可使用。比 git submodule 好用。
@@ -82,11 +85,10 @@
 
 
 
-<footer class="section">
+<hr>
+  <footer class="section">    
     <div class="content has-text-centered">
-      <p>
-        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
-      </p>
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
 

@@ -55,21 +55,24 @@
 <body class="tc-body">
   
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+     </nav>
+    </div>
   </div>
       
 
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2021-08-18 Deploying Serverless functions to Azure Function App</h1>
+            <h1 class="subtitle">2021-08-18 Deploying Serverless functions to Azure Function App</h1>
             <hr>
 
             <p>Serverless functions 我已经玩的有点烦了，每个项目都用不同的 Cloud，每次都要变化工作流。原本期待一劳永逸的 Serverless Framework 弱的不行，k8s 有感觉是杀鸡用牛刀。难受😣</p><p>算了，不提了，进入正文。</p><p>这一次是 Azure Function App，我想记录一下如何部署 Serverless functions 到 Azure Function App，并支持 Deployment slots 做一下 A/B testing。</p><p>两种方式</p><ol><li>VSCode Extension</li><li>GitHub Actions</li></ol><h4 class="">1. VSCode Extension</h4><p>使用 VSCode Extension 部署 Azure Function App 非常方便，也是我开发时最常用的方式。
@@ -93,11 +96,10 @@ VSCode Extension 用法也很简单，这里介绍一点特殊的，官方文档
 
 
 
-<footer class="section">
+<hr>
+  <footer class="section">    
     <div class="content has-text-centered">
-      <p>
-        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
-      </p>
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
 

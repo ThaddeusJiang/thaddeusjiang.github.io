@@ -55,21 +55,24 @@
 <body class="tc-body">
   
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+     </nav>
+    </div>
   </div>
       
 
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2020-09-09 Inline SVG vs Icon Fonts</h1>
+            <h1 class="subtitle">2020-09-09 Inline SVG vs Icon Fonts</h1>
             <hr>
 
             <p>背景</p><p>最近几个项目都是公司内部项目，icon 都是使用免费的第三方资源。通常是 iconfont。</p><p>最新的项目是一个红酒电商系统，为了迎合红酒的高端气质，设计团队设计了很多好看的 icon。</p><p>使用自定义 icon 迫使我重新思考了如何使用 icon。</p><p>选择</p><p>选项：</p><ul><li>Inline SVG</li><li>Icon Font</li></ul><p>我参考了《Inline SVG vs Icon Fonts [CAGEMATCH] | CSS Tricks》</p><p>结论是 Inline SVG 胜出。</p><p>下面分享一下，Nuxt 中使用 Inline SVG</p><p>我们项目使用 Nuxt 框架，进而使用 <code>nuxtjs/svg</code> 基本配置和代码</p><pre class="hljs"><code class="sh hljs">$ yarn add --dev nuxtjs/svg</code></pre><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// nuxt.config.js</span>
@@ -97,11 +100,10 @@
 
 
 
-<footer class="section">
+<hr>
+  <footer class="section">    
     <div class="content has-text-centered">
-      <p>
-        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
-      </p>
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
 

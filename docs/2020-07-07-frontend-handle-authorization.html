@@ -55,21 +55,24 @@
 <body class="tc-body">
   
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+     </nav>
+    </div>
   </div>
       
 
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2020-07-07 Frontend handle Authorization</h1>
+            <h1 class="subtitle">2020-07-07 Frontend handle Authorization</h1>
             <hr>
 
             <h2 class="">分享一个简单登录认证实现</h2><p>我使用 [Axios](<a class="tc-tiddlylink-external" href="https://github.com/axios/axios" rel="noopener noreferrer" target="_blank">https://github.com/axios/axios</a>) 作为 HTTP client。</p><h2 class="">原则</h2><ol><li>不创建 axios 实例，仅使用 global axios</li><li>避免在 UI 层写认证逻辑</li></ol><h2 class="">步骤</h2><p>1. 从 localStorage 中读取 token，并设置到 header 中</p><pre class="hljs"><code class="js hljs">axios.<span class="hljs-property">defaults</span>.<span class="hljs-property">headers</span>.<span class="hljs-property">common</span>[<span class="hljs-string">&#x27;Any-Token-Key&#x27;</span>] = <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&#x27;any-token-key&#x27;</span>)</code></pre><p>2. 拦截 response，处理 <code>401 Unauthorized</code> 错误。</p><pre class="hljs"><code class="js hljs">axios.<span class="hljs-property">interceptors</span>.<span class="hljs-property">response</span>
@@ -95,11 +98,10 @@
 
 
 
-<footer class="section">
+<hr>
+  <footer class="section">    
     <div class="content has-text-centered">
-      <p>
-        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
-      </p>
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
 

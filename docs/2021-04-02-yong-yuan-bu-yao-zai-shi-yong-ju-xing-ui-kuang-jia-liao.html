@@ -55,21 +55,24 @@
 <body class="tc-body">
   
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+     </nav>
+    </div>
   </div>
       
 
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2021-04-02 永远不要再使用巨型 UI 框架了</h1>
+            <h1 class="subtitle">2021-04-02 永远不要再使用巨型 UI 框架了</h1>
             <hr>
 
             <h2 class="">什么是巨型 UI 框架？</h2><ul><li><a class="tc-tiddlylink-external" href="https://ant.design/" rel="noopener noreferrer" target="_blank">https://ant.design/</a></li><li><a class="tc-tiddlylink-external" href="https://material.io/" rel="noopener noreferrer" target="_blank">https://material.io/</a></li><li>...</li></ul><h2 class="">为什么不要再使用巨型 UI 框架？</h2><ol><li>巨型 UI 框架为了泛用性，增加了无数极少使用的属性，增加了学习成本。</li><li>巨型 UI 框架为了保持人气，频繁升级，造成不必要的维护成本。</li><li>巨型 UI 框架为了差异性，定义风格迥异的接口，经验无法轻松应用到其他框架。</li></ol><h2 class="">事例：</h2><p>新公司项目使用 antd 开发，最近我们希望加入 dark mode 特性。</p><p>我开发过 dark mode，其实设计思路特别简单。</p><ol><li>CSS 中关于颜色的部分全部使用 CSS variables</li><li>提供 light.css 和 dark.css 定义 CSS variables</li><li>根据用户选择动态加载 light.css 或者 dark.css</li></ol><blockquote class="tc-quote tc-big-quote"><p>但是，如果你使用 antd，那就麻烦了。
@@ -82,11 +85,10 @@
 
 
 
-<footer class="section">
+<hr>
+  <footer class="section">    
     <div class="content has-text-centered">
-      <p>
-        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
-      </p>
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
 

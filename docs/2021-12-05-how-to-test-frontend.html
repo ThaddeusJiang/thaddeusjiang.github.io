@@ -55,21 +55,24 @@
 <body class="tc-body">
   
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><p><nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
-            <a class="navbar-item has-background-dark has-text-white	title is-3" href="./">
-       蒋继发 (ThaddeusJiang)
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
             </a>
         </div>
-     </nav></p><p><p class="mt-4">在日本做 SaaS，爱猫、爱读书、爱自由</p></p></div>
+     </nav>
+    </div>
   </div>
       
 
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="title">2021-12-05 How To Test Frontend</h1>
+            <h1 class="subtitle">2021-12-05 How To Test Frontend</h1>
             <hr>
 
             <p>2021 年的最后一个月，重新思考一下 Frontend Testing。对于 Frontend，我们要如何保证项目的品质？</p><p>其实，对于 Frontend Testing 我没有太多独特的见解。我对 Frontend Testing 的理解，大部分是来自其他优秀的工程师的分享，少部分是自己的一些工程实践。对于我自己，Frontend Testing 有哪些内容是值得拿出来分享的？</p><h2 class="">1. 测试一定要整合到 CI/CD 中</h2><p>这是我个人的经验，测试一定要整合到 CI/CD 中。一方面，如果测试没有整合到 CI/CD 中，那么测试就不能阻止我们发布包含错误的产品到生产环境，也就是没有保证品质。另一方面，如果测试没有整合到 CI/CD 将无形地增加开发者的工作量，开发者不得不手动执行测试。很多开发者并不是不愿意编写测试代码，只是不愿意等待测试代码漫长的执行过程。</p><h2 class="">2. 倒金字塔的测试优先级</h2><p>相信绝大多数软件工程专业毕业的的开发者（学院派）都曾被教育 Unit Testing 大于 Integration Testing 的测试覆盖原则，就像金字塔。</p><p>但是，最新的工程实践提出了相反的意见。越来越多的开发者认为 Integration Testing 大于 Unit Testing，甚至 End-to-End Testing 最大。</p><blockquote class="tc-quote tc-big-quote"><p>Write tests. Not too many. Mostly integration. 
@@ -86,11 +89,10 @@
 
 
 
-<footer class="section">
+<hr>
+  <footer class="section">    
     <div class="content has-text-centered">
-      <p>
-        Made by <a href="https://github.com/ThaddeusJiang">Thaddeus Jiang</a>
-      </p>
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
 
