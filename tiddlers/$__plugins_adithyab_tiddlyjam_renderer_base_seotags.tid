@@ -1,6 +1,6 @@
 created: 20200814062847162
 description: safe
-modified: 20211207090204928
+modified: 20230116115113372
 name: correct
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/seotags
@@ -25,12 +25,12 @@ type: text/vnd.tiddlywiki
 <meta name="twitter:description" content="`<<get_description>>`" />
 <meta name="twitter:image" content="`<<get_social_image>>`" />
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-140310136-2');
+  gtag('config', 'G-GYMJ3T7BNK');
 </script>
