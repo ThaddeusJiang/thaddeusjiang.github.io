@@ -1,0 +1,101 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.3" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2023-01-13 Say Goodbye to ../../../ ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="几年前还用 Babel 时，我写过一篇文章 2018-08-16 Say Goodbye to '../' '../../' '../../../'。JS 社区的工具链真的发展的好快，我已经很久没用过 Babel 了，😂">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2023-01-13-say-goodbye-to" />
+<meta property="og:title" content="2023-01-13 Say Goodbye to ../../../ ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="几年前还用 Babel 时，我写过一篇文章 2018-08-16 Say Goodbye to '../' '../../' '../../../'。JS 社区的工具链真的发展的好快，我已经很久没用过 Babel 了，😂" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2023-01-13 Say Goodbye to ../../../.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2023-01-13 Say Goodbye to ../../../ ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="几年前还用 Babel 时，我写过一篇文章 2018-08-16 Say Goodbye to '../' '../../' '../../../'。JS 社区的工具链真的发展的好快，我已经很久没用过 Babel 了，😂" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140310136-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140310136-2');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+      
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-01-13 Say Goodbye to ../../../</h1>
+            <hr>
+
+            <p>几年前还用 Babel 时，我写过一篇文章 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./2018-08-16-say-goodbye-to.html">2018-08-16 Say Goodbye to '../' '../../' '../../../'</a>。JS 社区的工具链真的发展的好快，我已经很久没用过 Babel 了，😂</p><p>我现在主要是用 esbuild + typescript，因为 TypeScript 也变强了，所以现在配置绝对路径也变的简单了。</p><ul><li>不需要再依赖 loader 了</li><li>只需要配置 tsconfig.json 即可</li></ul><pre class="hljs"><code class="json hljs"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;compilerOptions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>    
+    <span class="hljs-attr">&quot;baseUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;.&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;paths&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;~/*&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;src/*&quot;</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre><p>so easy.</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://babeljs.io/" rel="noopener noreferrer" target="_blank">Babel: 在 ES6 还没有被浏览器和 node.js 完全支持的年代，JS 项目的标配。</a> </li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+
+<footer class="section">    
+    <div class="content has-text-centered">
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+created: 20230113051525238
+modified: 20230116052711159
+published: 20230116052711159
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2023-01-13 Say Goodbye to ../../../
+type: text/vnd.tiddlywiki
+
+几年前还用 Babel 时，我写过一篇文章 [[2018-08-16 Say Goodbye to '../' '../../' '../../../']]。JS 社区的工具链真的发展的好快，我已经很久没用过 Babel 了，😂
+
+我现在主要是用 esbuild + typescript，因为 TypeScript 也变强了，所以现在配置绝对路径也变的简单了。
+
+* 不需要再依赖 loader 了
+* 只需要配置 tsconfig.json 即可
+
+```json
+{
+  "compilerOptions": {    
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    }
+  }
+}
+```
+
+so easy.
+
+refs:
+
+* [[Babel: 在 ES6 还没有被浏览器和 node.js 完全支持的年代，JS 项目的标配。|https://babeljs.io/]] 

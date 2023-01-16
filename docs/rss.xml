@@ -5,6 +5,95 @@
    <link>https://thaddeusjiang.com</link>
    <description>在日本做 SaaS，爱猫、爱读书、爱自由</description>
    <item>
+      <title>2023-01-16 turborepo .env 竟然不是开箱即用的</title>
+      <link>https://thaddeusjiang.com/2023-01-16-turborepo-env-jing-ran-bu-shi-kai-xiang-ji-yong-de</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+      
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-01-16 turborepo .env 竟然不是开箱即用的</h1>
+            <hr>
+
+            <p>turborepo .env 竟然不是开箱即用的，需要安装 dotenv-cli 并且修改 npm scripts。🤷</p><p>1. 安装 <code>dotenv-cli</code> in root</p><pre class="hljs"><code class="bash hljs">yarn add dotenv-cli --ignore-workspace-root-check</code></pre><p>2 创建 <code>.env</code> in root</p><pre class="hljs"><code class="bash hljs">// .<span class="hljs-built_in">env</span>
+DATABASE_URL=my-database-url</code></pre><p>3. 修改 <code>package.json</code> of root</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// package.json</span>
+<span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;dev&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dotenv -- turbo run dev&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre><p>4. 验证</p><pre class="hljs"><code class="bash hljs">yarn dev</code></pre><p>OK，现在 <code>process.env.DATABASE_URL</code> 不是 undefined 了。🤷</p><p>BTW，如果你需要在 build 使用环境变量，还需要配置 turbo.json，<a class="tc-tiddlylink-external" href="https://turbo.build/repo/docs/core-concepts/caching#altering-caching-based-on-environment-variables" rel="noopener noreferrer" target="_blank">文档</a> 🤷</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://turbo.build/repo/docs/handbook/dev#using-environment-variables" rel="noopener noreferrer" target="_blank">https://turbo.build/repo/docs/handbook/dev#using-environment-variables</a></li><li><a class="tc-tiddlylink-external" href="https://www.npmjs.com/package/dotenv-cli" rel="noopener noreferrer" target="_blank">https://www.npmjs.com/package/dotenv-cli</a></li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Mon, 16 January 2023 14:27:45 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-01-16-turborepo-env-jing-ran-bu-shi-kai-xiang-ji-yong-de</guid>      
+   </item>
+
+   <item>
+      <title>2023-01-13 Say Goodbye to ../../../</title>
+      <link>https://thaddeusjiang.com/2023-01-13-say-goodbye-to</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+      
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-01-13 Say Goodbye to ../../../</h1>
+            <hr>
+
+            <p>几年前还用 Babel 时，我写过一篇文章 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#2018-08-16-say-goodbye-to-">2018-08-16 Say Goodbye to '../' '../../' '../../../'</a>。JS 社区的工具链真的发展的好快，我已经很久没用过 Babel 了，😂</p><p>我现在主要是用 esbuild + typescript，因为 TypeScript 也变强了，所以现在配置绝对路径也变的简单了。</p><ul><li>不需要再依赖 loader 了</li><li>只需要配置 tsconfig.json 即可</li></ul><pre class="hljs"><code class="json hljs"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;compilerOptions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>    
+    <span class="hljs-attr">&quot;baseUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;.&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;paths&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;~/*&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;src/*&quot;</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre><p>so easy.</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://babeljs.io/" rel="noopener noreferrer" target="_blank">Babel: 在 ES6 还没有被浏览器和 node.js 完全支持的年代，JS 项目的标配。</a> </li></ul>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Mon, 16 January 2023 14:27:11 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-01-13-say-goodbye-to</guid>      
+   </item>
+
+   <item>
       <title>2022-12-11《岩田先生如是说》</title>
       <link>https://thaddeusjiang.com/2022-12-11-yan-tian-xian-sheng-ru-shi-shuo</link>
 			<description><![CDATA[
@@ -44,99 +133,6 @@
 ]]></description>
       <pubDate>Sun, 11 December 2022 16:2:16 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/2022-12-11-yan-tian-xian-sheng-ru-shi-shuo</guid>      
-   </item>
-
-   <item>
-      <title>2022-12-04 秩父旅行</title>
-      <link>https://thaddeusjiang.com/2022-12-04-zhi-fu-lv-xing</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
-                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
-      
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2022-12-04 秩父旅行</h1>
-            <hr>
-
-            <p>这次旅行真的很不错，时间充裕，内容丰富，既没有玩的不尽兴匆匆忙忙回家的苦闷，也没有因为内容太少而觉得无聊，或者浪费时间和钱。希望今后的旅行多些此类的体验，少一些不尽兴，少一些无聊。</p><p>秩父夜祭の屋台（花车表演）很有意思，这是我第一次参加这种祭り，很不一样的体验。而且我很佩服日本人可以将文化保护的这么好，无论是老人、成年人还是小朋友都可以参加其中，找到属于自己的快乐。日本人的小朋友真幸运，有这样真实的文化传承活动，而不是像中国的孩子一样只能从书中或者电视上了解自己的民族和国家的历史、文化。想想20年，30年后，日本的年轻人一定比中国的年轻人更有活力、更有朝气、更有创造力，因为他们有丰富的童年生活和真实的文化参与的记忆。童年记忆是一个人成年后能够持续探索世界的原动力。</p><p>旅行其实很简单，旅行就是离开自己每天生活的环境，去新鲜的环境体验不一样的生活，吃吃喝喝、走走停停、听听当地人的故事、看看当地的建筑。</p><p>秩父第一天在站前的一家居酒屋🏮吃的小吃，这家小店真的很棒，每一道菜都很精致，非常上相，且味道很好，真是色香味俱全，简直是旅行记录的最佳选择。肉豆腐十分软烂，爆炒猪心炒的恰到火候，吃起来十分脆爽，秩父のみそキャベツ也非常棒。</p><p>秩父第二天几乎一直在吃路边摊，太棒了，我太喜欢吃路边摊了。祭り就是要吃路边摊，边走边吃，烧鸟、炒面、炸鸡块、日式卤煮等等，不在乎好吃，不在乎价格，要的就是这种热闹的气氛。</p><p>因为要开车，在集市的两天都没喝酒，不过还是买了当地的地酒【秩父錦】，现在正在边写游记边喝，味道还不错。喝着秩父的地酒，写着秩父的游记，仿佛旅行还没有结束，开心🥳。</p><p>最后还是想记录一下，阔别三年的花火大会，太棒了。三年没看花火大会了，真的感觉这三年的夏天非常不完整。三年，被新冠疫情夺走的三年，对无数人造成了无法衡量且无法弥补的伤害，TMD竟然没有人需要出来道歉，这世界真TM无语。</p>
-          </div>
-      </div>
-      <hr>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Sun, 4 December 2022 21:38:22 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2022-12-04-zhi-fu-lv-xing</guid>      
-   </item>
-
-   <item>
-      <title>2022-11-28 TIL: TailwindCSS 扫描第三方 library</title>
-      <link>https://thaddeusjiang.com/2022-11-28-til-tailwindcss-sao-miao-di-san-fang-library</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
-                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱自由</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
-      
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2022-11-28 TIL: TailwindCSS 扫描第三方 library</h1>
-            <hr>
-
-            <p>今天我学会了一个新技巧，让 TailwindCSS 扫描第三方 library，开心。</p><p>我以前是打包出 CSS，然后通过 import 引入，形如：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">DataTable</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@omakase-ui/react-table&#x27;</span>;
-
-<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@omakase-ui/react-table/dist/index.css&#x27;</span>;
-
-<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">DataTable</span> <span class="hljs-attr">columns</span>=<span class="hljs-string">{columns}</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{data}</span> <span class="hljs-attr">sort</span>=<span class="hljs-string">{[</span>&#x27;<span class="hljs-attr">name</span>&#x27;, &#x27;<span class="hljs-attr">asc</span>&#x27;]} /&gt;</span></span>;</code></pre><p>这样做有一个问题，打包以后的 index.css 已经把变量替换成具体的值了，没有办法通过 tailwind.config.js 覆盖。</p><h1 class="">新技巧：配置 tailwind.config.js</h1><pre class="hljs"><code class="diff hljs">// tailwind.config.js
-<span class="hljs-addition">+ const path = require(&quot;path&quot;);</span>
-
-module.exports = {
-  content: [
-    &quot;./src/**/*{js,ts,jsx,tsx}&quot;,
-<span class="hljs-addition">+    path.join(</span>
-<span class="hljs-addition">+      require.resolve(&quot;@omakase-ui/react-table&quot;),</span>
-<span class="hljs-addition">+      &quot;../**/*.{js,ts,jsx,tsx}&quot;</span>
-<span class="hljs-addition">+    ),</span>
-  ],
-  theme: {},
-  plugins: [],
-};</code></pre><p>就可以用 theme 中的内容覆盖第三方 library 的 Tailwind CSS 了。</p><p>其实 Tailwind CSS 官方文档有这个技巧，但是以前没注意，自己开发 Components Library 遇到瓶颈才去认真开文档，😂 😂 😂</p>
-          </div>
-      </div>
-      <hr>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Mon, 28 November 2022 18:11:30 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2022-11-28-til-tailwindcss-sao-miao-di-san-fang-library</guid>      
    </item>
 
 </channel>
