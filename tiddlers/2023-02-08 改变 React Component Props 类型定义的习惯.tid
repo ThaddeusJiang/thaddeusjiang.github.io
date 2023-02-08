@@ -1,0 +1,33 @@
+created: 20230208030327220
+modified: 20230208114600652
+published: 20230208114600651
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2023-02-08 改变 React Component Props 类型定义的习惯
+type: text/vnd.tiddlywiki
+
+我不确定这个决定是不是正确的，我决定改变一下我一直采用的 React Component Props 类型定义的习惯。
+
+我不再在 Component 外部定义 Props 了，因为 VSCode 不能预览 Props 的细节。今后尽量在 Component 内部定义 Props。
+
+! New Style
+
+```jsx
+export const EmployeeEmployInfoTable = (props: {
+  data: { id: string; status: string; joinedAt: string; quitAt: string };
+}) => {
+```
+
+[img[https://i.gyazo.com/437d46c69a8f9573ebef427fe0651263.png]]
+
+! Old Style
+
+```jsx
+type Props = {
+  data: { id: string; status: string; joinedAt: string; quitAt: string };
+};
+
+export const EmployeeEmployInfoTable = (props: Props) => {
+```
+
+[img[https://i.gyazo.com/2a4bb4272bbdf8265921f1a81f39962f.png]]
+

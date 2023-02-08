@@ -1,0 +1,7 @@
+status: complete
+title: $:/Import
+type: text/vnd.tiddlywiki
+
+The following tiddlers were imported:
+
+# [[React 不再使用 type Props 了，因为 VSCode 不能预览 props 细节]]

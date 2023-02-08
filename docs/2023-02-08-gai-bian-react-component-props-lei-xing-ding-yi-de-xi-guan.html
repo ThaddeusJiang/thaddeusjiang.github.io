@@ -1,0 +1,100 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.5" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2023-02-08 改变 React Component Props 类型定义的习惯 ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="我不确定这个决定是不是正确的，我决定改变一下我一直采用的 React Component Props 类型定义的习惯。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2023-02-08-gai-bian-react-component-props-lei-xing-ding-yi-de-xi-guan" />
+<meta property="og:title" content="2023-02-08 改变 React Component Props 类型定义的习惯 ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="我不确定这个决定是不是正确的，我决定改变一下我一直采用的 React Component Props 类型定义的习惯。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2023-02-08 改变 React Component Props 类型定义的习惯.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2023-02-08 改变 React Component Props 类型定义的习惯 ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="我不确定这个决定是不是正确的，我决定改变一下我一直采用的 React Component Props 类型定义的习惯。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱社交。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+      
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-02-08 改变 React Component Props 类型定义的习惯</h1>
+            <hr>
+
+            <p>我不确定这个决定是不是正确的，我决定改变一下我一直采用的 React Component Props 类型定义的习惯。</p><p>我不再在 Component 外部定义 Props 了，因为 VSCode 不能预览 Props 的细节。今后尽量在 Component 内部定义 Props。</p><h1 class="">New Style</h1><pre class="hljs"><code class="jsx hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">EmployeeEmployInfoTable</span> = (<span class="hljs-params">props: {
+  data: { id: string; status: string; joinedAt: string; quitAt: string };
+}</span>) =&gt; {</code></pre><p><img class=" tc-image-loading" src="https://i.gyazo.com/437d46c69a8f9573ebef427fe0651263.png"></p><h1 class="">Old Style</h1><pre class="hljs"><code class="jsx hljs">type <span class="hljs-title class_">Props</span> = {
+  <span class="hljs-attr">data</span>: { <span class="hljs-attr">id</span>: string; <span class="hljs-attr">status</span>: string; <span class="hljs-attr">joinedAt</span>: string; <span class="hljs-attr">quitAt</span>: string };
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">EmployeeEmployInfoTable</span> = (<span class="hljs-params">props: Props</span>) =&gt; {</code></pre><p><img class=" tc-image-loading" src="https://i.gyazo.com/2a4bb4272bbdf8265921f1a81f39962f.png"></p>
+          </div>
+      </div>
+      <hr>
+  </div>
+</div>     
+
+
+
+<footer class="section">    
+    <div class="content has-text-centered">
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
