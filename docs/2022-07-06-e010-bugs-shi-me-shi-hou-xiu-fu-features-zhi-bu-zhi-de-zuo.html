@@ -18,20 +18,20 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>E010-bugs什么时候修复？features值不值得做？ ~ 蒋继发 (ThaddeusJiang)</title>
+<title>2022-07-06 E010-bugs什么时候修复？features值不值得做？ ~ 蒋继发 (ThaddeusJiang)</title>
 <meta name="description" content="大家好，欢迎阅读《蒋继发的每周分享》第10期。本期的主题是《bugs什么时候修复？features值不值得做？》。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://thaddeusjiang.com/e010-bugs-shi-me-shi-hou-xiu-fu-features-zhi-bu-zhi-de-zuo" />
-<meta property="og:title" content="E010-bugs什么时候修复？features值不值得做？ ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:url" content="https://thaddeusjiang.com/2022-07-06-e010-bugs-shi-me-shi-hou-xiu-fu-features-zhi-bu-zhi-de-zuo" />
+<meta property="og:title" content="2022-07-06 E010-bugs什么时候修复？features值不值得做？ ~ 蒋继发 (ThaddeusJiang)" />
 <meta property="og:description" content="大家好，欢迎阅读《蒋继发的每周分享》第10期。本期的主题是《bugs什么时候修复？features值不值得做？》。" />
-<meta property="og:image" content="https://og-image-zh.vercel.app/E010-bugs什么时候修复？features值不值得做？.png?fontSize=50px" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2022-07-06 E010-bugs什么时候修复？features值不值得做？.png?fontSize=50px" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="E010-bugs什么时候修复？features值不值得做？ ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:title" content="2022-07-06 E010-bugs什么时候修复？features值不值得做？ ~ 蒋继发 (ThaddeusJiang)" />
 <meta name="twitter:description" content="大家好，欢迎阅读《蒋继发的每周分享》第10期。本期的主题是《bugs什么时候修复？features值不值得做？》。" />
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
 
@@ -60,7 +60,7 @@
         <div class="navbar-brand">
             <a href="./">
                 <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
-                <p class="subtitle">在日本做 SaaS，爱猫、爱读书、爱社交。</p>
+                <p class="subtitle">Engineer / Blogger， 爱猫、爱读书、爱社交。</p>
             </a>
         </div>
      </nav>
@@ -72,7 +72,7 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="subtitle">E010-bugs什么时候修复？features值不值得做？</h1>
+            <h1 class="subtitle">2022-07-06 E010-bugs什么时候修复？features值不值得做？</h1>
             <hr>
 
             <p>大家好，欢迎阅读《蒋继发的每周分享》第10期。本期的主题是《bugs什么时候修复？features值不值得做？》。</p><p>我叫蒋继发，目前在日本做 HR 领域的 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些 SaaS 项目工作经验、日本生活体验以及阅读感受等等。《蒋继发的每周分享》会在每周四发送，欢迎大家通过 <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 或者 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">Revue</a> 订阅。</p><p>我先和各位订阅的读者道个歉，上周我没有更新《每周分享》，因为上周工作太忙了，实在没有力气了，十分抱歉。</p><h2 class="">bugs 什么时候修复？</h2><p><img class=" tc-image-loading" src="https://i.gyazo.com/ed54a712ecbc4acdb01100fdeced61cd.jpg"></p><p>这是之前看到的一个图，非常赞同，已在公司内部的分享，也分享给大家。</p><p>根据这张图我们可以非常轻松的判断出 bugs 应该在什么时候被修复。</p><p>list:</p><ol><li>如果 bugs 影响到超过 30% 用户使用核心功能，<code>Fix Now</code></li><li>如果 bugs 影响到超过 30% 用户使用基础功能，<code>Fix Now</code></li><li>如果 bugs 影响到超过 30% 用户，但是不影响使用，Fix Next Spring</li><li>如果 bugs 影响范围在 11% to 30% 用户使用核心功能，Fix Next Spring</li><li>如果 bugs 影响范围在 11% to 30% 用户使用基础功能，Fix Next Spring</li><li>如果 bugs 影响范围在 11% to 30% 用户，即使不影响使用，Fix Next Spring</li><li>如果 bugs 影响 0% to 10% 用户使用核心功能，Fix Next Spring</li><li>如果 bugs 影响 0% to 10% 用户使用非核心功能，Backlog</li><li>如果 bugs 影响 0% to 10% 用户，且不影响使用，Backlog</li></ol><p>上面列表是针对 bugs 的，通常情况下如果 issue 已经被确认是 bug 的话，就不存在做不做的问题了，肯定要修复，只是需要确认什么时候做即可。但是如果是针对 features 呢？</p><h2 class="">features 值不值得做？</h2><p>我参考上面的图片制作了 features 版本的交叉图</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/b268e954309e05d6589e86f0fa418780.png"></p><p>list:</p><ol><li>如果 features 可以为用户提供数量级的收益，如果无法提供将短期内会给公司带来损失，例如：客户解约。Do</li><li>如果 features 可以为用户提供数量级的收益，如果无法提供短期内也不会给公司带来损失，但是公司收益会减缓或停滞。Do</li><li>如果 features 可以为用户提供数量级的收益，从短期角度不会给公司带来损失或受益。Plan</li><li>如果features 是相关行业必备功能，如果无法提供将短期内会给公司带来损失，例如：客户解约。Do</li><li>如果features 是相关行业必备功能，如果无法提供短期内也不会给公司带来损失，但是公司收益会减缓或停滞。Plan</li><li>如果features 是相关行业必备功能，从短期角度不会给公司带来影响。Plan</li><li>如果 features 只会让一部分用户感到开心，即使短期内会给公司带来损失。<code>Do not</code></li><li>如果 features 只会让一部分用户感到开心，即使短期内会让公司收益减缓或者停滞。<code>Do not</code></li><li>如果 features 只会让一部分用户感到开心，从短期角度不会给公司带来损失或受益。<code>Do not</code></li></ol><h2 class="">80/20 法则</h2><p>上面的公式也适用于 80/20 法则，实际工作中难免会有一部分工作属于 20% 范畴，希望大家可以随机应变。</p><p>我开发了一个简单的网页大家只需要动动鼠标就可以计算出“bugs 什么时候修复？”和“ features 值不值得做？”了，欢迎大家使用 <a class="tc-tiddlylink-external" href="https://priority-matrix.vercel.app/" rel="noopener noreferrer" target="_blank">https://priority-matrix.vercel.app/</a></p><p>以上就是本次分享的全部内容，十分感谢你看到这里。</p><p>为了方便大家订阅《蒋继发的每周分享》，我也开始使用 Revue 了，大家可以在 <a class="tc-tiddlylink-external" href="https://www.getrevue.co/profile/thaddeusjiang" rel="noopener noreferrer" target="_blank">https://www.getrevue.co/profile/thaddeusjiang</a> 订阅 Email 推送。分享内容同步在我的个人网站：<a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/weekly" rel="noopener noreferrer" target="_blank">https://thaddeusjiang.com/weekly</a> 。</p><p>参考：</p><ul><li><a class="tc-tiddlylink-external" href="https://twitter.com/ThaddeusJiang/status/1542697460199350274?s=20&amp;t=VjeGyIt9eiATQ3JhcejHNQ" rel="noopener noreferrer" target="_blank">https://twitter.com/ThaddeusJiang/status/1542697460199350274?s=20&amp;t=VjeGyIt9eiATQ3JhcejHNQ</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/priority-matrix-app" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/priority-matrix-app</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/priority-matrix-web" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/priority-matrix-web</a></li></ul>

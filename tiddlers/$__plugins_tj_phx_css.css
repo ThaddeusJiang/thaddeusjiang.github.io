@@ -1,0 +1,11 @@
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.mt-4 {
+  mergin-top: 1rem;
+}

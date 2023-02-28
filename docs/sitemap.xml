@@ -488,8 +488,38 @@
    </url>
 
    <url>
+      <loc>.//2022-04-29-e001-chu-ci-jian-mian-qing-duo-guan-zhao</loc>
+      <lastmod>2023-02-28</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2022-05-05-e002-jia-qi-qing-hao-hao-xiu-xi</loc>
+      <lastmod>2023-02-28</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2022-05-13-e003-ni-you-jian-dan-kong-ju-zheng-ma</loc>
+      <lastmod>2023-02-28</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//2022-05-19-testing-faq</loc>
       <lastmod>2022-05-30</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2022-05-20-e004-peng-you-shi-ji-lei-xia-lai-de</loc>
+      <lastmod>2023-02-28</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2022-05-28-e005-ri-ben-ming-xing-saas-qi-ye-smarthr</loc>
+      <lastmod>2023-02-28</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -500,8 +530,38 @@
    </url>
 
    <url>
+      <loc>.//2022-06-02-e006-fen-xiang-yi-xie-frontend-xiang-guan-de-gong-zuo-ji-lu</loc>
+      <lastmod>2023-02-28</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2022-06-02-e007-nian-qing-ren-bu-shi-xiang-mo-yu-qian-bei-bu-shi-xiang-shuo-jiao</loc>
+      <lastmod>2023-02-28</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2022-06-22-e009-wo-shi-zen-me-xuan-ze-library-de</loc>
+      <lastmod>2023-02-28</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//2022-06-23-create-react-app-xiang-mu-micro-frontends-dui-ying</loc>
       <lastmod>2022-06-23</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2022-07-06-e010-bugs-shi-me-shi-hou-xiu-fu-features-zhi-bu-zhi-de-zuo</loc>
+      <lastmod>2023-02-28</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2022-08-04-e011-ji-ke-yi-ma-la-song-ye-ke-yi-bai-mi-chong-ci</loc>
+      <lastmod>2023-02-28</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -603,7 +663,7 @@
 
    <url>
       <loc>.//2023-02-16-du-cong-zi-ti-kai-shi-she-ji-gai-bian-de-sheng-huo-yu-she-hui</loc>
-      <lastmod>2023-02-16</lastmod>
+      <lastmod>2023-02-28</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -615,73 +675,13 @@
 
    <url>
       <loc>.//blog</loc>
-      <lastmod>2022-12-23</lastmod>
+      <lastmod>2023-02-28</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>.//devops</loc>
       <lastmod>2021-08-18</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//e001-chu-ci-jian-mian-qing-duo-guan-zhao</loc>
-      <lastmod>2022-05-13</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//e002-jia-qi-qing-hao-hao-xiu-xi</loc>
-      <lastmod>2022-05-13</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//e003-ni-you-jian-dan-kong-ju-zheng-ma</loc>
-      <lastmod>2022-05-13</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//e004-peng-you-shi-ji-lei-xia-lai-de</loc>
-      <lastmod>2022-05-21</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//e005-ri-ben-ming-xing-saas-qi-ye-smarthr</loc>
-      <lastmod>2022-05-28</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//e006-fen-xiang-yi-xie-frontend-xiang-guan-de-gong-zuo-ji-lu</loc>
-      <lastmod>2022-06-02</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//e007-nian-qing-ren-bu-shi-xiang-mo-yu-qian-bei-bu-shi-xiang-shuo-jiao</loc>
-      <lastmod>2022-06-09</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//e009-wo-shi-zen-me-xuan-ze-library-de</loc>
-      <lastmod>2022-06-23</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//e010-bugs-shi-me-shi-hou-xiu-fu-features-zhi-bu-zhi-de-zuo</loc>
-      <lastmod>2022-07-06</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//e011-ji-ke-yi-ma-la-song-ye-ke-yi-bai-mi-chong-ci</loc>
-      <lastmod>2022-08-04</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -705,7 +705,7 @@
 
    <url>
       <loc>.//index</loc>
-      <lastmod>2022-12-23</lastmod>
+      <lastmod>2023-02-28</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -716,14 +716,8 @@
    </url>
 
    <url>
-      <loc>.//weekly</loc>
-      <lastmod>2022-05-06</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//welcome</loc>
-      <lastmod>2022-12-23</lastmod>
+      <lastmod>2023-02-28</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

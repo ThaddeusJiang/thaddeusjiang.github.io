@@ -1,20 +1,21 @@
 created: 20200418124902034
 creator: TJ
-modified: 20221223145414579
+modified: 20230228083541110
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: Welcome
 type: text/vnd.tiddlywiki
 
 
-嗨 👋，我是蒋继发，You can also call me TJ.
+嗨 👋，我是蒋继发。
+
+* English Name: [[Thaddeus Jiang|https://twitter.com/amami_hara]]
+* 日本語名前：[[天海 はら|https://twitter.com/amami_hara]]
 
 欢迎来到我的数字花园，使用 TiddlyWiki 构建，这意味着：
 
-* 只有一个 HTML 文件。 
-* 这是一个 Quine (自产生程序)。
-* 零依赖，永久可用。
+* 这是一个 Quine (自产生程序)，你看到的内容即是源码。
+* 只有一个 HTML 文件，真正的零依赖，且永久可用。
+* 开源免费，你可以创建自己的数字花园。
 
-[[blog]] | [[weekly]] | [[RSS|https://thaddeusjiang.com/rss.xml]] |
-[[Twitter|https://twitter.com/ThaddeusJiang]] | [[GitHub|https://github.com/ThaddeusJiang]] |
-[[FAQ]] | [[Wiki|https://thaddeusjiang.com/wiki]]
+[[Blog|blog]] | [[GitHub|https://github.com/ThaddeusJiang]] | [[RSS|https://thaddeusjiang.com/rss.xml]] | [[Source|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]

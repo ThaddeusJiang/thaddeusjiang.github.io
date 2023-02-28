@@ -1,5 +1,6 @@
 created: 20211214064351334
-modified: 20211214064448486
+modified: 20230228081943249
 title: $:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/info
+type: text/vnd.tiddlywiki
 
-hide
+show
