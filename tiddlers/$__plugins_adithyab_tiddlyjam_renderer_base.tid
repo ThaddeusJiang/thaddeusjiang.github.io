@@ -1,6 +1,6 @@
 created: 20200728141157165
 creator: Adithya_
-modified: 20230313065637878
+modified: 20230313071652263
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base
@@ -42,10 +42,13 @@ type: text/vnd.tiddlywiki
   <$wikify name="output" text={{$:/plugins/adithyab/tiddlyjam/renderer/base/converter}} mode="inline" output="html">
     <$text text=<<output>>/>
   </$wikify>
-
-{{$:/plugins/adithyab/tiddlyjam/renderer/base/footer||$:/plugins/adithyab/tiddlyjam/htmlify}}
   `
-`{{||$:/plugins/adithyab/tiddlyjam/renderer/blog/comment}}
+
+
+`
+{{$:/plugins/adithyab/tiddlyjam/renderer/blog/license||$:/plugins/adithyab/tiddlyjam/htmlify}}
+{{||$:/plugins/adithyab/tiddlyjam/renderer/blog/comment}}
+{{$:/plugins/adithyab/tiddlyjam/renderer/base/footer||$:/plugins/adithyab/tiddlyjam/htmlify}}
 `
 
 </body>
