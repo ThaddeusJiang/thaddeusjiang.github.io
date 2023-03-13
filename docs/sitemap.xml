@@ -680,6 +680,12 @@
    </url>
 
    <url>
+      <loc>.//about</loc>
+      <lastmod>2023-03-13</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//blog</loc>
       <lastmod>2023-02-28</lastmod>
       <changefreq>monthly</changefreq>
@@ -718,12 +724,6 @@
    <url>
       <loc>.//my-other-articles-archived</loc>
       <lastmod>2021-08-03</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//welcome</loc>
-      <lastmod>2023-03-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

@@ -1,12 +1,12 @@
 created: 20200806142756352
 creator: Adithya_
-modified: 20221223142027805
+modified: 20230313065733112
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/blog/body
 type: text/vnd.tiddlywiki
 
-{{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}      
+{{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}
 
 <div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
@@ -20,9 +20,8 @@ type: text/vnd.tiddlywiki
             <$transclude />
 
             </$list>
-          </div>
+          </div>          
       </div>
-      <hr />
   </div>
 </div>     
 

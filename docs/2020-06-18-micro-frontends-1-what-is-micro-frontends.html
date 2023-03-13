@@ -66,7 +66,7 @@
      </nav>
     </div>
   </div>
-      
+
 
 <div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
@@ -80,9 +80,8 @@
 所以出现了如下架构：</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/63b6e63f4e430c7d90f598c122d03338.png"></p><p>我们注意上图的最右边，Database 和 Backend 已经成功将代码拆分成微服务，但是 Frontend 还是一个大而统一的系统。</p><p>形成这种现状有很多原因，具体就不讨论了。
 不过，鉴于服务端微服务的的成功实践，前端工程师们也意识到前端的微服务架构也势在必行。
 简单列举几个原因：</p><ol><li>微服务可以减少模块间耦合，降低开发和维护难度。</li><li>微服务更容易进行任务分配，并行开发，提高生产效率。</li><li>感谢浏览器的不断进化，即使前端拆分成微服务，也能提供 SPA 的用户体验。</li></ol><h2 class="">为什么 micro-frontends 没有 Microservices 流行？</h2><p>原因有很多，简单总结：</p><ol><li>Frontend 项目大体上可分为 site 和 system 两种，site 数量巨大，但功能简单，并不需要微服务架构。system 数量少，且大部分属于内部系统，不对外公开，所以影响力较低。</li><li>Microservices 理论出现更早，项目实践更多。</li><li>Frontend 开发者中初级程序员更多，架构知识薄弱。</li></ol><h2 class="">什么样的项目适合 micro-frontends？</h2><ol><li>大型，复杂系统。如 XXX 管理系统，一个系统集成了很多模块。</li><li>对 UI 更新要求不高的系统。</li><li>标准服务，可重复利用的模块。</li></ol><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.thoughtworks.com/radar/techniques/micro-frontends" rel="noopener noreferrer" target="_blank">https://www.thoughtworks.com/radar/techniques/micro-frontends</a></li></ul>
-          </div>
+          </div>          
       </div>
-      <hr>
   </div>
 </div>     
 
@@ -93,6 +92,31 @@
       <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
 
 </body>
 </html>

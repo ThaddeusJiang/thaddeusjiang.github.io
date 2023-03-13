@@ -66,7 +66,7 @@
      </nav>
     </div>
   </div>
-      
+
 
 <div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
@@ -79,9 +79,8 @@
 回想一下我们使用 npm 的过程。</p><ol><li>首先，安装 npm</li><li>执行命令</li></ol><p>这就是么简单，不要手动配置（使用国内镜像除外）。</p><h2 class="">那么如何使用 GitHub package 呢？</h2><p>1, 首先你要注册试用 package，因为它还是 beta 版本。</p><p>2. 你必须有一个 personal access token（有 read:packages and write:package 权限）</p><p>3. 修改 .npmrc</p><pre class="hljs"><code class="bash hljs">//npm.pkg.github.com/:_authToken=PERSONAL-ACCESS-TOKEN
 registry=https://npm.pkg.github.com/OWNER</code></pre><p>4.  package.json 中 name 必须带有 @github_username 前缀，形如 <code>@thaddeusjiang/typography-theme-tsubaki</code></p><p>5. 发布</p><pre><code>npm publish</code></pre><p>6. 去仓库的 package 页面编辑说明文件</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/ae3fdcd3fb5575cf02ce1d87b8bc6f54.jpg"></p><h2 class="">2. 第三方 CI 尚未完全支持，如 Netlify</h2><p>如第一步所写，使用 git package 之前需要修改 .npmrc，所以我们必须手动修改第三方 CI 的 .npmrc。
 否则会出现类似错误</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/988ac35f6c946ada7ec8fefa05f8890e.jpg"></p><p>为了其它正常使用你的 package，你不得不同时发布到 npm，并写一个 <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/typography-theme-tsubaki/issues/3" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/typography-theme-tsubaki/issues/3</a> 去解释为什么灰安装出错。</p><h2 class="">3. GitHub package 的优势在于支持不同包管理系统</h2><p>正如 GitHub package 主页上所写，GitHub package 支持 npm、Docker、Maven、NuGet、RubyGems 等等包管理系统，低于对开源社区热情不高，且技术栈复杂的公司来说，GitHub package 还是一种可以尝试的解决方案。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/3ac3082152e0d4c2f41d627e1d9773e9.jpg"></p><p>综上所述，我建议个人项目暂时还是不要折腾 GitHub package 比较好。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/features/package-registry" rel="noopener noreferrer" target="_blank">https://github.com/features/package-registry</a></li><li><a class="tc-tiddlylink-external" href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line" rel="noopener noreferrer" target="_blank">https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line</a></li></ul>
-          </div>
+          </div>          
       </div>
-      <hr>
   </div>
 </div>     
 
@@ -92,6 +91,31 @@ registry=https://npm.pkg.github.com/OWNER</code></pre><p>4.  package.json 中 na
       <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
 
 </body>
 </html>

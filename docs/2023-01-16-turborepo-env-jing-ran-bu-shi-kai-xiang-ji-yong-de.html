@@ -66,7 +66,7 @@
      </nav>
     </div>
   </div>
-      
+
 
 <div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
@@ -82,9 +82,8 @@ DATABASE_URL=my-database-url</code></pre><p>3. 修改 <code>package.json</code> 
     <span class="hljs-attr">&quot;dev&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dotenv -- turbo run dev&quot;</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre><p>4. 验证</p><pre class="hljs"><code class="bash hljs">yarn dev</code></pre><p>OK，现在 <code>process.env.DATABASE_URL</code> 不是 undefined 了。🤷</p><p>BTW，如果你需要在 build 使用环境变量，还需要配置 turbo.json，<a class="tc-tiddlylink-external" href="https://turbo.build/repo/docs/core-concepts/caching#altering-caching-based-on-environment-variables" rel="noopener noreferrer" target="_blank">文档</a> 🤷</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://turbo.build/repo/docs/handbook/dev#using-environment-variables" rel="noopener noreferrer" target="_blank">https://turbo.build/repo/docs/handbook/dev#using-environment-variables</a></li><li><a class="tc-tiddlylink-external" href="https://www.npmjs.com/package/dotenv-cli" rel="noopener noreferrer" target="_blank">https://www.npmjs.com/package/dotenv-cli</a></li></ul>
-          </div>
+          </div>          
       </div>
-      <hr>
   </div>
 </div>     
 
@@ -95,6 +94,31 @@ DATABASE_URL=my-database-url</code></pre><p>3. 修改 <code>package.json</code> 
       <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
 
 </body>
 </html>

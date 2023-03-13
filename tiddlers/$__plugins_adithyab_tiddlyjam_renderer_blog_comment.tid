@@ -1,15 +1,14 @@
 created: 20211205125355466
 description: safe
-modified: 20211207074821338
+modified: 20230313065502187
 name: correct
 tags: $:/plugins/adithyab/tiddlyjam/internals
-title: $:/plugins/adithyab/tiddlyjam/renderer/base/comment
+title: $:/plugins/adithyab/tiddlyjam/renderer/blog/comment
 type: text/vnd.tiddlywiki
 
 \whitespace trim
 
-`<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-</div>
+`<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
 
 <script async src="https://giscus.app/client.js"
         data-repo="ThaddeusJiang/thaddeusjiang.github.io"
@@ -32,4 +31,3 @@ type: text/vnd.tiddlywiki
   padding: 0.5rem 1rem;
 }
 </style>
-

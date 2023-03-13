@@ -66,7 +66,7 @@
      </nav>
     </div>
   </div>
-      
+
 
 <div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
@@ -122,9 +122,8 @@ Nuxt 有 <code>asyncData</code> 或 <code>fetch</code> 函数。</p><pre class="
   }
 }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre><h1 class="">SSR 不全是服务器端渲染，也有一部分是浏览器渲染的</h1><p>vue 通过 <code>data-server-rendered</code> 属性识别哪些 HTML 是服务器渲染的。</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span> <span class="hljs-attr">data-server-rendered</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span></code></pre><p>因为每个请求都需要一个全新的 Vue 实例，Code Splitting 还是不能少</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Foo</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-title function_">import</span>(<span class="hljs-string">&#x27;./Foo.vue&#x27;</span>)</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://ssr.vuejs.org/" rel="noopener noreferrer" target="_blank">https://ssr.vuejs.org/</a></li><li><a class="tc-tiddlylink-external" href="https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑" rel="noopener noreferrer" target="_blank">https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑</a></li></ul>
-          </div>
+          </div>          
       </div>
-      <hr>
   </div>
 </div>     
 
@@ -135,6 +134,31 @@ Nuxt 有 <code>asyncData</code> 或 <code>fetch</code> 函数。</p><pre class="
       <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
   </footer>
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
 
 </body>
 </html>
