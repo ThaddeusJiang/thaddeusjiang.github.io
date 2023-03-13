@@ -1,9 +1,0 @@
-created: 20220302002824184
-creator: TJ
-modified: 20221026032052078
-modifier: TJ
-tags: $$CustomTiddlers
-title: Total Tiddlers
-type: text/vnd.tiddlywiki
-
-total <strong><$count filter="[!is[system]]"/></strong> tiddlers

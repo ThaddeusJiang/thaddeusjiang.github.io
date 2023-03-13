@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20230307140325705
+modified: 20230313033050595
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: Welcome
@@ -9,8 +9,8 @@ type: text/vnd.tiddlywiki
 
 嗨 👋，我是蒋继发。
 
-* English Name: [[Thaddeus Jiang|https://twitter.com/ThaddeusJiang]]
-* 日本語の氏名：[[天海 はら|https://twitter.com/amami_hara]]
+* English Name: Thaddeus Jiang
+* 日本語の氏名：天海 はら
 
 欢迎来到我的数字花园，使用 TiddlyWiki 构建，这意味着：
 
@@ -18,4 +18,5 @@ type: text/vnd.tiddlywiki
 * 只有一个 HTML 文件，真正的零依赖，且永久可用。
 * 开源免费，你可以创建自己的数字花园。
 
-[[Blog|blog]] | [[GitHub|https://github.com/ThaddeusJiang]] | [[RSS|https://thaddeusjiang.com/rss.xml]] | [[Source Repository|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]
+[[Blog|blog]] 
+| [[RSS|https://thaddeusjiang.com/rss.xml]] | [[Source Code|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]] | [[GitHub|https://github.com/ThaddeusJiang]] | [[Twitter|https://twitter.com/ThaddeusJiang]] 

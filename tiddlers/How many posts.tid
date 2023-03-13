@@ -1,0 +1,9 @@
+created: 20220302002824184
+creator: TJ
+modified: 20230313033642161
+modifier: TJ
+tags: 
+title: How many posts
+type: text/vnd.tiddlywiki
+
+total <strong><$count filter="[!is[system]tag[blog]]"/></strong> posts

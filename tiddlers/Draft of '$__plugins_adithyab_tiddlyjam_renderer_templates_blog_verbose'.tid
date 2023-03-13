@@ -1,0 +1,21 @@
+created: 20200806173743683
+description: This is a short excerpt about this article.
+draft.of: $:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose
+draft.title: $:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose
+modified: 20230313033850279
+tags: $:/plugins/adithyab/tiddlyjam/internals
+title: Draft of '$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose'
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+
+<div>
+  <div class="block mt-4">
+    <h2 class="subtitle truncate">
+      <$link>{{!!title}}</$link>
+    </h2>
+    <p>
+      <<get_description>>
+    </p>
+  </div>
+</div>
