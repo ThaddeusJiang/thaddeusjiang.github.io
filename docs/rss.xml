@@ -5,6 +5,43 @@
    <link>https://thaddeusjiang.com</link>
    <description>Engineer / Blogger， 爱猫、爱读书、爱社交。</description>
    <item>
+      <title>2023-3-25 软件开发技能与机动车驾驶技能</title>
+      <link>https://thaddeusjiang.com/2023-3-25-ruan-jian-kai-fa-ji-nen-yu-ji-dong-che-jia-shi-ji-nen</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">Engineer / Blogger， 爱猫、爱读书、爱社交。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-3-25 软件开发技能与机动车驾驶技能</h1>
+            <hr>
+
+            <p>开发工具越来越强大了，AI 可以辅助编程了，但是我们真的在工具的加持下提高了自己的编程技能了吗？生成式AI（Generative AI）大行其道的时代背景下，我们使用 AI 辅助编程的方式真的是正确的吗？我们真的变得高效了吗？我们是在朝着正确的方向发展吗？</p><p>回想刚刚进入大学开始接触编程时，我使用 C 语言和 Nodepad++ 写代码。当时根本没有类型提示和代码补全，每一个字符都需要手动键入，但是也可以很快地开发出自己想要的功能。反观现在，我们在静态类型语言和强大的 IDE 加持下常常花费一整天时间连半个功能都开发不出来。当然我们可以解释为现在我们开发的功能更复杂、更强大，但是这是真的吗？虽然新技术层出不穷，但是我们真的比初代黑客们创造了更强大、更有价值的软件吗？我个人的感受是，并没有。我们不但没有变得更强，甚至变得更弱了。</p><p>从前，几乎所有开发者都掌握产品构思、概要设计、伪代码、coding 的过程，我们熟练使用 TDD、BDD 进行软件开发，但是最近 ChatGPT 似乎改变了这种开发流程。仅代表我个人的体验，可能从不久之前开始，我的开发流程变成了：</p><ol><li>通过简单的几句话启动 ChatGPT 让它开始帮助我；</li><li>输入没有经过深思熟虑的产品需求，等待 AI 给我可以运行的代码；</li><li>阅读 AI 返回的 code，判断是否正确，通常情况下是错误的；</li><li>再给 AI 一定的提示（同样是未经过认真思考的，且是临时的闪念），再次等待；</li><li>...</li><li>经过反复多次的文字交流，AI 终于返回了可以运行的的代码；</li><li>但是，此时我已经筋疲力尽了，甚至有点焦躁，我似乎已经不在乎这个功能设计的是否合理，是否真的有价值。我只想快点结束这个功能的开发，我变得唯结果论，只求代码可以运行；</li><li>然后，我不假思索地把 code 复制到编辑器，看到代码可以运行，我长舒一口气。😮‍💨 终于结束了。</li></ol><p>这是早上冲澡时脑子的想法：这样使用 AI 辅助编程真的是正确的方式吗？我们真的变得高效了吗？在人们惊叹 AI 可以返回可以运行的代码的同时，有人统计过 human 在向 AI 提问、等待 AI 回答、确认 AI 回答，并反复修正 AI 中浪费的时间吗？人类发现团队人数过多、管理层级过多会导致交流成本升高，进而提出扁平化组织的概念。但是我们和 AI 的交流成本应该如何降低呢？</p><p>软件开发的过程应该是有的放矢，而不是不断试错。软件开发技能应该像机动车驾驶技能一样形成肌肉记忆，这样我们才可以一旦灵感出现就随时开始，不需要临时翻阅开发文档。如果你家门口有一辆机动车，你会理解我说的随时出发，那种感觉才是真正的自由。</p><p>另外还有一点，机动车驾驶技能是一项随着时间积累不断提高的技能，你不太可能只听了一段语音或者看了驾驶教程就掌握驾驶技术；如果你不断开车出去，你的驾驶技术会越来越好。难道大家不想让自己的软件开发技能也可以这样吗？只要不断从事开发工作，软件开发技术就能越来越好。</p><p>如果我们只是通过聊天窗口（chat）让 AI 做开发，我们的开发技术会越来越好，还是越来越差？</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Sat, 25 March 2023 9:57:44 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-3-25-ruan-jian-kai-fa-ji-nen-yu-ji-dong-che-jia-shi-ji-nen</guid>      
+   </item>
+
+   <item>
       <title>2023-03-13 能够自主编程的 AI 出现以后，还需要程序员吗？</title>
       <link>https://thaddeusjiang.com/2023-03-13-nen-gou-zi-zhu-bian-cheng-de-ai-chu-xian-yi-hou-huai-xu-yao-cheng-xu-yuan-ma</link>
 			<description><![CDATA[
@@ -100,49 +137,6 @@ meronkun = whatAnimal("meronkun.png") // data of meronkun</code></pre><p>refs:</
 ]]></description>
       <pubDate>Thu, 16 February 2023 21:49:35 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/2023-02-16-du-cong-zi-ti-kai-shi-she-ji-gai-bian-de-sheng-huo-yu-she-hui</guid>      
-   </item>
-
-   <item>
-      <title>2023-02-08 改变 React Component Props 类型定义的习惯</title>
-      <link>https://thaddeusjiang.com/2023-02-08-gai-bian-react-component-props-lei-xing-ding-yi-de-xi-guan</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
-                <p class="subtitle">Engineer / Blogger， 爱猫、爱读书、爱社交。</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-02-08 改变 React Component Props 类型定义的习惯</h1>
-            <hr>
-
-            <p>我不确定这个决定是不是正确的，我决定改变一下我一直采用的 React Component Props 类型定义的习惯。</p><p>我不再在 Component 外部定义 Props 了，因为 VSCode 不能预览 Props 的细节。今后尽量在 Component 内部定义 Props。</p><h1 class="">New Style</h1><pre class="hljs"><code class="jsx hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">EmployeeEmployInfoTable</span> = (<span class="hljs-params">props: {
-  data: { id: string; status: string; joinedAt: string; quitAt: string };
-}</span>) =&gt; {</code></pre><p><img class=" tc-image-loading" src="https://i.gyazo.com/437d46c69a8f9573ebef427fe0651263.png"></p><h1 class="">Old Style</h1><pre class="hljs"><code class="jsx hljs">type <span class="hljs-title class_">Props</span> = {
-  <span class="hljs-attr">data</span>: { <span class="hljs-attr">id</span>: string; <span class="hljs-attr">status</span>: string; <span class="hljs-attr">joinedAt</span>: string; <span class="hljs-attr">quitAt</span>: string };
-};
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">EmployeeEmployInfoTable</span> = (<span class="hljs-params">props: Props</span>) =&gt; {</code></pre><p><img class=" tc-image-loading" src="https://i.gyazo.com/2a4bb4272bbdf8265921f1a81f39962f.png"></p>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Wed, 8 February 2023 20:46: +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2023-02-08-gai-bian-react-component-props-lei-xing-ding-yi-de-xi-guan</guid>      
    </item>
 
 </channel>
