@@ -1,0 +1,175 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.5" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2023-05-16 真的不要再使用 MUI 了 ~ 蒋继发 (ThaddeusJiang)</title>
+<meta name="description" content="我不是针对 MUI，我是说所有巨型 UI components framework 都是垃圾。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2023-05-16-zhen-de-bu-yao-zai-shi-yong-mui-liao" />
+<meta property="og:title" content="2023-05-16 真的不要再使用 MUI 了 ~ 蒋继发 (ThaddeusJiang)" />
+<meta property="og:description" content="我不是针对 MUI，我是说所有巨型 UI components framework 都是垃圾。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2023-05-16 真的不要再使用 MUI 了.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2023-05-16 真的不要再使用 MUI 了 ~ 蒋继发 (ThaddeusJiang)" />
+<meta name="twitter:description" content="我不是针对 MUI，我是说所有巨型 UI components framework 都是垃圾。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
+                <p class="subtitle">Engineer / Blogger， 爱猫、爱读书、爱社交。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-05-16 真的不要再使用 MUI 了</h1>
+            <hr>
+
+            <p>我不是针对 MUI，我是说所有巨型 UI components framework 都是垃圾。</p><p>发自内心的呐喊，各位在做 web frontend 项目时，真的不要再用巨型的 UI components framework 了，如：mui、antd 之类的。真的太难用了。</p><p>推荐采用 Tailwind CSS 的 UI components library，并且一定要确认覆盖默认风格也是使用 CSS。如果一个 UI components library 需要编写很多 JS 才能覆盖默认风格，千万不要使用。</p><p>有很多例子，分享一个刚刚对应的 UI 需求。</p><p>如果你想要修改 Dialog components 的边框的圆角大小，MUI 需要你写一大堆代码。并且这些都是 MUI 专用的 API，不通用，对你的技术没有任何成长。</p><pre class="hljs"><code class="jsx hljs"><span class="hljs-comment">// 1. 引入 createTheme, ThemeProvider</span>
+<span class="hljs-keyword">import</span> { createTheme, <span class="hljs-title class_">ThemeProvider</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@mui/material/styles&#x27;</span>;
+
+<span class="hljs-comment">// 2. 创建新的 theme，并且你必须知道如何精确覆盖 paper.borderRadius</span>
+
+<span class="hljs-keyword">const</span> theme = <span class="hljs-title function_">createTheme</span>({
+  <span class="hljs-attr">components</span>: {
+    <span class="hljs-title class_">MuiDialog</span>: {
+      <span class="hljs-attr">styleOverrides</span>: {
+        <span class="hljs-attr">paper</span>: {
+          <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">&quot;12px&quot;</span>, <span class="hljs-comment">// 自定义边框半径</span>
+        },
+      },
+    },
+  },
+});
+
+<span class="hljs-comment">// 3. 使用 ThemeProvider 包裹 Dialog</span>
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ThemeProvider</span> <span class="hljs-attr">theme</span>=<span class="hljs-string">{theme}</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Dialog</span> <span class="hljs-attr">open</span>=<span class="hljs-string">{true}</span>&gt;</span>
+    {/* 对话框内容 */}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Dialog</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ThemeProvider</span>&gt;</span></span></code></pre><p>优秀的 UI Components library 应该怎么做？通常只需要追加一个 CSS class 即可，形如：</p><pre class="hljs"><code class="jsx hljs">&lt;<span class="hljs-title class_">Dialog</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;rounded-2xl&quot;</span>&gt;
+    {<span class="hljs-comment">/* 对话框内容 */</span>}
+&lt;/<span class="hljs-title class_">Dialog</span>&gt;</code></pre><h1 class="">Conclusion</h1><p>MUI is too bad, recommend to try daisyUI.</p><p>ref: </p><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./2021-04-02-yong-yuan-bu-yao-zai-shi-yong-ju-xing-ui-kuang-jia-liao.html">2021-04-02 永远不要再使用巨型 UI 框架了</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+
+
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+<footer class="section">    
+    <div class="content has-text-centered">
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

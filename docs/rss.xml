@@ -5,8 +5,8 @@
    <link>https://thaddeusjiang.com</link>
    <description>Engineer / Blogger， 爱猫、爱读书、爱社交。</description>
    <item>
-      <title>2023-3-25 软件开发技能与机动车驾驶技能</title>
-      <link>https://thaddeusjiang.com/2023-3-25-ruan-jian-kai-fa-ji-nen-yu-ji-dong-che-jia-shi-ji-nen</link>
+      <title>2023-05-16 真的不要再使用 MUI 了</title>
+      <link>https://thaddeusjiang.com/2023-05-16-zhen-de-bu-yao-zai-shi-yong-mui-liao</link>
 			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
@@ -26,10 +26,34 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="subtitle">2023-3-25 软件开发技能与机动车驾驶技能</h1>
+            <h1 class="subtitle">2023-05-16 真的不要再使用 MUI 了</h1>
             <hr>
 
-            <p>开发工具越来越强大了，AI 可以辅助编程了，但是我们真的在工具的加持下提高了自己的编程技能了吗？生成式AI（Generative AI）大行其道的时代背景下，我们使用 AI 辅助编程的方式真的是正确的吗？我们真的变得高效了吗？我们是在朝着正确的方向发展吗？</p><p>回想刚刚进入大学开始接触编程时，我使用 C 语言和 Nodepad++ 写代码。当时根本没有类型提示和代码补全，每一个字符都需要手动键入，但是也可以很快地开发出自己想要的功能。反观现在，我们在静态类型语言和强大的 IDE 加持下常常花费一整天时间连半个功能都开发不出来。当然我们可以解释为现在我们开发的功能更复杂、更强大，但是这是真的吗？虽然新技术层出不穷，但是我们真的比初代黑客们创造了更强大、更有价值的软件吗？我个人的感受是，并没有。我们不但没有变得更强，甚至变得更弱了。</p><p>从前，几乎所有开发者都掌握产品构思、概要设计、伪代码、coding 的过程，我们熟练使用 TDD、BDD 进行软件开发，但是最近 ChatGPT 似乎改变了这种开发流程。仅代表我个人的体验，可能从不久之前开始，我的开发流程变成了：</p><ol><li>通过简单的几句话启动 ChatGPT 让它开始帮助我；</li><li>输入没有经过深思熟虑的产品需求，等待 AI 给我可以运行的代码；</li><li>阅读 AI 返回的 code，判断是否正确，通常情况下是错误的；</li><li>再给 AI 一定的提示（同样是未经过认真思考的，且是临时的闪念），再次等待；</li><li>...</li><li>经过反复多次的文字交流，AI 终于返回了可以运行的的代码；</li><li>但是，此时我已经筋疲力尽了，甚至有点焦躁，我似乎已经不在乎这个功能设计的是否合理，是否真的有价值。我只想快点结束这个功能的开发，我变得唯结果论，只求代码可以运行；</li><li>然后，我不假思索地把 code 复制到编辑器，看到代码可以运行，我长舒一口气。😮‍💨 终于结束了。</li></ol><p>这是早上冲澡时脑子的想法：这样使用 AI 辅助编程真的是正确的方式吗？我们真的变得高效了吗？在人们惊叹 AI 可以返回可以运行的代码的同时，有人统计过 human 在向 AI 提问、等待 AI 回答、确认 AI 回答，并反复修正 AI 中浪费的时间吗？人类发现团队人数过多、管理层级过多会导致交流成本升高，进而提出扁平化组织的概念。但是我们和 AI 的交流成本应该如何降低呢？</p><p>软件开发的过程应该是有的放矢，而不是不断试错。软件开发技能应该像机动车驾驶技能一样形成肌肉记忆，这样我们才可以一旦灵感出现就随时开始，不需要临时翻阅开发文档。如果你家门口有一辆机动车，你会理解我说的随时出发，那种感觉才是真正的自由。</p><p>另外还有一点，机动车驾驶技能是一项随着时间积累不断提高的技能，你不太可能只听了一段语音或者看了驾驶教程就掌握驾驶技术；如果你不断开车出去，你的驾驶技术会越来越好。难道大家不想让自己的软件开发技能也可以这样吗？只要不断从事开发工作，软件开发技术就能越来越好。</p><p>如果我们只是通过聊天窗口（chat）让 AI 做开发，我们的开发技术会越来越好，还是越来越差？</p>
+            <p>我不是针对 MUI，我是说所有巨型 UI components framework 都是垃圾。</p><p>发自内心的呐喊，各位在做 web frontend 项目时，真的不要再用巨型的 UI components framework 了，如：mui、antd 之类的。真的太难用了。</p><p>推荐采用 Tailwind CSS 的 UI components library，并且一定要确认覆盖默认风格也是使用 CSS。如果一个 UI components library 需要编写很多 JS 才能覆盖默认风格，千万不要使用。</p><p>有很多例子，分享一个刚刚对应的 UI 需求。</p><p>如果你想要修改 Dialog components 的边框的圆角大小，MUI 需要你写一大堆代码。并且这些都是 MUI 专用的 API，不通用，对你的技术没有任何成长。</p><pre class="hljs"><code class="jsx hljs"><span class="hljs-comment">// 1. 引入 createTheme, ThemeProvider</span>
+<span class="hljs-keyword">import</span> { createTheme, <span class="hljs-title class_">ThemeProvider</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@mui/material/styles&#x27;</span>;
+
+<span class="hljs-comment">// 2. 创建新的 theme，并且你必须知道如何精确覆盖 paper.borderRadius</span>
+
+<span class="hljs-keyword">const</span> theme = <span class="hljs-title function_">createTheme</span>({
+  <span class="hljs-attr">components</span>: {
+    <span class="hljs-title class_">MuiDialog</span>: {
+      <span class="hljs-attr">styleOverrides</span>: {
+        <span class="hljs-attr">paper</span>: {
+          <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">&quot;12px&quot;</span>, <span class="hljs-comment">// 自定义边框半径</span>
+        },
+      },
+    },
+  },
+});
+
+<span class="hljs-comment">// 3. 使用 ThemeProvider 包裹 Dialog</span>
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ThemeProvider</span> <span class="hljs-attr">theme</span>=<span class="hljs-string">{theme}</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Dialog</span> <span class="hljs-attr">open</span>=<span class="hljs-string">{true}</span>&gt;</span>
+    {/* 对话框内容 */}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Dialog</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ThemeProvider</span>&gt;</span></span></code></pre><p>优秀的 UI Components library 应该怎么做？通常只需要追加一个 CSS class 即可，形如：</p><pre class="hljs"><code class="jsx hljs">&lt;<span class="hljs-title class_">Dialog</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;rounded-2xl&quot;</span>&gt;
+    {<span class="hljs-comment">/* 对话框内容 */</span>}
+&lt;/<span class="hljs-title class_">Dialog</span>&gt;</code></pre><h1 class="">Conclusion</h1><p>MUI is too bad, recommend to try daisyUI.</p><p>ref: </p><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#2021-04-02-yong-yuan-bu-yao-zai-shi-yong-ju-xing-ui-kuang-jia-liao">2021-04-02 永远不要再使用巨型 UI 框架了</a></li></ul>
           </div>          
       </div>
   </div>
@@ -37,8 +61,8 @@
 
 
 ]]></description>
-      <pubDate>Sat, 25 March 2023 9:57:44 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2023-3-25-ruan-jian-kai-fa-ji-nen-yu-ji-dong-che-jia-shi-ji-nen</guid>      
+      <pubDate>Tue, 16 May 2023 23::45 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-05-16-zhen-de-bu-yao-zai-shi-yong-mui-liao</guid>      
    </item>
 
    <item>
@@ -84,8 +108,8 @@
    </item>
 
    <item>
-      <title>2023-03-13 能够自主编程的 AI 出现以后，还需要程序员吗？</title>
-      <link>https://thaddeusjiang.com/2023-03-13-nen-gou-zi-zhu-bian-cheng-de-ai-chu-xian-yi-hou-huai-xu-yao-cheng-xu-yuan-ma</link>
+      <title>2023-03-25 软件开发技能与机动车驾驶技能</title>
+      <link>https://thaddeusjiang.com/2023-03-25-ruan-jian-kai-fa-ji-nen-yu-ji-dong-che-jia-shi-ji-nen</link>
 			<description><![CDATA[
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
@@ -105,34 +129,10 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="subtitle">2023-03-13 能够自主编程的 AI 出现以后，还需要程序员吗？</h1>
+            <h1 class="subtitle">2023-03-25 软件开发技能与机动车驾驶技能</h1>
             <hr>
 
-            <p>同类问题，照相机出现以后，还需要画家吗？答案：不言而喻。</p><h2 class="">未来需要程序员吗</h2><p>世界上第一台真正的照相机是1839年8月19日法国画家路易·达盖尔发明的，已经出现了接近 200 年了，比清朝灭亡的时间还要长，但是现在依然有无数的人学习绘画，以绘画为生，甚至教导其他人绘画。所以我认为能够自主编程的 AI 出现以后，学习编程依然是有价值的，还会有无数的人学习编程，以编程为生，甚至教导其他人编程。</p><p>如果你不信，去 Twitter，Instagram，Youtube 上搜索一下“绘画”就明白了。</p><h2 class="">未来的编程流派</h2><p>我喜欢编程，编程有一种创造某种事物的成就感；我讨厌编写 CRUD 码，编写 CRUD 绝对是计算机时代的流水线工作，枯燥且乏味；我希望 AI 可以帮我完成所有的 CRUD 代码。没错我不仅仅不担心 AI 会代替我的工作，我恰恰希望这样的 AI 快点到来。</p><p>能够自主编程的 AI 出现以后，编程不再是高效又准确地根据设计稿和原型实现现实世界的需求。程序员的创造力将会得到进一步释放，程序员可能会发现更多有趣的方向，有更多时间编写表达内心的代码，进而出现更多的编程流派。</p><p>下面是 ChatGPT 告诉我的关于相机问世以后，绘画派别的发展。</p><blockquote class="tc-quote tc-big-quote"><p>相机的问世对许多绘画派别都产生了影响，但以下是一些在相机问世后得到进一步发展的绘画派别：</p><ol><li>印象派：印象派艺术家受到相机影像的启发，试图捕捉光线和色彩的瞬间效果，这与相机的快门速度和光学透镜有很大关系。印象派的绘画技巧包括使用小笔触和鲜艳的颜色来表现光线和色彩的变化。</li><li>立体主义：立体主义艺术家试图将现实世界的三维形态转化为二维平面上的几何形状和线条。这种绘画风格受到相机照片的影响，因为相机可以将三维物体转化为二维图像，立体主义艺术家试图通过绘画来模仿这种效果。</li><li>超现实主义：超现实主义艺术家试图超越现实世界的限制，创造一种完全超越人类经验的想象空间。相机的问世为超现实主义艺术家提供了一种新的方式来捕捉和处理图像，他们使用相机照片和其他图像来创造出奇幻的场景和形象。</li></ol><p>总之，相机的问世对许多绘画派别产生了影响，促使艺术家们探索新的创作方式和风格。
-</p><cite>ChatGPT</cite></blockquote><p>我类比一下，未来的编程流派：</p><ol><li>印象派：印象派程序员试图捕捉电子和数据的变化和流动，注重计算过程而不是结果。</li><li>立体主义：立体主义程序员试图编写多维代码，突破空间和时间的束缚，代码不再是自上而下编写，不再需要提前引入，甚至运行也可以更多中可能性。就像《降临》中外星人使用的图形语言。</li><li>超现实主义：超现实主义程序员试图超越现实世界的限制，创造一种完全超越人类经验的软件程序。未来是否会有一款软件程序，我们可以通过它窥探如《星际穿越》中多维宇宙。</li></ol><p>未来的编程一定比现在更加有趣，有更多可能性，更能彰显人类的独特和创造力。</p><p>下面是 ChatGPT 的类似比：</p><blockquote class="tc-quote tc-big-quote"><p>如果AI能够自主编程，这将对编程工作产生深远的影响。类比于绘画领域中相机的出现，自主编程的AI将能够自动化许多编程任务并提高编程效率。以下是可能发生的一些变化：</p><ol><li>更快速的开发周期：AI将能够自动化许多编程任务，例如编写代码和测试，从而缩短开发周期。这将使得开发人员能够更快地交付产品和服务，从而提高生产效率。</li><li>更高质量的代码：AI可以通过学习和自我改进来编写更高质量的代码。这将减少错误和漏洞，并提高软件的稳定性和可靠性。</li><li>更高效的协作：AI将能够自动化许多繁琐的编程任务，从而使开发人员能够更专注于设计和创新，而不是花费时间在重复性的任务上。这将促进更高效的协作和更快速的开发进程。</li></ol><p>更高级的技术：自主编程的AI将能够学习和应用更高级的编程技术和算法，从而推动编程领域的进一步发展和创新。</p><p>总之，如果AI能够自主编程，这将使得编程工作变得更高效、更准确、更创新，并且可能会引领编程领域的新一轮革命。
-</p><cite>ChatGPT</cite></blockquote><p>😂 AI 还有很长的路要走啊，难道人类会局限在“提高效率”这么窄的领域吗？或许 AI 暂时无法理解人类所说过“幸福”所谓何物。</p><h2 class="">未来的编程语言</h2><p>如果编程工作不再是高效却准确的实现世界的需求，我们会使用什么编程语言开发软件呢？</p><p>参考《黑客与画家》中 100 年后的编程语言，我们不再需要考虑编程语言是否满足高性能或者容易控制内存；不再需要考虑编程语言是否流行或者是否拥有优秀的生态；我们需要考虑的是编程语言是否容易表达我们的思考。</p><p>我不认为英语、中文亦或是任何一种自然语言可以替代编程语言，自然语言常常过度冗余且容易产生歧义；当然数学、物理、化学一样的公式也不适合做编程语言，它们有过度简洁、抽象，且难以学习和掌握。未来的语言依然可能和现在的编程语言一样，在冗余和过度抽象之间达到平衡，并且容易表达程序员的思考。</p><p>简单的需求，自然语言太繁琐。</p><pre><code>// Good
-get(TJ, firstName) // Thaddeus
-
-// Bad
-Tell me TJ's first name, plz. // TJ's first name is "Thaddeus"</code></pre><p>复杂的需求，现有的编程语言太繁琐。</p><pre><code>// Good
-我想要一个图像识别功能，当我的相机拍摄一个小动物，我希望知道小动物的品种，以及其他信息。
-
-// Bad
-import "xxxLib"
-import "yyyLib"
-import "zzzLib"
-
-func main() {
-  use xxxLib do something;
-  use yyyLib do something;
-  use zzzLib do something;
-
-  return some useful information;
-}</code></pre><p>我们需要自由切换自然语言和编程语言。</p><pre><code>// Better
-
-我想要一个图像识别功能叫 whatAnimal，当我的相机拍摄一个小动物，我希望知道小动物的品种，以及其他信息。
-
-meronkun = whatAnimal("meronkun.png") // data of meronkun</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://en.wikipedia.org/wiki/Hackers_%26_Painters" rel="noopener noreferrer" target="_blank">《黑客与画家》</a></li><li><a class="tc-tiddlylink-external" href="https://zh.wikipedia.org/zh-cn/%E9%99%8D%E4%B8%B4_(%E7%94%B5%E5%BD%B1)" rel="noopener noreferrer" target="_blank">《降临》</a></li><li><a class="tc-tiddlylink-external" href="https://zh.wikipedia.org/zh-cn/%E6%98%9F%E9%99%85%E7%A9%BF%E8%B6%8A" rel="noopener noreferrer" target="_blank">《星际穿越》</a></li></ul>
+            <p>开发工具越来越强大了，AI 可以辅助编程了，但是我们真的在工具的加持下提高了自己的编程技能了吗？生成式AI（Generative AI）大行其道的时代背景下，我们使用 AI 辅助编程的方式真的是正确的吗？我们真的变得高效了吗？我们是在朝着正确的方向发展吗？</p><p>回想刚刚进入大学开始接触编程时，我使用 C 语言和 Nodepad++ 写代码。当时根本没有类型提示和代码补全，每一个字符都需要手动键入，但是也可以很快地开发出自己想要的功能。反观现在，我们在静态类型语言和强大的 IDE 加持下常常花费一整天时间连半个功能都开发不出来。当然我们可以解释为现在我们开发的功能更复杂、更强大，但是这是真的吗？虽然新技术层出不穷，但是我们真的比初代黑客们创造了更强大、更有价值的软件吗？我个人的感受是，并没有。我们不但没有变得更强，甚至变得更弱了。</p><p>从前，几乎所有开发者都掌握产品构思、概要设计、伪代码、coding 的过程，我们熟练使用 TDD、BDD 进行软件开发，但是最近 ChatGPT 似乎改变了这种开发流程。仅代表我个人的体验，可能从不久之前开始，我的开发流程变成了：</p><ol><li>通过简单的几句话启动 ChatGPT 让它开始帮助我；</li><li>输入没有经过深思熟虑的产品需求，等待 AI 给我可以运行的代码；</li><li>阅读 AI 返回的 code，判断是否正确，通常情况下是错误的；</li><li>再给 AI 一定的提示（同样是未经过认真思考的，且是临时的闪念），再次等待；</li><li>...</li><li>经过反复多次的文字交流，AI 终于返回了可以运行的的代码；</li><li>但是，此时我已经筋疲力尽了，甚至有点焦躁，我似乎已经不在乎这个功能设计的是否合理，是否真的有价值。我只想快点结束这个功能的开发，我变得唯结果论，只求代码可以运行；</li><li>然后，我不假思索地把 code 复制到编辑器，看到代码可以运行，我长舒一口气。😮‍💨 终于结束了。</li></ol><p>这是早上冲澡时脑子的想法：这样使用 AI 辅助编程真的是正确的方式吗？我们真的变得高效了吗？在人们惊叹 AI 可以返回可以运行的代码的同时，有人统计过 human 在向 AI 提问、等待 AI 回答、确认 AI 回答，并反复修正 AI 中浪费的时间吗？人类发现团队人数过多、管理层级过多会导致交流成本升高，进而提出扁平化组织的概念。但是我们和 AI 的交流成本应该如何降低呢？</p><p>软件开发的过程应该是有的放矢，而不是不断试错。软件开发技能应该像机动车驾驶技能一样形成肌肉记忆，这样我们才可以一旦灵感出现就随时开始，不需要临时翻阅开发文档。如果你家门口有一辆机动车，你会理解我说的随时出发，那种感觉才是真正的自由。</p><p>另外还有一点，机动车驾驶技能是一项随着时间积累不断提高的技能，你不太可能只听了一段语音或者看了驾驶教程就掌握驾驶技术；如果你不断开车出去，你的驾驶技术会越来越好。难道大家不想让自己的软件开发技能也可以这样吗？只要不断从事开发工作，软件开发技术就能越来越好。</p><p>如果我们只是通过聊天窗口（chat）让 AI 做开发，我们的开发技术会越来越好，还是越来越差？</p>
           </div>          
       </div>
   </div>
@@ -140,8 +140,8 @@ meronkun = whatAnimal("meronkun.png") // data of meronkun</code></pre><p>refs:</
 
 
 ]]></description>
-      <pubDate>Mon, 13 March 2023 12:32:37 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2023-03-13-nen-gou-zi-zhu-bian-cheng-de-ai-chu-xian-yi-hou-huai-xu-yao-cheng-xu-yuan-ma</guid>      
+      <pubDate>Sat, 25 March 2023 9:57:44 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-03-25-ruan-jian-kai-fa-ji-nen-yu-ji-dong-che-jia-shi-ji-nen</guid>      
    </item>
 
 </channel>
