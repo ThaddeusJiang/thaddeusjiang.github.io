@@ -1,0 +1,34 @@
+created: 20230524133811711
+modified: 20230524141134087
+published: 20230524141134086
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2023-05-24 Next.js 真的适合你的项目吗
+type: text/vnd.tiddlywiki
+
+这是我在犹豫是否升级至 Next.js App Router 时的一些思考。我有很多项目，每个项目的情况各不相同，在 App Router 前，我一直使用 Next.js 作为唯一的前端框架。
+
+但是 Next.js App Router 让我有点犹豫了，Next.js App Router 默认是 Server Components，并且推荐使用 Server fetch() 和 Server Actions 进行数据获取和修改。
+
+如果项目 all in 在 Next.js server-side 肯定是没有问题，但是有一些项目其实 server 使用的是其他语言，例如 Ruby，Golang，Java 等等，就会导致有多个 server 存在。多个 server 就需要多个认证（Authentication）环节，或许会导致不方便。其实 Authentication 可以在离 client-side 最近的环节对应，例如 Gateway。在后面的 server services 中不再进行 Authentication，仅仅是服务调用。但是引入 Gateway 又会导致 Infra 复杂度提高。
+
+事实上，保持单一 server 是最简单的，就像 ruby on rails 一样。
+
+另外，我认为 Next.js Server Actions 会导致 server-side 和 client-side 代码组织混乱，例如：Server Actions 不能在 data mutated 之后显示临时 UI，如 toast notification，不得不还需要使用 client-side JS。难道要把 server-side 和 client-side JS 放在一个函数里吗？
+
+再举一个例子，Server Components 无法实现滚动加载数据，因为滚动加载需要 client-side 提供触发滚动的标记。每次开发数据加载都要思考使用 server-side 还是 client-side 实际上是增加心智负担。
+
+给出几个我自己的判断：
+
+* 如果 server-side 只是简单运算，允许使用 Serverless 的话，可以 all in Next.js。
+* 如果 server-side 有复杂运算，Serverless 无法满足要求的话，推荐不要使用 Next.js，使用传统 web framework 更简单。例如：Ruby on Rails。
+* 如果 server-side 使用 Node.js 以外的编程语言，也不要使用 Next.js，使用 server-side 编程语言推荐的 UI framework。例如 Elixirlang 推荐的 LiveView。
+
+BTW, Next.js 也支持 fully static app，如果愿意大家可以尝试一下。但是，我没有使用过。
+
+
+refs:
+
+* [[Next.js Server Components|https://nextjs.org/docs/getting-started/react-essentials#server-components]]
+* [[Next.js Server Actions|https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions]]
+* [[LiveView|https://www.phoenixframework.org/]]
+* [[You Might Not Need React Query|https://tkdodo.eu/blog/you-might-not-need-react-query]]
