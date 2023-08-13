@@ -698,6 +698,12 @@
    </url>
 
    <url>
+      <loc>.//2023-08-13-reskilling-du-hou-gan</loc>
+      <lastmod>2023-08-13</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//404</loc>
       <lastmod>2023-03-13</lastmod>
       <changefreq>monthly</changefreq>
@@ -705,7 +711,7 @@
 
    <url>
       <loc>.//about</loc>
-      <lastmod>2023-03-13</lastmod>
+      <lastmod>2023-08-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

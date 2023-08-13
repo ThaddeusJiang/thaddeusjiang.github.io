@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-   <title>蒋继发 (ThaddeusJiang)</title>
+   <title>TJ (Thaddeus Jiang)</title>
    <link>https://thaddeusjiang.com</link>
-   <description>Engineer / Blogger， 爱猫、爱读书、爱社交。</description>
+   <description>专注；分享；寻找。</description>
+   <item>
+      <title>2023-08-13 《ReSkilling》读后感</title>
+      <link>https://thaddeusjiang.com/2023-08-13-reskilling-du-hou-gan</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-08-13 《ReSkilling》读后感</h1>
+            <hr>
+
+            <p>日本的盂兰盆节假期，因为台风没有远行，看完的第一本书《ReSkilling》。虽然书中很多内容我并不是很同意，但是也有一些读后感想记录一下。</p><p>很久没有写 blog 了，😂
+其实这段时间也写了很多内容，只是没有整理到 blog 而已，将来有时间分享出来。</p><p>言归正传，我谈谈自己对于《ReSkilling》这本书的读后感。</p><p>首先，我很喜欢这本书的标题，感觉和“终身学习”一样，是一个积极的词，对人生有益。</p><p>其次，我觉得这本书开头几章写的不错。简明扼要地介绍了书名的由来，以及世界范围和日本国内 ReSkilling 的发展和现状。作者有美国留学经历，并一直供职于跨国企业，所以他的资料收集和总结能力非常好，客观事实的论述比较有信服力。</p><p>但是我觉得这本书在实操方向价值不高，作者过度夸大了计算机技术的作用，书中很多事例和方案都偏向让非 IT 从业人员自学 IT 知识。我并不是反对非 IT 从业人员学习 IT 知识，但是我觉得没有必要所有人都懂的如何配置网络，没有必要所有人都知道 DNS 是什么，更没有必要学习 HTML, JavaScript, CSS 之类的 web UI 开发技术。</p><p>其实很多优秀的人并不是什么都会的全能型选手，例如：巴菲特不懂网络技术，Linus 也不会开发 Web UI，但是他们都是世界级专家。术业有专攻，有时候遇到自己不擅长的领域合理委外才是更聪明的做法。</p><p>书中提到工作多年的社会人如何新技能的几种方法我觉得还挺有意思的，一种是“技能交换”，另外一种是“拜师学艺”。</p><p>技能交换，即：“请教我xxx，作为回报我可以教你yyy”。这个挺有意思，无形中形成了一个学习小组，虽然对于有快速学习能力并且有强大自制力的人来说这种形式可能很低效，但是我很喜欢。其实我愿意尝试这种形式，并且我认为我有能力快速教会别人一些技术，例如：如何使用 React 开发网页，如何使用 RDB 管理数据，如何 self host 一个开源的论坛等等。如果有人能教一些 TiddlyWiki 或者 ESP32 的开发技巧，我还是挺愿意进行技能交换的。</p><p>拜师学艺，即：“到某人身边学习”。作者给的方法是多去线下活动混脸熟，然后找机会多交流，并且从实际问题出发请教对方。这显然有点 old school 了，但是我喜欢。我觉得目前学习很多入门级技能的门槛的确变低了，很多内容 YouTube、blog，甚至抖音上都能学会，但是精通一门技术的门槛却变高了，大家不愿意请教他人了，大家不愿意在实际项目中慢慢体会过程了，大家变得自负以为自己看看视频看看书就能学会任何内容了。我一直有一个想法，非常个人，不喜勿喷。我认为：经验是无法通过任何语言或文字学会的，必须亲身体会。借用一个例子：我说：青春期第一次牵暗恋女生的手时是一种触电的感觉。如果你没有亲身体会，你是无法理解所谓“触电”是一种什么感觉的。说不定你以为是一种疼痛感呢。</p><p>作者在第五章有一个爆论“不 ReSkilling 人生将穷途末路”。这个观点和这一章讲的故事让我非常抵触，甚至产生了生理反感。fuck！！！这就是在贩卖焦虑。作者在这一章编写了一个故事的两个结局，不 ReSkilling 的主人公很惨，ReSkilling 的主人公很顺利。😂 这太扯。我看过一些书，也听过一些名人分享，我渐渐地理解了一件事：人生的境遇很大程度上是运气决定的，如果一个人运气不好，那么做什么都会不顺，反之即使不做额外的努力也可以风生水起。当然我不是说努力无用，我只是觉得没有必要贩卖焦虑，没有必要编故事吓人。</p><p>最后，想分享一个我自己的真实的故事，和一些自己真实的想法。我大学毕业后工作的第一家公司叫 DreamArts.co.jp，这家公司的新人培训非常强调一句话：“Be knowledge worker, not skills worker.”因为是非常重要的思想，被刻意训练了3年之久，导致我可能今生会记得。knowledge worker 关注方法论而不是方法，关注整体而不是细节，合理委外而不是十项全能。我的思维模式中 knowledge 大于 skill，但是这本书侧重 skill，和我的思维模式相反，所以即使我认同书中部分内容，整体上还是持反对态度。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://baike.baidu.com/item/%E8%B4%A9%E5%8D%96%E7%84%A6%E8%99%91/57336792" rel="noopener noreferrer" target="_blank">贩卖焦虑</a></li><li><a class="tc-tiddlylink-external" href="https://tomorrowtodayglobal.com/2005/06/26/the-difference-between-knowledge-and-skills-workers/" rel="noopener noreferrer" target="_blank">The difference between knowledge and skills workers</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Sun, 13 August 2023 23:48:22 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-08-13-reskilling-du-hou-gan</guid>      
+   </item>
+
    <item>
       <title>2023-05-24 Next.js 真的适合你的项目吗</title>
       <link>https://thaddeusjiang.com/2023-05-24-next-js-zhen-de-shi-he-ni-de-xiang-mu-ma</link>
@@ -13,8 +51,8 @@
       <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
             <a href="./">
-                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
-                <p class="subtitle">Engineer / Blogger， 爱猫、爱读书、爱社交。</p>
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
             </a>
         </div>
      </nav>
@@ -50,8 +88,8 @@
       <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
             <a href="./">
-                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
-                <p class="subtitle">Engineer / Blogger， 爱猫、爱读书、爱社交。</p>
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
             </a>
         </div>
      </nav>
@@ -100,48 +138,6 @@
 ]]></description>
       <pubDate>Tue, 16 May 2023 23::45 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/2023-05-16-zhen-de-bu-yao-zai-shi-yong-mui-liao</guid>      
-   </item>
-
-   <item>
-      <title>2023-03-28 为什么我们需要自己的 AI 分身</title>
-      <link>https://thaddeusjiang.com/2023-03-28-wei-shi-me-wo-men-xu-yao-zi-ji-de-ai-fen-shen</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">蒋继发 (ThaddeusJiang)</h1>
-                <p class="subtitle">Engineer / Blogger， 爱猫、爱读书、爱社交。</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-03-28 为什么我们需要自己的 AI 分身</h1>
-            <hr>
-
-            <p>为什么我们需要自己的 AI 分身？直接使用通用的 AI 不行吗？ChatGPT 不行吗？答：不行。</p><p>其实，我把这篇文章的大纲给 ChatGPT 并请它帮忙生成了 2 份文章，我会放在文章的最后，大家感兴趣可以对比一下。</p><p>言归正传，我想和大家分享一下我对 AI 分身的看法。首先我自己肯定想要一个 AI 分身，我希望它能代表我接待一些素未蒙面的朋友；我希望它能代表我回答一些问题和观点；我希望它能成为我的镜子帮我助更好的了解我自己。</p><p>如果我们把范围扩大到所有人，我们为什么需要自己的 AI 分身呢？</p><p>一个经常被问到问题：</p><blockquote class="tc-quote tc-big-quote"><p>直接使用通用的 AI 不行吗？ChatGPT 不行吗？</p><p>答：不行。因为通用 AI 是使用通用数据训练的，它能回答有标准答案的问题。很可惜它没有你个人的观点，它能代表一类人，例如英语老师、法律顾问、JavaScript Developer 等等，但是它不能代表你。
-</p><cite>TJ</cite></blockquote><p>那么，AI 分身能为我们做什么？</p><h3 class="">1. 节省大量时间，再也不用重复回答相同的问题了。</h3><p>AI 分身节省大量时间，再也不用重复回答相同的问题了。它可以为我们接待一些素未蒙面的朋友。我们再也不用一遍又一遍的做自我介绍，不需要说明自己的技能，不需要解释自己经历。</p><h3 class="">2. 零成本复制我们的经验和观点</h3><p>AI 分身可以零成本复制我们的经验和观点，你甚至可以让它帮你做知识付费，通过分享你的经验，表达你的观点而为你赚钱。</p><h3 class="">3. 更好的了解我们自己</h3><p>AI 分身可以成为我们的镜子，帮助我们更好的了解自己。在 AI 分身实现之前，我们可以通过笔记、博客、推文、视频等方法记录自己的言行和观点，然后定期回顾以达到自省的目的，不过信息太分散了，这样做的效果并不好。在 AI 分身出现以后，我们依然可以通过上面方式记录，只不过我们多了一个优秀的人工智能，它会帮我们把上面的记录整理起来，帮助我们更好的了解我们自己。</p><p>上面几条仅仅是我脑子里浮现出的最浅显、最直接的例子，我相信 AI 分身一定有更多、更强大的能力，可以让我们的人生变得更美好、更幸福。</p><p>以上。</p><p>下面是 ChatGPT 根据我提供的大纲生成的 2 篇文章：</p><blockquote class="tc-quote tc-big-quote"><h2 class="">标题：为什么我们需要自己的 AI 分身</h2><p>介绍：
-现在，人工智能已经走进了我们的日常生活，我们已经用它来帮助我们完成很多工作。但是，如果你知道你可以拥有自己的 AI 分身来代替你完成一些任务，那么你会有什么反应呢？这篇博客将介绍为什么我们需要自己的 AI 分身，以及如何创建一个 AI 分身。</p><h3 class="">节省时间，再也不用重复回答相同的问题了。</h3><p>在工作中，我们经常需要回答一些重复性的问题，这不仅浪费时间，还会让我们感到疲惫。如果你有一个 AI 分身，它可以代替你回答这些问题，从而节省时间和精力。同时，你也可以让你的 AI 分身自动回答你的邮件或短信，这样你就可以更专注于其他重要的任务。</p><h3 class="">零成本复制自己的知识和经验，你甚至可以用它来做知识付费。</h3><p>创建一个 AI 分身可以让你将自己的知识和经验复制到另一个智能体中。这意味着，你可以让你的 AI 分身自动完成你的一些工作，甚至可以将它作为一个知识付费的平台，让其他人向它提问并从中获得收益。这也可以让你赚取额外的收入，而且完全不需要额外的劳动力。</p><h3 class="">更好的了解我们自己。</h3><p>通过创建自己的 AI 分身，我们可以更好地了解我们自己。我们可以看到我们的行为和决策，从而更好地理解我们自己。这也可以帮助我们改进自己的行为和决策，从而提高我们的生产力和效率。</p><p><a class="tc-tiddlylink-external" href="https://www.aier.app" rel="noopener noreferrer" target="_blank">https://www.aier.app</a> 可以非常简单的创造一个 AI 分身 现在，创造一个 AI 分身已经变得非常简单了。有很多在线平台可以帮助你创建一个 AI 分身，其中一个就是 www.aier.app 。这个平台提供了一系列工具，让你可以轻松创建一个自己的 AI 分身。你可以为你的 AI 分身提供训练数据，让它学习你的习惯和行为。然后，你就可以让它自动完成一些任务，从而为你节省时间和精力。</p><p>结论：
-通过拥有一个 AI 分身，我们可以更好地理解自己，节省时间和精力，并将我们的知识和经验复制到另一个智能体。
-</p><cite>ChatGPT</cite></blockquote><blockquote class="tc-quote tc-big-quote"><h2 class="">标题：为什么我们需要自己的 AI 分身</h2><p>在现代社会中，我们经常面临着一个问题，那就是时间不够用。我们的生活节奏越来越快，每天都有大量的工作和事务需要处理，这让我们感到压力倍增。但是，如果我们有一种方法可以节省时间，那么我们将会有更多的时间去做自己想做的事情，更好的理解我们自己，更好的探索世界。</p><h3 class="">节省时间，再也不用重复回答相同的问题了。 </h3><p>在我们的工作和生活中，我们常常需要回答相同的问题。这些问题可能是关于我们的工作、我们的家庭、我们的兴趣爱好，等等。如果我们有一个 AI 分身，我们可以让它回答这些问题，这样我们就可以节省时间和精力去做其他的事情。这不仅可以让我们更高效地工作，也可以让我们更好地享受生活。</p><h3 class="">零成本复制自己的知识和经验，你甚至可以用它来做知识付费。 </h3><p>我们每个人都有自己的知识和经验。但是，这些知识和经验通常是非常宝贵的，我们可能不愿意与他人分享。但是，如果我们有一个 AI 分身，我们可以将我们的知识和经验复制到它身上，让它帮助我们回答问题、解决问题。我们甚至可以将这些知识和经验用于知识付费，让我们的 AI 分身成为我们的教育、咨询或培训的工具。</p><h3 class="">更好的了解我们自己。 </h3><p>我们的 AI 分身可以记录我们的行为、喜好、偏好和决策过程。这些信息可以帮助我们更好地了解自己，发现我们自己可能存在的弱点和盲点。通过与我们的 AI 分身进行互动，我们可以更好地了解我们自己，找到我们自己的优点和潜力。</p><p><a class="tc-tiddlylink-external" href="https://www.aier.app" rel="noopener noreferrer" target="_blank">https://www.aier.app</a> 可以非常简单的创造一个 AI 分身 现在，创造一个 AI 分身非常简单。有许多平台，如 www.aier.app，可以帮助我们创建和训练我们自己的 AI 分身。这些平台提供了简单易用的工具，可以让我们通过自然语言输入、数据导入等方式训练我们的 AI 分身。创造一个 AI 分身现在不再是科幻电影中的幻想，而是现实世界中的可能。</p><p>结论：</p><p>在我们的日常生活中，我们需要自己的 AI 分身。
-</p><cite>ChatGPT</cite></blockquote>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Tue, 28 March 2023 14:37:53 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2023-03-28-wei-shi-me-wo-men-xu-yao-zi-ji-de-ai-fen-shen</guid>      
    </item>
 
 </channel>
