@@ -1,0 +1,165 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.0" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2021-01-15 Nuxt Composition API useMeta 异步更新 ~ TJ (Thaddeus Jiang)</title>
+<meta name="description" content="我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2021-01-15-nuxt-composition-api-usemeta-yi-bu-geng-xin" />
+<meta property="og:title" content="2021-01-15 Nuxt Composition API useMeta 异步更新 ~ TJ (Thaddeus Jiang)" />
+<meta property="og:description" content="我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2021-01-15 Nuxt Composition API useMeta 异步更新.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2021-01-15 Nuxt Composition API useMeta 异步更新 ~ TJ (Thaddeus Jiang)" />
+<meta name="twitter:description" content="我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2021-01-15 Nuxt Composition API useMeta 异步更新</h1>
+            <hr>
+
+            <p>我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。
+所以使用了 <a class="tc-tiddlylink-external" href="https://composition-api.nuxtjs.org/" rel="noopener noreferrer" target="_blank">@nuxtjs/composition-api</a></p><p>一个小需求，从 API 获取数据，更新 document 的 <code>title</code> 。</p><p>我们使用 <code>useMeta</code></p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> { title, meta } = <span class="hljs-title function_">useMeta</span>()
+
+<span class="hljs-title function_">useFetch</span>(<span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> data  = <span class="hljs-keyword">await</span> <span class="hljs-title function_">someAjax</span>();
+
+  title.<span class="hljs-property">value</span>.<span class="hljs-property">title</span> = data.<span class="hljs-property">title</span>
+})</code></pre><p>为什么要写这篇笔记？</p><p>因为官方文档太迷惑了，让我浪费了很多时间。</p><p>官方文档：</p><pre><code>// You can even pass a function to achieve a computed meta
+const message = ref('')
+useMeta(() =&gt; ({ title: message.value }))</code></pre><p>这段话让我误以为：“如果需要异步更新，就必须以函数形式。”</p><p>实际上并不需要。仅以一篇笔记，纪念我失去的时间。</p><p>参考</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/nuxt-community/composition-api/issues/116#issuecomment-643707422" rel="noopener noreferrer" target="_blank">https://github.com/nuxt-community/composition-api/issues/116#issuecomment-643707422</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+
+
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+<footer class="section">    
+    <div class="content has-text-centered">
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="content has-text-centered">
+      <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink-external" href="https://twitter.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Twitter</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

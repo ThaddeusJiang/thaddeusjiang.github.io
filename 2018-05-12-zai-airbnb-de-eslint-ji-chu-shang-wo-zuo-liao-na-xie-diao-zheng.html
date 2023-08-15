@@ -1,0 +1,169 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.0" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整 ~ TJ (Thaddeus Jiang)</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2018-05-12-zai-airbnb-de-eslint-ji-chu-shang-wo-zuo-liao-na-xie-diao-zheng" />
+<meta property="og:title" content="2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整 ~ TJ (Thaddeus Jiang)" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整 ~ TJ (Thaddeus Jiang)" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整</h1>
+            <hr>
+
+            <blockquote class="tc-quote tc-big-quote"><p>没有完美的解决方案，适合自己的才是最好的。
+</p><cite>TJ</cite></blockquote><p>无分号</p><pre class="hljs"><code class="js hljs"><span class="hljs-string">&quot;semi&quot;</span>: [<span class="hljs-string">&quot;warn&quot;</span>, <span class="hljs-string">&quot;never&quot;</span>],</code></pre><p>允许 console 输出 <code>warn</code> <code>error</code></p><pre class="hljs"><code class="js hljs"><span class="hljs-string">&quot;no-console&quot;</span>: [<span class="hljs-string">&quot;error&quot;</span>, { <span class="hljs-string">&quot;allow&quot;</span>: [<span class="hljs-string">&quot;warn&quot;</span>, <span class="hljs-string">&quot;error&quot;</span>] }],</code></pre><p>允许简单运算符混合运用（ + - \* / 等），依旧禁止复杂运算符混合运用</p><pre class="hljs"><code class="js hljs"><span class="hljs-string">&quot;no-mixed-operators&quot;</span>: [
+    <span class="hljs-string">&quot;error&quot;</span>,
+    {
+        <span class="hljs-string">&quot;groups&quot;</span>: [
+            [<span class="hljs-string">&quot;&amp;&quot;</span>, <span class="hljs-string">&quot;|&quot;</span>, <span class="hljs-string">&quot;^&quot;</span>, <span class="hljs-string">&quot;~&quot;</span>, <span class="hljs-string">&quot;&lt;&lt;&quot;</span>, <span class="hljs-string">&quot;&gt;&gt;&quot;</span>, <span class="hljs-string">&quot;&gt;&gt;&gt;&quot;</span>],
+            [<span class="hljs-string">&quot;==&quot;</span>, <span class="hljs-string">&quot;!=&quot;</span>, <span class="hljs-string">&quot;===&quot;</span>, <span class="hljs-string">&quot;!==&quot;</span>, <span class="hljs-string">&quot;&gt;&quot;</span>, <span class="hljs-string">&quot;&gt;=&quot;</span>, <span class="hljs-string">&quot;&lt;&quot;</span>, <span class="hljs-string">&quot;&lt;=&quot;</span>],
+            [<span class="hljs-string">&quot;&amp;&amp;&quot;</span>, <span class="hljs-string">&quot;||&quot;</span>],
+            [<span class="hljs-string">&quot;in&quot;</span>, <span class="hljs-string">&quot;instanceof&quot;</span>]
+        ],
+        <span class="hljs-string">&quot;allowSamePrecedence&quot;</span>: <span class="hljs-literal">true</span>
+    }
+  ],</code></pre><p>其实还有很多，过段时间公开配置文件。
+</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+
+
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+<footer class="section">    
+    <div class="content has-text-centered">
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="content has-text-centered">
+      <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink-external" href="https://twitter.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Twitter</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

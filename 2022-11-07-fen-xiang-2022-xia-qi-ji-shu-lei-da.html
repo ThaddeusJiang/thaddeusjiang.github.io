@@ -1,0 +1,161 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.0" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2022-11-07 分享 2022下期技术雷达 ~ TJ (Thaddeus Jiang)</title>
+<meta name="description" content="技术雷达是 ThoughtWorks 发布的技术报告，比较客观，且非常具有前瞻性，我每一期都看。不过 ThoughtWorks 的技术雷达设计的领域过于全面，所以我每次都会把自己关心的内容整理一下自用。这是一篇内部分享，也分享给公司以外的大家。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2022-11-07-fen-xiang-2022-xia-qi-ji-shu-lei-da" />
+<meta property="og:title" content="2022-11-07 分享 2022下期技术雷达 ~ TJ (Thaddeus Jiang)" />
+<meta property="og:description" content="技术雷达是 ThoughtWorks 发布的技术报告，比较客观，且非常具有前瞻性，我每一期都看。不过 ThoughtWorks 的技术雷达设计的领域过于全面，所以我每次都会把自己关心的内容整理一下自用。这是一篇内部分享，也分享给公司以外的大家。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2022-11-07 分享 2022下期技术雷达.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2022-11-07 分享 2022下期技术雷达 ~ TJ (Thaddeus Jiang)" />
+<meta name="twitter:description" content="技术雷达是 ThoughtWorks 发布的技术报告，比较客观，且非常具有前瞻性，我每一期都看。不过 ThoughtWorks 的技术雷达设计的领域过于全面，所以我每次都会把自己关心的内容整理一下自用。这是一篇内部分享，也分享给公司以外的大家。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2022-11-07 分享 2022下期技术雷达</h1>
+            <hr>
+
+            <p>技术雷达是 ThoughtWorks 发布的技术报告，比较客观，且非常具有前瞻性，我每一期都看。不过 ThoughtWorks 的技术雷达设计的领域过于全面，所以我每次都会把自己关心的内容整理一下自用。这是一篇内部分享，也分享给公司以外的大家。</p><p>ThoughtWorks 从技术、平台、工具、语言&amp;框架等 4 方面，将内容分为采纳、试验、评估、暂缓等 4 种级别。我也一样从技术、平台、工具、语言&amp;框架等 4 方面整理，不过我的评价级别是以我个人为对象分为 <code>我正在使用</code> <code>我想要尝试</code> <code>我保持观望</code> <code>我已经不再使用</code> 4 个级别。</p><p>ok，让我们开始正文：</p><blockquote class="tc-quote tc-big-quote"><h2 class="">我正在使用</h2><ol><li>技术<ol><li>组件视觉回归测试 <code>试验</code></li><li>服务器端驱动 UI <code>评估</code></li></ol></li><li>平台<ol><li>Colima <code>试验</code></li></ol></li><li>工具<ol><li>k6 <code>采纳</code></li><li>Excalidraw <code>试验</code></li></ol></li><li>语言&amp;框架<ol><li>ReactQuery <code>采纳</code></li></ol></li></ol><cite>TJ</cite></blockquote><h2 class="">组件视觉回归测试</h2><p>其实就是 Visual Testing，我正在使用 Chromatic 进行视觉回归测试。我非常喜欢 Visual Testing，我以前分享过很多次，欢迎阅读后和我讨论：</p><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./2019-11-20-react-testing-3-visual-testing.html">2019-11-20 React Testing 3 - Visual Testing</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/ThaddeusJiang/status/1479462809323065345" rel="noopener noreferrer" target="_blank">https://twitter.com/ThaddeusJiang/status/1479462809323065345</a></li></ul><h2 class="">服务器端驱动 UI</h2><p>可能 backend developer 依然记得 JSP，可能 frontend developer 依然记得 EJS，这些都是一些混合服务器端和客户端的技术，这种技术通常被称为 Embedded Template，很多人混淆了模版技术和服务端驱动 UI。</p><p>那么，服务器端驱动 UI 和模版技术有什么异同？</p><p>答：服务器端驱动 UI 使用 WebSocket 而不是 HTTP</p><p>能带来哪些收益？</p><ol><li>保留了 SPA 的无页面刷新的用户体验</li><li>保留了 SSR 的更小的 JS bundle size</li><li>统一了 backend 和 frontend 的部分代码实现</li></ol><p>提供服务器端驱动 UI 的 framework</p><ul><li>remix.run</li><li>next.js 使用 React Server Component 技术</li><li><a class="tc-tiddlylink-external" href="https://hotwired.dev/" rel="noopener noreferrer" target="_blank">https://hotwired.dev/</a> Ruby on Rails 社区</li><li>Elixir LiveView</li></ul><h2 class="">Colima</h2><p>因为 Docker Desktop 开始收费，大家都在寻找 Docker Desktop 的替代品。其实有很多选项，碰巧我和 ThoughtWorks 选择相同而已。</p><p>我是从哪里看到 Colima 的？
+答：<a class="tc-tiddlylink-external" href="https://dev.to/swyx/running-docker-without-docker-desktop-339h" rel="noopener noreferrer" target="_blank">https://dev.to/swyx/running-docker-without-docker-desktop-339h</a></p><h2 class="">k6</h2><h2 class="">Excalidraw</h2><h2 class="">ReactQuery</h2><blockquote class="tc-quote tc-big-quote"><h2 class="">我想要尝试</h2><ol><li>工具<ol><li>Harness 云服务成本管理 <code>评估</code></li><li>infracost <code>评估</code></li></ol></li><li>语言&amp;框架<ol><li>Yjs <code>采纳</code></li><li>Connect <code>评估</code></li></ol></li></ol><cite>TJ</cite></blockquote><p>云服务成本管理是云原生时代躲不过去的工作，越早掌握越少被坑钱。</p><p>我准备试试 Harness 和 infracost。</p><h2 class="">Yjs</h2><p>实时协作软件越来越流行了，Yjs 就是一个用来编写实时协作软件的库。
+</p><h2 class="">Connect</h2><blockquote class="tc-quote tc-big-quote"><h2 class="">我保持观望的</h2><ol><li>语言&amp;框架<ol><li>Svelte <code>试验</code></li><li>Ladle <code>试验</code></li><li>Astro <code>评估</code></li><li>Bun <code>评估</code></li></ol></li></ol><cite>TJ</cite></blockquote><h2 class="">Svelte</h2><h2 class="">Ladle, Astro</h2><p>我知道他们是不错的技术，不过我还是想看看社区领袖的选择。</p><h2 class="">Bun</h2><blockquote class="tc-quote tc-big-quote"><h2 class="">我已经不再使用</h2><ol><li>技术<ol><li>默认选择 SPA <code>暂缓</code></li></ol></li><li>语言&amp;框架<ol><li>Cypress组件测试 <code>评估</code></li></ol></li></ol><cite>TJ</cite></blockquote><h2 class="">默认选择 SPA</h2><p>只有单一功能的应用可以继续使用 SPA 架构，例如前面提到的 Excalidraw。对于复杂业务的应用不再推荐采用 SPA。</p><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./-fu-wu-qi-duan-qu-dong-ui.html">服务器端驱动 UI</a> 和 <a class="tc-tiddlylink tc-tiddlylink-missing" href="./single-spa.html">single-spa</a> 也可以提供 SPA 一样的无页面刷新用户体验，而且更容易扩张，更容易应付大型应用。
+</p><h2 class="">Cypress组件测试</h2><p>组件测试可以继续使用 TestingLibrary
+</p><h1 class="">结束语</h1><p>😂 写的有点多，其实我想说的比这个还多，好期待和大家一起交流技术啊。欢迎大家来 discord 和我聊天，我的频道（邀请制）里有很多大神哟。
+</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+
+
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+<footer class="section">    
+    <div class="content has-text-centered">
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="content has-text-centered">
+      <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink-external" href="https://twitter.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Twitter</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

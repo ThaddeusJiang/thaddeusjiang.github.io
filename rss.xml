@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   <title>TJ (Thaddeus Jiang)</title>
+   <link>https://thaddeusjiang.com</link>
+   <description>专注；分享；寻找。</description>
+   <item>
+      <title>2023-08-15 未来程序员也可以是人间国宝</title>
+      <link>https://thaddeusjiang.com/2023-08-15-wei-lai-cheng-xu-yuan-ye-ke-yi-shi-ren-jian-guo-bao</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-08-15 未来程序员也可以是人间国宝</h1>
+            <hr>
+
+            <p>人间国宝是日本对一些传统手艺人的称呼，通常是指一些传递技艺的传承者。在日本，人间国宝的作品很受欢迎，大家都很喜欢，政府也有一定的辅助金扶持，所以他们的生活水平还不错。很羡慕他们，他们基本上是在做自己喜欢的工作，十年、几十年如一日的从事自己喜欢的工作，并且没有职场的各种压力。不需要考虑办公室政治，不需要年复一年的定目标、做计划、没有 KPI，没有 OKR。</p><p>我想未来程序员可以成为人间国宝，受到一部分人的推崇，国家和政府出钱保护这门手艺。程序员不需要和机器竞争，不用在生产效率和标准化上疯狂内圈，程序员只需要保持自己的特色，依据客户的订单编写程序即可。</p><p>个人思考，如何才能在 2050 年成为人间国宝？</p><ol><li>有别于工业生产的风格，成果是艺术品，可以赏玩。</li><li>即使不用工业生产也能保证质量稳定，有一定的实际价值。</li><li>稀有</li></ol>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Tue, 15 August 2023 6:56:45 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-08-15-wei-lai-cheng-xu-yuan-ye-ke-yi-shi-ren-jian-guo-bao</guid>      
+   </item>
+
+   <item>
+      <title>2023-08-13 《ReSkilling》读后感</title>
+      <link>https://thaddeusjiang.com/2023-08-13-reskilling-du-hou-gan</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-08-13 《ReSkilling》读后感</h1>
+            <hr>
+
+            <p>日本的盂兰盆节假期，因为台风没有远行，看完的第一本书《ReSkilling》。虽然书中很多内容我并不是很同意，但是也有一些读后感想记录一下。</p><p>很久没有写 blog 了，😂
+其实这段时间也写了很多内容，只是没有整理到 blog 而已，将来有时间分享出来。</p><p>言归正传，我谈谈自己对于《ReSkilling》这本书的读后感。</p><p>首先，我很喜欢这本书的标题，感觉和“终身学习”一样，是一个积极的词，对人生有益。</p><p>其次，我觉得这本书开头几章写的不错。简明扼要地介绍了书名的由来，以及世界范围和日本国内 ReSkilling 的发展和现状。作者有美国留学经历，并一直供职于跨国企业，所以他的资料收集和总结能力非常好，客观事实的论述比较有信服力。</p><p>但是我觉得这本书在实操方向价值不高，作者过度夸大了计算机技术的作用，书中很多事例和方案都偏向让非 IT 从业人员自学 IT 知识。我并不是反对非 IT 从业人员学习 IT 知识，但是我觉得没有必要所有人都懂的如何配置网络，没有必要所有人都知道 DNS 是什么，更没有必要学习 HTML, JavaScript, CSS 之类的 web UI 开发技术。</p><p>其实很多优秀的人并不是什么都会的全能型选手，例如：巴菲特不懂网络技术，Linus 也不会开发 Web UI，但是他们都是世界级专家。术业有专攻，有时候遇到自己不擅长的领域合理委外才是更聪明的做法。</p><p>书中提到工作多年的社会人如何新技能的几种方法我觉得还挺有意思的，一种是“技能交换”，另外一种是“拜师学艺”。</p><p>技能交换，即：“请教我xxx，作为回报我可以教你yyy”。这个挺有意思，无形中形成了一个学习小组，虽然对于有快速学习能力并且有强大自制力的人来说这种形式可能很低效，但是我很喜欢。其实我愿意尝试这种形式，并且我认为我有能力快速教会别人一些技术，例如：如何使用 React 开发网页，如何使用 RDB 管理数据，如何 self host 一个开源的论坛等等。如果有人能教一些 TiddlyWiki 或者 ESP32 的开发技巧，我还是挺愿意进行技能交换的。</p><p>拜师学艺，即：“到某人身边学习”。作者给的方法是多去线下活动混脸熟，然后找机会多交流，并且从实际问题出发请教对方。这显然有点 old school 了，但是我喜欢。我觉得目前学习很多入门级技能的门槛的确变低了，很多内容 YouTube、blog，甚至抖音上都能学会，但是精通一门技术的门槛却变高了，大家不愿意请教他人了，大家不愿意在实际项目中慢慢体会过程了，大家变得自负以为自己看看视频看看书就能学会任何内容了。我一直有一个想法，非常个人，不喜勿喷。我认为：经验是无法通过任何语言或文字学会的，必须亲身体会。借用一个例子：我说：青春期第一次牵暗恋女生的手时是一种触电的感觉。如果你没有亲身体会，你是无法理解所谓“触电”是一种什么感觉的。说不定你以为是一种疼痛感呢。</p><p>作者在第五章有一个爆论“不 ReSkilling 人生将穷途末路”。这个观点和这一章讲的故事让我非常抵触，甚至产生了生理反感。fuck！！！这就是在贩卖焦虑。作者在这一章编写了一个故事的两个结局，不 ReSkilling 的主人公很惨，ReSkilling 的主人公很顺利。😂 这太扯。我看过一些书，也听过一些名人分享，我渐渐地理解了一件事：人生的境遇很大程度上是运气决定的，如果一个人运气不好，那么做什么都会不顺，反之即使不做额外的努力也可以风生水起。当然我不是说努力无用，我只是觉得没有必要贩卖焦虑，没有必要编故事吓人。</p><p>最后，想分享一个我自己的真实的故事，和一些自己真实的想法。我大学毕业后工作的第一家公司叫 DreamArts.co.jp，这家公司的新人培训非常强调一句话：“Be knowledge worker, not skills worker.”因为是非常重要的思想，被刻意训练了3年之久，导致我可能今生会记得。knowledge worker 关注方法论而不是方法，关注整体而不是细节，合理委外而不是十项全能。我的思维模式中 knowledge 大于 skill，但是这本书侧重 skill，和我的思维模式相反，所以即使我认同书中部分内容，整体上还是持反对态度。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://baike.baidu.com/item/%E8%B4%A9%E5%8D%96%E7%84%A6%E8%99%91/57336792" rel="noopener noreferrer" target="_blank">贩卖焦虑</a></li><li><a class="tc-tiddlylink-external" href="https://tomorrowtodayglobal.com/2005/06/26/the-difference-between-knowledge-and-skills-workers/" rel="noopener noreferrer" target="_blank">The difference between knowledge and skills workers</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Sun, 13 August 2023 14:48:22 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-08-13-reskilling-du-hou-gan</guid>      
+   </item>
+
+   <item>
+      <title>2023-05-24 Next.js 真的适合你的项目吗</title>
+      <link>https://thaddeusjiang.com/2023-05-24-next-js-zhen-de-shi-he-ni-de-xiang-mu-ma</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-05-24 Next.js 真的适合你的项目吗</h1>
+            <hr>
+
+            <p>这是我在犹豫是否升级至 Next.js App Router 时的一些思考。我有很多项目，每个项目的情况各不相同，在 App Router 前，我一直使用 Next.js 作为唯一的前端框架。</p><p>但是 Next.js App Router 让我有点犹豫了，Next.js App Router 默认是 Server Components，并且推荐使用 Server fetch() 和 Server Actions 进行数据获取和修改。</p><p>如果项目 all in 在 Next.js server-side 肯定是没有问题，但是有一些项目其实 server 使用的是其他语言，例如 Ruby，Golang，Java 等等，就会导致有多个 server 存在。多个 server 就需要多个认证（Authentication）环节，或许会导致不方便。其实 Authentication 可以在离 client-side 最近的环节对应，例如 Gateway。在后面的 server services 中不再进行 Authentication，仅仅是服务调用。但是引入 Gateway 又会导致 Infra 复杂度提高。</p><p>事实上，保持单一 server 是最简单的，就像 ruby on rails 一样。</p><p>另外，我认为 Next.js Server Actions 会导致 server-side 和 client-side 代码组织混乱，例如：Server Actions 不能在 data mutated 之后显示临时 UI，如 toast notification，不得不还需要使用 client-side JS。难道要把 server-side 和 client-side JS 放在一个函数里吗？</p><p>再举一个例子，Server Components 无法实现滚动加载数据，因为滚动加载需要 client-side 提供触发滚动的标记。每次开发数据加载都要思考使用 server-side 还是 client-side 实际上是增加心智负担。</p><p>给出几个我自己的判断：</p><ul><li>如果 server-side 只是简单运算，允许使用 Serverless 的话，可以 all in Next.js。</li><li>如果 server-side 有复杂运算，Serverless 无法满足要求的话，推荐不要使用 Next.js，使用传统 web framework 更简单。例如：Ruby on Rails。</li><li>如果 server-side 使用 Node.js 以外的编程语言，也不要使用 Next.js，使用 server-side 编程语言推荐的 UI framework。例如 Elixirlang 推荐的 LiveView。</li></ul><p>BTW, Next.js 也支持 fully static app，如果愿意大家可以尝试一下。但是，我没有使用过。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://nextjs.org/docs/getting-started/react-essentials#server-components" rel="noopener noreferrer" target="_blank">Next.js Server Components</a></li><li><a class="tc-tiddlylink-external" href="https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions" rel="noopener noreferrer" target="_blank">Next.js Server Actions</a></li><li><a class="tc-tiddlylink-external" href="https://www.phoenixframework.org/" rel="noopener noreferrer" target="_blank">LiveView</a></li><li><a class="tc-tiddlylink-external" href="https://tkdodo.eu/blog/you-might-not-need-react-query" rel="noopener noreferrer" target="_blank">You Might Not Need React Query</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Wed, 24 May 2023 14:11:34 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-05-24-next-js-zhen-de-shi-he-ni-de-xiang-mu-ma</guid>      
+   </item>
+
+</channel>
+</rss>
