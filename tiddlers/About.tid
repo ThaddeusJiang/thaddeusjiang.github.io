@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20230813145626057
+modified: 20230815114231014
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: About
@@ -19,5 +19,4 @@ Engineer / Blogger, 人生观：I know I don't know.
 * 只有一个 HTML 文件，真正的零依赖，且永久可用。
 * 开源免费，你也可以创建自己的数字花园。
 
-[[GitHub|https://github.com/ThaddeusJiang]]
- | [[Twitter|https://twitter.com/ThaddeusJiang]] | [[RSS|https://thaddeusjiang.com/rss.xml]] 
+{{Footer}}
