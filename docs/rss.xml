@@ -5,6 +5,43 @@
    <link>https://thaddeusjiang.com</link>
    <description>专注；分享；寻找。</description>
    <item>
+      <title>2023-08-15 未来程序员也可以是人间国宝</title>
+      <link>https://thaddeusjiang.com/2023-08-15-wei-lai-cheng-xu-yuan-ye-ke-yi-shi-ren-jian-guo-bao</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-08-15 未来程序员也可以是人间国宝</h1>
+            <hr>
+
+            <p>人间国宝是日本对一些传统手艺人的称呼，通常是指一些传递技艺的传承者。在日本，人间国宝的作品很受欢迎，大家都很喜欢，政府也有一定的辅助金扶持，所以他们的生活水平还不错。很羡慕他们，他们基本上是在做自己喜欢的工作，十年、几十年如一日的从事自己喜欢的工作，并且没有职场的各种压力。不需要考虑办公室政治，不需要年复一年的定目标、做计划、没有 KPI，没有 OKR。</p><p>我想未来程序员可以成为人间国宝，受到一部分人的推崇，国家和政府出钱保护这门手艺。程序员不需要和机器竞争，不用在生产效率和标准化上疯狂内圈，程序员只需要保持自己的特色，依据客户的订单编写程序即可。</p><p>个人思考，如何才能在 2050 年成为人间国宝？</p><ol><li>有别于工业生产的风格，成果是艺术品，可以赏玩。</li><li>即使不用工业生产也能保证质量稳定，有一定的实际价值。</li><li>稀有</li></ol>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Tue, 15 August 2023 15:56:45 +09:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-08-15-wei-lai-cheng-xu-yuan-ye-ke-yi-shi-ren-jian-guo-bao</guid>      
+   </item>
+
+   <item>
       <title>2023-08-13 《ReSkilling》读后感</title>
       <link>https://thaddeusjiang.com/2023-08-13-reskilling-du-hou-gan</link>
 			<description><![CDATA[
@@ -77,67 +114,6 @@
 ]]></description>
       <pubDate>Wed, 24 May 2023 23:11:34 +09:00</pubDate>
 			<guid>https://thaddeusjiang.com/2023-05-24-next-js-zhen-de-shi-he-ni-de-xiang-mu-ma</guid>      
-   </item>
-
-   <item>
-      <title>2023-05-16 真的不要再使用 MUI 了</title>
-      <link>https://thaddeusjiang.com/2023-05-16-zhen-de-bu-yao-zai-shi-yong-mui-liao</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">TJ (Thaddeus Jiang)</h1>
-                <p class="subtitle">专注；分享；寻找。</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-05-16 真的不要再使用 MUI 了</h1>
-            <hr>
-
-            <p>我不是针对 MUI，我是说所有巨型 UI components framework 都是垃圾。</p><p>发自内心的呐喊，各位在做 web frontend 项目时，真的不要再用巨型的 UI components framework 了，如：mui、antd 之类的。真的太难用了。</p><p>推荐采用 Tailwind CSS 的 UI components library，并且一定要确认覆盖默认风格也是使用 CSS。如果一个 UI components library 需要编写很多 JS 才能覆盖默认风格，千万不要使用。</p><p>有很多例子，分享一个刚刚对应的 UI 需求。</p><p>如果你想要修改 Dialog components 的边框的圆角大小，MUI 需要你写一大堆代码。并且这些都是 MUI 专用的 API，不通用，对你的技术没有任何成长。</p><pre class="hljs"><code class="jsx hljs"><span class="hljs-comment">// 1. 引入 createTheme, ThemeProvider</span>
-<span class="hljs-keyword">import</span> { createTheme, <span class="hljs-title class_">ThemeProvider</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@mui/material/styles&#x27;</span>;
-
-<span class="hljs-comment">// 2. 创建新的 theme，并且你必须知道如何精确覆盖 paper.borderRadius</span>
-
-<span class="hljs-keyword">const</span> theme = <span class="hljs-title function_">createTheme</span>({
-  <span class="hljs-attr">components</span>: {
-    <span class="hljs-title class_">MuiDialog</span>: {
-      <span class="hljs-attr">styleOverrides</span>: {
-        <span class="hljs-attr">paper</span>: {
-          <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">&quot;12px&quot;</span>, <span class="hljs-comment">// 自定义边框半径</span>
-        },
-      },
-    },
-  },
-});
-
-<span class="hljs-comment">// 3. 使用 ThemeProvider 包裹 Dialog</span>
-<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ThemeProvider</span> <span class="hljs-attr">theme</span>=<span class="hljs-string">{theme}</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">Dialog</span> <span class="hljs-attr">open</span>=<span class="hljs-string">{true}</span>&gt;</span>
-    {/* 对话框内容 */}
-  <span class="hljs-tag">&lt;/<span class="hljs-name">Dialog</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">ThemeProvider</span>&gt;</span></span></code></pre><p>优秀的 UI Components library 应该怎么做？通常只需要追加一个 CSS class 即可，形如：</p><pre class="hljs"><code class="jsx hljs">&lt;<span class="hljs-title class_">Dialog</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;rounded-2xl&quot;</span>&gt;
-    {<span class="hljs-comment">/* 对话框内容 */</span>}
-&lt;/<span class="hljs-title class_">Dialog</span>&gt;</code></pre><h1 class="">Conclusion</h1><p>MUI is too bad, recommend to try daisyUI.</p><p>ref: </p><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#2021-04-02-yong-yuan-bu-yao-zai-shi-yong-ju-xing-ui-kuang-jia-liao">2021-04-02 永远不要再使用巨型 UI 框架了</a></li></ul>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Tue, 16 May 2023 23::45 +09:00</pubDate>
-			<guid>https://thaddeusjiang.com/2023-05-16-zhen-de-bu-yao-zai-shi-yong-mui-liao</guid>      
    </item>
 
 </channel>
