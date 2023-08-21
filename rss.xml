@@ -5,6 +5,76 @@
    <link>https://thaddeusjiang.com</link>
    <description>专注；分享；寻找。</description>
    <item>
+      <title>2023-08-22 error handling</title>
+      <link>https://thaddeusjiang.com/2023-08-22-error-handling</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-08-22 error handling</h1>
+            <hr>
+
+            <blockquote><div>这是我的个人风格，不奢求成为主流，只希望将来有机会合作的朋友能事先了解我的个人风格。</div></blockquote><p>首先，对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。</p><p>先说 error handling 需要解决哪些问题？</p><ol><li>不能放任 error 使其导致程序崩溃</li><li>不能让 error handling 多到影响原本的功能</li></ol><p>我常用的编程语言有 TypeScript 和 Elixir，Elixir 不用说了，我很喜欢它的 error handling 机制。</p><p>我主要分享一下我自己使用 TypeScript 时的 error handling 风格。</p><h3 class="">1. 80% 的情况下，我会直接使用 try-catch 处理 Promise rejected 状态，不用其他奇技淫巧</h3><h3 class="">2. 我会尽量避免 Nested try blocks，形如：</h3><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">try</span> {
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;oops&quot;</span>);
+  } <span class="hljs-keyword">finally</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;finally&quot;</span>);
+  }
+} <span class="hljs-keyword">catch</span> (ex) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;outer&quot;</span>, ex.<span class="hljs-property">message</span>);
+}</code></pre><p>为了避免嵌套 try blocks，我会参考 Elixir/golang/Swift 的方式返回一个数组包含 [isError, data/error]</p><p>形如：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">doSomething</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// await ...</span>
+    <span class="hljs-keyword">return</span> [<span class="hljs-literal">false</span>, data]
+  } <span class="hljs-keyword">catch</span>(error) {
+    <span class="hljs-keyword">return</span> [<span class="hljs-literal">true</span>, error]
+  }
+}
+
+<span class="hljs-keyword">const</span> [isError, data] = <span class="hljs-keyword">await</span> <span class="hljs-title function_">doSomething</span>()
+<span class="hljs-keyword">if</span>(isError) {
+  <span class="hljs-comment">// data is error</span>
+  <span class="hljs-comment">// fallback</span>
+}
+
+<span class="hljs-comment">// normal data</span>
+<span class="hljs-comment">// next </span></code></pre><p>supabase-js 和 zod 也采用了类似的风格，只是细节不太一样，我会在引用出分享链接。</p><h3 class="">3. 我不会强迫症似的穷举所有的 Exception 类型</h3><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// good</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">doSomething</span>(<span class="hljs-params"></span>): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-title class_">Data</span>&gt;
+
+<span class="hljs-comment">// bad</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">doSomething</span>(<span class="hljs-params"></span>): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-title class_">Data</span> 
+      | <span class="hljs-title class_">RpcException</span>
+      | <span class="hljs-title class_">ChargeFeeHasNotBeenPaidException</span>
+      | <span class="hljs-title class_">BadRequestException</span>
+      | <span class="hljs-title class_">UnusableFacilityException</span>
+      | <span class="hljs-title class_">NotBusinessDayException</span>&gt;</code></pre><p>当然，npm package, public library 除外。</p><h3 class="">4. 我不会让 Exception 不能导致整个 App 崩溃</h3><p>例如 MVC web server app 的 exception 最好控制在 controller 层，不要因为个别的 API 异常导致整个 App 崩溃或者重启。</p><p>类似 Remix.run 这样的框架甚至可以将 exception 控制在 component 级别，不过我不过分强求，只要别让整个 App 崩溃就行。</p><h3 class="">5. 我会适当记录 Exception log</h3><p>refs</p><ul><li>supabse-js error handling</li><li>zod.dev error handling</li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Mon, 21 August 2023 15:22:8 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-08-22-error-handling</guid>      
+   </item>
+
+   <item>
       <title>2023-08-15 未来程序员也可以是人间国宝</title>
       <link>https://thaddeusjiang.com/2023-08-15-wei-lai-cheng-xu-yuan-ye-ke-yi-shi-ren-jian-guo-bao</link>
 			<description><![CDATA[
@@ -77,43 +147,6 @@
 ]]></description>
       <pubDate>Sun, 13 August 2023 14:48:22 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2023-08-13-reskilling-du-hou-gan</guid>      
-   </item>
-
-   <item>
-      <title>2023-05-24 Next.js 真的适合你的项目吗</title>
-      <link>https://thaddeusjiang.com/2023-05-24-next-js-zhen-de-shi-he-ni-de-xiang-mu-ma</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">TJ (Thaddeus Jiang)</h1>
-                <p class="subtitle">专注；分享；寻找。</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-05-24 Next.js 真的适合你的项目吗</h1>
-            <hr>
-
-            <p>这是我在犹豫是否升级至 Next.js App Router 时的一些思考。我有很多项目，每个项目的情况各不相同，在 App Router 前，我一直使用 Next.js 作为唯一的前端框架。</p><p>但是 Next.js App Router 让我有点犹豫了，Next.js App Router 默认是 Server Components，并且推荐使用 Server fetch() 和 Server Actions 进行数据获取和修改。</p><p>如果项目 all in 在 Next.js server-side 肯定是没有问题，但是有一些项目其实 server 使用的是其他语言，例如 Ruby，Golang，Java 等等，就会导致有多个 server 存在。多个 server 就需要多个认证（Authentication）环节，或许会导致不方便。其实 Authentication 可以在离 client-side 最近的环节对应，例如 Gateway。在后面的 server services 中不再进行 Authentication，仅仅是服务调用。但是引入 Gateway 又会导致 Infra 复杂度提高。</p><p>事实上，保持单一 server 是最简单的，就像 ruby on rails 一样。</p><p>另外，我认为 Next.js Server Actions 会导致 server-side 和 client-side 代码组织混乱，例如：Server Actions 不能在 data mutated 之后显示临时 UI，如 toast notification，不得不还需要使用 client-side JS。难道要把 server-side 和 client-side JS 放在一个函数里吗？</p><p>再举一个例子，Server Components 无法实现滚动加载数据，因为滚动加载需要 client-side 提供触发滚动的标记。每次开发数据加载都要思考使用 server-side 还是 client-side 实际上是增加心智负担。</p><p>给出几个我自己的判断：</p><ul><li>如果 server-side 只是简单运算，允许使用 Serverless 的话，可以 all in Next.js。</li><li>如果 server-side 有复杂运算，Serverless 无法满足要求的话，推荐不要使用 Next.js，使用传统 web framework 更简单。例如：Ruby on Rails。</li><li>如果 server-side 使用 Node.js 以外的编程语言，也不要使用 Next.js，使用 server-side 编程语言推荐的 UI framework。例如 Elixirlang 推荐的 LiveView。</li></ul><p>BTW, Next.js 也支持 fully static app，如果愿意大家可以尝试一下。但是，我没有使用过。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://nextjs.org/docs/getting-started/react-essentials#server-components" rel="noopener noreferrer" target="_blank">Next.js Server Components</a></li><li><a class="tc-tiddlylink-external" href="https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions" rel="noopener noreferrer" target="_blank">Next.js Server Actions</a></li><li><a class="tc-tiddlylink-external" href="https://www.phoenixframework.org/" rel="noopener noreferrer" target="_blank">LiveView</a></li><li><a class="tc-tiddlylink-external" href="https://tkdodo.eu/blog/you-might-not-need-react-query" rel="noopener noreferrer" target="_blank">You Might Not Need React Query</a></li></ul>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Wed, 24 May 2023 14:11:34 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2023-05-24-next-js-zhen-de-shi-he-ni-de-xiang-mu-ma</guid>      
    </item>
 
 </channel>
