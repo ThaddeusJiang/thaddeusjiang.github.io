@@ -1,14 +1,11 @@
 created: 20230821135032029
-modified: 20230821152208590
-published: 20230821152208589
+modified: 20230822011355402
+published: 20230822011355401
 tags: tj-style blog $:/plugins/adithyab/tiddlyjam/live
 title: 2023-08-22 error handling
 type: text/vnd.tiddlywiki
 
-
-{{tj-style}}
-
-首先，对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。
+对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。
 
 先说 error handling 需要解决哪些问题？
 
@@ -19,7 +16,7 @@ type: text/vnd.tiddlywiki
 
 我主要分享一下我自己使用 TypeScript 时的 error handling 风格。
 
-!!! 1. 80% 的情况下，我会直接使用 try-catch 处理 Promise rejected 状态，不用其他奇技淫巧
+!!! 1. 80% 的情况下，我会直接使用 try-catch 处理 Exception，不用其他奇技淫巧
 
 !!! 2. 我会尽量避免 Nested try blocks，形如：
 
@@ -40,26 +37,43 @@ try {
 形如：
 
 ```js
-async function doSomething() {
+// 
+function doSomething() {
   try {
-    // await ...
     return [false, data]
   } catch(error) {
     return [true, error]
   }
 }
 
-const [isError, data] = await doSomething()
+const [isError, data] = doSomething()
 if(isError) {
   // data is error
-  // fallback
+  // your fallback
 }
-
-// normal data
-// next 
+// data is expected data
+// next ...
 ```
 
-supabase-js 和 zod 也采用了类似的风格，只是细节不太一样，我会在引用出分享链接。
+supabase-js 和 zod 也采用了类似的风格，只是细节不太一样，这也增强了我的信心。
+
+```js
+// supabase-js 
+const { data, error } = await supabase
+  .from('countries')
+  .select()
+```
+
+```js
+// zod .safeParse
+stringSchema.safeParse(12);
+// => { success: false; error: ZodError }
+
+stringSchema.safeParse("billie");
+// => { success: true; data: 'billie' }
+```
+
+为什么我用 Array 而不是 Object 作为返回值？因为我觉得 ES6 以后数组取值也很简单。
 
 !!! 3. 我不会强迫症似的穷举所有的 Exception 类型
 
@@ -82,13 +96,17 @@ async function doSomething(): Promise<Data
 
 !!! 4. 我不会让 Exception 不能导致整个 App 崩溃
 
-例如 MVC web server app 的 exception 最好控制在 controller 层，不要因为个别的 API 异常导致整个 App 崩溃或者重启。
+MVC 风格的 web server app 的 exception 最好控制在 controller 层，不要因为个别的 API 异常导致整个 App 崩溃或者重启。
 
-类似 Remix.run 这样的框架甚至可以将 exception 控制在 component 级别，不过我不过分强求，只要别让整个 App 崩溃就行。
+类似 Remix.run 这样的框架甚至可以将 exception 控制在 UI component 级别，不过我不过分强求，只要别让整个 App 崩溃就行。
 
 !!! 5. 我会适当记录 Exception log
 
 refs
 
-* supabse-js error handling
-* zod.dev error handling
+* [[supabse-js error handling|https://supabase.com/docs/reference/javascript/select]]
+* [[zod.dev error handling|https://zod.dev/?id=safeparse]]
+
+备注：
+
+{{tj-style}}
