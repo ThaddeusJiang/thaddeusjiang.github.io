@@ -19,12 +19,12 @@
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
 <title>2023-08-22 error handling ~ TJ (Thaddeus Jiang)</title>
-<meta name="description" content="这是我的个人风格，不奢求成为主流，只希望将来有机会合作的朋友能事先了解我的个人风格。">
+<meta name="description" content="对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。">
 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://thaddeusjiang.com/2023-08-22-error-handling" />
 <meta property="og:title" content="2023-08-22 error handling ~ TJ (Thaddeus Jiang)" />
-<meta property="og:description" content="这是我的个人风格，不奢求成为主流，只希望将来有机会合作的朋友能事先了解我的个人风格。" />
+<meta property="og:description" content="对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。" />
 <meta property="og:image" content="https://og-image-zh.vercel.app/2023-08-22 error handling.png?fontSize=50px" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
@@ -32,7 +32,7 @@
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
 <meta name="twitter:title" content="2023-08-22 error handling ~ TJ (Thaddeus Jiang)" />
-<meta name="twitter:description" content="这是我的个人风格，不奢求成为主流，只希望将来有机会合作的朋友能事先了解我的个人风格。" />
+<meta name="twitter:description" content="对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。" />
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
 
 <!-- Google tag (gtag.js) -->
@@ -83,7 +83,7 @@
             <h1 class="subtitle">2023-08-22 error handling</h1>
             <hr>
 
-            <blockquote><div>这是我的个人风格，不奢求成为主流，只希望将来有机会合作的朋友能事先了解我的个人风格。</div></blockquote><p>首先，对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。</p><p>先说 error handling 需要解决哪些问题？</p><ol><li>不能放任 error 使其导致程序崩溃</li><li>不能让 error handling 多到影响原本的功能</li></ol><p>我常用的编程语言有 TypeScript 和 Elixir，Elixir 不用说了，我很喜欢它的 error handling 机制。</p><p>我主要分享一下我自己使用 TypeScript 时的 error handling 风格。</p><h3 class="">1. 80% 的情况下，我会直接使用 try-catch 处理 Promise rejected 状态，不用其他奇技淫巧</h3><h3 class="">2. 我会尽量避免 Nested try blocks，形如：</h3><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">try</span> {
+            <p>对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。</p><p>先说 error handling 需要解决哪些问题？</p><ol><li>不能放任 error 使其导致程序崩溃</li><li>不能让 error handling 多到影响原本的功能</li></ol><p>我常用的编程语言有 TypeScript 和 Elixir，Elixir 不用说了，我很喜欢它的 error handling 机制。</p><p>我主要分享一下我自己使用 TypeScript 时的 error handling 风格。</p><h3 class="">1. 80% 的情况下，我会直接使用 try-catch 处理 Exception，不用其他奇技淫巧</h3><h3 class="">2. 我会尽量避免 Nested try blocks，形如：</h3><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">try</span> {
   <span class="hljs-keyword">try</span> {
     <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;oops&quot;</span>);
   } <span class="hljs-keyword">finally</span> {
@@ -91,23 +91,30 @@
   }
 } <span class="hljs-keyword">catch</span> (ex) {
   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;outer&quot;</span>, ex.<span class="hljs-property">message</span>);
-}</code></pre><p>为了避免嵌套 try blocks，我会参考 Elixir/golang/Swift 的方式返回一个数组包含 [isError, data/error]</p><p>形如：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">doSomething</span>(<span class="hljs-params"></span>) {
+}</code></pre><p>为了避免嵌套 try blocks，我会参考 Elixir/golang/Swift 的方式返回一个数组包含 [isError, data/error]</p><p>形如：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// </span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">doSomething</span>(<span class="hljs-params"></span>) {
   <span class="hljs-keyword">try</span> {
-    <span class="hljs-comment">// await ...</span>
     <span class="hljs-keyword">return</span> [<span class="hljs-literal">false</span>, data]
   } <span class="hljs-keyword">catch</span>(error) {
     <span class="hljs-keyword">return</span> [<span class="hljs-literal">true</span>, error]
   }
 }
 
-<span class="hljs-keyword">const</span> [isError, data] = <span class="hljs-keyword">await</span> <span class="hljs-title function_">doSomething</span>()
+<span class="hljs-keyword">const</span> [isError, data] = <span class="hljs-title function_">doSomething</span>()
 <span class="hljs-keyword">if</span>(isError) {
   <span class="hljs-comment">// data is error</span>
-  <span class="hljs-comment">// fallback</span>
+  <span class="hljs-comment">// your fallback</span>
 }
+<span class="hljs-comment">// data is expected data</span>
+<span class="hljs-comment">// next ...</span></code></pre><p>supabase-js 和 zod 也采用了类似的风格，只是细节不太一样，这也增强了我的信心。</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// supabase-js </span>
+<span class="hljs-keyword">const</span> { data, error } = <span class="hljs-keyword">await</span> supabase
+  .<span class="hljs-title function_">from</span>(<span class="hljs-string">&#x27;countries&#x27;</span>)
+  .<span class="hljs-title function_">select</span>()</code></pre><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// zod .safeParse</span>
+stringSchema.<span class="hljs-title function_">safeParse</span>(<span class="hljs-number">12</span>);
+<span class="hljs-comment">// =&gt; { success: false; error: ZodError }</span>
 
-<span class="hljs-comment">// normal data</span>
-<span class="hljs-comment">// next </span></code></pre><p>supabase-js 和 zod 也采用了类似的风格，只是细节不太一样，我会在引用出分享链接。</p><h3 class="">3. 我不会强迫症似的穷举所有的 Exception 类型</h3><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// good</span>
+stringSchema.<span class="hljs-title function_">safeParse</span>(<span class="hljs-string">&quot;billie&quot;</span>);
+<span class="hljs-comment">// =&gt; { success: true; data: &#x27;billie&#x27; }</span></code></pre><p>为什么我用 Array 而不是 Object 作为返回值？因为我觉得 ES6 以后数组取值也很简单。</p><h3 class="">3. 我不会强迫症似的穷举所有的 Exception 类型</h3><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// good</span>
 <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">doSomething</span>(<span class="hljs-params"></span>): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-title class_">Data</span>&gt;
 
 <span class="hljs-comment">// bad</span>
@@ -116,7 +123,7 @@
       | <span class="hljs-title class_">ChargeFeeHasNotBeenPaidException</span>
       | <span class="hljs-title class_">BadRequestException</span>
       | <span class="hljs-title class_">UnusableFacilityException</span>
-      | <span class="hljs-title class_">NotBusinessDayException</span>&gt;</code></pre><p>当然，npm package, public library 除外。</p><h3 class="">4. 我不会让 Exception 不能导致整个 App 崩溃</h3><p>例如 MVC web server app 的 exception 最好控制在 controller 层，不要因为个别的 API 异常导致整个 App 崩溃或者重启。</p><p>类似 Remix.run 这样的框架甚至可以将 exception 控制在 component 级别，不过我不过分强求，只要别让整个 App 崩溃就行。</p><h3 class="">5. 我会适当记录 Exception log</h3><p>refs</p><ul><li>supabse-js error handling</li><li>zod.dev error handling</li></ul>
+      | <span class="hljs-title class_">NotBusinessDayException</span>&gt;</code></pre><p>当然，npm package, public library 除外。</p><h3 class="">4. 我不会让 Exception 不能导致整个 App 崩溃</h3><p>MVC 风格的 web server app 的 exception 最好控制在 controller 层，不要因为个别的 API 异常导致整个 App 崩溃或者重启。</p><p>类似 Remix.run 这样的框架甚至可以将 exception 控制在 UI component 级别，不过我不过分强求，只要别让整个 App 崩溃就行。</p><h3 class="">5. 我会适当记录 Exception log</h3><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://supabase.com/docs/reference/javascript/select" rel="noopener noreferrer" target="_blank">supabse-js error handling</a></li><li><a class="tc-tiddlylink-external" href="https://zod.dev/?id=safeparse" rel="noopener noreferrer" target="_blank">zod.dev error handling</a></li></ul><p>备注：</p><blockquote><div>这是我的个人风格，不奢求成为主流，只希望将来有机会合作的朋友能事先了解我的个人风格。</div></blockquote>
           </div>          
       </div>
   </div>
