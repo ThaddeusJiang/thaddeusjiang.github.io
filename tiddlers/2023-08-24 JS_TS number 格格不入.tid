@@ -1,0 +1,119 @@
+created: 20230824124743786
+modified: 20230824134830966
+published: 20230824134406933
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2023-08-24 JS/TS number 格格不入
+type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+imo: TypeScript number 类型作用范围模糊，JavaScript number 很容易产生 bug，ES bigint 限制太多，long.js 能不用就别用。
+<<<TJ
+
+TypeScript 的 number 类型因为需要兼容 JavaScript，所以没有 int32 int64 等细分类型，数值范围也和其他静态语言不一样，使得 TypeScript number 与其他编程语言格格不入。
+
+分享几个我遇到的问题以及解决方案：
+
+!!! 1. JS/TS number 全身都是 bug
+
+JS/TS number 因为要同时兼容 int float double 导致它的精度很迷，与强类型工具（如 RDB, protobuf）的数值范围上有差异，非常容易产生 bug。
+
+JS 最大安全整数（能够精确表示的整数）为 9,007,199,254,740,991（2^^53^^ - 1），远小于 int64 (2^^63^^ - 1)。所以如果你在 RDB 中使用 int64 类型，在 JS 中就会溢出。
+
+Example: 2^^64^^-1 is 1844674407370955''1615'' but in JavaScript it evaluates to 1844674407370955''2000''.
+
+> 使用 long.js 可以弥补这个设计缺陷。
+
+但是 long.js 也有问题，基本上和 bigint 的问题一样，我们一起说。
+
+
+!!! 2. JS/TS bigint 限制超多
+
+bigint 虽然是整数，但是在使用上有很多限制，例如：
+
+# BigInt 与 Number 转换会损失精度
+# BigInt 在 JSON.stringify() 会引发 TypeError
+# BigInt 不能使用 Math 中方法
+
+天呐🤷，这么多限制，还不容不用呢。反正我从来不用 bigint。
+
+如果真的需要处理超大数值，我推荐使用 bignumber.js，我可不想自己写数值运算，bignumber.js 提供了很多开箱即用的方法：
+
+<<img "https://raw.githubusercontent.com/MikeMcl/bignumber.js/gh-pages/API.png" "bignumber.js" >>
+
+
+!! 3. int32 int64 对应 TS 类型没有统一标准
+
+Prisma scheme 支持 BigInt 类型，对应 TS BigInt 类型
+
+Protocol Buffers 的 int32 int64 类型分别对应 TS number 和 Long
+
+如果你同时使用 Prisma BigInt 和 protobuf int64 的话，你带代码中就会出现大量相互转换的 utils，类似下面这种：
+
+> 👇这些代码都是我从其他人的代码中 copy 过来的，不是我写的，我也永远不用写这种代码。
+
+```ts
+export class BigIntUtil {
+  static toNumber(b: bigint): number {
+    const n = parseInt(b.toString());
+    if (!Number.isSafeInteger(n)) {
+      throw new Error(
+        'Fail to cast bigint to number. Value is out of safe integer range.',
+      );
+    }
+    return n;
+  }
+
+  static from(v: string | number | bigint): bigint {
+    if (typeof v === 'bigint') {
+      return v;
+    }
+    return BigInt(v);
+  }
+}
+```
+
+```ts
+import Long from 'long';
+
+export class LongUtil {
+  public static fromBigInt(num: bigint): Long;
+  public static fromBigInt(num: bigint | undefined | null): Long | undefined;
+  public static fromBigInt(num: bigint | undefined | null): Long | undefined {
+    if (num === undefined || num === null) {
+      return undefined;
+    }
+    return Long.fromNumber(Number(num));
+  }
+
+  public static toBigInt(num: Long): bigint;
+  public static toBigInt(num: Long | undefined | null): bigint | undefined;
+  public static toBigInt(num: Long | undefined | null): bigint | undefined {
+    if (num === undefined || num === null) {
+      return undefined;
+    }
+    return BigInt(num.toNumber());
+  }
+}
+```
+
+```ts
+export class JsonUtil {
+  public static stringify(data: Record<string, any>): string {
+    return JSON.stringify(data, (k, v) => {
+      if (typeof v === 'bigint') {
+        return v.toString();
+      }
+      return v;
+    });
+  }
+}
+```
+
+你有关于 JS/TS number 的故事吗？欢迎与我分享。
+
+refs:
+
+* [[long.js|https://www.npmjs.com/package/long]]
+* [[bignumber.js|https://www.npmjs.com/package/bignumber.js]]
+* [[Prisma BigInt|https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields#working-with-bigint]]
+* [[protobuf int64|https://protobuf.dev/programming-guides/proto3/]]
