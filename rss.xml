@@ -5,6 +5,90 @@
    <link>https://thaddeusjiang.com</link>
    <description>专注；分享；寻找。</description>
    <item>
+      <title>2023-08-24 JS/TS number 格格不入</title>
+      <link>https://thaddeusjiang.com/2023-08-24-js-ts-number-ge-ge-bu-ru</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-08-24 JS/TS number 格格不入</h1>
+            <hr>
+
+            <blockquote class="tc-quote tc-big-quote"><p>imo: TypeScript number 类型作用范围模糊，JavaScript number 很容易产生 bug，ES bigint 限制太多，long.js 能不用就别用。
+</p><cite>TJ</cite></blockquote><p>TypeScript 的 number 类型因为需要兼容 JavaScript，所以没有 int32 int64 等细分类型，数值范围也和其他静态语言不一样，使得 TypeScript number 与其他编程语言格格不入。</p><p>分享几个我遇到的问题以及解决方案：</p><h3 class="">1. JS/TS number 全身都是 bug</h3><p>JS/TS number 因为要同时兼容 int float double 导致它的精度很迷，与强类型工具（如 RDB, protobuf）的数值范围上有差异，非常容易产生 bug。</p><p>JS 最大安全整数（能够精确表示的整数）为 9,007,199,254,740,991（2<sup>53</sup> - 1），远小于 int64 (2<sup>63</sup> - 1)。所以如果你在 RDB 中使用 int64 类型，在 JS 中就会溢出。</p><p>Example: 2<sup>64</sup>-1 is 1844674407370955<strong>1615</strong> but in JavaScript it evaluates to 1844674407370955<strong>2000</strong>.</p><blockquote><div>使用 long.js 可以弥补这个设计缺陷。</div></blockquote><p>但是 long.js 也有问题，基本上和 bigint 的问题一样，我们一起说。</p><h3 class="">2. JS/TS bigint 限制超多</h3><p>bigint 虽然是整数，但是在使用上有很多限制，例如：</p><ol><li>BigInt 与 Number 转换会损失精度</li><li>BigInt 在 JSON.stringify() 会引发 TypeError</li><li>BigInt 不能使用 Math 中方法</li></ol><p>天呐🤷，这么多限制，还不容不用呢。反正我从来不用 bigint。</p><p>如果真的需要处理超大数值，我推荐使用 bignumber.js，我可不想自己写数值运算，bignumber.js 提供了很多开箱即用的方法：</p><h2 class="">3. int32 int64 对应 TS 类型没有统一标准</h2><p>Prisma scheme 支持 BigInt 类型，对应 TS BigInt 类型</p><p>Protocol Buffers 的 int32 int64 类型分别对应 TS number 和 Long</p><p>如果你同时使用 Prisma BigInt 和 protobuf int64 的话，你带代码中就会出现大量相互转换的 utils，类似下面这种：</p><blockquote><div>👇这些代码都是我从其他人的代码中 copy 过来的，不是我写的，我也永远不用写这种代码。</div></blockquote><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BigIntUtil</span> {
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">toNumber</span>(<span class="hljs-attr">b</span>: bigint): <span class="hljs-built_in">number</span> {
+    <span class="hljs-keyword">const</span> n = <span class="hljs-built_in">parseInt</span>(b.<span class="hljs-title function_">toString</span>());
+    <span class="hljs-keyword">if</span> (!<span class="hljs-title class_">Number</span>.<span class="hljs-title function_">isSafeInteger</span>(n)) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(
+        <span class="hljs-string">&#x27;Fail to cast bigint to number. Value is out of safe integer range.&#x27;</span>,
+      );
+    }
+    <span class="hljs-keyword">return</span> n;
+  }
+
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">from</span>(<span class="hljs-attr">v</span>: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | bigint): bigint {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> v === <span class="hljs-string">&#x27;bigint&#x27;</span>) {
+      <span class="hljs-keyword">return</span> v;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-title class_">BigInt</span>(v);
+  }
+}</code></pre><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Long</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;long&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LongUtil</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: bigint): <span class="hljs-title class_">Long</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: bigint | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: bigint | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> {
+    <span class="hljs-keyword">if</span> (num === <span class="hljs-literal">undefined</span> || num === <span class="hljs-literal">null</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Long</span>.<span class="hljs-title function_">fromNumber</span>(<span class="hljs-title class_">Number</span>(num));
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span>): bigint;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): bigint | <span class="hljs-literal">undefined</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): bigint | <span class="hljs-literal">undefined</span> {
+    <span class="hljs-keyword">if</span> (num === <span class="hljs-literal">undefined</span> || num === <span class="hljs-literal">null</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-title class_">BigInt</span>(num.<span class="hljs-title function_">toNumber</span>());
+  }
+}</code></pre><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JsonUtil</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">stringify</span>(<span class="hljs-attr">data</span>: <span class="hljs-title class_">Record</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">any</span>&gt;): <span class="hljs-built_in">string</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data, <span class="hljs-function">(<span class="hljs-params">k, v</span>) =&gt;</span> {
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> v === <span class="hljs-string">&#x27;bigint&#x27;</span>) {
+        <span class="hljs-keyword">return</span> v.<span class="hljs-title function_">toString</span>();
+      }
+      <span class="hljs-keyword">return</span> v;
+    });
+  }
+}</code></pre><p>你有关于 JS/TS number 的故事吗？欢迎与我分享。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.npmjs.com/package/long" rel="noopener noreferrer" target="_blank">long.js</a></li><li><a class="tc-tiddlylink-external" href="https://www.npmjs.com/package/bignumber.js" rel="noopener noreferrer" target="_blank">bignumber.js</a></li><li><a class="tc-tiddlylink-external" href="https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields#working-with-bigint" rel="noopener noreferrer" target="_blank">Prisma BigInt</a></li><li><a class="tc-tiddlylink-external" href="https://protobuf.dev/programming-guides/proto3/" rel="noopener noreferrer" target="_blank">protobuf int64</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+]]></description>
+      <pubDate>Thu, 24 August 2023 13:44:6 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-08-24-js-ts-number-ge-ge-bu-ru</guid>      
+   </item>
+
+   <item>
       <title>2023-08-22 error handling</title>
       <link>https://thaddeusjiang.com/2023-08-22-error-handling</link>
 			<description><![CDATA[
@@ -116,44 +200,6 @@ stringSchema.<span class="hljs-title function_">safeParse</span>(<span class="hl
 ]]></description>
       <pubDate>Tue, 15 August 2023 6:56:45 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2023-08-15-wei-lai-cheng-xu-yuan-ye-ke-yi-shi-ren-jian-guo-bao</guid>      
-   </item>
-
-   <item>
-      <title>2023-08-13 《ReSkilling》读后感</title>
-      <link>https://thaddeusjiang.com/2023-08-13-reskilling-du-hou-gan</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">TJ (Thaddeus Jiang)</h1>
-                <p class="subtitle">专注；分享；寻找。</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-08-13 《ReSkilling》读后感</h1>
-            <hr>
-
-            <p>日本的盂兰盆节假期，因为台风没有远行，看完的第一本书《ReSkilling》。虽然书中很多内容我并不是很同意，但是也有一些读后感想记录一下。</p><p>很久没有写 blog 了，😂
-其实这段时间也写了很多内容，只是没有整理到 blog 而已，将来有时间分享出来。</p><p>言归正传，我谈谈自己对于《ReSkilling》这本书的读后感。</p><p>首先，我很喜欢这本书的标题，感觉和“终身学习”一样，是一个积极的词，对人生有益。</p><p>其次，我觉得这本书开头几章写的不错。简明扼要地介绍了书名的由来，以及世界范围和日本国内 ReSkilling 的发展和现状。作者有美国留学经历，并一直供职于跨国企业，所以他的资料收集和总结能力非常好，客观事实的论述比较有信服力。</p><p>但是我觉得这本书在实操方向价值不高，作者过度夸大了计算机技术的作用，书中很多事例和方案都偏向让非 IT 从业人员自学 IT 知识。我并不是反对非 IT 从业人员学习 IT 知识，但是我觉得没有必要所有人都懂的如何配置网络，没有必要所有人都知道 DNS 是什么，更没有必要学习 HTML, JavaScript, CSS 之类的 web UI 开发技术。</p><p>其实很多优秀的人并不是什么都会的全能型选手，例如：巴菲特不懂网络技术，Linus 也不会开发 Web UI，但是他们都是世界级专家。术业有专攻，有时候遇到自己不擅长的领域合理委外才是更聪明的做法。</p><p>书中提到工作多年的社会人如何新技能的几种方法我觉得还挺有意思的，一种是“技能交换”，另外一种是“拜师学艺”。</p><p>技能交换，即：“请教我xxx，作为回报我可以教你yyy”。这个挺有意思，无形中形成了一个学习小组，虽然对于有快速学习能力并且有强大自制力的人来说这种形式可能很低效，但是我很喜欢。其实我愿意尝试这种形式，并且我认为我有能力快速教会别人一些技术，例如：如何使用 React 开发网页，如何使用 RDB 管理数据，如何 self host 一个开源的论坛等等。如果有人能教一些 TiddlyWiki 或者 ESP32 的开发技巧，我还是挺愿意进行技能交换的。</p><p>拜师学艺，即：“到某人身边学习”。作者给的方法是多去线下活动混脸熟，然后找机会多交流，并且从实际问题出发请教对方。这显然有点 old school 了，但是我喜欢。我觉得目前学习很多入门级技能的门槛的确变低了，很多内容 YouTube、blog，甚至抖音上都能学会，但是精通一门技术的门槛却变高了，大家不愿意请教他人了，大家不愿意在实际项目中慢慢体会过程了，大家变得自负以为自己看看视频看看书就能学会任何内容了。我一直有一个想法，非常个人，不喜勿喷。我认为：经验是无法通过任何语言或文字学会的，必须亲身体会。借用一个例子：我说：青春期第一次牵暗恋女生的手时是一种触电的感觉。如果你没有亲身体会，你是无法理解所谓“触电”是一种什么感觉的。说不定你以为是一种疼痛感呢。</p><p>作者在第五章有一个爆论“不 ReSkilling 人生将穷途末路”。这个观点和这一章讲的故事让我非常抵触，甚至产生了生理反感。fuck！！！这就是在贩卖焦虑。作者在这一章编写了一个故事的两个结局，不 ReSkilling 的主人公很惨，ReSkilling 的主人公很顺利。😂 这太扯。我看过一些书，也听过一些名人分享，我渐渐地理解了一件事：人生的境遇很大程度上是运气决定的，如果一个人运气不好，那么做什么都会不顺，反之即使不做额外的努力也可以风生水起。当然我不是说努力无用，我只是觉得没有必要贩卖焦虑，没有必要编故事吓人。</p><p>最后，想分享一个我自己的真实的故事，和一些自己真实的想法。我大学毕业后工作的第一家公司叫 DreamArts.co.jp，这家公司的新人培训非常强调一句话：“Be knowledge worker, not skills worker.”因为是非常重要的思想，被刻意训练了3年之久，导致我可能今生会记得。knowledge worker 关注方法论而不是方法，关注整体而不是细节，合理委外而不是十项全能。我的思维模式中 knowledge 大于 skill，但是这本书侧重 skill，和我的思维模式相反，所以即使我认同书中部分内容，整体上还是持反对态度。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://baike.baidu.com/item/%E8%B4%A9%E5%8D%96%E7%84%A6%E8%99%91/57336792" rel="noopener noreferrer" target="_blank">贩卖焦虑</a></li><li><a class="tc-tiddlylink-external" href="https://tomorrowtodayglobal.com/2005/06/26/the-difference-between-knowledge-and-skills-workers/" rel="noopener noreferrer" target="_blank">The difference between knowledge and skills workers</a></li></ul>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-]]></description>
-      <pubDate>Sun, 13 August 2023 14:48:22 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2023-08-13-reskilling-du-hou-gan</guid>      
    </item>
 
 </channel>

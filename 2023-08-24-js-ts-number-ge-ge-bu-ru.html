@@ -1,0 +1,208 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.1" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2023-08-24 JS/TS number 格格不入 ~ TJ (Thaddeus Jiang)</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2023-08-24-js-ts-number-ge-ge-bu-ru" />
+<meta property="og:title" content="2023-08-24 JS/TS number 格格不入 ~ TJ (Thaddeus Jiang)" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2023-08-24 JS/TS number 格格不入.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2023-08-24 JS/TS number 格格不入 ~ TJ (Thaddeus Jiang)" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <p class="subtitle">专注；分享；寻找。</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-08-24 JS/TS number 格格不入</h1>
+            <hr>
+
+            <blockquote class="tc-quote tc-big-quote"><p>imo: TypeScript number 类型作用范围模糊，JavaScript number 很容易产生 bug，ES bigint 限制太多，long.js 能不用就别用。
+</p><cite>TJ</cite></blockquote><p>TypeScript 的 number 类型因为需要兼容 JavaScript，所以没有 int32 int64 等细分类型，数值范围也和其他静态语言不一样，使得 TypeScript number 与其他编程语言格格不入。</p><p>分享几个我遇到的问题以及解决方案：</p><h3 class="">1. JS/TS number 全身都是 bug</h3><p>JS/TS number 因为要同时兼容 int float double 导致它的精度很迷，与强类型工具（如 RDB, protobuf）的数值范围上有差异，非常容易产生 bug。</p><p>JS 最大安全整数（能够精确表示的整数）为 9,007,199,254,740,991（2<sup>53</sup> - 1），远小于 int64 (2<sup>63</sup> - 1)。所以如果你在 RDB 中使用 int64 类型，在 JS 中就会溢出。</p><p>Example: 2<sup>64</sup>-1 is 1844674407370955<strong>1615</strong> but in JavaScript it evaluates to 1844674407370955<strong>2000</strong>.</p><blockquote><div>使用 long.js 可以弥补这个设计缺陷。</div></blockquote><p>但是 long.js 也有问题，基本上和 bigint 的问题一样，我们一起说。</p><h3 class="">2. JS/TS bigint 限制超多</h3><p>bigint 虽然是整数，但是在使用上有很多限制，例如：</p><ol><li>BigInt 与 Number 转换会损失精度</li><li>BigInt 在 JSON.stringify() 会引发 TypeError</li><li>BigInt 不能使用 Math 中方法</li></ol><p>天呐🤷，这么多限制，还不容不用呢。反正我从来不用 bigint。</p><p>如果真的需要处理超大数值，我推荐使用 bignumber.js，我可不想自己写数值运算，bignumber.js 提供了很多开箱即用的方法：</p><p><figure>
+  <div style="display: flex; justify-content: center;">
+  <img alt="bignumber.js" src="https://raw.githubusercontent.com/MikeMcl/bignumber.js/gh-pages/API.png" style="margin-left: auto; margin-right: auto;">
+  </div>
+  <figcaption style="text-align: center; font-style: italic; opacity: 0.8;">bignumber.js</figcaption>
+</figure></p><h2 class="">3. int32 int64 对应 TS 类型没有统一标准</h2><p>Prisma scheme 支持 BigInt 类型，对应 TS BigInt 类型</p><p>Protocol Buffers 的 int32 int64 类型分别对应 TS number 和 Long</p><p>如果你同时使用 Prisma BigInt 和 protobuf int64 的话，你带代码中就会出现大量相互转换的 utils，类似下面这种：</p><blockquote><div>👇这些代码都是我从其他人的代码中 copy 过来的，不是我写的，我也永远不用写这种代码。</div></blockquote><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BigIntUtil</span> {
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">toNumber</span>(<span class="hljs-attr">b</span>: bigint): <span class="hljs-built_in">number</span> {
+    <span class="hljs-keyword">const</span> n = <span class="hljs-built_in">parseInt</span>(b.<span class="hljs-title function_">toString</span>());
+    <span class="hljs-keyword">if</span> (!<span class="hljs-title class_">Number</span>.<span class="hljs-title function_">isSafeInteger</span>(n)) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(
+        <span class="hljs-string">&#x27;Fail to cast bigint to number. Value is out of safe integer range.&#x27;</span>,
+      );
+    }
+    <span class="hljs-keyword">return</span> n;
+  }
+
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">from</span>(<span class="hljs-attr">v</span>: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | bigint): bigint {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> v === <span class="hljs-string">&#x27;bigint&#x27;</span>) {
+      <span class="hljs-keyword">return</span> v;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-title class_">BigInt</span>(v);
+  }
+}</code></pre><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Long</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;long&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LongUtil</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: bigint): <span class="hljs-title class_">Long</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: bigint | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: bigint | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> {
+    <span class="hljs-keyword">if</span> (num === <span class="hljs-literal">undefined</span> || num === <span class="hljs-literal">null</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Long</span>.<span class="hljs-title function_">fromNumber</span>(<span class="hljs-title class_">Number</span>(num));
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span>): bigint;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): bigint | <span class="hljs-literal">undefined</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): bigint | <span class="hljs-literal">undefined</span> {
+    <span class="hljs-keyword">if</span> (num === <span class="hljs-literal">undefined</span> || num === <span class="hljs-literal">null</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-title class_">BigInt</span>(num.<span class="hljs-title function_">toNumber</span>());
+  }
+}</code></pre><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JsonUtil</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">stringify</span>(<span class="hljs-attr">data</span>: <span class="hljs-title class_">Record</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">any</span>&gt;): <span class="hljs-built_in">string</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data, <span class="hljs-function">(<span class="hljs-params">k, v</span>) =&gt;</span> {
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> v === <span class="hljs-string">&#x27;bigint&#x27;</span>) {
+        <span class="hljs-keyword">return</span> v.<span class="hljs-title function_">toString</span>();
+      }
+      <span class="hljs-keyword">return</span> v;
+    });
+  }
+}</code></pre><p>你有关于 JS/TS number 的故事吗？欢迎与我分享。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.npmjs.com/package/long" rel="noopener noreferrer" target="_blank">long.js</a></li><li><a class="tc-tiddlylink-external" href="https://www.npmjs.com/package/bignumber.js" rel="noopener noreferrer" target="_blank">bignumber.js</a></li><li><a class="tc-tiddlylink-external" href="https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields#working-with-bigint" rel="noopener noreferrer" target="_blank">Prisma BigInt</a></li><li><a class="tc-tiddlylink-external" href="https://protobuf.dev/programming-guides/proto3/" rel="noopener noreferrer" target="_blank">protobuf int64</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+
+
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+<footer class="section">    
+    <div class="content has-text-centered">
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="content has-text-centered">
+      <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink-external" href="https://twitter.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Twitter</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>
