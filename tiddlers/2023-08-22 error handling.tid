@@ -1,5 +1,5 @@
 created: 20230821135032029
-modified: 20230822011355402
+modified: 20230826075501473
 published: 20230822011355401
 tags: tj-style blog $:/plugins/adithyab/tiddlyjam/live
 title: 2023-08-22 error handling
@@ -102,10 +102,21 @@ MVC 风格的 web server app 的 exception 最好控制在 controller 层，不�
 
 !!! 5. 我会适当记录 Exception log
 
+!!! 6. error handling 我不采用 TDD
+
+如果要在动手开发功能前就想明白有多少种 errors 需要处理，对我来说有点难，或许尼古拉 特斯拉那样的大脑可以吧。
+
+实际 coding 时，我的 workflow
+
+# smoking mode 冒烟模式：忽略 error 先把正常流程完成，可运行。
+# big try-catch: 用一个 try-catch 包裹全部代码，防止 App 崩溃。
+# error handlings: 具体分析一下该使用 try-catch 还是 Result type。
+
 refs
 
-* [[supabse-js error handling|https://supabase.com/docs/reference/javascript/select]]
-* [[zod.dev error handling|https://zod.dev/?id=safeparse]]
+* supabse-js error handling example: https://supabase.com/docs/reference/javascript/select
+* zod.dev error handling example: https://zod.dev/?id=safeparse
+* Result type: https://en.wikipedia.org/wiki/Result_type
 
 备注：
 

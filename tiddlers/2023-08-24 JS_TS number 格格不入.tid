@@ -1,15 +1,13 @@
 created: 20230824124743786
-modified: 20230824134830966
+modified: 20230826080222318
 published: 20230824134406933
 tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2023-08-24 JS/TS number 格格不入
 type: text/vnd.tiddlywiki
 
-<<<.tc-big-quote
-imo: TypeScript number 类型作用范围模糊，JavaScript number 很容易产生 bug，ES bigint 限制太多，long.js 能不用就别用。
-<<<TJ
+imo: TypeScript number 类型定义模糊，JavaScript number 精度非主流，ECMAScript bigint 限制超多。JS/TS number 与其他编程语言显得格格不入。
 
-TypeScript 的 number 类型因为需要兼容 JavaScript，所以没有 int32 int64 等细分类型，数值范围也和其他静态语言不一样，使得 TypeScript number 与其他编程语言格格不入。
+不要妄想 TypeScript 可以拯救 JavaScript number，TypeScript 的 number 类型因为需要兼容 JavaScript，所以也没有 int32 int64 等细分类型，数值的精度范围也继承了 JavaScript 埋的坑。🤷
 
 分享几个我遇到的问题以及解决方案：
 
@@ -23,8 +21,7 @@ Example: 2^^64^^-1 is 1844674407370955''1615'' but in JavaScript it evaluates to
 
 > 使用 long.js 可以弥补这个设计缺陷。
 
-但是 long.js 也有问题，基本上和 bigint 的问题一样，我们一起说。
-
+但是 long.js 也有问题，个人建议能不用就别用。
 
 !!! 2. JS/TS bigint 限制超多
 
