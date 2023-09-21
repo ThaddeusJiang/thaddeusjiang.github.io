@@ -18,20 +18,20 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2023-08-22 error handling ~ TJ (Thaddeus Jiang)</title>
+<title>2023-08-22 TypeScript error handling ~ Thaddeus Jiang</title>
 <meta name="description" content="对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://thaddeusjiang.com/2023-08-22-error-handling" />
-<meta property="og:title" content="2023-08-22 error handling ~ TJ (Thaddeus Jiang)" />
+<meta property="og:url" content="https://thaddeusjiang.com/2023-08-22-typescript-error-handling" />
+<meta property="og:title" content="2023-08-22 TypeScript error handling ~ Thaddeus Jiang" />
 <meta property="og:description" content="对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。" />
-<meta property="og:image" content="https://og-image-zh.vercel.app/2023-08-22 error handling.png?fontSize=50px" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2023-08-22 TypeScript error handling.png?fontSize=50px" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="2023-08-22 error handling ~ TJ (Thaddeus Jiang)" />
+<meta name="twitter:title" content="2023-08-22 TypeScript error handling ~ Thaddeus Jiang" />
 <meta name="twitter:description" content="对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。" />
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
 
@@ -67,7 +67,7 @@
       <nav aria-label="main navigation" class="navbar" role="navigation">
         <div class="navbar-brand">
             <a href="./">
-                <h1 class="title">TJ (Thaddeus Jiang)</h1>
+                <h1 class="title">Thaddeus Jiang</h1>
                 <p class="subtitle">专注；分享；寻找。</p>
             </a>
         </div>
@@ -80,7 +80,7 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="subtitle">2023-08-22 error handling</h1>
+            <h1 class="subtitle">2023-08-22 TypeScript error handling</h1>
             <hr>
 
             <p>对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。</p><p>先说 error handling 需要解决哪些问题？</p><ol><li>不能放任 error 使其导致程序崩溃</li><li>不能让 error handling 多到影响原本的功能</li></ol><p>我常用的编程语言有 TypeScript 和 Elixir，Elixir 不用说了，我很喜欢它的 error handling 机制。</p><p>我主要分享一下我自己使用 TypeScript 时的 error handling 风格。</p><h3 class="">1. 80% 的情况下，我会直接使用 try-catch 处理 Exception，不用其他奇技淫巧</h3><h3 class="">2. 我会尽量避免 Nested try blocks，形如：</h3><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">try</span> {
