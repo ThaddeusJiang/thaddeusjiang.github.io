@@ -1,8 +1,8 @@
 created: 20230821135032029
-modified: 20230826075501473
+modified: 20230921014330344
 published: 20230822011355401
 tags: tj-style blog $:/plugins/adithyab/tiddlyjam/live
-title: 2023-08-22 error handling
+title: 2023-08-22 TypeScript error handling
 type: text/vnd.tiddlywiki
 
 对于 error handling，我的风格碰巧和 Ruby 作者 Matz 一致，虽然是巧合，但是增加了我的信心。
