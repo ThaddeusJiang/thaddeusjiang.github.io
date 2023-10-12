@@ -1,0 +1,60 @@
+created: 20231012064659436
+modified: 20231012070643901
+published: 20231012070637043
+tags: blog $:/plugins/adithyab/tiddlyjam/live work
+title: 2023-10-12 Nest.js Validation Tips
+type: text/vnd.tiddlywiki
+
+imo: 如果你可以选择，推荐使用 zod.dev 作为 JS/TS validation library。
+
+Nest.js Validation Tips:
+
+# Use `@IsInt()`, don't use `ParseIntPipe`
+# Use `@IsDateString()`, don't use `@IsDate()`
+# Use `@IsOptional()`, since TypeScript ? doesn't work
+# Use `@Type(() => Number)` instead of `Number(str)` , use `@Int` instead of `parseInt(str)`
+
+推荐直接使用 class-transformer-validator，
+
+```sh
+npm install class-transformer-validator --save
+```
+
+因为单独使用 class-validator 和 class-transformer 让人沮丧。
+
+
+!! imo: Nest.js 这种基于注解的框架和 TypeScript 一起使用让人十分困惑。
+
+@IsOptional() 和 ? 让人困惑。
+
+> 可选属性用 library 还是 TypeScript 呢？
+
+```ts
+  @IsInt()
+  @IsOptional()
+  offset: number;
+
+  @IsInt()
+  limit?: number;
+```
+
+@Type(() => Date) 和 :string 也让人困惑。
+
+> 类型转换用注解还是代码呢？
+
+```ts
+  @IsDate()
+  @Type(() => Date) 
+  dateFrom: string;
+
+  @IsDateString()
+  dateTo: Date;
+```
+
+
+refs
+
+* [[NestJS Validation|https://docs.nestjs.com/techniques/validation#explicit-conversion]]
+* [[class-transformer-validator|https://github.com/MichalLytek/class-transformer-validator]]
+* [[class-validator|https://github.com/typestack/class-validator]]
+* [[class-transformer|https://github.com/typestack/class-transformer]]
