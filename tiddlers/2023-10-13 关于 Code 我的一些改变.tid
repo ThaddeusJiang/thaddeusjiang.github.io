@@ -1,0 +1,263 @@
+created: 20231013032714474
+modified: 20231013050116228
+published: 20231013050102945
+tags: blog $:/plugins/adithyab/tiddlyjam/live work
+title: 2023-10-13 关于 Code 我的一些改变
+type: text/vnd.tiddlywiki
+
+本来想写《使用 React.js 后我有哪些改变？》，写完后发现我的改变不仅仅是 React.js 相关，还有一些代码周边的内容。
+
+!! 1. File Structure: 放弃按代码类型组织，选择按使用频度组织
+
+使用 React.js 之前，我是按照代码类型进行组织文件结构的。HTML 放在 views 文件夹，JS 放在 scripts 文件夹，CSS 放在 styles 文件夹。文件结构如下：
+
+```
+├── scripts
+│   ├── index.js
+│   ├── login.js
+│   └── settings.js
+├── styles
+│   ├── index.css
+│   ├── login.css
+│   └── settings.css
+└── views
+    ├── index.html
+    ├── login.html
+    └── settings.html
+```
+
+使用 React.js 之后，我开始按代码被调用、被修改的频度组织文件结构。登录页需要的 HTML JS CSS 都放在 login 文件夹，管理页需要的 HTML JS CSS 都放在 settings 文件夹。文件结构如下：
+
+```
+├── index
+│   ├── index.css
+│   ├── index.js
+│   └── index.jsx
+├── login
+│   ├── login.css
+│   ├── login.js
+│   └── login.jsx
+└── settings
+    ├── settings.css
+    ├── settings.js
+    └── settings.jsx
+```
+
+这样做的好处是：
+
+# 每次新增 features 或者修改 bugs 的 diff changesets 更集中；
+# 在编辑器中进行文件夹跳跃更少，手指和大脑负担更小；
+# 已有功能的修改、重构、拆分、删除更简单。
+
+!!! imo: MVC 三层架构的 backend 项目也可以采用这种文件结构
+
+old style
+
+```
+├── controllers
+│   ├── index.controller.js
+│   ├── login.controller.js
+│   └── settings.controller.js
+├── services
+│   ├── index.service.js
+│   ├── login.service.js
+│   └── settings.service.js
+└── views
+    ├── index.htm
+    ├── login.htm
+    └── settings.htm
+```
+
+new style
+
+```
+├── index
+│   ├── index.controller.js
+│   ├── index.htm
+│   └── index.service.js
+├── login
+│   ├── login.controller.js
+│   ├── login.htm
+│   └── login.service.js
+└── settings
+    ├── settings.controller.js
+    ├── settings.htm
+    └── settings.service.js
+```
+
+
+!! 2. Import and Export: 放弃使用 class，使用 module 
+
+使用 React.js 之前，我使用 class 组织数据和功能，properties 和 methods 放在 class 中，并通过 class 使用。代码如下：
+
+```js
+// account.js
+export class Account {
+  name = "";
+  age = 0;
+
+  constructor({ name, age }) {
+    Account.validateAccount({ name, age });
+    this.name = name;
+    this.age = age;
+  }
+
+  getAccount() {
+    return {
+      name: this.name,
+      age: this.age,
+    };
+  }
+
+  setAccount({ name, age }) {
+    Account.validateAccount({ name, age });
+    this.name = name;
+    this.age = age;
+  }
+
+  static validateAccount({ name, age }) {
+    if (name.length <= 0) {
+      throw new Error("Name is required");
+    }
+
+    if (age < 0) {
+      throw new Error("Age must be greater than 0");
+    }
+  }
+
+  introduce() {
+    return `Hello, my name is ${this.name} and I am ${this.age} years old`;
+  }
+}
+
+// hello.js
+import { Account } from "account.js"
+
+const tj = new Account({ name: "TJ", age: 31 });
+tj.introduce()
+```
+
+使用 React.js 之后，我使用 module 组织数据和功能，数据就是最基本的变量，功能就是最基本的函数，它们可以被单独使用。代码如下：
+
+```js
+// account.js
+import z from "zod";
+export const AccountSchema = z.object({
+    name: z.string().min(1),
+    age: z.number().min(0),
+});
+
+export const introduce = async ({ name, age }) => {
+    return `Hello, my name is ${name} and I am ${age} years old`;
+};
+
+// hello.js
+import { AccountSchema, introduce } from "account.js"
+
+const tj = AccountSchema.parse({ name: "TJ", age: 31 });
+introduce(tj)
+```
+
+这样做的好处是：
+
+# plaintext object 比 class instance object 更容易理解，没有魔法
+# function 比 class method 更容易管理、拆分、测试，可以避免写出巨型代码块。
+# 代码行数少，阅读代码更轻松。
+
+
+!! 3. Coding: 放弃模版文件和注解等非标准特性，使用编程语言的标准特性
+
+使用 React.js 之前，我会使用一些模版技术。代码如下：
+
+```html
+// settings.vue
+<script>
+const items = [{ message: 'Foo' }, { message: 'Bar' }]
+</script>
+
+<template>
+    <h1 class="title">Settings</h1>
+    <li v-for="item in items">
+      {{ item.message }}
+    </li>
+</template>
+
+<style>
+.title {
+  color: red;
+  font-weight: bold;
+}
+</style>
+```
+
+使用 React.js 之后：
+
+```js
+// settings.jsx
+import "./settings.css";
+
+export function Settings() {
+  const items = [{ message: "Foo" }, { message: "Bar" }];
+  return (
+    <div>
+      <h1 class="title">Settings</h1>
+      <ul>
+        {items.map((item) => (
+          <li>{item.message}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+import "./settings.css"; 是 normal JS code, .map() 也是 normal JS code。
+
+!!!! 使用 React.js 之前，我会使用一些基于注解的框架。代码如下：
+
+```ts
+// OcpiListFilter.ts
+
+import { IsDateString, IsInt, IsOptional } from 'class-validator';
+import { Type } from 'class-transformer';
+
+export class OcpiListFilter {
+  @IsOptional()
+  @IsDateString()
+  dateFrom: string;
+
+  @IsOptional()
+  @IsDateString()
+  dateTo: string;
+
+  @IsOptional()
+  @IsInt()
+  @Type(() => Number)
+  offset: number;
+
+  @IsOptional()
+  @IsInt()
+  @Type(() => Number)
+  limit: number;
+}
+
+```
+
+使用 React.js 之后：
+
+```js
+import z from 'zod';
+
+const OcpiListFilterSchema = z.object({
+    dateFrom: z.string().date().optional(),
+    dateTo: z.string().date().optional(),
+    offset: z.number().int().optional(),
+    limit: z.number().int().optional(),
+});
+```
+
+没有注解，没有黑魔法，只是最普通函数（function）。
+
+!! 总结
+
+其实是很简单的几件小事，几句话就说清楚了。但是要展示 before and after 的代码，占用了很大篇幅，😂
