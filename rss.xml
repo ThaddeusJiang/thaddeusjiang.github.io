@@ -51,7 +51,8 @@
 └── settings
     ├── settings.css
     ├── settings.js
-    └── settings.jsx</code></pre><p>这样做的好处是：</p><ol><li>每次新增 features 或者修改 bugs 的 diff changesets 更集中；</li><li>在编辑器中进行文件夹跳跃更少，手指和大脑负担更小；</li><li>已有功能的修改、重构、拆分、删除更简单。</li></ol><h3 class="">imo: MVC 三层架构的 backend 项目也可以采用这种文件结构</h3><p>old style</p><pre><code>├── controllers
+    └── settings.jsx</code></pre><p>这样做的好处是：</p><ol><li>每次新增 features 或者修改 bugs 的 diff changesets 更集中；</li><li>在编辑器中进行文件夹跳跃更少，手指和大脑负担更小；</li><li>已有功能的修改、重构、拆分、删除更简单。</li></ol><blockquote class="tc-quote tc-big-quote"><p>传统的 MVC 三层架构项目也可以按代码使用频度整理文件架构。
+</p><cite>TJ</cite></blockquote><p>old style</p><pre><code>├── controllers
 │   ├── index.controller.js
 │   ├── login.controller.js
 │   └── settings.controller.js
@@ -73,7 +74,7 @@
 └── settings
     ├── settings.controller.js
     ├── settings.htm
-    └── settings.service.js</code></pre><h2 class="">2. Import and Export: 放弃使用 class，使用 module </h2><p>使用 React.js 之前，我使用 class 组织数据和功能，properties 和 methods 放在 class 中，并通过 class 使用。代码如下：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// account.js</span>
+    └── settings.service.js</code></pre><h2 class="">2. 代码重复利用单位从 class 变小的 function</h2><p>使用 React.js 之前，我使用 class 组织数据和功能，properties 和 methods 放在 class 中，并通过 class 使用。代码如下：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// account.js</span>
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Account</span> {
   name = <span class="hljs-string">&quot;&quot;</span>;
   age = <span class="hljs-number">0</span>;
@@ -131,7 +132,8 @@ tj.<span class="hljs-title function_">introduce</span>()</code></pre><p>使用 R
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">AccountSchema</span>, introduce } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;account.js&quot;</span>
 
 <span class="hljs-keyword">const</span> tj = <span class="hljs-title class_">AccountSchema</span>.<span class="hljs-title function_">parse</span>({ <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;TJ&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">31</span> });
-<span class="hljs-title function_">introduce</span>(tj)</code></pre><p>这样做的好处是：</p><ol><li>plaintext object 比 class instance object 更容易理解，没有魔法</li><li>function 比 class method 更容易管理、拆分、测试，可以避免写出巨型代码块。</li><li>代码行数少，阅读代码更轻松。</li></ol><h2 class="">3. Coding: 放弃模版文件和注解等非标准特性，使用编程语言的标准特性</h2><p>使用 React.js 之前，我会使用一些模版技术。代码如下：</p><pre class="hljs"><code class="html hljs">// settings.vue
+<span class="hljs-title function_">introduce</span>(tj)</code></pre><p>这样做的好处是：</p><ol><li>plaintext object 比 class instance object 更容易理解，没有魔法</li><li>function 比 class method 更容易管理、拆分、测试，可以避免写出巨型代码块。</li><li>代码行数少，阅读代码更轻松。</li></ol><blockquote class="tc-quote tc-big-quote"><p>CSS 代码重复利用单位也从 BEM class 变小到 utility class
+</p><cite>TJ</cite></blockquote><h2 class="">3. Coding: 放弃模版文件和注解等非标准特性，使用编程语言的标准特性</h2><p>使用 React.js 之前，我会使用一些模版技术。代码如下：</p><pre class="hljs"><code class="html hljs">// settings.vue
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
 <span class="hljs-keyword">const</span> items = [{ <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Foo&#x27;</span> }, { <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Bar&#x27;</span> }]
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
