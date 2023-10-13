@@ -1,5 +1,5 @@
 created: 20231013032714474
-modified: 20231013050116228
+modified: 20231013052441803
 published: 20231013050102945
 tags: blog $:/plugins/adithyab/tiddlyjam/live work
 title: 2023-10-13 关于 Code 我的一些改变
@@ -49,7 +49,9 @@ type: text/vnd.tiddlywiki
 # 在编辑器中进行文件夹跳跃更少，手指和大脑负担更小；
 # 已有功能的修改、重构、拆分、删除更简单。
 
-!!! imo: MVC 三层架构的 backend 项目也可以采用这种文件结构
+<<<.tc-big-quote
+传统的 MVC 三层架构项目也可以按代码使用频度整理文件架构。
+<<<TJ
 
 old style
 
@@ -86,7 +88,7 @@ new style
 ```
 
 
-!! 2. Import and Export: 放弃使用 class，使用 module 
+!! 2. 代码重复利用单位从 class 变小的 function
 
 使用 React.js 之前，我使用 class 组织数据和功能，properties 和 methods 放在 class 中，并通过 class 使用。代码如下：
 
@@ -164,6 +166,11 @@ introduce(tj)
 # function 比 class method 更容易管理、拆分、测试，可以避免写出巨型代码块。
 # 代码行数少，阅读代码更轻松。
 
+<<<.tc-big-quote
+CSS 代码重复利用单位也从 BEM class 变小到 utility class
+<<<TJ
+
+
 
 !! 3. Coding: 放弃模版文件和注解等非标准特性，使用编程语言的标准特性
 
@@ -211,7 +218,8 @@ export function Settings() {
 }
 ```
 
-import "./settings.css"; 是 normal JS code, .map() 也是 normal JS code。
+没有特殊语法，没有特殊文件类型，所有都是普通的 JS 代码。
+import "./settings.css" 是 normal JS code, .map() 也是 normal JS code。
 
 !!!! 使用 React.js 之前，我会使用一些基于注解的框架。代码如下：
 
