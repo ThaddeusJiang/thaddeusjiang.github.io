@@ -1,5 +1,5 @@
 created: 20210818131137787
-modified: 20220601014918719
+modified: 20231013021252696
 published: 20210818142837835
 tags: Azure Serverless GitHub blog $:/plugins/adithyab/tiddlyjam/live
 title: 2021-08-18 Deploying Serverless functions to Azure Function App
@@ -98,8 +98,7 @@ Azure Portal UI
 
 还做了一个简单的 service management System，等项目发布了，打算整理一下（移除敏感内容）后开源出来。
 
-----
 
-links
+refs
 
 * https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

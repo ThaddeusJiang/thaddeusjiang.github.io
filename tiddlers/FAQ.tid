@@ -1,13 +1,15 @@
 created: 20220313030411430
-modified: 20230826080820336
+modified: 20231013020033353
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: FAQ
 type: text/vnd.tiddlywiki
 
 
-* 我从哪里接触到这个技术？[[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
-* Quine 是什么？ [[https://en.wikipedia.org/wiki/Quine_(computing)]]
+* 我从哪里接触到这个技术？
+** [[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
+* Quine 是什么？ 
+** [[https://en.wikipedia.org/wiki/Quine_(computing)]]
 * 如何保证数字花园 100 年后依然可用
-*# 自举：[[https://en.wikipedia.org/wiki/Bootstrapping_(compilers)]]
+*# 自產生程式： https://tiddlywiki.com/#Quine
 *# 互联网档案馆备份： https://web.archive.org/web/*/thaddeusjiang.com
 *# Open Source: https://github.com/ThaddeusJiang/thaddeusjiang.github.io

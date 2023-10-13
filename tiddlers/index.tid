@@ -1,6 +1,6 @@
 created: 20220313022643471
 description: 在日本开发 SaaS 产品，爱猫、爱读书、爱大海
-modified: 20230524142408175
+modified: 20231013022547068
 name: HomePage
 tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals
 title: index
@@ -8,19 +8,14 @@ type: text/vnd.tiddlywiki
 
 {{$:/plugins/adithyab/tiddlyjam/renderer/base/header}} 
 
-<div class="container mt-4">
+<div class="container ">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
 
-      <div class="card">
-        <div class="card-content">
           <div class="content">
 
-      {{About}}
+      {{Links}}
 
           </div>
-        </div>
-      </div>
-
     </div>
 </div>
 
@@ -29,7 +24,7 @@ type: text/vnd.tiddlywiki
         <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[blog]!sort[created]limit[3]]">
             {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose}}
         </$list>
-        <p class="subtitle mt-5 has-text-centered">[[see more|blog]]</p>
+        <p class="subtitle mt-5 has-text-centered">[[See More|blog]]</p>
     </div>
 </div>
     

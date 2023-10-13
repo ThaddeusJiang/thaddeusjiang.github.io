@@ -1,6 +1,6 @@
 created: 20200806142756352
 creator: Adithya_
-modified: 20230313065733112
+modified: 20231013025147830
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/blog/body
@@ -25,3 +25,4 @@ type: text/vnd.tiddlywiki
   </div>
 </div>     
 
+{{$:/plugins/adithyab/tiddlyjam/renderer/blog/license}}
