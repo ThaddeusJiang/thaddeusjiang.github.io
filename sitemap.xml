@@ -405,7 +405,7 @@
 
    <url>
       <loc>.//2021-08-18-deploying-serverless-functions-to-azure-function-app</loc>
-      <lastmod>2022-06-01</lastmod>
+      <lastmod>2023-10-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -752,8 +752,8 @@
    </url>
 
    <url>
-      <loc>.//about</loc>
-      <lastmod>2023-10-04</lastmod>
+      <loc>.//aboutme</loc>
+      <lastmod>2023-10-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -771,7 +771,7 @@
 
    <url>
       <loc>.//faq</loc>
-      <lastmod>2023-08-26</lastmod>
+      <lastmod>2023-10-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -789,7 +789,7 @@
 
    <url>
       <loc>.//index</loc>
-      <lastmod>2023-05-24</lastmod>
+      <lastmod>2023-10-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
