@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20231013030407947
+modified: 20231206050559980
 modifier: TJ
 tags: 
 title: Welcome
@@ -10,8 +10,8 @@ type: text/vnd.tiddlywiki
 
 欢迎来到我的数字花园，使用 TiddlyWiki 构建，这意味着：
 
-* 这是一个 Quine (自产生程序)，輸出結果為程式自身源碼。
-* 整个应用程序只是一个 HTML 文件。（亦可用 Node.js 启动）
+* 这是一个自产生程序（Quine），輸出結果即程式源碼，content is code, code is content.
+* 整个应用程序只是一个 HTML 文件，零依赖，下载即用。（亦可用 Node.js 启动）
 * 开源免费，你也可以创建自己的数字花园。[[fork it|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]
 
 [[FAQ]]

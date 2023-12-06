@@ -1,0 +1,73 @@
+created: 20231206041254212
+modified: 20231206045641960
+published: 20231206045641959
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2023-11-14 ISO 8601
+type: text/vnd.tiddlywiki
+
+imo: 永远使用 ISO 8601 string 在 API 之间传递日期时间数据。
+
+!! Why?
+
+不同的编程语言对日期时间数据的实现有可能不同，但是 ISO 8601 Format 是相同的，始终是 `YYYY-MM-DDTHH:mm:ss.sssZ`。
+
+始终使用 ISO 8601 string 在 API 之间传递日期时间数据，可以有效的减少开发者造轮子；减少没有任何收益的技术实现讨论。
+
+并且 ISO 8601 string 是人类可读的，并且非常简单，任何智商正常的人都不需要额外学习就可以在大脑中进行对比、比较、简单运算。
+
+* 对比 ISO 8601 string：2023-12-06T23:00:00.000Z 和 2023-12-07T09:00:00.000Z 不相等
+* 比较 ISO 8601 string：2023-12-06T23:00:00.000Z 比 2023-12-07T09:00:00.000Z 小
+* 简单运算 ISO 8601 string：2023-12-06T23:00:00.000Z 加 10 小时等于 2023-12-07T09:00:00.000Z
+
+!! 我遇到过的 issues
+
+!!! 1. 日期时间数据在 console / log 中不可读，不能直接在大脑中运算。
+
+例如：现在时间是 2023-12-06T04:30:48.253Z，如果不使用 ISO 8601 format，大脑无法直接对当前时间进行简单比较和运算。
+
+```js
+const now = new Date()
+now
+// Wed Dec 06 2023 13:28:53 GMT+0900 (Japan Standard Time)
+```
+
+使用 ISO 8601 format 就简单多了
+
+```js
+now.toISOString()
+// '2023-12-06T04:30:48.253Z'
+```
+
+!!! 2. 某些项目使用 google/protobuf/Timestamp 类型传递日期时间数据，不仅难以阅读，且容易造成不必要的 bug。
+
+请问：谁能回答下面 timestamp 的日期和时间？
+
+```js
+// https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/timestamp.proto
+message Timestamp {
+  int64 seconds = 1;
+  int32 nanos = 2;
+}
+
+const timestamp = {
+  seconds: 1701767836,
+  nanos: 878000000,
+};
+```
+
+答案：`2023-12-05T09:17:16.878Z`
+
+请问：谁能回答上面 timestamp 加 10小时得到的值？
+
+> 我也不知道，我也懒得算。在我看来，愿意折腾 Timestamp 运算的开发者都是
+
+BTW，如果你说在的团队强迫你使用 google/protobug/timestamp 传递 Date，推荐你 copy paste 这段代码，我写了自动化测试，可以 Timestamp 和 Date 转换的正确性。
+
+https://github.com/plugoinc/node-common/blob/main/src/utils/protobuf.util.ts#L35-L64
+
+!! 发出我最后的呼吼
+
+<<<.tc-big-quote
+恳请各位使用 ISO 8601 string 在 API 之间传递日期时间数据，不要折腾了。
+<<<TJ
+
