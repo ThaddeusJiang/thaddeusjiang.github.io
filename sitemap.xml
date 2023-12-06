@@ -405,7 +405,7 @@
 
    <url>
       <loc>.//2021-08-18-deploying-serverless-functions-to-azure-function-app</loc>
-      <lastmod>2023-10-13</lastmod>
+      <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -687,13 +687,13 @@
 
    <url>
       <loc>.//2023-05-16-zhen-de-bu-yao-zai-shi-yong-mui-liao</loc>
-      <lastmod>2023-10-04</lastmod>
+      <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>.//2023-05-24-next-js-zhen-de-shi-he-ni-de-xiang-mu-ma</loc>
-      <lastmod>2023-10-04</lastmod>
+      <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -711,13 +711,13 @@
 
    <url>
       <loc>.//2023-08-22-typescript-error-handling</loc>
-      <lastmod>2023-10-04</lastmod>
+      <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>.//2023-08-24-js-ts-number-ge-ge-bu-ru</loc>
-      <lastmod>2023-10-04</lastmod>
+      <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -734,26 +734,32 @@
    </url>
 
    <url>
-      <loc>.//2023-10-04</loc>
-      <lastmod>2023-10-04</lastmod>
+      <loc>.//2023-10-04-sui-bi</loc>
+      <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>.//2023-10-12-nest-js-validation-tips</loc>
-      <lastmod>2023-10-12</lastmod>
+      <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>.//2023-10-13-guan-yu-code-wo-de-yi-xie-gai-bian</loc>
-      <lastmod>2023-10-13</lastmod>
+      <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>.//2023-10-27-zui-lan-de-dai-ma</loc>
-      <lastmod>2023-10-27</lastmod>
+      <lastmod>2023-12-06</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2023-11-14-iso-8601</loc>
+      <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -783,7 +789,7 @@
 
    <url>
       <loc>.//faq</loc>
-      <lastmod>2023-10-13</lastmod>
+      <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

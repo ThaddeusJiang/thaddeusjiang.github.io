@@ -1,0 +1,166 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.1" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2023-11-14 ISO 8601 ~ Thaddeus Jiang</title>
+<meta name="description" content="imo: 永远使用 ISO 8601 string 在 API 之间传递日期时间数据。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2023-11-14-iso-8601" />
+<meta property="og:title" content="2023-11-14 ISO 8601 ~ Thaddeus Jiang" />
+<meta property="og:description" content="imo: 永远使用 ISO 8601 string 在 API 之间传递日期时间数据。" />
+<meta property="og:image" content="https://og-image-zh.vercel.app/2023-11-14 ISO 8601.png?fontSize=50px" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2023-11-14 ISO 8601 ~ Thaddeus Jiang" />
+<meta name="twitter:description" content="imo: 永远使用 ISO 8601 string 在 API 之间传递日期时间数据。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">Thaddeus Jiang</h1>
+                <p class="subtitle">I know I don't know. 生きがい人生を目指す</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-11-14 ISO 8601</h1>
+            <hr>
+
+            <p>imo: 永远使用 ISO 8601 string 在 API 之间传递日期时间数据。</p><h2 class="">Why?</h2><p>不同的编程语言对日期时间数据的实现有可能不同，但是 ISO 8601 Format 是相同的，始终是 <code>YYYY-MM-DDTHH:mm:ss.sssZ</code>。</p><p>始终使用 ISO 8601 string 在 API 之间传递日期时间数据，可以有效的减少开发者造轮子；减少没有任何收益的技术实现讨论。</p><p>并且 ISO 8601 string 是人类可读的，并且非常简单，任何智商正常的人都不需要额外学习就可以在大脑中进行对比、比较、简单运算。</p><ul><li>对比 ISO 8601 string：2023-12-06T23:00:00.000Z 和 2023-12-07T09:00:00.000Z 不相等</li><li>比较 ISO 8601 string：2023-12-06T23:00:00.000Z 比 2023-12-07T09:00:00.000Z 小</li><li>简单运算 ISO 8601 string：2023-12-06T23:00:00.000Z 加 10 小时等于 2023-12-07T09:00:00.000Z</li></ul><h2 class="">我遇到过的 issues</h2><h3 class="">1. 日期时间数据在 console / log 中不可读，不能直接在大脑中运算。</h3><p>例如：现在时间是 2023-12-06T04:30:48.253Z，如果不使用 ISO 8601 format，大脑无法直接对当前时间进行简单比较和运算。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()
+now
+<span class="hljs-comment">// Wed Dec 06 2023 13:28:53 GMT+0900 (Japan Standard Time)</span></code></pre><p>使用 ISO 8601 format 就简单多了</p><pre class="hljs"><code class="js hljs">now.<span class="hljs-title function_">toISOString</span>()
+<span class="hljs-comment">// &#x27;2023-12-06T04:30:48.253Z&#x27;</span></code></pre><h3 class="">2. 某些项目使用 google/protobuf/Timestamp 类型传递日期时间数据，不仅难以阅读，且容易造成不必要的 bug。</h3><p>请问：谁能回答下面 timestamp 的日期和时间？</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/timestamp.proto</span>
+message <span class="hljs-title class_">Timestamp</span> {
+  int64 seconds = <span class="hljs-number">1</span>;
+  int32 nanos = <span class="hljs-number">2</span>;
+}
+
+<span class="hljs-keyword">const</span> timestamp = {
+  <span class="hljs-attr">seconds</span>: <span class="hljs-number">1701767836</span>,
+  <span class="hljs-attr">nanos</span>: <span class="hljs-number">878000000</span>,
+};</code></pre><p>答案：<code>2023-12-05T09:17:16.878Z</code></p><p>请问：谁能回答上面 timestamp 加 10小时得到的值？</p><blockquote><div>我也不知道，我也懒得算。在我看来，愿意折腾 Timestamp 运算的开发者都是</div></blockquote><p>BTW，如果你说在的团队强迫你使用 google/protobug/timestamp 传递 Date，推荐你 copy paste 这段代码，我写了自动化测试，可以 Timestamp 和 Date 转换的正确性。</p><p><a class="tc-tiddlylink-external" href="https://github.com/plugoinc/node-common/blob/main/src/utils/protobuf.util.ts#L35-L64" rel="noopener noreferrer" target="_blank">https://github.com/plugoinc/node-common/blob/main/src/utils/protobuf.util.ts#L35-L64</a></p><h2 class="">发出我最后的呼吼</h2><blockquote class="tc-quote tc-big-quote"><p>恳请各位使用 ISO 8601 string 在 API 之间传递日期时间数据，不要折腾了。
+</p><cite>TJ</cite></blockquote>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+<footer class="section">    
+    <div class="content has-text-centered">
+      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="content has-text-centered">
+      
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>
