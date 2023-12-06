@@ -1,9 +1,9 @@
 created: 20220314092653273
 creator: TJ
-due: 
+due:
 modified: 20220314115212443
 modifier: TJ
-priority: 
+priority:
 published: 20220314114412874
 tags: blog $:/plugins/adithyab/tiddlyjam/live DevOps Azure Terraform
 title: 2022-03-14 DevOps 三级进化
@@ -28,7 +28,7 @@ TL;DR
 ** 任何人都可以使用，异步处理，一分钟以内完成。
 
 
-!! Staging 1: Manual in Azure Portal
+! Staging 1: Manual in Azure Portal
 
 > 只有熟练使用 Azure Portal 的技术者可以使用，且需要几个小时。
 
@@ -48,7 +48,7 @@ SmartCompany 是一个前后端分离的项目，backend 使用 Javalin 提供 R
 
 [img[https://user-images.githubusercontent.com/17308201/158159797-397d909a-c3f1-48d4-90c4-602017506876.png]]
 
-!! Staging 2: Command Line instead of Manual
+! Staging 2: Command Line instead of Manual
 
 > 会使用 Command Line 的技术者都可以使用，只需要几分钟。
 
@@ -62,13 +62,13 @@ SmartCompany 是一个前后端分离的项目，backend 使用 Javalin 提供 R
 
 ```
 $ terraform plan
-$ terraform apply 
+$ terraform apply
 ```
 
 不过，很遗憾这个阶段，还是只有我一个人使用这个项目。
 后来我将这个项目交接给其他小伙伴，现在已经有 48 Commits 了。nice 👍
 
-!! Staging 3: UI instead of Command Line
+! Staging 3: UI instead of Command Line
 
 > 任何人都可以使用，异步处理，一分钟以内完成。
 
@@ -88,7 +88,7 @@ $ terraform apply
 
 我会尽快开源代码的，https://github.com/ThaddeusJiang/mojito-admin
 
-!! 最后
+! 最后
 
 DevOps 工作不仅仅是创建 DB 和 App，还包括 monitoring，backup/restore 等等，
 本着自动化一切的基本原则，我计划将剩余的 DevOps works 也都整合到 mojito-admin。

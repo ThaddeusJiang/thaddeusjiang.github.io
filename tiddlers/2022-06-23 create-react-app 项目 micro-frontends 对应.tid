@@ -7,13 +7,13 @@ type: text/vnd.tiddlywiki
 
 如何将 create-react-app 项目迁移成 micro-frontends（微前端） 项目？
 
-> 前提：我的微前端项目主要使用 single-spa 
+> 前提：我的微前端项目主要使用 single-spa
 
-!! Demo 演示
+! Demo 演示
 
 [img[https://i.gyazo.com/06afa3d205648f474916135e36c11c5a.png]]
 
-!! How-to
+! How-to
 
 我主要参考的是 https://single-spa.js.org/docs/faq/#create-react-app 的 option 1 和 option 3。
 
@@ -22,7 +22,7 @@ type: text/vnd.tiddlywiki
 # option 1 足够简单，便于解释原理。
 # option 3 和公司的核心项目使用的技术相同。
 
-!! option 1: Remove react-scripts and then run create-single-spa on your project
+! option 1: Remove react-scripts and then run create-single-spa on your project
 
 1. 直接在项目路径下执行 create-single-spa
 
@@ -42,7 +42,7 @@ npx create-single-spa
 [img[https://i.gyazo.com/cb416d7b491f9359fcb29867aa8c781a.png]]
 
 
-!! option 2: Use react-app-rewired to modify the webpack config.
+! option 2: Use react-app-rewired to modify the webpack config.
 
 1. 安装 react-app-rewired-single-spa
 
@@ -104,7 +104,7 @@ export const { bootstrap, mount, unmount } = lifecycles;
 
 [img[https://i.gyazo.com/89dd9d9ee7e72118b439516da45919f9.png]]
 
-!! 总结
+! 总结
 
 两种方法其实是殊途同归，主要做了下面 3 件事。
 

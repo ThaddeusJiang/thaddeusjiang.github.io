@@ -6,19 +6,19 @@ tags: $:/plugins/adithyab/tiddlyjam/live blog
 title: 2021-04-02 永远不要再使用巨型 UI 框架了
 type: text/vnd.tiddlywiki
 
-!! 什么是巨型 UI 框架？
+! 什么是巨型 UI 框架？
 
 * https://ant.design/
 * https://material.io/
 * ...
 
-!! 为什么不要再使用巨型 UI 框架？
+! 为什么不要再使用巨型 UI 框架？
 
 # 巨型 UI 框架为了泛用性，增加了无数极少使用的属性，增加了学习成本。
 # 巨型 UI 框架为了保持人气，频繁升级，造成不必要的维护成本。
 # 巨型 UI 框架为了差异性，定义风格迥异的接口，经验无法轻松应用到其他框架。
 
-!! 事例：
+! 事例：
 
 新公司项目使用 antd 开发，最近我们希望加入 dark mode 特性。
 

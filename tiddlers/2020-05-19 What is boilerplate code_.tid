@@ -46,7 +46,7 @@ let address = ''
 
 那种编写方法更容易？一目了然
 
-!! 类比：
+! 类比：
 
 * 读取文件也是 boilerplate，你必须确认 file 存在，读取完毕后还必须关闭 file。
 * RESTful API 也是 boilerplate，CURD 写到吐。难怪 Ruby on Rails 会那么人气。开发者救星啊！！！

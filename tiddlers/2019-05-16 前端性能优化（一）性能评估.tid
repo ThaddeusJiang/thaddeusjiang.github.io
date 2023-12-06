@@ -26,13 +26,13 @@ TL;DR
 * 工具的使用方法？
 * 有哪些指标？
 
-!! 使用什么工具？
+! 使用什么工具？
 
 一提到性能测试，老一辈的程序员总会说“写脚本测”。但是现在已经是 2019 年了，请不要像原始人一下从头开始。
 
 这里推荐大家使用 Chrome DevTools Performance
 
-!! 工具的使用方法？
+! 工具的使用方法？
 
 Chrome DevTools Performance 使用方法很简单。
 
@@ -46,7 +46,7 @@ Chrome DevTools Performance 使用方法很简单。
 使用 incognito 模式主要是为了避免 Chrome 插件对测试的影响。
 对于准备测试环境，还有一些其他方法。查看 https://developer.chrome.com/devtools/docs/clean-testing-environment
 
-!! 有哪些指标？
+! 有哪些指标？
 
 我们可以看到上图中 ④ 显示了一张饼状图。饼状图所对应的表如下：
 

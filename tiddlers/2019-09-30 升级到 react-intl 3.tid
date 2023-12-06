@@ -9,23 +9,23 @@ type: text/vnd.tiddlywiki
 上周把公司项目中 react-intl 升到 v3，做一个简单记录。
 这次升级策略和使用 React Hooks 时一样，不重构现有代码，但是在今后新功能中`积极使用`新的 hook API。
 
-!! 第一步 更新 package.json
+! 第一步 更新 package.json
 
 我直接使用 `npm install react-intl@latest` 升级到最近版本。
 
-!! 第二步 修复 Breaking API Changes
+! 第二步 修复 Breaking API Changes
 
 我的项目中涉及到 `FormattedRelative` API。超级简单，就是改个名字而已。
 
 [img[https://i.gyazo.com/83fd1e9ce1981486f75da48bcb8b7ce8.png]]
 
-!! 第三步 移除遗留代码
+! 第三步 移除遗留代码
 
 我说的是 `addLocaleData` API。因为我的项目是 to B 项目，客户统一使用 Chrome， 没有必要支持 IE11 等浏览器。
 所以我将涉及 `addLocaleData` 代码也一并移除了。
 [img[https://i.gyazo.com/c7612e4218d3338bc24f84640bdedf6f.png]]
 
-!! 第四步 更新 snapshot testing
+! 第四步 更新 snapshot testing
 
 这步是必不可少的，我们项目使用 create-react-app 构建。
 
@@ -35,7 +35,7 @@ type: text/vnd.tiddlywiki
 yarn test --updateSnapshot
 ```
 
-!! 第五步 更新 flow-typed
+! 第五步 更新 flow-typed
 
 我们项目使用 flow 进行类型定义，npm script 定义如下：
 

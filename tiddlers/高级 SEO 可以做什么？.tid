@@ -1,33 +1,33 @@
 created: 20210603130155068
 modified: 20210603133639176
-tags: 
+tags:
 title: 高级 SEO 可以做什么？
 type: text/vnd.tiddlywiki
 
-!! 1. 请求 Google 抓取你的网站
+! 1. 请求 Google 抓取你的网站
 
 {{SEO: 请求 Google 抓取你的网站}}
 
-!! 2. 天下武功唯快不破
+! 2. 天下武功唯快不破
 
 {{SEO: pagespeed}}
 
-!! 3. 移动端友好
+! 3. 移动端友好
 
 {{SEO: mobile friendly}}
 
-!! 4. 提供站点地图
+! 4. 提供站点地图
 
 {{SEO: Sitemap}}
 
-!! 5. 使用 Lighthouse 审计代码质量
+! 5. 使用 Lighthouse 审计代码质量
 
 {{SEO: 使用 Lighthouse 审计代码质量}}
 
-!! 6. 你或许不太熟悉的“结构化数据”
+! 6. 你或许不太熟悉的“结构化数据”
 
 {{SEO: structured data}}
 
-!! 7. 调查特定地区的关键字排名
+! 7. 调查特定地区的关键字排名
 
 {{SEO: 调查特定地区的关键字排名}}

@@ -13,32 +13,32 @@ type: text/vnd.tiddlywiki
 
 废话少说，进入正题。
 
-!! 概要
+! 概要
 
 # Velocity 是什么？
 # Velocity 能做什么？
 # Velocity 示例
 
-!! 1. Velocity 是什么？
+! 1. Velocity 是什么？
 
 Velocity 是一个基于 Java 的模版引擎，它提供模版语言用于引用 Java 代码定义的对象。
 
-!! 2. Velocity 能做什么？
+! 2. Velocity 能做什么？
 
 # Velocity 能创建 HTML 页面，并预留占位符。（最基本用途）
 # Velocity 能基于模板生成 Java，SQL 源代码。（没见过）
 # 自动生成电子邮件。（没见过）
 # 读取 XML，并转换成需要的文档格式，通常是 HTML。（没见过）
 
-!! 3. Velocity 示例
+! 3. Velocity 示例
 
-!!! Velocity 注解
+! Velocity 注解
 
 * 单行 `##`
 * 多行 `#* *#`
 * 代码块注释(信息) `##* *#`
 
-!!! Velocity 变量
+! Velocity 变量
 
 定义：
 
@@ -53,13 +53,13 @@ $foo
 ${foo}
 ```
 
-!!! Velocity 集合
+! Velocity 集合
 
 ```java
 #set( $greatlakes = ["Superior","Michigan","Huron","Erie","Ontario"] )
 ```
 
-!!! Velocity 条件判断
+! Velocity 条件判断
 
 ```java
 #if( $foo < 10 )
@@ -71,7 +71,7 @@ ${foo}
 #end
 ```
 
-!!! Velocity 循环
+! Velocity 循环
 
 ```
 #foreach( $customer in $customerList )
@@ -82,14 +82,14 @@ ${foo}
 #end
 ```
 
-!!! Velocity 引用文件
+! Velocity 引用文件
 
 ```java
 #include( "one.vm" ) one.vm 不解析。
 #parse( "me.vm" ) me.vm 解析。
 ```
 
-!! Velocity 定义代码块
+! Velocity 定义代码块
 
 ```java
 #define( $block )
@@ -100,7 +100,7 @@ Hello $who
 $block
 ```
 
-!! Velocity 宏调用
+! Velocity 宏调用
 
 * 无参
 
@@ -221,7 +221,7 @@ isAddress()
 因为 Velocity 变量最终都作为字符串输出，所以 Velocity 会自动调用 .toString() 将变量转换成字符串。
 所以，$foo 和 $bar 都当成字符串进行比较。即使 Java 代码中类型不同，也有可能返回 true。
 
-!! Velocity 严格模式
+! Velocity 严格模式
 
 Velocity 1.6 引入**严格引用模式**，通过设置 Velocity 配置属性“runtime.references.strict”为 true 激活。
 当遇到没有定义或者存在歧义的情况 Velocity 将抛出异常。

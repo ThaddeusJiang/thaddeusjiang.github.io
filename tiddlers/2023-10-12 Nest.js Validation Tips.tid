@@ -23,7 +23,7 @@ npm install class-transformer-validator --save
 因为单独使用 class-validator 和 class-transformer 让人沮丧。
 
 
-!! imo: Nest.js 这种基于注解的框架和 TypeScript 一起使用让人十分困惑。
+! imo: Nest.js 这种基于注解的框架和 TypeScript 一起使用让人十分困惑。
 
 @IsOptional() 和 ? 让人困惑。
 
@@ -44,7 +44,7 @@ npm install class-transformer-validator --save
 
 ```ts
   @IsDate()
-  @Type(() => Date) 
+  @Type(() => Date)
   dateFrom: string;
 
   @IsDateString()

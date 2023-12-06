@@ -9,21 +9,21 @@ type: text/vnd.tiddlywiki
 
 其实，对于 Frontend Testing 我没有太多独特的见解。我对 Frontend Testing 的理解，大部分是来自其他优秀的工程师的分享，少部分是自己的一些工程实践。对于我自己，Frontend Testing 有哪些内容是值得拿出来分享的？
 
-!! 1. 测试一定要整合到 CI/CD 中
+! 1. 测试一定要整合到 CI/CD 中
 
 这是我个人的经验，测试一定要整合到 CI/CD 中。一方面，如果测试没有整合到 CI/CD 中，那么测试就不能阻止我们发布包含错误的产品到生产环境，也就是没有保证品质。另一方面，如果测试没有整合到 CI/CD 将无形地增加开发者的工作量，开发者不得不手动执行测试。很多开发者并不是不愿意编写测试代码，只是不愿意等待测试代码漫长的执行过程。
 
-!! 2. 倒金字塔的测试优先级
+! 2. 倒金字塔的测试优先级
 
 相信绝大多数软件工程专业毕业的的开发者（学院派）都曾被教育 Unit Testing 大于 Integration Testing 的测试覆盖原则，就像金字塔。
 
 但是，最新的工程实践提出了相反的意见。越来越多的开发者认为 Integration Testing 大于 Unit Testing，甚至 End-to-End Testing 最大。
 
 <<<.tc-big-quote
-Write tests. Not too many. Mostly integration. 
+Write tests. Not too many. Mostly integration.
 <<<rauchg
 
-!! 3. Frontend 特有的 Visual Testing
+! 3. Frontend 特有的 Visual Testing
 
 Visual Testing 是 Frontend 特有的测试类型。如果你参与的 Frontend 项目还没有引入 Visual Testing，我强烈建议你研究一下。我想说：“Visual Testing saved my life.”
 
@@ -32,7 +32,7 @@ Visual Testing 是 Frontend 特有的测试类型。如果你参与的 Frontend 
 那么，是否我认为 Component Visual Testing 不需要？答案是否定的。
 如果项目有足够的时间、预算，我觉得 Component Visual Testing 是 Nice to have。请视情况而定。
 
-!! 4. 不要忘记测试你的 Utils
+! 4. 不要忘记测试你的 Utils
 
 请不要简单的认为 Frontend 仅仅是 UI，这是低级的 Backend 和低级的 PM 才会犯的错误。随着软件行业的发展，越来越多的功能被移动到了 Frontend。Frontend 不再只是简简单单地展示数据了。Frontend 中包含了越来越多的复杂逻辑，请不要忘记测试这部分代码。
 
@@ -40,7 +40,7 @@ Visual Testing 是 Frontend 特有的测试类型。如果你参与的 Frontend 
 优秀的 Frontend 项目，页面展示和逻辑处理一定是相互独立的，所以不要忘记测试你的 Utils。
 <<<TJ
 
-!! 5. React Testing Example
+! 5. React Testing Example
 
 https://github.com/ThaddeusJiang/react-testing-example
 
@@ -48,14 +48,14 @@ https://github.com/ThaddeusJiang/react-testing-example
 很久没有更新了，不过大致思路和本篇文章没有改变。
 可以当作本篇文章的实践参考吧。
 
-!! 6. Nice To Have
+! 6. Nice To Have
 
 # 最好覆盖不同的屏幕大小。
 # 最好可以保留测试截屏或录屏。
 # 最好使用 JS 社区的测试框架、工具和平台。
 # ...
 
-!! 最后，推荐一些我很喜欢的 Frontend 测试框架、工具和平台
+! 最后，推荐一些我很喜欢的 Frontend 测试框架、工具和平台
 
 * TypeScript
 * Jest

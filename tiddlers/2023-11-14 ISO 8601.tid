@@ -7,7 +7,7 @@ type: text/vnd.tiddlywiki
 
 imo: 永远使用 ISO 8601 string 在 API 之间传递日期时间数据。
 
-!! Why?
+! Why?
 
 不同的编程语言对日期时间数据的实现有可能不同，但是 ISO 8601 Format 是相同的，始终是 `YYYY-MM-DDTHH:mm:ss.sssZ`。
 
@@ -19,9 +19,9 @@ imo: 永远使用 ISO 8601 string 在 API 之间传递日期时间数据。
 * 比较 ISO 8601 string：2023-12-06T23:00:00.000Z 比 2023-12-07T09:00:00.000Z 小
 * 简单运算 ISO 8601 string：2023-12-06T23:00:00.000Z 加 10 小时等于 2023-12-07T09:00:00.000Z
 
-!! 我遇到过的 issues
+! 我遇到过的 issues
 
-!!! 1. 日期时间数据在 console / log 中不可读，不能直接在大脑中运算。
+!! 1. 日期时间数据在 console / log 中不可读，不能直接在大脑中运算。
 
 例如：现在时间是 2023-12-06T04:30:48.253Z，如果不使用 ISO 8601 format，大脑无法直接对当前时间进行简单比较和运算。
 
@@ -38,7 +38,7 @@ now.toISOString()
 // '2023-12-06T04:30:48.253Z'
 ```
 
-!!! 2. 某些项目使用 google/protobuf/Timestamp 类型传递日期时间数据，不仅难以阅读，且容易造成不必要的 bug。
+!! 2. 某些项目使用 google/protobuf/Timestamp 类型传递日期时间数据，不仅难以阅读，且容易造成不必要的 bug。
 
 请问：谁能回答下面 timestamp 的日期和时间？
 
@@ -65,7 +65,7 @@ BTW，如果你说在的团队强迫你使用 google/protobug/timestamp 传递 D
 
 https://github.com/plugoinc/node-common/blob/main/src/utils/protobuf.util.ts#L35-L64
 
-!! 发出我最后的呼吼
+! 发出我最后的呼吼
 
 <<<.tc-big-quote
 恳请各位使用 ISO 8601 string 在 API 之间传递日期时间数据，不要折腾了。

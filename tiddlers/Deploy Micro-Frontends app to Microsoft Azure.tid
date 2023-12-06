@@ -1,6 +1,6 @@
 created: 20220912113622673
 modified: 20220912115844847
-tags: 
+tags:
 title: Deploy Micro-Frontends app to Microsoft Azure
 type: text/vnd.tiddlywiki
 
@@ -12,13 +12,13 @@ TL;DR
 
 # 部署 Micro-Frontends 应用到 Microsoft Azure 需要使用的云服务
 # 上传 Micro-Frontends 应用到 Azure Storage
-# 使用 Azure DNS Zoon 创建 CNAME 
+# 使用 Azure DNS Zoon 创建 CNAME
 # 配置 Azure Frontdoor 将所有的 /romu/* 重定向到 Azure Storage
 # 效果
 # 核心代码
 
 
-!! # 使用到哪些云服务？
+! # 使用到哪些云服务？
 
 # 使用 Azure Storage 存储网页资源
 # 使用 Azure DNS zones 配置域名
@@ -26,15 +26,15 @@ TL;DR
 
 
 
-!! # 上传 Micro-Frontends 应用到 Azure Storage
+! # 上传 Micro-Frontends 应用到 Azure Storage
 
-!! # 使用 Azure DNS Zoon 创建 CNAME 
+! # 使用 Azure DNS Zoon 创建 CNAME
 
-!!# 配置 Azure Frontdoor 将所有的 /romu/* 重定向到 Azure Storage
+!# 配置 Azure Frontdoor 将所有的 /romu/* 重定向到 Azure Storage
 
-!! # 效果
+! # 效果
 
-!!# 核心代码
+!# 核心代码
 
 
 ! refs

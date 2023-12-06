@@ -10,14 +10,14 @@ type: text/vnd.tiddlywiki
 
 我们用一个实例来展示一下 micro-frontends 的威力。
 
-!! A demo made with single-spa
+! A demo made with single-spa
 <iframe src="https://mf-dog.netlify.app/"  width="100%" height="600px" ></iframe>
 
 这是一个非常简单的应用，只有一个菜单和两个页面。
 通常情况下，对于如此简单的应用，我们通常不需要考虑什么架构问题。
 不过为了演示效果嘛。
 
-!!  使用了哪些 library？
+!  使用了哪些 library？
 
 基本的 library 有 3 个
 
@@ -39,7 +39,7 @@ type: text/vnd.tiddlywiki
 我们一共使用了 4 个 app，为了 CI/CD 方便，我们使用了 4 个 repository。
 当然，你也可以使用 monorepo 管理。
 
-!! 这难道不是更复杂了吗？
+! 这难道不是更复杂了吗？
 
 对于如此简单的应用，micro-frontends 确实没有必要。
 但是，micro-frontends 的场景并不是简单应用，而是庞大且错中复杂的企业级应用。

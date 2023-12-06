@@ -35,9 +35,9 @@ type: text/vnd.tiddlywiki
 
 <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]!sort[title]]">
    &lt;item&gt;
-      &lt;title&gt;{{!!title}}&lt;/title&gt;
-      &lt;link&gt;<$text text={{$:/AbsoluteBaseUrl}}/>/<$macrocall $name="tv-get-export-path" title={{!!title}}/>&lt;/link&gt;
-      &lt;guid&gt;<$text text={{$:/AbsoluteBaseUrl}}/>/<$macrocall $name="tv-get-export-path" title={{!!title}}/>&lt;/guid&gt;
+      &lt;title&gt;{{!title}}&lt;/title&gt;
+      &lt;link&gt;<$text text={{$:/AbsoluteBaseUrl}}/>/<$macrocall $name="tv-get-export-path" title={{!title}}/>&lt;/link&gt;
+      &lt;guid&gt;<$text text={{$:/AbsoluteBaseUrl}}/>/<$macrocall $name="tv-get-export-path" title={{!title}}/>&lt;/guid&gt;
    &lt;/item&gt;
 </$list>
 &lt;/channel&gt;

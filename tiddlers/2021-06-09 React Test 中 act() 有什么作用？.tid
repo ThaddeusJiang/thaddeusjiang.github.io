@@ -31,7 +31,7 @@ it("renders hello world", () => {
 
 act() 有什么作用呢？为什么有的时候需要，有的时候却不需要呢？
 
-React Docs 
+React Docs
 
 >When writing UI tests, tasks like rendering, user events, or data fetching can be considered as “units” of interaction with a user interface. react-dom/test-utils provides a helper called act() that makes sure all updates related to these “units” have been processed and applied to the DOM before you make any assertions:
 
@@ -39,7 +39,7 @@ React Docs
 
 很多时候，用户界面（UI）并不能一瞬间就被绘制完成，可能导致断言失败。act() 可以确保断言执行时 UI 已经被绘制完成。
 
-!! act() 效果
+! act() 效果
 
 no act
 
@@ -57,11 +57,11 @@ act render
 
 Thanks testing-library
 
-> All renders and events being fired are wrapped in act, so you don't really need this. 
+> All renders and events being fired are wrapped in act, so you don't really need this.
 
 
 
-!! 我在面试中会如何提问 ?
+! 我在面试中会如何提问 ?
 
 # 你在项目中写测试吗？
 # 如果 UI 存在异步或者耗时的操作，应该如何测试？

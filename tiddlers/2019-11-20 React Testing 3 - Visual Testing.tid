@@ -10,16 +10,16 @@ type: text/vnd.tiddlywiki
  Visual Testing 是我所接触的测试方法中最直观的，也是效果最明显的。
 <<<
 
-!! 1. 什么是 Visual Testing？
+! 1. 什么是 Visual Testing？
 
 简单的说，Visual Testing 就是从视觉效果上测试。
 更加全面的解释，参见 《What is Visual Testing? A comprehensive explanation》
 
-!! 为什么要使用 Visual Testing 呢？
+! 为什么要使用 Visual Testing 呢？
 
 最简单的原因就是快速，直观，不易遗漏。
 
-!! 2. 如何做 Visual Testing？
+! 2. 如何做 Visual Testing？
 
 Percy.io 是一个性价比高的 Visual Testing 平台，对个人项目或者小团队非常实用。
 
@@ -69,7 +69,7 @@ it("visual testing for login page", () => {
 $ PERCY_TOKEN=xxx percy exec -- cypress run
 ```
 
-!! 3. 常见问题
+! 3. 常见问题
 
 1. 如何自动化测试
 

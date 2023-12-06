@@ -19,7 +19,7 @@ type: text/vnd.tiddlywiki
 * 使用 Jest 和 React Testing Library 测试
 * 使用 GitHub Actions 自动化
 
-!! 1. 创建项目，并配置 Jest 和 React Testing Library
+! 1. 创建项目，并配置 Jest 和 React Testing Library
 
 ```bash
 npx create-react-app testing-demo
@@ -29,7 +29,7 @@ yarn add @testing-library/react --dev
 
 ```
 
-!! 2. 编写一个 Counter 组件，并测试
+! 2. 编写一个 Counter 组件，并测试
 
 <<<.tc-big-quote
 Tips: 测试代码和组件放在同一文件夹下，更易管理。
@@ -75,7 +75,7 @@ test("<Counter />", () => {
 })
 ```
 
-!! 3. 常见问题
+! 3. 常见问题
 
 * 我应该在哪写 Unit Testing？
 

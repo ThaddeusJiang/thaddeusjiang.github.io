@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 不经意间使用 GraphQL 已经一年时间了，
 分享一个自己走过的坑，`多层嵌套 fragment`。
 
-!! 首先，什么是 GraphQL fragment？
+! 首先，什么是 GraphQL fragment？
 
 <<<.tc-big-quote
 GraphQL includes reusable units called fragments. Fragments let you construct sets of fields, and then include them in queries where you need to.
@@ -48,7 +48,7 @@ const BCardFragment = gql`
 `
 ```
 
-!! 为什么说嵌套 fragment 是反面教材？
+! 为什么说嵌套 fragment 是反面教材？
 
 这里我们定义 TagFragment、BCardFragment、AFromFragment 如下，并在 AFormQuery 中使用 AFormFragment。
 
@@ -93,7 +93,7 @@ const AFormQuery = gql`
 `
 ```
 
-!! 如何解决上面问题呢？
+! 如何解决上面问题呢？
 
 其实很简单。
 

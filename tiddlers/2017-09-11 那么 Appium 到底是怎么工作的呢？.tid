@@ -12,7 +12,7 @@ type: text/vnd.tiddlywiki
 
 本示例，默认在 Mac（已安装 XCode、Node.js）测试 iOS app。
 
-!! 那么 Appium 到底是怎么工作的呢？
+! 那么 Appium 到底是怎么工作的呢？
 
 1. 首先，你需要启动一个 Appium 服务（它会接收你发出的测试指令，并控制 App 完成相关动作）。
 

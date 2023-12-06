@@ -11,7 +11,7 @@ imo: TypeScript number 类型定义模糊，JavaScript number 精度非主流，
 
 分享几个我遇到的问题以及解决方案：
 
-!!! 1. JS/TS number 全身都是 bug
+! 1. JS/TS number 全身都是 bug
 
 JS/TS number 因为要同时兼容 int float double 导致它的精度很迷，与强类型工具（如 RDB, protobuf）的数值范围上有差异，非常容易产生 bug。
 
@@ -23,7 +23,7 @@ Example: 2^^64^^-1 is 1844674407370955''1615'' but in JavaScript it evaluates to
 
 但是 long.js 也有问题，个人建议能不用就别用。
 
-!!! 2. JS/TS bigint 限制超多
+! 2. JS/TS bigint 限制超多
 
 bigint 虽然是整数，但是在使用上有很多限制，例如：
 
@@ -38,7 +38,7 @@ bigint 虽然是整数，但是在使用上有很多限制，例如：
 <<img "https://raw.githubusercontent.com/MikeMcl/bignumber.js/gh-pages/API.png" "bignumber.js" >>
 
 
-!! 3. int32 int64 对应 TS 类型没有统一标准
+! 3. int32 int64 对应 TS 类型没有统一标准
 
 Prisma scheme 支持 BigInt 类型，对应 TS BigInt 类型
 

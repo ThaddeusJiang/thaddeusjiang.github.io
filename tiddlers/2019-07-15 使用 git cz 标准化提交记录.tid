@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 自从开始使用 git cz 取代 git commit -m，提交记录变得非常干净、漂亮，这整个过程也没有任何额外负担，非常自然。
 
 
-!! 安装 git cz
+! 安装 git cz
 
 ```sh
 // install
@@ -22,7 +22,7 @@ $ echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 $ code --install-extension axetroy.vscode-changelog-generator
 ```
 
-!! 使用
+! 使用
 
 ```
 $ git add .

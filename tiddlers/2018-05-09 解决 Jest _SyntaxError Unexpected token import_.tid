@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 应该是 `Jest “SyntaxError Unexpected token import”` 最简单的解决方案。
 
 
-!! 背景
+! 背景
 
 React 的 SPA 项目，使用 And Design 作为 UI 框架。
 使用 Jest + Enzyme 进行单体测试。

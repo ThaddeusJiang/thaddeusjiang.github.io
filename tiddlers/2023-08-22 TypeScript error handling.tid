@@ -16,9 +16,9 @@ type: text/vnd.tiddlywiki
 
 我主要分享一下我自己使用 TypeScript 时的 error handling 风格。
 
-!!! 1. 80% 的情况下，我会直接使用 try-catch 处理 Exception，不用其他奇技淫巧
+! 1. 80% 的情况下，我会直接使用 try-catch 处理 Exception，不用其他奇技淫巧
 
-!!! 2. 我会尽量避免 Nested try blocks，形如：
+! 2. 我会尽量避免 Nested try blocks，形如：
 
 ```js
 try {
@@ -37,7 +37,7 @@ try {
 形如：
 
 ```js
-// 
+//
 function doSomething() {
   try {
     return [false, data]
@@ -58,7 +58,7 @@ if(isError) {
 supabase-js 和 zod 也采用了类似的风格，只是细节不太一样，这也增强了我的信心。
 
 ```js
-// supabase-js 
+// supabase-js
 const { data, error } = await supabase
   .from('countries')
   .select()
@@ -75,14 +75,14 @@ stringSchema.safeParse("billie");
 
 为什么我用 Array 而不是 Object 作为返回值？因为我觉得 ES6 以后数组取值也很简单。
 
-!!! 3. 我不会强迫症似的穷举所有的 Exception 类型
+! 3. 我不会强迫症似的穷举所有的 Exception 类型
 
 ```js
 // good
 async function doSomething(): Promise<Data>
 
 // bad
-async function doSomething(): Promise<Data 
+async function doSomething(): Promise<Data
       | RpcException
       | ChargeFeeHasNotBeenPaidException
       | BadRequestException
@@ -94,15 +94,15 @@ async function doSomething(): Promise<Data
 
 当然，npm package, public library 除外。
 
-!!! 4. 我不会让 Exception 不能导致整个 App 崩溃
+! 4. 我不会让 Exception 不能导致整个 App 崩溃
 
 MVC 风格的 web server app 的 exception 最好控制在 controller 层，不要因为个别的 API 异常导致整个 App 崩溃或者重启。
 
 类似 Remix.run 这样的框架甚至可以将 exception 控制在 UI component 级别，不过我不过分强求，只要别让整个 App 崩溃就行。
 
-!!! 5. 我会适当记录 Exception log
+! 5. 我会适当记录 Exception log
 
-!!! 6. error handling 我不采用 TDD
+! 6. error handling 我不采用 TDD
 
 如果要在动手开发功能前就想明白有多少种 errors 需要处理，对我来说有点难，或许尼古拉 特斯拉那样的大脑可以吧。
 

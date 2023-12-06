@@ -28,7 +28,7 @@ import { API_VIDEO, API_CHANNEL } from '../../../util/constants'
 
 本文介绍如何使用 babel plugin 的解决方案。
 
-!! 正文
+! 正文
 
 首先我们选择 babel-plugin-module-resolver。
 

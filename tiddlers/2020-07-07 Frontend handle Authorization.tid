@@ -6,15 +6,15 @@ tags: $:/plugins/adithyab/tiddlyjam/live blog
 title: 2020-07-07 Frontend handle Authorization
 type: text/vnd.tiddlywiki
 
-!! 分享一个简单登录认证实现
+! 分享一个简单登录认证实现
 我使用 [Axios](https://github.com/axios/axios) 作为 HTTP client。
 
-!! 原则
+! 原则
 
 # 不创建 axios 实例，仅使用 global axios
 # 避免在 UI 层写认证逻辑
 
-!! 步骤
+! 步骤
 
 1. 从 localStorage 中读取 token，并设置到 header 中
 
@@ -48,7 +48,7 @@ export const login = async ({user, password}) => {
 }
 ```
 
-!! 一点点小感悟
+! 一点点小感悟
 
 前端登录认证是一个基础到不能再基础的功能，可是我发现不少号称有几年开发经验的程序员还是写不出来。
 

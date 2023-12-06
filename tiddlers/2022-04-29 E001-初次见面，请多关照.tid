@@ -15,9 +15,9 @@ type: text/vnd.tiddlywiki
 
 废话少说，我们开始正题吧。
 
-!! 首先，分享几篇开发笔记
+! 首先，分享几篇开发笔记
 
-!!! 1. HTML 语义元素
+! 1. HTML 语义元素
 
 随着互联网的发展，市场对 Frontend Developer 的需求越来越大了，很多新加入 Frontend 的小伙伴因为过早的使用高度封装的组件库，倒是对 HTML 语义元素掌握的非常差，几乎是 `div` 一把梭。
 
@@ -39,7 +39,7 @@ type: text/vnd.tiddlywiki
 虽然 CSS 也能实现斜体、粗体或者斜体且加粗的视觉效果，但是却丢失了语义。
 <<<TJ
 
-!!! 2. Mocking API for Frontend
+! 2. Mocking API for Frontend
 
 互联网产品通常要同时对应多种终端，例如：Web、App 甚至第三方平台，所以目前前后端分离是主流。
 前后端分离在代码层级实现了解耦，但是没有解决路径依赖，Frontend 功能还是依赖 Backend 的实现。这时 Mocking API for Frontend 就出现了。
@@ -58,7 +58,7 @@ type: text/vnd.tiddlywiki
 [img[https://i.gyazo.com/c05918da1d8a5409b773c724ed1d1923.jpg]]
 
 
-!! 然后，分享几个 Twitter bookmarks
+! 然后，分享几个 Twitter bookmarks
 
 1. native API for deep copying objects in JS
 
@@ -76,7 +76,7 @@ Notion 的巨幅户外广告，居然是一点一点手绘出来的巨型壁画�
 
 我非常认同“软件应该是美丽的”，这句话让我想起《黑客与画家》，黑客与画家都是创造者，那么他们创造出来的东西都应该是美丽的。美丽有许多不同的层面，不仅仅是视觉上，软件架构也应该美丽的，软件工作流程也应该是美丽的，从事软件开发的工程师的心灵也应该是美丽的。
 
-!! 最后，分享几个我很喜欢的 OSS
+! 最后，分享几个我很喜欢的 OSS
 
 1. react-query
 

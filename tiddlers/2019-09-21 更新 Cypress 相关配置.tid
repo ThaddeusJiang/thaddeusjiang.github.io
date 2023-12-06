@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 
 最近更新了一下 ESLint 配置，发现 Cypress 测试代码中出现了很多红线，意识到 Cypress 配置也需要更新了。
 
-!! 旧配置
+! 旧配置
 
 使用在 cypress 文件夹中配置 `tsconfig.json` 的方式，超简单。内容如下：
 
@@ -23,14 +23,14 @@ type: text/vnd.tiddlywiki
 }
 ```
 
-!! 新配置
+! 新配置
 
 新配置分成 2 部分，ESLint 和 jsconfig.json。
 
 * ESLint 负责检查 Cypress 断言的使用是否正确
 * jsconfig 负责 Cypress 自动补全
 
-!! ESLint
+! ESLint
 
 1. 安装 eslint-plugin-cypress
 
@@ -50,7 +50,7 @@ npm install eslint-plugin-cypress --save-dev
 }
 ```
 
-!! jsconfig
+! jsconfig
 
 在项目根目录下创建 .jsconfig.json，配置如下内容：
 

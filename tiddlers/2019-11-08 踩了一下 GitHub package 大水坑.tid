@@ -16,7 +16,7 @@ GitHub 今年新发布的功能有很多，有 Actions、Sponsor 和 Package 等
 # 第三方 CI 尚未完全支持，如 Netlify
 # GitHub package 的优势在于支持不同包管理系统
 
-!! 1. GitHub package 不是开箱即用的
+! 1. GitHub package 不是开箱即用的
 
 为什么这么说呢？因为我认为 npm 是开箱即用的。
 回想一下我们使用 npm 的过程。
@@ -26,7 +26,7 @@ GitHub 今年新发布的功能有很多，有 Actions、Sponsor 和 Package 等
 
 这就是么简单，不要手动配置（使用国内镜像除外）。
 
-!! 那么如何使用 GitHub package 呢？
+! 那么如何使用 GitHub package 呢？
 
 1, 首先你要注册试用 package，因为它还是 beta 版本。
 
@@ -51,7 +51,7 @@ npm publish
 
 [img[https://i.gyazo.com/ae3fdcd3fb5575cf02ce1d87b8bc6f54.jpg]]
 
-!! 2. 第三方 CI 尚未完全支持，如 Netlify
+! 2. 第三方 CI 尚未完全支持，如 Netlify
 
 如第一步所写，使用 git package 之前需要修改 .npmrc，所以我们必须手动修改第三方 CI 的 .npmrc。
 否则会出现类似错误
@@ -60,7 +60,7 @@ npm publish
 
 为了其它正常使用你的 package，你不得不同时发布到 npm，并写一个 https://github.com/ThaddeusJiang/typography-theme-tsubaki/issues/3 去解释为什么灰安装出错。
 
-!! 3. GitHub package 的优势在于支持不同包管理系统
+! 3. GitHub package 的优势在于支持不同包管理系统
 
 正如 GitHub package 主页上所写，GitHub package 支持 npm、Docker、Maven、NuGet、RubyGems 等等包管理系统，低于对开源社区热情不高，且技术栈复杂的公司来说，GitHub package 还是一种可以尝试的解决方案。
 

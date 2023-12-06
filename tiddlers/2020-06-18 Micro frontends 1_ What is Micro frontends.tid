@@ -6,12 +6,12 @@ tags: $:/plugins/adithyab/tiddlyjam/live Micro-frontends blog
 title: 2020-06-18 micro-frontends 1: What is micro-frontends
 type: text/vnd.tiddlywiki
 
-!! 什么是 micro-frontends？
+! 什么是 micro-frontends？
 
 第一次听说 micro-frontends 是在 ThoughtWorks Radars。
 简单的说，micro-frontends 就是 Microservices 在前端的应用。
 
-!! 为什么我们需要 micro-frontends？
+! 为什么我们需要 micro-frontends？
 随着技术和市场需求的发展，我们的应用程序已经变得越来越大了。从很早以前服务端工程师就发现可以通过拆分 Microservices 来减少模块间耦合，降低开发和维护难度。
 所以出现了如下架构：
 
@@ -27,7 +27,7 @@ type: text/vnd.tiddlywiki
 # 微服务更容易进行任务分配，并行开发，提高生产效率。
 # 感谢浏览器的不断进化，即使前端拆分成微服务，也能提供 SPA 的用户体验。
 
-!! 为什么 micro-frontends 没有 Microservices 流行？
+! 为什么 micro-frontends 没有 Microservices 流行？
 
 原因有很多，简单总结：
 
@@ -35,7 +35,7 @@ type: text/vnd.tiddlywiki
 # Microservices 理论出现更早，项目实践更多。
 # Frontend 开发者中初级程序员更多，架构知识薄弱。
 
-!! 什么样的项目适合 micro-frontends？
+! 什么样的项目适合 micro-frontends？
 
 # 大型，复杂系统。如 XXX 管理系统，一个系统集成了很多模块。
 # 对 UI 更新要求不高的系统。

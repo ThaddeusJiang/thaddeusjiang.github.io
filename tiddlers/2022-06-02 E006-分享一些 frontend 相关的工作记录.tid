@@ -13,13 +13,13 @@ type: text/vnd.tiddlywiki
 
 ! 本周有哪些工作方面的内容可以和大家分享？
 
-!! 1. [[AutoAnimate|https://github.com/formkit/auto-animate]] - Add motion to your apps with a single line of code.
+! 1. [[AutoAnimate|https://github.com/formkit/auto-animate]] - Add motion to your apps with a single line of code.
 
 偶然发现这个 library，虽然算不上功能强大，但是 1 行代码添加动画效果对于一些小型项目的确很有吸引力。我可能会在自己的 Toy Project 中尝试一下。
 
 不过我并不推荐这个 library，理由很简单，它的功能不够强，再稍微大型一点的项目中就无法满足需求了。例如：没有提供拖拽（DnD）相关支持，没有大量的示例（Samples）。
 
-!! 2. [[useEffect tip: don't|https://twitter.com/DavidKPiano/status/1521920584975667201]]
+! 2. [[useEffect tip: don't|https://twitter.com/DavidKPiano/status/1521920584975667201]]
 
 本周和团队分享了这个 React.js 技巧：useEffect tip: don't，演讲视频：https://youtu.be/Ck-e3hd3pKw?t=3993
 
@@ -36,7 +36,7 @@ React.js 难吗？说实话我认为 Raect.js 有点难，至少我自己经常�
 # Using Composition in React to Avoid "Prop Drilling"
 # A Complete Guide to useEffect
 
-!! 3. [[loading is loading, error is error, empty is empty|https://twitter.com/ThaddeusJiang/status/1531792953278369792]]
+! 3. [[loading is loading, error is error, empty is empty|https://twitter.com/ThaddeusJiang/status/1531792953278369792]]
 
 你有没有写过这样的代码？
 

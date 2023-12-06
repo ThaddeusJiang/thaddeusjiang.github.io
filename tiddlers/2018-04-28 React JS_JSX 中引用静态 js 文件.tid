@@ -23,7 +23,7 @@ componentDidMount () {
 }
 ```
 
-!! 应用场景
+! 应用场景
 
 目前项目是 toB 的内容管理系统，由于某些不可抗力因素影响，不得不对应  CKEditor 4。
 但是 CKEditor 4 并不支持 JS 模块，所以不能够使用 import 导入。

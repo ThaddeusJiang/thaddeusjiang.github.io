@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 
 相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。
 
-!! 1. 什么是 E2E Testing？
+! 1. 什么是 E2E Testing？
 
 <<<.tc-big-quote
 笔者认为：E2E Testing 就是从用户角度对软件进行测试。
@@ -16,7 +16,7 @@ type: text/vnd.tiddlywiki
 
 例如：进入“登陆界面”，输入用户名和密码，点击登陆后跳转到“登陆成功”界面。
 
-!! 2. 如何做 E2E Testing？
+! 2. 如何做 E2E Testing？
 
 很幸运，在 E2E Testing 方面，已经有很多开源软件可以使用。
 推荐 Cypress
@@ -137,7 +137,7 @@ yarn cypress open
 
 [img[https://i.gyazo.com/2ce8aa2c6788c5076bbeac6c1c6e71af.jpg]]
 
-!! 3. 常见问题
+! 3. 常见问题
 
 1. 如何自动补全 Cypress 方法？
 
@@ -207,7 +207,7 @@ jobs:
 
 [img[https://i.gyazo.com/825570ffe09b2d6ff69f7b546ba1733d.jpg]]
 
-!! 经验
+! 经验
 
 <<<.tc-big-quote
 其实可以全局安装 Cypress

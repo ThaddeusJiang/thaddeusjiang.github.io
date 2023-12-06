@@ -11,7 +11,7 @@ type: text/vnd.tiddlywiki
 
 这是蒋继发的《每周分享》的第五篇，今后会在每周四发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些工作经验、日本生活体验以及阅读感受等等。
 
-!! 本期的主题《日本明星 SaaS 企业 SmartHR》
+! 本期的主题《日本明星 SaaS 企业 SmartHR》
 
 想大家分享日推上非常火的一款 SaaS 产品以及其背后的公司 SmartHR。
 
@@ -21,7 +21,7 @@ SmartHR 可能是近两年日推上最火的 SaaS 产品了，我从 2020 年最
 
 SmartHR 是一个非常开放的公司，所以如果大家想了解它，网上可以找到很多资料。我想从一名 HRTech 从业者和 SmartHR fan 的角度分享一下我为什么关注它。
 
-!! 1. SmartHR 的功能对日本人来说非常重要
+! 1. SmartHR 的功能对日本人来说非常重要
 
 以年末调整为例，年末调整是日本人不可避免的事。
 
@@ -37,13 +37,13 @@ SmartHR 提供的年末调整将整个流程电子化，并简化了准备、发
 
 [img width=320 class="tc-image" [https://i.gyazo.com/307f7797da9001be5a57b7660cecec99.png]]
 
-!! 2. SmartHR 技术驱动且拥抱开源
+! 2. SmartHR 技术驱动且拥抱开源
 
 SmartHR 是一个技术驱动的公司，不知道是不是因为创业者是技术出身的原因，SmartHR 非常积极地拥抱开源，并乐于分享。[[SmartHR 的 GitHub|https://github.com/kufu]] 上有很多非常实用的项目，例如：kiji, tsubaki,  smarthr-ui 等等。这些项目很大程度上和 SmartHR 的业务是存在利益关系的，把这些代码开源出来在日本甚至全世界都是非常罕见的，毕竟这个社会并不总是良性竞争。
 
-另外 SmartHR 很早就提供了公开 API 方便其他产品对接，非常的硅谷有没有？ 
+另外 SmartHR 很早就提供了公开 API 方便其他产品对接，非常的硅谷有没有？
 
-!! 3. SmartHR 创始人是一个非常有魅力的人
+! 3. SmartHR 创始人是一个非常有魅力的人
 
 SmartHR 创始人叫 Shoji Miyata，喜欢写博客，喜欢海钓。我最开始关注 SmartHR 就是因为 Miyata 桑的个人魅力。分享几篇 Miyata 桑的博客，如果你看不懂日本语推荐用翻译软件阅读一下。
 

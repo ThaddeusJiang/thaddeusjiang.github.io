@@ -19,11 +19,11 @@ type: text/vnd.tiddlywiki
 * 开发业务产品：尽量少的 props，内嵌 styles。
 * 开发通用组件库：尽量多的 props，外部定义 styles。
 
-!! 想要业务产品组件库
+! 想要业务产品组件库
 
 * 不要执着自由度，大胆内嵌 styles，不需要公开的 API 就不公开。
 
-!! 想要通用组件库
+! 想要通用组件库
 
 * 追求绝对的自由度，不要基于 Headful UI Framework 二次开发。
 

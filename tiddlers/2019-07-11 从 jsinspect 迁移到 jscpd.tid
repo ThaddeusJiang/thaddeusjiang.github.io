@@ -38,12 +38,12 @@ jscpd 是一个用于检测重复代码的工具，拒绝 copy/pause 从选择�
 改进方法就是寻找替代方案。
 于是我找到 jscpd
 
-!! jscpd 对比 jsinspect 优势
+! jscpd 对比 jsinspect 优势
 
 # 仍在维护。（这点太重要了）
 # 运行结果内容清晰，且报告比较美观。
 
-!! jscpd 使用
+! jscpd 使用
 
 官网示例非常简单，推荐直接阅读。
 

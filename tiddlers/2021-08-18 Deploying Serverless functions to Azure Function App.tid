@@ -16,7 +16,7 @@ Serverless functions 我已经玩的有点烦了，每个项目都用不同的 C
 # VSCode Extension
 # GitHub Actions
 
-!!!! 1. VSCode Extension
+! 1. VSCode Extension
 
 使用 VSCode Extension 部署 Azure Function App 非常方便，也是我开发时最常用的方式。
 VSCode Extension 用法也很简单，这里介绍一点特殊的，官方文档没有教的内容。
@@ -31,11 +31,11 @@ VSCode Extension 的菜单就比较深了
 
 [img[https://i.gyazo.com/97e914f00f711cbeb9dffc344b997d8b.jpg]]
 
-!!!! 2. GitHub Actions
+! 2. GitHub Actions
 
 由于 MicroSoft 财大气粗，已经将 GitHub 收入麾下，Azure Function App 也支持使用 GitHub Actions 部署。
 
-Azure Portal UI 
+Azure Portal UI
 
 [img[https://i.gyazo.com/be02ad6fc63897f26a5a67fd3b5419a4.jpg]]
 
@@ -78,7 +78,7 @@ Azure Portal UI
 
 [img[https://i.gyazo.com/d8096b2ee786c6be7cf39d54da5ae068.jpg]]
 
-!!!! GitHub Actions 如何支持 Deploy slots？
+! GitHub Actions 如何支持 Deploy slots？
 
 你需要在 yaml 文件中配置 `slot-name`
 

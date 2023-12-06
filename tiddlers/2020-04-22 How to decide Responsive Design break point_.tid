@@ -16,7 +16,7 @@ type: text/vnd.tiddlywiki
 
 个人认为这种设计只适合通用 framework，并不是银弹。
 
-!! 让我们一起看一个实际需求
+! 让我们一起看一个实际需求
 现在我们需要开发一个列表展示页面。
 
 要求：
@@ -68,18 +68,18 @@ type: text/vnd.tiddlywiki
 
 页面从 3 列突然变到 1 列
 
-!! 为什么会这样呢？
+! 为什么会这样呢？
 
 因为上面代码存在一个严重的问题，即 Responsive Design 的 break point 和页面展示内容脱节。
 它是基于设备的宽度决定的。
 
-!! 正确的做法
+! 正确的做法
 
 <<<.tc-big-quote
 基于内容决定 break point，将内容变化点作为 break point。
 <<<
 
-!! 基于内容选取 break point
+! 基于内容选取 break point
 
 同样的要求：
 
@@ -110,7 +110,7 @@ type: text/vnd.tiddlywiki
 
 [img[https://i.gyazo.com/8d8dbd82023553af0a8c3939bfc59ee8.gif]]
 
-!! 总结
+! 总结
 
 <<<.tc-big-quote
 Responsive Design 应该基于内容，而不是设备。

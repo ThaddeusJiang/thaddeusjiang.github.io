@@ -14,22 +14,22 @@ type: text/vnd.tiddlywiki
 初始页面加载最大文件从 5.1M 减少到 1.4M，文件大小缩小了 3 倍。
 <<<
 
-!! before
+! before
 > 最大文件 5.1M
 > 加载时间 1.15s
 
 [img[https://i.gyazo.com/df061819018ab6f9a82f244e57f7889c.jpg]]
 
-!! After
+! After
 > 最大文件 1.4M
 > 加载时间 327ms
 
 [img[https://i.gyazo.com/7086535351835ea6bd98a64d1c46df2b.jpg]]
 
 
-!! 我做了什么？
+! 我做了什么？
 
-!!! 1. Code Splitting
+! 1. Code Splitting
 
 Code Splitting 利用到 React.lazy 和 Suspense，代码如下：
 
@@ -55,7 +55,7 @@ Code Splitting 利用到 React.lazy 和 Suspense，代码如下：
 </Router>
 ```
 
-!!! 2. Nginx gzip on
+! 2. Nginx gzip on
 
 ```diff
 server {

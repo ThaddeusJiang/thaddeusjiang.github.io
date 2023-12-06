@@ -18,7 +18,7 @@ type: text/vnd.tiddlywiki
 
 >    这难道不是一种成长吗？
 
-!! 场景 1
+! 场景 1
 
 J 写了一个功能，分成 3 次 commit（顺序：CommitA、CommitB、CommitC）。完成功能之后，他找了 B 先生进行 Code Review，B 先生觉得 CommitB 和 CommitC 没有问题，CommitA 需要进行简单修改。 那么如何在不改变 CommitB 和 CommitC 的前提下，修改 CommitA 呢？
 方法：
@@ -53,11 +53,11 @@ $ git rebase -continue
 ```
 
 
-!! 场景 2
+! 场景 2
 
 J 修改了 CommitA 后，项目 leader 希望一个功能尽可能使用一个 commit 提交。 那么如何合并 CommitA、CommitB、CommitC 为一个 commit 呢？
 
-!!! 方法：
+! 方法：
 
 同样使用 git rebase -i，操作如下
 
@@ -81,11 +81,11 @@ squash 360d9a3 CommitC
 $ git rebase -continue
 ```
 
-!! 场景 3
+! 场景 3
 
 J 合并 CommitA、CommitB、CommitC 后，新产生的 CommitA+需要将代码更新到 master 上。但是，同一项目组的 T 已经提交了 CommitD。 本来 J 只需要 merge 自己的 CommitA+到 master 就可以了，但是 J 下一个任务依赖于 T 提交的 CommitD。 J 希望一次性更新master和自己的 branch（branch_J_dev），一石二鸟。 那么如何在 merge 自己的 CommitA+到 master 的同时将 CommitD 也 merge 到自己的 branch（branch_J_dev）中呢？
 
-!!! 方法：
+! 方法：
 
 又是使用 git rebase，操作如下
 
@@ -106,11 +106,11 @@ $ git merge branch_J_dev
 git checkout master 和 git merge branch_J_dev 非常重要，网络上大部分教程都没有最后一步。 而且好多人都把命令写成了 `git rebase --ontomaster <commit id>`，看来全是抄袭同一个人的，也是醉了。哈哈哈哈... 我也是因为被坑了，所以才查了一下一下资料，发现竟然还需要一步。
 
 
-!! 场景 4（需求基本和场景 3 一致）
+! 场景 4（需求基本和场景 3 一致）
 
 如何 J 本次希望提交的代码有 CommitA+、CommitB+、CommitC+三次 commit（顺序：CommitA+、CommitB+、CommitC+）。 那么如何在 merge 自己的 CommitA+、CommitB+、CommitC+到 master 的同时将 CommitD 也 merge 到自己的 branch（branch_J_dev）中呢？
 
-!!! 方法：
+! 方法：
 
 基本和场景 3 一致，操作如下
 
@@ -129,11 +129,11 @@ $ git checkout master
 $ git merge branch_J_dev
 ```
 
-!! 场景 5
+! 场景 5
 
 如何修改 commit 记录（调整顺序+修改 message）？ 其实这种操作没什么意义，但是对于对 commit log 有强迫症的人，或许有想修改 commit 记录的冲动。 哈哈哈哈...
 
-!!! 方法：
+! 方法：
 
 还是使用 git rebase。惊喜不惊喜？意外不意外？操作如下
 
@@ -151,7 +151,7 @@ $ git rebase -i <parent commit of D>
 $ git rebase --continue
 ```
 
-!!（最后）小提示
+!（最后）小提示
 
 1.    如果想中途取消 rebase 操作，后悔药 👇
 

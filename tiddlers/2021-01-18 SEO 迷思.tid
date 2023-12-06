@@ -6,10 +6,10 @@ tags: $:/plugins/adithyab/tiddlyjam/live blog
 title: 2021-01-18 SEO 迷思
 type: text/vnd.tiddlywiki
 
-!! 1. 增加 link 就能提高 SEO
+! 1. 增加 link 就能提高 SEO
 
 事实：相同 domain 的 link 无论添加多少，都不会对 SEO 有任何影响。所以没有必要在页面中添加多余的 link。
 
-!! 2. 每个页面都要有且仅有一个 `<h1>`
+! 2. 每个页面都要有且仅有一个 `<h1>`
 
 事实：h1 标签对 SEO 有影响，但不是必须的。如果 UI design 角度不需要大标题（h1），仅设置 document `title` 就足够了。

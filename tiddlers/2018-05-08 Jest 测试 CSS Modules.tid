@@ -13,7 +13,7 @@ CSS Modules 解决了 CSS 全局作用域的问题，但是也引入了新的不
 
 记录一下，Jest 如何测试 CSS Modules。
 
-!! 背景
+! 背景
 
 React 的 SPA 项目，使用 Parcel.js 作为打包工具。使用 CSS Modules 模块化开发样式。
 
@@ -23,7 +23,7 @@ Parcel.js：极速零配置 Web 应用打包工具。
 注：假的！配置少，但不是 0 配置。
 <<<
 
-!! 问题
+! 问题
 
 Jest 运行测试时无法理解 Less 语法， Less 代码无法转换成 JS 代码。
 

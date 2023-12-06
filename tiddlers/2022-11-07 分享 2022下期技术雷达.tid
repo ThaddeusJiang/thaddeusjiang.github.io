@@ -12,7 +12,7 @@ ThoughtWorks 从技术、平台、工具、语言&框架等 4 方面，将内容
 ok，让我们开始正文：
 
 <<<.tc-big-quote
-!! 我正在使用
+! 我正在使用
 
 # 技术
 ## 组件视觉回归测试 `试验`
@@ -26,32 +26,32 @@ ok，让我们开始正文：
 ## ReactQuery `采纳`
 <<<TJ
 
-!! 组件视觉回归测试
+! 组件视觉回归测试
 
 {{组件视觉回归测试}}
 
-!! 服务器端驱动 UI
+! 服务器端驱动 UI
 
 {{服务器端驱动 UI}}
 
-!! Colima
+! Colima
 
 {{Colima}}
 
-!! k6
+! k6
 
 {{k6}}
 
-!! Excalidraw
+! Excalidraw
 
 {{Excalidraw}}
 
-!! ReactQuery
+! ReactQuery
 
 {{ReactQuery}}
 
 <<<.tc-big-quote
-!! 我想要尝试
+! 我想要尝试
 
 # 工具
 ## Harness 云服务成本管理 `评估`
@@ -65,16 +65,16 @@ ok，让我们开始正文：
 
 我准备试试 Harness 和 infracost。
 
-!! Yjs
+! Yjs
 
 {{Yjs}}
 
-!! Connect
+! Connect
 
 {{Connect}}
 
 <<<.tc-big-quote
-!! 我保持观望的
+! 我保持观望的
 
 # 语言&框架
 ## Svelte `试验`
@@ -83,20 +83,20 @@ ok，让我们开始正文：
 ## Bun `评估`
 <<<TJ
 
-!! Svelte
+! Svelte
 
 {{Svelte}}
 
-!! Ladle, Astro
+! Ladle, Astro
 
 我知道他们是不错的技术，不过我还是想看看社区领袖的选择。
 
-!! Bun
+! Bun
 
 {{Bun}}
 
 <<<.tc-big-quote
-!! 我已经不再使用
+! 我已经不再使用
 
 # 技术
 ## 默认选择 SPA `暂缓`
@@ -104,11 +104,11 @@ ok，让我们开始正文：
 ## Cypress组件测试 `评估`
 <<<TJ
 
-!! 默认选择 SPA
+! 默认选择 SPA
 
 {{默认选择 SPA}}
 
-!! Cypress组件测试
+! Cypress组件测试
 
 {{Cypress组件测试}}
 

@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 
 绝大多数 freelancer 都使用自定义域名邮箱。一方面，使用自定义域名邮箱显得更专业，另一方面，可以有效隔绝生活邮件和工作邮件。本文简单介绍一下如何配置自己的自定义域名邮箱。
 
-!! 背景
+! 背景
 
 最近计划开始从事 freelancer 的工作。在网上查了一下，看到使用自定义域名邮箱可以提高客户的信任感，所以开始重度使用自己 `@jifa.name` 邮箱。
 
@@ -21,20 +21,20 @@ type: text/vnd.tiddlywiki
 尝试了很多解决方案，但是都没解决。并且发现 yandex 的英文界面经常出现俄语，实在太难受了。
 不得已，决定从 Yandex Connect 迁移到 Zoho Mail。
 
-!! 为什么选择 Zoho Mail
+! 为什么选择 Zoho Mail
 
 # zoho mail 免费
 # zoho mail 英文支持好，不会出现不认识的按钮或者菜单
 # 我以前应哟 Zoho notebook，对 Zoho 的软件有一定好感。
 
-!! 如何设置？
+! 如何设置？
 
 首先，介绍几点前提：
 
 * 我的域名是从 [GoDaddy](https://godaddy.com) 购买的
 * 我是用 [Netlify](https://app.netlify.com/) 管理 DNS，而不是 GoDaddy。
 
-!! 第一步：使用 Netlify 管理 DNS
+! 第一步：使用 Netlify 管理 DNS
 
 你可以在你的 Netlify Domain 页面添加一个 Domain
 
@@ -47,13 +47,13 @@ type: text/vnd.tiddlywiki
 到 GoDaddy 的 DNS 页面替换到原来的 DNS zoon
 [img[https://i.gyazo.com/17f31adf9ad6ab40387549d501511e40.jpg]]
 
-!! 第二步：配置 MX 记录
+! 第二步：配置 MX 记录
 
 我的配置如下：
 
 [img[https://i.gyazo.com/c50be634fd0f2e2a256a2d32d99706ac.jpg]]
 
-!! 第三步：配置 TXT 记录
+! 第三步：配置 TXT 记录
 
 需要配置 3 条 TXT 记录，分别是 `SPF` `DKIM` `DMARC`，关于他们的作用，简单地说就是为了防止你的邮件被当成垃圾邮件。
 

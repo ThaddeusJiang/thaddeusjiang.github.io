@@ -7,13 +7,13 @@ type: text/vnd.tiddlywiki
 
 本文想分享一个具体的配置方法，为了照顾对 Azure portal 和 Terraform 不熟悉的朋友，我将使用 UI 和 Code 对比的方式说明。
 
-!! 背景
+! 背景
 
 我目前在开发一个人才管理（Talent Management）的 SaaS 产品。因为是一个 ToB 产品并且还在初级阶段，所以架构上没有那么复杂。依托云平台的水平扩展能力，我们采用“Single App Service, Multiple Custom domains” 的架构。
 
 虽然架构很简单，但是本着“自动化一切可以被自动化的工作”的大原则，我还是使用了 Terraform。
 
-!!  为什么我想写这篇文章？
+!  为什么我想写这篇文章？
 
 由于 Terraform 是一个通用工具，为了兼容不同云平台的资源和指令，不可避免的做了一些抽象。但是这种抽象导致了 Terraform 中资源名称和指令并不完全等于云平台（没错，这里就是想说 MicroSoft Azure）的资源名称和指令。
 
@@ -21,7 +21,7 @@ type: text/vnd.tiddlywiki
 
 所以，我觉得有必要记录下来。
 
-!! 正文
+! 正文
 
 UI：
 
@@ -78,7 +78,7 @@ resource "azurerm_dns_txt_record" "app" {
   }
 }
 
-# Step 2: 添加 Custom domain 
+# Step 2: 添加 Custom domain
 resource "azurerm_app_service_custom_hostname_binding" "app" {
   hostname            = "${var.subdomain}.thaddeusjiang.work"
   app_service_name    = data.azurerm_app_service.app.name

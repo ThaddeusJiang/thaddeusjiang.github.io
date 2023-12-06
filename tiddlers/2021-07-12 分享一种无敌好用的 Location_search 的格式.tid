@@ -19,7 +19,7 @@ Location:search 通常被称为 query string 或者 search string，是 W3C 标�
 
 如果你是本文的目标读者，那你一定可以数量使用这两个接口中任意一个。如果你不会用这两个接口，推荐阅读：https://developer.mozilla.org/zh-CN/docs/Web/API/Location/search
 
-!! W3C 标准的 Location:search 格式有哪些问题？
+! W3C 标准的 Location:search 格式有哪些问题？
 
 # 顺序无关。形如 `?q=a&other=b&q=c` 是被允许的
 # 没有类型。search 只支持字符串，准确地说是 `string | string[] | null`
@@ -34,19 +34,19 @@ Location:search 通常被称为 query string 或者 search string，是 W3C 标�
 # 如何表示 boolean 值？ `?hidden=true` vs. `hidden=1`
 # API 支持哪一种数组？`?q=a&q=b`、`?q=a,b`、`'q[]=b&q[]=a'` 还是 `q[1]=b&q[0]=a` ？
 
-!! 非标准，但无敌好用的格式
+! 非标准，但无敌好用的格式
 
 因为标准 Location:search 有上面提到的诸多问题，逼迫我们不得不离开标准，另辟蹊径。
 
 这里我推荐一种无敌好用的格式。
 
 <<<.tc-big-quote
-使用 JSON 作为 Location:search，形如：`?q={ userIds: [1,2,3], page: 0, pageSize: 20, readOnly: true }` 
+使用 JSON 作为 Location:search，形如：`?q={ userIds: [1,2,3], page: 0, pageSize: 20, readOnly: true }`
 <<<
 
 虽然我们不能继续使用 URLSearchParams 和 URL.searchParams 解析查询参数，但是 `JSON.parse(string)` 可以平滑地接棒。更重要的是 JSON.parse() 是支持类型的。
 
-!! 今后，我们的代码
+! 今后，我们的代码
 
 解析 URL
 
@@ -54,7 +54,7 @@ Location:search 通常被称为 query string 或者 search string，是 W3C 标�
 // URL: https://example.com/featureA?{ userIds: [1,2,3], page: 0, pageSize: 20, readonly: true }
 const { userIds, page, pageSize, readonly } = JSON.parse(location.search.string(1))
 // userIds: [1,2,3]
-// page: 0 
+// page: 0
 // pageSize: 20
 // readonly: true
 ```
