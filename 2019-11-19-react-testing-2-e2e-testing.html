@@ -83,8 +83,8 @@
             <h1 class="subtitle">2019-11-19 React Testing 2 - E2E Testing</h1>
             <hr>
 
-            <p>相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。</p><h2 class="">1. 什么是 E2E Testing？</h2><blockquote class="tc-quote tc-big-quote"><p>笔者认为：E2E Testing 就是从用户角度对软件进行测试。
-</p></blockquote><p>例如：进入“登陆界面”，输入用户名和密码，点击登陆后跳转到“登陆成功”界面。</p><h2 class="">2. 如何做 E2E Testing？</h2><p>很幸运，在 E2E Testing 方面，已经有很多开源软件可以使用。
+            <p>相信很多开发者都听过 E2E Testing，我有幸在两个项目中负责了 E2E Testing 的搭建和维护。这里分享一下如何 E2E Testing。</p><h1 class="">1. 什么是 E2E Testing？</h1><blockquote class="tc-quote tc-big-quote"><p>笔者认为：E2E Testing 就是从用户角度对软件进行测试。
+</p></blockquote><p>例如：进入“登陆界面”，输入用户名和密码，点击登陆后跳转到“登陆成功”界面。</p><h1 class="">2. 如何做 E2E Testing？</h1><p>很幸运，在 E2E Testing 方面，已经有很多开源软件可以使用。
 推荐 Cypress</p><p>1. 安装并配置 Cypress</p><pre class="hljs"><code class="bash hljs">yarn add cypress --dev
 
 yarn cypress open</code></pre><p>第一次运行 <code>cypress open</code>，Cypress 会自动生成测试目录和基本配置。如：</p><pre><code>├── cypress
@@ -160,7 +160,7 @@ yarn cypress open</code></pre><p>第一次运行 <code>cypress open</code>，Cyp
 <span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;username&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;jifa&quot;</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">&quot;password&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;password&quot;</span>
-<span class="hljs-punctuation">}</span></code></pre><p>运行测试</p><pre class="hljs"><code class="bash hljs">yarn cypress open</code></pre><p>这时 Cypress 会启动如下窗口，点击测试文件即可开始测试。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/2ce8aa2c6788c5076bbeac6c1c6e71af.jpg"></p><h2 class="">3. 常见问题</h2><p>1. 如何自动补全 Cypress 方法？</p><p>在测试文件内添加如下代码：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">/// &lt;reference types=&quot;Cypress&quot; /&gt;</span></code></pre><p>2. <code>cy undefined</code>，如何解决？</p><p>安装 [eslint-plugin-cypress](<a class="tc-tiddlylink-external" href="https://github.com/cypress-io/eslint-plugin-cypress" rel="noopener noreferrer" target="_blank">https://github.com/cypress-io/eslint-plugin-cypress</a>)，并配置 <code>eslintrc.json</code></p><pre class="hljs"><code class="bash hljs">yarn add --dev eslint-plugin-cypress</code></pre><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// eslintrc.json</span>
+<span class="hljs-punctuation">}</span></code></pre><p>运行测试</p><pre class="hljs"><code class="bash hljs">yarn cypress open</code></pre><p>这时 Cypress 会启动如下窗口，点击测试文件即可开始测试。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/2ce8aa2c6788c5076bbeac6c1c6e71af.jpg"></p><h1 class="">3. 常见问题</h1><p>1. 如何自动补全 Cypress 方法？</p><p>在测试文件内添加如下代码：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">/// &lt;reference types=&quot;Cypress&quot; /&gt;</span></code></pre><p>2. <code>cy undefined</code>，如何解决？</p><p>安装 [eslint-plugin-cypress](<a class="tc-tiddlylink-external" href="https://github.com/cypress-io/eslint-plugin-cypress" rel="noopener noreferrer" target="_blank">https://github.com/cypress-io/eslint-plugin-cypress</a>)，并配置 <code>eslintrc.json</code></p><pre class="hljs"><code class="bash hljs">yarn add --dev eslint-plugin-cypress</code></pre><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// eslintrc.json</span>
 <span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;plugins&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;cypress&quot;</span><span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre><p>3. 如何自动化测试？</p><p>以 GitHub Actions 为例：</p><p>第一步：定义 npm scripts</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// package.json</span>
@@ -188,7 +188,7 @@ yarn cypress open</code></pre><p>第一次运行 <code>cypress open</code>，Cyp
       <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">E2E</span> <span class="hljs-string">Tests</span>
         <span class="hljs-attr">run:</span> <span class="hljs-string">yarn</span> <span class="hljs-string">cy:ci</span>
         <span class="hljs-attr">env:</span>
-          <span class="hljs-attr">CYPRESS_RECORD_KEY:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.CYPRESS_RECORD_KEY</span> <span class="hljs-string">}}</span></code></pre><p>需要在 GitHub Secrets 定义 <code>CYPRESS_RECORD_KEY</code>，如下：</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/825570ffe09b2d6ff69f7b546ba1733d.jpg"></p><h2 class="">经验</h2><blockquote class="tc-quote tc-big-quote"><p>其实可以全局安装 Cypress
+          <span class="hljs-attr">CYPRESS_RECORD_KEY:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.CYPRESS_RECORD_KEY</span> <span class="hljs-string">}}</span></code></pre><p>需要在 GitHub Secrets 定义 <code>CYPRESS_RECORD_KEY</code>，如下：</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/825570ffe09b2d6ff69f7b546ba1733d.jpg"></p><h1 class="">经验</h1><blockquote class="tc-quote tc-big-quote"><p>其实可以全局安装 Cypress
 </p></blockquote><p>优点是缩短 npm 安装时间。</p><p>代码：<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/react-testing-example/pull/2" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/react-testing-example/pull/2</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.cypress.io/" rel="noopener noreferrer" target="_blank">https://www.cypress.io/</a></li></ul>
           </div>          
       </div>

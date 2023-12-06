@@ -83,7 +83,7 @@
             <h1 class="subtitle">2023-10-13 关于 Code 我的一些改变</h1>
             <hr>
 
-            <p>本来想写《使用 React.js 后我有哪些改变？》，写完后发现我的改变不仅仅是 React.js 相关，还有一些代码周边的内容。</p><h2 class="">1. File Structure: 放弃按代码类型组织，选择按使用频度组织</h2><p>使用 React.js 之前，我是按照代码类型进行组织文件结构的。HTML 放在 views 文件夹，JS 放在 scripts 文件夹，CSS 放在 styles 文件夹。文件结构如下：</p><pre><code>├── scripts
+            <p>本来想写《使用 React.js 后我有哪些改变？》，写完后发现我的改变不仅仅是 React.js 相关，还有一些代码周边的内容。</p><h1 class="">1. File Structure: 放弃按代码类型组织，选择按使用频度组织</h1><p>使用 React.js 之前，我是按照代码类型进行组织文件结构的。HTML 放在 views 文件夹，JS 放在 scripts 文件夹，CSS 放在 styles 文件夹。文件结构如下：</p><pre><code>├── scripts
 │   ├── index.js
 │   ├── login.js
 │   └── settings.js
@@ -128,7 +128,7 @@
 └── settings
     ├── settings.controller.js
     ├── settings.htm
-    └── settings.service.js</code></pre><h2 class="">2. 代码重复利用单位从 class 变小的 function</h2><p>使用 React.js 之前，我使用 class 组织数据和功能，properties 和 methods 放在 class 中，并通过 class 使用。代码如下：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// account.js</span>
+    └── settings.service.js</code></pre><h1 class="">2. 代码重复利用单位从 class 变小的 function</h1><p>使用 React.js 之前，我使用 class 组织数据和功能，properties 和 methods 放在 class 中，并通过 class 使用。代码如下：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// account.js</span>
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Account</span> {
   name = <span class="hljs-string">&quot;&quot;</span>;
   age = <span class="hljs-number">0</span>;
@@ -187,7 +187,7 @@ tj.<span class="hljs-title function_">introduce</span>()</code></pre><p>使用 R
 
 <span class="hljs-keyword">const</span> tj = <span class="hljs-title class_">AccountSchema</span>.<span class="hljs-title function_">parse</span>({ <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;TJ&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">31</span> });
 <span class="hljs-title function_">introduce</span>(tj)</code></pre><p>这样做的好处是：</p><ol><li>plaintext object 比 class instance object 更容易理解，没有魔法</li><li>function 比 class method 更容易管理、拆分、测试，可以避免写出巨型代码块。</li><li>代码行数少，阅读代码更轻松。</li></ol><blockquote class="tc-quote tc-big-quote"><p>CSS 代码重复利用单位也从 BEM class 变小到 utility class
-</p><cite>TJ</cite></blockquote><h2 class="">3. Coding: 放弃模版文件和注解等非标准特性，使用编程语言的标准特性</h2><p>使用 React.js 之前，我会使用一些模版技术。代码如下：</p><pre class="hljs"><code class="html hljs">// settings.vue
+</p><cite>TJ</cite></blockquote><h1 class="">3. Coding: 放弃模版文件和注解等非标准特性，使用编程语言的标准特性</h1><p>使用 React.js 之前，我会使用一些模版技术。代码如下：</p><pre class="hljs"><code class="html hljs">// settings.vue
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
 <span class="hljs-keyword">const</span> items = [{ <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Foo&#x27;</span> }, { <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Bar&#x27;</span> }]
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
@@ -220,7 +220,7 @@ tj.<span class="hljs-title function_">introduce</span>()</code></pre><p>使用 R
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
   );
 }</code></pre><p>没有特殊语法，没有特殊文件类型，所有都是普通的 JS 代码。
-import "./settings.css" 是 normal JS code, .map() 也是 normal JS code。</p><h4 class="">使用 React.js 之前，我会使用一些基于注解的框架。代码如下：</h4><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// OcpiListFilter.ts</span>
+import "./settings.css" 是 normal JS code, .map() 也是 normal JS code。</p><h1 class="">使用 React.js 之前，我会使用一些基于注解的框架。代码如下：</h1><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// OcpiListFilter.ts</span>
 
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">IsDateString</span>, <span class="hljs-title class_">IsInt</span>, <span class="hljs-title class_">IsOptional</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;class-validator&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Type</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;class-transformer&#x27;</span>;
@@ -251,7 +251,7 @@ import "./settings.css" 是 normal JS code, .map() 也是 normal JS code。</p><
     <span class="hljs-attr">dateTo</span>: z.<span class="hljs-title function_">string</span>().<span class="hljs-title function_">date</span>().<span class="hljs-title function_">optional</span>(),
     <span class="hljs-attr">offset</span>: z.<span class="hljs-title function_">number</span>().<span class="hljs-title function_">int</span>().<span class="hljs-title function_">optional</span>(),
     <span class="hljs-attr">limit</span>: z.<span class="hljs-title function_">number</span>().<span class="hljs-title function_">int</span>().<span class="hljs-title function_">optional</span>(),
-});</code></pre><p>没有注解，没有黑魔法，只是最普通函数（function）。</p><h2 class="">总结</h2><p>其实是很简单的几件小事，几句话就说清楚了。但是要展示 before and after 的代码，占用了很大篇幅，😂</p>
+});</code></pre><p>没有注解，没有黑魔法，只是最普通函数（function）。</p><h1 class="">总结</h1><p>其实是很简单的几件小事，几句话就说清楚了。但是要展示 before and after 的代码，占用了很大篇幅，😂</p>
           </div>          
       </div>
   </div>

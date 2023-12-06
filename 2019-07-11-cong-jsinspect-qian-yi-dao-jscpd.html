@@ -91,7 +91,7 @@
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre><p>但是，这只是从上一个项目继承过来的祖传代码，从来没有人使用过。</p><p>一般情况下，我的原则都是没有用的代码，全部删除。
 但是存在必有其存在的道理，先分析一下。</p><ul><li>这段代码有什么作用？<ul><li>jsinspect 检查复制/粘贴，或者类似代码的工具。</li></ul></li><li>为什么没有人使用？<ul><li>我运行了一下，结果得到一大堆 log，十分茫然，不知道接下来要做什么。</li><li>没有简单易懂的结果报告。</li></ul></li></ul><p>从上面分析可以看出，功能还是有用的，最起码能知道项目中有多少重复代码。就是工具选择的不恰当，没有易用性。</p><p>改进方法就是寻找替代方案。
-于是我找到 jscpd</p><h2 class="">jscpd 对比 jsinspect 优势</h2><ol><li>仍在维护。（这点太重要了）</li><li>运行结果内容清晰，且报告比较美观。</li></ol><h2 class="">jscpd 使用</h2><p>官网示例非常简单，推荐直接阅读。</p><p>TL;DR</p><p>1. config file</p><pre class="hljs"><code class="json hljs"><span class="hljs-punctuation">{</span>
+于是我找到 jscpd</p><h1 class="">jscpd 对比 jsinspect 优势</h1><ol><li>仍在维护。（这点太重要了）</li><li>运行结果内容清晰，且报告比较美观。</li></ol><h1 class="">jscpd 使用</h1><p>官网示例非常简单，推荐直接阅读。</p><p>TL;DR</p><p>1. config file</p><pre class="hljs"><code class="json hljs"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;threshold&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.1</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">&quot;reporters&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;html&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;console&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">&quot;ignore&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;**/__snapshots__/**&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>

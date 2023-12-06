@@ -84,25 +84,25 @@
             <hr>
 
             <p>工作以后，我越来越能体会到 80/20 法则的强大。</p><p>这是一个不可否认的事实，常用 20% 的技术可以解决工作中 80% 的场景。
-所以我希望能介绍给你 Velocity 技术 20%，帮助你胜任 80% 的工作。</p><p>废话少说，进入正题。</p><h2 class="">概要</h2><ol><li>Velocity 是什么？</li><li>Velocity 能做什么？</li><li>Velocity 示例</li></ol><h2 class="">1. Velocity 是什么？</h2><p>Velocity 是一个基于 Java 的模版引擎，它提供模版语言用于引用 Java 代码定义的对象。</p><h2 class="">2. Velocity 能做什么？</h2><ol><li>Velocity 能创建 HTML 页面，并预留占位符。（最基本用途）</li><li>Velocity 能基于模板生成 Java，SQL 源代码。（没见过）</li><li>自动生成电子邮件。（没见过）</li><li>读取 XML，并转换成需要的文档格式，通常是 HTML。（没见过）</li></ol><h2 class="">3. Velocity 示例</h2><h3 class="">Velocity 注解</h3><ul><li>单行 <code>##</code></li><li>多行 <code>#* *#</code></li><li>代码块注释(信息) <code>##* *#</code></li></ul><h3 class="">Velocity 变量</h3><p>定义：</p><pre class="hljs"><code class="java hljs">#set( $foo = <span class="hljs-string">&quot;Velocity&quot;</span> )</code></pre><p>使用：</p><pre class="hljs"><code class="java hljs">$foo
-${foo}</code></pre><h3 class="">Velocity 集合</h3><pre class="hljs"><code class="java hljs">#set( $greatlakes = [<span class="hljs-string">&quot;Superior&quot;</span>,<span class="hljs-string">&quot;Michigan&quot;</span>,<span class="hljs-string">&quot;Huron&quot;</span>,<span class="hljs-string">&quot;Erie&quot;</span>,<span class="hljs-string">&quot;Ontario&quot;</span>] )</code></pre><h3 class="">Velocity 条件判断</h3><pre class="hljs"><code class="java hljs">#<span class="hljs-keyword">if</span>( $foo &lt; <span class="hljs-number">10</span> )
+所以我希望能介绍给你 Velocity 技术 20%，帮助你胜任 80% 的工作。</p><p>废话少说，进入正题。</p><h1 class="">概要</h1><ol><li>Velocity 是什么？</li><li>Velocity 能做什么？</li><li>Velocity 示例</li></ol><h1 class="">1. Velocity 是什么？</h1><p>Velocity 是一个基于 Java 的模版引擎，它提供模版语言用于引用 Java 代码定义的对象。</p><h1 class="">2. Velocity 能做什么？</h1><ol><li>Velocity 能创建 HTML 页面，并预留占位符。（最基本用途）</li><li>Velocity 能基于模板生成 Java，SQL 源代码。（没见过）</li><li>自动生成电子邮件。（没见过）</li><li>读取 XML，并转换成需要的文档格式，通常是 HTML。（没见过）</li></ol><h1 class="">3. Velocity 示例</h1><h1 class="">Velocity 注解</h1><ul><li>单行 <code>##</code></li><li>多行 <code>#* *#</code></li><li>代码块注释(信息) <code>##* *#</code></li></ul><h1 class="">Velocity 变量</h1><p>定义：</p><pre class="hljs"><code class="java hljs">#set( $foo = <span class="hljs-string">&quot;Velocity&quot;</span> )</code></pre><p>使用：</p><pre class="hljs"><code class="java hljs">$foo
+${foo}</code></pre><h1 class="">Velocity 集合</h1><pre class="hljs"><code class="java hljs">#set( $greatlakes = [<span class="hljs-string">&quot;Superior&quot;</span>,<span class="hljs-string">&quot;Michigan&quot;</span>,<span class="hljs-string">&quot;Huron&quot;</span>,<span class="hljs-string">&quot;Erie&quot;</span>,<span class="hljs-string">&quot;Ontario&quot;</span>] )</code></pre><h1 class="">Velocity 条件判断</h1><pre class="hljs"><code class="java hljs">#<span class="hljs-keyword">if</span>( $foo &lt; <span class="hljs-number">10</span> )
     &lt;strong&gt;Go North&lt;/strong&gt;
 #elseif( $foo == <span class="hljs-number">10</span> )
     &lt;strong&gt;Go East&lt;/strong&gt;
 #<span class="hljs-keyword">else</span>
     &lt;strong&gt;Go West&lt;/strong&gt;
-#end</code></pre><h3 class="">Velocity 循环</h3><pre><code>#foreach( $customer in $customerList )
+#end</code></pre><h1 class="">Velocity 循环</h1><pre><code>#foreach( $customer in $customerList )
     #if( $foreach.count &gt; 5 )
         #break
     #end
     $customer.Name
-#end</code></pre><h3 class="">Velocity 引用文件</h3><pre class="hljs"><code class="java hljs">#include( <span class="hljs-string">&quot;one.vm&quot;</span> ) one.vm 不解析。
-#parse( <span class="hljs-string">&quot;me.vm&quot;</span> ) me.vm 解析。</code></pre><h2 class="">Velocity 定义代码块</h2><pre class="hljs"><code class="java hljs">#define( $block )
+#end</code></pre><h1 class="">Velocity 引用文件</h1><pre class="hljs"><code class="java hljs">#include( <span class="hljs-string">&quot;one.vm&quot;</span> ) one.vm 不解析。
+#parse( <span class="hljs-string">&quot;me.vm&quot;</span> ) me.vm 解析。</code></pre><h1 class="">Velocity 定义代码块</h1><pre class="hljs"><code class="java hljs">#define( $block )
 Hello $who
 #end
 
 #set( $who = <span class="hljs-string">&#x27;World!&#x27;</span> )
-$block</code></pre><h2 class="">Velocity 宏调用</h2><ul><li>无参</li></ul><pre class="hljs"><code class="java hljs">#macro( d )
+$block</code></pre><h1 class="">Velocity 宏调用</h1><ul><li>无参</li></ul><pre class="hljs"><code class="java hljs">#macro( d )
 &lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
 #end
 
@@ -158,7 +158,7 @@ Velocity 中<code>$customer.address</code>，调用顺序：</p><pre class="hljs
 getAddress()
 get(<span class="hljs-string">&quot;address&quot;</span>)
 isAddress()</code></pre><p>4. <code>#if (\$foo)</code></p><p>两种情况都返回 true：</p><ol><li>$foo是一个 boolean 类型，且为 true。</li><li>$foo 不是 0，也不是 null。</li></ol><p>5. <code>#if ($foo == $bar)</code></p><p>因为 Velocity 变量最终都作为字符串输出，所以 Velocity 会自动调用 .toString() 将变量转换成字符串。
-所以，$foo 和 $bar 都当成字符串进行比较。即使 Java 代码中类型不同，也有可能返回 true。</p><h2 class="">Velocity 严格模式</h2><p>Velocity 1.6 引入**严格引用模式**，通过设置 Velocity 配置属性“runtime.references.strict”为 true 激活。
+所以，$foo 和 $bar 都当成字符串进行比较。即使 Java 代码中类型不同，也有可能返回 true。</p><h1 class="">Velocity 严格模式</h1><p>Velocity 1.6 引入**严格引用模式**，通过设置 Velocity 配置属性“runtime.references.strict”为 true 激活。
 当遇到没有定义或者存在歧义的情况 Velocity 将抛出异常。</p><p>希望这篇文章对你有帮助。
 </p>
           </div>          

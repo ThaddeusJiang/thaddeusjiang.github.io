@@ -84,7 +84,7 @@
             <hr>
 
             <p>不经意间使用 GraphQL 已经一年时间了，
-分享一个自己走过的坑，<code>多层嵌套 fragment</code>。</p><h2 class="">首先，什么是 GraphQL fragment？</h2><blockquote class="tc-quote tc-big-quote"><p>GraphQL includes reusable units called fragments. Fragments let you construct sets of fields, and then include them in queries where you need to.
+分享一个自己走过的坑，<code>多层嵌套 fragment</code>。</p><h1 class="">首先，什么是 GraphQL fragment？</h1><blockquote class="tc-quote tc-big-quote"><p>GraphQL includes reusable units called fragments. Fragments let you construct sets of fields, and then include them in queries where you need to.
 </p></blockquote><p>GraphQL fragment 允许我们定义一些常用的属性集，方便重复利用。</p><p>使用方法如下，我们定义 TagFragment， 它被利用在 ACardFragment 和 BCardFragment 中。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> <span class="hljs-title class_">TagFragment</span> = gql<span class="hljs-string">`
   fragment TagFragment {
     id
@@ -110,7 +110,7 @@
       ...TagFragment
     }
   }
-`</span></code></pre><h2 class="">为什么说嵌套 fragment 是反面教材？</h2><p>这里我们定义 TagFragment、BCardFragment、AFromFragment 如下，并在 AFormQuery 中使用 AFormFragment。</p><p>你会发现，虽然 AFormQuery 只使用了 AFormFragment，但是由于多层嵌套 fragment 的原因，你不得不同时引用 BCardFragment 和 TagFragment。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> <span class="hljs-title class_">TagFragment</span> = gql<span class="hljs-string">`
+`</span></code></pre><h1 class="">为什么说嵌套 fragment 是反面教材？</h1><p>这里我们定义 TagFragment、BCardFragment、AFromFragment 如下，并在 AFormQuery 中使用 AFormFragment。</p><p>你会发现，虽然 AFormQuery 只使用了 AFormFragment，但是由于多层嵌套 fragment 的原因，你不得不同时引用 BCardFragment 和 TagFragment。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> <span class="hljs-title class_">TagFragment</span> = gql<span class="hljs-string">`
   fragment TagFragment {
     id
     name
@@ -145,7 +145,7 @@
   <span class="hljs-subst">${AFormFragment}</span>
   <span class="hljs-subst">${BCardFragment}</span>
   <span class="hljs-subst">${TagFragment}</span>
-`</span></code></pre><h2 class="">如何解决上面问题呢？</h2><p>其实很简单。</p><blockquote class="tc-quote tc-big-quote"><p>只需保证每个 fragment 都不向外传递除自己以外的 fragment 即可。
+`</span></code></pre><h1 class="">如何解决上面问题呢？</h1><p>其实很简单。</p><blockquote class="tc-quote tc-big-quote"><p>只需保证每个 fragment 都不向外传递除自己以外的 fragment 即可。
 </p></blockquote><p>如下</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> <span class="hljs-title class_">TagFragment</span> = gql<span class="hljs-string">`
   fragment TagFragment {
     id

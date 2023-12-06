@@ -84,11 +84,11 @@
             <hr>
 
             <blockquote class="tc-quote tc-big-quote"><p>软件测试中，Unit Testing 是最基础的，也是测试量最大的。
-</p></blockquote><p>那么，React 项目如何 Unit Testing呢？</p><p>首先，我们要先确定几个前提</p><ul><li>使用 create-react-app 创建项目</li><li>使用 Jest 和 React Testing Library 测试</li><li>使用 GitHub Actions 自动化</li></ul><h2 class="">1. 创建项目，并配置 Jest 和 React Testing Library</h2><pre class="hljs"><code class="bash hljs">npx create-react-app testing-demo
+</p></blockquote><p>那么，React 项目如何 Unit Testing呢？</p><p>首先，我们要先确定几个前提</p><ul><li>使用 create-react-app 创建项目</li><li>使用 Jest 和 React Testing Library 测试</li><li>使用 GitHub Actions 自动化</li></ul><h1 class="">1. 创建项目，并配置 Jest 和 React Testing Library</h1><pre class="hljs"><code class="bash hljs">npx create-react-app testing-demo
 
 <span class="hljs-built_in">cd</span> testing-demo
 yarn add @testing-library/react --dev
-</code></pre><h2 class="">2. 编写一个 Counter 组件，并测试</h2><blockquote class="tc-quote tc-big-quote"><p>Tips: 测试代码和组件放在同一文件夹下，更易管理。
+</code></pre><h1 class="">2. 编写一个 Counter 组件，并测试</h1><blockquote class="tc-quote tc-big-quote"><p>Tips: 测试代码和组件放在同一文件夹下，更易管理。
 </p></blockquote><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// src/components/counter/index.js</span>
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>
 
@@ -125,7 +125,7 @@ yarn add @testing-library/react --dev
   fireEvent.<span class="hljs-title function_">click</span>(<span class="hljs-title function_">getByText</span>(<span class="hljs-string">&quot;-&quot;</span>))
 
   <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">getByText</span>(<span class="hljs-string">&quot;-1&quot;</span>)).<span class="hljs-title function_">toBeTruthy</span>()
-})</code></pre><h2 class="">3. 常见问题</h2><ul><li>我应该在哪写 Unit Testing？</li></ul><p>没有强制约定，个人认为测试代码和源码放在项目文件夹更容易管理。</p><p>如上面例子：测试代码和源码都存放在 <code>src/components/counter/</code> 中。</p><ul><li>自动补全 Jest 函数和断言的？</li></ul><pre class="hljs"><code class="bash hljs">yarn add @types/jest</code></pre><ul><li>如何查看测试覆盖率？</li></ul><pre class="hljs"><code class="bash hljs">yarn <span class="hljs-built_in">test</span> --coverage</code></pre><ul><li>如何自动化测试？</li></ul><p>以 GitHub Actions 为例：新建 <code>.github/workflows/pull_request.yml</code>，并编写如下代码</p><pre class="hljs"><code class="yaml hljs">  <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;PR Checks&quot;</span>
+})</code></pre><h1 class="">3. 常见问题</h1><ul><li>我应该在哪写 Unit Testing？</li></ul><p>没有强制约定，个人认为测试代码和源码放在项目文件夹更容易管理。</p><p>如上面例子：测试代码和源码都存放在 <code>src/components/counter/</code> 中。</p><ul><li>自动补全 Jest 函数和断言的？</li></ul><pre class="hljs"><code class="bash hljs">yarn add @types/jest</code></pre><ul><li>如何查看测试覆盖率？</li></ul><pre class="hljs"><code class="bash hljs">yarn <span class="hljs-built_in">test</span> --coverage</code></pre><ul><li>如何自动化测试？</li></ul><p>以 GitHub Actions 为例：新建 <code>.github/workflows/pull_request.yml</code>，并编写如下代码</p><pre class="hljs"><code class="yaml hljs">  <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;PR Checks&quot;</span>
 
   <span class="hljs-attr">on:</span> <span class="hljs-string">pull_request</span>
 

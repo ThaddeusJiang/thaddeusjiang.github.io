@@ -83,7 +83,7 @@
             <h1 class="subtitle">2020-07-07 Frontend handle Authorization</h1>
             <hr>
 
-            <h2 class="">分享一个简单登录认证实现</h2><p>我使用 [Axios](<a class="tc-tiddlylink-external" href="https://github.com/axios/axios" rel="noopener noreferrer" target="_blank">https://github.com/axios/axios</a>) 作为 HTTP client。</p><h2 class="">原则</h2><ol><li>不创建 axios 实例，仅使用 global axios</li><li>避免在 UI 层写认证逻辑</li></ol><h2 class="">步骤</h2><p>1. 从 localStorage 中读取 token，并设置到 header 中</p><pre class="hljs"><code class="js hljs">axios.<span class="hljs-property">defaults</span>.<span class="hljs-property">headers</span>.<span class="hljs-property">common</span>[<span class="hljs-string">&#x27;Any-Token-Key&#x27;</span>] = <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&#x27;any-token-key&#x27;</span>)</code></pre><p>2. 拦截 response，处理 <code>401 Unauthorized</code> 错误。</p><pre class="hljs"><code class="js hljs">axios.<span class="hljs-property">interceptors</span>.<span class="hljs-property">response</span>
+            <h1 class="">分享一个简单登录认证实现</h1><p>我使用 [Axios](<a class="tc-tiddlylink-external" href="https://github.com/axios/axios" rel="noopener noreferrer" target="_blank">https://github.com/axios/axios</a>) 作为 HTTP client。</p><h1 class="">原则</h1><ol><li>不创建 axios 实例，仅使用 global axios</li><li>避免在 UI 层写认证逻辑</li></ol><h1 class="">步骤</h1><p>1. 从 localStorage 中读取 token，并设置到 header 中</p><pre class="hljs"><code class="js hljs">axios.<span class="hljs-property">defaults</span>.<span class="hljs-property">headers</span>.<span class="hljs-property">common</span>[<span class="hljs-string">&#x27;Any-Token-Key&#x27;</span>] = <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&#x27;any-token-key&#x27;</span>)</code></pre><p>2. 拦截 response，处理 <code>401 Unauthorized</code> 错误。</p><pre class="hljs"><code class="js hljs">axios.<span class="hljs-property">interceptors</span>.<span class="hljs-property">response</span>
   .<span class="hljs-title function_">use</span>(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
     <span class="hljs-keyword">return</span> response
   },
@@ -97,7 +97,7 @@
 
   <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">setItem</span>(<span class="hljs-string">&#x27;any-token-key&#x27;</span>, token)
   axios.<span class="hljs-property">defaults</span>.<span class="hljs-property">headers</span>.<span class="hljs-property">common</span>[<span class="hljs-string">&#x27;Any-Token-Key&#x27;</span>] = token
-}</code></pre><h2 class="">一点点小感悟</h2><p>前端登录认证是一个基础到不能再基础的功能，可是我发现不少号称有几年开发经验的程序员还是写不出来。</p><p>虽然不知道具体原因，但是我推测可能有一下原因</p><ol><li>没有参与过新项目的开发，所以没有接触过登录认证模块。</li><li>绝大多数公司在面试时不会问这种基础的问题，所以一门心思扑在“高大上”的算法和源码。</li><li>没有阅读过其他项目的登录认证代码，只了解目前项目的逻辑。</li></ol><p>其实，日常工作中没那么多造火箭的的工作，算法和源码理解虽然很重要，但是基本的代码能力也是必不可少的。</p><p>来面试的同学/前辈们一上来就谈 Vue/React 源码，设计思想，中台实现，吧啦吧啦的，给人一种没有实际开发经验的感觉。</p>
+}</code></pre><h1 class="">一点点小感悟</h1><p>前端登录认证是一个基础到不能再基础的功能，可是我发现不少号称有几年开发经验的程序员还是写不出来。</p><p>虽然不知道具体原因，但是我推测可能有一下原因</p><ol><li>没有参与过新项目的开发，所以没有接触过登录认证模块。</li><li>绝大多数公司在面试时不会问这种基础的问题，所以一门心思扑在“高大上”的算法和源码。</li><li>没有阅读过其他项目的登录认证代码，只了解目前项目的逻辑。</li></ol><p>其实，日常工作中没那么多造火箭的的工作，算法和源码理解虽然很重要，但是基本的代码能力也是必不可少的。</p><p>来面试的同学/前辈们一上来就谈 Vue/React 源码，设计思想，中台实现，吧啦吧啦的，给人一种没有实际开发经验的感觉。</p>
           </div>          
       </div>
   </div>

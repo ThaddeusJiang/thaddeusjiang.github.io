@@ -29,10 +29,10 @@
             <h1 class="subtitle">2023-11-14 ISO 8601</h1>
             <hr>
 
-            <p>imo: 永远使用 ISO 8601 string 在 API 之间传递日期时间数据。</p><h2 class="">Why?</h2><p>不同的编程语言对日期时间数据的实现有可能不同，但是 ISO 8601 Format 是相同的，始终是 <code>YYYY-MM-DDTHH:mm:ss.sssZ</code>。</p><p>始终使用 ISO 8601 string 在 API 之间传递日期时间数据，可以有效的减少开发者造轮子；减少没有任何收益的技术实现讨论。</p><p>并且 ISO 8601 string 是人类可读的，并且非常简单，任何智商正常的人都不需要额外学习就可以在大脑中进行对比、比较、简单运算。</p><ul><li>对比 ISO 8601 string：2023-12-06T23:00:00.000Z 和 2023-12-07T09:00:00.000Z 不相等</li><li>比较 ISO 8601 string：2023-12-06T23:00:00.000Z 比 2023-12-07T09:00:00.000Z 小</li><li>简单运算 ISO 8601 string：2023-12-06T23:00:00.000Z 加 10 小时等于 2023-12-07T09:00:00.000Z</li></ul><h2 class="">我遇到过的 issues</h2><h3 class="">1. 日期时间数据在 console / log 中不可读，不能直接在大脑中运算。</h3><p>例如：现在时间是 2023-12-06T04:30:48.253Z，如果不使用 ISO 8601 format，大脑无法直接对当前时间进行简单比较和运算。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()
+            <p>imo: 永远使用 ISO 8601 string 在 API 之间传递日期时间数据。</p><h1 class="">Why?</h1><p>不同的编程语言对日期时间数据的实现有可能不同，但是 ISO 8601 Format 是相同的，始终是 <code>YYYY-MM-DDTHH:mm:ss.sssZ</code>。</p><p>始终使用 ISO 8601 string 在 API 之间传递日期时间数据，可以有效的减少开发者造轮子；减少没有任何收益的技术实现讨论。</p><p>并且 ISO 8601 string 是人类可读的，并且非常简单，任何智商正常的人都不需要额外学习就可以在大脑中进行对比、比较、简单运算。</p><ul><li>对比 ISO 8601 string：2023-12-06T23:00:00.000Z 和 2023-12-07T09:00:00.000Z 不相等</li><li>比较 ISO 8601 string：2023-12-06T23:00:00.000Z 比 2023-12-07T09:00:00.000Z 小</li><li>简单运算 ISO 8601 string：2023-12-06T23:00:00.000Z 加 10 小时等于 2023-12-07T09:00:00.000Z</li></ul><h1 class="">我遇到过的 issues</h1><h2 class="">1. 日期时间数据在 console / log 中不可读，不能直接在大脑中运算。</h2><p>例如：现在时间是 2023-12-06T04:30:48.253Z，如果不使用 ISO 8601 format，大脑无法直接对当前时间进行简单比较和运算。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()
 now
 <span class="hljs-comment">// Wed Dec 06 2023 13:28:53 GMT+0900 (Japan Standard Time)</span></code></pre><p>使用 ISO 8601 format 就简单多了</p><pre class="hljs"><code class="js hljs">now.<span class="hljs-title function_">toISOString</span>()
-<span class="hljs-comment">// &#x27;2023-12-06T04:30:48.253Z&#x27;</span></code></pre><h3 class="">2. 某些项目使用 google/protobuf/Timestamp 类型传递日期时间数据，不仅难以阅读，且容易造成不必要的 bug。</h3><p>请问：谁能回答下面 timestamp 的日期和时间？</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/timestamp.proto</span>
+<span class="hljs-comment">// &#x27;2023-12-06T04:30:48.253Z&#x27;</span></code></pre><h2 class="">2. 某些项目使用 google/protobuf/Timestamp 类型传递日期时间数据，不仅难以阅读，且容易造成不必要的 bug。</h2><p>请问：谁能回答下面 timestamp 的日期和时间？</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/timestamp.proto</span>
 message <span class="hljs-title class_">Timestamp</span> {
   int64 seconds = <span class="hljs-number">1</span>;
   int32 nanos = <span class="hljs-number">2</span>;
@@ -41,7 +41,7 @@ message <span class="hljs-title class_">Timestamp</span> {
 <span class="hljs-keyword">const</span> timestamp = {
   <span class="hljs-attr">seconds</span>: <span class="hljs-number">1701767836</span>,
   <span class="hljs-attr">nanos</span>: <span class="hljs-number">878000000</span>,
-};</code></pre><p>答案：<code>2023-12-05T09:17:16.878Z</code></p><p>请问：谁能回答上面 timestamp 加 10小时得到的值？</p><blockquote><div>我也不知道，我也懒得算。在我看来，愿意折腾 Timestamp 运算的开发者都是</div></blockquote><p>BTW，如果你说在的团队强迫你使用 google/protobug/timestamp 传递 Date，推荐你 copy paste 这段代码，我写了自动化测试，可以 Timestamp 和 Date 转换的正确性。</p><p><a class="tc-tiddlylink-external" href="https://github.com/plugoinc/node-common/blob/main/src/utils/protobuf.util.ts#L35-L64" rel="noopener noreferrer" target="_blank">https://github.com/plugoinc/node-common/blob/main/src/utils/protobuf.util.ts#L35-L64</a></p><h2 class="">发出我最后的呼吼</h2><blockquote class="tc-quote tc-big-quote"><p>恳请各位使用 ISO 8601 string 在 API 之间传递日期时间数据，不要折腾了。
+};</code></pre><p>答案：<code>2023-12-05T09:17:16.878Z</code></p><p>请问：谁能回答上面 timestamp 加 10小时得到的值？</p><blockquote><div>我也不知道，我也懒得算。在我看来，愿意折腾 Timestamp 运算的开发者都是</div></blockquote><p>BTW，如果你说在的团队强迫你使用 google/protobug/timestamp 传递 Date，推荐你 copy paste 这段代码，我写了自动化测试，可以 Timestamp 和 Date 转换的正确性。</p><p><a class="tc-tiddlylink-external" href="https://github.com/plugoinc/node-common/blob/main/src/utils/protobuf.util.ts#L35-L64" rel="noopener noreferrer" target="_blank">https://github.com/plugoinc/node-common/blob/main/src/utils/protobuf.util.ts#L35-L64</a></p><h1 class="">发出我最后的呼吼</h1><blockquote class="tc-quote tc-big-quote"><p>恳请各位使用 ISO 8601 string 在 API 之间传递日期时间数据，不要折腾了。
 </p><cite>TJ</cite></blockquote>
           </div>          
       </div>
@@ -154,7 +154,7 @@ message <span class="hljs-title class_">Timestamp</span> {
             <h1 class="subtitle">2023-10-13 关于 Code 我的一些改变</h1>
             <hr>
 
-            <p>本来想写《使用 React.js 后我有哪些改变？》，写完后发现我的改变不仅仅是 React.js 相关，还有一些代码周边的内容。</p><h2 class="">1. File Structure: 放弃按代码类型组织，选择按使用频度组织</h2><p>使用 React.js 之前，我是按照代码类型进行组织文件结构的。HTML 放在 views 文件夹，JS 放在 scripts 文件夹，CSS 放在 styles 文件夹。文件结构如下：</p><pre><code>├── scripts
+            <p>本来想写《使用 React.js 后我有哪些改变？》，写完后发现我的改变不仅仅是 React.js 相关，还有一些代码周边的内容。</p><h1 class="">1. File Structure: 放弃按代码类型组织，选择按使用频度组织</h1><p>使用 React.js 之前，我是按照代码类型进行组织文件结构的。HTML 放在 views 文件夹，JS 放在 scripts 文件夹，CSS 放在 styles 文件夹。文件结构如下：</p><pre><code>├── scripts
 │   ├── index.js
 │   ├── login.js
 │   └── settings.js
@@ -199,7 +199,7 @@ message <span class="hljs-title class_">Timestamp</span> {
 └── settings
     ├── settings.controller.js
     ├── settings.htm
-    └── settings.service.js</code></pre><h2 class="">2. 代码重复利用单位从 class 变小的 function</h2><p>使用 React.js 之前，我使用 class 组织数据和功能，properties 和 methods 放在 class 中，并通过 class 使用。代码如下：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// account.js</span>
+    └── settings.service.js</code></pre><h1 class="">2. 代码重复利用单位从 class 变小的 function</h1><p>使用 React.js 之前，我使用 class 组织数据和功能，properties 和 methods 放在 class 中，并通过 class 使用。代码如下：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// account.js</span>
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Account</span> {
   name = <span class="hljs-string">&quot;&quot;</span>;
   age = <span class="hljs-number">0</span>;
@@ -258,7 +258,7 @@ tj.<span class="hljs-title function_">introduce</span>()</code></pre><p>使用 R
 
 <span class="hljs-keyword">const</span> tj = <span class="hljs-title class_">AccountSchema</span>.<span class="hljs-title function_">parse</span>({ <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;TJ&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">31</span> });
 <span class="hljs-title function_">introduce</span>(tj)</code></pre><p>这样做的好处是：</p><ol><li>plaintext object 比 class instance object 更容易理解，没有魔法</li><li>function 比 class method 更容易管理、拆分、测试，可以避免写出巨型代码块。</li><li>代码行数少，阅读代码更轻松。</li></ol><blockquote class="tc-quote tc-big-quote"><p>CSS 代码重复利用单位也从 BEM class 变小到 utility class
-</p><cite>TJ</cite></blockquote><h2 class="">3. Coding: 放弃模版文件和注解等非标准特性，使用编程语言的标准特性</h2><p>使用 React.js 之前，我会使用一些模版技术。代码如下：</p><pre class="hljs"><code class="html hljs">// settings.vue
+</p><cite>TJ</cite></blockquote><h1 class="">3. Coding: 放弃模版文件和注解等非标准特性，使用编程语言的标准特性</h1><p>使用 React.js 之前，我会使用一些模版技术。代码如下：</p><pre class="hljs"><code class="html hljs">// settings.vue
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
 <span class="hljs-keyword">const</span> items = [{ <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Foo&#x27;</span> }, { <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Bar&#x27;</span> }]
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
@@ -291,7 +291,7 @@ tj.<span class="hljs-title function_">introduce</span>()</code></pre><p>使用 R
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
   );
 }</code></pre><p>没有特殊语法，没有特殊文件类型，所有都是普通的 JS 代码。
-import "./settings.css" 是 normal JS code, .map() 也是 normal JS code。</p><h4 class="">使用 React.js 之前，我会使用一些基于注解的框架。代码如下：</h4><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// OcpiListFilter.ts</span>
+import "./settings.css" 是 normal JS code, .map() 也是 normal JS code。</p><h1 class="">使用 React.js 之前，我会使用一些基于注解的框架。代码如下：</h1><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// OcpiListFilter.ts</span>
 
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">IsDateString</span>, <span class="hljs-title class_">IsInt</span>, <span class="hljs-title class_">IsOptional</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;class-validator&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Type</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;class-transformer&#x27;</span>;
@@ -322,7 +322,7 @@ import "./settings.css" 是 normal JS code, .map() 也是 normal JS code。</p><
     <span class="hljs-attr">dateTo</span>: z.<span class="hljs-title function_">string</span>().<span class="hljs-title function_">date</span>().<span class="hljs-title function_">optional</span>(),
     <span class="hljs-attr">offset</span>: z.<span class="hljs-title function_">number</span>().<span class="hljs-title function_">int</span>().<span class="hljs-title function_">optional</span>(),
     <span class="hljs-attr">limit</span>: z.<span class="hljs-title function_">number</span>().<span class="hljs-title function_">int</span>().<span class="hljs-title function_">optional</span>(),
-});</code></pre><p>没有注解，没有黑魔法，只是最普通函数（function）。</p><h2 class="">总结</h2><p>其实是很简单的几件小事，几句话就说清楚了。但是要展示 before and after 的代码，占用了很大篇幅，😂</p>
+});</code></pre><p>没有注解，没有黑魔法，只是最普通函数（function）。</p><h1 class="">总结</h1><p>其实是很简单的几件小事，几句话就说清楚了。但是要展示 before and after 的代码，占用了很大篇幅，😂</p>
           </div>          
       </div>
   </div>

@@ -83,18 +83,18 @@
             <h1 class="subtitle">2018-04-22 使用 axios 时遇到的几个问题</h1>
             <hr>
 
-            <h2 class="">1. axios 的 baseURL</h2><p>目前进行的项目是公司主应用下的子应用，所以 API 全都是 <code>/cms/api/*</code>。 为了提高写代码效率，我写下来如下代码。</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// fetch.js</span>
+            <h1 class="">1. axios 的 baseURL</h1><p>目前进行的项目是公司主应用下的子应用，所以 API 全都是 <code>/cms/api/*</code>。 为了提高写代码效率，我写下来如下代码。</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// fetch.js</span>
 <span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>
 
 fetch.<span class="hljs-property">defaults</span>.<span class="hljs-property">baseURL</span> = <span class="hljs-string">&quot;/cms/api&quot;</span>
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> fetch</code></pre><p>这样做以后，我们的 API 形如 <code>/cms/api/users</code> 时，我们只需要写 <code>/users</code> 就可以了。axios 会自动补充前缀。</p><h2 class="">但是这样做有一个问题</h2><p>fetch.defaults.baseURL 是一个全局设置。所以当我们需要请求 /cms/api 以外的 API 时，我们必须覆盖掉 baseURL。</p><p>方法：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./fetch&quot;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> fetch</code></pre><p>这样做以后，我们的 API 形如 <code>/cms/api/users</code> 时，我们只需要写 <code>/users</code> 就可以了。axios 会自动补充前缀。</p><h1 class="">但是这样做有一个问题</h1><p>fetch.defaults.baseURL 是一个全局设置。所以当我们需要请求 /cms/api 以外的 API 时，我们必须覆盖掉 baseURL。</p><p>方法：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./fetch&quot;</span>
 
 <span class="hljs-keyword">const</span> ajaxInstance = fetch.<span class="hljs-title function_">create</span>({
   <span class="hljs-attr">baseURL</span>: <span class="hljs-string">&quot;&quot;</span>,
 })
 
-ajaxInstance.<span class="hljs-title function_">get</span>() <span class="hljs-comment">// or ajaxInstance.post()</span></code></pre><h2 class="">2. axios 使用 <code>application/x-www-form-urlencoded</code> 发送参数</h2><p>axios 默认使用 application/json 发送参数，但是对于一些老旧 API，我们不得不使用application/x-www-form-urlencoded格式。</p><p>方法：</p><pre class="hljs"><code class="js hljs">
+ajaxInstance.<span class="hljs-title function_">get</span>() <span class="hljs-comment">// or ajaxInstance.post()</span></code></pre><h1 class="">2. axios 使用 <code>application/x-www-form-urlencoded</code> 发送参数</h1><p>axios 默认使用 application/json 发送参数，但是对于一些老旧 API，我们不得不使用application/x-www-form-urlencoded格式。</p><p>方法：</p><pre class="hljs"><code class="js hljs">
 <span class="hljs-keyword">const</span> params = <span class="hljs-keyword">new</span> <span class="hljs-title class_">URLSearchParams</span>()
 params.<span class="hljs-title function_">append</span>(<span class="hljs-string">&quot;query&quot;</span>, value)
 
