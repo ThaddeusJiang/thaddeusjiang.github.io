@@ -5,6 +5,62 @@
    <link>https://thaddeusjiang.com</link>
    <description>I know I don't know. 生きがい人生を目指す</description>
    <item>
+      <title>2023-12-07 install vs. copy</title>
+      <link>https://thaddeusjiang.com/2023-12-07-install-vs-copy</link>
+			<description><![CDATA[
+<div class="container">
+    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+      <nav aria-label="main navigation" class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <a href="./">
+                <h1 class="title">Thaddeus Jiang</h1>
+                <p class="subtitle">I know I don't know. 生きがい人生を目指す</p>
+            </a>
+        </div>
+     </nav>
+    </div>
+  </div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2023-12-07 install vs. copy</h1>
+            <hr>
+
+            <p>对于依赖，应该选择使用包管理进行安装，还是复制粘贴代码？</p><p>我的心路历程：</p><ul><li>最开始，肯定是使用 npm <code>install</code> 搞定一切，安装 mui 和 antd 没商量。 😄</li><li>然后，tailwindcss 生态的组件库和 demo 缘来缘多，尤其是 shadcn/ui 出来以后，我开始使用 <code>copy &amp; paste</code> 了。😜</li><li>最近半年完全不写 UI，全都是和 Data 打交道，肯定要 <code>install</code> 啊，copy &amp; paste 的代码没过几周就面目全非了。💩</li></ul><h1 class="">现在阶段的判断：</h1><ul><li>不需要修改默认行为，install</li></ul><p>例如：一些用于数据处理的函数，lodash, dayjs 等等</p><ul><li>需要修改默认行为，copy and paste</li></ul><p>例如：UI 组件  shadcn/ui，业务流程手脚架代码 v0 等等</p><h1 class="">install vs. copy</h1><p>install 优点：</p><ol><li>可以进行版本检查，及时跟上依赖的更新以及一些补丁。</li></ol><p>install 缺点：</p><ol><li>不擅长删减和自由组合默认行为。（但是可以通过继承和扩展增加功能，即：擅长加，不擅长减</li></ol><p>copy 优点：</p><ol><li>可以根据需要删减和自由组合，可能性和自由度更大。</li></ol><p>copy 缺点：</p><ol><li>版本升级不便，容易和依赖原作脱钩。</li></ol><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://mui.com/" rel="noopener noreferrer" target="_blank">https://mui.com/</a></li><li><a class="tc-tiddlylink-external" href="https://ui.shadcn.com/" rel="noopener noreferrer" target="_blank">https://ui.shadcn.com/</a></li><li><a class="tc-tiddlylink-external" href="https://lodash.com/" rel="noopener noreferrer" target="_blank">https://lodash.com/</a></li><li><a class="tc-tiddlylink-external" href="https://day.js.org/" rel="noopener noreferrer" target="_blank">https://day.js.org/</a></li><li><a class="tc-tiddlylink-external" href="https://v0.dev/" rel="noopener noreferrer" target="_blank">https://v0.dev/</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Thu, 7 December 2023 9:20:30 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2023-12-07-install-vs-copy</guid>      
+   </item>
+
+   <item>
       <title>2023-11-14 ISO 8601</title>
       <link>https://thaddeusjiang.com/2023-11-14-iso-8601</link>
 			<description><![CDATA[
@@ -127,230 +183,6 @@ message <span class="hljs-title class_">Timestamp</span> {
 ]]></description>
       <pubDate>Fri, 27 October 2023 3:18:33 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2023-10-27-zui-lan-de-dai-ma</guid>      
-   </item>
-
-   <item>
-      <title>2023-10-13 关于 Code 我的一些改变</title>
-      <link>https://thaddeusjiang.com/2023-10-13-guan-yu-code-wo-de-yi-xie-gai-bian</link>
-			<description><![CDATA[
-<div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">Thaddeus Jiang</h1>
-                <p class="subtitle">I know I don't know. 生きがい人生を目指す</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-10-13 关于 Code 我的一些改变</h1>
-            <hr>
-
-            <p>本来想写《使用 React.js 后我有哪些改变？》，写完后发现我的改变不仅仅是 React.js 相关，还有一些代码周边的内容。</p><h1 class="">1. File Structure: 放弃按代码类型组织，选择按使用频度组织</h1><p>使用 React.js 之前，我是按照代码类型进行组织文件结构的。HTML 放在 views 文件夹，JS 放在 scripts 文件夹，CSS 放在 styles 文件夹。文件结构如下：</p><pre><code>├── scripts
-│   ├── index.js
-│   ├── login.js
-│   └── settings.js
-├── styles
-│   ├── index.css
-│   ├── login.css
-│   └── settings.css
-└── views
-    ├── index.html
-    ├── login.html
-    └── settings.html</code></pre><p>使用 React.js 之后，我开始按代码被调用、被修改的频度组织文件结构。登录页需要的 HTML JS CSS 都放在 login 文件夹，管理页需要的 HTML JS CSS 都放在 settings 文件夹。文件结构如下：</p><pre><code>├── index
-│   ├── index.css
-│   ├── index.js
-│   └── index.jsx
-├── login
-│   ├── login.css
-│   ├── login.js
-│   └── login.jsx
-└── settings
-    ├── settings.css
-    ├── settings.js
-    └── settings.jsx</code></pre><p>这样做的好处是：</p><ol><li>每次新增 features 或者修改 bugs 的 diff changesets 更集中；</li><li>在编辑器中进行文件夹跳跃更少，手指和大脑负担更小；</li><li>已有功能的修改、重构、拆分、删除更简单。</li></ol><blockquote class="tc-quote tc-big-quote"><p>传统的 MVC 三层架构项目也可以按代码使用频度整理文件架构。
-</p><cite>TJ</cite></blockquote><p>old style</p><pre><code>├── controllers
-│   ├── index.controller.js
-│   ├── login.controller.js
-│   └── settings.controller.js
-├── services
-│   ├── index.service.js
-│   ├── login.service.js
-│   └── settings.service.js
-└── views
-    ├── index.htm
-    ├── login.htm
-    └── settings.htm</code></pre><p>new style</p><pre><code>├── index
-│   ├── index.controller.js
-│   ├── index.htm
-│   └── index.service.js
-├── login
-│   ├── login.controller.js
-│   ├── login.htm
-│   └── login.service.js
-└── settings
-    ├── settings.controller.js
-    ├── settings.htm
-    └── settings.service.js</code></pre><h1 class="">2. 代码重复利用单位从 class 变小的 function</h1><p>使用 React.js 之前，我使用 class 组织数据和功能，properties 和 methods 放在 class 中，并通过 class 使用。代码如下：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// account.js</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Account</span> {
-  name = <span class="hljs-string">&quot;&quot;</span>;
-  age = <span class="hljs-number">0</span>;
-
-  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">{ name, age }</span>) {
-    <span class="hljs-title class_">Account</span>.<span class="hljs-title function_">validateAccount</span>({ name, age });
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = age;
-  }
-
-  <span class="hljs-title function_">getAccount</span>(<span class="hljs-params"></span>) {
-    <span class="hljs-keyword">return</span> {
-      <span class="hljs-attr">name</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>,
-      <span class="hljs-attr">age</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span>,
-    };
-  }
-
-  <span class="hljs-title function_">setAccount</span>(<span class="hljs-params">{ name, age }</span>) {
-    <span class="hljs-title class_">Account</span>.<span class="hljs-title function_">validateAccount</span>({ name, age });
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = age;
-  }
-
-  <span class="hljs-keyword">static</span> <span class="hljs-title function_">validateAccount</span>(<span class="hljs-params">{ name, age }</span>) {
-    <span class="hljs-keyword">if</span> (name.<span class="hljs-property">length</span> &lt;= <span class="hljs-number">0</span>) {
-      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Name is required&quot;</span>);
-    }
-
-    <span class="hljs-keyword">if</span> (age &lt; <span class="hljs-number">0</span>) {
-      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Age must be greater than 0&quot;</span>);
-    }
-  }
-
-  <span class="hljs-title function_">introduce</span>(<span class="hljs-params"></span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello, my name is <span class="hljs-subst">${<span class="hljs-variable language_">this</span>.name}</span> and I am <span class="hljs-subst">${<span class="hljs-variable language_">this</span>.age}</span> years old`</span>;
-  }
-}
-
-<span class="hljs-comment">// hello.js</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Account</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;account.js&quot;</span>
-
-<span class="hljs-keyword">const</span> tj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Account</span>({ <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;TJ&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">31</span> });
-tj.<span class="hljs-title function_">introduce</span>()</code></pre><p>使用 React.js 之后，我使用 module 组织数据和功能，数据就是最基本的变量，功能就是最基本的函数，它们可以被单独使用。代码如下：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// account.js</span>
-<span class="hljs-keyword">import</span> z <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;zod&quot;</span>;
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title class_">AccountSchema</span> = z.<span class="hljs-title function_">object</span>({
-    <span class="hljs-attr">name</span>: z.<span class="hljs-title function_">string</span>().<span class="hljs-title function_">min</span>(<span class="hljs-number">1</span>),
-    <span class="hljs-attr">age</span>: z.<span class="hljs-title function_">number</span>().<span class="hljs-title function_">min</span>(<span class="hljs-number">0</span>),
-});
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">introduce</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params">{ name, age }</span>) =&gt; {
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello, my name is <span class="hljs-subst">${name}</span> and I am <span class="hljs-subst">${age}</span> years old`</span>;
-};
-
-<span class="hljs-comment">// hello.js</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">AccountSchema</span>, introduce } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;account.js&quot;</span>
-
-<span class="hljs-keyword">const</span> tj = <span class="hljs-title class_">AccountSchema</span>.<span class="hljs-title function_">parse</span>({ <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;TJ&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">31</span> });
-<span class="hljs-title function_">introduce</span>(tj)</code></pre><p>这样做的好处是：</p><ol><li>plaintext object 比 class instance object 更容易理解，没有魔法</li><li>function 比 class method 更容易管理、拆分、测试，可以避免写出巨型代码块。</li><li>代码行数少，阅读代码更轻松。</li></ol><blockquote class="tc-quote tc-big-quote"><p>CSS 代码重复利用单位也从 BEM class 变小到 utility class
-</p><cite>TJ</cite></blockquote><h1 class="">3. Coding: 放弃模版文件和注解等非标准特性，使用编程语言的标准特性</h1><p>使用 React.js 之前，我会使用一些模版技术。代码如下：</p><pre class="hljs"><code class="html hljs">// settings.vue
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
-<span class="hljs-keyword">const</span> items = [{ <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Foo&#x27;</span> }, { <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Bar&#x27;</span> }]
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;title&quot;</span>&gt;</span>Settings<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in items&quot;</span>&gt;</span>
-      {{ item.message }}
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
-<span class="hljs-selector-class">.title</span> {
-  <span class="hljs-attribute">color</span>: red;
-  <span class="hljs-attribute">font-weight</span>: bold;
-}
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre><p>使用 React.js 之后：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// settings.jsx</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;./settings.css&quot;</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Settings</span>(<span class="hljs-params"></span>) {
-  <span class="hljs-keyword">const</span> items = [{ <span class="hljs-attr">message</span>: <span class="hljs-string">&quot;Foo&quot;</span> }, { <span class="hljs-attr">message</span>: <span class="hljs-string">&quot;Bar&quot;</span> }];
-  <span class="hljs-keyword">return</span> (
-    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;title&quot;</span>&gt;</span>Settings<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
-        {items.map((item) =&gt; (
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{item.message}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        ))}
-      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-  );
-}</code></pre><p>没有特殊语法，没有特殊文件类型，所有都是普通的 JS 代码。
-import "./settings.css" 是 normal JS code, .map() 也是 normal JS code。</p><h1 class="">使用 React.js 之前，我会使用一些基于注解的框架。代码如下：</h1><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// OcpiListFilter.ts</span>
-
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">IsDateString</span>, <span class="hljs-title class_">IsInt</span>, <span class="hljs-title class_">IsOptional</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;class-validator&#x27;</span>;
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Type</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;class-transformer&#x27;</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OcpiListFilter</span> {
-  <span class="hljs-meta">@IsOptional</span>()
-  <span class="hljs-meta">@IsDateString</span>()
-  <span class="hljs-attr">dateFrom</span>: <span class="hljs-built_in">string</span>;
-
-  <span class="hljs-meta">@IsOptional</span>()
-  <span class="hljs-meta">@IsDateString</span>()
-  <span class="hljs-attr">dateTo</span>: <span class="hljs-built_in">string</span>;
-
-  <span class="hljs-meta">@IsOptional</span>()
-  <span class="hljs-meta">@IsInt</span>()
-  <span class="hljs-meta">@Type</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title class_">Number</span>)
-  <span class="hljs-attr">offset</span>: <span class="hljs-built_in">number</span>;
-
-  <span class="hljs-meta">@IsOptional</span>()
-  <span class="hljs-meta">@IsInt</span>()
-  <span class="hljs-meta">@Type</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title class_">Number</span>)
-  <span class="hljs-attr">limit</span>: <span class="hljs-built_in">number</span>;
-}
-</code></pre><p>使用 React.js 之后：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> z <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;zod&#x27;</span>;
-
-<span class="hljs-keyword">const</span> <span class="hljs-title class_">OcpiListFilterSchema</span> = z.<span class="hljs-title function_">object</span>({
-    <span class="hljs-attr">dateFrom</span>: z.<span class="hljs-title function_">string</span>().<span class="hljs-title function_">date</span>().<span class="hljs-title function_">optional</span>(),
-    <span class="hljs-attr">dateTo</span>: z.<span class="hljs-title function_">string</span>().<span class="hljs-title function_">date</span>().<span class="hljs-title function_">optional</span>(),
-    <span class="hljs-attr">offset</span>: z.<span class="hljs-title function_">number</span>().<span class="hljs-title function_">int</span>().<span class="hljs-title function_">optional</span>(),
-    <span class="hljs-attr">limit</span>: z.<span class="hljs-title function_">number</span>().<span class="hljs-title function_">int</span>().<span class="hljs-title function_">optional</span>(),
-});</code></pre><p>没有注解，没有黑魔法，只是最普通函数（function）。</p><h1 class="">总结</h1><p>其实是很简单的几件小事，几句话就说清楚了。但是要展示 before and after 的代码，占用了很大篇幅，😂</p>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Fri, 13 October 2023 5:1:2 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2023-10-13-guan-yu-code-wo-de-yi-xie-gai-bian</guid>      
    </item>
 
 </channel>

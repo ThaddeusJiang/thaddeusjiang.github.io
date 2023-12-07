@@ -441,7 +441,7 @@
 
    <url>
       <loc>.//2021-12-28-phoenix-test-css</loc>
-      <lastmod>2022-12-13</lastmod>
+      <lastmod>2023-12-07</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -711,7 +711,7 @@
 
    <url>
       <loc>.//2023-08-22-typescript-error-handling</loc>
-      <lastmod>2023-12-06</lastmod>
+      <lastmod>2023-12-07</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -760,6 +760,12 @@
    <url>
       <loc>.//2023-11-14-iso-8601</loc>
       <lastmod>2023-12-06</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2023-12-07-install-vs-copy</loc>
+      <lastmod>2023-12-07</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
