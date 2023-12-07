@@ -1,0 +1,52 @@
+created: 20231207085644058
+modified: 20231207093105861
+published: 20231207092030854
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2023-12-07 install vs. copy
+type: text/vnd.tiddlywiki
+
+对于依赖，应该选择使用包管理进行安装，还是复制粘贴代码？
+
+我的心路历程：
+
+* 最开始，肯定是使用 npm `install` 搞定一切，安装 mui 和 antd 没商量。 😄
+* 然后，tailwindcss 生态的组件库和 demo 缘来缘多，尤其是 shadcn/ui 出来以后，我开始使用 `copy & paste` 了。😜
+* 最近半年完全不写 UI，全都是和 Data 打交道，肯定要 `install` 啊，copy & paste 的代码没过几周就面目全非了。💩
+
+
+! 现在阶段的判断：
+
+* 不需要修改默认行为，install
+
+例如：一些用于数据处理的函数，lodash, dayjs 等等
+
+* 需要修改默认行为，copy and paste
+
+例如：UI 组件  shadcn/ui，业务流程手脚架代码 v0 等等
+
+! install vs. copy
+
+install 优点：
+
+# 可以进行版本检查，及时跟上依赖的更新以及一些补丁。
+
+install 缺点：
+
+# 不擅长删减和自由组合默认行为。（但是可以通过继承和扩展增加功能，即：擅长加，不擅长减
+
+copy 优点：
+
+# 可以根据需要删减和自由组合，可能性和自由度更大。
+
+copy 缺点：
+
+# 版本升级不便，容易和依赖原作脱钩。
+
+
+refs:
+
+* https://mui.com/
+* https://ui.shadcn.com/
+* https://lodash.com/
+* https://day.js.org/
+* https://v0.dev/

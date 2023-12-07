@@ -1,7 +1,7 @@
 created: 20230821135032029
-modified: 20231206045630973
+modified: 20231207092144822
 published: 20230822011355401
-tags: tj-style blog $:/plugins/adithyab/tiddlyjam/live
+tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2023-08-22 TypeScript error handling
 type: text/vnd.tiddlywiki
 
@@ -118,6 +118,5 @@ refs
 * zod.dev error handling example: https://zod.dev/?id=safeparse
 * Result type: https://en.wikipedia.org/wiki/Result_type
 
-备注：
 
-{{tj-style}}
+> 这是我的个人风格，不奢求成为主流，只希望将来有机会合作的朋友能事先了解我的个人风格。
