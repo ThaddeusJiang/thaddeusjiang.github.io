@@ -1,0 +1,22 @@
+created: 20200806173743683
+creator: TJ
+description: This is a short excerpt about this article.
+modified: 20231212100221166
+modifier: TJ
+tags: $:/plugins/adithyab/tiddlyjam/internals
+title: $:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+
+<div>
+  <div class="block">
+    <h2 class="subtitle is-5">
+      <$link>{{!!title}}</$link>
+    </h2>
+    <p>
+      <<get_description>>
+    </p>
+  </div>
+</div>
+<hr />
