@@ -1,14 +1,16 @@
 created: 20210118031931894
 creator: TJ
-modified: 20210415133053580
+modified: 20231212125159329
 modifier: TJ
-tags: macOS
-title: If you can't unlock settings in System Preferences
+tags: blog
+title: 2021-01-18 If you can't unlock settings in System Preferences
 type: text/vnd.tiddlywiki
 
 中文圈好像没人讨论升级 macOS Big Sur 后，System Preferences 无法解锁的问题。
 
-我最近把公司电脑升级到 macOS Big Sur 了，然后 System Preferences 就无法解锁了。这里
+我最近把公司电脑升级到 macOS Big Sur 了，然后 System Preferences 就无法解锁了。
+
+如图：
 
 [img[https://i.gyazo.com/3e35d528d77d255db763521145be9beb.jpg]]
 

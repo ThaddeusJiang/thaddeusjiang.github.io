@@ -1,7 +1,7 @@
 created: 20210803123254476
-modified: 20210803135620012
+modified: 20231212123958159
 published: 20210803123844552
-tags: Azure DevOps Terraform blog $:/plugins/adithyab/tiddlyjam/live
+tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint
 type: text/vnd.tiddlywiki
 

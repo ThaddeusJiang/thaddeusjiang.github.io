@@ -1,8 +1,9 @@
 created: 20220530125057324
-modified: 20220601015303054
+modified: 20231212124224583
 published: 20220530133636879
-tags: blog Testing $:/plugins/adithyab/tiddlyjam/live
+tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2022-05-30 Smoke testing FAQ
+type: text/vnd.tiddlywiki
 
 Smoke testing（冒烟测试）是软件测试的一种。网上有很多关于冒烟测试的文章，大多是理论性的内容，我从大四实习（2014年）就实际使用 Smoke testing 了，虽然中间有一些项目没有坚持，但是个人项目中我一直坚持 Smoke tesitng。相比于理论知识，我想分享一点 Smoke testing 的实际经验。
 

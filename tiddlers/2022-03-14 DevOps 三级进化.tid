@@ -1,11 +1,11 @@
 created: 20220314092653273
 creator: TJ
-due:
-modified: 20220314115212443
+due: 
+modified: 20231212123948443
 modifier: TJ
-priority:
+priority: 
 published: 20220314114412874
-tags: blog $:/plugins/adithyab/tiddlyjam/live DevOps Azure Terraform
+tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2022-03-14 DevOps 三级进化
 type: text/vnd.tiddlywiki
 

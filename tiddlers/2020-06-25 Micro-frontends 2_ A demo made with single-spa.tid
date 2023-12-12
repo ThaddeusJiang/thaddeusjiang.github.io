@@ -1,9 +1,9 @@
 created: 20210127142031784
 creator: TJ
-modified: 20220530133528838
+modified: 20231212124758385
 modifier: TJ
-tags: $:/plugins/adithyab/tiddlyjam/live Micro-frontends blog
-title: 2020-06-25 micro-frontends 2: A demo made with single-spa
+tags: $:/plugins/adithyab/tiddlyjam/live blog
+title: 2020-06-25 Micro-frontends 2: A demo made with single-spa
 type: text/vnd.tiddlywiki
 
 介绍了 micro-frontends 的理论，估计大家还是云里雾里的。
