@@ -18,12 +18,12 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint ~ Thaddeus Jiang</title>
+<title>2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint ~ ThaddeusJiang</title>
 <meta name="description" content="本文想分享一个具体的配置方法，为了照顾对 Azure portal 和 Terraform 不熟悉的朋友，我将使用 UI 和 Code 对比的方式说明。">
 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://thaddeusjiang.com/2021-08-03-ru-he-shi-yong-terraform-pei-zhi-azure-app-service-custom-domains-and-certificate-thumbprint" />
-<meta property="og:title" content="2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint ~ Thaddeus Jiang" />
+<meta property="og:title" content="2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint ~ ThaddeusJiang" />
 <meta property="og:description" content="本文想分享一个具体的配置方法，为了照顾对 Azure portal 和 Terraform 不熟悉的朋友，我将使用 UI 和 Code 对比的方式说明。" />
 <meta property="og:image" content="https://og-image-zh.vercel.app/2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint.png?fontSize=50px" />
 <meta property="article:author" content="@ThaddeusJiang" />
@@ -31,7 +31,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint ~ Thaddeus Jiang" />
+<meta name="twitter:title" content="2021-08-03 如何使用 Terraform 配置 Azure App Service Custom domains and Certificate Thumbprint ~ ThaddeusJiang" />
 <meta name="twitter:description" content="本文想分享一个具体的配置方法，为了照顾对 Azure portal 和 Terraform 不熟悉的朋友，我将使用 UI 和 Code 对比的方式说明。" />
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
 
@@ -63,17 +63,13 @@
 <body class="tc-body">
   
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">Thaddeus Jiang</h1>
-                <p class="subtitle">I know I don't know. 生きがい人生を目指す</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">ThaddeusJiang</h1>
+              <p class="subtitle">I know I don't know.</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blogs</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
 
 
 <div class="container mt-4">
@@ -176,12 +172,12 @@ resource "azurerm_app_service_custom_hostname_binding" "app" {
 </style>
 
 <footer class="section">    
-    <div class="content has-text-centered">
-      <p> © <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">Thaddeus Jiang</a> | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
 
-    <div class="content has-text-centered">
-      
+    <div class="has-text-centered">
+      <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink-external" href="https://gitlab.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitLab</a> | <a class="tc-tiddlylink-external" href="https://x.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">X.com</a> | <a class="tc-tiddlylink-external" href="https://www.aier.app/avatars/ThaddeusJiang" rel="noopener noreferrer" target="_blank">AIer.app</a> 
     </div>
   </footer>
 

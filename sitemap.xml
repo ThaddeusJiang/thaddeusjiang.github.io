@@ -765,7 +765,7 @@
 
    <url>
       <loc>.//2023-12-07-install-vs-copy</loc>
-      <lastmod>2023-12-07</lastmod>
+      <lastmod>2023-12-12</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -776,14 +776,8 @@
    </url>
 
    <url>
-      <loc>.//aboutme</loc>
-      <lastmod>2023-10-13</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//blog</loc>
-      <lastmod>2023-02-28</lastmod>
+      <lastmod>2023-12-12</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -813,7 +807,7 @@
 
    <url>
       <loc>.//index</loc>
-      <lastmod>2023-10-13</lastmod>
+      <lastmod>2023-12-12</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

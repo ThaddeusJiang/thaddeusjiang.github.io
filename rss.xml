@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-   <title>Thaddeus Jiang</title>
+   <title>ThaddeusJiang</title>
    <link>https://thaddeusjiang.com</link>
-   <description>I know I don't know. 生きがい人生を目指す</description>
+   <description>I know I don't know.</description>
    <item>
-      <title>2023-12-07 install vs. copy</title>
+      <title>2023-12-07 Install vs. Copy</title>
       <link>https://thaddeusjiang.com/2023-12-07-install-vs-copy</link>
 			<description><![CDATA[
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">Thaddeus Jiang</h1>
-                <p class="subtitle">I know I don't know. 生きがい人生を目指す</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">ThaddeusJiang</h1>
+              <p class="subtitle">I know I don't know.</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blogs</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
 
 
 <div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
           <div class="block content blog">
-            <h1 class="subtitle">2023-12-07 install vs. copy</h1>
+            <h1 class="subtitle">2023-12-07 Install vs. Copy</h1>
             <hr>
 
             <p>对于依赖，应该选择使用包管理进行安装，还是复制粘贴代码？</p><p>我的心路历程：</p><ul><li>最开始，肯定是使用 npm <code>install</code> 搞定一切，安装 mui 和 antd 没商量。 😄</li><li>然后，tailwindcss 生态的组件库和 demo 缘来缘多，尤其是 shadcn/ui 出来以后，我开始使用 <code>copy &amp; paste</code> 了。😜</li><li>最近半年完全不写 UI，全都是和 Data 打交道，肯定要 <code>install</code> 啊，copy &amp; paste 的代码没过几周就面目全非了。💩</li></ul><h1 class="">现在阶段的判断：</h1><ul><li>不需要修改默认行为，install</li></ul><p>例如：一些用于数据处理的函数，lodash, dayjs 等等</p><ul><li>需要修改默认行为，copy and paste</li></ul><p>例如：UI 组件  shadcn/ui，业务流程手脚架代码 v0 等等</p><h1 class="">install vs. copy</h1><p>install 优点：</p><ol><li>可以进行版本检查，及时跟上依赖的更新以及一些补丁。</li></ol><p>install 缺点：</p><ol><li>不擅长删减和自由组合默认行为。（但是可以通过继承和扩展增加功能，即：擅长加，不擅长减</li></ol><p>copy 优点：</p><ol><li>可以根据需要删减和自由组合，可能性和自由度更大。</li></ol><p>copy 缺点：</p><ol><li>版本升级不便，容易和依赖原作脱钩。</li></ol><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://mui.com/" rel="noopener noreferrer" target="_blank">https://mui.com/</a></li><li><a class="tc-tiddlylink-external" href="https://ui.shadcn.com/" rel="noopener noreferrer" target="_blank">https://ui.shadcn.com/</a></li><li><a class="tc-tiddlylink-external" href="https://lodash.com/" rel="noopener noreferrer" target="_blank">https://lodash.com/</a></li><li><a class="tc-tiddlylink-external" href="https://day.js.org/" rel="noopener noreferrer" target="_blank">https://day.js.org/</a></li><li><a class="tc-tiddlylink-external" href="https://v0.dev/" rel="noopener noreferrer" target="_blank">https://v0.dev/</a></li></ul>
@@ -65,17 +61,13 @@
       <link>https://thaddeusjiang.com/2023-11-14-iso-8601</link>
 			<description><![CDATA[
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">Thaddeus Jiang</h1>
-                <p class="subtitle">I know I don't know. 生きがい人生を目指す</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">ThaddeusJiang</h1>
+              <p class="subtitle">I know I don't know.</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blogs</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
 
 
 <div class="container mt-4">
@@ -134,17 +126,13 @@ message <span class="hljs-title class_">Timestamp</span> {
       <link>https://thaddeusjiang.com/2023-10-27-zui-lan-de-dai-ma</link>
 			<description><![CDATA[
 <div class="container">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
-      <nav aria-label="main navigation" class="navbar" role="navigation">
-        <div class="navbar-brand">
-            <a href="./">
-                <h1 class="title">Thaddeus Jiang</h1>
-                <p class="subtitle">I know I don't know. 生きがい人生を目指す</p>
-            </a>
-        </div>
-     </nav>
-    </div>
-  </div>
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">ThaddeusJiang</h1>
+              <p class="subtitle">I know I don't know.</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blogs</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
 
 
 <div class="container mt-4">
