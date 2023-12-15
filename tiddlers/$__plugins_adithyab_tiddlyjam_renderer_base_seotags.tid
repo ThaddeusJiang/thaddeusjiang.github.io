@@ -1,6 +1,6 @@
 created: 20200814062847162
 description: safe
-modified: 20230324091437628
+modified: 20231215030029788
 name: correct
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/seotags
@@ -8,12 +8,12 @@ type: text/vnd.tiddlywiki
 
 \whitespace trim
 
-`<title>`<<get_title>>`</title>
+`<title>`<<get_page_title>>`</title>
 <meta name="description" content="`<<get_description>>`">
 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="`<<get_absolute_url>>`" />
-<meta property="og:title" content="`<<get_title>>`" />
+<meta property="og:title" content="`<<get_page_title>>`" />
 <meta property="og:description" content="`<<get_description>>`" />
 <meta property="og:image" content="`<<get_og_image>>`" />
 <meta property="article:author" content="@ThaddeusJiang" />
@@ -21,7 +21,7 @@ type: text/vnd.tiddlywiki
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="`<<get_title>>`" />
+<meta name="twitter:title" content="`<<get_page_title>>`" />
 <meta name="twitter:description" content="`<<get_description>>`" />
 <meta name="twitter:image" content="`<<get_social_image>>`" />
 

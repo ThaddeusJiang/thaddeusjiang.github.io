@@ -1,5 +1,5 @@
 created: 20200806162755767
-modified: 20231215024820248
+modified: 20231215030004463
 tags: $:/plugins/adithyab/tiddlyjam/internals $:/tags/Macro
 title: $:/plugins/adithyab/tiddlyjam/renderer/macros
 type: text/vnd.tiddlywiki
@@ -17,8 +17,8 @@ type: text/vnd.tiddlywiki
 <$list filter="[{!!published}is[blank]then{!!created}else{!!published}]"><$view field="title" format="date" template="DDth MMM, YYYY" /></$list>
 \end
 
-\define get_title()
-<$text text={{{ [<currentTiddler>get[name]else<currentTiddler>] }}} /> ~ {{$:/plugins/adithyab/tiddlyjam/renderer/title}}
+\define get_page_title()
+<$text text={{{ [<currentTiddler>get[name]else<currentTiddler>] }}} />
 \end
 
 \define get_og_image()
