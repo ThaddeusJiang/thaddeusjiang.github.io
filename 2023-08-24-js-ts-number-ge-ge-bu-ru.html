@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.1" />
+  <meta name="tiddlywiki-version" content="5.3.2" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -25,7 +25,7 @@
 <meta property="og:url" content="https://thaddeusjiang.com/2023-08-24-js-ts-number-ge-ge-bu-ru" />
 <meta property="og:title" content="2023-08-24 JS/TS number 格格不入 ~ ThaddeusJiang" />
 <meta property="og:description" content="imo: TypeScript number 类型定义模糊，JavaScript number 精度非主流，ECMAScript bigint 限制超多。JS/TS number 与其他编程语言显得格格不入。" />
-<meta property="og:image" content="https://og-image-zh.vercel.app/2023-08-24 JS/TS number 格格不入.png?fontSize=50px" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
@@ -33,7 +33,7 @@
 <meta name="twitter:creator" content="@ThaddeusJiang">
 <meta name="twitter:title" content="2023-08-24 JS/TS number 格格不入 ~ ThaddeusJiang" />
 <meta name="twitter:description" content="imo: TypeScript number 类型定义模糊，JavaScript number 精度非主流，ECMAScript bigint 限制超多。JS/TS number 与其他编程语言显得格格不入。" />
-<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1350408865834172417/Xq8w4cX7_400x400.jpg" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1635805945732415488/hDe8Tg3k_400x400.jpg" />
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
@@ -80,10 +80,10 @@
             <hr>
 
             <p>imo: TypeScript number 类型定义模糊，JavaScript number 精度非主流，ECMAScript bigint 限制超多。JS/TS number 与其他编程语言显得格格不入。</p><p>不要妄想 TypeScript 可以拯救 JavaScript number，TypeScript 的 number 类型因为需要兼容 JavaScript，所以也没有 int32 int64 等细分类型，数值的精度范围也继承了 JavaScript 埋的坑。🤷</p><p>分享几个我遇到的问题以及解决方案：</p><h1 class="">1. JS/TS number 全身都是 bug</h1><p>JS/TS number 因为要同时兼容 int float double 导致它的精度很迷，与强类型工具（如 RDB, protobuf）的数值范围上有差异，非常容易产生 bug。</p><p>JS 最大安全整数（能够精确表示的整数）为 9,007,199,254,740,991（2<sup>53</sup> - 1），远小于 int64 (2<sup>63</sup> - 1)。所以如果你在 RDB 中使用 int64 类型，在 JS 中就会溢出。</p><p>Example: 2<sup>64</sup>-1 is 1844674407370955<strong>1615</strong> but in JavaScript it evaluates to 1844674407370955<strong>2000</strong>.</p><blockquote><div>使用 long.js 可以弥补这个设计缺陷。</div></blockquote><p>但是 long.js 也有问题，个人建议能不用就别用。</p><h1 class="">2. JS/TS bigint 限制超多</h1><p>bigint 虽然是整数，但是在使用上有很多限制，例如：</p><ol><li>BigInt 与 Number 转换会损失精度</li><li>BigInt 在 JSON.stringify() 会引发 TypeError</li><li>BigInt 不能使用 Math 中方法</li></ol><p>天呐🤷，这么多限制，还不容不用呢。反正我从来不用 bigint。</p><p>如果真的需要处理超大数值，我推荐使用 bignumber.js，我可不想自己写数值运算，bignumber.js 提供了很多开箱即用的方法：</p><p><figure>
-  <div style="display: flex; justify-content: center;">
-  <img alt="bignumber.js" src="https://raw.githubusercontent.com/MikeMcl/bignumber.js/gh-pages/API.png" style="margin-left: auto; margin-right: auto;">
+  <div style="display:flex;justify-content:center;">
+  <img alt="bignumber.js" src="https://raw.githubusercontent.com/MikeMcl/bignumber.js/gh-pages/API.png" style="margin-left:auto;margin-right:auto;">
   </div>
-  <figcaption style="text-align: center; font-style: italic; opacity: 0.8;">bignumber.js</figcaption>
+  <figcaption style="text-align:center;font-style:italic;opacity:0.8;">bignumber.js</figcaption>
 </figure></p><h1 class="">3. int32 int64 对应 TS 类型没有统一标准</h1><p>Prisma scheme 支持 BigInt 类型，对应 TS BigInt 类型</p><p>Protocol Buffers 的 int32 int64 类型分别对应 TS number 和 Long</p><p>如果你同时使用 Prisma BigInt 和 protobuf int64 的话，你带代码中就会出现大量相互转换的 utils，类似下面这种：</p><blockquote><div>👇这些代码都是我从其他人的代码中 copy 过来的，不是我写的，我也永远不用写这种代码。</div></blockquote><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BigIntUtil</span> {
   <span class="hljs-keyword">static</span> <span class="hljs-title function_">toNumber</span>(<span class="hljs-attr">b</span>: bigint): <span class="hljs-built_in">number</span> {
     <span class="hljs-keyword">const</span> n = <span class="hljs-built_in">parseInt</span>(b.<span class="hljs-title function_">toString</span>());
@@ -136,6 +136,7 @@
   </div>
 </div>     
 
+
 <div class="copyright">
 <strong>
 <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
@@ -183,7 +184,9 @@
 }
 </style>
 
-<footer class="section">    
+
+
+  <footer class="section">    
     <div class="has-text-centered">
       <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
     </div>
