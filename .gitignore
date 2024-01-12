@@ -1,4 +1,6 @@
 *.html_backup
 .DS_Store
 $__StoryList*.tid
+$__Import*.tid
+output
 docs
