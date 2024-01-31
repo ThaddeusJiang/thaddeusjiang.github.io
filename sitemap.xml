@@ -782,6 +782,12 @@
    </url>
 
    <url>
+      <loc>.//2024-01-31-why-i-love-erlang</loc>
+      <lastmod>2024-01-31</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//404</loc>
       <lastmod>2023-03-13</lastmod>
       <changefreq>monthly</changefreq>
