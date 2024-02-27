@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-   <title>ThaddeusJiang</title>
+   <title>Thaddeus Jiang</title>
    <link>https://thaddeusjiang.com</link>
-   <description>I know I don't know.</description>
+   <description>I know I don't know, stay curious.</description>
    <item>
       <title>2024-01-31 Why I love Erlang</title>
       <link>https://thaddeusjiang.com/2024-01-31-why-i-love-erlang</link>
@@ -11,8 +11,8 @@
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
           <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle">I know I don't know.</p>
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">I know I don't know, stay curious.</p>
           </a>
       </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blogs</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
 </div>
@@ -139,8 +139,8 @@ true
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
           <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle">I know I don't know.</p>
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">I know I don't know, stay curious.</p>
           </a>
       </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blogs</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
 </div>
@@ -245,8 +245,8 @@ model <span class="hljs-title class_">ChargingProfile</span> {
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
           <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle">I know I don't know.</p>
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">I know I don't know, stay curious.</p>
           </a>
       </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blogs</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
 </div>
