@@ -1,0 +1,104 @@
+created: 20240307132817831
+modified: 20240307141100990
+published: 20240307141100988
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2024-02-22 TypeScript Enum 错误示例和解决方案
+type: text/vnd.tiddlywiki
+
+其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums
+
+!! 1. Enum 的 key value 完全一致
+
+在某项目中看到一段代码，我认为是 TypeScript Enum 的错误示范，如果你的项目中有类似代码，推荐修改一下。
+
+```ts
+export enum EventType {
+  Reserved = 'Reserved',
+  ReservationCancelled = 'ReservationCancelled',
+  CheckedIn = 'CheckedIn',
+  CheckedOut = 'CheckedOut',
+  NotificationBeforeFacilityClosing = 'NotificationBeforeFacilityClosing',
+  FacilityBecameAvailableEvent = 'FacilityBecameAvailableEvent',
+  BusinessDateTimeUpdated = 'BusinessDateTimeUpdated',
+  ChangedOccupancy = 'ChangedOccupancy',
+  ReEntered = 'ReEntered',
+  TemporarilyLeft = 'TemporarilyLeft',
+  AppliedReferralCode = 'AppliedReferralCode',
+  CheckInFailed = 'CheckInFailed',
+  ReservationFailed = 'ReservationFailed',
+  ElepayEvent = 'ElepayEvent',
+  ChargedUnpaid = 'ChargedUnpaid',
+  CheckOutTimerSet = 'CheckOutTimerSet',
+  RapidChargingTimeOut = 'RapidChargingTimeOut',
+  RapidSurcharging = 'RapidSurcharging',
+  RapidSurchargingNotificationInterval = 'RapidSurchargingNotificationInterval',
+  MembershipApplied = 'MembershipApplied',
+  MembershipApproved = 'MembershipApproved',
+  MembershipDenied = 'MembershipDenied',
+}
+```
+
+解决方案：Enum value 使用 Integer。
+
+如果 value 由于某些特殊函数使用需要，不支持 Integer，只能是 String 的话，就不应该用 Enum，可以使用 String，如下：
+
+```ts
+type EventType = 'Reserved' | 'ReservationCancelled' | 'CheckedIn'`
+```
+
+!! 2. TypeScript Enum 在工具链中实现不一致
+
+下面这段代码出现在某项目中：
+
+```
+// prisma.schema
+enum ConnectorStatus {
+  Available
+  Preparing
+  Charging
+  SuspendedEVSE
+  SuspendedEV
+  Finishing
+  Reserved
+  Unavailable
+  Faulted
+}
+```
+
+```
+// .proto
+enum ConnectorStatus {
+  CONNECTOR_STATUS_UNSPECIFIED = 0;
+  AVAILABLE= 1;
+  PREPARING = 2;
+  CHARGING = 3;
+  SUSPENDED_EVSE = 4;
+  SUSPENDED_EV = 5;
+  FINISHING = 6;
+  IS_RESERVED = 7;
+  UNAVAILABLE = 8;
+  FAULTED = 9;
+}
+```
+
+```ts
+// .js
+import { ConnectorStatus } from '@prisma/client';
+import { ConnectorStatus as ProtoConnectorStatus } from 'src/proto/dist/ts-server/ocpp/type';
+```
+
+可以看出 ConnectorStatus 分别从 prisma 和 proto 自动生成的代码中导出，虽然他们的原始写法基本一致，但是生成的代码却不相同，导致在处理 prisma（aka database）和 proto（aka API）是引入不同的 Types。这种代码不仅仅带来代码阅读和维护的负担，也是 bug 产生的温床。
+
+解决方案：不使用 Prisma Enum 类型，使用 Integer 类型。
+
+其实从 database 平滑迁移角度考虑，Integer 也优于 Enum，因为 SQLite 不支持 Enum 类型。
+
+就算没有迁移到 SQLite 的计划，我个人也不推荐使用 Enum，因为如果想要支持更多 Enum Value，使用 database（e.g. Postgres）Enum 类型需要修改 table 定义，也就意味着需要 database migration。而 database migration 在复杂且实际运行的项目中是十分辛苦且容易出错的工作。
+
+!! 多说一句，[[我很少使用 Enum|2022-11-21 我很少使用 Enum]]
+
+其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums
+
+但是总有理论家喜欢给其他人定要求，要求其他人使用 Enum 类型。
+在实际工作中，他们还喜欢要求类型安全，要求测试覆盖率等等，总之就是喜欢制定规则，喜欢做管理，不喜欢写代码。
+
