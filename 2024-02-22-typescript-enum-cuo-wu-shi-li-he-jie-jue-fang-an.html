@@ -1,0 +1,204 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.3" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2024-02-22 TypeScript Enum 错误示例和解决方案</title>
+<meta name="description" content="其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2024-02-22-typescript-enum-cuo-wu-shi-li-he-jie-jue-fang-an" />
+<meta property="og:title" content="2024-02-22 TypeScript Enum 错误示例和解决方案" />
+<meta property="og:description" content="其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2024-02-22 TypeScript Enum 错误示例和解决方案" />
+<meta name="twitter:description" content="其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1635805945732415488/hDe8Tg3k_400x400.jpg" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">I know I don't know, stay curious.</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2024-02-22 TypeScript Enum 错误示例和解决方案</h1>
+            <hr>
+
+            <p>其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：<a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums</a></p><h2 class="">1. Enum 的 key value 完全一致</h2><p>在某项目中看到一段代码，我认为是 TypeScript Enum 的错误示范，如果你的项目中有类似代码，推荐修改一下。</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-built_in">enum</span> <span class="hljs-title class_">EventType</span> {
+  <span class="hljs-title class_">Reserved</span> = <span class="hljs-string">&#x27;Reserved&#x27;</span>,
+  <span class="hljs-title class_">ReservationCancelled</span> = <span class="hljs-string">&#x27;ReservationCancelled&#x27;</span>,
+  <span class="hljs-title class_">CheckedIn</span> = <span class="hljs-string">&#x27;CheckedIn&#x27;</span>,
+  <span class="hljs-title class_">CheckedOut</span> = <span class="hljs-string">&#x27;CheckedOut&#x27;</span>,
+  <span class="hljs-title class_">NotificationBeforeFacilityClosing</span> = <span class="hljs-string">&#x27;NotificationBeforeFacilityClosing&#x27;</span>,
+  <span class="hljs-title class_">FacilityBecameAvailableEvent</span> = <span class="hljs-string">&#x27;FacilityBecameAvailableEvent&#x27;</span>,
+  <span class="hljs-title class_">BusinessDateTimeUpdated</span> = <span class="hljs-string">&#x27;BusinessDateTimeUpdated&#x27;</span>,
+  <span class="hljs-title class_">ChangedOccupancy</span> = <span class="hljs-string">&#x27;ChangedOccupancy&#x27;</span>,
+  <span class="hljs-title class_">ReEntered</span> = <span class="hljs-string">&#x27;ReEntered&#x27;</span>,
+  <span class="hljs-title class_">TemporarilyLeft</span> = <span class="hljs-string">&#x27;TemporarilyLeft&#x27;</span>,
+  <span class="hljs-title class_">AppliedReferralCode</span> = <span class="hljs-string">&#x27;AppliedReferralCode&#x27;</span>,
+  <span class="hljs-title class_">CheckInFailed</span> = <span class="hljs-string">&#x27;CheckInFailed&#x27;</span>,
+  <span class="hljs-title class_">ReservationFailed</span> = <span class="hljs-string">&#x27;ReservationFailed&#x27;</span>,
+  <span class="hljs-title class_">ElepayEvent</span> = <span class="hljs-string">&#x27;ElepayEvent&#x27;</span>,
+  <span class="hljs-title class_">ChargedUnpaid</span> = <span class="hljs-string">&#x27;ChargedUnpaid&#x27;</span>,
+  <span class="hljs-title class_">CheckOutTimerSet</span> = <span class="hljs-string">&#x27;CheckOutTimerSet&#x27;</span>,
+  <span class="hljs-title class_">RapidChargingTimeOut</span> = <span class="hljs-string">&#x27;RapidChargingTimeOut&#x27;</span>,
+  <span class="hljs-title class_">RapidSurcharging</span> = <span class="hljs-string">&#x27;RapidSurcharging&#x27;</span>,
+  <span class="hljs-title class_">RapidSurchargingNotificationInterval</span> = <span class="hljs-string">&#x27;RapidSurchargingNotificationInterval&#x27;</span>,
+  <span class="hljs-title class_">MembershipApplied</span> = <span class="hljs-string">&#x27;MembershipApplied&#x27;</span>,
+  <span class="hljs-title class_">MembershipApproved</span> = <span class="hljs-string">&#x27;MembershipApproved&#x27;</span>,
+  <span class="hljs-title class_">MembershipDenied</span> = <span class="hljs-string">&#x27;MembershipDenied&#x27;</span>,
+}</code></pre><p>解决方案：Enum value 使用 Integer。</p><p>如果 value 由于某些特殊函数使用需要，不支持 Integer，只能是 String 的话，就不应该用 Enum，可以使用 String，如下：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">type</span> <span class="hljs-title class_">EventType</span> = <span class="hljs-string">&#x27;Reserved&#x27;</span> | <span class="hljs-string">&#x27;ReservationCancelled&#x27;</span> | <span class="hljs-string">&#x27;CheckedIn&#x27;</span><span class="hljs-string">`</span></code></pre><h2 class="">2. TypeScript Enum 在工具链中实现不一致</h2><p>下面这段代码出现在某项目中：</p><pre><code>// prisma.schema
+enum ConnectorStatus {
+  Available
+  Preparing
+  Charging
+  SuspendedEVSE
+  SuspendedEV
+  Finishing
+  Reserved
+  Unavailable
+  Faulted
+}</code></pre><pre><code>// .proto
+enum ConnectorStatus {
+  CONNECTOR_STATUS_UNSPECIFIED = 0;
+  AVAILABLE= 1;
+  PREPARING = 2;
+  CHARGING = 3;
+  SUSPENDED_EVSE = 4;
+  SUSPENDED_EV = 5;
+  FINISHING = 6;
+  IS_RESERVED = 7;
+  UNAVAILABLE = 8;
+  FAULTED = 9;
+}</code></pre><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// .js</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ConnectorStatus</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@prisma/client&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ConnectorStatus</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">ProtoConnectorStatus</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;src/proto/dist/ts-server/ocpp/type&#x27;</span>;</code></pre><p>可以看出 ConnectorStatus 分别从 prisma 和 proto 自动生成的代码中导出，虽然他们的原始写法基本一致，但是生成的代码却不相同，导致在处理 prisma（aka database）和 proto（aka API）是引入不同的 Types。这种代码不仅仅带来代码阅读和维护的负担，也是 bug 产生的温床。</p><p>解决方案：不使用 Prisma Enum 类型，使用 Integer 类型。</p><p>其实从 database 平滑迁移角度考虑，Integer 也优于 Enum，因为 SQLite 不支持 Enum 类型。</p><p>就算没有迁移到 SQLite 的计划，我个人也不推荐使用 Enum，因为如果想要支持更多 Enum Value，使用 database（e.g. Postgres）Enum 类型需要修改 table 定义，也就意味着需要 database migration。而 database migration 在复杂且实际运行的项目中是十分辛苦且容易出错的工作。</p><h2 class="">多说一句，<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./2022-11-21-wo-hen-shao-shi-yong-enum.html">我很少使用 Enum</a></h2><p>其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：<a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums</a></p><p>但是总有理论家喜欢给其他人定要求，要求其他人使用 Enum 类型。
+在实际工作中，他们还喜欢要求类型安全，要求测试覆盖率等等，总之就是喜欢制定规则，喜欢做管理，不喜欢写代码。</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+      <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink-external" href="https://gitlab.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitLab</a> | <a class="tc-tiddlylink-external" href="https://x.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">X.com</a> | <a class="tc-tiddlylink-external" href="https://www.aier.app/avatars/ThaddeusJiang" rel="noopener noreferrer" target="_blank">AIer.app</a> 
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

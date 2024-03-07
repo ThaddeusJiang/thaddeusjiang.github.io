@@ -14,7 +14,7 @@
               <h1 class="title">Thaddeus Jiang</h1>
               <p class="subtitle">I know I don't know, stay curious.</p>
           </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blogs</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
 </div>
 
 
@@ -113,6 +113,108 @@ end</code></pre><pre class="hljs"><code class="sql hljs"><span class="hljs-comme
    </item>
 
    <item>
+      <title>2024-02-22 TypeScript Enum 错误示例和解决方案</title>
+      <link>https://thaddeusjiang.com/2024-02-22-typescript-enum-cuo-wu-shi-li-he-jie-jue-fang-an</link>
+			<description><![CDATA[
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">I know I don't know, stay curious.</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2024-02-22 TypeScript Enum 错误示例和解决方案</h1>
+            <hr>
+
+            <p>其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：<a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums</a></p><h2 class="">1. Enum 的 key value 完全一致</h2><p>在某项目中看到一段代码，我认为是 TypeScript Enum 的错误示范，如果你的项目中有类似代码，推荐修改一下。</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-built_in">enum</span> <span class="hljs-title class_">EventType</span> {
+  <span class="hljs-title class_">Reserved</span> = <span class="hljs-string">&#x27;Reserved&#x27;</span>,
+  <span class="hljs-title class_">ReservationCancelled</span> = <span class="hljs-string">&#x27;ReservationCancelled&#x27;</span>,
+  <span class="hljs-title class_">CheckedIn</span> = <span class="hljs-string">&#x27;CheckedIn&#x27;</span>,
+  <span class="hljs-title class_">CheckedOut</span> = <span class="hljs-string">&#x27;CheckedOut&#x27;</span>,
+  <span class="hljs-title class_">NotificationBeforeFacilityClosing</span> = <span class="hljs-string">&#x27;NotificationBeforeFacilityClosing&#x27;</span>,
+  <span class="hljs-title class_">FacilityBecameAvailableEvent</span> = <span class="hljs-string">&#x27;FacilityBecameAvailableEvent&#x27;</span>,
+  <span class="hljs-title class_">BusinessDateTimeUpdated</span> = <span class="hljs-string">&#x27;BusinessDateTimeUpdated&#x27;</span>,
+  <span class="hljs-title class_">ChangedOccupancy</span> = <span class="hljs-string">&#x27;ChangedOccupancy&#x27;</span>,
+  <span class="hljs-title class_">ReEntered</span> = <span class="hljs-string">&#x27;ReEntered&#x27;</span>,
+  <span class="hljs-title class_">TemporarilyLeft</span> = <span class="hljs-string">&#x27;TemporarilyLeft&#x27;</span>,
+  <span class="hljs-title class_">AppliedReferralCode</span> = <span class="hljs-string">&#x27;AppliedReferralCode&#x27;</span>,
+  <span class="hljs-title class_">CheckInFailed</span> = <span class="hljs-string">&#x27;CheckInFailed&#x27;</span>,
+  <span class="hljs-title class_">ReservationFailed</span> = <span class="hljs-string">&#x27;ReservationFailed&#x27;</span>,
+  <span class="hljs-title class_">ElepayEvent</span> = <span class="hljs-string">&#x27;ElepayEvent&#x27;</span>,
+  <span class="hljs-title class_">ChargedUnpaid</span> = <span class="hljs-string">&#x27;ChargedUnpaid&#x27;</span>,
+  <span class="hljs-title class_">CheckOutTimerSet</span> = <span class="hljs-string">&#x27;CheckOutTimerSet&#x27;</span>,
+  <span class="hljs-title class_">RapidChargingTimeOut</span> = <span class="hljs-string">&#x27;RapidChargingTimeOut&#x27;</span>,
+  <span class="hljs-title class_">RapidSurcharging</span> = <span class="hljs-string">&#x27;RapidSurcharging&#x27;</span>,
+  <span class="hljs-title class_">RapidSurchargingNotificationInterval</span> = <span class="hljs-string">&#x27;RapidSurchargingNotificationInterval&#x27;</span>,
+  <span class="hljs-title class_">MembershipApplied</span> = <span class="hljs-string">&#x27;MembershipApplied&#x27;</span>,
+  <span class="hljs-title class_">MembershipApproved</span> = <span class="hljs-string">&#x27;MembershipApproved&#x27;</span>,
+  <span class="hljs-title class_">MembershipDenied</span> = <span class="hljs-string">&#x27;MembershipDenied&#x27;</span>,
+}</code></pre><p>解决方案：Enum value 使用 Integer。</p><p>如果 value 由于某些特殊函数使用需要，不支持 Integer，只能是 String 的话，就不应该用 Enum，可以使用 String，如下：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">type</span> <span class="hljs-title class_">EventType</span> = <span class="hljs-string">&#x27;Reserved&#x27;</span> | <span class="hljs-string">&#x27;ReservationCancelled&#x27;</span> | <span class="hljs-string">&#x27;CheckedIn&#x27;</span><span class="hljs-string">`</span></code></pre><h2 class="">2. TypeScript Enum 在工具链中实现不一致</h2><p>下面这段代码出现在某项目中：</p><pre><code>// prisma.schema
+enum ConnectorStatus {
+  Available
+  Preparing
+  Charging
+  SuspendedEVSE
+  SuspendedEV
+  Finishing
+  Reserved
+  Unavailable
+  Faulted
+}</code></pre><pre><code>// .proto
+enum ConnectorStatus {
+  CONNECTOR_STATUS_UNSPECIFIED = 0;
+  AVAILABLE= 1;
+  PREPARING = 2;
+  CHARGING = 3;
+  SUSPENDED_EVSE = 4;
+  SUSPENDED_EV = 5;
+  FINISHING = 6;
+  IS_RESERVED = 7;
+  UNAVAILABLE = 8;
+  FAULTED = 9;
+}</code></pre><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// .js</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ConnectorStatus</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@prisma/client&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ConnectorStatus</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">ProtoConnectorStatus</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;src/proto/dist/ts-server/ocpp/type&#x27;</span>;</code></pre><p>可以看出 ConnectorStatus 分别从 prisma 和 proto 自动生成的代码中导出，虽然他们的原始写法基本一致，但是生成的代码却不相同，导致在处理 prisma（aka database）和 proto（aka API）是引入不同的 Types。这种代码不仅仅带来代码阅读和维护的负担，也是 bug 产生的温床。</p><p>解决方案：不使用 Prisma Enum 类型，使用 Integer 类型。</p><p>其实从 database 平滑迁移角度考虑，Integer 也优于 Enum，因为 SQLite 不支持 Enum 类型。</p><p>就算没有迁移到 SQLite 的计划，我个人也不推荐使用 Enum，因为如果想要支持更多 Enum Value，使用 database（e.g. Postgres）Enum 类型需要修改 table 定义，也就意味着需要 database migration。而 database migration 在复杂且实际运行的项目中是十分辛苦且容易出错的工作。</p><h2 class="">多说一句，<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#2022-11-21-wo-hen-shao-shi-yong-enum">我很少使用 Enum</a></h2><p>其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：<a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums</a></p><p>但是总有理论家喜欢给其他人定要求，要求其他人使用 Enum 类型。
+在实际工作中，他们还喜欢要求类型安全，要求测试覆盖率等等，总之就是喜欢制定规则，喜欢做管理，不喜欢写代码。</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Thu, 7 March 2024 14:11: -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2024-02-22-typescript-enum-cuo-wu-shi-li-he-jie-jue-fang-an</guid>      
+   </item>
+
+   <item>
       <title>2024-01-31 Why I love Erlang</title>
       <link>https://thaddeusjiang.com/2024-01-31-why-i-love-erlang</link>
 			<description><![CDATA[
@@ -122,7 +224,7 @@ end</code></pre><pre class="hljs"><code class="sql hljs"><span class="hljs-comme
               <h1 class="title">Thaddeus Jiang</h1>
               <p class="subtitle">I know I don't know, stay curious.</p>
           </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blogs</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
 </div>
 
 
@@ -238,112 +340,6 @@ true
 ]]></description>
       <pubDate>Wed, 31 January 2024 13:5:43 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-01-31-why-i-love-erlang</guid>      
-   </item>
-
-   <item>
-      <title>2024-01-11 TypeScript 最烦人，也最简单的 error</title>
-      <link>https://thaddeusjiang.com/2024-01-11-typescript-zui-fan-ren-ye-zui-jian-dan-de-error</link>
-			<description><![CDATA[
-<div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">I know I don't know, stay curious.</p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blogs</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
-</div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2024-01-11 TypeScript 最烦人，也最简单的 error</h1>
-            <hr>
-
-            <p>TypeScript 最烦人，也最简单的 error，即：optional 声明方式不兼容。</p><p>相信所有 TypeScript 开发者都遇到下面的错误日志吧？😂</p><pre class="hljs"><code class="ts hljs"><span class="hljs-title class_">Type</span> <span class="hljs-string">&#x27;number | null&#x27;</span> is not assignable to <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;number | undefined&#x27;</span>.
-  <span class="hljs-title class_">Type</span> <span class="hljs-string">&#x27;null&#x27;</span> is not assignable to <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;number | undefined&#x27;</span>.<span class="hljs-title function_">ts</span>(<span class="hljs-number">2322</span>)</code></pre><p>虽然这个错误的解决方法很简单，但是时不时就被它烦一下，也是服气了。忍不住想吐槽几句。</p><blockquote class="tc-quote tc-big-quote"><p>TypeScript optional 声明方式不兼容造成了生态问题，不是简单的语法问题。
-</p><cite>TJ 2024-01-11</cite></blockquote><p>如果只是简单的语法问题，我又何必吐槽呢？</p><p>如果只是简单的程序，没有第三方依赖，不涉及工具链，那就做好自己就行了。只要自己和团队做得好，TypeScript optional 声明方式不兼容的问题是可以避免的。</p><p>但是对于复杂的程序，有大量第三方依赖，并使用各种工具链辅助开发，那么这就是生态问题。只靠自己和团队避坑是没有用的，因为生态里的总有人会挖好坑等你。</p><h2 class="">为什么说是生态问题呢？</h2><p>先解释一下我现在参加的项目的技术栈：</p><ol><li><a class="tc-tiddlylink tc-tiddlylink-missing" href="./#protobuf">protobuf</a> 定义 gRPC request response，并通过 codegen 生成 gRPC server 和 client 的 TypeScript 类型定义</li><li><a class="tc-tiddlylink tc-tiddlylink-missing" href="./#prisma">prisma</a> 定义 database schema，并通过 prisma generate 生成 TypeScript 类型定义</li><li><a class="tc-tiddlylink tc-tiddlylink-missing" href="./#class-validator">class-validator</a> 定义 validation schema</li><li><a class="tc-tiddlylink tc-tiddlylink-missing" href="./#typescript">TypeScript</a> 编写业务代码和辅助数据</li></ol><p>针对最开始分享的 TypeScript error 我分享一下我的 protobuf prisma class-validator TypeScript 分别是怎么写的，如果你是 TypeScript developer，相信你一定能看懂。</p><h3 class="">1. protobuf and generated code</h3><p>protobuf code</p><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// .proto</span>
-message <span class="hljs-title class_">ChargingProfile</span> {
-  <span class="hljs-comment">// ...</span>
-  optional int32 duration = <span class="hljs-number">2</span>;
-  <span class="hljs-comment">// ...</span>
-}</code></pre><p>protobuf generated code </p><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// dist/buf/check_in_history_pb.ts</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChargingProfile</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Message</span>&lt;<span class="hljs-title class_">ChargingProfile</span>&gt; {
-  <span class="hljs-comment">// ...</span>
-  <span class="hljs-comment">/**
-   * <span class="hljs-doctag">@generated</span> from field: optional int32 duration = 2;
-   */</span>
-  duration?: <span class="hljs-built_in">number</span>;
-  <span class="hljs-comment">// ...</span></code></pre><h2 class="">2. prisma and generated code</h2><p>prisma schema</p><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// schema.prisma</span>
-model <span class="hljs-title class_">ChargingProfile</span> {
-  <span class="hljs-comment">// ...</span>
-  duration                <span class="hljs-title class_">Int</span>?
-  <span class="hljs-comment">// ...</span>
-}</code></pre><p>prisma schema generated code</p><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// node_module/.prisma/client/index.d.ts</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">type</span> <span class="hljs-title class_">ChargingProfile</span> = {
-  <span class="hljs-comment">// ...</span>
-  <span class="hljs-attr">duration</span>: <span class="hljs-built_in">number</span> | <span class="hljs-literal">null</span>
-  <span class="hljs-comment">// ...</span>
-}</code></pre><h3 class="">小结</h3><p>注意看，protobuf generated code 和 prisma schema generated code</p><pre class="hljs"><code class="diff hljs">  // protobuf generated code
-<span class="hljs-addition">+  duration?: number;</span>
-  //prisma schema generated code
-<span class="hljs-addition">+  duration: number | null</span></code></pre><p>最开始分享的 TypeScript error 就是因为这个原因造成的，我在 x.com 上分享了这段代码，很多朋友分享了他们的避免方法。但是 <code>generated code</code> 完全不是我编写的，而是 TypeScript 生态中工具链生成的，即使我的定义是相同的，不同工具链生成的代码还是造成了 TypeScripr error，我真不知道我要如何避免这个错误。🤷</p><blockquote class="tc-quote tc-big-quote"><p>BTW 这个问题的解决方法非常简单，我并不是不能解决。
-只是它经常出来烦我一下，让我忍不住想吐槽。
-</p><cite>TJ 2024-01-11</cite></blockquote><h2 class="">3. class-validator</h2><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChargingProfileDto</span> {
-  <span class="hljs-comment">// ...</span>
-  <span class="hljs-meta">@IsOptional</span>()
-  <span class="hljs-meta">@IsInt</span>()
-  duration?: <span class="hljs-built_in">number</span>;
-  <span class="hljs-comment">// ...</span>
-}</code></pre><p>其实 class-validator 实现的代码和本文没什么关系，不过这段代码是真实存在于我们的代码库中的，我就顺便分享一下。</p><p>并且，我非常不喜欢 class-validator，原因有以下几点：</p><ol><li>class-validator 和 TypeScript 在某些方面是重复的，例如 <code>@IsOptional()</code> 和 <code>?</code></li><li>class-validator 只能校验 class instance，如果想校验 JSON 还需要额外依赖（class-transformer）</li><li>class-validator 文档不全，例如：我一直没有找到 <code>@IsNumber(options: IsNumberOptions)</code> 中 options 有哪些配置项</li></ol><h2 class="">最后，分享几种 TypeScript 中 number 的定义</h2><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">type</span> A = {
-  a?: <span class="hljs-built_in">number</span>
-}
-
-<span class="hljs-keyword">type</span> B = {
-  <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> | <span class="hljs-literal">undefined</span>
-}
-
-<span class="hljs-keyword">type</span> C = {
-  <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> | <span class="hljs-literal">null</span>
-}
-
-<span class="hljs-keyword">type</span> D = {
-  <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> | <span class="hljs-literal">null</span> | <span class="hljs-literal">undefined</span>
-}
-
-<span class="hljs-keyword">type</span> E = {
-  <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>
-}</code></pre><p>大家参加的项目中用哪一种呢？就个人而言，你倾向哪一种？</p><p>欢迎大家和我一起讨论：</p><ul><li>x.com: <a class="tc-tiddlylink-external" href="https://x.com/ThaddeusJiang/status/1745085873807347771" rel="noopener noreferrer" target="_blank">https://x.com/ThaddeusJiang/status/1745085873807347771</a></li><li>telegram: <a class="tc-tiddlylink-external" href="https://t.me/talktalk_developer/539" rel="noopener noreferrer" target="_blank">https://t.me/talktalk_developer/539</a></li><li>github: <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/thaddeusjiang.github.io/discussions/63" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/thaddeusjiang.github.io/discussions/63</a></li></ul><p>other refs</p><ul><li><a class="tc-tiddlylink-external" href="https://protobuf.dev/" rel="noopener noreferrer" target="_blank">https://protobuf.dev/</a></li><li><a class="tc-tiddlylink-external" href="https://www.prisma.io/" rel="noopener noreferrer" target="_blank">https://www.prisma.io/</a></li><li><a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/typestack/class-validator" rel="noopener noreferrer" target="_blank">https://github.com/typestack/class-validator</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/typestack/class-transformer" rel="noopener noreferrer" target="_blank">https://github.com/typestack/class-transformer</a></li></ul>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Wed, 10 January 2024 19:44:26 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-01-11-typescript-zui-fan-ren-ye-zui-jian-dan-de-error</guid>      
    </item>
 
 </channel>
