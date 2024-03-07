@@ -1,0 +1,21 @@
+created: 20240307140132304
+modified: 20240307140723216
+tags: TechRadar/采纳
+title: TypeScript
+type: text/vnd.tiddlywiki
+
+我虽然熟练使用 TypeScript，但是不喜欢类型体操。
+
+尽量不用 TypeScript 超过 JavaScript 的特性。
+
+<<<.tc-big-quote
+I don't use Classes in JavaScript and TypeScript projects.
+<<<TJ
+
+<<<.tc-big-quote
+I don't use TypeScript’s private.
+<<<TJ
+
+<<<.tc-big-quote
+I Only use Integer value Enum.
+<<<TJ

@@ -1,0 +1,59 @@
+created: 20231107101130637
+modified: 20240307110919589
+tags: 
+title: TechRadar/采纳
+type: text/vnd.tiddlywiki
+
+Coding
+
+* [[TypeScript & JavaScript]]
+* [[Elixir]]
+* [[Remix]] - JS full stack web framework
+* [[Prisma]] - JS database ORM
+* [[PostgreSQL]] - RDB 
+* [[RemedaJS]]
+* [[OpenAPI]] - API doc for RESTful API
+* [[Protobuf]] - API definition exclude RESTful API, like: gRPC PubSub Event
+* [[gRPC]] - MicroServices request and response
+* [[LodashJS]]
+* [[Google Pub/Sub]]
+* [[Redis]]
+* [[NestJS]]
+
+Tools
+
+
+* [[Mermaid]] - Online Flow Chart & Diagram Editor
+* [[Docker]] docker-compose - local 
+* WebhookSite https://webhook.site/ 
+* [[Metabase]] - RDB GUI and  [[BA tool]]
+* [[Datadog]] - logs
+* [[Postman]] - API GUI for REST gRPC
+* TablePlus - DB GUI
+* NotePlan - 工作相关临时笔记软件
+* RunKit + Chrome console - JS runtime
+* GitHub [[GitLab]] - basic
+* Excalidraw
+* k8s - basic containers
+* [[terraform]] - basic infra tool
+* gmail 
+* Slack 
+* Google Meet 
+* Jira Confluence 
+* Markdown
+* https://AIer.app
+* TiddlyWiki
+
+
+Platform / Interfaces / Protocols 
+
+* Elixir 
+* Telegram 
+* Fly.io 
+* OpenAI
+* [[OCPI]] 
+* [[OCPP]]
+
+!! Others
+
+* MicroServices

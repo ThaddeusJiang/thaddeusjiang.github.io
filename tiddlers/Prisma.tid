@@ -1,0 +1,20 @@
+created: 20240301032205838
+modified: 20240307140932329
+tags: TechRadar/采纳
+title: Prisma
+type: text/vnd.tiddlywiki
+
+熟练使用
+
+<<<.tc-big-quote
+不使用 Prisma Enum，使用 Int 类型代替。
+<<<TJ
+
+理由：
+
+# SQLite 不支持 enum type
+# 修改 enum values 时需要 database migration，migration 增加了运维复杂度，推荐阅读 [[Safe Ecto Migrations|https://fly.io/phoenix-files/safe-ecto-migrations/]]
+
+<<<
+Prisma enum: Not supported by SQLite and Microsoft SQL Server
+<<<ref: https://www.prisma.io/docs/orm/reference/prisma-schema-reference#enum
