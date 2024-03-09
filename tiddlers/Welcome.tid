@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20240110195550345
+modified: 20240309090653779
 modifier: TJ
 tags: 
 title: Welcome
@@ -14,4 +14,4 @@ type: text/vnd.tiddlywiki
 * 整个应用程序只是一个 HTML 文件，零依赖，下载即用。（亦可用 Node.js 启动）
 * 开源免费，你也可以创建自己的数字花园。（[[code|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]）
 
-[[FAQ]] [[AboutMe]]
+[[FAQ]] [[About]]

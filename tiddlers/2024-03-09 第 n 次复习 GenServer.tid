@@ -1,0 +1,92 @@
+created: 20240309080836881
+modified: 20240309092201082
+published: 20240309092027668
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2024-03-09 第 n 次复习 GenServer
+type: text/vnd.tiddlywiki
+
+这是我第 n 次复习 GenServer，一直很喜欢 Elixir & Erlang，希望今后可以用 Elixir & Erlang 作为主力编程语言，希望它们能让我今后的程序员生涯变得快乐且有趣。
+
+Dave Thomas 的书真的太棒了，每次读都有新感受，感受到 Dave 在编程领域的深思熟虑和远见卓识。
+
+!! 复习
+
+复习一下 GenServer 的概念和特点，帮助自己不断重复记忆，直到内化到肌肉，内化成像开车一样的技能。
+
+关键词：`OTP` `applications` `processes` `behavior` `callback` `state-machine` `GenServer`
+
+GenServer 是 OTP 的概念，OTP 是 Erlang 社区开发复杂项目的架构和工具。OTP 可以让我们专注业务，不用每次都从头搭建手脚架，尤其是复杂业务的架构，例如：error handling、application communication、hot code swapping 等等。
+
+memo: Elixir & Erlang 社区中 applications 不一定是其他社区中定义的那种应用，可能仅仅是一个多个 processes。Elixir & Erlang application 实现了 behavior，behavior 提供一些 callbacks finite-state machines 帮助我们更好的架构复杂应用。
+
+!! Elixir GenServer 风格
+
+Elixir GenServer 推荐的代码风格不同于其他编程语言的代码风格。
+
+<<<.tc-big-quote
+GenServer 推荐我们把 External API 和 GenServer implementations 放在同一个 module 内。Elixir 提供的 `__MODOULE__` 让这种风格实现起来非常简单。
+<<<
+
+形如：
+
+```elixir
+defmodule Stack do
+  use GenServer
+
+  # Client
+
+  def start_link(default) when is_list(default) do
+    GenServer.start_link(__MODULE__, default)
+  end
+
+  def push(pid, element) do
+    GenServer.cast(pid, {:push, element})
+  end
+
+  def pop(pid) do
+    GenServer.call(pid, :pop)
+  end
+
+  # Server (callbacks)
+
+  @impl true
+  def init(stack) do
+    {:ok, stack}
+  end
+
+  @impl true
+  def handle_call(:pop, _from, [head | tail]) do
+    {:reply, head, tail}
+  end
+
+  @impl true
+  def handle_cast({:push, element}, state) do
+    {:noreply, [element | state]}
+  end
+end
+```
+
+```elixir
+# Usage
+{:ok, pid} = Stack.start_link([:hello, :world])
+Stack.pop(pid)
+:hello
+
+Stack.pop(pid)
+:world
+
+Stack.push(pid, :nice_job)
+:nice_job
+```
+
+我喜欢这种风格，对于我来说在同个一个 module（file）中实现 API 和 callback 很容易理解，且容易维护。同理，我也喜欢 https://remix.run 设计的 loader action 风格。
+
+我不喜欢 Java 推荐的定义和实现分离的风格，很鸡肋，很枯燥。借用 Dave Thomas 的一句话：
+
+<<<.tc-big-quote
+It isn't difficult, but it is tedious.
+<<<Dave Thomas
+
+不符合 Elixir GenServer 风格的实现：https://github.com/ThaddeusJiang/elixir_playground/tree/main/gen_server/not_elixir_style_gen_server
+
+今天是 2024-03-09 （周六）天气晴朗，不用工作的日子真舒服啊。
