@@ -5,6 +5,103 @@
    <link>https://thaddeusjiang.com</link>
    <description>I know I don't know, stay curious.</description>
    <item>
+      <title>2024-03-09 第 n 次复习 GenServer</title>
+      <link>https://thaddeusjiang.com/2024-03-09-di-n-ci-fu-xi-genserver</link>
+			<description><![CDATA[
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">I know I don't know, stay curious.</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2024-03-09 第 n 次复习 GenServer</h1>
+            <hr>
+
+            <p>今天是 2024-03-09 （周六）天气晴朗，不用工作的日子很舒服。</p><p>今天是我第 n 次复习 GenServer，一直很喜欢 Elixir &amp; Erlang，并希望今后可以用 Elixir 或者 Erlang 作为主力编程语言，希望它们能让我今后的程序员生涯变得快乐且有趣。</p><p>Dave Thomas 的书真的太棒了，每次读都有新感受，感受到 Dave 在编程领域的深思熟虑和远见卓识。</p><h2 class="">复习</h2><p>复习一下 GenServer 的概念和特点，帮助自己不断重复记忆，直到内化到肌肉，内化成像开车一样的技能。</p><p>关键词：<code>OTP</code> <code>applications</code> <code>processes</code> <code>behavior</code> <code>callback</code> <code>state-machine</code> <code>GenServer</code></p><p>GenServer 是 OTP 的概念，OTP 是 Erlang 社区开发复杂项目的架构和工具。OTP 可以让我们专注业务，不用每次都从头搭建手脚架，尤其是复杂业务的架构，例如：error handling、application communication、hot code swapping 等等。</p><p>memo: Elixir &amp; Erlang 社区中 applications 不一定是其他社区中定义的那种应用，可能仅仅是一个多个 processes。Elixir &amp; Erlang application 实现了 behavior，behavior 提供一些 callbacks finite-state machines 帮助我们更好的架构复杂应用。</p><h2 class="">Elixir GenServer 风格</h2><p>Elixir GenServer 推荐的代码风格不同于其他编程语言的代码风格。</p><blockquote class="tc-quote tc-big-quote"><p>GenServer 推荐我们把 External API 和 GenServer implementations 放在同一个 module 内。Elixir 提供的 <code>__MODOULE__</code> 让这种风格实现起来非常简单。
+</p></blockquote><p>形如：</p><pre><code>defmodule Stack do
+  use GenServer
+
+  # Client
+
+  def start_link(default) when is_list(default) do
+    GenServer.start_link(__MODULE__, default)
+  end
+
+  def push(pid, element) do
+    GenServer.cast(pid, {:push, element})
+  end
+
+  def pop(pid) do
+    GenServer.call(pid, :pop)
+  end
+
+  # Server (callbacks)
+
+  @impl true
+  def init(stack) do
+    {:ok, stack}
+  end
+
+  @impl true
+  def handle_call(:pop, _from, [head | tail]) do
+    {:reply, head, tail}
+  end
+
+  @impl true
+  def handle_cast({:push, element}, state) do
+    {:noreply, [element | state]}
+  end
+end</code></pre><pre><code># Usage
+{:ok, pid} = Stack.start_link([:hello, :world])
+Stack.pop(pid)
+:hello
+
+Stack.pop(pid)
+:world
+
+Stack.push(pid, :nice_job)
+:nice_job</code></pre><p>我喜欢这种风格，对于我来说在同个一个 module（file）中实现 API 和 callback 很容易理解，且容易维护。同理，我也喜欢 <a class="tc-tiddlylink-external" href="https://remix.run" rel="noopener noreferrer" target="_blank">https://remix.run</a> 设计的 loader action 风格。</p><p>我不喜欢 Java 推荐的定义和实现分离的风格，很鸡肋，很枯燥。借用 Dave Thomas 的一句话：</p><blockquote class="tc-quote tc-big-quote"><p>It isn't difficult, but it is tedious.
+</p><cite>Dave Thomas</cite></blockquote><p>不符合 Elixir GenServer 风格的实现：</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Sat, 9 March 2024 8:8:36 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2024-03-09-di-n-ci-fu-xi-genserver</guid>      
+   </item>
+
+   <item>
       <title>2024-03-07 Don't review Prisma Migration generated SQL</title>
       <link>https://thaddeusjiang.com/2024-03-07-don-t-review-prisma-migration-generated-sql</link>
 			<description><![CDATA[
@@ -212,134 +309,6 @@ enum ConnectorStatus {
 ]]></description>
       <pubDate>Thu, 7 March 2024 14:11: -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-02-22-typescript-enum-cuo-wu-shi-li-he-jie-jue-fang-an</guid>      
-   </item>
-
-   <item>
-      <title>2024-01-31 Why I love Erlang</title>
-      <link>https://thaddeusjiang.com/2024-01-31-why-i-love-erlang</link>
-			<description><![CDATA[
-<div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">I know I don't know, stay curious.</p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
-</div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2024-01-31 Why I love Erlang</h1>
-            <hr>
-
-            <p>我想起了《黑客与画家》中的一段话：“编程语言不一样，与其说它是技术，还不如说是程序员的思考模式。编程语言是技术和宗教的混合物。”</p><h2 class="">Why I love Erlang</h2><p>这本身就不是一个问题，喜欢某个编程语言就像喜欢某个具体的人一样，那是一种感觉，根本不需要具体的理由。</p><p>多年来，我一直很向往 DHH 因为他很早找到了他喜欢的编程语言 Ruby。我尝试过很多编程语言，如：Java、JS、Perl、Swift、ResonML 等等，很遗憾它们都没有让我有 soulmate 的感觉。几年前偶然的机会，我了解到 Elixir，以及断断续续地使用过程中又了解到 Erlang，编写 Erlang/Elixir 代码让我有了久违的愉悦感。</p><p>我愈发地明晰了 Erlang/Elixir 是我真正的 soulmate language，我太喜欢它们了。希望我可以像 DHH 对 Ruby 一样，为 Erlang/Elixir 做一些贡献。</p><h2 class="">虽然事实如上，但是我也可以列出一些具体的点说明为什么我喜欢 Erlang。</h2><blockquote><div>我不太确定应该按照 Erlang 的强项开始写，还是按照阅读这篇文章的朋友可以学习曲线开始写。</div><div>暂时先按照容易理解的顺序开始写吧。</div></blockquote><p>TR;DR</p><ol><li>Erlang 让程序回归数学</li><li>Erlang 整数不会溢出</li><li>Erlang 提供完美的字面量对象</li><li>Erlang 远程调用和本地调用一样简单</li><li>Erlang 远程处理错误允许优雅地对应不可抗力因素</li><li>Erlang 在语言层面提供了功能强大的 Schemaless Database</li></ol><h2 class="">1. Erlang 让程序回归数学</h2><p>列举计算机编程问题中常被提到的两个算法斐波拉切数和快速排序。</p><p>斐波那契数：</p><pre><code>fib(0) -&gt; 0;
-fib(1) -&gt; 1;
-fib(X) -&gt; fib(X-1) + fib(X-2).</code></pre><p>快速排序</p><pre><code>sort([]) -&gt; [];
-sort([Pivot|Rest]) -&gt;
-    {Smaller, Larger} = lists:partition(fun(X) -&gt; X &lt; Pivot end, Rest),
-    sort(Smaller) ++ [Pivot] ++ sort(Larger).</code></pre><p>我想应该没有其他编程语言可以做到像 Erlang 这样既优雅又简洁了吧。最重要的是 Erlang 编写的代码和数学上的定义几乎是一致的，太棒了。</p><p>再分享一个简单的求面积的函数</p><pre><code>area({rectangle, Width, Ht}) -&gt; Width * Ht;
-area({circle, R})            -&gt; 3.14 * R * R.
-
-area({circle, 14}). % 615.44</code></pre><p>Erlang 提供的函数参数模式匹配让代码可以减少很多条件判断，例如： if (rectangle) then ... else if (circle) then ... 等等。</p><h2 class="">2. Erlang 整数不会溢出</h2><pre><code>1234567890 * 9876543210.
-% 12193263111263526900</code></pre><p>相信所有开发者都知道编程领域绕不开的就是浮点数精度问题，如：0.1 +  0.2 不等于 0.3。</p><p>虽然 Erlang 也没有办法避免这个问题，并且和其他编程技巧一样也是先使用整数进行数学运算再除以位数；但是整数不溢出可以将运算范围和精度提升到其他编程语言无法比拟的水平。重要的是，这是语言默认提供的能力，不需要额外安装依赖。</p><h2 class="">3. Erlang 提供完美的字面量对象</h2><blockquote class="tc-quote tc-big-quote"><p>Less, but better.
-</p><cite>Rams</cite></blockquote><p>Erlang 中返回一个 person 数据</p><pre><code>{person, {tj, 31, male}}</code></pre><p>虽然我很喜欢 JSON，相较于 Erlang tuple ，还是有点繁琐了。</p><pre class="hljs"><code class="json hljs"><span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;tj&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;age&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">31</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;gender&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;male&quot;</span>
-<span class="hljs-punctuation">}</span></code></pre><p>Erlang Records 提供更加明确属性名，或许大家更亲切。</p><pre><code>-record(person, {name, phone, address}).
-
-P = #person{name="tj"}
-#person{name = N} = P.
-
-N. % "tj"</code></pre><p>— 下面分享一些 Erlang 更高级的功能 —</p><h2 class="">4. Erlang 在语言层面提供远程调用，原生支持分布式</h2><p>Erlang 允许直接通过 node 调用远程代码，在语言层面支持分布式。</p><p>我们准备一段代码</p><pre><code>% math.erl
--module(math).
--export([add/2]).
-
-add(X, Y) -&gt;
-    X + Y.</code></pre><p>然后在代码目录下开启一个 terminal，并打开一个指定名称的 erl </p><pre><code>erl -sname left
-
-node().
-% 'left@2022-M2-Air'</code></pre><p>编译代码，并测试一下代码是否工作</p><pre><code>c(math).
-% {ok,math}
-math:add(1,2).
-% 3</code></pre><p>在 <code>任意目录</code> 下开启 <code>另一个 terminal</code>，并打开一个指定名称的 erl </p><pre><code>erl -sname right
-
-node().
-% 'right@2022-M2-Air'</code></pre><p>现在是见证奇迹的时刻了。虽然在 right terminal 没有 math.erl 代码，
-Erlang 允许我们直接调用远程节点的代码</p><pre><code>math:add(1,2).
-% ** exception error: undefined function math:add/2
-
-rpc:call('left@2022-M2-Air', math, add, [1,2]).
-% 3</code></pre><h2 class="">5. Erlang 远程处理错误允许优雅地对应不可抗力因素</h2><blockquote><div>远程处理错误这不是微服务架构的终极目标吗？</div></blockquote><p>准备两个 server side 代码，server1 负责逻辑，server2 负责错误处理。</p><pre><code>% server1.erl
--module(sever1).
--export([run/0]).
-
-run() -&gt;
-    receive
-        X -&gt; list_to_atom(X)
-    end.</code></pre><pre><code>% server2.erl
--module(server2).
--export([listen/1]).
-
-listen(Pid) -&gt;
-    spawn(fun() -&gt;
-        process_flag(trap_exit, true),
-        link(Pid),
-        receive
-            {'EXIT', Pid, _} -&gt; io:format(" ~p died. ~n", [Pid])
-        end
-    end).</code></pre><p>打开一个 terminal 并编译 server1</p><pre><code>erl -sname server1
-
-c(server1).</code></pre><p>打开另外一个 terminal，并编译 server2</p><pre><code>erl -sname server2
-
-c(server2).</code></pre><p>在 terminal 2 中</p><pre><code>% 创建一个线程指向 server1 run 函数
-Pid = spawn('server1@2022-M2-Air', server1, run, []).
-
-% 绑定线程和错误处理函数
-server2:listen(Pid).
-
-% 向线程发送消息
-Pid ! hello.</code></pre><p>这时 terminal 2 会得到如下输出</p><pre><code>&lt;10155.111.0&gt; died. </code></pre><p>so cool.</p><p>解释一下，虽然程序异常是在 terminal 1 发生的，但是处理程序却只在 terminal 2 中被定义，并且在 terminal 中被执行。</p><blockquote class="tc-quote tc-big-quote"><p>现在我们先停下来，回味一下前面这个样例。这个样例展示了 Erlang 哲学中极其重要的一面——远程错误处理。
-</p><cite>joe</cite></blockquote><blockquote class="tc-quote tc-big-quote"><p>Erlang 在语言层面提供了一个 k8s
-</p><cite>TJ 2024-01-31</cite></blockquote><ol><li>6. Erlang 在语言层面提供了功能强大的 Schemaless Database</li></ol><p>其实我没有使用过 Erlang 自带 Mnesia database，而且也没有计划真正使用 Mnesia 开发实际产品。但是我很喜欢 ETS 和 DETS，在语言层面提供 ETS DETS 这种内存和硬盘储存服务真的太方便了。</p><p>虽然 SQLite 也很方便，但是 ETS 可以直接存储 Erlang Records 这简直是无敌一样的存在。</p><pre><code>1&gt; Tab = ets:new(user, [set]).
-#Ref&lt;0.2226659868.3932815361.70843&gt;
-2&gt; ets:insert(Tab, {tj, {tj, 31, male}}).
-true
-3&gt; ets:lookup(Tab, tj).
-[{tj,{tj,31,male}}]</code></pre><p>为什么 Erlang 中 ETS EDTS 比 SQLite 更好用？</p><ol><li>ETS EDTS 无需额外安装，Erlang VM 自带</li><li>ETS EDTS 支持存储 Erlang Records，原生对象，更高效，无需额外转换</li><li>ETS EDTS 支持存储任何 Erlang Records，即使是嵌套数据，相当于一个 NoSQL database。</li></ol><p>先写到这吧，如果你想尝试 Erlang，或者有 Erlang 相关讨论想要找人聊聊，欢迎来找我，😁</p><blockquote class="tc-quote tc-big-quote"><p>I love Elixir too, Elixir runs on the Erlang VM and has a lot of beautiful features and awesome developers.
-</p><cite>TJ 2024-01-31</cite></blockquote>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Wed, 31 January 2024 13:5:43 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-01-31-why-i-love-erlang</guid>      
    </item>
 
 </channel>
