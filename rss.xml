@@ -5,6 +5,79 @@
    <link>https://thaddeusjiang.com</link>
    <description>I know I don't know, stay curious.</description>
    <item>
+      <title>2024-03-12 JS REPL become useful</title>
+      <link>https://thaddeusjiang.com/2024-03-12-js-repl-become-useful</link>
+			<description><![CDATA[
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">I know I don't know, stay curious.</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2024-03-12 JS REPL become useful</h1>
+            <hr>
+
+            <p>一直以来我一直在寻找一个 JS 工具，可以让我不退出 console (REPL) 就直接安装新的依赖。Thanks God. 我终于找到了。🥳</p><p><code>bun repl</code> is so cool. </p><p>Demo: </p><pre class="hljs"><code class="sh hljs">bun repl
+
+&gt; import dayjs from <span class="hljs-string">&quot;dayjs&quot;</span>
+&gt; dayjs().toISOString()
+<span class="hljs-string">&#x27;2024-03-12T01:41:09.763Z&#x27;</span></code></pre><h2 class="">Why I want to install dependencies in console?</h2><p>很多时候我只是想运行某个函数，而不是写代码。在 bun repl 之前我一直使用 RunKit.com 做这件事。但是 RunKit 有一个很重要的不足，就是不支持 ESM ，因为我日常工作已经全面切换到 ESM，每次在 RunKit 中写 require("somelib") 让我觉得十分割裂。</p><p>或许对于很多人来说，npm i -y ，然后 npm install dayjs 也是一个不错的选择。但是我个人不喜欢在 local 留下太多临时代码，并且 node_modules 真的太占存储空间了。我还是喜欢在 console 中“用完即弃”。</p><h2 class="">Where I learn this Tips?</h2><p>1. Elixir iex shell 提供这个功能</p><pre><code>iex
+
+iex&gt; Mix.install(  [{:timex, "~&gt; 3.0"}])
+iex&gt; Timex.now
+~U[2024-03-12 01:57:40.350390Z]</code></pre><p>作为一个老派程序员，我真的无法使用没有 REPL 的编程语言。REPL 不好用的话和没有没有区别，node 直接开启的那个运行环境根本就不算一个合格的 REPL。</p><pre class="hljs"><code class="sh hljs">node        
+Welcome to Node.js v18.14.0.
+Type <span class="hljs-string">&quot;.help&quot;</span> <span class="hljs-keyword">for</span> more information.
+&gt; npm install dayjs
+npm should be run outside of the Node.js REPL, <span class="hljs-keyword">in</span> your normal shell.
+(Press Ctrl+D to <span class="hljs-built_in">exit</span>.)
+&gt; 
+&gt; import dayjs from <span class="hljs-string">&quot;dayjs&quot;</span>
+import dayjs from <span class="hljs-string">&quot;dayjs&quot;</span>
+^^^^^^
+
+Uncaught:
+SyntaxError: Cannot use import statement inside the Node.js REPL, alternatively use dynamic import</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/jhmaster2000/bun-repl" rel="noopener noreferrer" target="_blank">https://github.com/jhmaster2000/bun-repl</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Tue, 12 March 2024 2:3:55 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2024-03-12-js-repl-become-useful</guid>      
+   </item>
+
+   <item>
       <title>2024-03-09 第 n 次复习 GenServer</title>
       <link>https://thaddeusjiang.com/2024-03-09-di-n-ci-fu-xi-genserver</link>
 			<description><![CDATA[
@@ -207,108 +280,6 @@ end</code></pre><pre class="hljs"><code class="sql hljs"><span class="hljs-comme
 ]]></description>
       <pubDate>Thu, 7 March 2024 11:2:45 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-03-07-don-t-review-prisma-migration-generated-sql</guid>      
-   </item>
-
-   <item>
-      <title>2024-02-22 TypeScript Enum 错误示例和解决方案</title>
-      <link>https://thaddeusjiang.com/2024-02-22-typescript-enum-cuo-wu-shi-li-he-jie-jue-fang-an</link>
-			<description><![CDATA[
-<div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">I know I don't know, stay curious.</p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
-</div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2024-02-22 TypeScript Enum 错误示例和解决方案</h1>
-            <hr>
-
-            <p>其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：<a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums</a></p><h2 class="">1. Enum 的 key value 完全一致</h2><p>在某项目中看到一段代码，我认为是 TypeScript Enum 的错误示范，如果你的项目中有类似代码，推荐修改一下。</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-built_in">enum</span> <span class="hljs-title class_">EventType</span> {
-  <span class="hljs-title class_">Reserved</span> = <span class="hljs-string">&#x27;Reserved&#x27;</span>,
-  <span class="hljs-title class_">ReservationCancelled</span> = <span class="hljs-string">&#x27;ReservationCancelled&#x27;</span>,
-  <span class="hljs-title class_">CheckedIn</span> = <span class="hljs-string">&#x27;CheckedIn&#x27;</span>,
-  <span class="hljs-title class_">CheckedOut</span> = <span class="hljs-string">&#x27;CheckedOut&#x27;</span>,
-  <span class="hljs-title class_">NotificationBeforeFacilityClosing</span> = <span class="hljs-string">&#x27;NotificationBeforeFacilityClosing&#x27;</span>,
-  <span class="hljs-title class_">FacilityBecameAvailableEvent</span> = <span class="hljs-string">&#x27;FacilityBecameAvailableEvent&#x27;</span>,
-  <span class="hljs-title class_">BusinessDateTimeUpdated</span> = <span class="hljs-string">&#x27;BusinessDateTimeUpdated&#x27;</span>,
-  <span class="hljs-title class_">ChangedOccupancy</span> = <span class="hljs-string">&#x27;ChangedOccupancy&#x27;</span>,
-  <span class="hljs-title class_">ReEntered</span> = <span class="hljs-string">&#x27;ReEntered&#x27;</span>,
-  <span class="hljs-title class_">TemporarilyLeft</span> = <span class="hljs-string">&#x27;TemporarilyLeft&#x27;</span>,
-  <span class="hljs-title class_">AppliedReferralCode</span> = <span class="hljs-string">&#x27;AppliedReferralCode&#x27;</span>,
-  <span class="hljs-title class_">CheckInFailed</span> = <span class="hljs-string">&#x27;CheckInFailed&#x27;</span>,
-  <span class="hljs-title class_">ReservationFailed</span> = <span class="hljs-string">&#x27;ReservationFailed&#x27;</span>,
-  <span class="hljs-title class_">ElepayEvent</span> = <span class="hljs-string">&#x27;ElepayEvent&#x27;</span>,
-  <span class="hljs-title class_">ChargedUnpaid</span> = <span class="hljs-string">&#x27;ChargedUnpaid&#x27;</span>,
-  <span class="hljs-title class_">CheckOutTimerSet</span> = <span class="hljs-string">&#x27;CheckOutTimerSet&#x27;</span>,
-  <span class="hljs-title class_">RapidChargingTimeOut</span> = <span class="hljs-string">&#x27;RapidChargingTimeOut&#x27;</span>,
-  <span class="hljs-title class_">RapidSurcharging</span> = <span class="hljs-string">&#x27;RapidSurcharging&#x27;</span>,
-  <span class="hljs-title class_">RapidSurchargingNotificationInterval</span> = <span class="hljs-string">&#x27;RapidSurchargingNotificationInterval&#x27;</span>,
-  <span class="hljs-title class_">MembershipApplied</span> = <span class="hljs-string">&#x27;MembershipApplied&#x27;</span>,
-  <span class="hljs-title class_">MembershipApproved</span> = <span class="hljs-string">&#x27;MembershipApproved&#x27;</span>,
-  <span class="hljs-title class_">MembershipDenied</span> = <span class="hljs-string">&#x27;MembershipDenied&#x27;</span>,
-}</code></pre><p>解决方案：Enum value 使用 Integer。</p><p>如果 value 由于某些特殊函数使用需要，不支持 Integer，只能是 String 的话，就不应该用 Enum，可以使用 String，如下：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">type</span> <span class="hljs-title class_">EventType</span> = <span class="hljs-string">&#x27;Reserved&#x27;</span> | <span class="hljs-string">&#x27;ReservationCancelled&#x27;</span> | <span class="hljs-string">&#x27;CheckedIn&#x27;</span><span class="hljs-string">`</span></code></pre><h2 class="">2. TypeScript Enum 在工具链中实现不一致</h2><p>下面这段代码出现在某项目中：</p><pre><code>// prisma.schema
-enum ConnectorStatus {
-  Available
-  Preparing
-  Charging
-  SuspendedEVSE
-  SuspendedEV
-  Finishing
-  Reserved
-  Unavailable
-  Faulted
-}</code></pre><pre><code>// .proto
-enum ConnectorStatus {
-  CONNECTOR_STATUS_UNSPECIFIED = 0;
-  AVAILABLE= 1;
-  PREPARING = 2;
-  CHARGING = 3;
-  SUSPENDED_EVSE = 4;
-  SUSPENDED_EV = 5;
-  FINISHING = 6;
-  IS_RESERVED = 7;
-  UNAVAILABLE = 8;
-  FAULTED = 9;
-}</code></pre><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// .js</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ConnectorStatus</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@prisma/client&#x27;</span>;
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ConnectorStatus</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">ProtoConnectorStatus</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;src/proto/dist/ts-server/ocpp/type&#x27;</span>;</code></pre><p>可以看出 ConnectorStatus 分别从 prisma 和 proto 自动生成的代码中导出，虽然他们的原始写法基本一致，但是生成的代码却不相同，导致在处理 prisma（aka database）和 proto（aka API）是引入不同的 Types。这种代码不仅仅带来代码阅读和维护的负担，也是 bug 产生的温床。</p><p>解决方案：不使用 Prisma Enum 类型，使用 Integer 类型。</p><p>其实从 database 平滑迁移角度考虑，Integer 也优于 Enum，因为 SQLite 不支持 Enum 类型。</p><p>就算没有迁移到 SQLite 的计划，我个人也不推荐使用 Enum，因为如果想要支持更多 Enum Value，使用 database（e.g. Postgres）Enum 类型需要修改 table 定义，也就意味着需要 database migration。而 database migration 在复杂且实际运行的项目中是十分辛苦且容易出错的工作。</p><h2 class="">多说一句，<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#2022-11-21-wo-hen-shao-shi-yong-enum">我很少使用 Enum</a></h2><p>其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：<a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums</a></p><p>但是总有理论家喜欢给其他人定要求，要求其他人使用 Enum 类型。
-在实际工作中，他们还喜欢要求类型安全，要求测试覆盖率等等，总之就是喜欢制定规则，喜欢做管理，不喜欢写代码。</p>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Thu, 7 March 2024 14:11: -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-02-22-typescript-enum-cuo-wu-shi-li-he-jie-jue-fang-an</guid>      
    </item>
 
 </channel>
