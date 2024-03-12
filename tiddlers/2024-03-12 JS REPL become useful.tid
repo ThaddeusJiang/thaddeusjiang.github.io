@@ -1,0 +1,60 @@
+created: 20240312013619567
+modified: 20240312020355544
+published: 20240312020355543
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2024-03-12 JS REPL become useful
+type: text/vnd.tiddlywiki
+
+一直以来我一直在寻找一个 JS 工具，可以让我不退出 console (REPL) 就直接安装新的依赖。Thanks God. 我终于找到了。🥳
+
+`bun repl` is so cool. 
+
+Demo: 
+
+```sh
+bun repl
+
+> import dayjs from "dayjs"
+> dayjs().toISOString()
+'2024-03-12T01:41:09.763Z'
+```
+
+!! Why I want to install dependencies in console?
+
+很多时候我只是想运行某个函数，而不是写代码。在 bun repl 之前我一直使用 RunKit.com 做这件事。但是 RunKit 有一个很重要的不足，就是不支持 ESM ，因为我日常工作已经全面切换到 ESM，每次在 RunKit 中写 require("somelib") 让我觉得十分割裂。
+
+或许对于很多人来说，npm i -y ，然后 npm install dayjs 也是一个不错的选择。但是我个人不喜欢在 local 留下太多临时代码，并且 node_modules 真的太占存储空间了。我还是喜欢在 console 中“用完即弃”。
+
+!! Where I learn this Tips?
+
+1. Elixir iex shell 提供这个功能
+
+```
+iex
+
+iex> Mix.install(  [{:timex, "~> 3.0"}])
+iex> Timex.now
+~U[2024-03-12 01:57:40.350390Z]
+```
+
+作为一个老派程序员，我真的无法使用没有 REPL 的编程语言。REPL 不好用的话和没有没有区别，node 直接开启的那个运行环境根本就不算一个合格的 REPL。
+
+```sh
+node        
+Welcome to Node.js v18.14.0.
+Type ".help" for more information.
+> npm install dayjs
+npm should be run outside of the Node.js REPL, in your normal shell.
+(Press Ctrl+D to exit.)
+> 
+> import dayjs from "dayjs"
+import dayjs from "dayjs"
+^^^^^^
+
+Uncaught:
+SyntaxError: Cannot use import statement inside the Node.js REPL, alternatively use dynamic import
+```
+
+refs:
+
+* https://github.com/jhmaster2000/bun-repl
