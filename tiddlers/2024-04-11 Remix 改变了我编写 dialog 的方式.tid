@@ -1,0 +1,178 @@
+created: 20240411084948488
+modified: 20240411101003823
+published: 20240411100624462
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2024-04-11 Remix 改变了我编写 dialog 的方式
+type: text/vnd.tiddlywiki
+
+关于 dialog（对话框），回想一下，我的代码经历过好几次变化，使用 React 之前，React 初级阶段，目前部分项目使用原生 HTML 部分项目使用 Remix framework。
+
+tl;dr
+
+# React 之前：命令式，例如 window.alert(message)
+# React 初期：all in 声明式，例如：[isOpen, setIsOpen] = useState(true)
+# 采用 Radix UI 阶段：借助 DialogTrigger
+# daisyUI 相关项目： 回归 HTML native dialog
+# Remix 相关项目：设计 Modal Route
+
+
+! React 之前：命令式
+
+React 之前使用过 jQuery, Ext JS, pure JS 编写 UI，一般使用命令式编写 dialog UI。
+
+```js
+// jQuery code
+$("#boring").click(function() {
+  $.dialog({
+    "body": "jQueryScript.net!",
+    "title": "jQuery Dialog Plugin Demo",
+    "show": true
+  });
+});
+
+// pure JS
+window.alert("hello world")
+
+// sweetalert2
+Swal.fire({
+  title: "Good job!",
+  text: "You clicked the button!",
+  icon: "success"
+});
+```
+
+! React 初期：all in 声明式
+
+刚开始使用 React 时，几乎都有代码都是声明式的，一般如下：
+
+```jsx
+  let [isOpen, setIsOpen] = useState(true)
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
+
+  return (
+    <>
+      <button onClick={openModal}>open</button>
+      <Dialog open={isOpen} onClose={closeModal} >
+        {* ... *}
+      </Dialog>
+    </>
+  ) 
+```
+
+不过这种写法有很多问题：
+
+# 如果只是想实现类似 alert 的提醒功能，useState 一套下来，无用代码爆炸
+# 有时需要在 API request 过程中处理 dialog，但是 dialog 显示与否被绑定在 UI 中， 不利于代码拆分。
+## 根据 API request 结果处理 dialog 也需要写一堆 if-else 
+
+! 采用 Radix UI 阶段：借助 DialogTrigger 
+
+```jsx
+<AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="outline">Show Dialog</Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+      {* ... *}
+      </AlertDialogContent>
+</AlertDialog>
+```
+
+使用一个 AlertDialogTrigger 可以避免 useState 爆炸，算是一点点改善🤏
+
+! daisyUI 相关项目： 回归 HTML native dialog
+
+```html
+
+<dialog id="my_modal_2" className="modal">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">Hello!</h3>
+    <p className="py-4">Press ESC key or click outside to close</p>
+  </div>
+  <form method="dialog" className="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+// close dialog
+document.getElementById('my_modal_2').showModal()
+```
+
+这种方式不仅避免了 useState 爆炸，又可以在任意时机操作 dialog。很棒。
+
+缺点就是在 React 项目中需要一个 useRef 配合。
+
+```jsx
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  function open() {
+    dialogRef.current?.showModal();
+  }
+
+  <dialog ref={dialogRef} className="modal">
+    {* ... *}
+  </dialog>
+```
+
+! Remix 相关项目：设计 Modal Route
+
+在需要使用 Modal 的页面中埋下一个 `<Outlet />`，然后实现一个 Modal Route 如下：
+
+```jsx
+// members.$id.tsx
+<Link to={"disable"}>disable</Link>
+
+// members.$id.disable.tsx
+export async function action() {
+  // your code
+  
+  return redirect("/members/${id}")
+}
+
+export default function MemberDisableRoute() {
+    const navigate = useNavigate()
+    return (
+        <dialog id={props.title} className="modal modal-open">
+            <div className="modal-box">
+                <h3 className="font-bold text-lg">Are you sure?</h3>
+                <div className="modal-action">
+                    <button className="btn" onClick={() => navigate(-1)}>Cancel</button>
+                    <Form method="POST">
+                        <input name="id" value="id" hidden />
+                        <button className="btn">Yes</button>
+                    </Form>
+                </div>
+            </div>
+        </dialog>
+    );
+}
+```
+
+不仅没有 useState 数量爆炸，也不需要手工维护 dialog 状态。
+
+其他优点：
+
+# 更合理的拆分业务逻辑，disable UI 和 API 和 member detail 完全隔离，更容易测试。
+# 更容易处理 page 状态。例如多个表单的提交状态，以前常常会出现 form1.submitting || form2.submitting 的问题，现在只需要进行页面跳转即可。
+# 更容易处理多级弹窗。只需要简单重复 Outlet 即可，避免了多层嵌套。
+
+缺点：
+
+* 框架依赖。这是 Remix Nested Routes 前提下的实现方案，不是 Web Standards。
+
+
+背景资料：
+
+* https://www.jqueryscript.net/demo/Simple-jQuery-Modal-Dialog-Box-Plugin-Dialog/
+* https://sweetalert2.github.io/
+* https://www.radix-ui.com/primitives/docs/components/alert-dialog
+* https://daisyui.com/components/modal/
+* https://remix.run/docs/en/main/file-conventions/routes#nested-routes
