@@ -5,6 +5,147 @@
    <link>https://thaddeusjiang.com</link>
    <description>I know I don't know, stay curious.</description>
    <item>
+      <title>2024-04-11 Remix 改变了我编写 dialog 的方式</title>
+      <link>https://thaddeusjiang.com/2024-04-11-remix-gai-bian-liao-wo-bian-xie-dialog-de-fang-shi</link>
+			<description><![CDATA[
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">I know I don't know, stay curious.</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2024-04-11 Remix 改变了我编写 dialog 的方式</h1>
+            <hr>
+
+            <p>关于 dialog（对话框），回想一下，我的代码经历过好几次变化，使用 React 之前，React 初级阶段，目前部分项目使用原生 HTML 部分项目使用 Remix framework。</p><p>tl;dr</p><ol><li>React 之前：命令式，例如 window.alert(message)</li><li>React 初期：all in 声明式，例如：[isOpen, setIsOpen] = useState(true)</li><li>采用 Radix UI 阶段：借助 DialogTrigger</li><li>daisyUI 相关项目： 回归 HTML native dialog</li><li>Remix 相关项目：设计 Modal Route</li></ol><h1 class="">React 之前：命令式</h1><p>React 之前使用过 jQuery, Ext JS, pure JS 编写 UI，一般使用命令式编写 dialog UI。</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// jQuery code</span>
+$(<span class="hljs-string">&quot;#boring&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+  $.<span class="hljs-title function_">dialog</span>({
+    <span class="hljs-string">&quot;body&quot;</span>: <span class="hljs-string">&quot;jQueryScript.net!&quot;</span>,
+    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;jQuery Dialog Plugin Demo&quot;</span>,
+    <span class="hljs-string">&quot;show&quot;</span>: <span class="hljs-literal">true</span>
+  });
+});
+
+<span class="hljs-comment">// pure JS</span>
+<span class="hljs-variable language_">window</span>.<span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;hello world&quot;</span>)
+
+<span class="hljs-comment">// sweetalert2</span>
+<span class="hljs-title class_">Swal</span>.<span class="hljs-title function_">fire</span>({
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Good job!&quot;</span>,
+  <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;You clicked the button!&quot;</span>,
+  <span class="hljs-attr">icon</span>: <span class="hljs-string">&quot;success&quot;</span>
+});</code></pre><h1 class="">React 初期：all in 声明式</h1><p>刚开始使用 React 时，几乎都有代码都是声明式的，一般如下：</p><pre class="hljs"><code class="jsx hljs">  <span class="hljs-keyword">let</span> [isOpen, setIsOpen] = <span class="hljs-title function_">useState</span>(<span class="hljs-literal">true</span>)
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">closeModal</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">setIsOpen</span>(<span class="hljs-literal">false</span>)
+  }
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">openModal</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">setIsOpen</span>(<span class="hljs-literal">true</span>)
+  }
+
+
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{openModal}</span>&gt;</span>open<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Dialog</span> <span class="hljs-attr">open</span>=<span class="hljs-string">{isOpen}</span> <span class="hljs-attr">onClose</span>=<span class="hljs-string">{closeModal}</span> &gt;</span>
+        {* ... *}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Dialog</span>&gt;</span>
+    <span class="hljs-tag">&lt;/&gt;</span></span>
+  ) </code></pre><p>不过这种写法有很多问题：</p><ol><li>如果只是想实现类似 alert 的提醒功能，useState 一套下来，无用代码爆炸</li><li>有时需要在 API request 过程中处理 dialog，但是 dialog 显示与否被绑定在 UI 中， 不利于代码拆分。<ol><li>根据 API request 结果处理 dialog 也需要写一堆 if-else </li></ol></li></ol><h1 class="">采用 Radix UI 阶段：借助 DialogTrigger </h1><pre class="hljs"><code class="jsx hljs">&lt;<span class="hljs-title class_">AlertDialog</span>&gt;
+      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">AlertDialogTrigger</span> <span class="hljs-attr">asChild</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;outline&quot;</span>&gt;</span>Show Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">AlertDialogTrigger</span>&gt;</span></span>
+      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">AlertDialogContent</span>&gt;</span>
+      {* ... *}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">AlertDialogContent</span>&gt;</span></span>
+&lt;/<span class="hljs-title class_">AlertDialog</span>&gt;</code></pre><p>使用一个 AlertDialogTrigger 可以避免 useState 爆炸，算是一点点改善🤏</p><h1 class="">daisyUI 相关项目： 回归 HTML native dialog</h1><pre class="hljs"><code class="html hljs">
+<span class="hljs-tag">&lt;<span class="hljs-name">dialog</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;my_modal_2&quot;</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-box&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;font-bold text-lg&quot;</span>&gt;</span>Hello!<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;py-4&quot;</span>&gt;</span>Press ESC key or click outside to close<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;dialog&quot;</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-backdrop&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>close<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dialog</span>&gt;</span>
+
+// close dialog
+document.getElementById(&#x27;my_modal_2&#x27;).showModal()</code></pre><p>这种方式不仅避免了 useState 爆炸，又可以在任意时机操作 dialog。很棒。</p><p>缺点就是在 React 项目中需要一个 useRef 配合。</p><pre class="hljs"><code class="jsx hljs">  <span class="hljs-keyword">const</span> dialogRef = useRef&lt;<span class="hljs-title class_">HTMLDialogElement</span>&gt;(<span class="hljs-literal">null</span>);
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">open</span>(<span class="hljs-params"></span>) {
+    dialogRef.<span class="hljs-property">current</span>?.<span class="hljs-title function_">showModal</span>();
+  }
+
+  &lt;dialog ref={dialogRef} className=<span class="hljs-string">&quot;modal&quot;</span>&gt;
+    {* ... *}
+  &lt;/dialog&gt;</code></pre><h1 class="">Remix 相关项目：设计 Modal Route</h1><p>在需要使用 Modal 的页面中埋下一个 <code>&lt;Outlet /&gt;</code>，然后实现一个 Modal Route 如下：</p><pre class="hljs"><code class="jsx hljs"><span class="hljs-comment">// members.$id.tsx</span>
+&lt;<span class="hljs-title class_">Link</span> to={<span class="hljs-string">&quot;disable&quot;</span>}&gt;disable&lt;/<span class="hljs-title class_">Link</span>&gt;
+
+<span class="hljs-comment">// members.$id.disable.tsx</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">action</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// your code</span>
+  
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">redirect</span>(<span class="hljs-string">&quot;/members/${id}&quot;</span>)
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">MemberDisableRoute</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> navigate = <span class="hljs-title function_">useNavigate</span>()
+    <span class="hljs-keyword">return</span> (
+        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dialog</span> <span class="hljs-attr">id</span>=<span class="hljs-string">{props.title}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal modal-open&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-box&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;font-bold text-lg&quot;</span>&gt;</span>Are you sure?<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-action&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;btn&quot;</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> navigate(-1)}&gt;Cancel<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;POST&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">hidden</span> /&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;btn&quot;</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">Form</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dialog</span>&gt;</span></span>
+    );
+}</code></pre><p>不仅没有 useState 数量爆炸，也不需要手工维护 dialog 状态。</p><p>其他优点：</p><ol><li>更合理的拆分业务逻辑，disable UI 和 API 和 member detail 完全隔离，更容易测试。</li><li>更容易处理 page 状态。例如多个表单的提交状态，以前常常会出现 form1.submitting || form2.submitting 的问题，现在只需要进行页面跳转即可。</li><li>更容易处理多级弹窗。只需要简单重复 Outlet 即可，避免了多层嵌套。</li></ol><p>缺点：</p><ul><li>框架依赖。这是 Remix Nested Routes 前提下的实现方案，不是 Web Standards。</li></ul><p>背景资料：</p><ul><li><a class="tc-tiddlylink-external" href="https://www.jqueryscript.net/demo/Simple-jQuery-Modal-Dialog-Box-Plugin-Dialog/" rel="noopener noreferrer" target="_blank">https://www.jqueryscript.net/demo/Simple-jQuery-Modal-Dialog-Box-Plugin-Dialog/</a></li><li><a class="tc-tiddlylink-external" href="https://sweetalert2.github.io/" rel="noopener noreferrer" target="_blank">https://sweetalert2.github.io/</a></li><li><a class="tc-tiddlylink-external" href="https://www.radix-ui.com/primitives/docs/components/alert-dialog" rel="noopener noreferrer" target="_blank">https://www.radix-ui.com/primitives/docs/components/alert-dialog</a></li><li><a class="tc-tiddlylink-external" href="https://daisyui.com/components/modal/" rel="noopener noreferrer" target="_blank">https://daisyui.com/components/modal/</a></li><li><a class="tc-tiddlylink-external" href="https://remix.run/docs/en/main/file-conventions/routes#nested-routes" rel="noopener noreferrer" target="_blank">https://remix.run/docs/en/main/file-conventions/routes#nested-routes</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Thu, 11 April 2024 10:6:24 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2024-04-11-remix-gai-bian-liao-wo-bian-xie-dialog-de-fang-shi</guid>      
+   </item>
+
+   <item>
       <title>2024-03-12 JS REPL become useful</title>
       <link>https://thaddeusjiang.com/2024-03-12-js-repl-become-useful</link>
 			<description><![CDATA[
@@ -172,114 +313,6 @@ Stack.push(pid, :nice_job)
 ]]></description>
       <pubDate>Sat, 9 March 2024 9:20:27 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-03-09-di-n-ci-fu-xi-genserver</guid>      
-   </item>
-
-   <item>
-      <title>2024-03-07 Don't review Prisma Migration generated SQL</title>
-      <link>https://thaddeusjiang.com/2024-03-07-don-t-review-prisma-migration-generated-sql</link>
-			<description><![CDATA[
-<div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">I know I don't know, stay curious.</p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
-</div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2024-03-07 Don't review Prisma Migration generated SQL</h1>
-            <hr>
-
-            <p>因为大量熟练使用 database tools，如：Prisma 和 Ecto，我已经不能熟练写出相对复杂 SQL 了。😭</p><p>目前，我在设计和开发一个能源回收和调度系统，因为我是一个以“懒”作为美德的程序员，我想直接使用 Supabase 提供的 Auth 服务。</p><p>但是我发现在 Prisma schema 中实现的 many-to-many 关系，无法优雅地使用 supabase-js 查询。</p><p>于是我研究了一下原因，不看不知道，一看吓一跳。Prisma Migration 生成的 many-to-many SQL 好复杂，完全违反直觉，反正我 review 困难。</p><p>下面是一个 role:permission many-to-many 的例子：</p><pre class="hljs"><code class="sql hljs"><span class="hljs-operator">/</span><span class="hljs-operator">/</span> prisma.schema
-model Permission {
-  id    <span class="hljs-type">Int</span>    <span class="hljs-variable">@id</span> <span class="hljs-variable">@default</span>(autoincrement())
-  roles Role[]
-}
-
-model Role {
-  id          <span class="hljs-type">Int</span>          <span class="hljs-variable">@id</span> <span class="hljs-variable">@default</span>(autoincrement())
-  permissions Permission[]
-}</code></pre><p>The SQL was generated by Prisma Migration:</p><pre class="hljs"><code class="sql hljs"><span class="hljs-comment">-- CreateTable</span>
-<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> &quot;_PermissionToRole&quot; (
-    &quot;A&quot; <span class="hljs-type">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,
-    &quot;B&quot; <span class="hljs-type">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>
-);
-
-<span class="hljs-comment">-- CreateIndex</span>
-<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">UNIQUE</span> INDEX &quot;_PermissionToRole_AB_unique&quot; <span class="hljs-keyword">ON</span> &quot;_PermissionToRole&quot;(&quot;A&quot;, &quot;B&quot;);
-
-<span class="hljs-comment">-- CreateIndex</span>
-<span class="hljs-keyword">CREATE</span> INDEX &quot;_PermissionToRole_B_index&quot; <span class="hljs-keyword">ON</span> &quot;_PermissionToRole&quot;(&quot;B&quot;);
-
-<span class="hljs-comment">-- AddForeignKey</span>
-<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> &quot;_PermissionToRole&quot; <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> &quot;_PermissionToRole_A_fkey&quot; <span class="hljs-keyword">FOREIGN</span> KEY (&quot;A&quot;) <span class="hljs-keyword">REFERENCES</span> &quot;Permission&quot;(&quot;id&quot;) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> CASCADE <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE;
-
-<span class="hljs-comment">-- AddForeignKey</span>
-<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> &quot;_PermissionToRole&quot; <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> &quot;_PermissionToRole_B_fkey&quot; <span class="hljs-keyword">FOREIGN</span> KEY (&quot;B&quot;) <span class="hljs-keyword">REFERENCES</span> &quot;Role&quot;(&quot;id&quot;) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> CASCADE <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE;</code></pre><p>上面 SQL 看的我一愣一愣的。而且上面 SQL 生成的关系在 supabase-js 查询语句很丑。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> { data, error } = <span class="hljs-keyword">await</span> supabase.<span class="hljs-title function_">from</span>(<span class="hljs-string">&quot;Role&quot;</span>).<span class="hljs-title function_">select</span>(<span class="hljs-string">`*, _PermissionToRole(
-  A: Permission (*)
-)`</span>);</code></pre><p>于是我凭着记忆手写了下面这段 SQL。</p><pre class="hljs"><code class="sql hljs"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> role (
-  &quot;id&quot; serial <span class="hljs-keyword">primary</span> key,
-);
-
-<span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> permission (
-  &quot;id&quot; serial <span class="hljs-keyword">primary</span> key,
-);
-
-<span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> members (
-  &quot;role_id&quot; <span class="hljs-type">int</span> <span class="hljs-keyword">references</span> role,
-  &quot;permission_id&quot; <span class="hljs-type">int</span> <span class="hljs-keyword">references</span> permission,
-  <span class="hljs-keyword">primary</span> key (role_id, permission_id)
-);</code></pre><p>经过测试，我手写的 SQL 可以使用 supabase-js 进行关联查询，代码如下：</p><pre class="hljs"><code class="diff hljs"><span class="hljs-deletion">- const { data, error } = await supabase.from(&quot;Role&quot;).select(`*, _PermissionToRole(</span>
-<span class="hljs-deletion">-   A: Permission (*)</span>
-<span class="hljs-deletion">- )`);</span>
-
-<span class="hljs-addition">+ const {data, error} = await supabase.from(&quot;role&quot;).select(&quot;*, permission(*)&quot;)</span></code></pre><h2 class="">那么，今后我会手写 SQL 管理 migrations 吗？</h2><p>答：不会，如果是团队合作的 JS 项目，我依然会使用 Prisma Migration，因为复杂的关系和限制手写 SQL 成本太高了。工作量、易出错、缺少检查工具。</p><p>所以，由于种种原因，我的结论：</p><blockquote class="tc-quote tc-big-quote"><p>Don't review Prisma Migration generated SQL, focus on prisam.schema.
-</p><cite>TJ 2024-03-07</cite></blockquote><h2 class="">如果是非团队项目 or 非 JS 项目</h2><p>我会使用 Ecto 管理 migrations。</p><p>Ecto 生成的 many-to-many SQL 简洁又准确</p><pre><code>create table(:role_permission, primary_key: false) do
-  add :role_id, references(:role), primary_key: true
-  add :permission_id, references(:permission), primary_key: true
-end</code></pre><pre class="hljs"><code class="sql hljs"><span class="hljs-comment">-- Table Definition</span>
-<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> &quot;public&quot;.&quot;role_permission&quot; (
-    &quot;role_id&quot; int8 <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,
-    &quot;permission_id&quot; int8 <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,
-    <span class="hljs-keyword">CONSTRAINT</span> &quot;role_permission_role_id_fkey&quot; <span class="hljs-keyword">FOREIGN</span> KEY (&quot;role_id&quot;) <span class="hljs-keyword">REFERENCES</span> &quot;public&quot;.&quot;role&quot;(&quot;id&quot;),
-    <span class="hljs-keyword">CONSTRAINT</span> &quot;role_permission_permission_id_fkey&quot; <span class="hljs-keyword">FOREIGN</span> KEY (&quot;permission_id&quot;) <span class="hljs-keyword">REFERENCES</span> &quot;public&quot;.&quot;permission&quot;(&quot;id&quot;),
-    <span class="hljs-keyword">PRIMARY</span> KEY (&quot;role_id&quot;,&quot;permission_id&quot;)
-);</code></pre><p>对比 Prsima 生成的 SQL，高下立判。
-</p>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Thu, 7 March 2024 11:2:45 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-03-07-don-t-review-prisma-migration-generated-sql</guid>      
    </item>
 
 </channel>
