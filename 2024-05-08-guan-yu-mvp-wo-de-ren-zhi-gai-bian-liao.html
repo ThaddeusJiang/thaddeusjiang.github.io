@@ -1,0 +1,156 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.3" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2024-05-08 关于 MVP 我的认知改变了</title>
+<meta name="description" content="关于计算机领域的 MVP 有一张广为流传的图片，大致的意思是造一辆汽车，正确的顺序是先造一个滑板；再造手扶滑板；再造自行车；再造摩托车，再造汽车。我曾经也分享过很多次，并解释的头头是道。但是，这张广为流传的图讲的真的有道理吗？">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2024-05-08-guan-yu-mvp-wo-de-ren-zhi-gai-bian-liao" />
+<meta property="og:title" content="2024-05-08 关于 MVP 我的认知改变了" />
+<meta property="og:description" content="关于计算机领域的 MVP 有一张广为流传的图片，大致的意思是造一辆汽车，正确的顺序是先造一个滑板；再造手扶滑板；再造自行车；再造摩托车，再造汽车。我曾经也分享过很多次，并解释的头头是道。但是，这张广为流传的图讲的真的有道理吗？" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2024-05-08 关于 MVP 我的认知改变了" />
+<meta name="twitter:description" content="关于计算机领域的 MVP 有一张广为流传的图片，大致的意思是造一辆汽车，正确的顺序是先造一个滑板；再造手扶滑板；再造自行车；再造摩托车，再造汽车。我曾经也分享过很多次，并解释的头头是道。但是，这张广为流传的图讲的真的有道理吗？" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1635805945732415488/hDe8Tg3k_400x400.jpg" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">I know I don't know, stay curious.</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2024-05-08 关于 MVP 我的认知改变了</h1>
+            <hr>
+
+            <p>关于计算机领域的 MVP 有一张广为流传的图片，大致的意思是造一辆汽车，正确的顺序是先造一个滑板；再造手扶滑板；再造自行车；再造摩托车，再造汽车。我曾经也分享过很多次，并解释的头头是道。但是，这张广为流传的图讲的真的有道理吗？</p><p><img class=" tc-image-loading" src="https://github.com/ThaddeusJiang/thaddeusjiang.github.io/assets/17308201/4d711350-2725-4d46-aa14-08463dcf6839"></p><p>Q：如果我们想造一辆汽车，我们真的需要先造滑板、自行车、摩托车吗？</p><p>我的答案是：No，不需要。</p><p>让我们重新认真想一下，如果你想要向你的客户交付一辆汽车，并且预期期限是 3年后。</p><ul><li>你的客户真的需要你在第一个月就给他一辆滑板让他先玩着吗？</li><li>你真的需要你的客户根据他玩滑板的体验，给你提一些修改意见吗？</li><li>你是想给客户提供一辆汽车，还是想绑住客户 3年的时间，赚3年的钱，至于最后给客户了什么你根本就不在乎？反正你每个月都给客户了某种意义上的 MVP，你有借口推脱了，钱也赚了，说不定还能继续忽悠客户继续赚钱。</li></ul><p>让我们一起观察一下，有哪个产品是采用如图所示的方式创造的？</p><ul><li>iPhone 在发布之前，Apple 公司给用户简单的功能机并寻求 feedback 了吗？</li><li>Tesla 的电动汽车在发布之前先造了滑板车、自行车、摩托车，最后造汽车吗？</li><li>ChatGPT 发布之前是先开发了一个静态网页，再开发一个对话应用，最后开发出 ChatGPT 的吗？</li></ul><p>好像都没有。既然我们熟知的优秀的、有价值的、伟大的产品都不是参照图如所示的 MVP 流程开发的，这张图流行的依据到底是什么？会不会就是盲从呢？</p><p>既然从滑板车到汽车的流程不合理，那有没有更合理的流程呢？</p><p>我找到了另外一张图，大致的意思是：先找一辆汽车（即使不能开也行），然后让它能开，然后再往期待的方向改进。</p><p><img class=" tc-image-loading" src="https://york.ie/wp-content/uploads/2022/09/MVP_MVA_Car_Diagram.png"></p><p>我觉得比较合理，不知道大家怎么看？</p><p>最后说一句，这种模式好像以前流行过一阵子，好像叫“石头汤”。😂
+</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+      <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink-external" href="https://gitlab.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitLab</a> | <a class="tc-tiddlylink-external" href="https://x.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">X.com</a> | <a class="tc-tiddlylink-external" href="https://www.aier.app/avatars/ThaddeusJiang" rel="noopener noreferrer" target="_blank">AIer.app</a> 
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

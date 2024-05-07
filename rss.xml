@@ -5,6 +5,60 @@
    <link>https://thaddeusjiang.com</link>
    <description>I know I don't know, stay curious.</description>
    <item>
+      <title>2024-05-08 关于 MVP 我的认知改变了</title>
+      <link>https://thaddeusjiang.com/2024-05-08-guan-yu-mvp-wo-de-ren-zhi-gai-bian-liao</link>
+			<description><![CDATA[
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">I know I don't know, stay curious.</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2024-05-08 关于 MVP 我的认知改变了</h1>
+            <hr>
+
+            <p>关于计算机领域的 MVP 有一张广为流传的图片，大致的意思是造一辆汽车，正确的顺序是先造一个滑板；再造手扶滑板；再造自行车；再造摩托车，再造汽车。我曾经也分享过很多次，并解释的头头是道。但是，这张广为流传的图讲的真的有道理吗？</p><p><img class=" tc-image-loading" src="https://github.com/ThaddeusJiang/thaddeusjiang.github.io/assets/17308201/4d711350-2725-4d46-aa14-08463dcf6839"></p><p>Q：如果我们想造一辆汽车，我们真的需要先造滑板、自行车、摩托车吗？</p><p>我的答案是：No，不需要。</p><p>让我们重新认真想一下，如果你想要向你的客户交付一辆汽车，并且预期期限是 3年后。</p><ul><li>你的客户真的需要你在第一个月就给他一辆滑板让他先玩着吗？</li><li>你真的需要你的客户根据他玩滑板的体验，给你提一些修改意见吗？</li><li>你是想给客户提供一辆汽车，还是想绑住客户 3年的时间，赚3年的钱，至于最后给客户了什么你根本就不在乎？反正你每个月都给客户了某种意义上的 MVP，你有借口推脱了，钱也赚了，说不定还能继续忽悠客户继续赚钱。</li></ul><p>让我们一起观察一下，有哪个产品是采用如图所示的方式创造的？</p><ul><li>iPhone 在发布之前，Apple 公司给用户简单的功能机并寻求 feedback 了吗？</li><li>Tesla 的电动汽车在发布之前先造了滑板车、自行车、摩托车，最后造汽车吗？</li><li>ChatGPT 发布之前是先开发了一个静态网页，再开发一个对话应用，最后开发出 ChatGPT 的吗？</li></ul><p>好像都没有。既然我们熟知的优秀的、有价值的、伟大的产品都不是参照图如所示的 MVP 流程开发的，这张图流行的依据到底是什么？会不会就是盲从呢？</p><p>既然从滑板车到汽车的流程不合理，那有没有更合理的流程呢？</p><p>我找到了另外一张图，大致的意思是：先找一辆汽车（即使不能开也行），然后让它能开，然后再往期待的方向改进。</p><p><img class=" tc-image-loading" src="https://york.ie/wp-content/uploads/2022/09/MVP_MVA_Car_Diagram.png"></p><p>我觉得比较合理，不知道大家怎么看？</p><p>最后说一句，这种模式好像以前流行过一阵子，好像叫“石头汤”。😂
+</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Tue, 7 May 2024 17:36:54 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2024-05-08-guan-yu-mvp-wo-de-ren-zhi-gai-bian-liao</guid>      
+   </item>
+
+   <item>
       <title>2024-04-11 Remix 改变了我编写 dialog 的方式</title>
       <link>https://thaddeusjiang.com/2024-04-11-remix-gai-bian-liao-wo-bian-xie-dialog-de-fang-shi</link>
 			<description><![CDATA[
@@ -216,103 +270,6 @@ SyntaxError: Cannot use import statement inside the Node.js REPL, alternatively 
 ]]></description>
       <pubDate>Tue, 12 March 2024 2:3:55 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-03-12-js-repl-become-useful</guid>      
-   </item>
-
-   <item>
-      <title>2024-03-09 第 n 次复习 GenServer</title>
-      <link>https://thaddeusjiang.com/2024-03-09-di-n-ci-fu-xi-genserver</link>
-			<description><![CDATA[
-<div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">I know I don't know, stay curious.</p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
-</div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2024-03-09 第 n 次复习 GenServer</h1>
-            <hr>
-
-            <p>这是我第 n 次复习 GenServer，一直很喜欢 Elixir &amp; Erlang，希望今后可以用 Elixir &amp; Erlang 作为主力编程语言，希望它们能让我今后的程序员生涯变得快乐且有趣。</p><p>Dave Thomas 的书真的太棒了，每次读都有新感受，感受到 Dave 在编程领域的深思熟虑和远见卓识。</p><h2 class="">复习</h2><p>复习一下 GenServer 的概念和特点，帮助自己不断重复记忆，直到内化到肌肉，内化成像开车一样的技能。</p><p>关键词：<code>OTP</code> <code>applications</code> <code>processes</code> <code>behavior</code> <code>callback</code> <code>state-machine</code> <code>GenServer</code></p><p>GenServer 是 OTP 的概念，OTP 是 Erlang 社区开发复杂项目的架构和工具。OTP 可以让我们专注业务，不用每次都从头搭建手脚架，尤其是复杂业务的架构，例如：error handling、application communication、hot code swapping 等等。</p><p>memo: Elixir &amp; Erlang 社区中 applications 不一定是其他社区中定义的那种应用，可能仅仅是一个多个 processes。Elixir &amp; Erlang application 实现了 behavior，behavior 提供一些 callbacks finite-state machines 帮助我们更好的架构复杂应用。</p><h2 class="">Elixir GenServer 风格</h2><p>Elixir GenServer 推荐的代码风格不同于其他编程语言的代码风格。</p><blockquote class="tc-quote tc-big-quote"><p>GenServer 推荐我们把 External API 和 GenServer implementations 放在同一个 module 内。Elixir 提供的 <code>__MODOULE__</code> 让这种风格实现起来非常简单。
-</p></blockquote><p>形如：</p><pre><code>defmodule Stack do
-  use GenServer
-
-  # Client
-
-  def start_link(default) when is_list(default) do
-    GenServer.start_link(__MODULE__, default)
-  end
-
-  def push(pid, element) do
-    GenServer.cast(pid, {:push, element})
-  end
-
-  def pop(pid) do
-    GenServer.call(pid, :pop)
-  end
-
-  # Server (callbacks)
-
-  @impl true
-  def init(stack) do
-    {:ok, stack}
-  end
-
-  @impl true
-  def handle_call(:pop, _from, [head | tail]) do
-    {:reply, head, tail}
-  end
-
-  @impl true
-  def handle_cast({:push, element}, state) do
-    {:noreply, [element | state]}
-  end
-end</code></pre><pre><code># Usage
-{:ok, pid} = Stack.start_link([:hello, :world])
-Stack.pop(pid)
-:hello
-
-Stack.pop(pid)
-:world
-
-Stack.push(pid, :nice_job)
-:nice_job</code></pre><p>我喜欢这种风格，对于我来说在同个一个 module（file）中实现 API 和 callback 很容易理解，且容易维护。同理，我也喜欢 <a class="tc-tiddlylink-external" href="https://remix.run" rel="noopener noreferrer" target="_blank">https://remix.run</a> 设计的 loader action 风格。</p><p>我不喜欢 Java 推荐的定义和实现分离的风格，很鸡肋，很枯燥。借用 Dave Thomas 的一句话：</p><blockquote class="tc-quote tc-big-quote"><p>It isn't difficult, but it is tedious.
-</p><cite>Dave Thomas</cite></blockquote><p>不符合 Elixir GenServer 风格的实现：<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/elixir_playground/tree/main/gen_server/not_elixir_style_gen_server" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/elixir_playground/tree/main/gen_server/not_elixir_style_gen_server</a></p><p>今天是 2024-03-09 （周六）天气晴朗，不用工作的日子真舒服啊。</p>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Sat, 9 March 2024 9:20:27 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-03-09-di-n-ci-fu-xi-genserver</guid>      
    </item>
 
 </channel>
