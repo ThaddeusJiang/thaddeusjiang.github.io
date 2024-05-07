@@ -1,7 +1,7 @@
 created: 20200418123214612
-modified: 20200521145817188
+modified: 20240426035629571
 tags: $:/giffmex/stroll
 title: $:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/fold
 type: text/vnd.tiddlywiki
 
-reveal
+hide
