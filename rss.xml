@@ -3,7 +3,60 @@
 <channel>
    <title>Thaddeus Jiang</title>
    <link>https://thaddeusjiang.com</link>
-   <description>I know I don't know, stay curious.</description>
+   <description>善良比聪明更重要，热情比经验更重要。</description>
+   <item>
+      <title>2024-07-02 沉没成本</title>
+      <link>https://thaddeusjiang.com/2024-07-02-chen-mei-cheng-ben</link>
+			<description><![CDATA[
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">善良比聪明更重要，热情比经验更重要。</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2024-07-02 沉没成本</h1>
+            <hr>
+
+            <p>最近遇到脑子里总是出现“沉没成本”这个概念，挥之不去，我打算写下来，清空自己的大脑。</p><p>最近脑子里总是出现“沉没成本”这个概念，挥之不去。</p><p>第一件事，我周末在家搞了一次烧烤。我本打算在百元店买燃烧时间短但易燃的廉价炭，毕竟就是 4个人的烧烤，其实半个小时到一个小时足够了。但是因为家里有露营时剩下的高级炭，为了减少浪费，我买了一包着火剂，准备把家里还有的高级炭消耗一下。</p><p>然后就悲剧了，我家剩余的高级炭是“備長炭”，是烧鸟店用的，这种炭很好，燃烧时间长，无烟，可以多次利用；缺点就是非常难点燃。其实我已经有很多次竟然了，怎么说呢？至少5次经验吧，每次有人等着吃东西的时候，我都搞不定这个炭，普通的着火剂根本无法点燃它，报纸、纸箱、甚至大量枯树枝都无法成功将它引燃。真的是无语。</p><p>虽然之前几次不知道有易燃的廉价炭，但是上个月看日本动漫《ゆるキャン△》时我已经知道了有更易燃的普通炭，其实周末的烧烤我应该买廉价炭的，而且我已经放进购物车了。但是因为某些不可抗力因素，没有买。然后在家里折腾了超久，估计有一个小时，最后也只引燃了炭的一半，温度根本不够。最后还是用和牛烤出来的牛油才让火旺起来。</p><p>哎😑</p><p>人哪，到底要为“沉没成本”付出多少代价才能清醒啊。关于烧烤用炭，并不是贵的就一定好，适合自己的才是好的。</p><p>第二件事，周末天气不错，于是带着家里的遮阳帐篷去公园晒太阳去了。我的遮阳帐篷是那种一体式，圈一下收起来的，在 amazon 上很多，好像大家都用这种。</p><p>但是我很不喜欢它，这种帐篷无法收纳成圆柱图，只能卷成一个圆盘，不方便携带且不容易收纳。更重要的是把这种帐篷从展开状态卷成圆盘状态需要一定的技巧，应该是有某种技巧吧，反正我不知道，也不想知道。我觉得这种靠蛮力或者某种角度才能收纳的东西让人很不舒服，而且它无法被卷成标准的圆盘，基本上只能卷成一个椭圆，钢丝分布并不均匀，然后一股脑儿把剩余的布塞到袋子里。每次收它我都觉得心烦，感觉在一块破烂。（我可能有一点点强迫症吧</p><p>从沉没成本角度，我觉得必须把这个让我心烦的帐篷扔了，再买一个易展开、易整理、易收纳的帐篷。</p><p>不仅仅是生活，其实在工作中我的脑子里也常常冒出“沉没成本”和“功能强大的一不定适合你”。</p><ol><li>曾经使用过 Kubernetes 的我，一直觉得绝大多数项目没有必要使用它，难启动、难维护、难迁移。</li><li>曾经试用过 RedwoodJS 的我，觉得虽然看别人按照推荐方法用的很开心，但是自己用的时候就是觉得很不舒服，规范太多，稍微改变一点就会有大量失败，让人心烦。</li></ol><p>某些项目继续使用 Kubernetes 就是因为“沉没成本”，团队协作难以说服别人放弃 Kubernetes，毕竟对于大多数人来说会使用有难度的工具有利于他们的职业发展，毕竟很多公司喜欢有难度的工具。</p><blockquote><div>沉没成本（Sunk Cost）是指已经发生且不可回收的成本，不论未来的决策如何，这些成本都不会改变。</div><div>在现实中，人们往往会因为已经投入的沉没成本而不愿意放弃某些项目或决策，即使继续下去可能会带来更多的损失，这被称为“沉没成本谬误”。</div></blockquote>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Mon, 1 July 2024 17:13:2 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2024-07-02-chen-mei-cheng-ben</guid>      
+   </item>
+
    <item>
       <title>2024-06-21 悠长的一周</title>
       <link>https://thaddeusjiang.com/2024-06-21-you-chang-de-yi-zhou</link>
@@ -12,7 +65,7 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
           <a href="./">
               <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">I know I don't know, stay curious.</p>
+              <p class="subtitle">善良比聪明更重要，热情比经验更重要。</p>
           </a>
       </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
 </div>
@@ -66,7 +119,7 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
           <a href="./">
               <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">I know I don't know, stay curious.</p>
+              <p class="subtitle">善良比聪明更重要，热情比经验更重要。</p>
           </a>
       </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
 </div>
@@ -110,147 +163,6 @@
 ]]></description>
       <pubDate>Tue, 7 May 2024 17:36:54 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-05-08-guan-yu-mvp-wo-de-ren-zhi-gai-bian-liao</guid>      
-   </item>
-
-   <item>
-      <title>2024-04-11 Remix 改变了我编写 dialog 的方式</title>
-      <link>https://thaddeusjiang.com/2024-04-11-remix-gai-bian-liao-wo-bian-xie-dialog-de-fang-shi</link>
-			<description><![CDATA[
-<div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">I know I don't know, stay curious.</p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
-</div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2024-04-11 Remix 改变了我编写 dialog 的方式</h1>
-            <hr>
-
-            <p>关于 dialog（对话框），回想一下，我的代码经历过好几次变化，使用 React 之前，React 初级阶段，目前部分项目使用原生 HTML 部分项目使用 Remix framework。</p><p>tl;dr</p><ol><li>React 之前：命令式，例如 window.alert(message)</li><li>React 初期：all in 声明式，例如：[isOpen, setIsOpen] = useState(true)</li><li>采用 Radix UI 阶段：借助 DialogTrigger</li><li>daisyUI 相关项目： 回归 HTML native dialog</li><li>Remix 相关项目：设计 Modal Route</li></ol><h1 class="">React 之前：命令式</h1><p>React 之前使用过 jQuery, Ext JS, pure JS 编写 UI，一般使用命令式编写 dialog UI。</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// jQuery code</span>
-$(<span class="hljs-string">&quot;#boring&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
-  $.<span class="hljs-title function_">dialog</span>({
-    <span class="hljs-string">&quot;body&quot;</span>: <span class="hljs-string">&quot;jQueryScript.net!&quot;</span>,
-    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;jQuery Dialog Plugin Demo&quot;</span>,
-    <span class="hljs-string">&quot;show&quot;</span>: <span class="hljs-literal">true</span>
-  });
-});
-
-<span class="hljs-comment">// pure JS</span>
-<span class="hljs-variable language_">window</span>.<span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;hello world&quot;</span>)
-
-<span class="hljs-comment">// sweetalert2</span>
-<span class="hljs-title class_">Swal</span>.<span class="hljs-title function_">fire</span>({
-  <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Good job!&quot;</span>,
-  <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;You clicked the button!&quot;</span>,
-  <span class="hljs-attr">icon</span>: <span class="hljs-string">&quot;success&quot;</span>
-});</code></pre><h1 class="">React 初期：all in 声明式</h1><p>刚开始使用 React 时，几乎都有代码都是声明式的，一般如下：</p><pre class="hljs"><code class="jsx hljs">  <span class="hljs-keyword">let</span> [isOpen, setIsOpen] = <span class="hljs-title function_">useState</span>(<span class="hljs-literal">true</span>)
-
-  <span class="hljs-keyword">function</span> <span class="hljs-title function_">closeModal</span>(<span class="hljs-params"></span>) {
-    <span class="hljs-title function_">setIsOpen</span>(<span class="hljs-literal">false</span>)
-  }
-
-  <span class="hljs-keyword">function</span> <span class="hljs-title function_">openModal</span>(<span class="hljs-params"></span>) {
-    <span class="hljs-title function_">setIsOpen</span>(<span class="hljs-literal">true</span>)
-  }
-
-
-  <span class="hljs-keyword">return</span> (
-    <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{openModal}</span>&gt;</span>open<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">Dialog</span> <span class="hljs-attr">open</span>=<span class="hljs-string">{isOpen}</span> <span class="hljs-attr">onClose</span>=<span class="hljs-string">{closeModal}</span> &gt;</span>
-        {* ... *}
-      <span class="hljs-tag">&lt;/<span class="hljs-name">Dialog</span>&gt;</span>
-    <span class="hljs-tag">&lt;/&gt;</span></span>
-  ) </code></pre><p>不过这种写法有很多问题：</p><ol><li>如果只是想实现类似 alert 的提醒功能，useState 一套下来，无用代码爆炸</li><li>有时需要在 API request 过程中处理 dialog，但是 dialog 显示与否被绑定在 UI 中， 不利于代码拆分。<ol><li>根据 API request 结果处理 dialog 也需要写一堆 if-else </li></ol></li></ol><h1 class="">采用 Radix UI 阶段：借助 DialogTrigger </h1><pre class="hljs"><code class="jsx hljs">&lt;<span class="hljs-title class_">AlertDialog</span>&gt;
-      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">AlertDialogTrigger</span> <span class="hljs-attr">asChild</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;outline&quot;</span>&gt;</span>Show Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">AlertDialogTrigger</span>&gt;</span></span>
-      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">AlertDialogContent</span>&gt;</span>
-      {* ... *}
-      <span class="hljs-tag">&lt;/<span class="hljs-name">AlertDialogContent</span>&gt;</span></span>
-&lt;/<span class="hljs-title class_">AlertDialog</span>&gt;</code></pre><p>使用一个 AlertDialogTrigger 可以避免 useState 爆炸，算是一点点改善🤏</p><h1 class="">daisyUI 相关项目： 回归 HTML native dialog</h1><pre class="hljs"><code class="html hljs">
-<span class="hljs-tag">&lt;<span class="hljs-name">dialog</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;my_modal_2&quot;</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-box&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;font-bold text-lg&quot;</span>&gt;</span>Hello!<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;py-4&quot;</span>&gt;</span>Press ESC key or click outside to close<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;dialog&quot;</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-backdrop&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>close<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dialog</span>&gt;</span>
-
-// close dialog
-document.getElementById(&#x27;my_modal_2&#x27;).showModal()</code></pre><p>这种方式不仅避免了 useState 爆炸，又可以在任意时机操作 dialog。很棒。</p><p>缺点就是在 React 项目中需要一个 useRef 配合。</p><pre class="hljs"><code class="jsx hljs">  <span class="hljs-keyword">const</span> dialogRef = useRef&lt;<span class="hljs-title class_">HTMLDialogElement</span>&gt;(<span class="hljs-literal">null</span>);
-
-  <span class="hljs-keyword">function</span> <span class="hljs-title function_">open</span>(<span class="hljs-params"></span>) {
-    dialogRef.<span class="hljs-property">current</span>?.<span class="hljs-title function_">showModal</span>();
-  }
-
-  &lt;dialog ref={dialogRef} className=<span class="hljs-string">&quot;modal&quot;</span>&gt;
-    {* ... *}
-  &lt;/dialog&gt;</code></pre><h1 class="">Remix 相关项目：设计 Modal Route</h1><p>在需要使用 Modal 的页面中埋下一个 <code>&lt;Outlet /&gt;</code>，然后实现一个 Modal Route 如下：</p><pre class="hljs"><code class="jsx hljs"><span class="hljs-comment">// members.$id.tsx</span>
-&lt;<span class="hljs-title class_">Link</span> to={<span class="hljs-string">&quot;disable&quot;</span>}&gt;disable&lt;/<span class="hljs-title class_">Link</span>&gt;
-
-<span class="hljs-comment">// members.$id.disable.tsx</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">action</span>(<span class="hljs-params"></span>) {
-  <span class="hljs-comment">// your code</span>
-  
-  <span class="hljs-keyword">return</span> <span class="hljs-title function_">redirect</span>(<span class="hljs-string">&quot;/members/${id}&quot;</span>)
-}
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">MemberDisableRoute</span>(<span class="hljs-params"></span>) {
-    <span class="hljs-keyword">const</span> navigate = <span class="hljs-title function_">useNavigate</span>()
-    <span class="hljs-keyword">return</span> (
-        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dialog</span> <span class="hljs-attr">id</span>=<span class="hljs-string">{props.title}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal modal-open&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-box&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;font-bold text-lg&quot;</span>&gt;</span>Are you sure?<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-action&quot;</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;btn&quot;</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> navigate(-1)}&gt;Cancel<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">Form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;POST&quot;</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">hidden</span> /&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;btn&quot;</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">Form</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">dialog</span>&gt;</span></span>
-    );
-}</code></pre><p>不仅没有 useState 数量爆炸，也不需要手工维护 dialog 状态。</p><p>其他优点：</p><ol><li>更合理的拆分业务逻辑，disable UI 和 API 和 member detail 完全隔离，更容易测试。</li><li>更容易处理 page 状态。例如多个表单的提交状态，以前常常会出现 form1.submitting || form2.submitting 的问题，现在只需要进行页面跳转即可。</li><li>更容易处理多级弹窗。只需要简单重复 Outlet 即可，避免了多层嵌套。</li></ol><p>缺点：</p><ul><li>框架依赖。这是 Remix Nested Routes 前提下的实现方案，不是 Web Standards。</li></ul><p>背景资料：</p><ul><li><a class="tc-tiddlylink-external" href="https://www.jqueryscript.net/demo/Simple-jQuery-Modal-Dialog-Box-Plugin-Dialog/" rel="noopener noreferrer" target="_blank">https://www.jqueryscript.net/demo/Simple-jQuery-Modal-Dialog-Box-Plugin-Dialog/</a></li><li><a class="tc-tiddlylink-external" href="https://sweetalert2.github.io/" rel="noopener noreferrer" target="_blank">https://sweetalert2.github.io/</a></li><li><a class="tc-tiddlylink-external" href="https://www.radix-ui.com/primitives/docs/components/alert-dialog" rel="noopener noreferrer" target="_blank">https://www.radix-ui.com/primitives/docs/components/alert-dialog</a></li><li><a class="tc-tiddlylink-external" href="https://daisyui.com/components/modal/" rel="noopener noreferrer" target="_blank">https://daisyui.com/components/modal/</a></li><li><a class="tc-tiddlylink-external" href="https://remix.run/docs/en/main/file-conventions/routes#nested-routes" rel="noopener noreferrer" target="_blank">https://remix.run/docs/en/main/file-conventions/routes#nested-routes</a></li></ul>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Thu, 11 April 2024 10:6:24 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-04-11-remix-gai-bian-liao-wo-bian-xie-dialog-de-fang-shi</guid>      
    </item>
 
 </channel>
