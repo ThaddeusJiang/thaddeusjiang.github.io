@@ -1,0 +1,19 @@
+created: 20240705071537455
+modified: 20240708102922422
+tags: $:/tags/PageControls $:/plugins/ThaddeusJiang/dark-mode
+title: $:/plugins/ThaddeusJiang/dark-mode/toggle
+type: text/vnd.tiddlywiki
+
+<<dark>>
+
+<$button tooltip="light" aria-label="light" class=<<tv-config-toolbar-class>>>
+<$action-createtiddler $basetitle="$:/palette" text={{$:/values/light-mode}} $overwrite="yes">
+</$action-createtiddler>
+{{$:/images/sun}}
+</$button>
+
+<$button class=<<tv-config-toolbar-class>> tooltip="dark" aria-label="dark">
+<$action-createtiddler $basetitle="$:/palette" text={{$:/values/dark-mode}} $overwrite="yes">
+</$action-createtiddler>
+{{$:/images/moon}}
+</$button>
