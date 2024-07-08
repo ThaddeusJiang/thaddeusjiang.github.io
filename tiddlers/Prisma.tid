@@ -1,10 +1,14 @@
 created: 20240301032205838
-modified: 20240307140932329
+modified: 20240702074340538
 tags: TechRadar/采纳
 title: Prisma
 type: text/vnd.tiddlywiki
 
 熟练使用
+
+<<<.tc-big-quote
+看过 Ecto 的 migration 方案以后，还是觉得 prisma 的方案更优雅，声明式，永远只需要关心最新状态即可。
+<<<2024-07-02
 
 <<<.tc-big-quote
 不使用 Prisma Enum，使用 Int 类型代替。

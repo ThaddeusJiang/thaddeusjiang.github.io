@@ -1,7 +1,15 @@
 created: 20240307140619365
-modified: 20240307140631446
+modified: 20240702074730398
 tags: TechRadar/采纳
 title: Zod
 type: text/vnd.tiddlywiki
+
+<<<.tc-big-quote
+为什么喜欢 zod？
+
+* zod 是 runtime 验证，可以在非 TypeScript 项目中使用。
+* zod 是 schema drive validation，可以自上而下进行定义，不会迷失和遗漏。同时 zod 也支持 single field validation。
+
+<<<2024-07-02
 
 https://zod.dev/
