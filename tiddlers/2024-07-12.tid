@@ -1,0 +1,23 @@
+created: 20240712114415846
+modified: 20240712122221283
+tags: worklog
+title: 2024-07-12
+type: text/vnd.tiddlywiki
+
+今天删除了 dev-notes 中关于 TanStack 和 Virtual List 相关的笔记。
+
+1. 已经很久没用过 TanStack 技术栈了。
+
+曾经很喜欢 react-query 提供的 useQuery 和 useMutation 的模式，但是使用 remix loader 和 action 以后觉得之前的代码太繁琐了，全是模版代码。
+
+曾经很喜欢 react-table 提供的 data 和 UI 分离的模式，但是自己参与的项目绝大多数都是简单的数据展示，直接在 map 中编写 UI 也挺简单的，而且不用做繁琐的 TypeScript 类型转换。
+
+[[TanStack Router]]
+
+
+[[react-charts -- 不使用]]
+
+
+* 删除 dev-notes 中关于 yup 的内容
+
+yup 挺优秀的，不过很久没用过了，社区主流是 zod。

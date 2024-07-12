@@ -1,0 +1,11 @@
+created: 20240712113630442
+modified: 20240712114347527
+tags: 
+title: Frontend Deep Skills
+type: text/vnd.tiddlywiki
+
+Q：为什么有这个笔记？
+
+A：因为几乎所有小型和入门级 frontend 项目都很难遇到真正难解决的问题，大家都是 CRUD。frontend frameworks and libraries 的 Example 都过于简单了，有些东西是需要时间的积累才能遇到的。
+
+[[VirtualList]]

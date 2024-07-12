@@ -1,0 +1,53 @@
+created: 20240712122547087
+modified: 20240712125644078
+published: 20240712124127691
+tags: blog 朝花夕拾 $:/plugins/adithyab/tiddlyjam/live
+title: 2024-07-12 js 实现 snake_case 转 camelCase
+type: text/vnd.tiddlywiki
+
+今天在 dev-notes 中发现一个笔记，原来 yup 提供了开箱即用的 snake_case 转 camelCase 的方法。
+
+```js
+const schema = object({
+  firstName: string().lowercase().trim(),
+}).camelCase()
+
+schema.cast({ first_name: "jAnE " }) // { firstName: 'jane' }
+```
+
+开箱即用，真棒。
+
+因为 js 社区几乎都切换到了 zod，我现在也主要使用 zod，我去看了一下 zod 的文档，好像没有开箱即用的 snake_case 转 camelCase API。
+
+可能是小众需求吧。
+
+如果是经历过前后端分离是最佳实践的程序员应该还记得，曾经的 server side 主流采用 snake_case。在 JS 很疯狂的那几年，很多强迫症项目要么要求 server-side 该 camelCase；要么 JS app 中也使用 snake_case；要么就是找一个转换库，自动实现 snake_case 和 camelCase 相互转换。
+
+!! 插曲
+
+我自己曾经也在 snake_case 和 camelCase 上折腾过一段时间。
+
+当时的团队中 server-side 在 database 和 Protobuf 中使用 snake_case，然而 Protobuf codegen 默认仅支持 lowerCamelCase。然后代码中就出现了超多诡异的 snake_case 和 camelCase 相互转换的代码。😂
+
+虽然，后来我们发现原来 Nest.js 中可以让 gRPC 保持 snake_case，设置如下：
+
+```diff
+const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
+  transport: Transport.GRPC,
+  options: {
+    package: 'hero',
+    protoPath: join(__dirname, 'hero/hero.proto'),
++    keepCase: true,
+  },
+});
+```
+
+但是，我们并没有使用。
+
+因为在 gRPC 中使用 snake_case 没有那么简单，需要各种依赖 libraries 的支持。不仅仅是 Nest.js，还有 TypeScript，Dark 等等。太折腾了。
+
+😂 全是泪啊，当前都在瞎折腾什么啊，哈哈哈
+
+refs:
+
+* [[yup|https://github.com/jquense/yup?tab=readme-ov-file#objectcamelcase-schema]]

@@ -1,0 +1,20 @@
+created: 20240712112044578
+modified: 20240712114023515
+tags: 
+title: VirtualList
+type: text/vnd.tiddlywiki
+
+2024-07-12 今天我对 Virtual List 的观点改变了，我不再认为 Virtual List 是一个合格的 frontend developer 必须掌握的技术。当然，我见过很多优秀的 frontend developer 甚至都没听说过 Virtual List，但是并不影响他们是十分优秀的前端开发者。
+
+优秀的开发者从来不应该是看他已经掌握了多少技术，而是看他今后能否顺利融入团队、合格的完成任务、一同前进。
+
+曾经使用过的 Virtual List libraries
+
+# https://react-virtual.tanstack.com/ 已经不喜欢 tanstack 了，代码太繁琐了。
+# https://github.com/bvaughn/react-window (最推荐)
+# https://github.com/bvaughn/react-virtualized 和 react-window 相同作者
+
+曾经的笔记：
+
+Virtual List 可以解决 browser render 性能问题，但是无法解决 API response 性能问题。
+如果真的遇到超大数据的需求，先看看 API 能否解决吧，盲目使用 Virtual List 只会增加代码复杂度，收效甚微。

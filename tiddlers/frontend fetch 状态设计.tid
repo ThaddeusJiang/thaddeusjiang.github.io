@@ -1,0 +1,61 @@
+created: 20200621180507191
+creator: ThaddeusJiang
+modified: 20240712120127854
+modifier: ThaddeusJiang
+tags: dev-notes
+title: frontend fetch 状态设计
+tmap.id: 11c3e898-58d1-4479-bc32-2db0b3f9d0bf
+type: text/vnd.tiddlywiki
+
+> 2024-07-12 
+感觉是过时的讨论了，现在主流的 framework 基本上都是 server client all in one，在考虑 data fetch 时还需要考虑 server-side UI render 的状态。也就是 React 提出的 `<Suspense>` 概念。
+
+refs: https://react.dev/reference/react/Suspense
+
+---
+
+很多框架和技术都在讨论这个问题了。
+
+API request 实际上是由多个状态组成的。
+
+# loading
+# error
+# success
+
+!! [[Svelte]]
+```html
+{#await promise}
+	<p>...waiting</p>
+{:then number}
+	<p>The number is {number}</p>
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
+```
+
+!! [[react-query]]
+
+```js
+function Todos() {
+  const { status, data, error } = useQuery('todos', fetchTodoList)
+
+  if (status === 'loading') {
+    return <span>Loading...</span>
+  }
+
+  if (status === 'error') {
+    return <span>Error: {error.message}</span>
+  }
+
+  // also status === 'success', but "else" logic works, too
+  return (
+    <ul>
+      {data.map(todo => (
+        <li key={todo.id}>{todo.title}</li>
+      ))}
+    </ul>
+  )
+```
+
+
+

@@ -1,0 +1,24 @@
+created: 20220317063209641
+creator: TJ
+modified: 20240712121748224
+modifier: TJ
+tags: 
+title: ReactQuery Query Function Variables
+type: text/vnd.tiddlywiki
+
+2024-07-12 曾经的 skills 很久没用过了
+
+https://react-query.tanstack.com/guides/query-functions
+
+```js
+// Component
+function Todos({status, page}) {
+  const result = useQuery(['todos', {status, pages}], fetchTodoList)
+}
+
+// api.js
+function fetchTodoList({queryKey}) {
+  const [_key, {status, page}] = queryKey
+  return new Promise()
+}
+```

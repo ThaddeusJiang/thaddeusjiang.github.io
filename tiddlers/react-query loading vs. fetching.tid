@@ -1,0 +1,11 @@
+created: 20230529131950791
+modified: 20230529132050743
+tags: 
+title: react-query loading vs. fetching
+type: text/vnd.tiddlywiki
+
+
+https://tanstack.com/query/v4/docs/react/guides/queries#why-two-different-states
+
+* The `status` gives information about the `data`: Do we have any or not?
+* The `fetchStatus` gives information about the `queryFn`: Is it running or not?
