@@ -830,6 +830,12 @@
    </url>
 
    <url>
+      <loc>.//2024-07-12-js-shi-xian-snake-case-zhuan-camelcase</loc>
+      <lastmod>2024-07-12</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//31-sui-zai-ri-ben-ba-liao-yi-ke-ya</loc>
       <lastmod>2024-05-12</lastmod>
       <changefreq>monthly</changefreq>
@@ -879,7 +885,7 @@
 
    <url>
       <loc>.//index</loc>
-      <lastmod>2024-03-07</lastmod>
+      <lastmod>2024-07-12</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
