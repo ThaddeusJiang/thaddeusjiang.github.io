@@ -3,7 +3,61 @@
 <channel>
    <title>Thaddeus Jiang</title>
    <link>https://thaddeusjiang.com</link>
-   <description>善良比聪明更重要，热情比经验更重要。</description>
+   <description>Enjoy coding as freely as driving</description>
+   <item>
+      <title>2024-07-24 我不会让这种人成为我的老板</title>
+      <link>https://thaddeusjiang.com/2024-07-24-wo-bu-hui-rang-zhe-zhong-ren-cheng-wei-wo-de-lao-ban</link>
+			<description><![CDATA[
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
+          <a href="./">
+              <h1 class="title">Thaddeus Jiang</h1>
+              <p class="subtitle">Enjoy coding as freely as driving</p>
+          </a>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+</div>
+
+
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <div class="block content blog">
+            <h1 class="subtitle">2024-07-24 我不会让这种人成为我的老板</h1>
+            <hr>
+
+            <p>很久之前就有这个想法了，和几个朋友闲聊过，但是一直没有勇气公开表达。从2023年5月成为自由职业者，现在过去一年多了，我对自己的赚钱能力有了一定的自信，我知道我有能力也有资格选择和什么样的人合作，也可以选择什么样的人成为我的老板。</p><p>我会选择和什么样的人合作的问题，我知道自己的想法还会变，就先不说了。</p><p>对于我不想让什么样的人成为我的老板，我觉得有几点是不会变的，可以公开说一下。</p><h2 class="">1. 不停追热点，和时间赛跑，和全世界拼速度</h2><p>首先，我不反对追热点。如果某个新鲜事物让你心潮澎湃、跃跃欲试，立刻行动，追一下最新流行是优点，是有行动力的表现。👍
+但是，我反对不停追热点。不停追热点，追流行趋势，是对未来没有认真思考，随时都可能 180° 掉头的前期表现。如果是个人行为其实也没什么，毕竟自己的人生自己可以负责；但是我不会让这种人成为我的老板，这太可怕了。</p><p>以最近 AI热为例，我也看到了很多 AI 相关创业公司的产品很棒，很多都成为了我工作和生活的常用工具，我也觉得能参与类似 AI 产品会让我感到兴奋，有点跃跃欲试的冲动。但是，每次看到新的 AI 模型出来，全世界都在和时间赛跑，和全世界拼速度，好像如果错过了就是失败，我都会感到压力山大。我很不解，大家没有生活吗？大家不用休息吗？如果真的错过了就失败了，那今天还没有出生的人类该怎么办？难道他们就已经输了吗？</p><blockquote><div>好吧，我知道我有一个习惯，就是举例子时喜欢举极端条件下的例子。😂</div><div>重新举例子：如果真的错过了热点就失败了，那么今天才刚刚开始学习 AI 的人是不是已经失败了？因为他们已经错过了很多热点了。</div></blockquote><p>TODO: 日后再补充</p><h1 class="">声明</h1><p>个人观点。只是为了给将来有机会合作的朋友提供一点公开信息，不想浪费大家的宝贵时间，合作之前先相互了解一下可以减少很多矛盾和冲突。不合适就没有必要强求。</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Wed, 24 July 2024 4:7:17 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2024-07-24-wo-bu-hui-rang-zhe-zhong-ren-cheng-wei-wo-de-lao-ban</guid>      
+   </item>
+
    <item>
       <title>2024-07-12 js 实现 snake_case 转 camelCase</title>
       <link>https://thaddeusjiang.com/2024-07-12-js-shi-xian-snake-case-zhuan-camelcase</link>
@@ -12,9 +66,9 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
           <a href="./">
               <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">善良比聪明更重要，热情比经验更重要。</p>
+              <p class="subtitle">Enjoy coding as freely as driving</p>
           </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
 </div>
 
 
@@ -76,9 +130,9 @@ schema.<span class="hljs-title function_">cast</span>({ <span class="hljs-attr">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
           <a href="./">
               <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">善良比聪明更重要，热情比经验更重要。</p>
+              <p class="subtitle">Enjoy coding as freely as driving</p>
           </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
 </div>
 
 
@@ -119,59 +173,6 @@ schema.<span class="hljs-title function_">cast</span>({ <span class="hljs-attr">
 ]]></description>
       <pubDate>Mon, 1 July 2024 17:13:2 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-07-02-chen-mei-cheng-ben</guid>      
-   </item>
-
-   <item>
-      <title>2024-07-02 乐观做战略，悲观做战术</title>
-      <link>https://thaddeusjiang.com/2024-07-02-le-guan-zuo-zhan-lue-bei-guan-zuo-zhan-shu</link>
-			<description><![CDATA[
-<div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">善良比聪明更重要，热情比经验更重要。</p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Posts</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
-</div>
-
-
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2024-07-02 乐观做战略，悲观做战术</h1>
-            <hr>
-
-            <p>脑子里浮现一句话：乐观做战略，悲观做战术。我不确定自己是从哪里听到的这句话，但是类似的格言应该挺多的，例如：雷军说过一句话：“永远不要试图用战术上的勤奋，去掩饰你战略上的懒惰。”</p><p>关于未来也是一样，不要高估短期可以到达的目标，不要低估长期可以实现的理想。</p>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Tue, 2 July 2024 7:25:11 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-07-02-le-guan-zuo-zhan-lue-bei-guan-zuo-zhan-shu</guid>      
    </item>
 
 </channel>
