@@ -3,7 +3,7 @@
 <channel>
    <title>Thaddeus Jiang</title>
    <link>https://thaddeusjiang.com</link>
-   <description>Enjoy coding as freely as driving</description>
+   <description>Enjoy freely coding like driving</description>
    <item>
       <title>2024-07-24 我不会让这种人成为我的老板</title>
       <link>https://thaddeusjiang.com/2024-07-24-wo-bu-hui-rang-zhe-zhong-ren-cheng-wei-wo-de-lao-ban</link>
@@ -12,9 +12,11 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
           <a href="./">
               <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">Enjoy coding as freely as driving</p>
+              <p class="subtitle">Enjoy freely coding like driving</p>
           </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+      </div></p></nav></div>
 </div>
 
 
@@ -66,9 +68,11 @@
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
           <a href="./">
               <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">Enjoy coding as freely as driving</p>
+              <p class="subtitle">Enjoy freely coding like driving</p>
           </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+      </div></p></nav></div>
 </div>
 
 
@@ -130,9 +134,11 @@ schema.<span class="hljs-title function_">cast</span>({ <span class="hljs-attr">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
           <a href="./">
               <h1 class="title">Thaddeus Jiang</h1>
-              <p class="subtitle">Enjoy coding as freely as driving</p>
+              <p class="subtitle">Enjoy freely coding like driving</p>
           </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5"><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> </div></p></nav></div>
+      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+      </div></p></nav></div>
 </div>
 
 
