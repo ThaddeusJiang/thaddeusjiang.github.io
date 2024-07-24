@@ -1,6 +1,6 @@
 created: 20200728151423521
 creator: Adithya_
-modified: 20231212095637371
+modified: 20240724050523747
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/header
@@ -18,7 +18,9 @@ type: text/vnd.tiddlywiki
           </a>
       </div>
 
-      <div class="navbar-end mt-2 subtitle is-5">{{Menus}}</div>
+      <div class="navbar-end mt-2 subtitle is-5">
+        [[Blog|blog]] | [[Wiki|https://thaddeusjiang.com/wiki]] | [[RSS|https://thaddeusjiang.com/rss.xml]] 
+      </div>
 
     </nav>
 
