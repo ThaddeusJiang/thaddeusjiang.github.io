@@ -1,0 +1,17 @@
+created: 20240723055029887
+modified: 20240723060605530
+tags: 
+title: fly.io price 不适合个人或者小团队
+type: text/vnd.tiddlywiki
+
+imo: 对于个人或者小团队，合理的计费方式是每月固定费用，不应该过分细化费用计算方式，增加使用心智负担。个人开发者或者小团队没有必要在 Cloud cost 上过度浪费精力和时间。
+
+不过，似乎主流都是这么计费的，好贵啊。 
+
+我知道的 hosting 平台：
+Railway.com Render.com Zeabur.com Vercel.com Fly.io supabase.com
+
+目前我花费最多的 Fly.io，而且我不知道为什么。
+
+supabase.com 固定费用，挺好。
+
