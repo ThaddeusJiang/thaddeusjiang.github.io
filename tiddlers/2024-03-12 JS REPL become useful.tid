@@ -1,5 +1,5 @@
 created: 20240312013619567
-modified: 20240312020355544
+modified: 20240802040501211
 published: 20240312020355543
 tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2024-03-12 JS REPL become useful
@@ -12,7 +12,7 @@ type: text/vnd.tiddlywiki
 Demo: 
 
 ```sh
-bun repl
+$ bun repl
 
 > import dayjs from "dayjs"
 > dayjs().toISOString()
@@ -30,9 +30,9 @@ bun repl
 1. Elixir iex shell 提供这个功能
 
 ```
-iex
+$ iex
 
-iex> Mix.install(  [{:timex, "~> 3.0"}])
+iex> Mix.install([{:timex, "~> 3.0"}])
 iex> Timex.now
 ~U[2024-03-12 01:57:40.350390Z]
 ```
