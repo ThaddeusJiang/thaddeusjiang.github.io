@@ -86,13 +86,13 @@
             <h1 class="subtitle">2024-03-12 JS REPL become useful</h1>
             <hr>
 
-            <p>一直以来我一直在寻找一个 JS 工具，可以让我不退出 console (REPL) 就直接安装新的依赖。Thanks God. 我终于找到了。🥳</p><p><code>bun repl</code> is so cool. </p><p>Demo: </p><pre class="hljs"><code class="sh hljs">bun repl
+            <p>一直以来我一直在寻找一个 JS 工具，可以让我不退出 console (REPL) 就直接安装新的依赖。Thanks God. 我终于找到了。🥳</p><p><code>bun repl</code> is so cool. </p><p>Demo: </p><pre class="hljs"><code class="sh hljs">$ bun repl
 
 &gt; import dayjs from <span class="hljs-string">&quot;dayjs&quot;</span>
 &gt; dayjs().toISOString()
-<span class="hljs-string">&#x27;2024-03-12T01:41:09.763Z&#x27;</span></code></pre><h2 class="">Why I want to install dependencies in console?</h2><p>很多时候我只是想运行某个函数，而不是写代码。在 bun repl 之前我一直使用 RunKit.com 做这件事。但是 RunKit 有一个很重要的不足，就是不支持 ESM ，因为我日常工作已经全面切换到 ESM，每次在 RunKit 中写 require("somelib") 让我觉得十分割裂。</p><p>或许对于很多人来说，npm i -y ，然后 npm install dayjs 也是一个不错的选择。但是我个人不喜欢在 local 留下太多临时代码，并且 node_modules 真的太占存储空间了。我还是喜欢在 console 中“用完即弃”。</p><h2 class="">Where I learn this Tips?</h2><p>1. Elixir iex shell 提供这个功能</p><pre><code>iex
+<span class="hljs-string">&#x27;2024-03-12T01:41:09.763Z&#x27;</span></code></pre><h2 class="">Why I want to install dependencies in console?</h2><p>很多时候我只是想运行某个函数，而不是写代码。在 bun repl 之前我一直使用 RunKit.com 做这件事。但是 RunKit 有一个很重要的不足，就是不支持 ESM ，因为我日常工作已经全面切换到 ESM，每次在 RunKit 中写 require("somelib") 让我觉得十分割裂。</p><p>或许对于很多人来说，npm i -y ，然后 npm install dayjs 也是一个不错的选择。但是我个人不喜欢在 local 留下太多临时代码，并且 node_modules 真的太占存储空间了。我还是喜欢在 console 中“用完即弃”。</p><h2 class="">Where I learn this Tips?</h2><p>1. Elixir iex shell 提供这个功能</p><pre><code>$ iex
 
-iex&gt; Mix.install(  [{:timex, "~&gt; 3.0"}])
+iex&gt; Mix.install([{:timex, "~&gt; 3.0"}])
 iex&gt; Timex.now
 ~U[2024-03-12 01:57:40.350390Z]</code></pre><p>作为一个老派程序员，我真的无法使用没有 REPL 的编程语言。REPL 不好用的话和没有没有区别，node 直接开启的那个运行环境根本就不算一个合格的 REPL。</p><pre class="hljs"><code class="sh hljs">node        
 Welcome to Node.js v18.14.0.
