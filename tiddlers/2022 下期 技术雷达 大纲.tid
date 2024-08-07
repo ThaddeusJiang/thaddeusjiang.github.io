@@ -1,5 +1,5 @@
 created: 20221028014201812
-modified: 20221114025518776
+modified: 20240807054340294
 tags: 
 title: 2022 下期 技术雷达 大纲
 type: text/vnd.tiddlywiki
@@ -18,25 +18,11 @@ type: text/vnd.tiddlywiki
 # 语言&框架
 ## [[ReactQuery]]
 
-! 我想要使用的 `Going to`
 
-# 技术
-# 平台
-# 工具
-## [[Harness 云服务成本管理]]
-## [[infracost]]
+! 我保持观望的 `Watching`
+
 # 语言&框架
-## [[Yjs]]
-## [[Connect]]
-
-! 我保持观望的
-
-# 技术
-# 平台
-# 工具
-# 语言&框架
-## [[Svelte]]
-## [[Ladle]]
+## [[Svelte]] 
 ## [[Astro]]
 ## [[Bun]]
 
@@ -48,6 +34,3 @@ type: text/vnd.tiddlywiki
 # 工具
 # 语言&框架
 ## [[Cypress组件测试]]
-
-
-[[TechRadar]]

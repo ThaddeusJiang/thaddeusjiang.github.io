@@ -1,0 +1,20 @@
+created: 20240805064838351
+modified: 20240805065316544
+tags: 
+title: imo: 绝大多数项目可以使用 Integer 做 ID
+type: text/vnd.tiddlywiki
+
+
+理由：
+
+# 不会溢出，绝大多数项目不会产生超过 9千万亿的数据
+# 使用 Integer 可以很直观的了解数据规模，这对于 owner 来说很有用 
+
+使用 Integer 作 ID 的缺点
+
+# 数据容易被猜测和推算，代码写的不好的话，可能有一点点安全性问题。
+#* 所以 account ID 有理由选择 string
+
+BTW, JS MAX_SAFE_INTEGER 约 9千万亿
+
+<<img "https://i.imgur.com/ZeSOZmI.png" "MDN">>

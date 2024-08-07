@@ -1,5 +1,5 @@
 created: 20240110194543949
-modified: 20240702074911965
+modified: 20240807053642309
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: About
 type: text/vnd.tiddlywiki
@@ -12,11 +12,11 @@ ThaddeusJiang ( TJ )
 人生信条 / 格言 / 三观
 
 * 善良比聪明、财富都更重要。
-* 长期主义：长期专注、长期记录、长期爱人。
-* 不追潮流，探究经典。
+* 热情比技能和经验更重要。有热情，技能和经验都会有的；没有热情，技能和经验也会过时。
+* 人生很长，作长期主义者，做投资，不做投机。
 
 Tech Stack
 
-* JS & Web
-* Elixir & Erlang & CLI
-* Offline & RealTime
+* JS, Web
+* Elixir & Erlang, Distributed
+* Pen & Paper, Architecture

@@ -1,0 +1,12 @@
+created: 20240807054126064
+modified: 20240807054309086
+tags: TechRadar/放弃
+title: ReactQuery
+type: text/vnd.tiddlywiki
+
+
+放弃
+
+理由：
+
+# 开始使用 remix.run 以后，使用 loader and action 更简单。意识到曾经使用 ReactQuery 写了很多模版代码，低效。
