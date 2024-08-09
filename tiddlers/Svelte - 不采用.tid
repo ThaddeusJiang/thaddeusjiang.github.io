@@ -1,0 +1,9 @@
+created: 20240805070206094
+modified: 20240809055125902
+tags: 
+title: Svelte - 不采用
+type: text/vnd.tiddlywiki
+
+理由：
+
+我已经熟练使用 React，对于我来说，不需要 Svelte。如果将来出现下一代 framework，或许我会尝试，前提是像 React 替代 jQuery 一样的变革。

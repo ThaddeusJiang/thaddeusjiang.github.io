@@ -1,5 +1,5 @@
 created: 20231218123653627
-modified: 20231218131910107
+modified: 20240809060131642
 published: 20231218130855092
 tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2023-12-18 软件开发“白痴指数”
@@ -18,12 +18,7 @@ type: text/vnd.tiddlywiki
 
 就是一个环境变量啊，干嘛搞得这么复杂呢？
 
-美其名曰：架构安全。但是软件系统的安全是木桶效应，瓶颈不在最高的那块板，而是在最低的那块板。DevOps 搞得这么复杂，复杂到 DevOps developers 都不能完全理解和 100% 保证正确。最低的那块板就变成了维护如此复杂 DevOps 的人了。
-
-<<<.tc-big-quote
-“架构安全” 是什么垃圾？
-推荐瞎折腾的人先看一下 [[《社会工程学》|https://zh.wikipedia.org/wiki/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6]] 是什么。
-<<<TJ 2023-12-18
+美其名曰：架构安全。但是软件系统的安全是木桶效应，瓶颈不在最高的那块板，而是在最低的那块板。DevOps 搞得这么复杂，复杂到 DevOps developers 都不能完全理解和 100% 保证正确。最低的那块板就变成了维护如此复杂 DevOps 的人了。这里推荐阅读[[《社会工程学》|https://zh.wikipedia.org/wiki/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6]] 😂
 
 简单记录一下我今天干了什么：
 
@@ -45,11 +40,7 @@ type: text/vnd.tiddlywiki
 
 我累死了，也傻掉了，太麻烦了。反复在 gitlab repositories 间横跳、提交 code、等待 review、执行 merge、继续等待，啊啊啊啊啊啊
 
-<<<.tc-big-quote
-GitOps 是什么垃圾？
-等我休完年假回来，2024 年第一件事就是精简现在项目的 DevOps，不该用 git 的地方少扯版本管理。
-infra as code 是继 micro-services 后又一个我粉转黑的架构技术。🤮
-<<<TJ 2023-12-18
+
 
 
 !! 最后再说一遍
