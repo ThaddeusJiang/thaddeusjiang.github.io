@@ -1,6 +1,15 @@
+
+.brand {
+  background: -webkit-linear-gradient(207deg, #4285d3 25%, #f364ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 body {
   font-family: "Songti SC", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji";
+  font-variant-numeric: tabular-nums;
 }
 
 a {
@@ -15,10 +24,6 @@ blockquote {
   border-radius: 8px;
 }
 
-blockquote.tc-big-quote cite:before {
-  content: "\2014 \2009";
-}
-
 pre {
   padding: 0 !important;
 }
@@ -29,28 +34,6 @@ pre {
   white-space: nowrap;
 }
 
-h1.title {
-  background: -webkit-linear-gradient(207deg, #4285d3 25%, #f364ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-p.subtitle {
-  font-size: 1em;
-  font-style: italic;
-}
-
-.content > h1 {
-  font-size: 2em;
-  font-weight: 500;
-}
-
-.content > h1.subtitle {
-  font-size: 2em;
-}
-
-.content > h2 {
-  font-size: 1.5em;
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
   font-weight: 500;
 }

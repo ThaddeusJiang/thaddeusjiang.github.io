@@ -1,6 +1,6 @@
 created: 20220313022643471
 description: 
-modified: 20240712124107336
+modified: 20240830065724943
 name: Welcome
 tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals
 title: index
@@ -8,14 +8,14 @@ type: text/vnd.tiddlywiki
 
 {{$:/plugins/adithyab/tiddlyjam/renderer/base/header}} 
 
-<div class="container mt-4">
+<div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
         <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[blog]!sort[created]limit[3]]">
             {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_verbose}}
         </$list>
 
       <div class="columns is-mobile is-centered">
-          <p class="is-size-5 is-underlined is-italic">[[read more|blog]]</p>
+          <p class="is-size-5 is-italic">[[read more|blog]]</p>
       </div>
     </div>
 </div>

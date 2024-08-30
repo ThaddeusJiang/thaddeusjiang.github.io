@@ -1,25 +1,25 @@
 created: 20200728151423521
 creator: Adithya_
-modified: 20240724050523747
+modified: 20240830065953467
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/header
 type: text/vnd.tiddlywiki
 
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
       
-      <div class="navbar-brand">
-          <a href={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}} >
-              <h1 class="title">{{$:/SiteTitle}}</h1>
-              <p class="subtitle">{{$:/SiteSubtitle}}</p>
-          </a>
+      <div>
+        <h1 class="brand">
+          <a class="title" href={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}}>{{$:/SiteTitle}}</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">{{$:/SiteSubtitle}}</p>
       </div>
-
-      <div class="navbar-end mt-2 subtitle is-5">
-        [[Blog|blog]] | [[Wiki|https://thaddeusjiang.com/wiki]] | [[RSS|https://thaddeusjiang.com/rss.xml]] 
+      
+      <div class="navbar-end mt-2">
+        [[Blog|blog]] | [[Wiki|wiki]] | [[RSS|https://thaddeusjiang.com/rss.xml]]
       </div>
 
     </nav>

@@ -1,6 +1,6 @@
 created: 20200806142756352
 creator: Adithya_
-modified: 20231013025147830
+modified: 20240830071001691
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/blog/body
@@ -8,16 +8,16 @@ type: text/vnd.tiddlywiki
 
 {{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle"><$view field="title" /></h1>
-            <hr />
+          <h1 class="title"><$view field="title" /></h1>
+          <hr />
 
+          <div class="content">
             <$list filter="[all[current]]">
 
-            <$transclude />
+              <$transclude />
 
             </$list>
           </div>          
