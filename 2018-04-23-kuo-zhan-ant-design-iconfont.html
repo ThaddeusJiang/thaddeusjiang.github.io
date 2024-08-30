@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2018-04-23 扩展 Ant Design iconfont</h1>
-            <hr>
+          <h1 class="title">2018-04-23 扩展 Ant Design iconfont</h1>
+          <hr>
 
+          <div class="content">
             <p>我们项目组是 <a class="tc-tiddlylink-external" href="https://github.com/ant-design/ant-design" rel="noopener noreferrer" target="_blank">Ant Design</a> 的重度用户。 Ant Design 的 Icon 组件提供了很多图标，个人项目基本上足够了。 但是作为公司的项目，既有图标显然不能满足业务需求，所以就需要扩展图标。</p><p>其实扩展 Ant Design 的 Icon 的图标特别简单，这里只是做一下记录。</p><p>方法</p><p>1. 上传你的图标到 <a class="tc-tiddlylink-external" href="https://www.iconfont.cn/" rel="noopener noreferrer" target="_blank">https://www.iconfont.cn/</a>，拷贝项目下面生成的 symbol 代码。 我们项目设计师给我的是 svg 文件。</p><p>2. 为你的项目引入 <code>辅助 js</code>，并添加一段 <code>全局 CSS</code>。</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./iconfont.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span>&gt;</span><span class="language-css">

@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-11-14 ISO 8601</h1>
-            <hr>
+          <h1 class="title">2023-11-14 ISO 8601</h1>
+          <hr>
 
+          <div class="content">
             <p>imo: 永远使用 ISO 8601 string 在 API 之间传递日期时间数据。</p><h1 class="">Why?</h1><p>不同的编程语言对日期时间数据的实现有可能不同，但是 ISO 8601 Format 是相同的，始终是 <code>YYYY-MM-DDTHH:mm:ss.sssZ</code>。</p><p>始终使用 ISO 8601 string 在 API 之间传递日期时间数据，可以有效的减少开发者造轮子；减少没有任何收益的技术实现讨论。</p><p>并且 ISO 8601 string 是人类可读的，并且非常简单，任何智商正常的人都不需要额外学习就可以在大脑中进行对比、比较、简单运算。</p><ul><li>对比 ISO 8601 string：2023-12-06T23:00:00.000Z 和 2023-12-07T09:00:00.000Z 不相等</li><li>比较 ISO 8601 string：2023-12-06T23:00:00.000Z 比 2023-12-07T09:00:00.000Z 小</li><li>简单运算 ISO 8601 string：2023-12-06T23:00:00.000Z 加 10 小时等于 2023-12-07T09:00:00.000Z</li></ul><h1 class="">我遇到过的 issues</h1><h2 class="">1. 日期时间数据在 console / log 中不可读，不能直接在大脑中运算。</h2><p>例如：现在时间是 2023-12-06T04:30:48.253Z，如果不使用 ISO 8601 format，大脑无法直接对当前时间进行简单比较和运算。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()
 now
 <span class="hljs-comment">// Wed Dec 06 2023 13:28:53 GMT+0900 (Japan Standard Time)</span></code></pre><p>使用 ISO 8601 format 就简单多了</p><pre class="hljs"><code class="js hljs">now.<span class="hljs-title function_">toISOString</span>()

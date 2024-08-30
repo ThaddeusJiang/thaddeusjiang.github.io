@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-01-13 Say Goodbye to ../../../</h1>
-            <hr>
+          <h1 class="title">2023-01-13 Say Goodbye to ../../../</h1>
+          <hr>
 
+          <div class="content">
             <p>几年前还用 Babel 时，我写过一篇文章 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./2018-08-16-say-goodbye-to.html">2018-08-16 Say Goodbye to '../' '../../' '../../../'</a>。JS 社区的工具链真的发展的好快，我已经很久没用过 Babel 了，😂</p><p>我现在主要是用 esbuild + typescript，因为 TypeScript 也变强了，所以现在配置绝对路径也变的简单了。</p><ul><li>不需要再依赖 loader 了</li><li>只需要配置 tsconfig.json 即可</li></ul><pre class="hljs"><code class="json hljs"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;compilerOptions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>    
     <span class="hljs-attr">&quot;baseUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;.&quot;</span><span class="hljs-punctuation">,</span>

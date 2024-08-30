@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2021-12-05 How To Test Frontend</h1>
-            <hr>
+          <h1 class="title">2021-12-05 How To Test Frontend</h1>
+          <hr>
 
+          <div class="content">
             <p>2021 年的最后一个月，重新思考一下 Frontend Testing。对于 Frontend，我们要如何保证项目的品质？</p><p>其实，对于 Frontend Testing 我没有太多独特的见解。我对 Frontend Testing 的理解，大部分是来自其他优秀的工程师的分享，少部分是自己的一些工程实践。对于我自己，Frontend Testing 有哪些内容是值得拿出来分享的？</p><h1 class="">1. 测试一定要整合到 CI/CD 中</h1><p>这是我个人的经验，测试一定要整合到 CI/CD 中。一方面，如果测试没有整合到 CI/CD 中，那么测试就不能阻止我们发布包含错误的产品到生产环境，也就是没有保证品质。另一方面，如果测试没有整合到 CI/CD 将无形地增加开发者的工作量，开发者不得不手动执行测试。很多开发者并不是不愿意编写测试代码，只是不愿意等待测试代码漫长的执行过程。</p><h1 class="">2. 倒金字塔的测试优先级</h1><p>相信绝大多数软件工程专业毕业的的开发者（学院派）都曾被教育 Unit Testing 大于 Integration Testing 的测试覆盖原则，就像金字塔。</p><p>但是，最新的工程实践提出了相反的意见。越来越多的开发者认为 Integration Testing 大于 Unit Testing，甚至 End-to-End Testing 最大。</p><blockquote class="tc-quote tc-big-quote"><p>Write tests. Not too many. Mostly integration.
 </p><cite>rauchg</cite></blockquote><h1 class="">3. Frontend 特有的 Visual Testing</h1><p>Visual Testing 是 Frontend 特有的测试类型。如果你参与的 Frontend 项目还没有引入 Visual Testing，我强烈建议你研究一下。我想说：“Visual Testing saved my life.”</p><p>关于 Visual Testing，我也提倡遵守倒金字塔的优先顺序，这可能和绝大多数开发者的观点有所不同。</p><p>那么，是否我认为 Component Visual Testing 不需要？答案是否定的。
 如果项目有足够的时间、预算，我觉得 Component Visual Testing 是 Nice to have。请视情况而定。</p><h1 class="">4. 不要忘记测试你的 Utils</h1><p>请不要简单的认为 Frontend 仅仅是 UI，这是低级的 Backend 和低级的 PM 才会犯的错误。随着软件行业的发展，越来越多的功能被移动到了 Frontend。Frontend 不再只是简简单单地展示数据了。Frontend 中包含了越来越多的复杂逻辑，请不要忘记测试这部分代码。</p><blockquote class="tc-quote tc-big-quote"><p>优秀的 Frontend 项目，页面展示和逻辑处理一定是相互独立的，所以不要忘记测试你的 Utils。

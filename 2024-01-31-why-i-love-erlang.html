@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2024-01-31 Why I love Erlang</h1>
-            <hr>
+          <h1 class="title">2024-01-31 Why I love Erlang</h1>
+          <hr>
 
+          <div class="content">
             <p>我想起了《黑客与画家》中的一段话：“编程语言不一样，与其说它是技术，还不如说是程序员的思考模式。编程语言是技术和宗教的混合物。”</p><h2 class="">Why I love Erlang</h2><p>这本身就不是一个问题，喜欢某个编程语言就像喜欢某个具体的人一样，那是一种感觉，根本不需要具体的理由。</p><p>多年来，我一直很向往 DHH 因为他很早找到了他喜欢的编程语言 Ruby。我尝试过很多编程语言，如：Java、JS、Perl、Swift、ResonML 等等，很遗憾它们都没有让我有 soulmate 的感觉。几年前偶然的机会，我了解到 Elixir，以及断断续续地使用过程中又了解到 Erlang，编写 Erlang/Elixir 代码让我有了久违的愉悦感。</p><p>我愈发地明晰了 Erlang/Elixir 是我真正的 soulmate language，我太喜欢它们了。希望我可以像 DHH 对 Ruby 一样，为 Erlang/Elixir 做一些贡献。</p><h2 class="">虽然事实如上，但是我也可以列出一些具体的点说明为什么我喜欢 Erlang。</h2><blockquote><div>我不太确定应该按照 Erlang 的强项开始写，还是按照阅读这篇文章的朋友可以学习曲线开始写。</div><div>暂时先按照容易理解的顺序开始写吧。</div></blockquote><p>TR;DR</p><ol><li>Erlang 让程序回归数学</li><li>Erlang 整数不会溢出</li><li>Erlang 提供完美的字面量对象</li><li>Erlang 远程调用和本地调用一样简单</li><li>Erlang 远程处理错误允许优雅地对应不可抗力因素</li><li>Erlang 在语言层面提供了功能强大的 Schemaless Database</li></ol><h2 class="">1. Erlang 让程序回归数学</h2><p>列举计算机编程问题中常被提到的两个算法斐波拉切数和快速排序。</p><p>斐波那契数：</p><pre><code>fib(0) -&gt; 0;
 fib(1) -&gt; 1;
 fib(X) -&gt; fib(X-1) + fib(X-2).</code></pre><p>快速排序</p><pre><code>sort([]) -&gt; [];

@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2018-04-21 eslint 提示：Do not use findDOMNode</h1>
-            <hr>
+          <h1 class="title">2018-04-21 eslint 提示：Do not use findDOMNode</h1>
+          <hr>
 
+          <div class="content">
             <p>记录一条 eslint 提示：</p><pre><code>[eslint] Do not use findDOMNode (react/no-find-dom-node)</code></pre><p>背景</p><p>使用react-dnd做拖拽功能时，需要判断真实DOM的大小和位置。</p><p>官方示例： <a class="tc-tiddlylink-external" href="https://github.com/react-dnd/react-dnd/blob/164a8048296101e3bcf543df3406ee6dabfdf059/packages/documentation/examples/04%20Sortable/Simple/Card.js#L35" rel="noopener noreferrer" target="_blank">https://github.com/react-dnd/react-dnd/blob/164a8048296101e3bcf543df3406ee6dabfdf059/packages/documentation/examples/04%20Sortable/Simple/Card.js#L35</a></p><p>但是我们项目使用 eslint 检查 js 代码品质。所以出现 👆 提示。</p><p>解决方法</p><pre class="hljs"><code class="jsx hljs"><span class="hljs-comment">// Step 1. render()</span>
 ;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
   <span class="hljs-attr">ref</span>=<span class="hljs-string">{node</span> =&gt;</span> {

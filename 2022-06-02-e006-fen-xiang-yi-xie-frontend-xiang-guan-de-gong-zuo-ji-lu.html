@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2022-06-02 E006-分享一些 frontend 相关的工作记录</h1>
-            <hr>
+          <h1 class="title">2022-06-02 E006-分享一些 frontend 相关的工作记录</h1>
+          <hr>
 
+          <div class="content">
             <p>欢迎阅读蒋继发的《每周分享》第六期，本期主要是分享一些 frontend 相关的工作记录。</p><p>蒋继发的《每周分享》每周四发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些工作经验、日本生活体验以及阅读感受等等。</p><h1 class="">本周有哪些工作方面的内容可以和大家分享？</h1><h1 class="">1. <a class="tc-tiddlylink-external" href="https://github.com/formkit/auto-animate" rel="noopener noreferrer" target="_blank">AutoAnimate</a> - Add motion to your apps with a single line of code.</h1><p>偶然发现这个 library，虽然算不上功能强大，但是 1 行代码添加动画效果对于一些小型项目的确很有吸引力。我可能会在自己的 Toy Project 中尝试一下。</p><p>不过我并不推荐这个 library，理由很简单，它的功能不够强，再稍微大型一点的项目中就无法满足需求了。例如：没有提供拖拽（DnD）相关支持，没有大量的示例（Samples）。</p><h1 class="">2. <a class="tc-tiddlylink-external" href="https://twitter.com/DavidKPiano/status/1521920584975667201" rel="noopener noreferrer" target="_blank">useEffect tip: don't</a></h1><p>本周和团队分享了这个 React.js 技巧：useEffect tip: don't，演讲视频：<a class="tc-tiddlylink-external" href="https://youtu.be/Ck-e3hd3pKw?t=3993" rel="noopener noreferrer" target="_blank">https://youtu.be/Ck-e3hd3pKw?t=3993</a></p><blockquote class="tc-quote tc-big-quote"><p>“会 React.js”和“真的会 React.js”之间的差距就像“会写字”和“会写小说”一样遥远。
 </p><cite>TJ</cite></blockquote><p>看过很多 developer 说 React.js 很简单，几天就能学会。
 React.js 难吗？说实话我认为 Raect.js 有点难，至少我自己经常犯错。不过这不可怕，可怕的是我能看出来其他人的代码是错的，但是我说不明白为什么。就像我知道  1 + 1 = 3 是错误的，但是我说不来为什么；就像我知道红色和蓝色 1:1 混合可以得到紫色，但是我说不出来为什么。这感觉真的太糟糕了。</p><p>没有实际代码，我无法解释 React.js 到底哪里难。我只能推荐几个改变我思维方式的资源，希望它们也能帮助大家真正掌握 React.js。</p><ol><li>State so simple, it goes without saying</li><li>Using Composition in React to Avoid "Prop Drilling"</li><li>A Complete Guide to useEffect</li></ol><h1 class="">3. <a class="tc-tiddlylink-external" href="https://twitter.com/ThaddeusJiang/status/1531792953278369792" rel="noopener noreferrer" target="_blank">loading is loading, error is error, empty is empty</a></h1><p>你有没有写过这样的代码？</p><pre class="hljs"><code class="js hljs">{!data &amp;&amp; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Loading</span> /&gt;</span></span> }

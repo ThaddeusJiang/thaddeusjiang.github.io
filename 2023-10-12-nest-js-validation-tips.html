@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-10-12 Nest.js Validation Tips</h1>
-            <hr>
+          <h1 class="title">2023-10-12 Nest.js Validation Tips</h1>
+          <hr>
 
+          <div class="content">
             <p>imo: 如果你可以选择，推荐使用 zod.dev 作为 JS/TS validation library。</p><p>Nest.js Validation Tips:</p><ol><li>Use <code>@IsInt()</code>, don't use <code>ParseIntPipe</code></li><li>Use <code>@IsDateString()</code>, don't use <code>@IsDate()</code></li><li>Use <code>@IsOptional()</code>, since TypeScript ? doesn't work</li><li>Use <code>@Type(() =&gt; Number)</code> instead of <code>Number(str)</code> , use <code>@Int</code> instead of <code>parseInt(str)</code></li></ol><p>推荐直接使用 class-transformer-validator，</p><pre class="hljs"><code class="sh hljs">npm install class-transformer-validator --save</code></pre><p>因为单独使用 class-validator 和 class-transformer 让人沮丧。</p><h1 class="">imo: Nest.js 这种基于注解的框架和 TypeScript 一起使用让人十分困惑。</h1><p>@IsOptional() 和 ? 让人困惑。</p><blockquote><div>可选属性用 library 还是 TypeScript 呢？</div></blockquote><pre class="hljs"><code class="ts hljs">  <span class="hljs-meta">@IsInt</span>()
   <span class="hljs-meta">@IsOptional</span>()
   <span class="hljs-attr">offset</span>: <span class="hljs-built_in">number</span>;

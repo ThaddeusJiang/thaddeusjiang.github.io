@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2021-08-18 Deploying Serverless functions to Azure Function App</h1>
-            <hr>
+          <h1 class="title">2021-08-18 Deploying Serverless functions to Azure Function App</h1>
+          <hr>
 
+          <div class="content">
             <p>Serverless functions 我已经玩的有点烦了，每个项目都用不同的 Cloud，每次都要变化工作流。原本期待一劳永逸的 Serverless Framework 弱的不行，k8s 有感觉是杀鸡用牛刀。难受😣</p><p>算了，不提了，进入正文。</p><p>这一次是 Azure Function App，我想记录一下如何部署 Serverless functions 到 Azure Function App，并支持 Deployment slots 做一下 A/B testing。</p><p>两种方式</p><ol><li>VSCode Extension</li><li>GitHub Actions</li></ol><h1 class="">1. VSCode Extension</h1><p>使用 VSCode Extension 部署 Azure Function App 非常方便，也是我开发时最常用的方式。
 VSCode Extension 用法也很简单，这里介绍一点特殊的，官方文档没有教的内容。</p><p>如果你和我一样，打算使用 Deployment slots 做 <code>A/B testing</code>。</p><p>VSCode Extension 的菜单就比较深了</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/a00e30807af5d3a3f6cd6c402096c8d2.jpg"></p><p>正确的部署菜单</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/97e914f00f711cbeb9dffc344b997d8b.jpg"></p><h1 class="">2. GitHub Actions</h1><p>由于 MicroSoft 财大气粗，已经将 GitHub 收入麾下，Azure Function App 也支持使用 GitHub Actions 部署。</p><p>Azure Portal UI</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/be02ad6fc63897f26a5a67fd3b5419a4.jpg"></p><p>不过，很遗憾，只通过 Azure Portal UI 你并不能成功部署你的 functions。除非你编写了一个 <a class="tc-tiddlylink tc-tiddlylink-missing" href="./hello-world.html">hello world</a></p><p>估计你也会遇到下面几个问题</p><ol><li><code>Error: package.json not found.</code></li><li><code>Error: Package deployment using ZIP Deploy failed. Refer logs for more details.</code></li><li>HTTP <code>CORS</code></li></ol><p>怎么解决？</p><p>1.  <code>Error: package.json not found.</code></p><p>这个问题，通常是因为你的 serverless functions 并不在根目录（root），你需要在 yaml 文件中配置 <code>package</code></p><pre class="hljs"><code class="yml hljs">    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">&#x27;Run Azure Functions Action&#x27;</span>
       <span class="hljs-attr">uses:</span> <span class="hljs-string">Azure/functions-action@v1.3.2</span>

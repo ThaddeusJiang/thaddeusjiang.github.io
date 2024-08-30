@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2018-08-16 Say Goodbye to '../' '../../' '../../../'</h1>
-            <hr>
+          <h1 class="title">2018-08-16 Say Goodbye to '../' '../../' '../../../'</h1>
+          <hr>
 
+          <div class="content">
             <p>开发 JavaScript 时，你有没有遇到过这样的情况。</p><p>页面复用大量共通组件，这些共通组件大体都在同一个文件夹下。但是由于组件分割和文件夹层级较深的缘故，你可能常常会写出如下代码：</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// some.js</span>
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">VodMediaPlayer</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../../components/VodVideo/VodMediaPlayer&#x27;</span>
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">VideoInfo</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../../components/VodVideo/VideoInfo&#x27;</span>

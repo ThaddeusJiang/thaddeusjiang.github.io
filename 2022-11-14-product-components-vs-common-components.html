@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2022-11-14 product components vs. common components</h1>
-            <hr>
+          <h1 class="title">2022-11-14 product components vs. common components</h1>
+          <hr>
 
+          <div class="content">
             <p>做前端开发的，没有人不曾想过开发一套自己的 components library 让大家使用。</p><p>我刚开始做 frontend 时也做过类似的事情，不过我的代码只是在内部被使用，并没有在公共区域被使用。为什么呢？</p><p>首先，开发业务产品和开发通用组件库的思维是完全不一样的。</p><ul><li>开发业务产品：要统一性，要限制自由发挥。</li><li>开发通用组件库：要通用性，要支持自由发挥。</li></ul><p>因为思维方式的不同，所采用的 API 也就不同。</p><ul><li>开发业务产品：尽量少的 props，内嵌 styles。</li><li>开发通用组件库：尽量多的 props，外部定义 styles。</li></ul><h1 class="">想要业务产品组件库</h1><ul><li>不要执着自由度，大胆内嵌 styles，不需要公开的 API 就不公开。</li></ul><h1 class="">想要通用组件库</h1><ul><li>追求绝对的自由度，不要基于 Headful UI Framework 二次开发。</li></ul><p>如果你的公司有信心和实力维护一套自己的通用组件库，你可以在一些 Headless UI Framework 上进行二次开发，例如：Radix UI和 Headless UI。
 基于 Headful UI Framework 进行二次开发也不是不行，但是 UI framework 如果没有提供全面覆盖 styles 的方法，你就惨了。没错，我说的就是 MUI、Ant Design 等等。
 千万不要太高估 Custom Theme 技术，Custom 能力绝对是有限的，Headful UI Framework 内嵌的 styles 是你永远绕不过的坑。</p><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://www.radix-ui.com/" rel="noopener noreferrer" target="_blank">https://www.radix-ui.com/</a></li><li><a class="tc-tiddlylink-external" href="https://headlessui.com/" rel="noopener noreferrer" target="_blank">https://headlessui.com/</a></li></ul>

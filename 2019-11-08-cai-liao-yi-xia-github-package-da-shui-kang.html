@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2019-11-08 踩了一下 GitHub package 大水坑</h1>
-            <hr>
+          <h1 class="title">2019-11-08 踩了一下 GitHub package 大水坑</h1>
+          <hr>
 
+          <div class="content">
             <p>GitHub 今年新发布的功能有很多，有 Actions、Sponsor 和 Package 等等。</p><p>昨天我不小心踩了一下 GitHub package 大水坑，折腾了一下午。</p><p>首先，我的结论是：</p><ol><li>GitHub package 不是开箱即用的</li><li>第三方 CI 尚未完全支持，如 Netlify</li><li>GitHub package 的优势在于支持不同包管理系统</li></ol><h1 class="">1. GitHub package 不是开箱即用的</h1><p>为什么这么说呢？因为我认为 npm 是开箱即用的。
 回想一下我们使用 npm 的过程。</p><ol><li>首先，安装 npm</li><li>执行命令</li></ol><p>这就是么简单，不要手动配置（使用国内镜像除外）。</p><h1 class="">那么如何使用 GitHub package 呢？</h1><p>1, 首先你要注册试用 package，因为它还是 beta 版本。</p><p>2. 你必须有一个 personal access token（有 read:packages and write:package 权限）</p><p>3. 修改 .npmrc</p><pre class="hljs"><code class="bash hljs">//npm.pkg.github.com/:_authToken=PERSONAL-ACCESS-TOKEN
 registry=https://npm.pkg.github.com/OWNER</code></pre><p>4.  package.json 中 name 必须带有 @github_username 前缀，形如 <code>@thaddeusjiang/typography-theme-tsubaki</code></p><p>5. 发布</p><pre><code>npm publish</code></pre><p>6. 去仓库的 package 页面编辑说明文件</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/ae3fdcd3fb5575cf02ce1d87b8bc6f54.jpg"></p><h1 class="">2. 第三方 CI 尚未完全支持，如 Netlify</h1><p>如第一步所写，使用 git package 之前需要修改 .npmrc，所以我们必须手动修改第三方 CI 的 .npmrc。

@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-08-24 JS/TS number 格格不入</h1>
-            <hr>
+          <h1 class="title">2023-08-24 JS/TS number 格格不入</h1>
+          <hr>
 
+          <div class="content">
             <p>imo: TypeScript number 类型定义模糊，JavaScript number 精度非主流，ECMAScript bigint 限制超多。JS/TS number 与其他编程语言显得格格不入。</p><p>不要妄想 TypeScript 可以拯救 JavaScript number，TypeScript 的 number 类型因为需要兼容 JavaScript，所以也没有 int32 int64 等细分类型，数值的精度范围也继承了 JavaScript 埋的坑。🤷</p><p>分享几个我遇到的问题以及解决方案：</p><h1 class="">1. JS/TS number 全身都是 bug</h1><p>JS/TS number 因为要同时兼容 int float double 导致它的精度很迷，与强类型工具（如 RDB, protobuf）的数值范围上有差异，非常容易产生 bug。</p><p>JS 最大安全整数（能够精确表示的整数）为 9,007,199,254,740,991（2<sup>53</sup> - 1），远小于 int64 (2<sup>63</sup> - 1)。所以如果你在 RDB 中使用 int64 类型，在 JS 中就会溢出。</p><p>Example: 2<sup>64</sup>-1 is 1844674407370955<strong>1615</strong> but in JavaScript it evaluates to 1844674407370955<strong>2000</strong>.</p><blockquote><div>使用 long.js 可以弥补这个设计缺陷。</div></blockquote><p>但是 long.js 也有问题，个人建议能不用就别用。</p><h1 class="">2. JS/TS bigint 限制超多</h1><p>bigint 虽然是整数，但是在使用上有很多限制，例如：</p><ol><li>BigInt 与 Number 转换会损失精度</li><li>BigInt 在 JSON.stringify() 会引发 TypeError</li><li>BigInt 不能使用 Math 中方法</li></ol><p>天呐🤷，这么多限制，还不容不用呢。反正我从来不用 bigint。</p><p>如果真的需要处理超大数值，我推荐使用 bignumber.js，我可不想自己写数值运算，bignumber.js 提供了很多开箱即用的方法：</p><p><figure>
   <div style="display:flex;justify-content:center;">
   <img alt="bignumber.js" src="https://raw.githubusercontent.com/MikeMcl/bignumber.js/gh-pages/API.png" style="margin-left:auto;margin-right:auto;">

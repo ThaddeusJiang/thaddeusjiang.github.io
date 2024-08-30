@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-05-16 真的不要再使用 MUI 了</h1>
-            <hr>
+          <h1 class="title">2023-05-16 真的不要再使用 MUI 了</h1>
+          <hr>
 
+          <div class="content">
             <p>我不是针对 MUI，我是说所有巨型 UI components framework 都是垃圾。</p><p>发自内心的呐喊，各位在做 web frontend 项目时，真的不要再用巨型的 UI components framework 了，如：mui、antd 之类的。真的太难用了。</p><p>推荐采用 Tailwind CSS 的 UI components library，并且一定要确认覆盖默认风格也是使用 CSS。如果一个 UI components library 需要编写很多 JS 才能覆盖默认风格，千万不要使用。</p><p>有很多例子，分享一个刚刚对应的 UI 需求。</p><p>如果你想要修改 Dialog components 的边框的圆角大小，MUI 需要你写一大堆代码。并且这些都是 MUI 专用的 API，不通用，对你的技术没有任何成长。</p><pre class="hljs"><code class="jsx hljs"><span class="hljs-comment">// 1. 引入 createTheme, ThemeProvider</span>
 <span class="hljs-keyword">import</span> { createTheme, <span class="hljs-title class_">ThemeProvider</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@mui/material/styles&#x27;</span>;
 

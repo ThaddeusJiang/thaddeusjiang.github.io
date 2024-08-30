@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2024-02-22 TypeScript Enum 错误示例和解决方案</h1>
-            <hr>
+          <h1 class="title">2024-02-22 TypeScript Enum 错误示例和解决方案</h1>
+          <hr>
 
+          <div class="content">
             <p>其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：<a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums</a></p><h2 class="">1. Enum 的 key value 完全一致</h2><p>在某项目中看到一段代码，我认为是 TypeScript Enum 的错误示范，如果你的项目中有类似代码，推荐修改一下。</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-built_in">enum</span> <span class="hljs-title class_">EventType</span> {
   <span class="hljs-title class_">Reserved</span> = <span class="hljs-string">&#x27;Reserved&#x27;</span>,
   <span class="hljs-title class_">ReservationCancelled</span> = <span class="hljs-string">&#x27;ReservationCancelled&#x27;</span>,

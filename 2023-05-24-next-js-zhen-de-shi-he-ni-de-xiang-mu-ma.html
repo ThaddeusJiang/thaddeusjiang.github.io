@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2023-05-24 Next.js 真的适合你的项目吗</h1>
-            <hr>
+          <h1 class="title">2023-05-24 Next.js 真的适合你的项目吗</h1>
+          <hr>
 
+          <div class="content">
             <p>这是我在犹豫是否升级至 Next.js App Router 时的一些思考。我有很多项目，每个项目的情况各不相同，在 App Router 前，我一直使用 Next.js 作为唯一的前端框架。</p><p>但是 Next.js App Router 让我有点犹豫了，Next.js App Router 默认是 Server Components，并且推荐使用 Server fetch() 和 Server Actions 进行数据获取和修改。</p><p>如果项目 all in 在 Next.js server-side 肯定是没有问题，但是有一些项目其实 server 使用的是其他语言，例如 Ruby，Golang，Java 等等，就会导致有多个 server 存在。多个 server 就需要多个认证（Authentication）环节，或许会导致不方便。其实 Authentication 可以在离 client-side 最近的环节对应，例如 Gateway。在后面的 server services 中不再进行 Authentication，仅仅是服务调用。但是引入 Gateway 又会导致 Infra 复杂度提高。</p><p>事实上，保持单一 server 是最简单的，就像 ruby on rails 一样。</p><p>另外，我认为 Next.js Server Actions 会导致 server-side 和 client-side 代码组织混乱，例如：Server Actions 不能在 data mutated 之后显示临时 UI，如 toast notification，不得不还需要使用 client-side JS。难道要把 server-side 和 client-side JS 放在一个函数里吗？</p><p>再举一个例子，Server Components 无法实现滚动加载数据，因为滚动加载需要 client-side 提供触发滚动的标记。每次开发数据加载都要思考使用 server-side 还是 client-side 实际上是增加心智负担。</p><p>给出几个我自己的判断：</p><ul><li>如果 server-side 只是简单运算，允许使用 Serverless 的话，可以 all in Next.js。</li><li>如果 server-side 有复杂运算，Serverless 无法满足要求的话，推荐不要使用 Next.js，使用传统 web framework 更简单。例如：Ruby on Rails。</li><li>如果 server-side 使用 Node.js 以外的编程语言，也不要使用 Next.js，使用 server-side 编程语言推荐的 UI framework。例如 Elixirlang 推荐的 LiveView。</li></ul><p>BTW, Next.js 也支持 fully static app，如果愿意大家可以尝试一下。但是，我没有使用过。</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://nextjs.org/docs/getting-started/react-essentials#server-components" rel="noopener noreferrer" target="_blank">Next.js Server Components</a></li><li><a class="tc-tiddlylink-external" href="https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions" rel="noopener noreferrer" target="_blank">Next.js Server Actions</a></li><li><a class="tc-tiddlylink-external" href="https://www.phoenixframework.org/" rel="noopener noreferrer" target="_blank">LiveView</a></li><li><a class="tc-tiddlylink-external" href="https://tkdodo.eu/blog/you-might-not-need-react-query" rel="noopener noreferrer" target="_blank">You Might Not Need React Query</a></li></ul>
           </div>          
       </div>

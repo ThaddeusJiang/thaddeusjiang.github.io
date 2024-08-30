@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2019-11-20 React Testing 3 - Visual Testing</h1>
-            <hr>
+          <h1 class="title">2019-11-20 React Testing 3 - Visual Testing</h1>
+          <hr>
 
+          <div class="content">
             <blockquote class="tc-quote tc-big-quote"><p>Visual Testing 是我所接触的测试方法中最直观的，也是效果最明显的。
 </p></blockquote><h1 class="">1. 什么是 Visual Testing？</h1><p>简单的说，Visual Testing 就是从视觉效果上测试。
 更加全面的解释，参见 《What is Visual Testing? A comprehensive explanation》</p><h1 class="">为什么要使用 Visual Testing 呢？</h1><p>最简单的原因就是快速，直观，不易遗漏。</p><h1 class="">2. 如何做 Visual Testing？</h1><p>Percy.io 是一个性价比高的 Visual Testing 平台，对个人项目或者小团队非常实用。</p><p>Percy 提供多种集成方式，本文中选择从 E2E Testing 集成 Visual Testing。</p><p>1. 安装 <code>@percy/cypress</code></p><pre class="hljs"><code class="bash hljs">yarn add --dev @percy/cypress</code></pre><p>2. 在 <code>cypress/support/commands.js</code> 添加 <code>@percy/cypress</code></p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// At the top of cypress/support/commands.js</span>

@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2022-04-29 E001-初次见面，请多关照</h1>
-            <hr>
+          <h1 class="title">2022-04-29 E001-初次见面，请多关照</h1>
+          <hr>
 
+          <div class="content">
             <p>大家好，欢迎阅读蒋继发的《每周分享》。</p><p>这是蒋继发的《每周分享》的第一篇，今后会在每周五发送，欢迎大家订阅。我目前在日本做 SaaS 产品，爱猫、爱读书、爱大海。所以，我可以分享一些工作经验、日本生活体验以及阅读感受等等。</p><p>其实我很早就想开始《每周分享》了，起因是我每周都会阅读阮一峰老师的《科技爱好者周刊》，并且非常喜欢这种形式。不过的确是因为没有行动力，所以一直没有开始。最近工作上不太开心，很多想做的事情做不出来，想分享的内容分享不出去，所以我想和素未谋面的各位分享一下，希望可以找到志同道合的朋友。</p><p>废话少说，我们开始正题吧。</p><h1 class="">首先，分享几篇开发笔记</h1><h1 class="">1. HTML 语义元素</h1><p>随着互联网的发展，市场对 Frontend Developer 的需求越来越大了，很多新加入 Frontend 的小伙伴因为过早的使用高度封装的组件库，倒是对 HTML 语义元素掌握的非常差，几乎是 <code>div</code> 一把梭。</p><p>但是 HTML 语义元素其实是很重要的，我想分享几个 HTML 语义元素。
 希望大家今后能根据业务实际含义使用正确的 HTML 元素：</p><ol><li><code>&lt;em&gt;</code> 标记出需要用户着重阅读的内容</li><li><code>&lt;strong&gt;</code> 标记出重要中内容</li><li><code>&lt;i&gt;</code> 仅仅表示斜体</li><li><code>&lt;b&gt;</code> 仅仅表示粗体</li></ol><p>举个例子：Emphasis vs. Strong</p><p><code>&lt;em&gt;</code> 用于改变一个句子的意思，比如：“我<em><strong>喜欢</strong></em>胡萝卜” 和“我喜欢<em><strong>胡萝卜</strong></em>”，分别强调喜欢和胡萝卜。</p><p><code>&lt;strong&gt;</code> 用来对一个句子的部分增加重要性，比如 “<strong>警告</strong>! 这非常危险。”</p><blockquote class="tc-quote tc-big-quote"><p>虽然 CSS 也能实现斜体、粗体或者斜体且加粗的视觉效果，但是却丢失了语义。
 </p><cite>TJ</cite></blockquote><h1 class="">2. Mocking API for Frontend</h1><p>互联网产品通常要同时对应多种终端，例如：Web、App 甚至第三方平台，所以目前前后端分离是主流。

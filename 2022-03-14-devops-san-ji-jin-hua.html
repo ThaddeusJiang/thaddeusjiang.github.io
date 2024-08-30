@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2022-03-14 DevOps 三级进化</h1>
-            <hr>
+          <h1 class="title">2022-03-14 DevOps 三级进化</h1>
+          <hr>
 
+          <div class="content">
             <p>从结果来看，这是一个十分简单的小项目，能做的只是通过 UI 创建和维护 Azure Cloud 资源。
 但是从过程来看，这是一次标准的渐进式开发，是我最擅长的领域。</p><p>并且项目没有开源，有点空口无凭的感觉。
 但是因为和几个朋友分享过，朋友们夸我做的不错，于是我决定还是分享出来吧。</p><p>TL;DR</p><ul><li>Staging 1: Manual in Azure Portal<ul><li>有熟练使用 Azure Portal 的技术者可以使用，且需要几个小时。</li></ul></li><li>Staging 2: Command Line instead of Manual<ul><li>会使用 Command Line 的技术者都可以使用，只需要几分钟。</li></ul></li><li>Staging 3: UI instead of Command Line<ul><li>任何人都可以使用，异步处理，一分钟以内完成。</li></ul></li></ul><h1 class="">Staging 1: Manual in Azure Portal</h1><blockquote><div>只有熟练使用 Azure Portal 的技术者可以使用，且需要几个小时。</div></blockquote><p>SmartCompany 是一个前后端分离的项目，backend 使用 Javalin 提供 REST API，frontend 使用 React 提供 SPA，然后将两者通过 docker-compose 整合在一起，部署在 Azure。</p><p>先说一下，我刚刚加入项目的时候，是怎么创建和维护 Azure Cloud 资源的吧。</p><p>我们有一个 README 文件，里面记录了：</p><ul><li>如何将 docker-compose 发布到 Azure App Service。</li><li>如何创建 Azure CosmosDB。</li><li>如何创建 Azure Storage</li><li>如何创建 DNS。</li><li>如何将它们整合到一起。</li></ul><p>如果你需要创建一个环境，就可以一边看着 README，一边打开 Azure Portal UI 操作了。</p><p><img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/158159797-397d909a-c3f1-48d4-90c4-602017506876.png"></p><h1 class="">Staging 2: Command Line instead of Manual</h1><blockquote><div>会使用 Command Line 的技术者都可以使用，只需要几分钟。</div></blockquote><p>因为团队中几乎所有工程师都专注于 Backend 或者 Frontend，我加入了后，DevOps 就由我顺便承担了。

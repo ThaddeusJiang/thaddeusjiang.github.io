@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2024-03-09 第 n 次复习 GenServer</h1>
-            <hr>
+          <h1 class="title">2024-03-09 第 n 次复习 GenServer</h1>
+          <hr>
 
+          <div class="content">
             <p>这是我第 n 次复习 GenServer，一直很喜欢 Elixir &amp; Erlang，希望今后可以用 Elixir &amp; Erlang 作为主力编程语言，希望它们能让我今后的程序员生涯变得快乐且有趣。</p><p>Dave Thomas 的书真的太棒了，每次读都有新感受，感受到 Dave 在编程领域的深思熟虑和远见卓识。</p><h2 class="">复习</h2><p>复习一下 GenServer 的概念和特点，帮助自己不断重复记忆，直到内化到肌肉，内化成像开车一样的技能。</p><p>关键词：<code>OTP</code> <code>applications</code> <code>processes</code> <code>behavior</code> <code>callback</code> <code>state-machine</code> <code>GenServer</code></p><p>GenServer 是 OTP 的概念，OTP 是 Erlang 社区开发复杂项目的架构和工具。OTP 可以让我们专注业务，不用每次都从头搭建手脚架，尤其是复杂业务的架构，例如：error handling、application communication、hot code swapping 等等。</p><p>memo: Elixir &amp; Erlang 社区中 applications 不一定是其他社区中定义的那种应用，可能仅仅是一个多个 processes。Elixir &amp; Erlang application 实现了 behavior，behavior 提供一些 callbacks finite-state machines 帮助我们更好的架构复杂应用。</p><h2 class="">Elixir GenServer 风格</h2><p>Elixir GenServer 推荐的代码风格不同于其他编程语言的代码风格。</p><blockquote class="tc-quote tc-big-quote"><p>GenServer 推荐我们把 External API 和 GenServer implementations 放在同一个 module 内。Elixir 提供的 <code>__MODOULE__</code> 让这种风格实现起来非常简单。
 </p></blockquote><p>形如：</p><pre><code>defmodule Stack do
   use GenServer

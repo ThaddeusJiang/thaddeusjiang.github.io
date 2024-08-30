@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2017-07-06 掌握20% 常用的 Velocity</h1>
-            <hr>
+          <h1 class="title">2017-07-06 掌握20% 常用的 Velocity</h1>
+          <hr>
 
+          <div class="content">
             <p>工作以后，我越来越能体会到 80/20 法则的强大。</p><p>这是一个不可否认的事实，常用 20% 的技术可以解决工作中 80% 的场景。
 所以我希望能介绍给你 Velocity 技术 20%，帮助你胜任 80% 的工作。</p><p>废话少说，进入正题。</p><h1 class="">概要</h1><ol><li>Velocity 是什么？</li><li>Velocity 能做什么？</li><li>Velocity 示例</li></ol><h1 class="">1. Velocity 是什么？</h1><p>Velocity 是一个基于 Java 的模版引擎，它提供模版语言用于引用 Java 代码定义的对象。</p><h1 class="">2. Velocity 能做什么？</h1><ol><li>Velocity 能创建 HTML 页面，并预留占位符。（最基本用途）</li><li>Velocity 能基于模板生成 Java，SQL 源代码。（没见过）</li><li>自动生成电子邮件。（没见过）</li><li>读取 XML，并转换成需要的文档格式，通常是 HTML。（没见过）</li></ol><h1 class="">3. Velocity 示例</h1><h1 class="">Velocity 注解</h1><ul><li>单行 <code>##</code></li><li>多行 <code>#* *#</code></li><li>代码块注释(信息) <code>##* *#</code></li></ul><h1 class="">Velocity 变量</h1><p>定义：</p><pre class="hljs"><code class="java hljs">#set( $foo = <span class="hljs-string">&quot;Velocity&quot;</span> )</code></pre><p>使用：</p><pre class="hljs"><code class="java hljs">$foo
 ${foo}</code></pre><h1 class="">Velocity 集合</h1><pre class="hljs"><code class="java hljs">#set( $greatlakes = [<span class="hljs-string">&quot;Superior&quot;</span>,<span class="hljs-string">&quot;Michigan&quot;</span>,<span class="hljs-string">&quot;Huron&quot;</span>,<span class="hljs-string">&quot;Erie&quot;</span>,<span class="hljs-string">&quot;Ontario&quot;</span>] )</code></pre><h1 class="">Velocity 条件判断</h1><pre class="hljs"><code class="java hljs">#<span class="hljs-keyword">if</span>( $foo &lt; <span class="hljs-number">10</span> )

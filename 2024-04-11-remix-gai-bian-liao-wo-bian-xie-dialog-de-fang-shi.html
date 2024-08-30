@@ -68,24 +68,26 @@
 <body class="tc-body">
   
 <div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2 my-4"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div class="navbar-brand">
-          <a href="./">
-              <h1 class="title">ThaddeusJiang</h1>
-              <p class="subtitle"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./enjoy-freely-coding-like-driving.html">Enjoy freely coding like driving</a></p>
-          </a>
-      </div></p><p><div class="navbar-end mt-2 subtitle is-5">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/wiki" rel="noopener noreferrer" target="_blank">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
       </div></p></nav></div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <div class="block content blog">
-            <h1 class="subtitle">2024-04-11 Remix 改变了我编写 dialog 的方式</h1>
-            <hr>
+          <h1 class="title">2024-04-11 Remix 改变了我编写 dialog 的方式</h1>
+          <hr>
 
+          <div class="content">
             <p>关于 dialog（对话框），回想一下，我的代码经历过好几次变化，使用 React 之前，React 初级阶段，目前部分项目使用原生 HTML 部分项目使用 Remix framework。</p><p>tl;dr</p><ol><li>React 之前：命令式，例如 window.alert(message)</li><li>React 初期：all in 声明式，例如：[isOpen, setIsOpen] = useState(true)</li><li>采用 Radix UI 阶段：借助 DialogTrigger</li><li>daisyUI 相关项目： 回归 HTML native dialog</li><li>Remix 相关项目：设计 Modal Route</li></ol><h1 class="">React 之前：命令式</h1><p>React 之前使用过 jQuery, Ext JS, pure JS 编写 UI，一般使用命令式编写 dialog UI。</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// jQuery code</span>
 $(<span class="hljs-string">&quot;#boring&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
   $.<span class="hljs-title function_">dialog</span>({
