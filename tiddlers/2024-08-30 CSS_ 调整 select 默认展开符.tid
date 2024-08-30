@@ -1,0 +1,82 @@
+created: 20240830081156287
+modified: 20240830090510981
+published: 20240830090510980
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2024-08-30 CSS: 调整 select 默认展开符
+type: text/vnd.tiddlywiki
+
+浏览器默认位置：
+
+[img[select_element_default_sytle.png]]
+
+期待调整 icon 位置，使 select 前后 padding 一致。
+
+[img[select_element_better_sytle.png]]
+
+CSS 没有开箱即用的方法可以实现期待效果，但是想要实现也不难。
+
+!! Code in tailwindUI
+
+```css
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+}
+```
+
+!! 笔记
+
+1. 移除浏览器默认 style
+
+```css
+appearance: none;
+```
+
+2. 使用 background-image 模拟展开符号
+
+```css
+/* SVG */
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+
+/* 禁止重复 */
+background-repeat: no-repeat;
+
+/* 调整位置 */
+background-position: right 0.5rem center;
+
+/* 调整大小 */
+background-size: 1.5em 1.5em;
+```
+
+!! 当然，也可以 copy CSS from daisyUI
+
+```css
+.select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1px + 50%), calc(100% - 16.1px) calc(1px + 50%);
+    background-size: 4px 4px, 4px 4px;
+    background-repeat: no-repeat;
+}
+```
+
+!! 其他
+
+其他需要留意的默认风格
+
+1. input[type=number] 数字调节按钮太丑了，推荐移除默认风格
+
+```css
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+```
+
