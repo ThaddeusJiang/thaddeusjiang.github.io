@@ -1,0 +1,208 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.5" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2024-09-02 Prisma 事务和并行不可兼得</title>
+<meta name="description" content="在 prisma.$transaction() 中采用并行代码是十分危险且不推荐的。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2024-09-02-prisma-shi-wu-he-bing-xing-bu-ke-jian-de" />
+<meta property="og:title" content="2024-09-02 Prisma 事务和并行不可兼得" />
+<meta property="og:description" content="在 prisma.$transaction() 中采用并行代码是十分危险且不推荐的。" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2024-09-02 Prisma 事务和并行不可兼得" />
+<meta name="twitter:description" content="在 prisma.$transaction() 中采用并行代码是十分危险且不推荐的。" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1635805945732415488/hDe8Tg3k_400x400.jpg" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
+      </div></p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title">2024-09-02 Prisma 事务和并行不可兼得</h1>
+          <hr>
+
+          <div class="content">
+            <p>在 prisma.$transaction() 中采用并行代码是十分危险且不推荐的。</p><p>如下代码是错误的用法，可能会导致不可预期的行为</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">await</span> prisma.$transaction(<span class="hljs-keyword">async</span> (prisma) =&gt; {
+  <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>([
+    prisma.<span class="hljs-property">user</span>.<span class="hljs-title function_">create</span>({ <span class="hljs-attr">data</span>: { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span> } }),
+    prisma.<span class="hljs-property">post</span>.<span class="hljs-title function_">create</span>({ <span class="hljs-attr">data</span>: { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Hello World&#x27;</span> } })
+  ]);
+});</code></pre><p>因为代码是并行的，prisma 无法确保它们同一个 transaction 中执行，可能出现数据库锁问题或者无法正确回滚。</p><p>虽然如下代码是允许的，但是也有潜在问题。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">await</span> prisma.$transaction(
+  [
+    prisma.<span class="hljs-property">resource</span>.<span class="hljs-title function_">deleteMany</span>({ <span class="hljs-attr">where</span>: { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;name&#x27;</span> } }),
+    prisma.<span class="hljs-property">resource</span>.<span class="hljs-title function_">createMany</span>({ data }),
+  ],
+  {
+    <span class="hljs-attr">isolationLevel</span>: <span class="hljs-title class_">Prisma</span>.<span class="hljs-property">TransactionIsolationLevel</span>.<span class="hljs-property">Serializable</span>, <span class="hljs-comment">// optional, default defined by database configuration</span>
+  }
+)</code></pre><p>潜在问题： deleteMany() &amp; createMany() 是并行的，可能导致数据库回滚失败或者死锁，所以官方文档中如下补救实例：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Prisma</span>, <span class="hljs-title class_">PrismaClient</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@prisma/client&#x27;</span>
+
+<span class="hljs-keyword">const</span> prisma = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PrismaClient</span>()
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">main</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">MAX_RETRIES</span> = <span class="hljs-number">5</span>
+  <span class="hljs-keyword">let</span> retries = <span class="hljs-number">0</span>
+
+  <span class="hljs-keyword">let</span> result
+  <span class="hljs-keyword">while</span> (retries &lt; <span class="hljs-variable constant_">MAX_RETRIES</span>) {
+    <span class="hljs-keyword">try</span> {
+      result = <span class="hljs-keyword">await</span> prisma.$transaction(
+        [
+          prisma.<span class="hljs-property">user</span>.<span class="hljs-title function_">deleteMany</span>({
+            <span class="hljs-attr">where</span>: {
+              <span class="hljs-comment">/** args */</span>
+            },
+          }),
+          prisma.<span class="hljs-property">post</span>.<span class="hljs-title function_">createMany</span>({
+            <span class="hljs-attr">data</span>: {
+              <span class="hljs-comment">/** args */</span>
+            },
+          }),
+        ],
+        {
+          <span class="hljs-attr">isolationLevel</span>: <span class="hljs-title class_">Prisma</span>.<span class="hljs-property">TransactionIsolationLevel</span>.<span class="hljs-property">Serializable</span>,
+        }
+      )
+      <span class="hljs-keyword">break</span>
+    } <span class="hljs-keyword">catch</span> (error) {
+      <span class="hljs-keyword">if</span> (error.<span class="hljs-property">code</span> === <span class="hljs-string">&#x27;P2034&#x27;</span>) {
+        retries++
+        <span class="hljs-keyword">continue</span>
+      }
+      <span class="hljs-keyword">throw</span> error
+    }
+  }
+}</code></pre><p>imo: 没必要增加复杂度，只要接受“事务和并行不可兼得”即可。</p><h2 class="">其他</h2><p>prisma $transaction([]) 参数不是并行的，它们按照参数顺序被执行</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">await</span> prisma.$transaction([iRunFirst, iRunSecond, iRunThird])</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.prisma.io/docs/orm/prisma-client/queries/transactions#transaction-api" rel="noopener noreferrer" target="_blank">https://www.prisma.io/docs/orm/prisma-client/queries/transactions#transaction-api</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+      <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink-external" href="https://gitlab.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitLab</a> | <a class="tc-tiddlylink-external" href="https://x.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">X.com</a> | <a class="tc-tiddlylink-external" href="https://www.aier.app/avatars/ThaddeusJiang" rel="noopener noreferrer" target="_blank">AIer.app</a> 
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>
