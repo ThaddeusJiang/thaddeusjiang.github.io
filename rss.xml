@@ -8,7 +8,7 @@
       <title>2024-09-02 Prisma 事务和并行不可兼得</title>
       <link>https://thaddeusjiang.com/2024-09-02-prisma-shi-wu-he-bing-xing-bu-ke-jian-de</link>
 			<description><![CDATA[
-<div class="container">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
         <h1 class="brand">
           <a class="title" href="./">ThaddeusJiang</a>
@@ -114,7 +114,7 @@
       <title>2024-08-30 CSS: 调整 select 默认展开符</title>
       <link>https://thaddeusjiang.com/2024-08-30-css-diao-zheng-select-mo-ren-zhan-kai-fu</link>
 			<description><![CDATA[
-<div class="container">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
         <h1 class="brand">
           <a class="title" href="./">ThaddeusJiang</a>
@@ -200,7 +200,7 @@ input[type=<span class="hljs-string">&quot;number&quot;</span>]::-webkit-inner-s
       <title>2024-07-12 js 实现 snake_case 转 camelCase</title>
       <link>https://thaddeusjiang.com/2024-07-12-js-shi-xian-snake-case-zhuan-camelcase</link>
 			<description><![CDATA[
-<div class="container">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
         <h1 class="brand">
           <a class="title" href="./">ThaddeusJiang</a>
