@@ -1,0 +1,91 @@
+created: 20240902062816981
+modified: 20240902064842014
+published: 20240902064842012
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2024-09-02 Prisma 事务和并行不可兼得
+type: text/vnd.tiddlywiki
+
+在 prisma.$transaction() 中采用并行代码是十分危险且不推荐的。
+
+如下代码是错误的用法，可能会导致不可预期的行为
+
+```js
+await prisma.$transaction(async (prisma) => {
+  await Promise.all([
+    prisma.user.create({ data: { name: 'Alice' } }),
+    prisma.post.create({ data: { title: 'Hello World' } })
+  ]);
+});
+```
+
+因为代码是并行的，prisma 无法确保它们同一个 transaction 中执行，可能出现数据库锁问题或者无法正确回滚。
+
+虽然如下代码是允许的，但是也有潜在问题。
+
+```js
+await prisma.$transaction(
+  [
+    prisma.resource.deleteMany({ where: { name: 'name' } }),
+    prisma.resource.createMany({ data }),
+  ],
+  {
+    isolationLevel: Prisma.TransactionIsolationLevel.Serializable, // optional, default defined by database configuration
+  }
+)
+```
+
+潜在问题： deleteMany() & createMany() 是并行的，可能导致数据库回滚失败或者死锁，所以官方文档中如下补救实例：
+
+```js
+import { Prisma, PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+async function main() {
+  const MAX_RETRIES = 5
+  let retries = 0
+
+  let result
+  while (retries < MAX_RETRIES) {
+    try {
+      result = await prisma.$transaction(
+        [
+          prisma.user.deleteMany({
+            where: {
+              /** args */
+            },
+          }),
+          prisma.post.createMany({
+            data: {
+              /** args */
+            },
+          }),
+        ],
+        {
+          isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
+        }
+      )
+      break
+    } catch (error) {
+      if (error.code === 'P2034') {
+        retries++
+        continue
+      }
+      throw error
+    }
+  }
+}
+```
+
+imo: 没必要增加复杂度，只要接受“事务和并行不可兼得”即可。
+
+!! 其他
+
+prisma $transaction([]) 参数不是并行的，它们按照参数顺序被执行
+
+```js
+await prisma.$transaction([iRunFirst, iRunSecond, iRunThird])
+```
+
+refs:
+
+* https://www.prisma.io/docs/orm/prisma-client/queries/transactions#transaction-api
