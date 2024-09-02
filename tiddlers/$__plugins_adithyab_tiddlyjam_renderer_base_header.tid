@@ -1,12 +1,12 @@
 created: 20200728151423521
 creator: Adithya_
-modified: 20240830065953467
+modified: 20240902133158007
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/header
 type: text/vnd.tiddlywiki
 
-<div class="container">
+<div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
