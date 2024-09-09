@@ -1,0 +1,83 @@
+created: 20240909014307210
+modified: 20240909025704418
+tags: $:/plugins/adithyab/tiddlyjam/live blog
+title: 2024-09-09 I built Save_it
+type: text/vnd.tiddlywiki
+
+Save_it is a Telegram bot that can download and save videos or images from X.com, YouTube, Instagram, and other platforms.
+
+[img[save_it_bot_logo.jpg]]
+
+!! Why I built Save_it?
+
+你是否也有如下困扰？
+
+1. 你想分享一些 X.com, YouTube, Instagram 的视频给国内的朋友，但是他们无法直接通过链接访问你的分享。
+
+2. 你想下载 x.com, youtue.com, instagram.com 的视频，但是 x.com 需要付费；YouTube 只能在 YouTube App 中观看；Instagram 甚至没有下载功能。 🤷
+
+3. 你下载了很多有趣的视频和图片，但是你的手机相册中已经变得杂乱无章，你甚至找不到自己的生活记录。
+
+我有上面这些困扰，所以我开发了 Save_it。
+
+!! 先说一下在 Save_it 之前，我是如何解决上面的困扰的吧。
+
+> 1. 你想分享一些 X.com, YouTube, Instagram 的视频给国内的朋友，但是他们无法直接通过链接访问你的分享。
+> 2. 你想下载 x.com, youtue.com, instagram.com 的视频，但是 x.com 需要付费；YouTube 只能在 YouTube App 中观看；Instagram 甚至没有下载功能。 🤷
+
+访问 Google，寻找一个不需要登录、不需要付费的下载工具。
+
+缺点：
+
+# 每次需要花费 10分钟左右。（浪费时间）
+# 并且每次找到的工具都不一样，下载 x.com youtube.com instagram.com 资源的工具也不一样。（浪费精力）
+# 有些垃圾工具甚至在下载后才告知不付费无法得到资源。（浪费生命）
+
+> 3. 你下载了很多有趣的视频和图片，但是你的手机相册中已经变得杂乱无章，你甚至找不到自己的生活记录。
+
+分享给别人以后，及时删除手机中资源。（麻烦死了）
+
+
+!! Save_it 可以干嘛？
+
+1. 不需要账号密码，免费下载 X.com, YouTube, Instagram 视频和图片
+
+2. 免费，无限容量存储空间（感谢 telegram）
+
+3. 不侵入手机相册，让手机相册回归干净的生活记录
+
+4. （可配置）同步保存到个人云存储空间（Google Drive）
+
+FAQ：为什么已经保存到 telegram 了，还需要保存到 Google Drive 呢？
+
+源自我的家庭需求，我和老婆在准备盖房子，建筑公司希望我们能提供一些参考图片，我和老婆主要在 Instagram 和 Pinterest 上收集自己喜欢的房子图片和视频。
+之前的解决方案：两个人各自下载资源，并上传到 Google Drive 的共享文件夹。
+
+缺点：
+
+# 不能及时知道彼此收藏的内容
+# 不能及时沟通彼此喜欢的风格，相互理解，相互包容
+
+在 Telegram 中使用 Save_it 解决了上面问题：我们创建了一个 telegram group，只需要喜欢的资源链接贴进去就能自动下载并保存到 Google Drive 了；还可以直接在 telegram 中沟通彼此的收藏，及时反馈，及时统一对房子的期待。
+
+
+!! Save_it 未来可能的功能
+
+1. 比 iOS 和 Google Drive / Google Photo 更强大的图片检索
+
+你有如下困扰吗？
+
+你曾经保存过某个视频或图片，但当你想再次查看它的时候，死活就是找不到。
+
+# X.com, YouTube, Instagram 的收藏功能太弱了，搜索功能几乎就是残废；
+# iOS / Google Photo 的搜索功能也是废物一般，不能按时间搜索，如：中秋节、夏休、冬季等等；不能按分类搜索，如：汽车相关、宠物相关、美食相关等等；不能精确搜索图片中的文字。
+# 几乎所有工具都不能根据视频内容搜索，图片内容虽然也可以，但是十分不准确。
+
+我有以上困扰，我可能会创造一个工具来解决它们。
+
+!! 最后
+
+目前 Save_it 是免费、无需申请、无账号密码的。
+它运行在我个人的免费服务器上，可能因为流量过载而不稳定。
+
+Save_it 是开源的，如果你对稳定性要求很高，可以 self-host。开源地址：https://github.com/ThaddeusJiang/save_it
