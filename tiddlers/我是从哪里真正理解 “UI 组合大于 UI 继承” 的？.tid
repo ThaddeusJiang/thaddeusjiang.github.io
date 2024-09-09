@@ -1,11 +1,15 @@
 created: 20210212031659024
 creator: TJ
-modified: 20210415133447988
+modified: 20240908085733314
 modifier: TJ
-tags: 
+tags: Bookmark
 title: 我是从哪里真正理解 “UI 组合大于 UI 继承” 的？
 type: text/vnd.tiddlywiki
 
-看完这个视频，相信你也会理解。
+* 组合大于继承
+
+https://www.youtube-nocookie.com/embed/3XaXKiXtNjw
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3XaXKiXtNjw?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+React 官方文档中说：没有遇到必须放弃组合使用继承的场景，link: https://zh-hans.legacy.reactjs.org/docs/composition-vs-inheritance.html

@@ -1,0 +1,17 @@
+created: 20240908084231550
+modified: 20240908085813338
+tags: Bookmark
+title: HTML 推荐显式声明 label for and element id
+type: text/vnd.tiddlywiki
+
+TL;DR;
+
+推荐显式声明 label for and element id
+
+理由： 因为如 macOS Voice Control 等工具不支持隐式声明 label input 配对，所以需要显式声明。
+
+https://www.tpgi.com/should-form-labels-be-wrapped-or-separate/
+
+refs:
+
+* https://support.apple.com/en-gb/102225
