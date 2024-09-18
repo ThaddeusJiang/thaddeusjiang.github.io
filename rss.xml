@@ -5,6 +5,160 @@
    <link>https://thaddeusjiang.com</link>
    <description>Enjoy freely coding like driving</description>
    <item>
+      <title>2024-09-18 JS wretch</title>
+      <link>https://thaddeusjiang.com/2024-09-18-js-wretch</link>
+			<description><![CDATA[
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./#wiki">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
+      </div></p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title">2024-09-18 JS wretch</h1>
+          <hr>
+
+          <div class="content">
+            <p>关于 JS HTTP request client library，现阶段我推荐 wretch。</p><blockquote><div>我的技术栈变化：wretch &lt;- fetch &lt;- node-fetch &lt;- axios</div></blockquote><h2 class="">我推荐 wretch 的理由：</h2><ol><li>适当的封装，不需要编写大量业务无关的 boilerplate code</li><li>统一实现的请求格式，如：请求 application/json, multipart/form-data, application/x-www-form-urlencoded</li><li>开箱即用的高级功能，如：retry, delay, abort 等等</li></ol><h2 class="">技术栈变化简述</h2><ul><li>axios: ES 提出 fetch() API 前，只记得 axios，XMLHttpRequest 我已经不记得了。</li><li>node-fetch: ES 提出 fetch() API 后，但是 Node.js 没有实现出来</li><li>fetch: Node.js 18 发布 fetch() API 后</li><li>wretch: 写 fetch() 太疲劳了，寻找简单的工具</li></ul><h2 class="">1. 什么是“不需要编写大量业务无关的 boilerplate code”</h2><p>fetch 需要手动配置 http methods, headers and body</p><pre><code>fetch("endpoint", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ "hello": "world" })
+}).then(response =&gt; /* ... */)</code></pre><p>fetch() 需要手动处理 status，堆叠 if-else</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// 😮‍💨</span>
+<span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;anything&quot;</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span>(!response.<span class="hljs-property">ok</span>) {
+      <span class="hljs-keyword">if</span>(response.<span class="hljs-property">status</span> === <span class="hljs-number">404</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Not found&quot;</span>)
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(response.<span class="hljs-property">status</span> === <span class="hljs-number">401</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Unauthorized&quot;</span>)
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(response.<span class="hljs-property">status</span> === <span class="hljs-number">418</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;I&#x27;m a teapot !&quot;</span>)
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Other error&quot;</span>)
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-comment">// ...</span>
+  })
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-comment">/* ... */</span>)
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> { <span class="hljs-comment">/* ... */</span> })</code></pre><blockquote><div>而这些都是业务无关的代码，仅仅是为了配合 fetch() API 的使用。</div></blockquote><p>wretch 封装了这些业务无关的代码，让你专注于业务逻辑。</p><pre class="hljs"><code class="js hljs"><span class="hljs-title function_">wretch</span>(<span class="hljs-string">&quot;endpoint&quot;</span>)
+  .<span class="hljs-title function_">post</span>({ <span class="hljs-string">&quot;hello&quot;</span>: <span class="hljs-string">&quot;world&quot;</span> })
+  .<span class="hljs-title function_">notFound</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> { <span class="hljs-comment">/* ... */</span> })
+  .<span class="hljs-title function_">unauthorized</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> { <span class="hljs-comment">/* ... */</span> })
+  .<span class="hljs-title function_">error</span>(<span class="hljs-number">418</span>, <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> { <span class="hljs-comment">/* ... */</span> })
+  .<span class="hljs-title function_">res</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-comment">/* ... */</span>)
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> { <span class="hljs-comment">/* uncaught errors */</span> })</code></pre><h2 class="">2. 什么是“统一实现的请求格式”</h2><p>wretch 无论是发送 json 或 form-data 亦或 x-www-form-urlencoded 都可以直接调用 JS object 对象。</p><blockquote><div>So Sweet 🥰</div></blockquote><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> form = { <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: { <span class="hljs-attr">c</span>: <span class="hljs-number">2</span> } };
+
+<span class="hljs-comment">// 📤 application/json</span>
+<span class="hljs-title function_">wretch</span>(<span class="hljs-string">&quot;...&quot;</span>).<span class="hljs-title function_">post</span>(form)
+
+<span class="hljs-comment">// 📤 multipart/form-data</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">FormDataAddon</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;wretch/addons/formData&quot;</span>
+<span class="hljs-title function_">wretch</span>(<span class="hljs-string">&quot;...&quot;</span>).<span class="hljs-title function_">addon</span>(<span class="hljs-title class_">FormDataAddon</span>).<span class="hljs-title function_">formData</span>(form).<span class="hljs-title function_">post</span>();
+
+<span class="hljs-comment">// 📤 application/x-www-form-urlencoded</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">FormUrlAddon</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;wretch/addons/formUrl&quot;</span>
+<span class="hljs-title function_">wretch</span>(<span class="hljs-string">&quot;...&quot;</span>).<span class="hljs-title function_">addon</span>(<span class="hljs-title class_">FormUrlAddon</span>).<span class="hljs-title function_">formUrl</span>(form).<span class="hljs-title function_">post</span>();</code></pre><p>fetch()</p><ol><li>发送 json 需要 <code>JSON.stringify();</code></li><li>发送 form-data 需要构建 <code>new FormData();</code></li><li>发送 x-www-form-urlencoded 需要 <code>new URLSearchParams();</code></li></ol><blockquote><div>Why? 😵‍💫</div></blockquote><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> data = { <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: { <span class="hljs-attr">c</span>: <span class="hljs-number">2</span> } }
+
+<span class="hljs-comment">// 📤 application/json</span>
+<span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;endpoint&quot;</span>, {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">headers</span>: { <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span> }, <span class="hljs-comment">// 1️⃣</span>
+  <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data) <span class="hljs-comment">// 2️⃣</span>
+}).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-comment">/* ... */</span>)
+
+<span class="hljs-comment">// 📤 multipar/form-data</span>
+<span class="hljs-keyword">const</span> formData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormData</span>(); <span class="hljs-comment">// 1️⃣</span>
+formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">1</span>);
+formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>({ <span class="hljs-attr">c</span>: <span class="hljs-number">2</span>})); <span class="hljs-comment">// 2️⃣</span>
+
+<span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://example.com/submit&#x27;</span>, {
+    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,
+    <span class="hljs-attr">body</span>: formData
+}).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-comment">/* ... */</span>)
+
+<span class="hljs-comment">// 📤 application/x-www-form-urlencoded</span>
+<span class="hljs-keyword">const</span> data = <span class="hljs-keyword">new</span> <span class="hljs-title class_">URLSearchParams</span>(); <span class="hljs-comment">// 1️⃣</span>
+data.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">1</span>);
+data.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>({ <span class="hljs-attr">c</span>: <span class="hljs-number">2</span>})); <span class="hljs-comment">// 2️⃣</span>
+
+<span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://example.com/submit&#x27;</span>, {
+    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,
+    <span class="hljs-attr">headers</span>: {
+        <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/x-www-form-urlencoded&#x27;</span> <span class="hljs-comment">// 3️⃣</span>
+    },
+    <span class="hljs-attr">body</span>: data.<span class="hljs-title function_">toString</span>()() <span class="hljs-comment">// 4️⃣</span>
+}).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-comment">/* ... */</span>)</code></pre><h2 class="">3. wretch 提供的“开箱即用的高级功能”</h2><p>wretch 实现 retry 功能 So Easy</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> { retry } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;wretch/middlewares&quot;</span>
+
+<span class="hljs-keyword">const</span> w = <span class="hljs-title function_">wretch</span>().<span class="hljs-title function_">middlewares</span>([<span class="hljs-title function_">retry</span>()])</code></pre><p>fetch() 实现 retry 功能，So Hard</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// generated by ChatGPT</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">fetchWithRetry</span>(<span class="hljs-params">url, options = {}, retries = <span class="hljs-number">3</span>, delay = <span class="hljs-number">1000</span></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">fetch</span>(url, options)
+        .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {
+            <span class="hljs-keyword">if</span> (!response.<span class="hljs-property">ok</span>) {
+                <span class="hljs-keyword">if</span> (retries &gt; <span class="hljs-number">0</span>) {
+                    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Retrying... <span class="hljs-subst">${retries}</span> attempts left.`</span>);
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
+                        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">resolve</span>(<span class="hljs-title function_">fetchWithRetry</span>(url, options, retries - <span class="hljs-number">1</span>, delay)), delay);
+                    });
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Max retries reached, fetch failed.&#x27;</span>);
+                }
+            }
+            <span class="hljs-keyword">return</span> response.<span class="hljs-title function_">json</span>(); <span class="hljs-comment">// 处理返回的响应体（假设是 JSON 格式）</span>
+        })
+        .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {
+            <span class="hljs-keyword">if</span> (retries &gt; <span class="hljs-number">0</span>) {
+                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Retrying due to error: <span class="hljs-subst">${error.message}</span>, <span class="hljs-subst">${retries}</span> attempts left.`</span>);
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
+                    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">resolve</span>(<span class="hljs-title function_">fetchWithRetry</span>(url, options, retries - <span class="hljs-number">1</span>, delay)), delay);
+                });
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Max retries reached, fetch failed: &#x27;</span> + error.<span class="hljs-property">message</span>);
+            }
+        });
+}
+
+<span class="hljs-comment">// 调用</span>
+<span class="hljs-title function_">fetchWithRetry</span>(<span class="hljs-string">&#x27;https://example.com/api&#x27;</span>, { <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;GET&#x27;</span> })
+    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Success:&#x27;</span>, data))
+    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;Error:&#x27;</span>, error));
+</code></pre><p>更不用提 delay abort 等高级功能了。</p><h2 class="">我发现的 wretch 的一点点不足</h2><ol><li>progress 特性仅支持 download <a class="tc-tiddlylink-external" href="https://github.com/elbywan/wretch/issues/225#issuecomment-2105633417" rel="noopener noreferrer" target="_blank">https://github.com/elbywan/wretch/issues/225#issuecomment-2105633417</a></li><li>没有开箱即用 Stream handler</li></ol><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/elbywan/wretch" rel="noopener noreferrer" target="_blank">https://github.com/elbywan/wretch</a></li><li><a class="tc-tiddlylink-external" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API" rel="noopener noreferrer" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/node-fetch/node-fetch" rel="noopener noreferrer" target="_blank">https://github.com/node-fetch/node-fetch</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/axios/axios" rel="noopener noreferrer" target="_blank">https://github.com/axios/axios</a></li><li><a class="tc-tiddlylink-external" href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest" rel="noopener noreferrer" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Wed, 18 September 2024 7:45:32 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2024-09-18-js-wretch</guid>      
+   </item>
+
+   <item>
       <title>2024-09-09 I built Save_it</title>
       <link>https://thaddeusjiang.com/2024-09-09-i-built-save-it</link>
 			<description><![CDATA[
@@ -168,92 +322,6 @@
 ]]></description>
       <pubDate>Mon, 2 September 2024 6:48:42 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-09-02-prisma-shi-wu-he-bing-xing-bu-ke-jian-de</guid>      
-   </item>
-
-   <item>
-      <title>2024-08-30 CSS: 调整 select 默认展开符</title>
-      <link>https://thaddeusjiang.com/2024-08-30-css-diao-zheng-select-mo-ren-zhan-kai-fu</link>
-			<description><![CDATA[
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
-        <h1 class="brand">
-          <a class="title" href="./">ThaddeusJiang</a>
-        </h1>
-        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
-      </div>
-      
-      <div class="navbar-end mt-2">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./#wiki">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
-      </div></p></nav></div>
-</div>
-
-
-<div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <h1 class="title">2024-08-30 CSS: 调整 select 默认展开符</h1>
-          <hr>
-
-          <div class="content">
-            <p>浏览器默认位置：</p><p><img class=" tc-image-loading" src="data:image/png;base64,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"></p><p>期待调整 icon 位置，使 select 前后 padding 一致。</p><p><img class=" tc-image-loading" src="data:image/png;base64,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"></p><p>CSS 没有开箱即用的方法可以实现期待效果，但是想要实现也不难。</p><h2 class="">Code in tailwindUI</h2><pre class="hljs"><code class="css hljs">select {
-  appearance: none;
-  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;data:image/svg+xml,%3csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; fill=&#x27;none&#x27; viewBox=&#x27;0 0 20 20&#x27;%3e%3cpath stroke=&#x27;%236b7280&#x27; stroke-linecap=&#x27;round&#x27; stroke-linejoin=&#x27;round&#x27; stroke-width=&#x27;1.5&#x27; d=&#x27;M6 8l4 4 4-4&#x27;/%3e%3c/svg%3e&quot;</span>);
-  <span class="hljs-attribute">background-position</span>: right <span class="hljs-number">0.5rem</span> center;
-  <span class="hljs-attribute">background-repeat</span>: no-repeat;
-  <span class="hljs-attribute">background-size</span>: <span class="hljs-number">1.5em</span> <span class="hljs-number">1.5em</span>;
-}</code></pre><h2 class="">笔记</h2><p>1. 移除浏览器默认 style</p><pre class="hljs"><code class="css hljs">appearance: none;</code></pre><p>2. 使用 background-image 模拟展开符号</p><pre class="hljs"><code class="css hljs"><span class="hljs-comment">/* SVG */</span>
-<span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;data:image/svg+xml,%3csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; fill=&#x27;none&#x27; viewBox=&#x27;0 0 20 20&#x27;%3e%3cpath stroke=&#x27;%236b7280&#x27; stroke-linecap=&#x27;round&#x27; stroke-linejoin=&#x27;round&#x27; stroke-width=&#x27;1.5&#x27; d=&#x27;M6 8l4 4 4-4&#x27;/%3e%3c/svg%3e&quot;</span>);
-
-<span class="hljs-comment">/* 禁止重复 */</span>
-<span class="hljs-attribute">background-repeat</span>: no-repeat;
-
-<span class="hljs-comment">/* 调整位置 */</span>
-<span class="hljs-attribute">background-position</span>: right <span class="hljs-number">0.5rem</span> center;
-
-<span class="hljs-comment">/* 调整大小 */</span>
-<span class="hljs-attribute">background-size</span>: <span class="hljs-number">1.5em</span> <span class="hljs-number">1.5em</span>;</code></pre><h2 class="">当然，也可以 copy CSS from daisyUI</h2><pre class="hljs"><code class="css hljs"><span class="hljs-selector-class">.select</span> {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    
-    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">45deg</span>, transparent <span class="hljs-number">50%</span>, currentColor <span class="hljs-number">50%</span>), <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">135deg</span>, currentColor <span class="hljs-number">50%</span>, transparent <span class="hljs-number">50%</span>);
-    <span class="hljs-attribute">background-position</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">20px</span>) <span class="hljs-built_in">calc</span>(<span class="hljs-number">1px</span> + <span class="hljs-number">50%</span>), <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">16.1px</span>) <span class="hljs-built_in">calc</span>(<span class="hljs-number">1px</span> + <span class="hljs-number">50%</span>);
-    <span class="hljs-attribute">background-size</span>: <span class="hljs-number">4px</span> <span class="hljs-number">4px</span>, <span class="hljs-number">4px</span> <span class="hljs-number">4px</span>;
-    <span class="hljs-attribute">background-repeat</span>: no-repeat;
-}</code></pre><h2 class="">其他</h2><p>其他需要留意的默认风格</p><p>1. input[type=number] 数字调节按钮太丑了，推荐移除默认风格</p><pre class="hljs"><code class="css hljs"><span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=<span class="hljs-string">&quot;number&quot;</span>]</span>::-webkit-outer-spin-button,
-input[type=<span class="hljs-string">&quot;number&quot;</span>]::-webkit-inner-spin-button {
-  appearance: none;
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-}</code></pre>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Fri, 30 August 2024 9:5:10 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-08-30-css-diao-zheng-select-mo-ren-zhan-kai-fu</guid>      
    </item>
 
 </channel>
