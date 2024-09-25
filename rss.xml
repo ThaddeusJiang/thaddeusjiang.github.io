@@ -1,9 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-   <title>ThaddeusJiang</title>
+   <title>ThaddeusJiang's Blog</title>
    <link>https://thaddeusjiang.com</link>
-   <description>Enjoy freely coding like driving</description>
+   <description>爱自由</description>
+   <item>
+      <title>2024-09-25 Just use PostgreSQL</title>
+      <link>https://thaddeusjiang.com/2024-09-25-just-use-postgresql</link>
+			<description><![CDATA[
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang's Blog</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">爱自由</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./#wiki">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
+      </div></p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title">2024-09-25 Just use PostgreSQL</h1>
+          <hr>
+
+          <div class="content">
+            <p>一个小例子解释为什么我默认选择 PostgreSQL 而不是 SQLite。</p><blockquote><div>为什么要解释？</div><div>答：local-first 最近又流行起来了，JS 社区的 Kent C. Dodds 和 Rails 社区的 DHH 都推荐使用 SQLite。但是日常工作中，我感觉 SQLite 经常背刺我。</div></blockquote><h2 class="">需求：从 url 中提取 port，例如：<a class="tc-tiddlylink-external" href="http://localhost:3000/setup" rel="noopener noreferrer" target="_blank">http://localhost:3000/setup</a> -&gt; 3000</h2><pre class="hljs"><code class="sql hljs"># PostgreSQL
+<span class="hljs-keyword">SELECT</span> 
+    <span class="hljs-built_in">substring</span>(url <span class="hljs-keyword">FROM</span> <span class="hljs-string">&#x27;:(\d+)&#x27;</span>) <span class="hljs-keyword">AS</span> port
+<span class="hljs-keyword">FROM</span> 
+    (<span class="hljs-keyword">SELECT</span> <span class="hljs-string">&#x27;http://localhost:3000/setup&#x27;</span> <span class="hljs-keyword">AS</span> url) <span class="hljs-keyword">AS</span> t;
+</code></pre><pre class="hljs"><code class="sql hljs"># SQLite
+<span class="hljs-keyword">SELECT</span> 
+    substr(url, instr(url, <span class="hljs-string">&#x27;:&#x27;</span>) <span class="hljs-operator">+</span> <span class="hljs-number">1</span>, instr(url, <span class="hljs-string">&#x27;/&#x27;</span>, instr(url, <span class="hljs-string">&#x27;:&#x27;</span>)) <span class="hljs-operator">-</span> instr(url, <span class="hljs-string">&#x27;:&#x27;</span>) <span class="hljs-operator">-</span> <span class="hljs-number">1</span>) <span class="hljs-keyword">AS</span> port
+<span class="hljs-keyword">FROM</span> 
+    (<span class="hljs-keyword">SELECT</span> <span class="hljs-string">&#x27;http://localhost:3000/setup&#x27;</span> <span class="hljs-keyword">AS</span> url) <span class="hljs-keyword">AS</span> t;</code></pre><p>对比之下，Postgres 的 substring 比 SQLite 的 substr 简单太多了，开箱即用的感觉真好。</p><h2 class="">另外</h2><p>我今天发现 Metabase 的 regexextract 表达式不支持 SQLite。🥲</p><p>Doc: <a class="tc-tiddlylink-external" href="https://www.metabase.com/docs/latest/questions/query-builder/expressions-list#regexextract" rel="noopener noreferrer" target="_blank">https://www.metabase.com/docs/latest/questions/query-builder/expressions-list#regexextract</a></p><h2 class="">人生苦短，我用 Postgres。</h2><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.epicweb.dev/why-you-should-probably-be-using-sqlite" rel="noopener noreferrer" target="_blank">https://www.epicweb.dev/why-you-should-probably-be-using-sqlite</a></li><li><a class="tc-tiddlylink-external" href="https://x.com/search?f=tweets&amp;q=sqlite+from:dhh" rel="noopener noreferrer" target="_blank">https://x.com/search?f=tweets&amp;q=sqlite+from:dhh</a>+</li><li><a class="tc-tiddlylink-external" href="https://x.com/search?q=Just%20use%20PostgreSQL" rel="noopener noreferrer" target="_blank">https://x.com/search?q=Just%20use%20PostgreSQL</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Wed, 25 September 2024 9:36:29 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2024-09-25-just-use-postgresql</guid>      
+   </item>
+
    <item>
       <title>2024-09-18 JS wretch</title>
       <link>https://thaddeusjiang.com/2024-09-18-js-wretch</link>
@@ -11,9 +77,9 @@
 <div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
         <h1 class="brand">
-          <a class="title" href="./">ThaddeusJiang</a>
+          <a class="title" href="./">ThaddeusJiang's Blog</a>
         </h1>
-        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+        <p class="subtitle is-size-6 is-italic">爱自由</p>
       </div>
       
       <div class="navbar-end mt-2">
@@ -165,9 +231,9 @@ data.<span class="hljs-title function_">append</span>(<span class="hljs-string">
 <div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
         <h1 class="brand">
-          <a class="title" href="./">ThaddeusJiang</a>
+          <a class="title" href="./">ThaddeusJiang's Blog</a>
         </h1>
-        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
+        <p class="subtitle is-size-6 is-italic">爱自由</p>
       </div>
       
       <div class="navbar-end mt-2">
@@ -216,112 +282,6 @@ data.<span class="hljs-title function_">append</span>(<span class="hljs-string">
 ]]></description>
       <pubDate>Mon, 9 September 2024 1:43:7 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-09-09-i-built-save-it</guid>      
-   </item>
-
-   <item>
-      <title>2024-09-02 Prisma 事务和并行不可兼得</title>
-      <link>https://thaddeusjiang.com/2024-09-02-prisma-shi-wu-he-bing-xing-bu-ke-jian-de</link>
-			<description><![CDATA[
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
-        <h1 class="brand">
-          <a class="title" href="./">ThaddeusJiang</a>
-        </h1>
-        <p class="subtitle is-size-6 is-italic">Enjoy freely coding like driving</p>
-      </div>
-      
-      <div class="navbar-end mt-2">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./#wiki">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
-      </div></p></nav></div>
-</div>
-
-
-<div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <h1 class="title">2024-09-02 Prisma 事务和并行不可兼得</h1>
-          <hr>
-
-          <div class="content">
-            <p>在 prisma.$transaction() 中采用并行代码是十分危险且不推荐的。</p><p>如下代码是错误的用法，可能会导致不可预期的行为</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">await</span> prisma.$transaction(<span class="hljs-keyword">async</span> (prisma) =&gt; {
-  <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>([
-    prisma.<span class="hljs-property">user</span>.<span class="hljs-title function_">create</span>({ <span class="hljs-attr">data</span>: { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span> } }),
-    prisma.<span class="hljs-property">post</span>.<span class="hljs-title function_">create</span>({ <span class="hljs-attr">data</span>: { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Hello World&#x27;</span> } })
-  ]);
-});</code></pre><p>因为代码是并行的，prisma 无法确保它们同一个 transaction 中执行，可能出现数据库锁问题或者无法正确回滚。</p><p>虽然如下代码是允许的，但是也有潜在问题。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">await</span> prisma.$transaction(
-  [
-    prisma.<span class="hljs-property">resource</span>.<span class="hljs-title function_">deleteMany</span>({ <span class="hljs-attr">where</span>: { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;name&#x27;</span> } }),
-    prisma.<span class="hljs-property">resource</span>.<span class="hljs-title function_">createMany</span>({ data }),
-  ],
-  {
-    <span class="hljs-attr">isolationLevel</span>: <span class="hljs-title class_">Prisma</span>.<span class="hljs-property">TransactionIsolationLevel</span>.<span class="hljs-property">Serializable</span>, <span class="hljs-comment">// optional, default defined by database configuration</span>
-  }
-)</code></pre><p>潜在问题： deleteMany() &amp; createMany() 是并行的，可能导致数据库回滚失败或者死锁，所以官方文档中如下补救实例：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Prisma</span>, <span class="hljs-title class_">PrismaClient</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@prisma/client&#x27;</span>
-
-<span class="hljs-keyword">const</span> prisma = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PrismaClient</span>()
-<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">main</span>(<span class="hljs-params"></span>) {
-  <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">MAX_RETRIES</span> = <span class="hljs-number">5</span>
-  <span class="hljs-keyword">let</span> retries = <span class="hljs-number">0</span>
-
-  <span class="hljs-keyword">let</span> result
-  <span class="hljs-keyword">while</span> (retries &lt; <span class="hljs-variable constant_">MAX_RETRIES</span>) {
-    <span class="hljs-keyword">try</span> {
-      result = <span class="hljs-keyword">await</span> prisma.$transaction(
-        [
-          prisma.<span class="hljs-property">user</span>.<span class="hljs-title function_">deleteMany</span>({
-            <span class="hljs-attr">where</span>: {
-              <span class="hljs-comment">/** args */</span>
-            },
-          }),
-          prisma.<span class="hljs-property">post</span>.<span class="hljs-title function_">createMany</span>({
-            <span class="hljs-attr">data</span>: {
-              <span class="hljs-comment">/** args */</span>
-            },
-          }),
-        ],
-        {
-          <span class="hljs-attr">isolationLevel</span>: <span class="hljs-title class_">Prisma</span>.<span class="hljs-property">TransactionIsolationLevel</span>.<span class="hljs-property">Serializable</span>,
-        }
-      )
-      <span class="hljs-keyword">break</span>
-    } <span class="hljs-keyword">catch</span> (error) {
-      <span class="hljs-keyword">if</span> (error.<span class="hljs-property">code</span> === <span class="hljs-string">&#x27;P2034&#x27;</span>) {
-        retries++
-        <span class="hljs-keyword">continue</span>
-      }
-      <span class="hljs-keyword">throw</span> error
-    }
-  }
-}</code></pre><p>imo: 没必要增加复杂度，只要接受“事务和并行不可兼得”即可。</p><h2 class="">其他</h2><p>prisma $transaction([]) 参数不是并行的，它们按照参数顺序被执行</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">await</span> prisma.$transaction([iRunFirst, iRunSecond, iRunThird])</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.prisma.io/docs/orm/prisma-client/queries/transactions#transaction-api" rel="noopener noreferrer" target="_blank">https://www.prisma.io/docs/orm/prisma-client/queries/transactions#transaction-api</a></li></ul>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Mon, 2 September 2024 6:48:42 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-09-02-prisma-shi-wu-he-bing-xing-bu-ke-jian-de</guid>      
    </item>
 
 </channel>

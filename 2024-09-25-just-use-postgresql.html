@@ -18,21 +18,21 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2021-06-09 React Test 中 act() 有什么作用？</title>
-<meta name="description" content="可能 Frontend 门槛真的太低了。竟然有自称熟练掌握 React 的人回答不上来 React Test act() 的用途。">
+<title>2024-09-25 Just use PostgreSQL</title>
+<meta name="description" content="一个小例子解释为什么我默认选择 PostgreSQL 而不是 SQLite。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://thaddeusjiang.com/2021-06-09-react-test-zhong-act-you-shi-me-zuo-yong" />
-<meta property="og:title" content="2021-06-09 React Test 中 act() 有什么作用？" />
-<meta property="og:description" content="可能 Frontend 门槛真的太低了。竟然有自称熟练掌握 React 的人回答不上来 React Test act() 的用途。" />
+<meta property="og:url" content="https://thaddeusjiang.com/2024-09-25-just-use-postgresql" />
+<meta property="og:title" content="2024-09-25 Just use PostgreSQL" />
+<meta property="og:description" content="一个小例子解释为什么我默认选择 PostgreSQL 而不是 SQLite。" />
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="2021-06-09 React Test 中 act() 有什么作用？" />
-<meta name="twitter:description" content="可能 Frontend 门槛真的太低了。竟然有自称熟练掌握 React 的人回答不上来 React Test act() 的用途。" />
+<meta name="twitter:title" content="2024-09-25 Just use PostgreSQL" />
+<meta name="twitter:description" content="一个小例子解释为什么我默认选择 PostgreSQL 而不是 SQLite。" />
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1635805945732415488/hDe8Tg3k_400x400.jpg" />
 
 <!-- Google tag (gtag.js) -->
@@ -84,19 +84,20 @@
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <h1 class="title">2021-06-09 React Test 中 act() 有什么作用？</h1>
+          <h1 class="title">2024-09-25 Just use PostgreSQL</h1>
           <hr>
 
           <div class="content">
-            <p>可能 Frontend 门槛真的太低了。竟然有自称熟练掌握 React 的人回答不上来 React Test act() 的用途。</p><p>如果你在工作中使用 React，那么迟早你会遇到如下的测试代码。</p><pre class="hljs"><code class="js hljs"><span class="hljs-title function_">it</span>(<span class="hljs-string">&quot;renders hello world&quot;</span>, <span class="hljs-function">() =&gt;</span> {
-  <span class="hljs-title function_">act</span>(<span class="hljs-function">() =&gt;</span> {
-    <span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HelloWorld</span> /&gt;</span></span>, container);
-  });
-  <span class="hljs-title function_">expect</span>(container.<span class="hljs-property">textContent</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-string">&quot;Hello, World.&quot;</span>);
-});</code></pre><p>但是绝大多数时候，你的测试代码是这样的：</p><pre class="hljs"><code class="js hljs"><span class="hljs-title function_">it</span>(<span class="hljs-string">&quot;renders hello world&quot;</span>, <span class="hljs-function">() =&gt;</span> {
-  <span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HelloWorld</span> /&gt;</span></span>, container);
-  <span class="hljs-title function_">expect</span>(container.<span class="hljs-property">textContent</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-string">&quot;Hello, World.&quot;</span>);
-});</code></pre><p>act() 有什么作用呢？为什么有的时候需要，有的时候却不需要呢？</p><p>React Docs</p><blockquote><div>When writing UI tests, tasks like rendering, user events, or data fetching can be considered as “units” of interaction with a user interface. react-dom/test-utils provides a helper called act() that makes sure all updates related to these “units” have been processed and applied to the DOM before you make any assertions:</div></blockquote><p><strong>TL;DR</strong></p><p>很多时候，用户界面（UI）并不能一瞬间就被绘制完成，可能导致断言失败。act() 可以确保断言执行时 UI 已经被绘制完成。</p><h1 class="">act() 效果</h1><p>no act</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/d779e38551cfc4405010f9e64c41dbfa.png"></p><p>act render</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/5ed0da10697c2a6b8ccf24021b94b893.png"></p><p>那么是不是在所有测试中都应该写 act()？</p><p>理论上，写了绝对不会错，不写可能会出错。</p><p>不过不用担心，React 社区非常强大，已经有 open source 帮我们完成了这项枯燥乏味的工作。</p><p>Thanks testing-library</p><blockquote><div>All renders and events being fired are wrapped in act, so you don't really need this.</div></blockquote><h1 class="">我在面试中会如何提问 ?</h1><ol><li>你在项目中写测试吗？</li><li>如果 UI 存在异步或者耗时的操作，应该如何测试？</li><li>你了解 React test-utils act() 吗？</li><li>你能简单讲讲 act() 的原理吗？</li></ol><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://reactjs.org/docs/testing-recipes.html#act" rel="noopener noreferrer" target="_blank">https://reactjs.org/docs/testing-recipes.html#act</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/threepointone/react-act-examples/blob/master/sync.md" rel="noopener noreferrer" target="_blank">https://github.com/threepointone/react-act-examples/blob/master/sync.md</a></li><li><a class="tc-tiddlylink-external" href="https://testing-library.com/docs/preact-testing-library/api/#act" rel="noopener noreferrer" target="_blank">https://testing-library.com/docs/preact-testing-library/api/#act</a></li></ul>
+            <p>一个小例子解释为什么我默认选择 PostgreSQL 而不是 SQLite。</p><blockquote><div>为什么要解释？</div><div>答：local-first 最近又流行起来了，JS 社区的 Kent C. Dodds 和 Rails 社区的 DHH 都推荐使用 SQLite。但是日常工作中，我感觉 SQLite 经常背刺我。</div></blockquote><h2 class="">需求：从 url 中提取 port，例如：<a class="tc-tiddlylink-external" href="http://localhost:3000/setup" rel="noopener noreferrer" target="_blank">http://localhost:3000/setup</a> -&gt; 3000</h2><pre class="hljs"><code class="sql hljs"># PostgreSQL
+<span class="hljs-keyword">SELECT</span> 
+    <span class="hljs-built_in">substring</span>(url <span class="hljs-keyword">FROM</span> <span class="hljs-string">&#x27;:(\d+)&#x27;</span>) <span class="hljs-keyword">AS</span> port
+<span class="hljs-keyword">FROM</span> 
+    (<span class="hljs-keyword">SELECT</span> <span class="hljs-string">&#x27;http://localhost:3000/setup&#x27;</span> <span class="hljs-keyword">AS</span> url) <span class="hljs-keyword">AS</span> t;
+</code></pre><pre class="hljs"><code class="sql hljs"># SQLite
+<span class="hljs-keyword">SELECT</span> 
+    substr(url, instr(url, <span class="hljs-string">&#x27;:&#x27;</span>) <span class="hljs-operator">+</span> <span class="hljs-number">1</span>, instr(url, <span class="hljs-string">&#x27;/&#x27;</span>, instr(url, <span class="hljs-string">&#x27;:&#x27;</span>)) <span class="hljs-operator">-</span> instr(url, <span class="hljs-string">&#x27;:&#x27;</span>) <span class="hljs-operator">-</span> <span class="hljs-number">1</span>) <span class="hljs-keyword">AS</span> port
+<span class="hljs-keyword">FROM</span> 
+    (<span class="hljs-keyword">SELECT</span> <span class="hljs-string">&#x27;http://localhost:3000/setup&#x27;</span> <span class="hljs-keyword">AS</span> url) <span class="hljs-keyword">AS</span> t;</code></pre><p>对比之下，Postgres 的 substring 比 SQLite 的 substr 简单太多了，开箱即用的感觉真好。</p><h2 class="">另外</h2><p>我今天发现 Metabase 的 regexextract 表达式不支持 SQLite。🥲</p><p>Doc: <a class="tc-tiddlylink-external" href="https://www.metabase.com/docs/latest/questions/query-builder/expressions-list#regexextract" rel="noopener noreferrer" target="_blank">https://www.metabase.com/docs/latest/questions/query-builder/expressions-list#regexextract</a></p><h2 class="">人生苦短，我用 Postgres。</h2><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.epicweb.dev/why-you-should-probably-be-using-sqlite" rel="noopener noreferrer" target="_blank">https://www.epicweb.dev/why-you-should-probably-be-using-sqlite</a></li><li><a class="tc-tiddlylink-external" href="https://x.com/search?f=tweets&amp;q=sqlite+from:dhh" rel="noopener noreferrer" target="_blank">https://x.com/search?f=tweets&amp;q=sqlite+from:dhh</a>+</li><li><a class="tc-tiddlylink-external" href="https://x.com/search?q=Just%20use%20PostgreSQL" rel="noopener noreferrer" target="_blank">https://x.com/search?q=Just%20use%20PostgreSQL</a></li></ul>
           </div>          
       </div>
   </div>
