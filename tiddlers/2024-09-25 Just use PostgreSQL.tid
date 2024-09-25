@@ -1,0 +1,49 @@
+created: 20240925091552236
+modified: 20240925093629681
+published: 20240925093629680
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2024-09-25 Just use PostgreSQL
+type: text/vnd.tiddlywiki
+
+一个小例子解释为什么我默认选择 PostgreSQL 而不是 SQLite。
+
+> 为什么要解释？
+> 答：local-first 最近又流行起来了，JS 社区的 Kent C. Dodds 和 Rails 社区的 DHH 都推荐使用 SQLite。但是日常工作中，我感觉 SQLite 经常背刺我。
+
+!! 需求：从 url 中提取 port，例如：http://localhost:3000/setup -> 3000
+
+```sql
+# PostgreSQL
+SELECT 
+    substring(url FROM ':(\d+)') AS port
+FROM 
+    (SELECT 'http://localhost:3000/setup' AS url) AS t;
+
+```
+
+```sql
+# SQLite
+SELECT 
+    substr(url, instr(url, ':') + 1, instr(url, '/', instr(url, ':')) - instr(url, ':') - 1) AS port
+FROM 
+    (SELECT 'http://localhost:3000/setup' AS url) AS t;
+```
+
+对比之下，Postgres 的 substring 比 SQLite 的 substr 简单太多了，开箱即用的感觉真好。
+
+!! 另外
+
+我今天发现 Metabase 的 regexextract 表达式不支持 SQLite。🥲
+
+Doc: https://www.metabase.com/docs/latest/questions/query-builder/expressions-list#regexextract
+
+!! 人生苦短，我用 Postgres。
+
+refs:
+
+* https://www.epicweb.dev/why-you-should-probably-be-using-sqlite
+* https://x.com/search?f=tweets&q=sqlite+from:dhh+
+* https://x.com/search?q=Just%20use%20PostgreSQL
+
+
+
