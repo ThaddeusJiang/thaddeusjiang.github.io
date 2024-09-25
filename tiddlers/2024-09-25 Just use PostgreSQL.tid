@@ -14,18 +14,18 @@ type: text/vnd.tiddlywiki
 
 ```sql
 # PostgreSQL
-SELECT 
+SELECT
     substring(url FROM ':(\d+)') AS port
-FROM 
+FROM
     (SELECT 'http://localhost:3000/setup' AS url) AS t;
 
 ```
 
 ```sql
 # SQLite
-SELECT 
+SELECT
     substr(url, instr(url, ':') + 1, instr(url, '/', instr(url, ':')) - instr(url, ':') - 1) AS port
-FROM 
+FROM
     (SELECT 'http://localhost:3000/setup' AS url) AS t;
 ```
 
@@ -42,8 +42,5 @@ Doc: https://www.metabase.com/docs/latest/questions/query-builder/expressions-li
 refs:
 
 * https://www.epicweb.dev/why-you-should-probably-be-using-sqlite
-* https://x.com/search?f=tweets&q=sqlite+from:dhh+
+* https://x.com/search?f=tweets&q=sqlite+from:dhh
 * https://x.com/search?q=Just%20use%20PostgreSQL
-
-
-
