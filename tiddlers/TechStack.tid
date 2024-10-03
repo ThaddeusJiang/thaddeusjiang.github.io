@@ -1,0 +1,57 @@
+created: 20241003025612571
+modified: 20241003030535923
+tags: 
+title: TechStack
+type: text/vnd.tiddlywiki
+
+! Using
+
+* TypeScript
+** [[Remix]] - JS full stack web framework
+** [[Prisma]] - JS database ORM
+** [[RemedaJS]]
+** [[PostgreSQL]] - RDB
+** [[OpenAPI]] - API doc for RESTful API
+
+* Tools & Services
+** [[Docker]] docker-compose - local
+** [[Metabase]] - RDB GUI and  [[BA tool]]
+
+** [[Mermaid]] - Online Flow Chart & Diagram Editor
+** [[Postman]] - API GUI for REST gRPC
+** TablePlus - DB GUI
+
+** Excalidraw
+
+* Services
+** GitHub
+** Fly.io
+** Vercel
+** Raiway.app
+** Netlify
+** GCP
+** Supabase
+** Resend.com
+** OpenAI
+** https://webhook.site/
+
+* Elixir
+** LiveView
+
+
+
+! Used
+
+
+* MicroServices
+* [[Protobuf]]
+* [[gRPC]]
+* GraphQL
+* [[LodashJS]]
+* [[Google Pub/Sub]]
+* [[NestJS]]
+* k8s
+* [[terraform]]
+* [[Datadog]]
+* GitLab
+

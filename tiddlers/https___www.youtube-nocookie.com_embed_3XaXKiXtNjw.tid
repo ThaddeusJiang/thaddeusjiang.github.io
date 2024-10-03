@@ -1,0 +1,15 @@
+created: 20210212031659024
+creator: TJ
+modified: 20241003031603672
+modifier: TJ
+tags: Bookmarks
+title: https://www.youtube-nocookie.com/embed/3XaXKiXtNjw
+type: text/vnd.tiddlywiki
+
+我是通过这个视频才真正理解了 “UI 组合优于继承” 
+
+
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3XaXKiXtNjw?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+React 官方文档也提到：没有遇到必须放弃组合使用继承的场景，docs: https://zh-hans.legacy.reactjs.org/docs/composition-vs-inheritance.html

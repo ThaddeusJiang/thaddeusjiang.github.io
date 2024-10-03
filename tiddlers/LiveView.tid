@@ -1,0 +1,13 @@
+created: 20241003025148567
+modified: 20241003025555258
+tags: TechRadar/采纳
+title: LiveView
+type: text/vnd.tiddlywiki
+
+Elixir PhoenixFramework LiveView
+
+* server and client 同构，避免编写重复代码
+* server and client 交互简单，网络传输数据量小
+* 支持类似 React 一样 component 编写方式，集成 JS Library 也不难，甚至比 React 更简单。
+
+

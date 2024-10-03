@@ -1,13 +1,13 @@
 created: 20240830051902520
-modified: 20240908085843279
-tags: Bookmark
-title: HTML 加载脚本 script tag defer and async
+creator: TJ
+modified: 20241003031603671
+modifier: TJ
+tags: Bookmarks
+title: https://flaviocopes.com/javascript-async-defer/
 type: text/vnd.tiddlywiki
 
-TL;DR
+HTML 加载脚本 script tag defer and async
 
 * Just tell me the best way: put script with defer in head
 
 <<img "https://flaviocopes.com/images/javascript-async-defer/with-defer.png" "Efficiently load JavaScript with defer and async" >>
-
-图文并茂：https://flaviocopes.com/javascript-async-defer/
