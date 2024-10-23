@@ -1,9 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-   <title>ThaddeusJiang's Blog</title>
+   <title>ThaddeusJiang</title>
    <link>https://thaddeusjiang.com</link>
-   <description></description>
+   <description>Programmer, Blogger</description>
+   <item>
+      <title>2024-10-23 My Second Photos</title>
+      <link>https://thaddeusjiang.com/2024-10-23-my-second-photos</link>
+			<description><![CDATA[
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Programmer, Blogger</p>
+      </div>
+      
+      <div class="navbar-end mt-2">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./#wiki">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
+      </div></p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title">2024-10-23 My Second Photos</h1>
+          <hr>
+
+          <div class="content">
+            <p>终于终于，严重拖延的我终于启用了“Second Photos”，终于可以愉快地翻看手机相册了，终于可以找到保存的美女写真了，生活再次变得美好了。</p><h2 class="">What is Second Photos</h2><p>命名参考了 Second Brain，其实就是另外一个管理照片的地方。</p><h2 class="">Why Second Photos</h2><p>一直以来我都有如下困扰：</p><p>1. 我的相册里有巨量的网络图片和视频</p><p>我喜欢随手保存一些图片和视频，算是轻微收藏癖吧，哈哈哈。每次当我想打开手机相册回忆一下自己的生活的时候，过度出现的与我不相关的内容总是让我心情烦躁，它们打断了我回忆的思绪，也减少了我对自己生活的了解和掌控。</p><p>但是偶尔翻看自己保存搞笑视频和美女写真也会让我会心一笑，它们是我生活的调剂品，我也不想失去这份快乐。</p><p>2. 我的相册里有巨量的截图</p><p>相对于文字笔记，我更喜欢使用图片来记忆，我感觉图片的视觉记忆更清晰、更长久，所以我总是保存截图而不是保存文本。虽然我很喜欢这个习惯，喜欢自己的“视觉笔记”，但是这也到只我的相册中有巨量的截图。</p><p>并且手机自带的相册在图片检索方面做的很差，基本上没有办法当成“视觉笔记”来使用，我希望有一个 app 让我可以复习和查找自己的视觉笔记。</p><p>简单总结：我想把相册中与我相关的内容和与我无关的内容分开；我不想丢弃于我不相关的部分；我想要编辑和搜索我的诗句笔记。</p><h2 class="">我如何配置 Second Photos</h2><p>1. 我在 Telegram 上创建了多个 group 保存不同的照片，搞笑内容、美女帅哥、学习笔记、House Design 等等。</p><p>2. 我使用 Typesense 和 Vision AI 处理和分析照片，我可以用自然语言搜索它们、也可以发现相似的图片。</p><p>3. 我制作了 bot 帮助我保存、查找、整理照片，不需要安装 app，也不需要登录网页。</p><h2 class="">前后对比</h2><p>1. 现在我的手机相册里几乎只有生活的照片了，旅游的回忆、家庭的回忆、和朋友们一起的回忆等等，我又可以心情愉悦地翻看手机相册了。</p><p>2. 我保存的网络图片和截图笔记也没有丢失，不仅没有丢失，我现在还可以搜索它们，甚至可以在截图的基础上继续做笔记。</p><p>额外收获</p><p>1. 无限的存储容量，感谢 telegram server 的慷慨，爱死它了。</p><p>2. 图片搜索，这是截止到今天（2024-10-23）iPhone Photos 和 Google Photos 都没有的功能。</p><h2 class="">最后放几个简单的效果吧。</h2><p>demo video:</p><p>messages:</p><pre><code>/search cat
+
+/search dog
+
+/search girl
+
+/similar photo
+
+/similar photo</code></pre><p><video controls="controls" muted="muted" src="https://github.com/user-attachments/assets/b0dedcc0-3305-42b2-8101-6b0b5d32f17a" style="width:100%;max-height:640px;min-height:200px;"></video></p><h2 class="">Open Source</h2><p><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/save_it" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/save_it</a></p><p>以上。
+</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Wed, 23 October 2024 6:50:6 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2024-10-23-my-second-photos</guid>      
+   </item>
+
    <item>
       <title>2024-09-30 I Analyzed My Browser History</title>
       <link>https://thaddeusjiang.com/2024-09-30-i-analyzed-my-browser-history</link>
@@ -11,9 +77,9 @@
 <div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
         <h1 class="brand">
-          <a class="title" href="./">ThaddeusJiang's Blog</a>
+          <a class="title" href="./">ThaddeusJiang</a>
         </h1>
-        <p class="subtitle is-size-6 is-italic"></p>
+        <p class="subtitle is-size-6 is-italic">Programmer, Blogger</p>
       </div>
       
       <div class="navbar-end mt-2">
@@ -69,9 +135,9 @@
 <div class="container mt-4">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
         <h1 class="brand">
-          <a class="title" href="./">ThaddeusJiang's Blog</a>
+          <a class="title" href="./">ThaddeusJiang</a>
         </h1>
-        <p class="subtitle is-size-6 is-italic"></p>
+        <p class="subtitle is-size-6 is-italic">Programmer, Blogger</p>
       </div>
       
       <div class="navbar-end mt-2">
@@ -126,160 +192,6 @@
 ]]></description>
       <pubDate>Wed, 25 September 2024 9:36:29 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-09-25-just-use-postgresql</guid>      
-   </item>
-
-   <item>
-      <title>2024-09-18 JS wretch</title>
-      <link>https://thaddeusjiang.com/2024-09-18-js-wretch</link>
-			<description><![CDATA[
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
-        <h1 class="brand">
-          <a class="title" href="./">ThaddeusJiang's Blog</a>
-        </h1>
-        <p class="subtitle is-size-6 is-italic"></p>
-      </div>
-      
-      <div class="navbar-end mt-2">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a> | <a class="tc-tiddlylink tc-tiddlylink-missing" href="./#wiki">Wiki</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a>
-      </div></p></nav></div>
-</div>
-
-
-<div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <h1 class="title">2024-09-18 JS wretch</h1>
-          <hr>
-
-          <div class="content">
-            <p>关于 JS HTTP request client library，现阶段我推荐 wretch。</p><blockquote><div>我的技术栈变化：wretch &lt;- fetch &lt;- node-fetch &lt;- axios</div></blockquote><h2 class="">我推荐 wretch 的理由：</h2><ol><li>适当的封装，不需要编写大量业务无关的 boilerplate code</li><li>统一实现的请求格式，如：请求 application/json, multipart/form-data, application/x-www-form-urlencoded</li><li>开箱即用的高级功能，如：retry, delay, abort 等等</li></ol><h2 class="">技术栈变化简述</h2><ul><li>axios: ES 提出 fetch() API 前，只记得 axios，XMLHttpRequest 我已经不记得了。</li><li>node-fetch: ES 提出 fetch() API 后，但是 Node.js 没有实现出来</li><li>fetch: Node.js 18 发布 fetch() API 后</li><li>wretch: 写 fetch() 太疲劳了，寻找简单的工具</li></ul><h2 class="">1. 什么是“不需要编写大量业务无关的 boilerplate code”</h2><p>fetch 需要手动配置 http methods, headers and body</p><pre><code>fetch("endpoint", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ "hello": "world" })
-}).then(response =&gt; /* ... */)</code></pre><p>fetch() 需要手动处理 status，堆叠 if-else</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// 😮‍💨</span>
-<span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;anything&quot;</span>)
-  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {
-    <span class="hljs-keyword">if</span>(!response.<span class="hljs-property">ok</span>) {
-      <span class="hljs-keyword">if</span>(response.<span class="hljs-property">status</span> === <span class="hljs-number">404</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Not found&quot;</span>)
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(response.<span class="hljs-property">status</span> === <span class="hljs-number">401</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Unauthorized&quot;</span>)
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(response.<span class="hljs-property">status</span> === <span class="hljs-number">418</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;I&#x27;m a teapot !&quot;</span>)
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Other error&quot;</span>)
-    }
-    <span class="hljs-keyword">else</span> <span class="hljs-comment">// ...</span>
-  })
-  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-comment">/* ... */</span>)
-  .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> { <span class="hljs-comment">/* ... */</span> })</code></pre><blockquote><div>而这些都是业务无关的代码，仅仅是为了配合 fetch() API 的使用。</div></blockquote><p>wretch 封装了这些业务无关的代码，让你专注于业务逻辑。</p><pre class="hljs"><code class="js hljs"><span class="hljs-title function_">wretch</span>(<span class="hljs-string">&quot;endpoint&quot;</span>)
-  .<span class="hljs-title function_">post</span>({ <span class="hljs-string">&quot;hello&quot;</span>: <span class="hljs-string">&quot;world&quot;</span> })
-  .<span class="hljs-title function_">notFound</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> { <span class="hljs-comment">/* ... */</span> })
-  .<span class="hljs-title function_">unauthorized</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> { <span class="hljs-comment">/* ... */</span> })
-  .<span class="hljs-title function_">error</span>(<span class="hljs-number">418</span>, <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> { <span class="hljs-comment">/* ... */</span> })
-  .<span class="hljs-title function_">res</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-comment">/* ... */</span>)
-  .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> { <span class="hljs-comment">/* uncaught errors */</span> })</code></pre><h2 class="">2. 什么是“统一实现的请求格式”</h2><p>wretch 无论是发送 json 或 form-data 亦或 x-www-form-urlencoded 都可以直接调用 JS object 对象。</p><blockquote><div>So Sweet 🥰</div></blockquote><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> form = { <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: { <span class="hljs-attr">c</span>: <span class="hljs-number">2</span> } };
-
-<span class="hljs-comment">// 📤 application/json</span>
-<span class="hljs-title function_">wretch</span>(<span class="hljs-string">&quot;...&quot;</span>).<span class="hljs-title function_">post</span>(form)
-
-<span class="hljs-comment">// 📤 multipart/form-data</span>
-<span class="hljs-keyword">import</span> <span class="hljs-title class_">FormDataAddon</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;wretch/addons/formData&quot;</span>
-<span class="hljs-title function_">wretch</span>(<span class="hljs-string">&quot;...&quot;</span>).<span class="hljs-title function_">addon</span>(<span class="hljs-title class_">FormDataAddon</span>).<span class="hljs-title function_">formData</span>(form).<span class="hljs-title function_">post</span>();
-
-<span class="hljs-comment">// 📤 application/x-www-form-urlencoded</span>
-<span class="hljs-keyword">import</span> <span class="hljs-title class_">FormUrlAddon</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;wretch/addons/formUrl&quot;</span>
-<span class="hljs-title function_">wretch</span>(<span class="hljs-string">&quot;...&quot;</span>).<span class="hljs-title function_">addon</span>(<span class="hljs-title class_">FormUrlAddon</span>).<span class="hljs-title function_">formUrl</span>(form).<span class="hljs-title function_">post</span>();</code></pre><p>fetch()</p><ol><li>发送 json 需要 <code>JSON.stringify();</code></li><li>发送 form-data 需要构建 <code>new FormData();</code></li><li>发送 x-www-form-urlencoded 需要 <code>new URLSearchParams();</code></li></ol><blockquote><div>Why? 😵‍💫</div></blockquote><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> data = { <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: { <span class="hljs-attr">c</span>: <span class="hljs-number">2</span> } }
-
-<span class="hljs-comment">// 📤 application/json</span>
-<span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;endpoint&quot;</span>, {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
-  <span class="hljs-attr">headers</span>: { <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span> }, <span class="hljs-comment">// 1️⃣</span>
-  <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data) <span class="hljs-comment">// 2️⃣</span>
-}).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-comment">/* ... */</span>)
-
-<span class="hljs-comment">// 📤 multipar/form-data</span>
-<span class="hljs-keyword">const</span> formData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormData</span>(); <span class="hljs-comment">// 1️⃣</span>
-formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">1</span>);
-formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>({ <span class="hljs-attr">c</span>: <span class="hljs-number">2</span>})); <span class="hljs-comment">// 2️⃣</span>
-
-<span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://example.com/submit&#x27;</span>, {
-    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,
-    <span class="hljs-attr">body</span>: formData
-}).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-comment">/* ... */</span>)
-
-<span class="hljs-comment">// 📤 application/x-www-form-urlencoded</span>
-<span class="hljs-keyword">const</span> data = <span class="hljs-keyword">new</span> <span class="hljs-title class_">URLSearchParams</span>(); <span class="hljs-comment">// 1️⃣</span>
-data.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">1</span>);
-data.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>({ <span class="hljs-attr">c</span>: <span class="hljs-number">2</span>})); <span class="hljs-comment">// 2️⃣</span>
-
-<span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://example.com/submit&#x27;</span>, {
-    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,
-    <span class="hljs-attr">headers</span>: {
-        <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/x-www-form-urlencoded&#x27;</span> <span class="hljs-comment">// 3️⃣</span>
-    },
-    <span class="hljs-attr">body</span>: data.<span class="hljs-title function_">toString</span>()() <span class="hljs-comment">// 4️⃣</span>
-}).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> <span class="hljs-comment">/* ... */</span>)</code></pre><h2 class="">3. wretch 提供的“开箱即用的高级功能”</h2><p>wretch 实现 retry 功能 So Easy</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">import</span> { retry } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;wretch/middlewares&quot;</span>
-
-<span class="hljs-keyword">const</span> w = <span class="hljs-title function_">wretch</span>().<span class="hljs-title function_">middlewares</span>([<span class="hljs-title function_">retry</span>()])</code></pre><p>fetch() 实现 retry 功能，So Hard</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// generated by ChatGPT</span>
-<span class="hljs-keyword">function</span> <span class="hljs-title function_">fetchWithRetry</span>(<span class="hljs-params">url, options = {}, retries = <span class="hljs-number">3</span>, delay = <span class="hljs-number">1000</span></span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-title function_">fetch</span>(url, options)
-        .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {
-            <span class="hljs-keyword">if</span> (!response.<span class="hljs-property">ok</span>) {
-                <span class="hljs-keyword">if</span> (retries &gt; <span class="hljs-number">0</span>) {
-                    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Retrying... <span class="hljs-subst">${retries}</span> attempts left.`</span>);
-                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
-                        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">resolve</span>(<span class="hljs-title function_">fetchWithRetry</span>(url, options, retries - <span class="hljs-number">1</span>, delay)), delay);
-                    });
-                } <span class="hljs-keyword">else</span> {
-                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Max retries reached, fetch failed.&#x27;</span>);
-                }
-            }
-            <span class="hljs-keyword">return</span> response.<span class="hljs-title function_">json</span>(); <span class="hljs-comment">// 处理返回的响应体（假设是 JSON 格式）</span>
-        })
-        .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {
-            <span class="hljs-keyword">if</span> (retries &gt; <span class="hljs-number">0</span>) {
-                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Retrying due to error: <span class="hljs-subst">${error.message}</span>, <span class="hljs-subst">${retries}</span> attempts left.`</span>);
-                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
-                    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">resolve</span>(<span class="hljs-title function_">fetchWithRetry</span>(url, options, retries - <span class="hljs-number">1</span>, delay)), delay);
-                });
-            } <span class="hljs-keyword">else</span> {
-                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Max retries reached, fetch failed: &#x27;</span> + error.<span class="hljs-property">message</span>);
-            }
-        });
-}
-
-<span class="hljs-comment">// 调用</span>
-<span class="hljs-title function_">fetchWithRetry</span>(<span class="hljs-string">&#x27;https://example.com/api&#x27;</span>, { <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;GET&#x27;</span> })
-    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Success:&#x27;</span>, data))
-    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;Error:&#x27;</span>, error));
-</code></pre><p>更不用提 delay abort 等高级功能了。</p><h2 class="">我发现的 wretch 的一点点不足</h2><ol><li>progress 特性仅支持 download <a class="tc-tiddlylink-external" href="https://github.com/elbywan/wretch/issues/225#issuecomment-2105633417" rel="noopener noreferrer" target="_blank">https://github.com/elbywan/wretch/issues/225#issuecomment-2105633417</a></li><li>没有开箱即用 Stream handler</li></ol><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/elbywan/wretch" rel="noopener noreferrer" target="_blank">https://github.com/elbywan/wretch</a></li><li><a class="tc-tiddlylink-external" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API" rel="noopener noreferrer" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/node-fetch/node-fetch" rel="noopener noreferrer" target="_blank">https://github.com/node-fetch/node-fetch</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/axios/axios" rel="noopener noreferrer" target="_blank">https://github.com/axios/axios</a></li><li><a class="tc-tiddlylink-external" href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest" rel="noopener noreferrer" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest</a></li></ul>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Wed, 18 September 2024 7:45:32 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-09-18-js-wretch</guid>      
    </item>
 
 </channel>

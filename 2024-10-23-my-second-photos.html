@@ -18,21 +18,21 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2023-10-12 Nest.js Validation Tips</title>
-<meta name="description" content="imo: 如果你可以选择，推荐使用 zod.dev 作为 JS/TS validation library。">
+<title>2024-10-23 My Second Photos</title>
+<meta name="description" content="终于终于，严重拖延的我终于启用了“Second Photos”，终于可以愉快地翻看手机相册了，终于可以找到保存的美女写真了，生活再次变得美好了。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://thaddeusjiang.com/2023-10-12-nest-js-validation-tips" />
-<meta property="og:title" content="2023-10-12 Nest.js Validation Tips" />
-<meta property="og:description" content="imo: 如果你可以选择，推荐使用 zod.dev 作为 JS/TS validation library。" />
+<meta property="og:url" content="https://thaddeusjiang.com/2024-10-23-my-second-photos" />
+<meta property="og:title" content="2024-10-23 My Second Photos" />
+<meta property="og:description" content="终于终于，严重拖延的我终于启用了“Second Photos”，终于可以愉快地翻看手机相册了，终于可以找到保存的美女写真了，生活再次变得美好了。" />
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="2023-10-12 Nest.js Validation Tips" />
-<meta name="twitter:description" content="imo: 如果你可以选择，推荐使用 zod.dev 作为 JS/TS validation library。" />
+<meta name="twitter:title" content="2024-10-23 My Second Photos" />
+<meta name="twitter:description" content="终于终于，严重拖延的我终于启用了“Second Photos”，终于可以愉快地翻看手机相册了，终于可以找到保存的美女写真了，生活再次变得美好了。" />
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1635805945732415488/hDe8Tg3k_400x400.jpg" />
 
 <!-- Google tag (gtag.js) -->
@@ -84,21 +84,20 @@
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <h1 class="title">2023-10-12 Nest.js Validation Tips</h1>
+          <h1 class="title">2024-10-23 My Second Photos</h1>
           <hr>
 
           <div class="content">
-            <p>imo: 如果你可以选择，推荐使用 zod.dev 作为 JS/TS validation library。</p><p>Nest.js Validation Tips:</p><ol><li>Use <code>@IsInt()</code>, don't use <code>ParseIntPipe</code></li><li>Use <code>@IsDateString()</code>, don't use <code>@IsDate()</code></li><li>Use <code>@IsOptional()</code>, since TypeScript ? doesn't work</li><li>Use <code>@Type(() =&gt; Number)</code> instead of <code>Number(str)</code> , use <code>@Int</code> instead of <code>parseInt(str)</code></li></ol><p>推荐直接使用 class-transformer-validator，</p><pre class="hljs"><code class="sh hljs">npm install class-transformer-validator --save</code></pre><p>因为单独使用 class-validator 和 class-transformer 让人沮丧。</p><h1 class="">imo: Nest.js 这种基于注解的框架和 TypeScript 一起使用让人十分困惑。</h1><p>@IsOptional() 和 ? 让人困惑。</p><blockquote><div>可选属性用 library 还是 TypeScript 呢？</div></blockquote><pre class="hljs"><code class="ts hljs">  <span class="hljs-meta">@IsInt</span>()
-  <span class="hljs-meta">@IsOptional</span>()
-  <span class="hljs-attr">offset</span>: <span class="hljs-built_in">number</span>;
+            <p>终于终于，严重拖延的我终于启用了“Second Photos”，终于可以愉快地翻看手机相册了，终于可以找到保存的美女写真了，生活再次变得美好了。</p><h2 class="">What is Second Photos</h2><p>命名参考了 Second Brain，其实就是另外一个管理照片的地方。</p><h2 class="">Why Second Photos</h2><p>一直以来我都有如下困扰：</p><p>1. 我的相册里有巨量的网络图片和视频</p><p>我喜欢随手保存一些图片和视频，算是轻微收藏癖吧，哈哈哈。每次当我想打开手机相册回忆一下自己的生活的时候，过度出现的与我不相关的内容总是让我心情烦躁，它们打断了我回忆的思绪，也减少了我对自己生活的了解和掌控。</p><p>但是偶尔翻看自己保存搞笑视频和美女写真也会让我会心一笑，它们是我生活的调剂品，我也不想失去这份快乐。</p><p>2. 我的相册里有巨量的截图</p><p>相对于文字笔记，我更喜欢使用图片来记忆，我感觉图片的视觉记忆更清晰、更长久，所以我总是保存截图而不是保存文本。虽然我很喜欢这个习惯，喜欢自己的“视觉笔记”，但是这也到只我的相册中有巨量的截图。</p><p>并且手机自带的相册在图片检索方面做的很差，基本上没有办法当成“视觉笔记”来使用，我希望有一个 app 让我可以复习和查找自己的视觉笔记。</p><p>简单总结：我想把相册中与我相关的内容和与我无关的内容分开；我不想丢弃于我不相关的部分；我想要编辑和搜索我的诗句笔记。</p><h2 class="">我如何配置 Second Photos</h2><p>1. 我在 Telegram 上创建了多个 group 保存不同的照片，搞笑内容、美女帅哥、学习笔记、House Design 等等。</p><p>2. 我使用 Typesense 和 Vision AI 处理和分析照片，我可以用自然语言搜索它们、也可以发现相似的图片。</p><p>3. 我制作了 bot 帮助我保存、查找、整理照片，不需要安装 app，也不需要登录网页。</p><h2 class="">前后对比</h2><p>1. 现在我的手机相册里几乎只有生活的照片了，旅游的回忆、家庭的回忆、和朋友们一起的回忆等等，我又可以心情愉悦地翻看手机相册了。</p><p>2. 我保存的网络图片和截图笔记也没有丢失，不仅没有丢失，我现在还可以搜索它们，甚至可以在截图的基础上继续做笔记。</p><p>额外收获</p><p>1. 无限的存储容量，感谢 telegram server 的慷慨，爱死它了。</p><p>2. 图片搜索，这是截止到今天（2024-10-23）iPhone Photos 和 Google Photos 都没有的功能。</p><h2 class="">最后放几个简单的效果吧。</h2><p>demo video:</p><p>messages:</p><pre><code>/search cat
 
-  <span class="hljs-meta">@IsInt</span>()
-  limit?: <span class="hljs-built_in">number</span>;</code></pre><p>@Type(() =&gt; Date) 和 :string 也让人困惑。</p><blockquote><div>类型转换用注解还是代码呢？</div></blockquote><pre class="hljs"><code class="ts hljs">  <span class="hljs-meta">@IsDate</span>()
-  <span class="hljs-meta">@Type</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title class_">Date</span>)
-  <span class="hljs-attr">dateFrom</span>: <span class="hljs-built_in">string</span>;
+/search dog
 
-  <span class="hljs-meta">@IsDateString</span>()
-  <span class="hljs-attr">dateTo</span>: <span class="hljs-title class_">Date</span>;</code></pre><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://docs.nestjs.com/techniques/validation#explicit-conversion" rel="noopener noreferrer" target="_blank">NestJS Validation</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/MichalLytek/class-transformer-validator" rel="noopener noreferrer" target="_blank">class-transformer-validator</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/typestack/class-validator" rel="noopener noreferrer" target="_blank">class-validator</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/typestack/class-transformer" rel="noopener noreferrer" target="_blank">class-transformer</a></li></ul>
+/search girl
+
+/similar photo
+
+/similar photo</code></pre><p><video controls="controls" muted="muted" src="https://github.com/user-attachments/assets/b0dedcc0-3305-42b2-8101-6b0b5d32f17a" style="width:100%;max-height:640px;min-height:200px;"></video></p><h2 class="">Open Source</h2><p><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/save_it" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/save_it</a></p><p>以上。
+</p>
           </div>          
       </div>
   </div>
