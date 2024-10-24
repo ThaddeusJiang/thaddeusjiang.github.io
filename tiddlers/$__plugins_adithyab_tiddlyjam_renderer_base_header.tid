@@ -1,6 +1,6 @@
 created: 20200728151423521
 creator: Adithya_
-modified: 20240902133158007
+modified: 20241024035410501
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/header
@@ -19,7 +19,7 @@ type: text/vnd.tiddlywiki
       </div>
       
       <div class="navbar-end mt-2">
-        [[Blog|blog]] | [[Wiki|wiki]] | [[RSS|https://thaddeusjiang.com/rss.xml]]
+        [[Blog|blog]]
       </div>
 
     </nav>

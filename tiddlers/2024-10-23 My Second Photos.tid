@@ -1,7 +1,7 @@
 created: 20241023052610611
-modified: 20241023065223681
+modified: 20241024025423924
 published: 20241023065006109
-tags: blog [[Open Source]] Dogfooding $:/plugins/adithyab/tiddlyjam/live
+tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2024-10-23 My Second Photos
 type: text/vnd.tiddlywiki
 
@@ -23,6 +23,8 @@ type: text/vnd.tiddlywiki
 
 
 2. 我的相册里有巨量的截图
+
+[img width="50%" [https://i.gyazo.com/d83396f6613782d52373c6cd5d9474c2.jpg]]
 
 相对于文字笔记，我更喜欢使用图片来记忆，我感觉图片的视觉记忆更清晰、更长久，所以我总是保存截图而不是保存文本。虽然我很喜欢这个习惯，喜欢自己的“视觉笔记”，但是这也到只我的相册中有巨量的截图。
 
@@ -60,13 +62,9 @@ messages:
 
 ```
 /search cat
-
 /search dog
-
 /search girl
-
 /similar photo
-
 /similar photo
 ```
 

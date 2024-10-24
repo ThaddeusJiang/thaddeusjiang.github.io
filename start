@@ -1,3 +1,3 @@
 #!/bin/sh
 
-npx tiddlywiki --listen port=8090 username=TJ
+npx tiddlywiki --listen port=8091 username=TJ
