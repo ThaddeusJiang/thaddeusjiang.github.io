@@ -1,0 +1,22 @@
+created: 20241028030014127
+modified: 20241028030638595
+tags: 
+title: OneFileApp
+type: text/vnd.tiddlywiki
+
+> one file app 真的很简单，太适合做教学或者学习笔记了
+
+
+! mix_install_examples
+
+* live_view upload image
+
+https://github.com/wojtekmach/mix_install_examples/blob/main/phoenix_live_view_upload_image.exs
+
+* bandit web app
+
+https://github.com/wojtekmach/mix_install_examples/blob/main/bandit.exs
+
+* plug websocket
+
+https://github.com/wojtekmach/mix_install_examples/blob/main/plug_websocket.ex

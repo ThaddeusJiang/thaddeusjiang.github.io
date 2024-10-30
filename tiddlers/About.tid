@@ -1,13 +1,13 @@
 created: 20200418124902034
 creator: TJ
-modified: 20241024040320160
+modified: 20241030051335832
 modifier: TJ
 tags: 
 title: About
 type: text/vnd.tiddlywiki
 
 
-欢迎来到我的数字花园，使用 TiddlyWiki 构建。
+欢迎来到 ThaddeusJiang 的数字花园，使用 TiddlyWiki 构建。
 
 特点：
 
@@ -20,8 +20,8 @@ type: text/vnd.tiddlywiki
 refs:
 
 * [[数字花园]]
-* TiddlyWiki: https://tiddlywiki.com/
-* Quine (computing): https://en.wikipedia.org/wiki/Quine_(computing)
+* [[TiddlyWiki|https://tiddlywiki.com/]]
+* [[Quine|https://en.wikipedia.org/wiki/Quine_(computing)]] 
 * source code: https://github.com/ThaddeusJiang/thaddeusjiang.github.io
 
 
