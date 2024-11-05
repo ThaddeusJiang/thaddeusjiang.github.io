@@ -1,0 +1,10 @@
+created: 20241105075725142
+creator: TJ
+modified: 20241105075740951
+tags: $:/plugins/adithyab/tiddlyjam/internals
+title: $:/plugins/adithyab/tiddlyjam/renderer/rss/converter
+type: text/vnd.tiddlywiki
+
+<$list filter="[<currentTiddler>tags[][$:/plugins/adithyab/tiddlyjam/renderer/rss/body]]" variable="listItem">
+<$transclude tiddler=<<listItem>>/>
+</$list>

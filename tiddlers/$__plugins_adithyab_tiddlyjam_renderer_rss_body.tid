@@ -1,0 +1,17 @@
+created: 20241105075601260
+creator: TJ
+modified: 20241105075933650
+modifier: TJ
+tags: $:/plugins/adithyab/tiddlyjam/internals
+title: $:/plugins/adithyab/tiddlyjam/renderer/rss/body
+type: text/vnd.tiddlywiki
+
+<div class="content">
+  <$list filter="[all[current]]">
+
+    <$transclude />
+
+  </$list>
+</div>
+
+{{$:/plugins/adithyab/tiddlyjam/renderer/blog/license}}
