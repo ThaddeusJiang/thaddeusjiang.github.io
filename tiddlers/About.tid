@@ -1,13 +1,13 @@
 created: 20200418124902034
 creator: TJ
-modified: 20241030051335832
+modified: 20241105075158171
 modifier: TJ
 tags: 
 title: About
 type: text/vnd.tiddlywiki
 
 
-欢迎来到 ThaddeusJiang 的数字花园，使用 TiddlyWiki 构建。
+👋 欢迎来到 ThaddeusJiang 的数字花园，使用 TiddlyWiki 构建。
 
 特点：
 
@@ -15,14 +15,13 @@ type: text/vnd.tiddlywiki
 * 一个自产生程序（Quine），输出结果为程序自身源码，你看到的文章也是代码。
 * 开源免费，你也可以创建自己的数字花园。
 
-[[👉 Try it|wiki]]
+[[▶️ Try it|wiki]]
 
 refs:
 
 * [[数字花园]]
 * [[TiddlyWiki|https://tiddlywiki.com/]]
-* [[Quine|https://en.wikipedia.org/wiki/Quine_(computing)]] 
-* source code: https://github.com/ThaddeusJiang/thaddeusjiang.github.io
+* [[自产生程序（Quine）|https://en.wikipedia.org/wiki/Quine_(computing)]] 
 
 
-
+[[📦 Open Source|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]

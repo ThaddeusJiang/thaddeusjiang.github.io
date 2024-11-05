@@ -1,6 +1,6 @@
 created: 20200913085259429
 creator: TJ
-modified: 20221121100143617
+modified: 20241105073351911
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/rss
@@ -12,6 +12,11 @@ type: text/vnd.tiddlywiki
    &lt;title&gt;{{$:/SiteTitle}}&lt;/title&gt;
    &lt;link&gt;<$text text={{$:/AbsoluteBaseUrl}}/>&lt;/link&gt;
    &lt;description&gt;{{$:/SiteSubtitle}}&lt;/description&gt;
+
+&lt;follow_challenge&gt;
+    &lt;feedId&gt;41718658305983488&lt;/feedId&gt;
+    &lt;userId&gt;41718122139849728&lt;/userId&gt;
+&lt;/follow_challenge&gt;
 
 <$list filter="[tag[blog]!tag[weekly]!sort[title]limit[3]]" >
    &lt;item&gt;

@@ -1,17 +1,8 @@
 created: 20241024035220568
-modified: 20241024035906689
+modified: 20241105075012212
 name: About
-tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals
+tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/internals
 title: about
 type: text/vnd.tiddlywiki
 
-
-{{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}  
-
-<div class="container content">
-    <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-
 {{About}}
-
-    </div>
-</div>
