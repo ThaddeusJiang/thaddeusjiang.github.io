@@ -3,7 +3,67 @@
 <channel>
    <title>ThaddeusJiang</title>
    <link>https://thaddeusjiang.com</link>
-   <description>Freelance Programmer</description>
+   <description>Programmer, Blogger</description><follow_challenge>
+    <feedId>41718658305983488</feedId>
+    <userId>41718122139849728</userId>
+</follow_challenge>
+   <item>
+      <title>2024-10-30 可以控制的力量才属于你</title>
+      <link>https://thaddeusjiang.com/2024-10-30-ke-yi-kong-zhi-de-li-liang-cai-shu-yu-ni</link>
+			<description><![CDATA[
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Programmer, Blogger</p>
+      </div>
+      
+      <div class="navbar-end mt-2 subtitle is-size-4">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a>
+      </div></p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title">2024-10-30 可以控制的力量才属于你</h1>
+          <hr>
+
+          <div class="content">
+            <p>虽然现在有很多很强大的 AI，但是很多都是被大公司或者少数人控制的，你必须在他们的限制下使用 AI 的力量。虽然大部分 AI 的所有者没有对你提出过分的要求，但是它们的确阉割了很多你原本可以使用的力量。</p><p>例如：你无法请 ChatGPT 描述下面这张 Rihanna 的写真</p><p><img class=" tc-image-loading" height="300px" src="https://i.gyazo.com/c4a65c8afbc926a270d2f2ca341e6a5d.png"></p><p>在 AI SaaS 时代，AI SaaS 提供商就是道德警察，你必须像生活在极端伊斯兰教统治的国家里一样使用 AI，不能涉及一丁点成人内容，即使你不是为了成人内容，只要有一点点相关也不行。</p><p>所以，self own AI 是必要的，运行你自己的 AI，掌控你自己的 AI，不要让 AI Providers 阉割你原本可以使用的力量。</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+]]></description>
+      <pubDate>Wed, 30 October 2024 6:10:22 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2024-10-30-ke-yi-kong-zhi-de-li-liang-cai-shu-yu-ni</guid>      
+   </item>
+
    <item>
       <title>2024-10-23 My Second Photos</title>
       <link>https://thaddeusjiang.com/2024-10-23-my-second-photos</link>
@@ -13,10 +73,10 @@
         <h1 class="brand">
           <a class="title" href="./">ThaddeusJiang</a>
         </h1>
-        <p class="subtitle is-size-6 is-italic">Freelance Programmer</p>
+        <p class="subtitle is-size-6 is-italic">Programmer, Blogger</p>
       </div>
       
-      <div class="navbar-end mt-2">
+      <div class="navbar-end mt-2 subtitle is-size-4">
         <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a>
       </div></p></nav></div>
 </div>
@@ -75,10 +135,10 @@
         <h1 class="brand">
           <a class="title" href="./">ThaddeusJiang</a>
         </h1>
-        <p class="subtitle is-size-6 is-italic">Freelance Programmer</p>
+        <p class="subtitle is-size-6 is-italic">Programmer, Blogger</p>
       </div>
       
-      <div class="navbar-end mt-2">
+      <div class="navbar-end mt-2 subtitle is-size-4">
         <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a>
       </div></p></nav></div>
 </div>
@@ -122,72 +182,6 @@
 ]]></description>
       <pubDate>Mon, 30 September 2024 5:49:5 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-09-30-i-analyzed-my-browser-history</guid>      
-   </item>
-
-   <item>
-      <title>2024-09-25 Just use PostgreSQL</title>
-      <link>https://thaddeusjiang.com/2024-09-25-just-use-postgresql</link>
-			<description><![CDATA[
-<div class="container mt-4">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
-        <h1 class="brand">
-          <a class="title" href="./">ThaddeusJiang</a>
-        </h1>
-        <p class="subtitle is-size-6 is-italic">Freelance Programmer</p>
-      </div>
-      
-      <div class="navbar-end mt-2">
-        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./#blog">Blog</a>
-      </div></p></nav></div>
-</div>
-
-
-<div class="container">
-  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-      <div>
-          <h1 class="title">2024-09-25 Just use PostgreSQL</h1>
-          <hr>
-
-          <div class="content">
-            <p>一个小例子解释为什么我默认选择 PostgreSQL 而不是 SQLite。</p><blockquote><div>为什么要解释？</div><div>答：local-first 最近又流行起来了，JS 社区的 Kent C. Dodds 和 Rails 社区的 DHH 都推荐使用 SQLite。但是日常工作中，我感觉 SQLite 经常背刺我。</div></blockquote><h2 class="">需求：从 url 中提取 port，例如：<a class="tc-tiddlylink-external" href="http://localhost:3000/setup" rel="noopener noreferrer" target="_blank">http://localhost:3000/setup</a> -&gt; 3000</h2><pre class="hljs"><code class="sql hljs"># PostgreSQL
-<span class="hljs-keyword">SELECT</span>
-    <span class="hljs-built_in">substring</span>(url <span class="hljs-keyword">FROM</span> <span class="hljs-string">&#x27;:(\d+)&#x27;</span>) <span class="hljs-keyword">AS</span> port
-<span class="hljs-keyword">FROM</span>
-    (<span class="hljs-keyword">SELECT</span> <span class="hljs-string">&#x27;http://localhost:3000/setup&#x27;</span> <span class="hljs-keyword">AS</span> url) <span class="hljs-keyword">AS</span> t;
-</code></pre><pre class="hljs"><code class="sql hljs"># SQLite
-<span class="hljs-keyword">SELECT</span>
-    substr(url, instr(url, <span class="hljs-string">&#x27;:&#x27;</span>) <span class="hljs-operator">+</span> <span class="hljs-number">1</span>, instr(url, <span class="hljs-string">&#x27;/&#x27;</span>, instr(url, <span class="hljs-string">&#x27;:&#x27;</span>)) <span class="hljs-operator">-</span> instr(url, <span class="hljs-string">&#x27;:&#x27;</span>) <span class="hljs-operator">-</span> <span class="hljs-number">1</span>) <span class="hljs-keyword">AS</span> port
-<span class="hljs-keyword">FROM</span>
-    (<span class="hljs-keyword">SELECT</span> <span class="hljs-string">&#x27;http://localhost:3000/setup&#x27;</span> <span class="hljs-keyword">AS</span> url) <span class="hljs-keyword">AS</span> t;</code></pre><p>对比之下，Postgres 的 substring 比 SQLite 的 substr 简单太多了，开箱即用的感觉真好。</p><h2 class="">另外</h2><p>我今天发现 Metabase 的 regexextract 表达式不支持 SQLite。🥲</p><p>Doc: <a class="tc-tiddlylink-external" href="https://www.metabase.com/docs/latest/questions/query-builder/expressions-list#regexextract" rel="noopener noreferrer" target="_blank">https://www.metabase.com/docs/latest/questions/query-builder/expressions-list#regexextract</a></p><h2 class="">人生苦短，我用 Postgres。</h2><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://www.epicweb.dev/why-you-should-probably-be-using-sqlite" rel="noopener noreferrer" target="_blank">https://www.epicweb.dev/why-you-should-probably-be-using-sqlite</a></li><li><a class="tc-tiddlylink-external" href="https://x.com/search?f=tweets&amp;q=sqlite+from:dhh" rel="noopener noreferrer" target="_blank">https://x.com/search?f=tweets&amp;q=sqlite+from:dhh</a></li><li><a class="tc-tiddlylink-external" href="https://x.com/search?q=Just%20use%20PostgreSQL" rel="noopener noreferrer" target="_blank">https://x.com/search?q=Just%20use%20PostgreSQL</a></li></ul>
-          </div>          
-      </div>
-  </div>
-</div>     
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-]]></description>
-      <pubDate>Wed, 25 September 2024 9:36:29 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-09-25-just-use-postgresql</guid>      
    </item>
 
 </channel>

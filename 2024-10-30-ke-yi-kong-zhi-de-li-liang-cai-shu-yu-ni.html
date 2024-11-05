@@ -18,21 +18,21 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2023-12-18 软件开发“白痴指数”</title>
-<meta name="description" content="“白痴指数”，用来计算某个制成品的成本比其基本材料的成本高多少。软件开发“白痴指数”，用来计算计算机软件总成本比功能相关成本高多少。">
+<title>2024-10-30 可以控制的力量才属于你</title>
+<meta name="description" content="虽然现在有很多很强大的 AI，但是很多都是被大公司或者少数人控制的，你必须在他们的限制下使用 AI 的力量。虽然大部分 AI 的所有者没有对你提出过分的要求，但是它们的确阉割了很多你原本可以使用的力量。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://thaddeusjiang.com/2023-12-18-ruan-jian-kai-fa-bai-chi-zhi-shu" />
-<meta property="og:title" content="2023-12-18 软件开发“白痴指数”" />
-<meta property="og:description" content="“白痴指数”，用来计算某个制成品的成本比其基本材料的成本高多少。软件开发“白痴指数”，用来计算计算机软件总成本比功能相关成本高多少。" />
+<meta property="og:url" content="https://thaddeusjiang.com/2024-10-30-ke-yi-kong-zhi-de-li-liang-cai-shu-yu-ni" />
+<meta property="og:title" content="2024-10-30 可以控制的力量才属于你" />
+<meta property="og:description" content="虽然现在有很多很强大的 AI，但是很多都是被大公司或者少数人控制的，你必须在他们的限制下使用 AI 的力量。虽然大部分 AI 的所有者没有对你提出过分的要求，但是它们的确阉割了很多你原本可以使用的力量。" />
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="2023-12-18 软件开发“白痴指数”" />
-<meta name="twitter:description" content="“白痴指数”，用来计算某个制成品的成本比其基本材料的成本高多少。软件开发“白痴指数”，用来计算计算机软件总成本比功能相关成本高多少。" />
+<meta name="twitter:title" content="2024-10-30 可以控制的力量才属于你" />
+<meta name="twitter:description" content="虽然现在有很多很强大的 AI，但是很多都是被大公司或者少数人控制的，你必须在他们的限制下使用 AI 的力量。虽然大部分 AI 的所有者没有对你提出过分的要求，但是它们的确阉割了很多你原本可以使用的力量。" />
 <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
 
 <!-- Google tag (gtag.js) -->
@@ -84,11 +84,11 @@
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <h1 class="title">2023-12-18 软件开发“白痴指数”</h1>
+          <h1 class="title">2024-10-30 可以控制的力量才属于你</h1>
           <hr>
 
           <div class="content">
-            <p>“白痴指数”，用来计算某个制成品的成本比其基本材料的成本高多少。软件开发“白痴指数”，用来计算计算机软件总成本比功能相关成本高多少。</p><ul><li>总成本（功能相关 + 非功能相关）：设计、开发、测试、部署、配置</li><li>功能相关：设计、开发</li></ul><p>测试、部署、配置等非功能相关的成本越高，项目水分越大。</p><h2 class="">为什么我突然想写《软件开发“白痴指数”》 ？</h2><p>今天我负责 release 一个新版本，需要配置一个 connection token，我花了大约 3~4 个小时才完成，差点没把我累死。😭</p><p>就是一个环境变量啊，干嘛搞得这么复杂呢？</p><p>美其名曰：架构安全。但是软件系统的安全是木桶效应，瓶颈不在最高的那块板，而是在最低的那块板。DevOps 搞得这么复杂，复杂到 DevOps developers 都不能完全理解和 100% 保证正确。最低的那块板就变成了维护如此复杂 DevOps 的人了。这里推荐阅读<a class="tc-tiddlylink-external" href="https://zh.wikipedia.org/wiki/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6" rel="noopener noreferrer" target="_blank">《社会工程学》</a> 😂</p><p>简单记录一下我今天干了什么：</p><ol><li>使用 terraform 在 GCP 创建一个 Secret Manager，用来储存密钥。</li><li>在 k8s 中配置 secret-manager client，用来在读取密钥。</li><li>使用 terraform 为 k8s 配置 Secret Manager 权限，没有权限读不到密钥</li><li>更新 k8s container image tag，得到 k8s load-balancer 切换 pod。</li><li>使用 Postman 调用 health endpoint，并查看 container image tag 是否正确</li><li>查看 metabase 已确定 database migrations 正确执行</li><li>查看 datadog, Google Pub/Sub subscriptions, 等等周边服务</li></ol><p>关键是上面这些操作全都要通过 gitlab MR 和 CICD，美其名曰 GitOps，😂</p><ol><li>编写 yaml</li><li>提交 gitlab MR</li><li>请求 review</li><li>合并 MR，并等待 CICD</li><li>确认 CICD 结果</li></ol><p>我累死了，也傻掉了，太麻烦了。反复在 gitlab repositories 间横跳、提交 code、等待 review、执行 merge、继续等待，啊啊啊啊啊啊</p><h2 class="">最后再说一遍</h2><p>软件开发“白痴指数”，非功能相关的成本越高，项目水分越大。</p>
+            <p>虽然现在有很多很强大的 AI，但是很多都是被大公司或者少数人控制的，你必须在他们的限制下使用 AI 的力量。虽然大部分 AI 的所有者没有对你提出过分的要求，但是它们的确阉割了很多你原本可以使用的力量。</p><p>例如：你无法请 ChatGPT 描述下面这张 Rihanna 的写真</p><p><img class=" tc-image-loading" height="300px" src="https://i.gyazo.com/c4a65c8afbc926a270d2f2ca341e6a5d.png"></p><p>在 AI SaaS 时代，AI SaaS 提供商就是道德警察，你必须像生活在极端伊斯兰教统治的国家里一样使用 AI，不能涉及一丁点成人内容，即使你不是为了成人内容，只要有一点点相关也不行。</p><p>所以，self own AI 是必要的，运行你自己的 AI，掌控你自己的 AI，不要让 AI Providers 阉割你原本可以使用的力量。</p>
           </div>          
       </div>
   </div>
