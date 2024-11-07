@@ -1,0 +1,20 @@
+created: 20241107072040038
+creator: TJ
+modified: 20241107084707117
+modifier: TJ
+tags: 随笔
+title: 2024-11-07 server inside app
+type: text/vnd.tiddlywiki
+
+
+偶然想到：对于不懂技术的人来说，下载 + 双击启动 或许对 local-first application 是十分合理的。
+
+所以，可以把 web application 包装成一个 native app，打开 app 后启动一个 server，并在 app 中访问。不仅可以继续使用 web tech，而且体验和 native 很像。
+
+注意：我说的不是使用 web tech 语法，然后编译成 native code，我想表达的是在 app 中启动 inside web view。
+
+如果是家庭使用，必须支持外部访问。
+
+LiveBook 就是这样一个 app，支持 Docker 启动，也提供 macOS Desktop。
+
+https://livebook.dev/

@@ -1,3 +1,5 @@
 #!/bin/sh
 
+set -x
+
 npx tiddlywiki --listen port=8091 username=TJ
