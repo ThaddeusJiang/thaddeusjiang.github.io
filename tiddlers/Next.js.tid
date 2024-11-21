@@ -1,0 +1,21 @@
+created: 20241111042223500
+modified: 20241111042641916
+tags: TechRadar/语言和框架
+title: Next.js
+type: text/vnd.tiddlywiki
+
+
+主流，人气
+
+我可以熟练使用，但是个人项目我不会使用它。
+
+缺点：
+
+# <<tag 主要>> 平台锁定（vercel）：server-side 默认运行在 serverless functions 而不是 server (via docker)。
+# API 不是 web standards，平台锁定（vercel）
+
+
+
+
+
+

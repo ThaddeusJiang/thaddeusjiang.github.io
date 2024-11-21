@@ -1,0 +1,64 @@
+created: 20241111043132064
+modified: 20241111050655389
+title: 2024-11-11 React 结合第三方 JS library 并不简单
+type: text/vnd.tiddlywiki
+
+
+哪里不简单？
+
+首先，我所认为的不简单通常是对于操作 DOM JS library。例如：DnD、Maps、Canvas 等等
+
+例子：
+
+* [[Google Maps Library|https://developers.google.com/maps/documentation/javascript]]
+* https://github.com/SortableJS/Sortable
+* https://github.com/vega/vega-lite
+
+虽然流行的 JS library 基本上都提供 React 版本，但是因为 React Virtual DOM 更新机制和 JS DOM 不一样，导致 React 版本的 API 和 pure JS 版本的 API 不一样。
+
+导致的问题
+
+# 官方文档使用不容易：API 不一致，示例不一致，React 版本 Docs 更新不及时，示例少或者有错等等。
+
+具体解释
+
+在 React 中使用操作 DOM 的 JS library 时，常常会出现 DOM update 逻辑的歧义，即：
+
+> 1. 通过 library functions 更新还是通过 React state 更新？
+
+以 vega-lite 为例：
+
+pure JS 更新图表，使用 `view.change().run()` functions
+
+```js
+var changeSet = vega
+  .changeset()
+  .insert(valueGenerator())
+  .remove(function (t) {
+    return t.x < minimumX;
+  });
+view.change('table', changeSet).run();
+```
+
+React 项目必须使用 useEffect 
+
+```js
+var changeSet = vega
+  .changeset()
+  .insert(valueGenerator())
+  .remove(function (t) {
+    return t.x < minimumX;
+  });
+
+useEffect(() => {
+  view.change('table', changeSet).run();
+
+  return view.finalize();
+}, [view, changeSet])
+```
+
+
+> 2. React re-render 会导致 JS library 的实例（instance）重复创建，可能造成 JS 垃圾回收不及时而导致内存占用过高，甚至溢出。复杂 UI 可能造成卡顿、死屏。
+
+
+

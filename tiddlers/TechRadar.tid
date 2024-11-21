@@ -1,5 +1,6 @@
 created: 20241003023932854
-modified: 20241003024815345
+modified: 20241111042150750
+tags: $:/plugins/adithyab/tiddlyjam/live
 title: TechRadar
 type: text/vnd.tiddlywiki
 
@@ -7,8 +8,8 @@ type: text/vnd.tiddlywiki
 参考 ThoughtWorks 技术雷达
 
 
-* <<tag TechRadar/采纳>> 激情澎湃地使用中
-* <<tag TechRadar/试验>> 尝试，但没有达到“采纳”那种给别人推荐的程度
+* <<tag TechRadar/采纳>> 熟练并激情澎湃地使用着，能给别人推荐，能讲明白为什么
+* <<tag TechRadar/试验>> 尝试中，没有达到给别人推荐的水平，仅个人便好
 * <<tag TechRadar/评估>> 保持关注
 * <<tag TechRadar/暂缓>> 不再使用
 

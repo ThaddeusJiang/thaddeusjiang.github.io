@@ -1,0 +1,15 @@
+created: 20241111041425716
+modified: 20241111042052107
+tags: TechRadar/试验 TechRadar/平台
+title: Zeabur
+type: text/vnd.tiddlywiki
+
+
+优点：
+
+# 价格合理。（存储、运算）
+# 支持 yaml + docker 部署，平台锁定威胁小
+# 支持 templates，方便 one-click deployment
+
+
+
