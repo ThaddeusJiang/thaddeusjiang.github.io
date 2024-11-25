@@ -1,6 +1,6 @@
 created: 20200728151423521
 creator: Adithya_
-modified: 20241105073551846
+modified: 20241125115753338
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/header
@@ -19,7 +19,7 @@ type: text/vnd.tiddlywiki
       </div>
       
       <div class="navbar-end mt-2 subtitle is-size-4">
-        [[Blog|blog]]
+        [[Blog|blog]] | [[Essays|essays]]
       </div>
 
     </nav>
