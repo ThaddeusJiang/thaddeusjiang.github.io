@@ -1,8 +1,8 @@
-created: 20241024035220568
-modified: 20241105075012212
-name: About
+Name: About Me
+created: 20241223052343021
+modified: 20241223053009992
 tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/internals
-title: about
+title: zh
 type: text/vnd.tiddlywiki
 
-{{About}}
+{{AboutMeZh}}

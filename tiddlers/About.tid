@@ -1,27 +1,8 @@
-created: 20200418124902034
-creator: TJ
-modified: 20241105075158171
-modifier: TJ
-tags: 
-title: About
+created: 20241024035220568
+modified: 20241223052957849
+name: About
+tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/internals
+title: about
 type: text/vnd.tiddlywiki
 
-
-👋 欢迎来到 ThaddeusJiang 的数字花园，使用 TiddlyWiki 构建。
-
-特点：
-
-* 整个应用程序是一个 HTML，零依赖、无需构建工具，下载即可使用。
-* 一个自产生程序（Quine），输出结果为程序自身源码，你看到的文章也是代码。
-* 开源免费，你也可以创建自己的数字花园。
-
-[[▶️ Try it|wiki]]
-
-refs:
-
-* [[数字花园]]
-* [[TiddlyWiki|https://tiddlywiki.com/]]
-* [[自产生程序（Quine）|https://en.wikipedia.org/wiki/Quine_(computing)]] 
-
-
-[[📦 Open Source|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]
+{{AboutZh}}

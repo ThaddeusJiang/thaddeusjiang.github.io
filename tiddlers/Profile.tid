@@ -1,0 +1,21 @@
+created: 20241223030927932
+modified: 20241223051328120
+tags: 
+title: Profile
+type: text/vnd.tiddlywiki
+
+!! 👋 Hi
+
+I am a freelance full-stack engineer specializing in ''end-to-end software development''. From ''product ideation'' and ''system design'' to ''scalable deployment'' and ''DevOps'', I deliver results that align with business goals.
+
+!! Skills & Experience
+
+* Extensive experience in building ERP, CMS, EC platforms, HR systems, IoT solutions, and more.
+* Proficient in RDB/NoSQL, frontend/backend (React, Node.js), CI/CD pipelines, and Cloud (GCP, Azure, Fly.io, Zeabur).
+* Skilled in both team collaboration and independent project development.
+
+!! Notable Projects
+
+Developed and maintain [[AIer.app|https://aier.app]] and [[Vmemo.app|https://vmemo.app]], showcasing my ability to deliver high-quality, scalable solutions.
+
+For more, visit my [[GitHub|https://github.com/ThaddeusJiang]].

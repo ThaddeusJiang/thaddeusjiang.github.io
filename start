@@ -2,4 +2,4 @@
 
 set -x
 
-npx tiddlywiki --listen port=8091 username=TJ
+pnpx tiddlywiki --listen port=8000 username=TJ

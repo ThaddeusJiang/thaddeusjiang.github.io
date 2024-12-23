@@ -1,14 +1,14 @@
 created: 20241125115238233
-modified: 20241125115807496
+modified: 20241223051448333
 tags: $:/plugins/adithyab/tiddlyjam/category $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live
-title: essays
+title: smalltalks
 type: text/vnd.tiddlywiki
 
 {{$:/plugins/adithyab/tiddlyjam/renderer/base/header}}  
 
 <div class="container">
     <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-        <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[essay]!sort[title]]">
+        <$list filter="[tag[$:/plugins/adithyab/tiddlyjam/live]tag[smalltalks]!sort[title]]">
             {{||$:/plugins/adithyab/tiddlyjam/renderer/templates/blog_compact}}
         </$list>
     </div>

@@ -1,6 +1,6 @@
 created: 20200728151423521
 creator: Adithya_
-modified: 20241125115753338
+modified: 20241223051753740
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/header
@@ -18,8 +18,8 @@ type: text/vnd.tiddlywiki
         <p class="subtitle is-size-6 is-italic">{{$:/SiteSubtitle}}</p>
       </div>
       
-      <div class="navbar-end mt-2 subtitle is-size-4">
-        [[Blog|blog]] | [[Essays|essays]]
+      <div class="navbar-end mt-2 subtitle is-size-5">
+        [[en|https://x.com/ThaddeusJiang]] | [[zh|zh]]
       </div>
 
     </nav>
