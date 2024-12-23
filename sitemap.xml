@@ -885,7 +885,7 @@
 
    <url>
       <loc>.//2024-11-25-nvidia</loc>
-      <lastmod>2024-11-25</lastmod>
+      <lastmod>2024-12-23</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -903,7 +903,7 @@
 
    <url>
       <loc>.//about</loc>
-      <lastmod>2024-11-05</lastmod>
+      <lastmod>2024-12-23</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -932,12 +932,6 @@
    </url>
 
    <url>
-      <loc>.//essays</loc>
-      <lastmod>2024-11-25</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//faq</loc>
       <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
@@ -957,7 +951,7 @@
 
    <url>
       <loc>.//index</loc>
-      <lastmod>2024-10-24</lastmod>
+      <lastmod>2024-12-23</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -968,8 +962,20 @@
    </url>
 
    <url>
+      <loc>.//smalltalks</loc>
+      <lastmod>2024-12-23</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//techradar</loc>
       <lastmod>2024-11-11</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//zh</loc>
+      <lastmod>2024-12-23</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
