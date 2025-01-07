@@ -1,0 +1,22 @@
+created: 20250107060502876
+modified: 20250107062711385
+tags: 
+title: args params variable
+type: text/vnd.tiddlywiki
+
+
+不同语言的命名习惯之“参数列表”
+
+
+* JavaScript：params https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+* elixir： params https://hexdocs.pm/phoenix/controllers.html
+
+! 剩余参数
+
+elixir 社区喜欢用 `, opts \\ [])` keyword (关键字列表)
+
+JS 社区喜欢 `, ...rest)`
+
+ES6+ rest parameters（剩余参数）https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
+
+Clang Ziglang 喜欢 args

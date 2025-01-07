@@ -1,6 +1,6 @@
 created: 20240110194543949
 creator: TJ
-modified: 20250106053103951
+modified: 20250107072741797
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: AboutMeZh
@@ -20,9 +20,10 @@ type: text/vnd.tiddlywiki
 
 !! 文章
 
-[[blog]] | [[smalltalks]]
+* [[Blog|blog]]
+* [[Smalltalks|smalltalks]]
 
 !! 动态
 
-* [[X.com|https://x.com/jiangjifa]]
-* [[GitHub.com|https://github.com/ThaddeusJaing]]
+* [[X|https://x.com/jiangjifa]]
+* [[GitHub|https://github.com/ThaddeusJaing]]

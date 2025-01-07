@@ -1,0 +1,69 @@
+created: 20250107063342704
+modified: 20250107073128496
+published: 20250107072341853
+tags: blog TechRadar/工具 $:/plugins/adithyab/tiddlyjam/live
+title: 2025-01-07 refactorex
+type: text/vnd.tiddlywiki
+
+为 ElixirLang 开发者推荐一款 VS Code 插件 refactorex，它通过扩展 VS Code Refactor 功能，提供了很多 elixir 常用的重构方法。它帮助我减少了很多无聊的键盘敲击，使用单一快捷键就可以实现超多类型的 Refactor，重构工作从枯燥无味变得十分愉悦，提升了我 Coding 的幸福感，希望你也会喜欢。
+
+分享几个我觉得很爽的 Refactor
+
+!! 1. 下划线标注未使用的参数
+
+[img[https://github.com/gp-pereira/refactorex/raw/main/assets/examples/function/underscore_unused_args.gif?raw=true]]
+
+下划线标注未使用的参数是 elixir 特色，其他语言应该也有类似风格，我不太确定。我知道 JavaScript 社区推荐把未使用的参数删掉，😂
+
+
+!! 2. 短函数
+
+[img[https://github.com/gp-pereira/refactorex/raw/main/assets/examples/function/collapse_anonymous_function.gif?raw=true]]
+
+类似 `&(&1 + &2)` 的匿名函数编写方式也是 elixir 特色，可以让代码变得非常简洁，易读。它似乎有另外一个名字叫 `Pointfree 风格`。
+
+对比：
+
+```elixir
+# before
+items
+|> Enum.map(fn item -> 
+  item.price * (1- discount_rate)
+end)
+|> Enum.sum()
+
+# after
+items
+|> Enum.map(&(&.price * (1- discount_rate)))
+|> Enum.sum()
+```
+
+或许有人会不喜欢短函数，但是无所谓，我很喜欢 😄
+
+!! 3. 引入管道 （introduce pipeline）
+
+[img[https://github.com/gp-pereira/refactorex/raw/main/assets/examples/pipeline/introduce_pipe.gif?raw=true]]
+
+pipeline 也是 elixir 特色。说实话，pipeline 是我喜欢 elixir 的一个非常重要的原因，pipeline 代码写起来非常爽，可以减少函数嵌套，并且可以避免大量临时变量，代码更清晰。
+
+对比：
+
+```elixir
+# before
+Shipping.send_package(Shipping.new_package(items))
+
+# after
+items
+|> Shipping.new_package()
+|> shipping.send_package()
+```
+
+!! 小结
+
+你可能注意到了，我分享的 Refactor 都是极具 elixir 特色的。但是不用担心，其他编程语言常用的重构方法 refactorex 也提供，如提取函数、内联函数、重命名等等，更多内容请自行阅读 [[refactorex in GitHub|https://github.com/gp-pereira/refactorex]]
+
+
+refs
+
+* [[RefactorEx in VS Code Marketplace|https://marketplace.visualstudio.com/items?itemName=gp-pereira.refatorex]]
+* [[Pointfree 编程风格指南|https://www.ruanyifeng.com/blog/2017/03/pointfree.html]]
