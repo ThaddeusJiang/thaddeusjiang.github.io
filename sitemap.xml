@@ -908,6 +908,12 @@
    </url>
 
    <url>
+      <loc>.//2025-01-07-refactorex</loc>
+      <lastmod>2025-01-07</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//31-sui-zai-ri-ben-ba-liao-yi-ke-ya</loc>
       <lastmod>2024-05-12</lastmod>
       <changefreq>monthly</changefreq>
@@ -927,13 +933,13 @@
 
    <url>
       <loc>.//aboutmeen</loc>
-      <lastmod>2025-01-06</lastmod>
+      <lastmod>2025-01-07</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>.//aboutmezh</loc>
-      <lastmod>2025-01-06</lastmod>
+      <lastmod>2025-01-07</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -993,7 +999,7 @@
 
    <url>
       <loc>.//smalltalks</loc>
-      <lastmod>2024-12-23</lastmod>
+      <lastmod>2025-01-07</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

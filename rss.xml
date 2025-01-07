@@ -8,6 +8,57 @@
     <userId>41718122139849728</userId>
 </follow_challenge>
    <item>
+      <title>2025-01-07 refactorex</title>
+      <link>https://thaddeusjiang.com/2025-01-07-refactorex</link>
+			<description><![CDATA[
+<div class="content">
+  <p>为 ElixirLang 开发者推荐一款 VS Code 插件 refactorex，它通过扩展 VS Code Refactor 功能，提供了很多 elixir 常用的重构方法。它帮助我减少了很多无聊的键盘敲击，使用单一快捷键就可以实现超多类型的 Refactor，重构工作从枯燥无味变得十分愉悦，提升了我 Coding 的幸福感，希望你也会喜欢。</p><p>分享几个我觉得很爽的 Refactor</p><h2 class="">1. 下划线标注未使用的参数</h2><p><img class=" tc-image-loading" src="https://github.com/gp-pereira/refactorex/raw/main/assets/examples/function/underscore_unused_args.gif?raw=true"></p><p>下划线标注未使用的参数是 elixir 特色，其他语言应该也有类似风格，我不太确定。我知道 JavaScript 社区推荐把未使用的参数删掉，😂</p><h2 class="">2. 短函数</h2><p><img class=" tc-image-loading" src="https://github.com/gp-pereira/refactorex/raw/main/assets/examples/function/collapse_anonymous_function.gif?raw=true"></p><p>类似 <code>&amp;(&amp;1 + &amp;2)</code> 的匿名函数编写方式也是 elixir 特色，可以让代码变得非常简洁，易读。它似乎有另外一个名字叫 <code>Pointfree 风格</code>。</p><p>对比：</p><pre><code># before
+items
+|&gt; Enum.map(fn item -&gt; 
+  item.price * (1- discount_rate)
+end)
+|&gt; Enum.sum()
+
+# after
+items
+|&gt; Enum.map(&amp;(&amp;.price * (1- discount_rate)))
+|&gt; Enum.sum()</code></pre><p>或许有人会不喜欢短函数，但是无所谓，我很喜欢 😄</p><h2 class="">3. 引入管道 （introduce pipeline）</h2><p><img class=" tc-image-loading" src="https://github.com/gp-pereira/refactorex/raw/main/assets/examples/pipeline/introduce_pipe.gif?raw=true"></p><p>pipeline 也是 elixir 特色。说实话，pipeline 是我喜欢 elixir 的一个非常重要的原因，pipeline 代码写起来非常爽，可以减少函数嵌套，并且可以避免大量临时变量，代码更清晰。</p><p>对比：</p><pre><code># before
+Shipping.send_package(Shipping.new_package(items))
+
+# after
+items
+|&gt; Shipping.new_package()
+|&gt; shipping.send_package()</code></pre><h2 class="">小结</h2><p>你可能注意到了，我分享的 Refactor 都是极具 elixir 特色的。但是不用担心，其他编程语言常用的重构方法 refactorex 也提供，如提取函数、内联函数、重命名等等，更多内容请自行阅读 <a class="tc-tiddlylink-external" href="https://github.com/gp-pereira/refactorex" rel="noopener noreferrer" target="_blank">refactorex in GitHub</a></p><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://marketplace.visualstudio.com/items?itemName=gp-pereira.refatorex" rel="noopener noreferrer" target="_blank">RefactorEx in VS Code Marketplace</a></li><li><a class="tc-tiddlylink-external" href="https://www.ruanyifeng.com/blog/2017/03/pointfree.html" rel="noopener noreferrer" target="_blank">Pointfree 编程风格指南</a></li></ul>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Tue, 7 January 2025 7:23:41 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-01-07-refactorex</guid>      
+   </item>
+
+   <item>
       <title>2024-11-21 对事不对人</title>
       <link>https://thaddeusjiang.com/2024-11-21-dui-shi-bu-dui-ren</link>
 			<description><![CDATA[
@@ -78,46 +129,6 @@
 ]]></description>
       <pubDate>Wed, 30 October 2024 6:10:22 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-10-30-ke-yi-kong-zhi-de-li-liang-cai-shu-yu-ni</guid>      
-   </item>
-
-   <item>
-      <title>2024-10-23 My Second Photos</title>
-      <link>https://thaddeusjiang.com/2024-10-23-my-second-photos</link>
-			<description><![CDATA[
-<div class="content">
-  <p>终于终于，严重拖延的我终于启用了“Second Photos”，终于可以愉快地翻看手机相册了，终于可以找到保存的美女写真了，生活再次变得美好了。</p><h2 class="">What is Second Photos</h2><p>命名参考了 Second Brain，其实就是另外一个管理照片的地方。</p><h2 class="">Why Second Photos</h2><p>一直以来我都有如下困扰：</p><p>1. 我的相册里有巨量的网络图片和视频</p><p>我喜欢随手保存一些图片和视频，算是轻微收藏癖吧，哈哈哈。每次当我想打开手机相册回忆一下自己的生活的时候，过度出现的与我不相关的内容总是让我心情烦躁，它们打断了我回忆的思绪，也减少了我对自己生活的了解和掌控。</p><p>但是偶尔翻看自己保存搞笑视频和美女写真也会让我会心一笑，它们是我生活的调剂品，我也不想失去这份快乐。</p><p>2. 我的相册里有巨量的截图</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/d83396f6613782d52373c6cd5d9474c2.jpg" width="50%"></p><p>相对于文字笔记，我更喜欢使用图片来记忆，我感觉图片的视觉记忆更清晰、更长久，所以我总是保存截图而不是保存文本。虽然我很喜欢这个习惯，喜欢自己的“视觉笔记”，但是这也到只我的相册中有巨量的截图。</p><p>并且手机自带的相册在图片检索方面做的很差，基本上没有办法当成“视觉笔记”来使用，我希望有一个 app 让我可以复习和查找自己的视觉笔记。</p><p>简单总结：我想把相册中与我相关的内容和与我无关的内容分开；我不想丢弃于我不相关的部分；我想要编辑和搜索我的诗句笔记。</p><h2 class="">我如何配置 Second Photos</h2><p>1. 我在 Telegram 上创建了多个 group 保存不同的照片，搞笑内容、美女帅哥、学习笔记、House Design 等等。</p><p>2. 我使用 Typesense 和 Vision AI 处理和分析照片，我可以用自然语言搜索它们、也可以发现相似的图片。</p><p>3. 我制作了 bot 帮助我保存、查找、整理照片，不需要安装 app，也不需要登录网页。</p><h2 class="">前后对比</h2><p>1. 现在我的手机相册里几乎只有生活的照片了，旅游的回忆、家庭的回忆、和朋友们一起的回忆等等，我又可以心情愉悦地翻看手机相册了。</p><p>2. 我保存的网络图片和截图笔记也没有丢失，不仅没有丢失，我现在还可以搜索它们，甚至可以在截图的基础上继续做笔记。</p><p>额外收获</p><p>1. 无限的存储容量，感谢 telegram server 的慷慨，爱死它了。</p><p>2. 图片搜索，这是截止到今天（2024-10-23）iPhone Photos 和 Google Photos 都没有的功能。</p><h2 class="">最后放几个简单的效果吧。</h2><p>demo video:</p><p>messages:</p><pre><code>/search cat
-/search dog
-/search girl
-/similar photo
-/similar photo</code></pre><p><video controls="controls" muted="muted" src="https://github.com/user-attachments/assets/b0dedcc0-3305-42b2-8101-6b0b5d32f17a" style="width:100%;max-height:640px;min-height:200px;"></video></p><h2 class="">Open Source</h2><p><a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/save_it" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/save_it</a></p><p>以上。
-</p>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Wed, 23 October 2024 6:50:6 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-10-23-my-second-photos</guid>      
    </item>
 
 </channel>

@@ -1,0 +1,174 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.6" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2025-01-07 refactorex</title>
+<meta name="description" content="为 ElixirLang 开发者推荐一款 VS Code 插件 refactorex，它通过扩展 VS Code Refactor 功能，提供了很多 elixir 常用的重构方法。它帮助我减少了很多无聊的键盘敲击，使用单一快捷键就可以实现超多类型的 Refactor，重构工作从枯燥无味变得十分愉悦，提升了我 Coding 的幸福感，希望你也会喜欢。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2025-01-07-refactorex" />
+<meta property="og:title" content="2025-01-07 refactorex" />
+<meta property="og:description" content="为 ElixirLang 开发者推荐一款 VS Code 插件 refactorex，它通过扩展 VS Code Refactor 功能，提供了很多 elixir 常用的重构方法。它帮助我减少了很多无聊的键盘敲击，使用单一快捷键就可以实现超多类型的 Refactor，重构工作从枯燥无味变得十分愉悦，提升了我 Coding 的幸福感，希望你也会喜欢。" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2025-01-07 refactorex" />
+<meta name="twitter:description" content="为 ElixirLang 开发者推荐一款 VS Code 插件 refactorex，它通过扩展 VS Code Refactor 功能，提供了很多 elixir 常用的重构方法。它帮助我减少了很多无聊的键盘敲击，使用单一快捷键就可以实现超多类型的 Refactor，重构工作从枯燥无味变得十分愉悦，提升了我 Coding 的幸福感，希望你也会喜欢。" />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container mt-4">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Freelance full-stack engineer</p>
+      </div>
+      
+      <div class="navbar-end mt-2 subtitle is-size-5">
+        <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./aboutmeen.html">en</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./aboutmezh.html">zh</a>
+      </div></p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title">2025-01-07 refactorex</h1>
+          <hr>
+
+          <div class="content">
+            <p>为 ElixirLang 开发者推荐一款 VS Code 插件 refactorex，它通过扩展 VS Code Refactor 功能，提供了很多 elixir 常用的重构方法。它帮助我减少了很多无聊的键盘敲击，使用单一快捷键就可以实现超多类型的 Refactor，重构工作从枯燥无味变得十分愉悦，提升了我 Coding 的幸福感，希望你也会喜欢。</p><p>分享几个我觉得很爽的 Refactor</p><h2 class="">1. 下划线标注未使用的参数</h2><p><img class=" tc-image-loading" src="https://github.com/gp-pereira/refactorex/raw/main/assets/examples/function/underscore_unused_args.gif?raw=true"></p><p>下划线标注未使用的参数是 elixir 特色，其他语言应该也有类似风格，我不太确定。我知道 JavaScript 社区推荐把未使用的参数删掉，😂</p><h2 class="">2. 短函数</h2><p><img class=" tc-image-loading" src="https://github.com/gp-pereira/refactorex/raw/main/assets/examples/function/collapse_anonymous_function.gif?raw=true"></p><p>类似 <code>&amp;(&amp;1 + &amp;2)</code> 的匿名函数编写方式也是 elixir 特色，可以让代码变得非常简洁，易读。它似乎有另外一个名字叫 <code>Pointfree 风格</code>。</p><p>对比：</p><pre><code># before
+items
+|&gt; Enum.map(fn item -&gt; 
+  item.price * (1- discount_rate)
+end)
+|&gt; Enum.sum()
+
+# after
+items
+|&gt; Enum.map(&amp;(&amp;.price * (1- discount_rate)))
+|&gt; Enum.sum()</code></pre><p>或许有人会不喜欢短函数，但是无所谓，我很喜欢 😄</p><h2 class="">3. 引入管道 （introduce pipeline）</h2><p><img class=" tc-image-loading" src="https://github.com/gp-pereira/refactorex/raw/main/assets/examples/pipeline/introduce_pipe.gif?raw=true"></p><p>pipeline 也是 elixir 特色。说实话，pipeline 是我喜欢 elixir 的一个非常重要的原因，pipeline 代码写起来非常爽，可以减少函数嵌套，并且可以避免大量临时变量，代码更清晰。</p><p>对比：</p><pre><code># before
+Shipping.send_package(Shipping.new_package(items))
+
+# after
+items
+|&gt; Shipping.new_package()
+|&gt; shipping.send_package()</code></pre><h2 class="">小结</h2><p>你可能注意到了，我分享的 Refactor 都是极具 elixir 特色的。但是不用担心，其他编程语言常用的重构方法 refactorex 也提供，如提取函数、内联函数、重命名等等，更多内容请自行阅读 <a class="tc-tiddlylink-external" href="https://github.com/gp-pereira/refactorex" rel="noopener noreferrer" target="_blank">refactorex in GitHub</a></p><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://marketplace.visualstudio.com/items?itemName=gp-pereira.refatorex" rel="noopener noreferrer" target="_blank">RefactorEx in VS Code Marketplace</a></li><li><a class="tc-tiddlylink-external" href="https://www.ruanyifeng.com/blog/2017/03/pointfree.html" rel="noopener noreferrer" target="_blank">Pointfree 编程风格指南</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+      <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>
