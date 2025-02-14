@@ -1,0 +1,13 @@
+created: 20250214010450964
+modified: 20250214011724528
+tags: smalltalks #专家直觉 $:/plugins/adithyab/tiddlyjam/live
+title: 2025-02-14 AI Code Editor 会成为新时代的 Ruby on Rails 吗
+type: text/vnd.tiddlywiki
+
+AI Code Editor 会成为新时代的 Ruby on Rails 吗？
+
+这是使用 Cursor 作为编辑器后突然涌现出的直觉，我认为 AI Code Editor 对我来说就像 Ruby on Rails，它极大的提高了我启动项目的速度，在一些我不熟悉的领域可以提供基本的支持和一些行业最佳实践。
+
+虽然我依然不认为 AI 可以完全取代人类工程师，但是人类工程师借助 AI 的力量的确可以提高数倍或者数十倍的工作效率。
+
+补充，GitHub Copilot 曾经让我体验到了“自动补全”的效率提升，但是在“辅助开发”层面我目前为止 Cursor 为代表的 AI Code Editor 的确比 VS Code + Copilot Extension 跟优秀。
