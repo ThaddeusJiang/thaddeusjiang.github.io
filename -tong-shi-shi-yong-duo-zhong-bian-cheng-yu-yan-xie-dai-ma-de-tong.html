@@ -67,16 +67,16 @@
 
 <body class="tc-body">
   
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
         <h1 class="brand">
           <a class="title" href="./">ThaddeusJiang</a>
         </h1>
-        <p class="subtitle is-size-6 is-italic">Freelance full-stack engineer</p>
+        <p class="subtitle is-size-6 is-italic">Full Cycle Developer</p>
       </div>
       
-      <div class="navbar-end mt-2 subtitle is-size-5">
-        <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./aboutmeen.html">en</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./aboutmezh.html">zh</a>
+      <div class="navbar-end is-size-5">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a>
       </div></p></nav></div>
 </div>
 
@@ -84,7 +84,7 @@
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <h1 class="title">同时使用多种编程语言写代码的痛</h1>
+          <h1 class="title is-4">同时使用多种编程语言写代码的痛</h1>
           <hr>
 
           <div class="content">
@@ -106,7 +106,7 @@
 end
 
 Task.async(fn -&gt; Demo.foo("First") end) |&gt; Task.await
-Task.async(fn -&gt; Demo.foo("Second") end) |&gt; Task.await</code></pre><p>代码在评论区</p><h2 class="">为什么呢？</h2><p>主要区别</p><ul><li>JavaScript:<ul><li>单线程，使用事件循环来处理异步操作。</li><li>async/await 本质上是语法糖，底层仍是基于 Promise + 回调，依赖事件循环切换任务。</li><li>在同一个事件循环中，只有一个线程在执行 JS 代码，I/O 等操作异步回调回来后再执行。</li></ul></li><li>Elixir（BEAM 虚拟机）:<ul><li>天生支持并发，每个进程都非常轻量（与操作系统进程不同），可以同时在多核 CPU 上运行。</li><li>使用 Task.async/await、spawn 等方式来创建并发任务，内部有自己的调度器，能把这些任务分配到不同的调度线程上并行执行。</li><li>因为是真正并发，输出可能会交错出现，具体顺序并不保证。</li></ul></li></ul><p>所以，虽然 JavaScript 和 Elixir 中都有 async await 这两个关键字，但是它们的动作和底层机制都是一样的。</p><p>作为一名多语言使用者，我常常会因为熟练使用某一种语言，熟练到习以为常，而忘记其他语言的正确使用方法。编程语言如此，自然语言亦是如此。比如，我常常写错或读错中文和日文，比如：“天”。晕，我刚刚才意识到日本语和中文“天”字，在我的电脑上是一个字。😓</p><p>以上</p>
+Task.async(fn -&gt; Demo.foo("Second") end) |&gt; Task.await</code></pre><p>代码在评论区</p><h2 class="">为什么呢？</h2><p>主要区别</p><ul><li>JavaScript:<ul><li>单线程，使用事件循环来处理异步操作。</li><li>async/await 本质上是语法糖，底层仍是基于 Promise + 回调，依赖事件循环切换任务。</li><li>在同一个事件循环中，只有一个线程在执行 JS 代码，I/O 等操作异步回调回来后再执行。</li></ul></li><li>Elixir（BEAM 虚拟机）:<ul><li>天生支持并发，每个进程都非常轻量（与操作系统进程不同），可以同时在多核 CPU 上运行。</li><li>使用 Task.async/await、spawn 等方式来创建并发任务，内部有自己的调度器，能把这些任务分配到不同的调度线程上并行执行。</li><li>因为是真正并发，输出可能会交错出现，具体顺序并不保证。</li></ul></li></ul><p>所以，虽然 JavaScript 和 Elixir 中都有 async await 这两个关键字，但是它们的动作和底层机制都是不一样的。</p><p>作为一名多语言使用者，我常常会因为熟练使用某一种语言，熟练到习以为常，而忘记其他语言的正确使用方法。编程语言如此，自然语言亦是如此。</p><p>在日本生活久了的人，无论曾经英语有多少，几乎都会忘记“电梯”的英文发音，😂</p><p>推荐一个介绍 JapanEnglish 的视频，<a class="tc-tiddlylink-external" href="https://youtu.be/q7y4av-Dr4I?si=DdJwLJapaif4CajG&amp;t=40" rel="noopener noreferrer" target="_blank">https://youtu.be/q7y4av-Dr4I?si=DdJwLJapaif4CajG&amp;t=40</a></p><p>以上</p>
           </div>          
       </div>
   </div>

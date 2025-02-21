@@ -39,5 +39,6 @@ pre {
 }
 
 .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
