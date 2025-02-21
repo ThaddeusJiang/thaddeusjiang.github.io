@@ -8,6 +8,59 @@
     <userId>41718122139849728</userId>
 </follow_challenge>
    <item>
+      <title>同时使用多种编程语言写代码的痛</title>
+      <link>https://thaddeusjiang.com/-tong-shi-shi-yong-duo-zhong-bian-cheng-yu-yan-xie-dai-ma-de-tong</link>
+			<description><![CDATA[
+<div class="content">
+  <p>我觉得“痛”这个词也不恰当，但是我也知道该用哪个词来形容。我考虑过“困境”、“难点”、“不爽”、“苦楚”等等，都不太恰当。</p><p>算了，我还是来形容一下场景吧。</p><p>我是一名多语言使用者，编程时同时用 JavaScript 和 Elixir，日常生活中、日、英混杂。</p><p>因为使用 JavaScript 的频率太高了，有时我会把 JavaScript 的某些特性误以为是编程语言的共同特性，例如：await 。</p><p>相信，所有合格的 JavaScript 开发者都知道下面这段代码的输出：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">name</span>) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(name, <span class="hljs-string">&quot;start&quot;</span>);
+  <span class="hljs-keyword">await</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(name, <span class="hljs-string">&quot;middle&quot;</span>);
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(name, <span class="hljs-string">&quot;end&quot;</span>);
+}
+
+<span class="hljs-title function_">foo</span>(<span class="hljs-string">&quot;First&quot;</span>);
+<span class="hljs-title function_">foo</span>(<span class="hljs-string">&quot;Second&quot;</span>);</code></pre><p>掌握 JavaScript 中 await 的执行顺序，是作为一名合格的 JavaScript 开发者的起点。但是如果你不小心把 JavaScript await 的执行顺序错误理解成所有编程语言的共性，那你很容易就会在 Elixir 开发中变成一名“不合格”的开发者。</p><p>因为 Elixir 中异步是真实的，JavaScript 中异步是模拟的（也可以说是基于事件循环的）。</p><p>请大家猜一下，下面 Elixir 代码的输入</p><pre><code>defmodule Demo do
+  def foo(name) do
+    IO.puts("#{name} start")
+    Process.sleep(500)
+    IO.puts("#{name} middle")
+    Process.sleep(500)
+    IO.puts("#{name} end")
+  end
+end
+
+Task.async(fn -&gt; Demo.foo("First") end) |&gt; Task.await
+Task.async(fn -&gt; Demo.foo("Second") end) |&gt; Task.await</code></pre><p>代码在评论区</p><h2 class="">为什么呢？</h2><p>主要区别</p><ul><li>JavaScript:<ul><li>单线程，使用事件循环来处理异步操作。</li><li>async/await 本质上是语法糖，底层仍是基于 Promise + 回调，依赖事件循环切换任务。</li><li>在同一个事件循环中，只有一个线程在执行 JS 代码，I/O 等操作异步回调回来后再执行。</li></ul></li><li>Elixir（BEAM 虚拟机）:<ul><li>天生支持并发，每个进程都非常轻量（与操作系统进程不同），可以同时在多核 CPU 上运行。</li><li>使用 Task.async/await、spawn 等方式来创建并发任务，内部有自己的调度器，能把这些任务分配到不同的调度线程上并行执行。</li><li>因为是真正并发，输出可能会交错出现，具体顺序并不保证。</li></ul></li></ul><p>所以，虽然 JavaScript 和 Elixir 中都有 async await 这两个关键字，但是它们的动作和底层机制都是一样的。</p><p>作为一名多语言使用者，我常常会因为熟练使用某一种语言，熟练到习以为常，而忘记其他语言的正确使用方法。编程语言如此，自然语言亦是如此。比如，我常常写错或读错中文和日文，比如：“天”。晕，我刚刚才意识到日本语和中文“天”字，在我的电脑上是一个字。😓</p><p>以上</p>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Fri, 21 February 2025 10:53:27 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/-tong-shi-shi-yong-duo-zhong-bian-cheng-yu-yan-xie-dai-ma-de-tong</guid>      
+   </item>
+
+   <item>
       <title>2025-01-07 refactorex</title>
       <link>https://thaddeusjiang.com/2025-01-07-refactorex</link>
 			<description><![CDATA[
@@ -94,41 +147,6 @@ items
 ]]></description>
       <pubDate>Thu, 21 November 2024 9:18:23 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2024-11-21-dui-shi-bu-dui-ren</guid>      
-   </item>
-
-   <item>
-      <title>2024-10-30 可以控制的力量才属于你</title>
-      <link>https://thaddeusjiang.com/2024-10-30-ke-yi-kong-zhi-de-li-liang-cai-shu-yu-ni</link>
-			<description><![CDATA[
-<div class="content">
-  <p>虽然现在有很多很强大的 AI，但是很多都是被大公司或者少数人控制的，你必须在他们的限制下使用 AI 的力量。虽然大部分 AI 的所有者没有对你提出过分的要求，但是它们的确阉割了很多你原本可以使用的力量。</p><p>例如：你无法请 ChatGPT 描述下面这张 Rihanna 的写真</p><p><img class=" tc-image-loading" height="300px" src="https://i.gyazo.com/c4a65c8afbc926a270d2f2ca341e6a5d.png"></p><p>在 AI SaaS 时代，AI SaaS 提供商就是道德警察，你必须像生活在极端伊斯兰教统治的国家里一样使用 AI，不能涉及一丁点成人内容，即使你不是为了成人内容，只要有一点点相关也不行。</p><p>所以，self own AI 是必要的，运行你自己的 AI，掌控你自己的 AI，不要让 AI Providers 阉割你原本可以使用的力量。</p>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Wed, 30 October 2024 6:10:22 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-10-30-ke-yi-kong-zhi-de-li-liang-cai-shu-yu-ni</guid>      
    </item>
 
 </channel>
