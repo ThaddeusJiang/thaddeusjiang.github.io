@@ -1,6 +1,6 @@
 created: 20200806142756352
 creator: Adithya_
-modified: 20240830071001691
+modified: 20250221135852465
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/blog/body
@@ -11,7 +11,7 @@ type: text/vnd.tiddlywiki
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <h1 class="title"><$view field="title" /></h1>
+          <h1 class="title is-4"><$view field="title" /></h1>
           <hr />
 
           <div class="content">

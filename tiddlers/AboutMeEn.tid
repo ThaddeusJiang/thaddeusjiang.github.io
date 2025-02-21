@@ -1,12 +1,12 @@
 created: 20241223030927932
-modified: 20250107072856549
-tags: $:/plugins/adithyab/tiddlyjam/live
+modified: 20250221141320315
+tags: 
 title: AboutMeEn
 type: text/vnd.tiddlywiki
 
 !! 👋 Hi
 
-I am a freelance full-stack engineer specializing in ''end-to-end software development''. From ''product ideation'' and ''system design'' to ''scalable deployment'' and ''DevOps'', I deliver results that align with business goals.
+I am a Full Cycle Developer specializing in ''end-to-end software development''. From ''product ideation'' and ''system design'' to ''scalable deployment'' and ''DevOps'', I deliver results that align with business goals.
 
 !! Skills & Experience
 
@@ -14,14 +14,9 @@ I am a freelance full-stack engineer specializing in ''end-to-end software devel
 * Proficient in RDB/NoSQL, frontend/backend (React, Node.js), CI/CD pipelines, and Cloud (GCP, Azure, Fly.io, Zeabur).
 * Skilled in both team collaboration and independent project development.
 
-!! Notable Projects
+!! Personal Projects
 
 Developed and maintain [[AIer.app|https://aier.app]] and [[Vmemo.app|https://vmemo.app]], showcasing my ability to deliver high-quality, scalable solutions.
-
-!! Posts
-
-* [[Blog|blog]]
-* [[Smalltalks|smalltalks]]
 
 !! Activity
 

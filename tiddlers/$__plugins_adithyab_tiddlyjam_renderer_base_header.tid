@@ -1,12 +1,12 @@
 created: 20200728151423521
 creator: Adithya_
-modified: 20250106053057194
+modified: 20250221140537595
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/header
 type: text/vnd.tiddlywiki
 
-<div class="container mt-4">
+<div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -18,8 +18,8 @@ type: text/vnd.tiddlywiki
         <p class="subtitle is-size-6 is-italic">{{$:/SiteSubtitle}}</p>
       </div>
       
-      <div class="navbar-end mt-2 subtitle is-size-5">
-        [[en|AboutMeEn]] | [[zh|AboutMeZh]]
+      <div class="navbar-end is-size-5">
+        [[Blog|blog]]
       </div>
 
     </nav>
