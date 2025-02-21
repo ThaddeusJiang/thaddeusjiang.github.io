@@ -1,0 +1,24 @@
+created: 20250221100613456
+modified: 20250221101711550
+tags: 
+title: 沟通时用别人容易理解的语言
+type: text/vnd.tiddlywiki
+
+沟通时用别人容易理解的语言，内化时选择自己容易理解的语言。
+
+例子：
+
+在 JS 生态中，我们把 async function 称为异步函数，我们用 await 等待一个 Promise 兑现并获取它兑现后的值。
+
+虽然 async / await 常常被用于表述异步操作，但事实上如果 await 出现在一个 async function 前面，那么这个操作就不是异步的，而是同步的。因为 await 等待 async function 兑现。
+
+这里有一个需要注意的点，await 只会等待当前模块，等待过程中其他子模块不会阻塞。
+
+
+
+
+
+
+
+
+
