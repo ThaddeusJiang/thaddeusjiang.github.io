@@ -8,8 +8,69 @@
     <userId>41718122139849728</userId>
 </follow_challenge>
    <item>
-      <title>同时使用多种编程语言写代码的痛</title>
-      <link>https://thaddeusjiang.com/-tong-shi-shi-yong-duo-zhong-bian-cheng-yu-yan-xie-dai-ma-de-tong</link>
+      <title>2025-02-23 LiveView 异常处理</title>
+      <link>https://thaddeusjiang.com/2025-02-23-liveview-yi-chang-chu-li</link>
+			<description><![CDATA[
+<div class="content">
+  <p>因为太熟练 React 了，我曾经误以为 React ErrorBoundary 特性是 Web 标准，误以为 Elixir LiveView 中也有类似概念。但是 I was wrong</p><p>这是给 React developers 的一篇 LiveView 笔记，希望大家可以自由切换使用 React 和 LiveView ，不会再困惑。</p><blockquote><div>LiveView 是 Elixir 生态中流行的 UI framework。</div></blockquote><p>ErrorBoundary 是 React 的一个非常棒的特性，它实现了对异常处理的一种抽象，一种可以脱离数据的抽象，是一种 point-free style 的实践。</p><p>在 React 中，我们可以使用下面代码简单地处理各种异常。</p><pre class="hljs"><code class="jsx hljs">&lt;<span class="hljs-title class_">ErrorBoundary</span> fallback={<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Something went wrong<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>}&gt;
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Profile</span> /&gt;</span></span>
+&lt;/<span class="hljs-title class_">ErrorBoundary</span>&gt;</code></pre><p>ErrorBoundary 可以统一处理各种异常：</p><ul><li>代码错误：例如对象 user 是 undefined，但代码中写了 user.id</li><li>第三方异常：例如 database 连接失败，文件读取失败</li></ul><h2 class="">LiveView 中没有类似 React ErrorBoundary 的特性</h2><p>主要原因是 Elixir 对于错误的处理方式和 JavaScript 的哲学不一样，Elixir 继承了 Erlang 的 "Let It Crash" 哲学。所以，当 LiveView 中出现异常时，Elixir 会重启出现异常的进程，而不是让整个系统崩溃。</p><p>因为 LiveView 进程在出现错误时会被重启，所以我们通过 handle_info/2 监听 :EXIT 消息，自定义异常处理。</p><p>实例代码：</p><pre><code>defmodule MyAppWeb.MyLive do
+  use Phoenix.LiveView
+
+  def mount(_params, _session, socket) do
+    Process.flag(:trap_exit, true) # 允许捕获进程崩溃信息
+    {:ok, socket}
+  end
+
+  def handle_info({:EXIT, _from, reason}, socket) do
+    IO.inspect(reason, label: "LiveView crashed with reason")
+    {:noreply, assign(socket, error: "Something went wrong")}
+  end
+
+  def render(assigns) do
+    ~H"""
+    &lt;div&gt;
+      &lt;%= if @error do %&gt;
+        &lt;p class="error"&gt;&lt;%= @error %&gt;&lt;/p&gt;
+      &lt;% else %&gt;
+        &lt;p&gt;正常显示内容&lt;/p&gt;
+      &lt;% end %&gt;
+    &lt;/div&gt;
+    """
+  end
+end</code></pre><h2 class="">总结</h2><ol><li>ErrorBoundary 是 React 的特性，不是 Web Standards，LiveView 没有这个概念。</li><li>LiveView 异常处理继承自 Elixir/Erlang 的“崩溃并由监督树管理重启”的哲学</li><li>异常处理有两种风格：依赖异常的、不依赖异常的。React ErrorBoundary 和 Elixir Supervisor 都是不依赖异常的，golang if(!error) 是依赖异常的。</li></ol><blockquote><div>imo: LiveView 提供类似 React 一样的 UI 开发体验，在 state management 和 components 方面也十分优秀，在 data query 和 data mutation 方面甚至比 React 体验更棒，集成第三方 JS library 的方法更简单。</div></blockquote><p>最后，希望大家可以自由切换使用 React 和 LiveView ，它们都非常优秀，但是它们的设计哲学和思想有本质的不同，需要时刻提醒自己不要模糊它们的界限。</p><p>以上，感谢阅读。</p><h2 class="">refs</h2><ul><li><a class="tc-tiddlylink-external" href="https://www.phoenixframework.org/blog/phoenix-liveview-1.0-released" rel="noopener noreferrer" target="_blank">https://www.phoenixframework.org/blog/phoenix-liveview-1.0-released</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/bvaughn/react-error-boundary" rel="noopener noreferrer" target="_blank">https://github.com/bvaughn/react-error-boundary</a></li><li><a class="tc-tiddlylink-external" href="https://reactjs.org/docs/error-boundaries.html" rel="noopener noreferrer" target="_blank">https://reactjs.org/docs/error-boundaries.html</a></li></ul>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Sun, 23 February 2025 8:16:19 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-02-23-liveview-yi-chang-chu-li</guid>      
+   </item>
+
+   <item>
+      <title>2025-02-21 同时使用多种编程语言写代码的痛</title>
+      <link>https://thaddeusjiang.com/2025-02-21-tong-shi-shi-yong-duo-zhong-bian-cheng-yu-yan-xie-dai-ma-de-tong</link>
 			<description><![CDATA[
 <div class="content">
   <p>我觉得“痛”这个词也不恰当，但是我也知道该用哪个词来形容。我考虑过“困境”、“难点”、“不爽”、“苦楚”等等，都不太恰当。</p><p>算了，我还是来形容一下场景吧。</p><p>我是一名多语言使用者，编程时同时用 JavaScript 和 Elixir，日常生活中、日、英混杂。</p><p>因为使用 JavaScript 的频率太高了，有时我会把 JavaScript 的某些特性误以为是编程语言的共同特性，例如：await 。</p><p>相信，所有合格的 JavaScript 开发者都知道下面这段代码的输出：</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">name</span>) {
@@ -57,7 +118,7 @@ Task.async(fn -&gt; Demo.foo("Second") end) |&gt; Task.await</code></pre><p>代�
 
 ]]></description>
       <pubDate>Fri, 21 February 2025 10:53:27 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/-tong-shi-shi-yong-duo-zhong-bian-cheng-yu-yan-xie-dai-ma-de-tong</guid>      
+			<guid>https://thaddeusjiang.com/2025-02-21-tong-shi-shi-yong-duo-zhong-bian-cheng-yu-yan-xie-dai-ma-de-tong</guid>      
    </item>
 
    <item>
@@ -109,44 +170,6 @@ items
 ]]></description>
       <pubDate>Tue, 7 January 2025 7:23:41 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2025-01-07-refactorex</guid>      
-   </item>
-
-   <item>
-      <title>2024-11-21 对事不对人</title>
-      <link>https://thaddeusjiang.com/2024-11-21-dui-shi-bu-dui-ren</link>
-			<description><![CDATA[
-<div class="content">
-  <p>几年前，我给自己定下一个规矩“不再评价任何人”。从那以后我讨论问题没有再从人出发，而仅仅讨论事情本身。</p><p>简单解释，无论马斯克做人怎么样，他在 SpaceX Tesla 以及其他方面，他都挺优秀的。大家总是攻击他这个人，现在我觉得没有必要了，看他做的事和成果比较客观。</p><p>我不明白为什么大家喜欢攻击人，而不是讨论事情。我想起一个段子“为什么中国人喜欢在辩论中进行人身攻击”，相关文章：
-<a class="tc-tiddlylink-external" href="https://www.douban.com/group/topic/262139690/?_i=2179714VEA7LMK" rel="noopener noreferrer" target="_blank">https://www.douban.com/group/topic/262139690/?_i=2179714VEA7LMK</a></p><p>TL;DR</p><p>我们来假设一个问题，如果欧几里得先生被证明是一个精神病患者，那么几何学是否还成立？同样，假设牛顿先生后来被发现是一个罪犯，他的第一宇宙定律是否还成立？
-中国人认为如果一个人被证明品质不好，那么他的理论和观点自然就是没有价值的。
-那么＂把人搞臭＂就会永远成为中国人不得不选择的“证伪工具”。</p><p>为什么我想写这段文字？</p><ol><li>看到“何同学涉嫌抄袭”事件中 X.com 上网友表现</li><li>看到《再见爱人》在华语圈引发的讨论</li></ol><p>引用一位网友的话：“抓住一个机会就要把一个人彻底打倒，当代红卫兵开赛博批斗大会。” <a class="tc-tiddlylink-external" href="https://x.com/safaricheung/status/1858871535819427877" rel="noopener noreferrer" target="_blank">https://x.com/safaricheung/status/1858871535819427877</a></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/vietnh1009/ASCII-generator/issues/25" rel="noopener noreferrer" target="_blank">https://github.com/vietnh1009/ASCII-generator/issues/25</a></li></ul>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Thu, 21 November 2024 9:18:23 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2024-11-21-dui-shi-bu-dui-ren</guid>      
    </item>
 
 </channel>
