@@ -1,0 +1,82 @@
+created: 20250223073837857
+modified: 20250223082902256
+published: 20250223081619534
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2025-02-23 LiveView 异常处理
+type: text/vnd.tiddlywiki
+
+因为太熟练 React 了，我曾经误以为 React ErrorBoundary 特性是 Web 标准，误以为 Elixir LiveView 中也有类似概念。但是 I was wrong
+
+这是给 React developers 的一篇 LiveView 笔记，希望大家可以自由切换使用 React 和 LiveView ，不会再困惑。
+
+> LiveView 是 Elixir 生态中流行的 UI framework。
+
+ErrorBoundary 是 React 的一个非常棒的特性，它实现了对异常处理的一种抽象，一种可以脱离数据的抽象，是一种 point-free style 的实践。
+
+在 React 中，我们可以使用下面代码简单地处理各种异常。
+
+```jsx
+<ErrorBoundary fallback={<p>Something went wrong</p>}>
+  <Profile />
+</ErrorBoundary>
+```
+
+ErrorBoundary 可以统一处理各种异常：
+
+* 代码错误：例如对象 user 是 undefined，但代码中写了 user.id
+* 第三方异常：例如 database 连接失败，文件读取失败
+
+!! LiveView 中没有类似 React ErrorBoundary 的特性
+
+主要原因是 Elixir 对于错误的处理方式和 JavaScript 的哲学不一样，Elixir 继承了 Erlang 的 "Let It Crash" 哲学。所以，当 LiveView 中出现异常时，Elixir 会重启出现异常的进程，而不是让整个系统崩溃。
+
+因为 LiveView 进程在出现错误时会被重启，所以我们通过 handle_info/2 监听 :EXIT 消息，自定义异常处理。
+
+实例代码：
+
+```elixir
+defmodule MyAppWeb.MyLive do
+  use Phoenix.LiveView
+
+  def mount(_params, _session, socket) do
+    Process.flag(:trap_exit, true) # 允许捕获进程崩溃信息
+    {:ok, socket}
+  end
+
+  def handle_info({:EXIT, _from, reason}, socket) do
+    IO.inspect(reason, label: "LiveView crashed with reason")
+    {:noreply, assign(socket, error: "Something went wrong")}
+  end
+
+  def render(assigns) do
+    ~H"""
+    <div>
+      <%= if @error do %>
+        <p class="error"><%= @error %></p>
+      <% else %>
+        <p>正常显示内容</p>
+      <% end %>
+    </div>
+    """
+  end
+end
+```
+
+!! 总结
+
+# ErrorBoundary 是 React 的特性，不是 Web Standards，LiveView 没有这个概念。
+# LiveView 异常处理继承自 Elixir/Erlang 的“崩溃并由监督树管理重启”的哲学
+# 异常处理有两种风格：依赖异常的、不依赖异常的。React ErrorBoundary 和 Elixir Supervisor 都是不依赖异常的，golang if(!error) 是依赖异常的。
+
+> imo: LiveView 提供类似 React 一样的 UI 开发体验，在 state management 和 components 方面也十分优秀，在 data query 和 data mutation 方面甚至比 React 体验更棒，集成第三方 JS library 的方法更简单。
+
+最后，希望大家可以自由切换使用 React 和 LiveView ，它们都非常优秀，但是它们的设计哲学和思想有本质的不同，需要时刻提醒自己不要模糊它们的界限。
+
+以上，感谢阅读。
+
+
+!! refs
+
+* https://www.phoenixframework.org/blog/phoenix-liveview-1.0-released
+* https://github.com/bvaughn/react-error-boundary
+* https://reactjs.org/docs/error-boundaries.html
