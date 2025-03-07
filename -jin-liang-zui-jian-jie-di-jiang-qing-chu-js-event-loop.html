@@ -1,0 +1,175 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.6" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>尽量最简洁地讲清楚 JS Event Loop</title>
+<meta name="description" content="2025-03-07">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/-jin-liang-zui-jian-jie-di-jiang-qing-chu-js-event-loop" />
+<meta property="og:title" content="尽量最简洁地讲清楚 JS Event Loop" />
+<meta property="og:description" content="2025-03-07" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="尽量最简洁地讲清楚 JS Event Loop" />
+<meta name="twitter:description" content="2025-03-07" />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Full Cycle Developer</p>
+      </div>
+      
+      <div class="navbar-end is-size-5">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a>
+      </div></p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title is-4">尽量最简洁地讲清楚 JS Event Loop</h1>
+          <hr>
+
+          <div class="content">
+            <blockquote><div>2025-03-07</div></blockquote><p>JavaScript Event Loop（事件循环）是 JavaScript 运行时用于处理异步代码执行的一种<code>机制</code>。它确保了 JavaScript 在<code>单线程环境</code>下能够高效地执行异步操作，并<code>保持代码执行的顺序</code>。</p><p>JS 任务有 3 种类型：</p><ol><li>普通代码</li><li>微任务（microtask）: Promise .then .catch 等</li><li>宏任务（macrotask）: setTimeout setInternal 等</li></ol><p>记忆点：</p><ol><li>microtask，macrotask 在遇到时先不执行 callback</li><li>callback 分别进入两种队列（等待 event loop 调用），microtask queue 和 macrotask queue。</li><li>microtask queue （<code>Promise .then .catch</code>）<code>先</code>执行完毕后， macrotask queue (<code>setTimeout setInternal callback</code>) <code>后</code>执行</li></ol><p>实例代码：</p><pre class="hljs"><code class="js hljs"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;start&quot;</span>);
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;promise 1&quot;</span>));
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;setTimeout 1&quot;</span>);
+}, <span class="hljs-number">0</span>);
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;setTimeout 2&quot;</span>);
+  <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;promise 2&quot;</span>));
+}, <span class="hljs-number">0</span>);
+
+<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;promise 3&quot;</span>));
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;end&quot;</span>);</code></pre><p>output 顺序</p><pre class="hljs"><code class="js hljs">start
+end
+promise <span class="hljs-number">3</span>
+<span class="hljs-built_in">setTimeout</span> <span class="hljs-number">1</span>
+promise <span class="hljs-number">1</span>
+<span class="hljs-built_in">setTimeout</span> <span class="hljs-number">2</span>
+promise <span class="hljs-number">2</span></code></pre><p>这种问题的解法：将 callback 替换成 function_name 思考</p><p>step1: 上面代码变成</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> <span class="hljs-title function_">fn1</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;promise 1&quot;</span>));
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;setTimeout 1&quot;</span>);
+}
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">fn2</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;setTimeout 2&quot;</span>);
+  <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;promise 2&quot;</span>));
+}
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">fn3</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;promise 3&quot;</span>)
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;start&quot;</span>);
+
+<span class="hljs-built_in">setTimeout</span>(fn1, <span class="hljs-number">0</span>);
+
+<span class="hljs-built_in">setTimeout</span>(fn2, <span class="hljs-number">0</span>);
+
+<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(fn3);
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;end&quot;</span>);</code></pre><ol><li>第一遍执行：start, end</li><li>microstask queue 执行：promise3</li><li>macrotask queue callback 执行：(fn1执行) setTimeout1, promise1，(fn1执行) setTimeout2, promise2</li></ol><p>以上，感谢阅读。</p><p>不知道你明白了吗？</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+      <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>
