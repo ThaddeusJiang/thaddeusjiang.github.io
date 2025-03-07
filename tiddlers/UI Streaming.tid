@@ -1,0 +1,18 @@
+created: 20250224032123234
+modified: 20250224032718372
+tags: #拙见
+title: UI Streaming
+type: text/vnd.tiddlywiki
+
+
+
+Streaming 对 UI 贡献明显：
+
+# 通过 Streaming 进行数据交换，让用户有实时交互的体验，减少等待空白期。 ChatGPT 已经证明了。
+# Streaming 在 SSR 方面也很优秀，可以提高局部 TTI（Time to Interactive）。
+
+<<img "https://nextjs.org/_next/image?url=https%3A%2F%2Fh8DxKfmAPhn8O0p3.public.blob.vercel-storage.com%2Fdocs%2Flight%2Fserver-rendering-without-streaming-chart.png&w=3840&q=75" "without streaming" >>
+
+<<img "https://nextjs.org/_next/image?url=https%3A%2F%2Fh8DxKfmAPhn8O0p3.public.blob.vercel-storage.com%2Fdocs%2Flight%2Fserver-rendering-with-streaming-chart.png&w=3840&q=75" "with streaming" >>
+
+图片来源：https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming

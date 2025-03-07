@@ -1,0 +1,92 @@
+created: 20250307055928452
+modified: 20250307070831080
+tags: $:/plugins/adithyab/tiddlyjam/live
+title: 尽量最简洁地讲清楚 JS Event Loop
+type: text/vnd.tiddlywiki
+
+> 2025-03-07
+
+JavaScript Event Loop（事件循环）是 JavaScript 运行时用于处理异步代码执行的一种`机制`。它确保了 JavaScript 在`单线程环境`下能够高效地执行异步操作，并`保持代码执行的顺序`。
+
+JS 任务有 3 种类型：
+
+# 普通代码
+# 微任务（microtask）: Promise .then .catch 等
+# 宏任务（macrotask）: setTimeout setInternal 等
+
+记忆点：
+
+# microtask，macrotask 在遇到时先不执行 callback
+# callback 分别进入两种队列（等待 event loop 调用），microtask queue 和 macrotask queue。
+# microtask queue （`Promise .then .catch`）`先`执行完毕后， macrotask queue (`setTimeout setInternal callback`) `后`执行
+
+实例代码：
+
+```js
+console.log("start");
+
+setTimeout(() => {
+  Promise.resolve().then(() => console.log("promise 1"));
+  console.log("setTimeout 1");
+}, 0);
+
+setTimeout(() => {
+  console.log("setTimeout 2");
+  Promise.resolve().then(() => console.log("promise 2"));
+}, 0);
+
+Promise.resolve().then(() => console.log("promise 3"));
+
+console.log("end");
+```
+
+output 顺序
+
+```js
+start
+end
+promise 3
+setTimeout 1
+promise 1
+setTimeout 2
+promise 2
+```
+
+这种问题的解法：将 callback 替换成 function_name 思考
+
+step1: 上面代码变成
+
+
+```js
+const fn1 = () => {
+  Promise.resolve().then(() => console.log("promise 1"));
+  console.log("setTimeout 1");
+}
+
+const fn2 = () => {
+  console.log("setTimeout 2");
+  Promise.resolve().then(() => console.log("promise 2"));
+}
+
+const fn3 = () => console.log("promise 3")
+
+console.log("start");
+
+setTimeout(fn1, 0);
+
+setTimeout(fn2, 0);
+
+Promise.resolve().then(fn3);
+
+console.log("end");
+```
+
+# 第一遍执行：start, end
+# microstask queue 执行：promise3
+# macrotask queue callback 执行：(fn1执行) setTimeout1, promise1，(fn1执行) setTimeout2, promise2
+
+
+以上，感谢阅读。
+
+不知道你明白了吗？
+
