@@ -1,0 +1,20 @@
+created: 20250318141701493
+modified: 20250318142510966
+tags: React
+title: 我已经很久没用过 state management library 了
+type: text/vnd.tiddlywiki
+
+
+2025-03-18
+
+我认为招聘 React 开发者时，询问是否有 Redux 使用经验没有意义，因为一个优秀的 React 开发者从完全不会 Redux 到熟练使用 Redux 根本没有难度。
+
+如果你们团队真的在乎 React 开发者是否理解 state management，可以从你们的实际项目中找出最有难度的 state management 功能，让对方实现一遍。
+
+[[不要空想任务，从实际工作中提取任务]]
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+created: 20240830051902520
+creator: TJ
+modified: 20250312013142739
+modifier: TJ
+tags: Bookmarks
+title: HTML script tag with defer and async
+type: text/vnd.tiddlywiki
+
+https://flaviocopes.com/javascript-async-defer/
+
+
+HTML 加载脚本 script tag defer and async
+
+! Best way 
+
+在 head 中通过 `defer` 加载 script
+
+```html
+<head>
+  <script defer src="script.js"></script>
+</head>
+```
+
+> defer 和 async 只有放在 head 中才有效
+
+<<img "https://flaviocopes.com/images/javascript-async-defer/with-defer.png" "defer in head, 不会阻塞解析" >>
+
+<<img "https://flaviocopes.com/images/javascript-async-defer/with-async.png" "async 会阻塞 HTML parsing">>

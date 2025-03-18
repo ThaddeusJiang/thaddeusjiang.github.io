@@ -1,0 +1,11 @@
+created: 20250318150744209
+modified: 20250318150926454
+title: RxDB
+type: text/vnd.tiddlywiki
+
+offline-first data tool, https://rxdb.info/
+
+local-first app 优点：
+
+* 快，网络数据传递还是慢
+* offline 可用

@@ -1,0 +1,13 @@
+created: 20250318150240028
+modified: 20250318150620526
+title: electric-sql
+type: text/vnd.tiddlywiki
+
+基于 Postgres 的同步引擎，https://electric-sql.com/
+
+支持：
+
+* CRDT（无数据冲突）
+
+
+https://electric-sql.com/blog/2022/05/03/introducing-rich-crdts#refresher-on-crdts

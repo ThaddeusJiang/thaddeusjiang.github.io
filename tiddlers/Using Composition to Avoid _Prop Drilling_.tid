@@ -1,14 +1,14 @@
 created: 20210212031659024
 creator: TJ
-modified: 20241003031603672
+modified: 20250312013338564
 modifier: TJ
 tags: Bookmarks
-title: https://www.youtube-nocookie.com/embed/3XaXKiXtNjw
+title: Using Composition to Avoid "Prop Drilling"
 type: text/vnd.tiddlywiki
 
-我是通过这个视频才真正理解了 “UI 组合优于继承” 
+我是通过这个视频才真正理解了 “组合优于继承” 
 
-
+https://www.youtube-nocookie.com/embed/3XaXKiXtNjw
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3XaXKiXtNjw?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

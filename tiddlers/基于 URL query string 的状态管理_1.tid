@@ -1,0 +1,10 @@
+created: 20250318144644438
+modified: 20250318144820182
+tags: 
+title: 基于 URL query string 的状态管理
+type: text/vnd.tiddlywiki
+
+符合我的思维模式，我认为 web app 非常适合在 URL 中管理 state，优点：
+
+# 任何状态都可以通过 URL 分享
+# 使用 URL 进行 state management 可以实现状态管理不依赖框架，React Vue 都是一样的，非常 nice
