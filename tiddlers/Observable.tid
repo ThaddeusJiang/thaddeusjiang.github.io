@@ -1,0 +1,19 @@
+created: 20250321013945458
+modified: 20250321014505050
+tags: 
+title: Observable
+type: text/vnd.tiddlywiki
+
+
+Observable 是有别于 request-response 的另外一种模式，更符合现实世界，因为现实世界是异步的。
+
+> “现实世界是异步的” 这个观点是我从 [[erlang 作者 joe]] 的书中学到的。
+
+其实 Observable 在软件行业已经有很多应用了。
+
+* PubSub 本质上就是 Observable 机制，send message to topic, subscribe the topic.
+* 浏览器中 addEventListener
+
+
+
+

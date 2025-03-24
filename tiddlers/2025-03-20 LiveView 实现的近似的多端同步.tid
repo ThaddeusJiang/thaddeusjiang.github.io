@@ -1,0 +1,54 @@
+created: 20250320064551046
+modified: 20250320073746794
+tags: 
+title: 2025-03-20 LiveView 实现的近似的多端同步
+type: text/vnd.tiddlywiki
+
+似乎有点繁琐了。
+ 
+2025年，在阅读了诸多 Data sync 方案之后，我感觉 LiveView 基于 PubSub 的 soft-realtime 方案似乎有点繁琐了。
+
+类似  electric-sql, zero, RxDB 都提供开箱即用的 Data sync 和 client sdk，用起来真的很方便，相比之下 Phoenix Channel 基于 PubSub 的方式真的有点麻烦，需要创建 channel，需要主动 server-side broadcast messages, 还需要 client-side receive messages。
+
+> code 越多，bug 也越多。
+
+!! Zero 实现 Data Sync
+
+```js
+function Playlist({id}: {id: string}) {
+  const tracks = useQuery(
+    zero.query.playlist
+      .related('tracks', track => track
+        .related('album')
+        .related('artist')
+        .orderBy('playcount', 'asc')
+      .where('id', id)
+  );
+
+  const onStar = (id: string, starred: boolean) => {
+    zero.track.update({
+      id,
+      starred,
+    });
+  }
+
+  return (
+    <div>
+      {tracks.map(track => (
+        <TrackRow track={track} onStar={onStar}/>
+      ))}
+    </div>
+  );
+}
+```
+
+!! LiveView 实现 Data sync
+
+```elixir
+
+```
+
+
+
+
+> 2025-03-20 Supabase Realtime 现在还没有开箱即用的 Data sync，还是类似 PhoenixFramework channel 概念。

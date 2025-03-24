@@ -1,0 +1,13 @@
+created: 20250319101201828
+modified: 20250319101410446
+tags: 
+title: 2025-03-19 Vercel Web Analytics 有点贵
+type: text/vnd.tiddlywiki
+
+本来想尝试一下 Vercel Web Analytics，但是衡量了一下，感觉价格有点贵。
+
+Google Analytics is <<tag "Good enough">>
+
+[img[https://i.gyazo.com/7b3469725935c489bb9d414b8e1361b1.png]]
+
+https://vercel.com/docs/analytics/limits-and-pricing

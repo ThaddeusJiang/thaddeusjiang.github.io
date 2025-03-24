@@ -1,0 +1,76 @@
+created: 20250320045423968
+modified: 20250320053559236
+tags: 
+title: 2025 frontend 个人思考
+type: text/vnd.tiddlywiki
+
+
+根据技术栈区分
+
+# JS 社区
+# Elixir 社区
+# Native
+
+! 正文
+
+!! JS 社区
+
+1. Reactive (响应式状态管理)
+
+我认为基于 tree 的思考方式不够简洁，React Vue 都推荐单向数据流，即数据流类似 DOM 结构一样，类似 Tree 的形式从上到下。这种思考方式符合 HTML 中 DOM 的组织形式，大多数人容易理解。但是我认为基于基于监听的响应式才更简单。
+
+我想表达的不是 Vue 的 ref，不是单个 component 中的响应式。我想讨论的是 App 整体的响应式。
+
+常见需求：跨组件间，无需显式传递数据的 state management
+
+# React 可以通过 Context 实现
+# Vue 可以通过全局 provide inject 实现
+
+但是 React Context 和 Vue Provide 都有一个问题，就是它们都必须提供一个 Wrapper。
+
+```jsx
+// Wrapper
+<ThemeContext value={theme}>
+{children}
+</ThemeContext>
+
+// children
+const theme = useContext(ThemeContext);
+```
+
+```jsx
+// Wrapper
+const app = createApp({})
+app.provide("theme", theme)
+
+// components
+import { inject } from 'vue'
+const theme = inject('theme')
+```
+
+有没有不需要 Wrapper 的方式呢？有
+
+# 通过 localStorage + window.addEventListener("storage", fn) 实现；React 生态可以使用 jotai atomWithStorage
+# 使用 window 全局变量，形如 window.theme = theme
+# 修改 js framework 外部的 DOM，tailwindcss dark mode 就是采用类似模式。
+
+```html
+<html data-theme="dark">
+  <body>
+    <div class="bg-white dark:bg-black">
+      <!-- ... -->
+    </div>
+  </body>
+</html>
+```
+
+
+
+
+!! Elixir 社区
+!! Native
+
+
+
+
+

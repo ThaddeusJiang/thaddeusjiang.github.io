@@ -1,0 +1,8 @@
+created: 20250324131726575
+modified: 20250324132218951
+tags: blog
+title: 2025-03-24 重新采纳 Next.js
+type: text/vnd.tiddlywiki
+
+停用 Next.js 两年后，由于 React 大版本升级，为了跟上 React v19 最新写法，我重新评估了 Remix、Next.js 以及 TanStack Starter、honox 等框架，最后我决定重新采用 Next.js。
+

@@ -1,0 +1,21 @@
+created: 20250320064211512
+modified: 20250320064524924
+tags: 
+title: js validate env
+type: text/vnd.tiddlywiki
+
+这段代码太棒了，love it
+
+```js
+import { z } from 'zod'
+const envchema = z.object({
+API_URL: z.string().min(1),
+WEB_URL: z.string().min(1),
+DATABASE_URL: z.string() min(1),
+STRIPE_SECRET_KEY: z.string().min (1), GOOGLE_CLIENT_ID: z. string( ).min(1),
+GOOGLE_CLIENT_SECRET: z.string().min(1),
+} )
+export const env = envSchema.parse(process.env)
+```
+
+<<img "https://i.gyazo.com/125f25b40e46a08c94d94c1ed00641ec.jpg" "https://x.com/letstri/status/1902300037339623720?s=46">>

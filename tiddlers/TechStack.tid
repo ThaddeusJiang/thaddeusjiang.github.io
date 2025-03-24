@@ -1,5 +1,5 @@
 created: 20241003025612571
-modified: 20241003030535923
+modified: 20250324133250620
 tags: 
 title: TechStack
 type: text/vnd.tiddlywiki
@@ -8,10 +8,22 @@ type: text/vnd.tiddlywiki
 
 * TypeScript
 ** [[Remix]] - JS full stack web framework
+** [[Next.js]] - full stack web framework
 ** [[Prisma]] - JS database ORM
 ** [[RemedaJS]]
+
+* Database
 ** [[PostgreSQL]] - RDB
+
+* API
+
 ** [[OpenAPI]] - API doc for RESTful API
+** RESTful API
+** GraphQL
+** gRPC
+** tRPC
+** serverless functions
+** AWS SAM
 
 * Tools & Services
 ** [[Docker]] docker-compose - local

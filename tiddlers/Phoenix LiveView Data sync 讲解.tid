@@ -1,0 +1,45 @@
+created: 20250320073748115
+modified: 20250320074040883
+tags: 
+title: Phoenix LiveView Data sync 讲解
+type: text/vnd.tiddlywiki
+
+
+```diff
+defmodule TimelineWeb.TimelineLive do
+
++  @topic "timeline"
+
+  def mount(_params, _session, socket) do
++　   # 1. subscribe 
+    if connected?(socket) do
+      TimelineWeb.Endpoint.subscribe(@topic)
+    end
+
+    socket
++      # 2. stream data
+      |> stream(:posts, posts)    
+    {:ok, socket}
+  end
+
++  # 1.1 broadcast message
+  TimelineWeb.Endpoint.broadcast(@topic, "new_post", post)
+  TimelineWeb.Endpoint.broadcast(@topic, "update_post", updated_post)
+
++  # 1.2 update stream data
+  def handle_info(%{event: "new_post", payload: post, topic: @topic}, socket) do
+    {:noreply, stream_insert(socket, :posts, post, at: 0)}
+  end
+
++  # update stream data
+  def handle_info(%{event: "update_post", payload: post, topic: @topic}, socket) do
+    {:noreply, stream_insert(socket, :posts, post)}
+  end
+
+  def render(assigns) do
+    ~H"""
+    <div class="timeline">
++      # 2.1 render stream data
+      <div class="posts" phx-update="stream" id="posts">
+        <div :for={{id, post} <- @streams.posts} id={id} class="post">
+```

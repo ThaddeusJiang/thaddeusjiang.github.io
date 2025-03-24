@@ -1,0 +1,17 @@
+created: 20250324133327607
+modified: 20250324134046430
+title: gRPC
+type: text/vnd.tiddlywiki
+
+
+使用体验：
+
+优点：
+
+* 由 Protocol Buffers 定义文件 generate client functions，避免了调用方错误使用 API，比 RESTful API 更严格一点。RESTful API 对 client-side 几乎没有约束，有时的确参差不齐。另外，前后端分离的开发模式对于 CRUD 类的业务来说的确是一种低效、易出错的方式。gRPC 的确更好一点。
+
+缺点：
+
+* gRPC 生态 codegen 对 TypeScript 支持不好，工具配置麻烦，管理很无聊。int32, int64, float, double 等类型在 TypeScript 中都是模糊的。经过 database -> protocol buffers -> typescript 之后，generated code 基本上不可读，乱得要命，全是 [[类型体操]]。
+
+

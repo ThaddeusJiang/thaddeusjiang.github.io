@@ -1,0 +1,15 @@
+created: 20250319074241266
+modified: 20250319101827060
+tags: 
+title: imo: Remix.run
+type: text/vnd.tiddlywiki
+
+> 2025-03-19
+
+我可以熟练使用 Remix。
+
+相较于 Next.js，Remix 似乎有点偏离 React 了。Next.js 的 Server Components 和 Server Functions 和 React v19 保持一致。Remix 则是通过 loader action 实现类似的功能。
+
+我隐约有一种感觉，Remix 似乎会想 CoffeeScript 一样慢慢失去人气。这不在于 Remix 的设计是否优秀，而在于社区中大多数人的选择。
+
+对于到多数开发者来说，React 生态的 framework 最好和 React 官方保持一致比较好。

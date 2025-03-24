@@ -1,0 +1,10 @@
+created: 20250320063500088
+modified: 20250320063905247
+tags: 
+title: Data sync - challenges
+type: text/vnd.tiddlywiki
+
+
+# 需要解决 offline 冲突问题。幸好现在主流的工具都是 [[CRDT]] 的
+# 需要解决 multiple tenant 下数据安全
+# 需要解决 big data 下 client-side storage 和数据查询的问题，肯定不能在 client-side 保存全部数据吧？

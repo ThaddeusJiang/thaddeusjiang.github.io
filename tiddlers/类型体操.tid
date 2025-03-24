@@ -1,0 +1,17 @@
+created: 20250324135333081
+modified: 20250324135645696
+title: 类型体操
+type: text/vnd.tiddlywiki
+
+> ThaddeusJiang 不擅长类型体操。
+
+ChatGPT: [[typescript 生态中“类型体操”是什么|https://chatgpt.com/share/67e16180-81e8-8012-8275-70c5017baaf1]]
+
+TL;DR
+
+* 利用 TypeScript 的类型系统（尤其是条件类型、映射类型、模板字面量类型、infer 推断等）来实现各种高级类型运算或变换的行为。（炫技
+* “体操”不是在运行时发生的，而是纯粹在类型系统里操作类型。(自嗨
+
+
+
+

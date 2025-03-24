@@ -1,0 +1,27 @@
+created: 20250320054020418
+modified: 20250320063449125
+tags: 
+title: Data sync
+type: text/vnd.tiddlywiki
+
+
+<<<.tc-big-quote
+Replace data fetching with data sync
+<<<electric-sql
+
+[img width="50%" [https://i.gyazo.com/471c4c8d5eb6e75e63a03258abcec6aa.png]]
+
+Data sync 优势
+
+# 更简单的 network 架构，减少 network 意味着减少了系统异常的可能性。
+# Stays live，开箱即用的自动同步特性，曾经很复杂。mutate data -> refetch data, and let all clients refetch.
+
+有哪些 Data sync 案例？
+
+* electric-sql 提供 `useShape`
+* supabase 提供 `realtime`
+* RxDB 提供 Sync Engine
+* Dexie.js 提供 liveQuery
+* OneStack 提供 Zero 
+
+

@@ -1,0 +1,21 @@
+created: 20250320032926814
+modified: 20250320042733392
+tags: 
+title: Frontend load assets, parse, run, then request API
+type: text/vnd.tiddlywiki
+
+
+client-side load js, parse js, run js, then request API 会造成短暂的 UI 闪烁，以及一定程度的 loading 状态。如图：
+
+[img[https://www.epicreact.dev/articles-images/render-as-you-fetch/interaction.gif]]
+
+这是因为 load js, parse js, run js, request API 是顺序执行了（也称为 waterfall），后面动作必须等待前面动作完成后才能执行。
+
+[img[https://www.epicreact.dev/articles-images/render-as-you-fetch/bad.png]]
+
+曾经 SPA 已经解决了这个问题，因为 SPA 在应用运行前就已经 load and parse 完成了 js。
+
+但是随着 SPA 项目越来越大，bundle size 导致的初始加载问题愈发明显，JS 社区提出了 SSR 方案，但是 load js, parse js, run js, then request API 问题又回来了。😂
+
+
+

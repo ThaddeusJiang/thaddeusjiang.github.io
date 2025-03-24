@@ -1,13 +1,14 @@
 created: 20220313030411430
-modified: 20231206050029744
+modified: 20250324132857336
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: FAQ
 type: text/vnd.tiddlywiki
 
 
-* 我从哪里接触到这个技术？
+* 我从哪里接触到 TiddlyWiki？
 ** [[https://joearms.github.io/#2018-12-26 Fun with the TiddlyWiki]]
 * 如何保证数字花园 100 年后依然可用？
 *# 应用程序自举（零依赖）： https://tiddlywiki.com/#Quine
 *# Open Source: https://github.com/ThaddeusJiang/thaddeusjiang.github.io
 *# 互联网档案馆备份： https://web.archive.org/web/*/thaddeusjiang.com
+
