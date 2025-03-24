@@ -3,10 +3,45 @@
 <channel>
    <title>ThaddeusJiang</title>
    <link>https://thaddeusjiang.com</link>
-   <description>Full Cycle Developer</description><follow_challenge>
+   <description>Freelance Web Developer</description><follow_challenge>
     <feedId>41718658305983488</feedId>
     <userId>41718122139849728</userId>
 </follow_challenge>
+   <item>
+      <title>2025-03-24 重新采纳 Next.js</title>
+      <link>https://thaddeusjiang.com/2025-03-24-zhong-xin-cai-na-next-js</link>
+			<description><![CDATA[
+<div class="content">
+  <p>停用 Next.js 两年后，由于 React 大版本升级，为了跟上 React v19 最新写法，我重新评估了 Remix、Next.js 以及 TanStack Starter、honox 等框架，最后我决定重新采用 Next.js。</p>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Mon, 24 March 2025 13:17:26 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-03-24-zhong-xin-cai-na-next-js</guid>      
+   </item>
+
    <item>
       <title>2025-02-23 LiveView 异常处理</title>
       <link>https://thaddeusjiang.com/2025-02-23-liveview-yi-chang-chu-li</link>
@@ -119,57 +154,6 @@ Task.async(fn -&gt; Demo.foo("Second") end) |&gt; Task.await</code></pre><p>代�
 ]]></description>
       <pubDate>Fri, 21 February 2025 10:53:27 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2025-02-21-tong-shi-shi-yong-duo-zhong-bian-cheng-yu-yan-xie-dai-ma-de-tong</guid>      
-   </item>
-
-   <item>
-      <title>2025-01-07 refactorex</title>
-      <link>https://thaddeusjiang.com/2025-01-07-refactorex</link>
-			<description><![CDATA[
-<div class="content">
-  <p>为 ElixirLang 开发者推荐一款 VS Code 插件 refactorex，它通过扩展 VS Code Refactor 功能，提供了很多 elixir 常用的重构方法。它帮助我减少了很多无聊的键盘敲击，使用单一快捷键就可以实现超多类型的 Refactor，重构工作从枯燥无味变得十分愉悦，提升了我 Coding 的幸福感，希望你也会喜欢。</p><p>分享几个我觉得很爽的 Refactor</p><h2 class="">1. 下划线标注未使用的参数</h2><p><img class=" tc-image-loading" src="https://github.com/gp-pereira/refactorex/raw/main/assets/examples/function/underscore_unused_args.gif?raw=true"></p><p>下划线标注未使用的参数是 elixir 特色，其他语言应该也有类似风格，我不太确定。我知道 JavaScript 社区推荐把未使用的参数删掉，😂</p><h2 class="">2. 短函数</h2><p><img class=" tc-image-loading" src="https://github.com/gp-pereira/refactorex/raw/main/assets/examples/function/collapse_anonymous_function.gif?raw=true"></p><p>类似 <code>&amp;(&amp;1 + &amp;2)</code> 的匿名函数编写方式也是 elixir 特色，可以让代码变得非常简洁，易读。它似乎有另外一个名字叫 <code>Pointfree 风格</code>。</p><p>对比：</p><pre><code># before
-items
-|&gt; Enum.map(fn item -&gt; 
-  item.price * (1- discount_rate)
-end)
-|&gt; Enum.sum()
-
-# after
-items
-|&gt; Enum.map(&amp;(&amp;.price * (1- discount_rate)))
-|&gt; Enum.sum()</code></pre><p>或许有人会不喜欢短函数，但是无所谓，我很喜欢 😄</p><h2 class="">3. 引入管道 （introduce pipeline）</h2><p><img class=" tc-image-loading" src="https://github.com/gp-pereira/refactorex/raw/main/assets/examples/pipeline/introduce_pipe.gif?raw=true"></p><p>pipeline 也是 elixir 特色。说实话，pipeline 是我喜欢 elixir 的一个非常重要的原因，pipeline 代码写起来非常爽，可以减少函数嵌套，并且可以避免大量临时变量，代码更清晰。</p><p>对比：</p><pre><code># before
-Shipping.send_package(Shipping.new_package(items))
-
-# after
-items
-|&gt; Shipping.new_package()
-|&gt; shipping.send_package()</code></pre><h2 class="">小结</h2><p>你可能注意到了，我分享的 Refactor 都是极具 elixir 特色的。但是不用担心，其他编程语言常用的重构方法 refactorex 也提供，如提取函数、内联函数、重命名等等，更多内容请自行阅读 <a class="tc-tiddlylink-external" href="https://github.com/gp-pereira/refactorex" rel="noopener noreferrer" target="_blank">refactorex in GitHub</a></p><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://marketplace.visualstudio.com/items?itemName=gp-pereira.refatorex" rel="noopener noreferrer" target="_blank">RefactorEx in VS Code Marketplace</a></li><li><a class="tc-tiddlylink-external" href="https://www.ruanyifeng.com/blog/2017/03/pointfree.html" rel="noopener noreferrer" target="_blank">Pointfree 编程风格指南</a></li></ul>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Tue, 7 January 2025 7:23:41 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-01-07-refactorex</guid>      
    </item>
 
 </channel>
