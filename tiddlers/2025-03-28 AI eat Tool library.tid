@@ -1,0 +1,15 @@
+created: 20250328022224973
+modified: 20250328031147710
+tags: 
+title: 2025-03-28 AI eat Tool library
+type: text/vnd.tiddlywiki
+
+我发现有了 Transformer AI（或者 GTP 或者 LLMs，不要纠结细分） 以后，很多曾经还不错的工具库变得不好用了，至少没有 AI 的效果好。
+
+一个例子就是 OCR，曾经我使用 Tesseract OCR 开发过一个【自动识别收据】的功能，当时做了几个月，识别效率 70% 以上，当时还觉得挺好用的。
+
+现在回想一下，如今使用支持 OCR 的 AI model，简直不要太简单，几天就能完成。
+
+今后使用 AI model 实现某些专门的需求，真的是降维打击。通用 AI 有点搂草打兔子的效果，顺便就把很多工具库给淘汰了。
+
+> Goodbye, Tesseract OCR
