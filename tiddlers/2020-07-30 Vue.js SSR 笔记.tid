@@ -1,9 +1,9 @@
 created: 20210122123937270
 creator: TJ
-modified: 20231212123820643
+modified: 20250331075939090
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live blog
-title: 2020-07-30 Vue.js SSR Note
+title: 2020-07-30 Vue.js SSR 笔记
 type: text/vnd.tiddlywiki
 
 作为前端开发者 3 年了，第一次认真学习 SSR。

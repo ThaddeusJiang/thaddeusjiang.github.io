@@ -1,0 +1,10 @@
+created: 20250331071943189
+modified: 20250331074210760
+tags: 
+title: Client handling Server-sent events
+type: text/vnd.tiddlywiki
+
+
+目前为止，大多数 Web 应用的数据流都是由 client-side 启动的，Client 发送请求，Server 返回数据。但是对于一些需要实时更新的应用，由 server-side 驱动的 UI 更新也非常必要。
+
+

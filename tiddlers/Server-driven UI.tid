@@ -1,0 +1,9 @@
+created: 20221107004431021
+modified: 20250331074451851
+title: Server-driven UI
+type: text/vnd.tiddlywiki
+
+
+Server-driven UI 要求 client-side 可以接受来自服务器的信息（[[Server-sent events]]）
+
+JS 生态中 socket.io 可以实现 Server-driven UI，Elixir 生态中 Phoenix LiveView 可以。

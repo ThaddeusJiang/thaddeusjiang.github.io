@@ -1,0 +1,39 @@
+created: 20250331050247724
+modified: 20250331081030464
+published: 20250331081030462
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2025-03-31 UI Development
+type: text/vnd.tiddlywiki
+
+! 2025 我个人关注的 UI Development 领域的内容：
+
+# Server-Client two-way functions call
+# Data sync
+# JavaScript Signals
+
+!! 1. Server 要求 Clients 响应不应该被忽视
+
+目前为止，大多数 Web 应用都是 server 被动的等待 client 发送请求，是客户端主动的。
+服务器端主动发送请求要求 client-side 响应也是很常见的需求，不应该被忽视。
+
+服务器端控制 UI 更新也不是新技术，在网络游戏领域是十分常见的技术。可惜，目前主流的 JavaScript Web frameworks 几乎都没有内置这个功能，有点遗憾。
+
+目前 JS 生态中主流的方案是：使用 socket.io 或者 ws 实现客户端-服务器的双向的通信。
+
+!! 2. 更简单的数据流
+
+目前为止，大多数 Web 应用还是使用 Data fetching 来获取数据，是 request-response 模式。
+
+Data sync 提供了一种新思路，即：Sync 模式。client-side 不再根据需求分别请求数据，而是统一下载数据。Data sync 让数据流变得更简答。
+
+[img width="50%" [https://i.gyazo.com/a49172152d9223b9e54d4213073fc8fe.png]]
+
+Data sync 可能不适合基于内容的资讯网站，但是非常适合有明确数据范围的应用，例如：任务管理应用、网络聊天应用、绘图应用等等。
+
+!! 3. React is not Reactive
+
+目前 web frontend 主流的框架是 React，React 的行为模式是基于 diff 的。
+
+React 中当数据发生变化，React 会重新执行 components 并计算 diff，然后更新需要被更新的 DOM。
+
+虽然 React 有优秀的 diff 算法可以高效的更新 DOM，但是 diff 从原理上就没有 Signals 高效。我认为是时候改变了。

@@ -1,16 +1,16 @@
 created: 20240110194543949
 creator: TJ
-modified: 20250221141356750
+modified: 20250331080839615
 modifier: TJ
 tags: 
 title: AboutMeZh
 type: text/vnd.tiddlywiki
 
-👋 嗨，我是一名软件工程师。
+👋 嗨，我是一名计算机工程师。
 
-* 我擅长从 BtoB 和 BtoC 领域的软件设计和开发。
-* 我拥有丰富项目经验，涉及领域包含 HR、IoT、ERP、CMS、EC 等等。
-* 我也开发一些个人项目。
+* 我擅长 Web Application 设计、开发。
+* 我涉及过 HR、IoT、ERP、CMS、EC 等领域。
+* 我生活在日本。
 
 !! 人生信条
 
@@ -18,7 +18,6 @@ type: text/vnd.tiddlywiki
 * 善良比聪明、财富都更重要。
 * 热情比技能、经验都更重要。
 
-!! 动态
+links
 
-* [[X|https://x.com/jiangjifa]]
 * [[GitHub|https://github.com/ThaddeusJiang]]
