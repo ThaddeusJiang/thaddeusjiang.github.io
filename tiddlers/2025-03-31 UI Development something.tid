@@ -1,11 +1,11 @@
 created: 20250331050247724
-modified: 20250331081030464
+modified: 20250403211133676
 published: 20250331081030462
 tags: blog $:/plugins/adithyab/tiddlyjam/live
-title: 2025-03-31 UI Development
+title: 2025-03-31 UI Development something
 type: text/vnd.tiddlywiki
 
-! 2025 我个人关注的 UI Development 领域的内容：
+2025 我个人关注的 UI 领域的内容：
 
 # Server-Client two-way functions call
 # Data sync
