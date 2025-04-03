@@ -1,0 +1,159 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.6" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2025-03-31 UI Development something</title>
+<meta name="description" content="2025 我个人关注的 UI 领域的内容：">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2025-03-31-ui-development-something" />
+<meta property="og:title" content="2025-03-31 UI Development something" />
+<meta property="og:description" content="2025 我个人关注的 UI 领域的内容：" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2025-03-31 UI Development something" />
+<meta name="twitter:description" content="2025 我个人关注的 UI 领域的内容：" />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" />
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title" href="./">ThaddeusJiang</a>
+        </h1>
+        <p class="subtitle is-size-6 is-italic">Freelance Web Developer</p>
+      </div>
+      
+      <div class="navbar-end is-size-5">
+        <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a>
+      </div></p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title is-4">2025-03-31 UI Development something</h1>
+          <hr>
+
+          <div class="content">
+            <p>2025 我个人关注的 UI 领域的内容：</p><ol><li>Server-Client two-way functions call</li><li>Data sync</li><li>JavaScript Signals</li></ol><h2 class="">1. Server 要求 Clients 响应不应该被忽视</h2><p>目前为止，大多数 Web 应用都是 server 被动的等待 client 发送请求，是客户端主动的。
+服务器端主动发送请求要求 client-side 响应也是很常见的需求，不应该被忽视。</p><p>服务器端控制 UI 更新也不是新技术，在网络游戏领域是十分常见的技术。可惜，目前主流的 JavaScript Web frameworks 几乎都没有内置这个功能，有点遗憾。</p><p>目前 JS 生态中主流的方案是：使用 socket.io 或者 ws 实现客户端-服务器的双向的通信。</p><h2 class="">2. 更简单的数据流</h2><p>目前为止，大多数 Web 应用还是使用 Data fetching 来获取数据，是 request-response 模式。</p><p>Data sync 提供了一种新思路，即：Sync 模式。client-side 不再根据需求分别请求数据，而是统一下载数据。Data sync 让数据流变得更简答。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/a49172152d9223b9e54d4213073fc8fe.png" width="50%"></p><p>Data sync 可能不适合基于内容的资讯网站，但是非常适合有明确数据范围的应用，例如：任务管理应用、网络聊天应用、绘图应用等等。</p><h2 class="">3. React is not Reactive</h2><p>目前 web frontend 主流的框架是 React，React 的行为模式是基于 diff 的。</p><p>React 中当数据发生变化，React 会重新执行 components 并计算 diff，然后更新需要被更新的 DOM。</p><p>虽然 React 有优秀的 diff 算法可以高效的更新 DOM，但是 diff 从原理上就没有 Signals 高效。我认为是时候改变了。</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+      <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

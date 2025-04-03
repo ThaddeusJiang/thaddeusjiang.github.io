@@ -8,11 +8,48 @@
     <userId>41718122139849728</userId>
 </follow_challenge>
    <item>
-      <title>2025-03-31 UI Development</title>
-      <link>https://thaddeusjiang.com/2025-03-31-ui-development</link>
+      <title>2025-04-04 形式主义的敏捷开发</title>
+      <link>https://thaddeusjiang.com/2025-04-04-xing-shi-zhu-yi-de-min-jie-kai-fa</link>
 			<description><![CDATA[
 <div class="content">
-  <h1 class="">2025 我个人关注的 UI Development 领域的内容：</h1><ol><li>Server-Client two-way functions call</li><li>Data sync</li><li>JavaScript Signals</li></ol><h2 class="">1. Server 要求 Clients 响应不应该被忽视</h2><p>目前为止，大多数 Web 应用都是 server 被动的等待 client 发送请求，是客户端主动的。
+  <p>越来越多的团队开始说自己采用了敏捷开发，但是从我和他们一起工作的实际体验来说，我觉得大部分团队只是“形式主义的敏捷开发”。
+虽然他们或许知道很多概念，如 Agile, Waterfall, Scrum, Sprint 等，但是实际的工作中除了会议和使用的工具变多了，其他方面似乎没有什么变化。</p><h2 class="">我理解的敏捷开发</h2><ul><li>优先构建可工作的软件，而不是开会。</li><li>和客户一起推动产品开发，而不仅仅是频繁发布。</li><li>快速交付有价值的软件，而不是仅仅是快速 fix bugs。</li></ul><h2 class="">我观察到的 bad things</h2><p>1. 开会，开会，还是开会。</p><p>形式主义的敏捷开发团队最喜欢的就是开会，非技术官僚最喜欢开发。我认为频繁开会效率太低，每天都开早会是非常形式主义的行为。</p><p>Scrum 作为被广泛采用的 Agile 形式，最大的问题就是新增了太多管理工作，Sprint Plan meeting, Daily meeting, Sprint Review meeting 等等，严重占用时间和精力，经济性极低。</p><p>2. one week sprint</p><p>一周长度的 sprint 太短了，再加上形式主义的敏捷开发团队喜欢开会，留给开发者的时间太少了。
+sprint 太短还有很多问题，</p><p>❌ 时间过短，难以完成较复杂的任务：如果功能涉及多个团队（前端、后端、DevOps），一周可能不够。</p><p>❌ 频繁回顾 &amp; 规划，管理成本高：每周都要进行回顾和规划会议，可能占用较多时间。</p><p>❌ 开发压力大，容易影响质量：开发节奏过快，可能导致测试不足或代码质量下降。</p><p>3. 只关注 bugs，不关注 needs</p><p>很多公司有专门的产品经理职位，但是很多产品经理并不了解客户需求；也没有及时跟踪客户需求变化；或者对客户言听计从没有深度思考。团队只关注紧急事项，忽略重要事项，只关注 bugs 修复情况和新功能开发进度，没有认真思考过客户想要什么。</p><p>越来越多的团队采用 Release train，理论上可以快速发布一些新功能（features）。但是实际工作中频繁的发布让很多团队只能关注对客户造成的不好的影响（bugs），而没有时间和精力去了解客户的真实需求（needs）。</p><p>以上就是我观察到的“形式主义的敏捷开发”，不知道你是否相同的经历和体验呢？欢迎一起交流。</p><p>结尾，感谢你阅读这篇文章。</p><p>Refs:</p><ul><li>敏捷软件开发宣言 <a class="tc-tiddlylink-external" href="https://agilemanifesto.org/iso/zhchs/manifesto.html" rel="noopener noreferrer" target="_blank">https://agilemanifesto.org/iso/zhchs/manifesto.html</a></li></ul>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Thu, 3 April 2025 21:9:22 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-04-04-xing-shi-zhu-yi-de-min-jie-kai-fa</guid>      
+   </item>
+
+   <item>
+      <title>2025-03-31 UI Development something</title>
+      <link>https://thaddeusjiang.com/2025-03-31-ui-development-something</link>
+			<description><![CDATA[
+<div class="content">
+  <p>2025 我个人关注的 UI 领域的内容：</p><ol><li>Server-Client two-way functions call</li><li>Data sync</li><li>JavaScript Signals</li></ol><h2 class="">1. Server 要求 Clients 响应不应该被忽视</h2><p>目前为止，大多数 Web 应用都是 server 被动的等待 client 发送请求，是客户端主动的。
 服务器端主动发送请求要求 client-side 响应也是很常见的需求，不应该被忽视。</p><p>服务器端控制 UI 更新也不是新技术，在网络游戏领域是十分常见的技术。可惜，目前主流的 JavaScript Web frameworks 几乎都没有内置这个功能，有点遗憾。</p><p>目前 JS 生态中主流的方案是：使用 socket.io 或者 ws 实现客户端-服务器的双向的通信。</p><h2 class="">2. 更简单的数据流</h2><p>目前为止，大多数 Web 应用还是使用 Data fetching 来获取数据，是 request-response 模式。</p><p>Data sync 提供了一种新思路，即：Sync 模式。client-side 不再根据需求分别请求数据，而是统一下载数据。Data sync 让数据流变得更简答。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/a49172152d9223b9e54d4213073fc8fe.png" width="50%"></p><p>Data sync 可能不适合基于内容的资讯网站，但是非常适合有明确数据范围的应用，例如：任务管理应用、网络聊天应用、绘图应用等等。</p><h2 class="">3. React is not Reactive</h2><p>目前 web frontend 主流的框架是 React，React 的行为模式是基于 diff 的。</p><p>React 中当数据发生变化，React 会重新执行 components 并计算 diff，然后更新需要被更新的 DOM。</p><p>虽然 React 有优秀的 diff 算法可以高效的更新 DOM，但是 diff 从原理上就没有 Signals 高效。我认为是时候改变了。</p>
 </div>
 
@@ -40,7 +77,7 @@
 
 ]]></description>
       <pubDate>Mon, 31 March 2025 8:10:30 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-03-31-ui-development</guid>      
+			<guid>https://thaddeusjiang.com/2025-03-31-ui-development-something</guid>      
    </item>
 
    <item>
@@ -76,67 +113,6 @@
 ]]></description>
       <pubDate>Mon, 24 March 2025 13:17:26 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2025-03-24-zhong-xin-cai-na-next-js</guid>      
-   </item>
-
-   <item>
-      <title>2025-02-23 LiveView 异常处理</title>
-      <link>https://thaddeusjiang.com/2025-02-23-liveview-yi-chang-chu-li</link>
-			<description><![CDATA[
-<div class="content">
-  <p>因为太熟练 React 了，我曾经误以为 React ErrorBoundary 特性是 Web 标准，误以为 Elixir LiveView 中也有类似概念。但是 I was wrong</p><p>这是给 React developers 的一篇 LiveView 笔记，希望大家可以自由切换使用 React 和 LiveView ，不会再困惑。</p><blockquote><div>LiveView 是 Elixir 生态中流行的 UI framework。</div></blockquote><p>ErrorBoundary 是 React 的一个非常棒的特性，它实现了对异常处理的一种抽象，一种可以脱离数据的抽象，是一种 point-free style 的实践。</p><p>在 React 中，我们可以使用下面代码简单地处理各种异常。</p><pre class="hljs"><code class="jsx hljs">&lt;<span class="hljs-title class_">ErrorBoundary</span> fallback={<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Something went wrong<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>}&gt;
-  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Profile</span> /&gt;</span></span>
-&lt;/<span class="hljs-title class_">ErrorBoundary</span>&gt;</code></pre><p>ErrorBoundary 可以统一处理各种异常：</p><ul><li>代码错误：例如对象 user 是 undefined，但代码中写了 user.id</li><li>第三方异常：例如 database 连接失败，文件读取失败</li></ul><h2 class="">LiveView 中没有类似 React ErrorBoundary 的特性</h2><p>主要原因是 Elixir 对于错误的处理方式和 JavaScript 的哲学不一样，Elixir 继承了 Erlang 的 "Let It Crash" 哲学。所以，当 LiveView 中出现异常时，Elixir 会重启出现异常的进程，而不是让整个系统崩溃。</p><p>因为 LiveView 进程在出现错误时会被重启，所以我们通过 handle_info/2 监听 :EXIT 消息，自定义异常处理。</p><p>实例代码：</p><pre><code>defmodule MyAppWeb.MyLive do
-  use Phoenix.LiveView
-
-  def mount(_params, _session, socket) do
-    Process.flag(:trap_exit, true) # 允许捕获进程崩溃信息
-    {:ok, socket}
-  end
-
-  def handle_info({:EXIT, _from, reason}, socket) do
-    IO.inspect(reason, label: "LiveView crashed with reason")
-    {:noreply, assign(socket, error: "Something went wrong")}
-  end
-
-  def render(assigns) do
-    ~H"""
-    &lt;div&gt;
-      &lt;%= if @error do %&gt;
-        &lt;p class="error"&gt;&lt;%= @error %&gt;&lt;/p&gt;
-      &lt;% else %&gt;
-        &lt;p&gt;正常显示内容&lt;/p&gt;
-      &lt;% end %&gt;
-    &lt;/div&gt;
-    """
-  end
-end</code></pre><h2 class="">总结</h2><ol><li>ErrorBoundary 是 React 的特性，不是 Web Standards，LiveView 没有这个概念。</li><li>LiveView 异常处理继承自 Elixir/Erlang 的“崩溃并由监督树管理重启”的哲学</li><li>异常处理有两种风格：依赖异常的、不依赖异常的。React ErrorBoundary 和 Elixir Supervisor 都是不依赖异常的，golang if(!error) 是依赖异常的。</li></ol><blockquote><div>imo: LiveView 提供类似 React 一样的 UI 开发体验，在 state management 和 components 方面也十分优秀，在 data query 和 data mutation 方面甚至比 React 体验更棒，集成第三方 JS library 的方法更简单。</div></blockquote><p>最后，希望大家可以自由切换使用 React 和 LiveView ，它们都非常优秀，但是它们的设计哲学和思想有本质的不同，需要时刻提醒自己不要模糊它们的界限。</p><p>以上，感谢阅读。</p><h2 class="">refs</h2><ul><li><a class="tc-tiddlylink-external" href="https://www.phoenixframework.org/blog/phoenix-liveview-1.0-released" rel="noopener noreferrer" target="_blank">https://www.phoenixframework.org/blog/phoenix-liveview-1.0-released</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/bvaughn/react-error-boundary" rel="noopener noreferrer" target="_blank">https://github.com/bvaughn/react-error-boundary</a></li><li><a class="tc-tiddlylink-external" href="https://reactjs.org/docs/error-boundaries.html" rel="noopener noreferrer" target="_blank">https://reactjs.org/docs/error-boundaries.html</a></li></ul>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Sun, 23 February 2025 8:16:19 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-02-23-liveview-yi-chang-chu-li</guid>      
    </item>
 
 </channel>

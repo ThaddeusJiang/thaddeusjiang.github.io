@@ -938,8 +938,14 @@
    </url>
 
    <url>
-      <loc>.//2025-03-31-ui-development</loc>
-      <lastmod>2025-03-31</lastmod>
+      <loc>.//2025-03-31-ui-development-something</loc>
+      <lastmod>2025-04-03</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2025-04-04-xing-shi-zhu-yi-de-min-jie-kai-fa</loc>
+      <lastmod>2025-04-03</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
