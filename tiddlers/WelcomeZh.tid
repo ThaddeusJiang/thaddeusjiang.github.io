@@ -1,16 +1,16 @@
 created: 20200418124902034
 creator: TJ
-modified: 20250331081501321
+modified: 20250424072021747
 modifier: TJ
 tags: 
-title: AboutZh
+title: WelcomeZh
 type: text/vnd.tiddlywiki
 
-👋 你好啊，朋友。
+👋 嗨，你好啊，我的朋友。
 
-> 你能来到这个页面，有点酷。希望你也喜欢 TiddlyWiki 。
+> 你能发现这里，真有点酷。希望你也喜欢 TiddlyWiki 。
 
-欢迎来到 ThaddeusJiang 的数字花园，使用 TiddlyWiki 构建。
+欢迎来到我的数字花园，它使用 TiddlyWiki 构建。
 
 特点：
 
@@ -20,11 +20,10 @@ type: text/vnd.tiddlywiki
 
 [[▶️ Try it|wiki]]
 
-refs:
+----
+
+Refs:
 
 * [[数字花园]]
 * [[TiddlyWiki|https://tiddlywiki.com/]]
 * [[自产生程序（Quine）|https://en.wikipedia.org/wiki/Quine_(computing)]] 
-
-
-[[📦 Open Source|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]

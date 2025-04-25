@@ -1,8 +1,10 @@
 created: 20241024035220568
-modified: 20241223052957849
+modified: 20250424071334617
 name: About
 tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/internals
 title: about
 type: text/vnd.tiddlywiki
 
-{{AboutZh}}
+* author: ThadddeusJiang
+* code: https://github.com/thaddeusjiang.github.io
+* made with: [[TiddlyJam|https://github.com/ThaddeusJiang/tiddlyjam]]

@@ -1,0 +1,8 @@
+created: 20250424070723296
+modified: 20250424071119396
+title: Less is More
+type: text/vnd.tiddlywiki
+
+Less is More 在编写代码是很有用，因为 Code is Bugs，代码越多，可能出现的异常就越多。我个人喜欢 Write less, Do more 的技术。当然，这里的 Less 不仅仅是代码行数，还有继承、嵌套等等。我更讨厌代码中无脑使用继承，过度嵌套。
+
+综上，我认为 Less is More 等价于 Less, but better.

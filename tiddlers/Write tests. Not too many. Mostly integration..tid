@@ -1,0 +1,13 @@
+created: 20250423075206051
+modified: 20250423075512253
+tags: Bookmarks
+title: Write tests. Not too many. Mostly integration.
+type: text/vnd.tiddlywiki
+
+Kent 关于编写测试的观点
+
+https://kentcdodds.com/blog/write-tests
+
+imo: 认同，值得阅读。
+
+实践指导：https://kentcdodds.com/blog/static-vs-unit-vs-integration-vs-e2e-tests

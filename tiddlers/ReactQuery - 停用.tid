@@ -1,9 +1,0 @@
-created: 20240807054126064
-modified: 20241003024949457
-tags: TechRadar/暂缓
-title: ReactQuery - 停用
-type: text/vnd.tiddlywiki
-
-理由：
-
-开始使用 remix.run 以后，发现 loader and action 更简单。意识到曾经使用 ReactQuery 写了很多[[模版代码]]，低效。

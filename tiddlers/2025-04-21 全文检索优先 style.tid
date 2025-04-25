@@ -1,0 +1,14 @@
+created: 20250421075639995
+modified: 20250421080105508
+tags: 
+title: 2025-04-21 全文检索优先 style
+type: text/vnd.tiddlywiki
+
+前提：
+
+* 我个人喜欢 script languages，如：js, elixir 等
+* 我个人喜欢使用文本编辑器写代码，而不是 IDE。
+
+所以，我更喜欢采用“全文检索优先”的编码和项目风格。
+
+* 我喜欢平铺代码，并且全量命名文件名（filename）。不依赖文件夹上下文 

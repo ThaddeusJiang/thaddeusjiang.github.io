@@ -1,12 +1,12 @@
 created: 20210510143815400
-modified: 20210515112723454
+modified: 20250425082928605
 tags: 
 title: 对比一下 BEM CSS 和 Utility-First CSS
 type: text/vnd.tiddlywiki
 
 需求：一个简单的表格
 
-''传统风格''
+BEM CSS
 
 ```html
 <style>
@@ -46,7 +46,7 @@ type: text/vnd.tiddlywiki
 * 有什么问题？
 
 
-''Utility-First 风格''
+''Utility-First CSS''
 
 ```html
 <table class="bg-* m-* font-*">
