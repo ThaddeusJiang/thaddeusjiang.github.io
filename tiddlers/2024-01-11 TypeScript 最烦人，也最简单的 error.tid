@@ -1,13 +1,15 @@
 created: 20240110135743677
-modified: 20240110194426099
+modified: 20250507023205957
 published: 20240110194426095
 tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2024-01-11 TypeScript 最烦人，也最简单的 error
 type: text/vnd.tiddlywiki
 
-TypeScript 最烦人，也最简单的 error，即：optional 声明方式不兼容。
+! 《TypeScript optional 的混乱生态》
 
-相信所有 TypeScript 开发者都遇到下面的错误日志吧？😂
+TypeScript 最烦人的也最简单的错误可能就是 optional 声明方式不兼容了吧。
+
+相信所有 TypeScript 开发者都遇到下面的错误日志吧？
 
 ```ts
 Type 'number | null' is not assignable to type 'number | undefined'.
@@ -160,10 +162,25 @@ type E = {
 * telegram: https://t.me/talktalk_developer/539
 * github: https://github.com/ThaddeusJiang/thaddeusjiang.github.io/discussions/63
 
-other refs
+!! 更新
+
+> 2025-05-07 
+
+在 nuqs 再次遇到 optional field default value is `null` 的问题。
+
+[img[https://i.gyazo.com/791446cf42b5a90ce5d4190c213e257f.png]]
+
+在 nuqs 中，如果在 query string 中没有找到指定 key，返回的值是 `null`。
+
+
+* https://nuqs.47ng.com/docs/basic-usage
+
+refs
 
 * https://protobuf.dev/
 * https://www.prisma.io/
 * https://www.typescriptlang.org/
 * https://github.com/typestack/class-validator
 * https://github.com/typestack/class-transformer
+
+

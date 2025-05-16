@@ -1,0 +1,42 @@
+created: 20250507024927603
+modified: 20250507025946977
+tags: 
+title: JS 字面量对象
+type: text/vnd.tiddlywiki
+
+
+> 我不确定应该用哪个英文单词，似乎 `plain objects` `object literal` 都可以。能懂就行，不要纠结字眼。
+
+我喜欢 JS 字面量对象，它写法简单，没有过多的隐式行为。我认为在 JS 项目中过度使用 class 和 setter getter 是邪恶的。
+
+```ts
+// Bad
+export class Customer {
+  constructor(protected readonly args: CustomerArgs) {
+    super(args)
+  }
+  get id(): CustomerId {
+    return this.args.id
+  }
+  get name(): PersonName {
+    return this.args.name
+  }
+  get organizationId(): OrganizationId {
+    return this.args.organizationId
+  }
+  get telephoneNumber(): Name | undefined {
+    return this.args.telephoneNumber
+  }
+  get email(): Email | undefined {
+    return this.args.email
+  }
+  get noEmail(): Boolean {
+    return this.args.noEmail
+  }
+  get infos(): CustomerInfos {
+    return this.args.infos
+  }
+
+  change = (args: ChangeArgs): Customer => new Customer({ ...this.args, ...args })
+}
+```
