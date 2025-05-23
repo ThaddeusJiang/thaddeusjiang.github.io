@@ -3,10 +3,45 @@
 <channel>
    <title>ThaddeusJiang</title>
    <link>https://thaddeusjiang.com</link>
-   <description>Freelance Web Developer</description><follow_challenge>
+   <description>数字花园</description><follow_challenge>
     <feedId>41718658305983488</feedId>
     <userId>41718122139849728</userId>
 </follow_challenge>
+   <item>
+      <title>2025-05-23 何为领先多少年，何为落后多少年</title>
+      <link>https://thaddeusjiang.com/2025-05-23-he-wei-ling-xian-duo-shao-nian-he-wei-luo-hou-duo-shao-nian</link>
+			<description><![CDATA[
+<div class="content">
+  <p>在互联网上总是看到“xxx 领先 yyy 多少年”或者“落后多少年”，这样的人基本上都是标题党。没有任何事实依据就随便喊出一个数字已经成为想要流量的网友们的日常，在 “注意力经济时代” 信口开河的人或许才是时代的弄潮儿。</p><h2 class="">那么，何为领先多少年，何为落后多少年？</h2><p>📌 领先多少年</p><p>指某个对象在某一方面的发展水平相当于另一个对象在未来若干年后才能达到的水平。</p><p>✅ 例子：如果某国的AI技术在2025年就达到了另一国预计2030年才能达到的水平，我们就可以说前者领先后者5年。</p><p>📌 落后多少年</p><p>指某个对象当前的发展水平相当于另一个对象过去若干年前的状态。</p><p>✅ 例子：若某企业的产品设计还停留在2015年的风格，而行业领先者已发展到2025年的趋势，可以说该企业落后行业10年。</p><h2 class="">如何判断网友在信口开河？</h2><p>标题党都有一个特征就是只喊口号但不提供具体数据，只需要查询一下对比双方实现某种状态的具体时间就可以了。</p><p>📍案例 1：「中国高铁领先世界10年」</p><table><tbody><tr class="evenRow"><td align="center">时间点</td><td align="center">国家</td><td align="center">事件描述</td></tr><tr class="oddRow"><td align="center">1964年</td><td align="center">日本</td><td align="center">新干线通车，世界第一条高铁</td></tr><tr class="evenRow"><td align="center">1981年</td><td align="center">法国</td><td align="center">TGV投入运营</td></tr><tr class="oddRow"><td align="center">1991年</td><td align="center">德国</td><td align="center">ICE高铁投入运营</td></tr><tr class="evenRow"><td align="center">2008年</td><td align="center">中国</td><td align="center">京津城际通车，中国第一条高速铁路（非试验段）</td></tr><tr class="oddRow"><td align="center">2023年</td><td align="center">中国</td><td align="center">高铁营运里程突破4万公里，全球第一</td></tr></tbody></table><p>中国的高铁起步时间比日法德晚近40年，根本不可能“领先10年”。</p><p>如果标题党想以“2023年，中国高铁营运里程突破4万公里，全球第一”为准证明中国高铁领先世界，如何验证？</p><p>“领先多少年”逻辑的根本漏洞之一：如果对比方根本不追求、不可能达到同一目标，那么就无法定义“领先或落后多少年”，因为根本不在同一赛道。</p><p>Ask ChatGPT</p><p><a class="tc-tiddlylink-external" href="https://chatgpt.com/share/682fd5b5-c614-8012-a45e-496cb6ce771a" rel="noopener noreferrer" target="_blank">https://chatgpt.com/share/682fd5b5-c614-8012-a45e-496cb6ce771a</a></p>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Fri, 23 May 2025 1:17:43 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-05-23-he-wei-ling-xian-duo-shao-nian-he-wei-luo-hou-duo-shao-nian</guid>      
+   </item>
+
    <item>
       <title>2025-04-04 形式主义的敏捷开发</title>
       <link>https://thaddeusjiang.com/2025-04-04-xing-shi-zhu-yi-de-min-jie-kai-fa</link>
@@ -78,41 +113,6 @@ sprint 太短还有很多问题，</p><p>❌ 时间过短，难以完成较复�
 ]]></description>
       <pubDate>Mon, 31 March 2025 8:10:30 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2025-03-31-ui-development-something</guid>      
-   </item>
-
-   <item>
-      <title>2025-03-24 重新采纳 Next.js</title>
-      <link>https://thaddeusjiang.com/2025-03-24-zhong-xin-cai-na-next-js</link>
-			<description><![CDATA[
-<div class="content">
-  <p>停用 Next.js 两年后，由于 React 大版本升级，为了跟上 React v19 最新写法，我重新评估了 Remix、Next.js 以及 TanStack Starter、honox 等框架，最后我决定重新采用 Next.js。</p>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Mon, 24 March 2025 13:17:26 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-03-24-zhong-xin-cai-na-next-js</guid>      
    </item>
 
 </channel>
