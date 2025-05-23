@@ -1,5 +1,5 @@
 created: 20221101023535276
-modified: 20250424070604534
+modified: 20250523021640550
 tags: frontend
 title: 为什么我喜欢平铺 HTML CSS JS
 type: text/vnd.tiddlywiki
@@ -15,4 +15,4 @@ html css js 在一起，并且使用 utility-first CSS 的优点：
 * 修改代码花费的时间是未知的，有时候还会根据封装或潜逃深度成指数增长。
 * 编写嵌套风格的 CSS 会造成代码影响范围未知，增加测试难度，让开发者畏首畏尾。
 
-所以，我不使用 [[CSS Modules]] 和 [[CSS-in-JS]]
+所以，我不使用 CSS Modules 和 CSS-in-JS

@@ -1,11 +1,13 @@
 created: 20250408050443367
-modified: 20250408050740457
+modified: 20250523021444284
 tags: 
 title: Rails 开发者和 JS 开发者同样的命运
 type: text/vnd.tiddlywiki
 
 今年是 2025 年。
-我认为 Rails 开发者和 JS 开发者有同样的命运，要么跟着社区频繁变更自己的技术栈，要么脱离社区成为孤儿。
+
+我认为 Rails 开发者和 JS 开发者有同样的命运，要么跟着社区频繁变更自己的技术栈（频繁编写 hello world），要么脱离社区成为孤儿。
+
 
 在 Rails 中
 
