@@ -1,6 +1,6 @@
 created: 20210127142614587
 creator: TJ
-modified: 20220530133528838
+modified: 20250527071454660
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live blog
 title: 2020-07-21 Why Tailwind CSS
@@ -24,7 +24,7 @@ TL;DR
 # 更小的 CSS bundle
 # 统一的实现减少了 bug
 
-! 1. 作用范围适中，且易于组合
+!! 1. 作用范围适中，且易于组合
 
 对于我而言，
 编写 CSS 就像使用汇编语言开发程序，
@@ -35,7 +35,7 @@ Tailwind CSS 则让我使用了“高级语言”，不需要再过度专注语�
 但是，对于并不熟练 CSS 的开发者来说，CSS 的记忆成本更高。
 并且，CSS 粒度过细，开发量非常大。
 
-! 2. 更小的 CSS bundle
+!! 2. 更小的 CSS bundle
 
 这是一个意外的收获，我也是偶然发现的。
 例如：为了风格统一，我们需要在绝大多数标签上使用圆角。
@@ -77,7 +77,7 @@ Tailwind CSS 则让我使用了“高级语言”，不需要再过度专注语�
 
 Tailwind CSS 顺便减少的 CSS 文件大小。
 
-! 3. 统一的实现减少了 bug
+!! 3. 统一的实现减少了 bug
 
 还以圆角为例，大家有没有在项目中看到过下面代码？
 

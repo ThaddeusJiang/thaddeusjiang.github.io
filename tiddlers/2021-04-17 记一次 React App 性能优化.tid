@@ -1,9 +1,9 @@
 created: 20210417121054183
 creator: TJ
-modified: 20231212124938775
+modified: 20250527071234378
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live blog
-title: 2021-04-17 Create React App 项目性能优化「将最大文件从 5.1M 减小到 1.4M」
+title: 2021-04-17 记一次 React App 性能优化
 type: text/vnd.tiddlywiki
 
 2021 年 04 年 01 日，加入新公司，回到了我曾经很熟悉，现在有点手生的 React 生态。起初有一点忐忑，幸好 React 已经很久没有大更新了。
