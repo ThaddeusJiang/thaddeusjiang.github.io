@@ -1,0 +1,11 @@
+created: 20250610063943651
+modified: 20250610064440275
+tags: 
+title: private inner framework
+type: text/vnd.tiddlywiki
+
+通常如果一个团队采用了内部框架，写文章说自己的技术有多好，但是不敢公开细节让大家尝试，就是有坑，要躲开。
+
+日本 frontend 比较强的的公司：
+
+* SmartHR: https://github.com/kufu

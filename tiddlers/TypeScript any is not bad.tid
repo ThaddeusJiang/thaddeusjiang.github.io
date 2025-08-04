@@ -1,0 +1,17 @@
+created: 20250611075608885
+modified: 20250611080228640
+tags: smalltalks
+title: TypeScript any is not bad
+type: text/vnd.tiddlywiki
+
+今天看到一个 JavaScript -> TypeScript PR
+
+https://github.com/gaearon/overreacted.io/pull/864
+
+说实话，LGTM。
+
+TypeScript any is not bad.
+
+* Bad: 无脑使用 any ，逃避思考类型
+* Not bad: 灵活使用 any 避免类型体操
+

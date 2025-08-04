@@ -1,8 +1,8 @@
 created: 20231207085644058
-modified: 20231212100236903
+modified: 20250610060411575
 published: 20231207092030854
 tags: blog $:/plugins/adithyab/tiddlyjam/live
-title: 2023-12-07 Install vs. Copy
+title: 2023-12-07 Install vs Copy
 type: text/vnd.tiddlywiki
 
 对于依赖，应该选择使用包管理进行安装，还是复制粘贴代码？

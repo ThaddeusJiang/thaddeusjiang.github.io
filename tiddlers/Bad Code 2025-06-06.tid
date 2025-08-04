@@ -1,0 +1,14 @@
+created: 20250606024441743
+modified: 20250606025038981
+source: 
+tags: 
+title: Bad Code 2025-06-06
+type: text/vnd.tiddlywiki
+
+
+[img[https://i.gyazo.com/b3019ee95df4dcc6ee1beb60fa0e6499.png]]
+
+问题点：
+
+# 抽象不足导致代码重复，一个文件中就重复 3 次，大型项目中重复代码如洪水一般 🌊
+# 命名难以理解，相似命名 NonNegativePrice NonNegativePreciseNumber ，傻傻分不清楚，会造成使用混乱 😵‍💫

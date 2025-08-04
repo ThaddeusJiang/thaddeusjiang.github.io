@@ -1,0 +1,25 @@
+created: 20250605040928695
+modified: 20250605043641614
+tags: 
+title: How to Code Review
+type: text/vnd.tiddlywiki
+
+
+我意识到大多数打工的程序员对 Code Review 都流于表面，过度关注细节，关注做法，导致 big pull requests 没有的到合格的 Code Review。
+
+我不敢再说我自己是对了，我只想分享几篇我认为正确的观点。
+
+TODO: 查找中
+
+我觉得如何进行 Code Review ？
+
+# 避免重大修改
+#* 大功能应该在动手写代码前就进行设计 Review，确保方案没有大问题。
+# First make it work, then make it beautiful.
+#* 确认代码实现和最初的目标一致，架构没有问题
+#* 确认没有重大失误，安全问题、严重性能问题等
+#* 避免雕花
+
+
+
+

@@ -1,0 +1,31 @@
+created: 20250528024205909
+modified: 20250801044626841
+tags: 
+title: 记：我在实际工作中遇到的一些困境
+type: text/vnd.tiddlywiki
+
+
+1. 我满怀激情地提交了不影响功能的 Refactor PR，被约谈
+
+约谈内容
+
+# Refactor PR 造成测试人员的测试负担。
+# Refactor PR “是否有必要？”没有经过团队讨论。
+# Refactor PR 的解决方案和“已有代码”不一样，已有代码没有发现 bug，是否要采用 Refactor PR 中的解决方案需要证明。
+
+我的感想：
+
+1. Refactor PR 造成测试人员的测试负担。
+
+* Refactor PR 没有功能方面影响，理论上不需要测试。
+* 回归测试应该尽早自动化，不应该人工。
+
+2. Refactor PR “是否有必要？”没有经过团队讨论。
+
+* Refactor 是及时消化技术债的重要手段，肯定是有必要的。认为 Refactor 没有必要的人不是合格的软件从业者。
+
+3. Refactor PR 的解决方案和“已有代码”不一样，已有代码没有发现 bug，是否要采用 Refactor PR 中的解决方案需要证明。
+
+* Refactor 肯定是和已有的代码不一样，和已有代码一样的话就不是 Refactor 了
+* Refactor 不是解决 bug，Refactor 是用更好的方法实现 feature
+* 解决方案是否合理需要大家一起努力，Reviewers 不应该一味的等待 contributors 证明，Reviewers 应该提高自身水平，Reviewers 应该有能力判断 PR 的解决方案是否合理，没有能力判断 PR 是否合理的人不是合格的 Reviewer。

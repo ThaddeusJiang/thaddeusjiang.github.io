@@ -1,0 +1,71 @@
+created: 20250528021106652
+modified: 20250528024148453
+tags: 
+title: React Error: Rendered more hooks than during the previous render
+type: text/vnd.tiddlywiki
+
+
+记一次 React Error
+
+
+[img[https://i.gyazo.com/df35485ecfcf5b0441c33c71c2c3118b.png]]
+
+
+其实上面 error message 看着信息很多，看似很复杂，其实不难解决。核心信息 `Rendered more hooks than during the previous render.`
+
+Rendered more hooks than during the previous render. 意味着代码中有基于状态的提前返回，造成了后面的 hooks 没有被执行。
+
+常见代码
+
+```js
+const { isLoading } = useXXX()
+
+if (isLoading) return <Loading />
+
+// Not rendered when isLoading is true, rendered after isLoading becomes false
+const { yyy } = useYYY()
+
+return (
+   ...
+)
+```
+
+通常只需将 useYYY 移动到 return 前即可
+
+```js
+const { isLoading } = useXXX()
+const { yyy } = useYYY()
+
+if (isLoading) return <Loading />
+
+return (
+   ...
+)
+```
+
+看到这里，或许会有人认为这个问题很简单，或者认为很容易解决。
+
+!! 现实
+
+[img[https://i.gyazo.com/f307974536c39d76716ce4b8afa21aa4.png]]
+
+当我看到这段代码，并且提交了 Refactor PR 时，项目管理者和其他 developers 想我提问：“这段代码有修改的必要吗？目前代码没有出现 bug，修改后出现 bug 怎么办？凭什么说你的理解是正确的，其他人的理解是错误的？”
+
+我：苦笑 😂
+
+!! 课后题
+
+Q: 当 useYYY 依赖 useXXX 的返回值时，应该如何解决？
+
+```
+const { xxx, isLoading } = useXXX()
+if (isLoading) return <Loading />
+
+const { yyy, isLoading: isYYYLoading } = useYYY({ data: xxx })
+
+if (isYYYLoading) return <Loading />
+
+return (
+   ...
+)
+```

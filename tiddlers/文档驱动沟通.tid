@@ -1,5 +1,5 @@
 created: 20250428061254281
-modified: 20250523021856612
+modified: 20250801044304011
 tags: 
 title: 文档驱动沟通
 type: text/vnd.tiddlywiki
@@ -9,7 +9,9 @@ Document Driven Communication
 
 很多优秀的公司都采用文档驱动交流，如 amazon bytedance 等。
 
-我很喜欢 Document Driven Communication，它有如下优点：
+!! 我很喜欢 Document Driven Communication
+
+它有如下优点：
 
 # 高效、异步。通过文档，交流双方都可以快速理解背景和目标，可以提前进行一些准备。
 # 精准。文档还是比语言更精准一点，避免因口述导致的错误理解。

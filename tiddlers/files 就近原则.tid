@@ -1,0 +1,13 @@
+created: 20250605051806482
+modified: 20250801044512992
+tags: 
+title: files 就近原则
+type: text/vnd.tiddlywiki
+
+
+组织代码时我喜欢“就近原则”，一起被编写或修改的代码应该放在一起。
+
+
+JavaScript 尽量不使用 index 和 default export
+
+

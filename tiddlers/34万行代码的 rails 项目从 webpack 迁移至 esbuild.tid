@@ -1,0 +1,185 @@
+created: 20250530022123411
+modified: 20250530062738100
+tags: 
+title: 34万行代码的 rails 项目从 webpack 迁移至 esbuild
+type: text/vnd.tiddlywiki
+
+
+TODO: 
+
+经过 3weeks 的 review 和 test，我负责的 webpack -> esbuild PR 终于被合并了。
+本次升级修改了 301 个文件，产生 +6,837 −9,726 差分，前后耗时1个月。达到的效果开发环境下 auto-rebuild 提速 2.48倍，项目整体 production build 提速 2.48倍，frontend 资源 production build 提速 115.79倍。
+
+
+! 我做了什么？
+
+# 使用 jsbundling-rails + esbuild 替换 webpacker
+# 配置 esbuild.config.js 以及 Dockerfile, docker-compose.yml 
+# 妥协 rails 中独立的 Sass 和 frontend 中的 Sass
+# 协调 rails compile 和 esbuild bundles
+# 顺手改善一下开发体验
+
+! 简单记录
+
+!! 1. 使用 jsbundling-rails + esbuild 替换 webpacker
+
+> Issues: jsbundling-rails 和 cssbundling-rails 傻傻分不清楚
+
+因为不熟悉 rails 对于 frontend 的集成，我最开始以为需要同时导入 jsbundling-rails 和 cssbundling-rails，一个只负责 js 另外一个只负责 css。
+
+但在实际配置 jsbundling-rails + esbuild 过程中，我随手在 esbuild 中配置了 Sass，而且似乎正常工作了。当时我有一点困惑 🫣
+
+最后，我没有使用 cssbundling-rails 。而是使用 esbuild 统一处理了所有 frontend 资源（js + css + images + font）。 
+
+简单分享：webpack -> esbuild 前后 Gemfile diff
+
+```diff
+- gem 'webpacker'
+
++ gem 'jsbundling-rails'
++ gem 'esbuild-rails'
+```
+
+心得：
+
+Modern frontend 其实不需要严格区分 JS, CSS, HTML, Image, Font 等资源，在大多数现代化工具中这些资源都是同构的，可以统一处理。我们使用 esbuild 对 Sass 进行编译后，就不需要再依赖 cssbundling-rails 了。
+
+!! 2. 配置 esbuild
+
+> Issues: 不是只有 SPA 
+
+可能是 frontend 社区中 SPA 的流行度太高，esbuild 官方文档中竟然没有关于 MPA 的配置示例。
+
+可是我们的 rails 项目却是一个依赖 rails routes 的 multiple pages application，我们需要根据不同页面的不同需求编译出不同的 frontend application。幸好 esbuild 虽然没有示例，却已支持多入口。
+
+简单分享：实际的 esbuild entryPoints
+
+```js
+// esbuild.config.js
+const entryPoints = {
+  'crm/mice/index': 'packs/crm/mice/index.js',
+  'crm/index': 'packs/crm/index.js',
+  'crm/channel_talk': 'packs/crm/channel_talk.js',
+  'crm/anniversary/index': 'packs/crm/anniversary/index.js',
+  'crm/dashBoards/index': 'packs/crm/dashBoards/index.js',
+  'crm/salesContents/index': 'packs/crm/salesContents/index.js',
+  'crm/setting/index': 'packs/crm/setting/index.js',
+  'crm/marketing/index': 'packs/crm/marketing/index.js',
+  'customer/sales_content': 'packs/customer/sales_content.js',
+  'customer/survey_answer': 'packs/customer/survey_answer.js',
+  crm: 'stylesheets/crm.scss',
+  customer: 'stylesheets/customer.scss',
+  application: 'stylesheets/application.scss',
+}
+
+const isDevelopment = process.env.NODE_ENV === 'development'
+
+const context = await esbuild.context({
+  entryPoints: Object.entries(entryPoints).map(([outPath, entry]) => ({
+    in: path.join(__dirname, 'app/javascript', entry),
+    out: outPath,
+  })),
+  ...
+```
+
+!! 3. 妥协 rails 中独立的 Sass 和 frontend 中的 Sass
+
+> Issues: 由于项目依赖 ActiveAdmin 所以无法完全移除 sass-rails ，不得不实现 esbuild-rails 和 sass-rails 和谐共处。
+
+所以本项目其实在 esbuild 和 rails compile 中分别处理了 2次 Sass 资源。
+
+并且在寻找 esbuild plugins 来减少自定义配置时，我发现社区中有两个相似的插件 esbuild-sass-plugin 和 esbuild-plugin-sass。因为名字太类似了，查找资料时很容易混，傻傻分不清楚 😵‍💫
+
+处理 Sass 时需要做什么？
+
+# esbuild 处理项目内部 .css .scss .module.scss 等资源
+# esbuild 处理 node_modules 中的外部 .css .scss 资源
+# 允许在 .tsx 中使用内部 .scss 和 node_modules 中的外部 .scss
+
+效果：
+
+[img[https://i.gyazo.com/5f8a235e32101ef23b62471705aa4894.png]]
+
+[img[https://i.gyazo.com/9feb18a4e9a4a9f1ced25b67c6b9c7f8.png]]
+
+!! 4. 协调 rails 和 esbuild
+
+虽然我们安装了 jsbundling-rails ，但是由于项目复杂，涉及到 ActiveAdmin 和 Standalone Sass 等因素，我们需要保留 Rails compile 中关于 Asset Pipeline 的一些配置。
+
+例如：开发环境下 rails server 不应该二次编译 frontend assets
+
+```ruby
+# config/environments/development.rb
+Rails.application.configure do
+
+  # Suppress logger output for asset requests.
+  config.assets.quiet = true
+
+  # Do not compress assets
+  config.assets.compress = false
+
+  # Don't Digest assets, makes debugging uglier
+  config.assets.digest = false
+  ...
+end
+```
+
+!! 5. 顺手改善的开发体验
+
+1. webpack 时代开发环境中使用了 react production mode，导致无法通过 inspect 直接定位到 React Components 源码
+
+2. 统一 .scss 和 .tsx 相同的默认路径
+
+效果如图：
+
+[img[https://i.gyazo.com/1c73011c52b5cbbae3927d86ce395c6c.png]]
+
+3. 记录 esbuild auto-rebuild 和 production build 耗时
+
+esbuild 默认没有提供 build 耗时，为了比较 webpack -> esbuild 效果，我编写了下面 esbuild plugin 来记录 esbuild 耗时。
+
+```js
+const context = await esbuild.context({
+  plugins: [{
+      name: 'log-rebuild-time',
+      setup(build) {
+        let startTime
+        build.onStart(() => {
+          startTime = Date.now()
+          consola.start(`[esbuild] Building...`)
+        })
+        build.onEnd(() => {
+          const now = new Date()
+          const duration = now - startTime
+          consola.log(`Time: ${duration}ms`)
+          consola.log(`Built at ${now.toLocaleString('en-US', { hour12: true })}`)
+        })
+      },
+    },
+```
+
+你可以直接 copy-paste 到你的 esbuild.config.js 中使用。
+
+!! 好物分享
+
+1. Grep.app
+
+在完成 rails 项目 webpack 到 esbuild 的迁移过程中，我发现 Grep.app 非常好用。我在 Grep.app 上查看自己配置是否和主流 rails 项目中的配置是否相同，看到一些 stars 很多的开源项目采用了我编写的配置，让我更有信心了。
+
+!! 今后的课题
+
+# 项目没有 e2e testing 导致需要人工一个页面一个页面确认，费时又费力。应该尽快引入 e2e testing, visual testing 等自动化测试，真巧，自动化测试我也很擅长，😄
+# sass-rails 已经 7年没有更新过了，rails 社区也已经不维护它了，应该尽快移除 🫣
+# 项目中 JavaScript export 不合理，存在过度打包现象，.js 文件过大，存在性能问题 🐢
+
+--- 以上，感谢你的阅读 ---
+
+!! Refs
+
+* https://github.com/rails/jsbundling-rails
+* https://github.com/rails/cssbundling-rails
+* https://github.com/rails/webpacker
+* https://github.com/glromeo/esbuild-sass-plugin
+* https://activeadmin.info/
+* https://guides.rubyonrails.org/v7.2/asset_pipeline.html
+* https://grep.app/
