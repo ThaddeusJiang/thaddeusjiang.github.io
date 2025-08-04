@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-   <title>ThaddeusJiang</title>
+   <title>TJ's 数字花园</title>
    <link>https://thaddeusjiang.com</link>
-   <description>freelance web developer </description><follow_challenge>
+   <description>一个话痨的自留地，写点想说的。</description><follow_challenge>
     <feedId>41718658305983488</feedId>
     <userId>41718122139849728</userId>
 </follow_challenge>
+   <item>
+      <title>TypeScript 类型体操</title>
+      <link>https://thaddeusjiang.com/typescript-lei-xing-ti-cao</link>
+			<description><![CDATA[
+<div class="content">
+  <p>唉😮‍💨</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/5387daba38a5907e95d3753376a72e02.png"></p><p><img class=" tc-image-loading" src="https://i.gyazo.com/b76203a257184c4d675ac027bbff5969.png"></p><p>很难理解为什么要把 JS 变成这样的东西，TypeScript 本来是 JS 的好帮手，现在却变得如何让人讨厌。</p>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Mon, 23 June 2025 3:3:17 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/typescript-lei-xing-ti-cao</guid>      
+   </item>
+
    <item>
       <title>2025-05-23 何为领先多少年，何为落后多少年</title>
       <link>https://thaddeusjiang.com/2025-05-23-he-wei-ling-xian-duo-shao-nian-he-wei-luo-hou-duo-shao-nian</link>
@@ -77,42 +112,6 @@ sprint 太短还有很多问题，</p><p>❌ 时间过短，难以完成较复�
 ]]></description>
       <pubDate>Thu, 3 April 2025 21:9:22 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2025-04-04-xing-shi-zhu-yi-de-min-jie-kai-fa</guid>      
-   </item>
-
-   <item>
-      <title>2025-03-31 UI Development something</title>
-      <link>https://thaddeusjiang.com/2025-03-31-ui-development-something</link>
-			<description><![CDATA[
-<div class="content">
-  <p>2025 我个人关注的 UI 领域的内容：</p><ol><li>Server-Client two-way functions call</li><li>Data sync</li><li>JavaScript Signals</li></ol><h2 class="">1. Server 要求 Clients 响应不应该被忽视</h2><p>目前为止，大多数 Web 应用都是 server 被动的等待 client 发送请求，是客户端主动的。
-服务器端主动发送请求要求 client-side 响应也是很常见的需求，不应该被忽视。</p><p>服务器端控制 UI 更新也不是新技术，在网络游戏领域是十分常见的技术。可惜，目前主流的 JavaScript Web frameworks 几乎都没有内置这个功能，有点遗憾。</p><p>目前 JS 生态中主流的方案是：使用 socket.io 或者 ws 实现客户端-服务器的双向的通信。</p><h2 class="">2. 更简单的数据流</h2><p>目前为止，大多数 Web 应用还是使用 Data fetching 来获取数据，是 request-response 模式。</p><p>Data sync 提供了一种新思路，即：Sync 模式。client-side 不再根据需求分别请求数据，而是统一下载数据。Data sync 让数据流变得更简答。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/a49172152d9223b9e54d4213073fc8fe.png" width="50%"></p><p>Data sync 可能不适合基于内容的资讯网站，但是非常适合有明确数据范围的应用，例如：任务管理应用、网络聊天应用、绘图应用等等。</p><h2 class="">3. React is not Reactive</h2><p>目前 web frontend 主流的框架是 React，React 的行为模式是基于 diff 的。</p><p>React 中当数据发生变化，React 会重新执行 components 并计算 diff，然后更新需要被更新的 DOM。</p><p>虽然 React 有优秀的 diff 算法可以高效的更新 DOM，但是 diff 从原理上就没有 Signals 高效。我认为是时候改变了。</p>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Mon, 31 March 2025 8:10:30 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-03-31-ui-development-something</guid>      
    </item>
 
 </channel>
