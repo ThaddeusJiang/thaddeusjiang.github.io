@@ -950,6 +950,12 @@
    </url>
 
    <url>
+      <loc>.//amex-jp</loc>
+      <lastmod>2025-08-04</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//blog</loc>
       <lastmod>2025-05-27</lastmod>
       <changefreq>monthly</changefreq>
@@ -994,6 +1000,12 @@
    <url>
       <loc>.//index</loc>
       <lastmod>2025-01-06</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//screensage</loc>
+      <lastmod>2025-08-04</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
