@@ -1,0 +1,55 @@
+caption: {{$:/plugins/ThaddeusJiang/Nowledge/icon/nowledge}} import to nowledge
+created: 20250810125715658
+description: Import this tiddler to Nowledge
+modified: 20250812071535863
+tags: $:/tags/ViewToolbar $:/plugins/ThaddeusJiang/Nowledge
+title: $:/plugins/ThaddeusJiang/Nowledge/button/import-to-nowledge
+type: text/vnd.tiddlywiki
+
+\procedure onCompletion()
+<$action-sendmessage $message="tm-notify" $param="$:/plugins/ThaddeusJiang/Nowledge/text/success"/>
+\end
+
+\whitespace trim
+<$vars
+  content={{{ [<currentTiddler>get[text]jsonstringify[]] }}}
+  title={{{ [<currentTiddler>get[title]jsonencode[]] }}}
+  modified={{{ [<currentTiddler>get[modified]format:date[YYYY-0MM-0DDT0hh:0mm:0ss.0XXX]addsuffix[Z]] }}}
+  thread_id={{{ [<currentTiddler>get[modified]] }}}
+>
+<$button
+  tooltip="Import to Nowledge"
+	aria-label="Import to Nowledge"
+	class=<<tv-config-toolbar-class>>
+	>
+	<%if [<tv-config-toolbar-icons>match[yes]] %>
+		{{$:/plugins/ThaddeusJiang/Nowledge/icon/nowledge}}
+	<%endif%>
+	<%if [<tv-config-toolbar-text>match[yes]] %>
+		<span class="tc-btn-text">
+			<$text text="import to nowledge"/>
+		</span>
+	<%endif%>
+<$action-sendmessage
+  $message="tm-http-request"
+  url="http://localhost:14242/threads"
+  method="POST"
+	header-content-type="application/json"
+	oncompletion=<<onCompletion>>
+  body=`{
+    "thread_id": "ext-tiddlywiki-$(thread_id)$",
+    "messages": [
+      {
+        "content": "$(content)$",
+        "role": "user",
+        "timestamp": "$(modified)$"
+      }
+    ],
+    "title": "$(title)$",
+    "source": "tiddlywiki",
+    "participants": ["user"],
+    "auto_extract_memories": true
+  }`
+/>
+</$button>
+</$vars>

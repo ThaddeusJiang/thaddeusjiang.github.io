@@ -1,0 +1,21 @@
+created: 20250807032706376
+modified: 20250807033337009
+tags: #日记
+title: 2025-08-07 Copy instead install
+type: text/vnd.tiddlywiki
+
+! Copy instead install
+
+最近连一些 integration 都不怎么 install 了，copy 真爽。
+
+copy 的优点
+
+* 学习成本更低，不用在学习 wrapper 的文档
+* 减少 wrapper 类型传递
+* 避免因 wrapper 更新不及时的 bug
+
+曾经使用过的 wrapper （现在已经不使用了）
+
+* https://github.com/hustcc/echarts-for-react
+* https://github.com/tomchentw/react-google-maps
+

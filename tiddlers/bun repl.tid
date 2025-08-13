@@ -1,0 +1,7 @@
+created: 20250812035646235
+modified: 20250812040000332
+tags: 
+title: bun repl
+type: text/vnd.tiddlywiki
+
+2025-08-12 目前为止，bun repl 依然没有支持自动补全和语法高亮。哈哈，和 elixir iex 还是有很大差距啊。

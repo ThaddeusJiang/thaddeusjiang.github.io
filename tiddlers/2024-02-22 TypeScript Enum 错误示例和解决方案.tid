@@ -1,5 +1,5 @@
 created: 20240307132817831
-modified: 20240307141100990
+modified: 20250808064748790
 published: 20240307141100988
 tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2024-02-22 TypeScript Enum 错误示例和解决方案
@@ -23,7 +23,6 @@ export enum EventType {
   ChangedOccupancy = 'ChangedOccupancy',
   ReEntered = 'ReEntered',
   TemporarilyLeft = 'TemporarilyLeft',
-  AppliedReferralCode = 'AppliedReferralCode',
   CheckInFailed = 'CheckInFailed',
   ReservationFailed = 'ReservationFailed',
   ElepayEvent = 'ElepayEvent',

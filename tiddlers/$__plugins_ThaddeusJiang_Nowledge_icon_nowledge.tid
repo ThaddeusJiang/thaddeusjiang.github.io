@@ -1,0 +1,17 @@
+created: 20250810132803543
+creator: TJ
+modified: 20250812071015521
+modifier: TJ
+tags: $:/tags/Image $:/plugins/ThaddeusJiang/Nowledge
+title: $:/plugins/ThaddeusJiang/Nowledge/icon/nowledge
+type: text/vnd.tiddlywiki
+
+\parameters (size:"22pt")
+[img width=<<size>> height=<<size>> class="tc-nowledge-button tc-image-button"  [$:/plugins/ThaddeusJiang/Nowledge/image/nowledge-icon-128.png]]
+
+<style>
+.tc-icon-wrapper > img {
+	width: 1em;
+	height: 1em;
+}
+</style>

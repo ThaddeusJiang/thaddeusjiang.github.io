@@ -1,0 +1,27 @@
+created: 20250812041312725
+modified: 20250812042915853
+tags: 
+title: 2025-08-12 TiddlyWiki 不适合做 task management
+type: text/vnd.tiddlywiki
+
+
+
+我已经不记得自己使用 TiddlyWiki 多少年了，我只记得自己是看了 joe 使用 TiddlyWiki 制作个人网页，我也入坑了。哈哈
+
+使用 TiddlyWiki 多年，我依然超爱这个工具，并且我已经退去了最开始的折腾，回归到最朴实无华的使用方法。
+
+我想分享一下我的感受，仅代表现在的感受，说不定过几年又变了。
+
+!! 我认为 TiddlyWiki 不适合做 task management
+
+我认为 TiddlyWiki 不适合做 task management，尤其是不适合做 daily todo management 也不是做 GTD。
+
+虽然 TiddlyWiki 官方和许多爱好者都会说 TiddlyWiki 做 task management 很酷，因为它可以自定义，非常适合程序员把玩。但是我认为 TiddlyWiki 不是做任务管理系统，尤其不适合做每天的任务管理，不适合实践 GTD。
+
+GTD 和 daily todo 会造成大量没有长期价值的“碎片 tiddlers”， 非常影响 Search 体验，并且没有任何可以相互关联的价值，只会徒增垃圾文件。
+
+!! 我认为应该区分“流水账”和“编著” TiddlyWiki
+
+流水账 TiddlyWiki 可以定期归档一下，打包成 wiki.html 使用更佳。
+
+

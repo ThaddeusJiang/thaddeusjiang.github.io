@@ -1,16 +1,28 @@
 created: 20250807020350045
-modified: 20250807022725447
-tags: smalltalks
-title: 2025-08-07
+modified: 20250813024954658
+published: 20250813024928301
+tags: blog $:/plugins/adithyab/tiddlyjam/live #Tech
+title: 2025-08-13 JS 过度编译的问题
 type: text/vnd.tiddlywiki
 
 ! 过度编译是万恶之源
 
 这句话是模仿“过早优化是万恶之源”，哈哈哈
 
-最近在帮助某个项目配置 Sentry，在查看 Sentry 页面时有一点小感受。Frontend App 实际运行的代码和程序员编写的代码差距太大了，可以用`面目全非`来形容。浏览器中运行代码已经编程了`一堆乱码`，`完全不可读`，像极了曾经风靡一时的`混乱编程`。
+最近在帮助某个项目配置 Sentry，在查看 Sentry 页面时有一点小感受。Frontend App 实际运行的代码和程序员编写的代码差距太大了，可以用`面目全非`来形容。
 
-[img[https://i.gyazo.com/dbef73bddd9edfe9f923eb99ee62d9dd.png]]
+浏览器中运行代码已经变成了`一堆乱码`，`完全不可读`，像极了曾经风靡一时的`混乱编程`。🤮
+
+!! JavaScript 的 Error Tracking
+
+[img width="50%" [https://i.gyazo.com/dbef73bddd9edfe9f923eb99ee62d9dd.png]]
+
+[img [https://i.gyazo.com/e433b384a5fa6a6556e42dec05a7b931.png]]
+
+!! Ruby 的 Error Tracking
+
+[img[https://i.gyazo.com/406b962ed07781ef682f08b70a63dfbd.png]]
+
 
 虽然 Sentry 提供很多高级功能，例如上传 Source Map、链接 GitHub 等等，但是真的有必要吗？
 
@@ -19,6 +31,7 @@ type: text/vnd.tiddlywiki
 或许十年前（2015）很多浏览器没有及时支持现代 JavaScript 特性，程序员们想要提前体验现代的 JavaScript ，Babel 之类的工具的确很有价值，但是今天（2025）这类工具难道不应该越来越少使用吗？
 
 好期待浏览器上可以直接运行我编写的代码的时代的来临，我也是不是 #NoBuild 的狂热粉丝，我只是希望 Build 可以简单一点，只在必要的时候执行。
+
 
 !!!! 推荐阅读
 
