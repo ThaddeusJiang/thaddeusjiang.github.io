@@ -18,21 +18,21 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2025-02-14 AI Code Editor 会成为新时代的 Ruby on Rails 吗</title>
-<meta name="description" content="AI Code Editor 会成为新时代的 Ruby on Rails 吗？">
+<title>2025-08-13 JS 过度编译的问题</title>
+<meta name="description" content="过度编译是万恶之源">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://thaddeusjiang.com/2025-02-14-ai-code-editor-hui-cheng-wei-xin-shi-dai-de-ruby-on-rails-ma" />
-<meta property="og:title" content="2025-02-14 AI Code Editor 会成为新时代的 Ruby on Rails 吗" />
-<meta property="og:description" content="AI Code Editor 会成为新时代的 Ruby on Rails 吗？" />
+<meta property="og:url" content="https://thaddeusjiang.com/2025-08-13-js-guo-du-bian-yi-de-wen-ti" />
+<meta property="og:title" content="2025-08-13 JS 过度编译的问题" />
+<meta property="og:description" content="过度编译是万恶之源" />
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="2025-02-14 AI Code Editor 会成为新时代的 Ruby on Rails 吗" />
-<meta name="twitter:description" content="AI Code Editor 会成为新时代的 Ruby on Rails 吗？" />
+<meta name="twitter:title" content="2025-08-13 JS 过度编译的问题" />
+<meta name="twitter:description" content="过度编译是万恶之源" />
 <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
 
 <!-- Google tag (gtag.js) -->
@@ -84,12 +84,11 @@
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <h1 class="title is-4">2025-02-14 AI Code Editor 会成为新时代的 Ruby on Rails 吗</h1>
+          <h1 class="title is-4">2025-08-13 JS 过度编译的问题</h1>
           <hr>
 
           <div class="content">
-            <p>AI Code Editor 会成为新时代的 Ruby on Rails 吗？</p><p>这是使用 Cursor 作为编辑器后突然涌现出的直觉，我认为 AI Code Editor 对我来说就像 Ruby on Rails，它极大的提高了我启动项目的速度，在一些我不熟悉的领域可以提供基本的支持和一些行业最佳实践。</p><p>虽然我依然不认为 AI 可以完全取代人类工程师，但是人类工程师借助 AI 的力量的确可以提高数倍或者数十倍的工作效率。</p><p>补充，GitHub Copilot 曾经让我体验到了“自动补全”的效率提升，但是在“辅助开发”层面我目前为止 Cursor 为代表的 AI Code Editor 的确比 VS Code + Copilot Extension 跟优秀。
-</p>
+            <h1 class="">过度编译是万恶之源</h1><p>这句话是模仿“过早优化是万恶之源”，哈哈哈</p><p>最近在帮助某个项目配置 Sentry，在查看 Sentry 页面时有一点小感受。Frontend App 实际运行的代码和程序员编写的代码差距太大了，可以用<code>面目全非</code>来形容。</p><p>浏览器中运行代码已经变成了<code>一堆乱码</code>，<code>完全不可读</code>，像极了曾经风靡一时的<code>混乱编程</code>。🤮</p><h2 class="">JavaScript 的 Error Tracking</h2><p><img class=" tc-image-loading" src="https://i.gyazo.com/dbef73bddd9edfe9f923eb99ee62d9dd.png" width="50%"></p><p><img class=" tc-image-loading" src="https://i.gyazo.com/e433b384a5fa6a6556e42dec05a7b931.png"></p><h2 class="">Ruby 的 Error Tracking</h2><p><img class=" tc-image-loading" src="https://i.gyazo.com/406b962ed07781ef682f08b70a63dfbd.png"></p><p>虽然 Sentry 提供很多高级功能，例如上传 Source Map、链接 GitHub 等等，但是真的有必要吗？</p><p>我不禁思考，目前主流的浏览器已经可以支持绝大多数现代 JavaScript 特性了，为什么还需要将代码编译成人类无法阅读的乱码形式呢？</p><p>或许十年前（2015）很多浏览器没有及时支持现代 JavaScript 特性，程序员们想要提前体验现代的 JavaScript ，Babel 之类的工具的确很有价值，但是今天（2025）这类工具难道不应该越来越少使用吗？</p><p>好期待浏览器上可以直接运行我编写的代码的时代的来临，我也是不是 #NoBuild 的狂热粉丝，我只是希望 Build 可以简单一点，只在必要的时候执行。</p><h4 class="">推荐阅读</h4><ul><li><a class="tc-tiddlylink-external" href="https://world.hey.com/dhh/you-can-t-get-faster-than-no-build-7a44131c" rel="noopener noreferrer" target="_blank">https://world.hey.com/dhh/you-can-t-get-faster-than-no-build-7a44131c</a></li><li><a class="tc-tiddlylink-external" href="https://world.hey.com/dhh/once-1-is-entirely-nobuild-for-the-front-end-ce56f6d7" rel="noopener noreferrer" target="_blank">https://world.hey.com/dhh/once-1-is-entirely-nobuild-for-the-front-end-ce56f6d7</a></li></ul>
           </div>          
       </div>
   </div>
@@ -118,6 +117,29 @@
 
 
 
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
 
   <footer class="section">    
     <div class="has-text-centered">

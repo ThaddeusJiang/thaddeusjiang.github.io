@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-   <title>TJ's 数字花园</title>
+   <title>TJ's Blog</title>
    <link>https://thaddeusjiang.com</link>
-   <description>一个话痨的自留地，写点想说的。</description><follow_challenge>
+   <description>Freelance web developer in Japan</description><follow_challenge>
     <feedId>41718658305983488</feedId>
     <userId>41718122139849728</userId>
 </follow_challenge>
@@ -43,6 +43,41 @@
    </item>
 
    <item>
+      <title>2025-08-13 JS 过度编译的问题</title>
+      <link>https://thaddeusjiang.com/2025-08-13-js-guo-du-bian-yi-de-wen-ti</link>
+			<description><![CDATA[
+<div class="content">
+  <h1 class="">过度编译是万恶之源</h1><p>这句话是模仿“过早优化是万恶之源”，哈哈哈</p><p>最近在帮助某个项目配置 Sentry，在查看 Sentry 页面时有一点小感受。Frontend App 实际运行的代码和程序员编写的代码差距太大了，可以用<code>面目全非</code>来形容。</p><p>浏览器中运行代码已经变成了<code>一堆乱码</code>，<code>完全不可读</code>，像极了曾经风靡一时的<code>混乱编程</code>。🤮</p><h2 class="">JavaScript 的 Error Tracking</h2><p><img class=" tc-image-loading" src="https://i.gyazo.com/dbef73bddd9edfe9f923eb99ee62d9dd.png" width="50%"></p><p><img class=" tc-image-loading" src="https://i.gyazo.com/e433b384a5fa6a6556e42dec05a7b931.png"></p><h2 class="">Ruby 的 Error Tracking</h2><p><img class=" tc-image-loading" src="https://i.gyazo.com/406b962ed07781ef682f08b70a63dfbd.png"></p><p>虽然 Sentry 提供很多高级功能，例如上传 Source Map、链接 GitHub 等等，但是真的有必要吗？</p><p>我不禁思考，目前主流的浏览器已经可以支持绝大多数现代 JavaScript 特性了，为什么还需要将代码编译成人类无法阅读的乱码形式呢？</p><p>或许十年前（2015）很多浏览器没有及时支持现代 JavaScript 特性，程序员们想要提前体验现代的 JavaScript ，Babel 之类的工具的确很有价值，但是今天（2025）这类工具难道不应该越来越少使用吗？</p><p>好期待浏览器上可以直接运行我编写的代码的时代的来临，我也是不是 #NoBuild 的狂热粉丝，我只是希望 Build 可以简单一点，只在必要的时候执行。</p><h4 class="">推荐阅读</h4><ul><li><a class="tc-tiddlylink-external" href="https://world.hey.com/dhh/you-can-t-get-faster-than-no-build-7a44131c" rel="noopener noreferrer" target="_blank">https://world.hey.com/dhh/you-can-t-get-faster-than-no-build-7a44131c</a></li><li><a class="tc-tiddlylink-external" href="https://world.hey.com/dhh/once-1-is-entirely-nobuild-for-the-front-end-ce56f6d7" rel="noopener noreferrer" target="_blank">https://world.hey.com/dhh/once-1-is-entirely-nobuild-for-the-front-end-ce56f6d7</a></li></ul>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Wed, 13 August 2025 2:49:28 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-08-13-js-guo-du-bian-yi-de-wen-ti</guid>      
+   </item>
+
+   <item>
       <title>2025-05-23 何为领先多少年，何为落后多少年</title>
       <link>https://thaddeusjiang.com/2025-05-23-he-wei-ling-xian-duo-shao-nian-he-wei-luo-hou-duo-shao-nian</link>
 			<description><![CDATA[
@@ -75,43 +110,6 @@
 ]]></description>
       <pubDate>Fri, 23 May 2025 1:17:43 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2025-05-23-he-wei-ling-xian-duo-shao-nian-he-wei-luo-hou-duo-shao-nian</guid>      
-   </item>
-
-   <item>
-      <title>2025-04-04 形式主义的敏捷开发</title>
-      <link>https://thaddeusjiang.com/2025-04-04-xing-shi-zhu-yi-de-min-jie-kai-fa</link>
-			<description><![CDATA[
-<div class="content">
-  <p>越来越多的团队开始说自己采用了敏捷开发，但是从我和他们一起工作的实际体验来说，我觉得大部分团队只是“形式主义的敏捷开发”。
-虽然他们或许知道很多概念，如 Agile, Waterfall, Scrum, Sprint 等，但是实际的工作中除了会议和使用的工具变多了，其他方面似乎没有什么变化。</p><h2 class="">我理解的敏捷开发</h2><ul><li>优先构建可工作的软件，而不是开会。</li><li>和客户一起推动产品开发，而不仅仅是频繁发布。</li><li>快速交付有价值的软件，而不是仅仅是快速 fix bugs。</li></ul><h2 class="">我观察到的 bad things</h2><p>1. 开会，开会，还是开会。</p><p>形式主义的敏捷开发团队最喜欢的就是开会，非技术官僚最喜欢开发。我认为频繁开会效率太低，每天都开早会是非常形式主义的行为。</p><p>Scrum 作为被广泛采用的 Agile 形式，最大的问题就是新增了太多管理工作，Sprint Plan meeting, Daily meeting, Sprint Review meeting 等等，严重占用时间和精力，经济性极低。</p><p>2. one week sprint</p><p>一周长度的 sprint 太短了，再加上形式主义的敏捷开发团队喜欢开会，留给开发者的时间太少了。
-sprint 太短还有很多问题，</p><p>❌ 时间过短，难以完成较复杂的任务：如果功能涉及多个团队（前端、后端、DevOps），一周可能不够。</p><p>❌ 频繁回顾 &amp; 规划，管理成本高：每周都要进行回顾和规划会议，可能占用较多时间。</p><p>❌ 开发压力大，容易影响质量：开发节奏过快，可能导致测试不足或代码质量下降。</p><p>3. 只关注 bugs，不关注 needs</p><p>很多公司有专门的产品经理职位，但是很多产品经理并不了解客户需求；也没有及时跟踪客户需求变化；或者对客户言听计从没有深度思考。团队只关注紧急事项，忽略重要事项，只关注 bugs 修复情况和新功能开发进度，没有认真思考过客户想要什么。</p><p>越来越多的团队采用 Release train，理论上可以快速发布一些新功能（features）。但是实际工作中频繁的发布让很多团队只能关注对客户造成的不好的影响（bugs），而没有时间和精力去了解客户的真实需求（needs）。</p><p>以上就是我观察到的“形式主义的敏捷开发”，不知道你是否相同的经历和体验呢？欢迎一起交流。</p><p>结尾，感谢你阅读这篇文章。</p><p>Refs:</p><ul><li>敏捷软件开发宣言 <a class="tc-tiddlylink-external" href="https://agilemanifesto.org/iso/zhchs/manifesto.html" rel="noopener noreferrer" target="_blank">https://agilemanifesto.org/iso/zhchs/manifesto.html</a></li></ul>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Thu, 3 April 2025 21:9:22 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-04-04-xing-shi-zhu-yi-de-min-jie-kai-fa</guid>      
    </item>
 
 </channel>

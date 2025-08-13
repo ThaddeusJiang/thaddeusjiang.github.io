@@ -441,7 +441,7 @@
 
    <url>
       <loc>.//2021-12-28-phoenix-test-css</loc>
-      <lastmod>2023-12-07</lastmod>
+      <lastmod>2025-08-07</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -771,7 +771,7 @@
 
    <url>
       <loc>.//2024-02-22-typescript-enum-cuo-wu-shi-li-he-jie-jue-fang-an</loc>
-      <lastmod>2024-03-07</lastmod>
+      <lastmod>2025-08-08</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -891,7 +891,7 @@
 
    <url>
       <loc>.//2025-02-14-ai-code-editor-hui-cheng-wei-xin-shi-dai-de-ruby-on-rails-ma</loc>
-      <lastmod>2025-03-21</lastmod>
+      <lastmod>2025-08-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -928,6 +928,12 @@
    <url>
       <loc>.//2025-04-21-vibe-coding-hao-yu-huai</loc>
       <lastmod>2025-04-21</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2025-08-13-js-guo-du-bian-yi-de-wen-ti</loc>
+      <lastmod>2025-08-13</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
