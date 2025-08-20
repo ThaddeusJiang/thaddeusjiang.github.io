@@ -1,0 +1,7 @@
+created: 20250814150702195
+modified: 20250814150822974
+tags: 
+title: TiddlyWiki 最好不要使用 title, tag, body 以外的属性记录内容
+type: text/vnd.tiddlywiki
+
+因为默认 Search 功能无法检索 field 内容，可以检索 title, body, tag

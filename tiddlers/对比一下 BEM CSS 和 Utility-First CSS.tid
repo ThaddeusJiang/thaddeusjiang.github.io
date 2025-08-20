@@ -1,8 +1,10 @@
 created: 20210510143815400
-modified: 20250425082928605
+modified: 20250814143830762
 tags: 
 title: 对比一下 BEM CSS 和 Utility-First CSS
 type: text/vnd.tiddlywiki
+
+! 对比一下 BEM CSS 和 Utility-First CSS
 
 需求：一个简单的表格
 

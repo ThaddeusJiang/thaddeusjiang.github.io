@@ -1,28 +1,20 @@
 created: 20210510141036682
 creator: TJ
-modified: 20231212125307778
+modified: 20250814143840705
 modifier: TJ
 tags: $:/plugins/adithyab/tiddlyjam/live blog
-title: 2021-05-15 详细介绍一下 why we should use Utility-First CSS
+title: 2021-05-15 Why Utility-First CSS
 type: text/vnd.tiddlywiki
 
 去年我写了一篇简单的文章解释为什么我使用 Tailwind CSS, [[here|2020-07-21 Why Tailwind CSS]]
 
-团队的成员读了以后反馈说“没讲清楚”，说我又来详细介绍一下 why we should use Utility-First CSS。
-
-! 什么是 Utility-First CSS
+团队的成员读了以后反馈说“没讲清楚”，所以我又来详细介绍一下 Why Utility-First CSS。
 
 {{什么是 Utility-First CSS}}
 
-! 在 Utility-First CSS 之前有哪些编写 CSS 的方式
-
 {{在 Utility-First CSS 之前有哪些编写 CSS 的方式}}
 
-! 对比一下 BEM CSS 和 Utility-First CSS
-
 {{对比一下 BEM CSS 和 Utility-First CSS}}
-
-! 总结 Why we should use Utility-First CSS
 
 {{总结 Why we should use Utility-First CSS}}
 

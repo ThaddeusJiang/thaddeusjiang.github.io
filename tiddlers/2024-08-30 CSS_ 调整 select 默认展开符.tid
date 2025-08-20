@@ -1,5 +1,5 @@
 created: 20240830081156287
-modified: 20240830090510981
+modified: 20250818024435811
 published: 20240830090510980
 tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2024-08-30 CSS: 调整 select 默认展开符
@@ -7,11 +7,11 @@ type: text/vnd.tiddlywiki
 
 浏览器默认位置：
 
-[img[select_element_default_sytle.png]]
+[img[https://i.gyazo.com/62432c1ac490a439ec3f9430198cf98d.png]]
 
 期待调整 icon 位置，使 select 前后 padding 一致。
 
-[img[select_element_better_sytle.png]]
+[img[https://i.gyazo.com/8da117723711e389d1f81b8f3d1e1111.png]]
 
 CSS 没有开箱即用的方法可以实现期待效果，但是想要实现也不难。
 

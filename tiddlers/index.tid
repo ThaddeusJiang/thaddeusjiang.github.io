@@ -1,6 +1,6 @@
 created: 20220313022643471
 description: 
-modified: 20250106053255640
+modified: 20250814144327252
 name: ThaddeusJiang
 tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals
 title: index
@@ -12,7 +12,7 @@ type: text/vnd.tiddlywiki
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
     <div class="content">
 
-      {{AboutMeEn}}
+      {{AboutMe}}
     </div>
   </div>
 </div>

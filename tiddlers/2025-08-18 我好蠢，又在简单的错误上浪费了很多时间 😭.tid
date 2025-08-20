@@ -1,0 +1,27 @@
+created: 20250818084201071
+modified: 20250818103259293
+tags: #开发日记
+title: 2025-08-18 我好蠢，又在简单的错误上浪费了很多时间 😭
+type: text/vnd.tiddlywiki
+
+今天又是脑袋不清楚的一天，😭
+
+背景：
+
+我的 Sentry 配置 `traces_sample_rate = 0.1`
+
+现象：
+
+我在 Sentry Dashboard 中查看最近一小时的记录，发现一直没有记录。
+
+我以为是我的代码有问题
+
+* docker 没有正确插入环境变量？
+* esbuild 没有正确插入环境变量？
+* Sentry 限制了 host？
+
+我查了好几小时，最后在 [[Tidewave.ai]] 的帮助下才意识到是 `traces_sample_rate = 0.1` 的原因。
+
+`traces_sample_rate = 0.1` 意味着只追踪 `10%` 的记录，我的 local 访问量本来就少，没有记录也是正常的。
+
+😂 被自己蠢哭了

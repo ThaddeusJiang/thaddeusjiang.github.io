@@ -1,0 +1,26 @@
+created: 20250815025936806
+modified: 20250815031127648
+tags: 
+title: 2025-08-15 隐约觉得脚本语言又要流行起来了
+type: text/vnd.tiddlywiki
+
+
+虽然 DHH 加入 Linux Desktop 开发，越来越多 developers 又开始尝试 Linux 了，这次 Linux 潮流还包括了一些 Frontend Developers。
+
+https://x.com/adamwathan/status/1956032482299498764
+
+随着 Linux 制定化开发的流行，Bash 似乎成为了必备的技能，虽然使用 Bash 开发大型应用很扯，但是似乎做一些 shell 组合和规划很棒。
+
+我隐约觉得脚本语言又要流行起来了，我是 2015 年开始工作的，说实话我没有经历过上一代脚本语言的大流行，那是一个 perl, ruby, php 大流行的时代。
+
+如果未来脚本语言大流行，哪个语言会流行呢？ 
+
+* python 肯定会流行，AI 太火了。
+* JS 可能还会流行，开发者基数太大了。
+* bash, zsh, fish 哪个会火？主要看系统自带，macOS 是 zsh, Linux 很多是 bash。
+* 其他的脚本语言，例如 ruby, lua, elixir 会火吗？
+
+DHH 的 Linux Desktop 项目
+
+* https://github.com/basecamp/omarchy
+* https://github.com/basecamp/omakub

@@ -1,0 +1,23 @@
+created: 20250818183552048
+modified: 20250818183653902
+tags: 
+title: Prompt: 翻译
+type: text/vnd.tiddlywiki
+
+将我的话翻译成日本语和英语，使用工作口语。
+只需要翻译，不需要做其他回答。
+我是一名软件工程师，开发 SaaS，使用 slack 和 GitHub。
+
+格式：
+
+【JA】: 
+
+```
+よろしくお願いします。
+```
+
+【EN】: 
+
+```
+You are welcome.
+```

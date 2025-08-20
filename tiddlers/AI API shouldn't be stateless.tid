@@ -1,0 +1,29 @@
+created: 20250818191945933
+modified: 20250818193030596
+tags: 
+title: AI API shouldn't be stateless
+type: text/vnd.tiddlywiki
+
+
+我已经厌倦了拼接 chat messages，我觉得 AI API 不应该是 stateless 的。
+
+OpenAI 几年前就提供持续对话功能（Threads），但是现在还有很多 ChatApp 依然在手动拼接 chat messages ，有点失望。
+
+```js
+import OpenAI from "openai";
+
+const openai = new OpenAI();
+
+async function main() {
+  const threadMessages = await openai.beta.threads.messages.create(
+    "thread_abc123",
+    { role: "user", content: "How does AI work? Explain it in simple terms." }
+  );
+
+  console.log(threadMessages);
+}
+
+main();
+```
+
+https://platform.openai.com/docs/api-reference/messages/createMessage?lang=node.js
