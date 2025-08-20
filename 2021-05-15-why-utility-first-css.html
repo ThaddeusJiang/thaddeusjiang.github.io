@@ -18,12 +18,12 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2021-05-15 详细介绍一下 why we should use Utility-First CSS</title>
+<title>2021-05-15 Why Utility-First CSS</title>
 <meta name="description" content="去年我写了一篇简单的文章解释为什么我使用 Tailwind CSS, here">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://thaddeusjiang.com/2021-05-15-xiang-xi-jie-shao-yi-xia-why-we-should-use-utility-first-css" />
-<meta property="og:title" content="2021-05-15 详细介绍一下 why we should use Utility-First CSS" />
+<meta property="og:url" content="https://thaddeusjiang.com/2021-05-15-why-utility-first-css" />
+<meta property="og:title" content="2021-05-15 Why Utility-First CSS" />
 <meta property="og:description" content="去年我写了一篇简单的文章解释为什么我使用 Tailwind CSS, here" />
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
 <meta property="article:author" content="@ThaddeusJiang" />
@@ -31,7 +31,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="2021-05-15 详细介绍一下 why we should use Utility-First CSS" />
+<meta name="twitter:title" content="2021-05-15 Why Utility-First CSS" />
 <meta name="twitter:description" content="去年我写了一篇简单的文章解释为什么我使用 Tailwind CSS, here" />
 <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
 
@@ -70,9 +70,9 @@
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
         <h1 class="brand">
-          <a class="title" href="./">TJ's Blog</a>
+          <a class="title is-3" href="./">TJ's Blog</a>
         </h1>
-        <p class="subtitle is-size-6 is-italic">Freelance web developer in Japan</p>
+        <p class="subtitle is-5 is-italic">Web development, JavaScript and others</p>
       </div>
       
       <div class="navbar-end is-size-5">
@@ -84,11 +84,11 @@
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <h1 class="title is-4">2021-05-15 详细介绍一下 why we should use Utility-First CSS</h1>
+          <h1 class="title is-4">2021-05-15 Why Utility-First CSS</h1>
           <hr>
 
           <div class="content">
-            <p>去年我写了一篇简单的文章解释为什么我使用 Tailwind CSS, <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./2020-07-21-why-tailwind-css.html">here</a></p><p>团队的成员读了以后反馈说“没讲清楚”，说我又来详细介绍一下 why we should use Utility-First CSS。</p><h1 class="">什么是 Utility-First CSS</h1><p>Utility-First CSS 是 Tailwind CSS 官方宣传的一种编写 CSS 的方式。</p><p>简单说：提供大量基础的 CSS classname，然后利用 CSS 的组合能力，想堆砌乐高积木一样编写 CSS。</p><h1 class="">在 Utility-First CSS 之前有哪些编写 CSS 的方式</h1><ul><li>BEM（Block Element Modifier）</li><li>SCSS</li><li>CSS-IN-JS</li><li>CSS Modules</li><li>...</li></ul><p><strong>为什么会有这么多种方式？</strong></p><p>要讨论这个问题，首先我们需要问 “这些开发方式试图解决什么问题？”</p><p>答：解决 CSS 模块化问题。</p><p>那么，CSS 模块化遇到了哪些问题？</p><blockquote class="tc-quote tc-big-quote"><ol><li>全局污染</li><li>命名混乱</li><li>依赖管理不彻底</li><li>无法共享变量</li><li>代码压缩不彻底</li></ol><cite><a class="tc-tiddlylink-external" href="https://github.com/camsong/blog/issues/5" rel="noopener noreferrer" target="_blank">https://github.com/camsong/blog/issues/5</a></cite></blockquote><p>在上述问题中，“全局污染” 可能是最受开发者诟病的问题了。</p><p>我以前也觉得 CSS global scope 是一个问题，但是学习了 Utility-First CSS 以后，我太爱 global scope 了。
+            <p>去年我写了一篇简单的文章解释为什么我使用 Tailwind CSS, <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./2020-07-21-why-tailwind-css.html">here</a></p><p>团队的成员读了以后反馈说“没讲清楚”，所以我又来详细介绍一下 Why Utility-First CSS。</p><h1 class="">什么是 Utility-First CSS</h1><p>Utility-First CSS 是 Tailwind CSS 官方宣传的一种编写 CSS 的方式。</p><p>简单说：提供大量基础的 CSS classname，然后利用 CSS 的组合能力，想堆砌乐高积木一样编写 CSS。</p><h1 class="">在 Utility-First CSS 之前有哪些编写 CSS 的方式</h1><ul><li>BEM（Block Element Modifier）</li><li>SCSS</li><li>CSS-IN-JS</li><li>CSS Modules</li><li>...</li></ul><p><strong>为什么会有这么多种方式？</strong></p><p>要讨论这个问题，首先我们需要问 “这些开发方式试图解决什么问题？”</p><p>答：解决 CSS 模块化问题。</p><p>那么，CSS 模块化遇到了哪些问题？</p><blockquote class="tc-quote tc-big-quote"><ol><li>全局污染</li><li>命名混乱</li><li>依赖管理不彻底</li><li>无法共享变量</li><li>代码压缩不彻底</li></ol><cite><a class="tc-tiddlylink-external" href="https://github.com/camsong/blog/issues/5" rel="noopener noreferrer" target="_blank">https://github.com/camsong/blog/issues/5</a></cite></blockquote><p>在上述问题中，“全局污染” 可能是最受开发者诟病的问题了。</p><p>我以前也觉得 CSS global scope 是一个问题，但是学习了 Utility-First CSS 以后，我太爱 global scope 了。
 只要使用得当，轻轻松松达到 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./less-is-more.html">Less is More</a> 的效果。
 </p><h1 class="">对比一下 BEM CSS 和 Utility-First CSS</h1><p>需求：一个简单的表格</p><p>BEM CSS</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
 .table { ... }
@@ -223,7 +223,7 @@ const Td = ({children}) =&gt; (<span class="hljs-tag">&lt;<span class="hljs-name
     </div>
 
     <div class="has-text-centered">
-      <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
+      <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./aboutme.html">About</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> 
     </div>
   </footer>
 
