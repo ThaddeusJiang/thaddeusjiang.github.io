@@ -1,0 +1,17 @@
+created: 20250828073448473
+modified: 20250828073718765
+tags: 
+title: idea: replay chat messages (回放我们和 AI 的对话)
+type: text/vnd.tiddlywiki
+
+
+
+我突然有一个 project idea，就是在 web 重现 chatbot 中聊天记录。
+
+背景：我现在的习惯是在一个 vibe coding 任务结束后 export chat 并保存，通常是 markdown 形式。
+
+但是发现 cursor 导出的 markdown 在 GitHub 上看着条例不是很清楚，并且没有对话的那种交互感 `message -> reply, message -> reply`
+
+虽然我可能也不会再看了，但是说不定有机会会再看一遍，如果可以将对话重现出来就好了。
+
+> record on 2025-08-28 
