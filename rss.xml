@@ -43,6 +43,41 @@
    </item>
 
    <item>
+      <title>2025-08-29 vibe coding 让我重新“慢了”下来</title>
+      <link>https://thaddeusjiang.com/2025-08-29-vibe-coding-rang-wo-zhong-xin-man-liao-xia-lai</link>
+			<description><![CDATA[
+<div class="content">
+  <p>为了让 AI 能更准确的生成我想要的代码，我重新开始愿意在敲代码前花更多时间了，至少比前几年的我在敲代码前花的时间更多。</p><p>回想了一下，不知从何时开始我选择了“直接敲代码”，每次都是先写一个简单原型，然后边敲代码边改善设计。当然可能和我的工作都不难也有关系吧，因为需要开发的软件真的没什么难度，写写改改也不是不行，因为架构设计上也没有什么大错，几乎不需要推倒重来，所以效率也挺高的。</p><p>但是我依然记得曾经看到书中说，上古时代的软件大神们因为计算机是稀缺资源必须在纸上先把代码设计好才能输入到计算机中，也练就了他们一声软件设计的本领。</p><p>感谢现在 AI 还是不够强大，感谢它还是不能只通过一句话就能生成我期待的优秀代码。我现在又开始重新在软件设计阶段花更多时间了。比起几年前打开电脑就是敲代码，我重新在敲代码前开始尝试思考的更具体了，我会先明确自己的期待、代码的要求，以及如何验证代码是否符合要求。感觉有点像面向 AI 的 TDD，哈哈哈</p><p>感谢 vibe coding 让我重新认真对待”软件设计“这个阶段了。</p>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Fri, 29 August 2025 2:22:4 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-08-29-vibe-coding-rang-wo-zhong-xin-man-liao-xia-lai</guid>      
+   </item>
+
+   <item>
       <title>2025-08-13 JS 过度编译的问题</title>
       <link>https://thaddeusjiang.com/2025-08-13-js-guo-du-bian-yi-de-wen-ti</link>
 			<description><![CDATA[
@@ -75,41 +110,6 @@
 ]]></description>
       <pubDate>Wed, 13 August 2025 2:49:28 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2025-08-13-js-guo-du-bian-yi-de-wen-ti</guid>      
-   </item>
-
-   <item>
-      <title>2025-05-23 何为领先多少年，何为落后多少年</title>
-      <link>https://thaddeusjiang.com/2025-05-23-he-wei-ling-xian-duo-shao-nian-he-wei-luo-hou-duo-shao-nian</link>
-			<description><![CDATA[
-<div class="content">
-  <p>在互联网上总是看到“xxx 领先 yyy 多少年”或者“落后多少年”，这样的人基本上都是标题党。没有任何事实依据就随便喊出一个数字已经成为想要流量的网友们的日常，在 “注意力经济时代” 信口开河的人或许才是时代的弄潮儿。</p><h2 class="">那么，何为领先多少年，何为落后多少年？</h2><p>📌 领先多少年</p><p>指某个对象在某一方面的发展水平相当于另一个对象在未来若干年后才能达到的水平。</p><p>✅ 例子：如果某国的AI技术在2025年就达到了另一国预计2030年才能达到的水平，我们就可以说前者领先后者5年。</p><p>📌 落后多少年</p><p>指某个对象当前的发展水平相当于另一个对象过去若干年前的状态。</p><p>✅ 例子：若某企业的产品设计还停留在2015年的风格，而行业领先者已发展到2025年的趋势，可以说该企业落后行业10年。</p><h2 class="">如何判断网友在信口开河？</h2><p>标题党都有一个特征就是只喊口号但不提供具体数据，只需要查询一下对比双方实现某种状态的具体时间就可以了。</p><p>📍案例 1：「中国高铁领先世界10年」</p><table><tbody><tr class="evenRow"><td align="center">时间点</td><td align="center">国家</td><td align="center">事件描述</td></tr><tr class="oddRow"><td align="center">1964年</td><td align="center">日本</td><td align="center">新干线通车，世界第一条高铁</td></tr><tr class="evenRow"><td align="center">1981年</td><td align="center">法国</td><td align="center">TGV投入运营</td></tr><tr class="oddRow"><td align="center">1991年</td><td align="center">德国</td><td align="center">ICE高铁投入运营</td></tr><tr class="evenRow"><td align="center">2008年</td><td align="center">中国</td><td align="center">京津城际通车，中国第一条高速铁路（非试验段）</td></tr><tr class="oddRow"><td align="center">2023年</td><td align="center">中国</td><td align="center">高铁营运里程突破4万公里，全球第一</td></tr></tbody></table><p>中国的高铁起步时间比日法德晚近40年，根本不可能“领先10年”。</p><p>如果标题党想以“2023年，中国高铁营运里程突破4万公里，全球第一”为准证明中国高铁领先世界，如何验证？</p><p>“领先多少年”逻辑的根本漏洞之一：如果对比方根本不追求、不可能达到同一目标，那么就无法定义“领先或落后多少年”，因为根本不在同一赛道。</p><p>Ask ChatGPT</p><p><a class="tc-tiddlylink-external" href="https://chatgpt.com/share/682fd5b5-c614-8012-a45e-496cb6ce771a" rel="noopener noreferrer" target="_blank">https://chatgpt.com/share/682fd5b5-c614-8012-a45e-496cb6ce771a</a></p>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Fri, 23 May 2025 1:17:43 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-05-23-he-wei-ling-xian-duo-shao-nian-he-wei-luo-hou-duo-shao-nian</guid>      
    </item>
 
 </channel>
