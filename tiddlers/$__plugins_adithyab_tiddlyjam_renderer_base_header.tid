@@ -1,6 +1,6 @@
 created: 20200728151423521
 creator: Adithya_
-modified: 20250814144746750
+modified: 20250902054544297
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/header
@@ -15,13 +15,9 @@ type: text/vnd.tiddlywiki
         <h1 class="brand">
           <a class="title is-3" href={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}}>{{$:/SiteTitle}}</a>
         </h1>
-        <p class="subtitle is-5 is-italic">{{$:/SiteSubtitle}}</p>
+        <p class="subtitle is-6 is-italic">{{$:/SiteSubtitle}}</p>
       </div>
       
-      <div class="navbar-end is-size-5">
-        [[Blog|blog]]
-      </div>
-
     </nav>
 
   </div>

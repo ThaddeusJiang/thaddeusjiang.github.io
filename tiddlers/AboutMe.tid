@@ -1,27 +1,31 @@
 created: 20241223030927932
-modified: 20250814145117827
+modified: 20250902061459756
 tags: $:/plugins/adithyab/tiddlyjam/live
 title: AboutMe
 type: text/vnd.tiddlywiki
 
-!! 👋 Hi
+I’m a freelance web developer based in Japan.
 
-I am a freelance web developer in Japan.
+!! Full Cycle Developer
 
-I am a Full Cycle Developer specializing in ''end-to-end software development''. From ''product ideation'' and ''system design'' to ''scalable deployment'' and ''DevOps'', I deliver results that align with business goals.
+* Design
+* Code
+* Deploy
+* Operate
 
-!! Skills & Experience
+!! Experience & Skills 
 
-* Extensive experience in building ERP, CMS, EC platforms, HR systems, IoT solutions, and more.
+* Built global supply chains SaaS, e-commerce platforms, all in one HR systems, EV charging service, and more.
 * Proficient in RDB/NoSQL, frontend/backend (React, Node.js), CI/CD pipelines, and Cloud (GCP, Azure, Fly.io, Zeabur).
-* Skilled in both team collaboration and independent project development.
+* Comfortable working in both large-scale and small, fast-paced teams.
 
 !! Personal Projects
 
-Developed and maintain [[AIer.app|https://aier.app]] and [[Vmemo.app|https://vmemo.app]], showcasing my ability to deliver high-quality, scalable solutions.
+* [[GitHub – ThaddeusJiang|https://github.com/ThaddeusJiang]]
 
-!! Activity
+!! Articles (in Japanese)
 
-* [[GitHub|https://github.com/ThaddeusJiang]] 
+* [[Zenn – ThaddeusJiang|https://zenn.dev/thaddeusjiang]] 
+
 
 

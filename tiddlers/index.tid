@@ -1,6 +1,6 @@
 created: 20220313022643471
 description: 
-modified: 20250814144327252
+modified: 20250902054629140
 name: ThaddeusJiang
 tags: $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/internals
 title: index
@@ -13,6 +13,7 @@ type: text/vnd.tiddlywiki
     <div class="content">
 
       {{AboutMe}}
+
     </div>
   </div>
 </div>

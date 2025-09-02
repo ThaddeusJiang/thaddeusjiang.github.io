@@ -1,5 +1,9 @@
 created: 20241024025735628
-modified: 20241024025749397
+modified: 20250902061657241
 tags: Dogfooding
 title: TiddlyJam
 type: text/vnd.tiddlywiki
+
+Transform your TiddlyWiki into static websites and blogs. Inspired by JamStack.
+
+https://github.com/ThaddeusJiang/tiddlyjam
