@@ -1,0 +1,26 @@
+created: 20230728022406281
+history: 2023-07-28
+modified: 20250902101758280
+tags: $:/tags/ViewTemplate
+title: tw-lego/repeat-history
+type: text/vnd.tiddlywiki
+
+<$list filter="[all[current]tag[repeated]]">
+
+<section style="background-color: #f4f4f4; border-radius: 4px; padding: 0.125rem 1rem; margin: 0.5rem 0;">
+
+<$set name="today" value=<<now YYYY-0MM-0DD>> >
+
+You have repeated <$count filter="[enlist:raw{!!history}!sort[title]]" /> times, <$button>
+<$action-listops $field="history" $filter="[enlist:raw{!!history}] [enlist<today>]" />
+record today
+</$button>
+
+</$set>
+
+<$list filter="[enlist:raw{!!history}!sort[title]]" />
+
+</section>
+
+</$list>
+

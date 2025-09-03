@@ -1,5 +1,5 @@
 created: 20240930041903161
-modified: 20240930054946060
+modified: 20250902103818257
 published: 20240930054905809
 tags: blog $:/plugins/adithyab/tiddlyjam/live
 title: 2024-09-30 I Analyzed My Browser History
@@ -7,7 +7,7 @@ type: text/vnd.tiddlywiki
 
 心血来潮，我尝试分析了我的浏览器记录，发现了一点点“不得了的”事情。
 
-> TL;DR
+Summary
 
 * 我有 411k 访问记录，只有 27k 主动访问，占比仅 5%
 * 我竟然访问过 63 个 Google 提供的服务
