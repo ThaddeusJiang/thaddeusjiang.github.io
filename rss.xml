@@ -43,6 +43,46 @@
    </item>
 
    <item>
+      <title>2025-09-06 停止使用硬编码多语言翻译</title>
+      <link>https://thaddeusjiang.com/2025-09-06-ting-zhi-shi-yong-ying-bian-ma-duo-yu-yan-fan-yi</link>
+			<description><![CDATA[
+<div class="content">
+  <p>我认为不应该浪费开发者的时间去翻译，我呼吁停止使用硬编码翻译技术。推荐采用成熟的翻译服务，花小钱办大事。</p><h2 class="">什么是硬编码多语言翻译？</h2><p>即需要维护多份语言对照表的技术方案，例如：</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// en.json </span>
+<span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;hello&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;hello&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-comment">// zh.json </span>
+<span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;hello&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;你好&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-comment">// ja.json </span>
+<span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;hello&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;こんにちは&quot;</span> <span class="hljs-punctuation">}</span></code></pre><p>硬编码多语言解决方案的缺点：</p><ul><li>工作量和语言数量是正相关，对应的语言越多，工作量越多。</li><li>翻译和代码强关联，代码实现方式改变，会导致翻译失败。</li><li>文字以外资源的翻译难度大，例如：图片中文字</li></ul><p>SaaS 翻译服务的优点：</p><ul><li>工作量小，只需要简单的集成，就可以动态翻译全部 UI</li><li>翻译和代码分离，非技术人员亦可轻松更新翻译内容</li><li>支持图片翻译</li></ul><h2 class="">实践</h2><p>目前我在使用 <a class="tc-tiddlylink-external" href="https://www.weglot.com/" rel="noopener noreferrer" target="_blank">https://www.weglot.com/</a> 翻译我参与的多个产品。</p><p>我已经停止使用如下技术方案：</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/i18next/i18next" rel="noopener noreferrer" target="_blank">https://github.com/i18next/i18next</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/aiji42/zod-i18n" rel="noopener noreferrer" target="_blank">https://github.com/aiji42/zod-i18n</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/sergiodxa/remix-i18next" rel="noopener noreferrer" target="_blank">https://github.com/sergiodxa/remix-i18next</a></li></ul><p>因为它们都是硬编码的。</p><h2 class="">最后</h2><p>这是一笔经济账。</p><p>如果你是独立开发者或者个人开发者，你认为你的时间投入比每个月几十美金更经济；如果你是公司老板，你不愿意帮助节省开发者时间而每个月支出几十美金。</p><p>免责声明：每个人都可以有自己的选择。</p>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Sat, 6 September 2025 4:32:6 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-09-06-ting-zhi-shi-yong-ying-bian-ma-duo-yu-yan-fan-yi</guid>      
+   </item>
+
+   <item>
       <title>2025-08-29 vibe coding 让我重新“慢了”下来</title>
       <link>https://thaddeusjiang.com/2025-08-29-vibe-coding-rang-wo-zhong-xin-man-liao-xia-lai</link>
 			<description><![CDATA[
@@ -75,41 +115,6 @@
 ]]></description>
       <pubDate>Fri, 29 August 2025 2:22:4 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2025-08-29-vibe-coding-rang-wo-zhong-xin-man-liao-xia-lai</guid>      
-   </item>
-
-   <item>
-      <title>2025-08-13 JS 过度编译的问题</title>
-      <link>https://thaddeusjiang.com/2025-08-13-js-guo-du-bian-yi-de-wen-ti</link>
-			<description><![CDATA[
-<div class="content">
-  <h1 class="">过度编译是万恶之源</h1><p>这句话是模仿“过早优化是万恶之源”，哈哈哈</p><p>最近在帮助某个项目配置 Sentry，在查看 Sentry 页面时有一点小感受。Frontend App 实际运行的代码和程序员编写的代码差距太大了，可以用<code>面目全非</code>来形容。</p><p>浏览器中运行代码已经变成了<code>一堆乱码</code>，<code>完全不可读</code>，像极了曾经风靡一时的<code>混乱编程</code>。🤮</p><h2 class="">JavaScript 的 Error Tracking</h2><p><img class=" tc-image-loading" src="https://i.gyazo.com/dbef73bddd9edfe9f923eb99ee62d9dd.png" width="50%"></p><p><img class=" tc-image-loading" src="https://i.gyazo.com/e433b384a5fa6a6556e42dec05a7b931.png"></p><h2 class="">Ruby 的 Error Tracking</h2><p><img class=" tc-image-loading" src="https://i.gyazo.com/406b962ed07781ef682f08b70a63dfbd.png"></p><p>虽然 Sentry 提供很多高级功能，例如上传 Source Map、链接 GitHub 等等，但是真的有必要吗？</p><p>我不禁思考，目前主流的浏览器已经可以支持绝大多数现代 JavaScript 特性了，为什么还需要将代码编译成人类无法阅读的乱码形式呢？</p><p>或许十年前（2015）很多浏览器没有及时支持现代 JavaScript 特性，程序员们想要提前体验现代的 JavaScript ，Babel 之类的工具的确很有价值，但是今天（2025）这类工具难道不应该越来越少使用吗？</p><p>好期待浏览器上可以直接运行我编写的代码的时代的来临，我也是不是 #NoBuild 的狂热粉丝，我只是希望 Build 可以简单一点，只在必要的时候执行。</p><h4 class="">推荐阅读</h4><ul><li><a class="tc-tiddlylink-external" href="https://world.hey.com/dhh/you-can-t-get-faster-than-no-build-7a44131c" rel="noopener noreferrer" target="_blank">https://world.hey.com/dhh/you-can-t-get-faster-than-no-build-7a44131c</a></li><li><a class="tc-tiddlylink-external" href="https://world.hey.com/dhh/once-1-is-entirely-nobuild-for-the-front-end-ce56f6d7" rel="noopener noreferrer" target="_blank">https://world.hey.com/dhh/once-1-is-entirely-nobuild-for-the-front-end-ce56f6d7</a></li></ul>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Wed, 13 August 2025 2:49:28 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-08-13-js-guo-du-bian-yi-de-wen-ti</guid>      
    </item>
 
 </channel>
