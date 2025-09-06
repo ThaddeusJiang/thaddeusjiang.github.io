@@ -1,0 +1,27 @@
+created: 20250904033240675
+modified: 20250904034306509
+tags: [[WIP: AI 结对编程笔记]]
+title: 2025-09-04 不需要为 AI 开发专门接口，应该让 AI 使用通用接口
+type: text/vnd.tiddlywiki
+
+不需要专门为 AI 开发接口，应该让 AI 使用通用接口。
+
+虽然不需要让 AI 像第三方一样必须通过 public API 才能使用系统功能，但是也不需要为 AI 开发专门接口，这是我在某个项目中看到如下代码时的想法。
+
+```ruby
+class Agent::EventProposalChatAgent < ::Agent::Base
+  tool "Tool::CreateEventProposalTool"
+  tool "Agent::EventProposalChatAgent::SuggestAnswersTool"
+  tool "Tool::SearchVenueAndPlansTool", omit_previous_result: true
+  tool "Tool::GetTimelineMasterItemTagsTool", omit_previous_result: true
+  tool "Tool::GetBanquetPlanMasterOptionsTool", omit_previous_result: true
+  tool "Tool::SearchTimelineMasterItemsTool", omit_previous_result: true
+
+class Tool::CreateEventProposalTool < Tool::Base
+  description "イベント提案を作成する。"
+```
+
+在我看来，CreateEventProposalTool SuggestAnswersTool SearchVenueAndPlansTool 本质上就是一些函数，他们可能需要一些特殊处理以应对 AI 的调用，但是它们还是函数，函数应该是通用的。
+
+
+自问自答: 让 AI 直接调用内部函数是好是坏？AI 使用函数时应该是什么权限，和使用者保持相同权限？

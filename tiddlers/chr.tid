@@ -1,0 +1,9 @@
+created: 20250903013941492
+modified: 20250903014117479
+tags: Dogfooding
+title: chr
+type: text/vnd.tiddlywiki
+
+chr 可以生成命令行使用记录报告
+
+https://github.com/ThaddeusJiang/chr

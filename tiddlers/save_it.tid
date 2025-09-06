@@ -1,9 +1,9 @@
 created: 20240909023843755
-modified: 20250902102401985
+modified: 20250903014306539
 tags: Dogfooding
 title: save_it
 type: text/vnd.tiddlywiki
 
 save_it 是一个 telegram bot 可以收藏网络上的图片和小视频（暂不支持长视频，长视频没有必要下载，收藏一个链接即可。
 
-open source: https://github.com/ThaddeusJiang/save_it
+https://github.com/ThaddeusJiang/save_it
