@@ -1,0 +1,18 @@
+created: 20250918034842040
+modified: 20250918035429984
+tags: 
+title: 2025-09-18 类似代码的 React 项目一定品质不高
+type: text/vnd.tiddlywiki
+
+
+[img[https://i.gyazo.com/f4e7e983d91de0efbdab90828f4f1628.jpg]]
+
+问题：
+
+代码中充斥着非业务逻辑相关代码，直接影响代码的编写、review 和维护。
+
+应该如何解决？
+
+* 隐藏非业务逻辑相关的代码（boilerplate code）
+** client-side: Tanstack/Query SWR 等
+** server-side: Next.js Server Components, Remix loader 等

@@ -1,0 +1,14 @@
+created: 20250918041702296
+history: 2025-09-18
+modified: 20250918043749958
+tags: repeated
+title: 那些被官方移除的优秀内容
+type: text/vnd.tiddlywiki
+
+
+
+* React Docs 中曾经强调：没有发现组合无法胜任，必须要使用继承的场景。
+* Svelte 官网上曾经的标语：Build boilerplace-free components
+* Google 曾经说 Don't be evil
+
+

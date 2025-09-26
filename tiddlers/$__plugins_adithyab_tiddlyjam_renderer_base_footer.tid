@@ -1,6 +1,6 @@
 created: 20200728151702786
 creator: Adithya_
-modified: 20250902054722893
+modified: 20250926034832715
 modifier: Adithya_
 tags: $:/plugins/adithyab/tiddlyjam/internals
 title: $:/plugins/adithyab/tiddlyjam/renderer/base/footer
@@ -12,6 +12,8 @@ type: text/vnd.tiddlywiki
     </div>
 
     <div class="has-text-centered">
-[[Blog|blog]] | [[GitHub|https://github.com/ThaddeusJiang]] | [[RSS|https://thaddeusjiang.com/rss.xml]] 
+[[Blog|blog]] | [[RSS|https://thaddeusjiang.com/rss.xml]] | [[Wiki|wiki]]
     </div>
+
+    <div class="has-text-centered">[[GitHub|https://github.com/ThaddeusJiang]] | [[X.com|https://x.com/ThaddeusJiang]] | [[日本語|ja]]</div>
   </footer>

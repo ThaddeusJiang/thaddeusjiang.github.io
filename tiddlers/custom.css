@@ -1,0 +1,39 @@
+
+.brand {
+  background: -webkit-linear-gradient(207deg, #4285d3 25%, #f364ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.w-[1/2] {
+  width: 50%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  word-break: break-all;
+}
+
+blockquote {
+  font-family: Georgia, serif;
+  position: relative;
+  border-left: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+pre {
+  padding: 0 !important;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

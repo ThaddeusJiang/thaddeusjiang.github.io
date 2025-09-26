@@ -1,0 +1,12 @@
+created: 20250918041217530
+modified: 20250918043502201
+tags: 
+title: 2025-09-18 使用 framework 减少 boilerplate code
+type: text/vnd.tiddlywiki
+
+
+[[boilerplate code]]
+
+* 使用 Tanstack/Query 可以减少使用 useState, isLoading, isError, useEffect, async/await, try-catch 等代码
+* 使用 daisyUI 可以减少编写 React Markup Components, tailwind CSS classnames
+

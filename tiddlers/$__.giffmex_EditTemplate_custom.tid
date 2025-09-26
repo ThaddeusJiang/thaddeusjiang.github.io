@@ -1,6 +1,6 @@
 created: 20191220121428434
 list-before: $:/core/ui/EditTemplate/body
-modified: 20250223073824104
+modified: 20250918175718858
 tags: $:/giffmex/bigeditarea $:/giffmex/stroll
 title: $:/.giffmex/EditTemplate/custom
 type: text/vnd.tiddlywiki
@@ -12,4 +12,3 @@ Grab symbol code: e.g.,  &#9830; `&#9830;`  &#9733; `&#9733;`
 
 Grab snippets: e.g., `tiddlywiki --rendertiddlers [!is[system]] $:/core/templates/static.tiddler.html static text/plain --rendertiddler $:/core/templates/static.template.css static/static.css text/plain`
 """
-<br>

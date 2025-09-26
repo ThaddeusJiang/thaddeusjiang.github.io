@@ -1,17 +1,16 @@
-created: 20220313022643471
-description: 
-modified: 20250926034217895
-name: ThaddeusJiang | freelance developer
-published: 20250926033939445
+created: 20250926033823919
+modified: 20250926034022128
+name: 天海原 / AmamiHara | freelance developer
+published: 20250926033940477
 tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live
-title: index
+title: ja
 type: text/vnd.tiddlywiki
 
 <div class="container ">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
     <div class="content">
 
-      {{AboutMe}}
+      {{AboutMe - ja}}
 
     </div>
   </div>

@@ -1,0 +1,10 @@
+created: 20250916010839216
+modified: 20250918162202238
+tags: 
+title: Bad Code: Button Component 是一个 link
+type: text/vnd.tiddlywiki
+
+
+如果能优雅的实现 [[类型推导]] ，可以接受。
+
+[img[https://i.gyazo.com/dfd7d9d66d4e453f91996831587aef81.png]]
