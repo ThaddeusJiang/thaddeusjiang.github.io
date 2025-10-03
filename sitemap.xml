@@ -188,12 +188,6 @@
    </url>
 
    <url>
-      <loc>.//2020-05-19-what-is-boilerplate-code</loc>
-      <lastmod>2023-12-12</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//2020-05-30-why-i-choose-gridsome-to-rebuild-my-site</loc>
       <lastmod>2023-12-12</lastmod>
       <changefreq>monthly</changefreq>
@@ -855,7 +849,7 @@
 
    <url>
       <loc>.//2024-10-23-my-second-photos</loc>
-      <lastmod>2024-10-24</lastmod>
+      <lastmod>2025-09-18</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -962,12 +956,6 @@
    </url>
 
    <url>
-      <loc>.//aboutme</loc>
-      <lastmod>2025-09-02</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//amex-jp-yao-qing-ma</loc>
       <lastmod>2025-09-02</lastmod>
       <changefreq>monthly</changefreq>
@@ -1011,7 +999,13 @@
 
    <url>
       <loc>.//index</loc>
-      <lastmod>2025-09-02</lastmod>
+      <lastmod>2025-09-26</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//ja</loc>
+      <lastmod>2025-09-26</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
