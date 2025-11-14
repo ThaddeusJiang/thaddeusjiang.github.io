@@ -1,10 +1,8 @@
 created: 20210510142808547
-modified: 20250814143736504
+modified: 20251114013051561
 tags: 
 title: 什么是 Utility-First CSS
 type: text/vnd.tiddlywiki
-
-! 什么是 Utility-First CSS
 
 Utility-First CSS 是 Tailwind CSS 官方宣传的一种编写 CSS 的方式。
 

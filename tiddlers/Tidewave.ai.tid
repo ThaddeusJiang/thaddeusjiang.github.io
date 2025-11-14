@@ -1,7 +1,11 @@
 created: 20250818102358863
-modified: 20250818102930130
-tags: TJ_推荐
+modified: 20251114013925050
+tags: #Tech
 title: Tidewave.ai
 type: text/vnd.tiddlywiki
 
-强烈推荐 Tidewave 它是一个为 web development 打造的 MCP 工具。
+强烈推荐 Tidewave.ai
+
+它是一个为 web development 打造的 MCP 工具，支持多种框架，Phoenix、Rails、React 等等。
+
+Tidewave.ai 强项是查看 server logs 以及查找 library docs，框架集成度高，不需要每次手动编写 prompt。

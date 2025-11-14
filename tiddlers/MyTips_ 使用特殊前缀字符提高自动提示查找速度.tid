@@ -1,0 +1,9 @@
+created: 20251114013405885
+modified: 20251114013613236
+tags: #repeated
+title: MyTips: 使用特殊前缀字符提高自动提示查找速度
+type: text/vnd.tiddlywiki
+
+
+* tag 可以使用 `#` 开头，尤其是查找中文，非常高效
+* script 也可以 `_` 开头，提醒的也很快

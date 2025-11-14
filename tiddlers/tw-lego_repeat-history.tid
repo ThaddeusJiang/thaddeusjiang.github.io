@@ -1,11 +1,11 @@
 created: 20230728022406281
 history: 2023-07-28
-modified: 20250902101758280
+modified: 20251114013241582
 tags: $:/tags/ViewTemplate
 title: tw-lego/repeat-history
 type: text/vnd.tiddlywiki
 
-<$list filter="[all[current]tag[repeated]]">
+<$list filter="[all[current]tag[#repeated]]">
 
 <section style="background-color: #f4f4f4; border-radius: 4px; padding: 0.125rem 1rem; margin: 0.5rem 0;">
 
