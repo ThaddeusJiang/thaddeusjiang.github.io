@@ -1,11 +1,11 @@
 created: 20250818191945933
-modified: 20250818193030596
+modified: 20251119032438414
 tags: 
 title: AI API shouldn't be stateless
 type: text/vnd.tiddlywiki
 
 
-我已经厌倦了拼接 chat messages，我觉得 AI API 不应该是 stateless 的。
+我已经厌倦了 `拼接 chat messages`，我觉得 AI API 不应该是 stateless 的。
 
 OpenAI 几年前就提供持续对话功能（Threads），但是现在还有很多 ChatApp 依然在手动拼接 chat messages ，有点失望。
 

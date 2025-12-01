@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20250609095412898
+modified: 20251121045724370
 modifier: TJ
 tags: 
 title: Welcome
@@ -16,10 +16,10 @@ type: text/vnd.tiddlywiki
 * 一个自产生程序（Quine），输出结果为程序自身源码，你看到的文章也是代码。
 * 开源免费，你也可以创建自己的数字花园。
 
-[[▶️ Try it|wiki]]
+[[👉 Make your own Wiki 👈|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]
 
 Refs:
 
 * [[数字花园]]
-* [[TiddlyWiki|https://tiddlywiki.com/]]
-* [[自产生程序（Quine）|https://en.wikipedia.org/wiki/Quine_(computing)]] 
+* [[TiddlyWiki]]
+* [[自产生程序（Quine）]] 

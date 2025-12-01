@@ -1,9 +1,9 @@
 created: 20230627095431301
-modified: 20251114032225541
+modified: 20251119032302617
 new: 
 old: 
 tags: 
-title: tw-lego/tag-renamer
+title: tw5-lego/tag-renamer
 type: text/vnd.tiddlywiki
 
 Old tag: <$edit-text tiddler=<<currentTiddler>> field="old" placeholder="old tag"/>

@@ -1,0 +1,57 @@
+created: 20251119024213429
+modified: 20251119032820949
+tags: 
+title: 2025-11-19 Search Engine 依然有价值
+type: text/vnd.tiddlywiki
+
+从日常工作的小事中感受 AI 的能力边界和舒适圈，理论上 AI 是全知全能的，但是现实中全知全能可能没有术业有专攻有效，有时候因为知道的细节太多，反而将问题复杂化了。
+
+背景：今天我计划在 next.js v15 项目中开启 `Turbopack`，然后遇到了如下问题：
+
+```log
+⚠ ./node_modules/.pnpm/@sentry+node@10.11.0/node_modules/@sentry/node/build/cjs/sdk
+Package import-in-the-middle can't be external
+The request import-in-the-middle matches serverExternalPackages (or the default list).
+The package resolves to a different version when requested from the project directory (2.0.0) compared to the package requested from the importing module (1.14.2).
+Make sure to install the same version of the package in both locations.
+```
+
+我本以为有这么清晰的 error message 的问题 AI 可以轻松解决，但是现实是 AI 尝试了好几次都没有完全修复，因为中途又出现了其他的 errors。当然也都不难，例如：
+
+```log
+⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+Package require-in-the-middle can't be external
+The request require-in-the-middle matches serverExternalPackages (or the default list).
+The request could not be resolved by Node.js from the project directory.
+Packages that should be external need to be installed in the project directory, so they can be resolved from the output files.
+Try to install it into the project directory by running npm install require-in-the-middle from the project directory.
+
+ ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+Package require-in-the-middle can't be external
+The request require-in-the-middle matches serverExternalPackages (or the default list).
+The request could not be resolved by Node.js from the project directory.
+Packages that should be external need to be installed in the project directory, so they can be resolved from the output files.
+Try to install it into the project directory by running npm install require-in-the-middle from the project directory.
+```
+
+因为 AI 一直在原地转圈完全没有进展，我选择自己动手了。
+因为我不是全知全能的，我还是按照 GenAI 时代以前的方法将我的期待输入到 Google Search，然后在第二条结果中找到了解决方案。
+
+我使用的 keywords `@sentry next.js --turbopack`
+
+[img[https://i.gyazo.com/2802f5c87a0b9e7b44e7d9fbda76b3a3.png]]
+
+https://github.com/getsentry/sentry-javascript/issues/8105#issuecomment-3319437023
+
+[img[https://i.gyazo.com/c377e7472cf0db700bbb97cb620e9bcd.png]]
+
+原来是我使用的 next.js 和 sentry 不支持 Turbopack，升级以后问题被解决了。修改如下：
+
+[img[https://i.gyazo.com/0865c9c18974c55254177dda5a71511f.png]]
+
+!! 感受
+
+# 有经验的开发者使用“非最新的”工具有时候比“全知全能的”AI效率更高。
+# 有些问题的影响范围是确定的，AI 试图全面理解项目全貌而扫描全部代码，结果过多的干扰信息导致把问题给复杂化了。
+# 过去几十年的机遇 Search Engine 的解决方案并没有因为 GPT 而变的没有价值，合理使用的话搜索引擎时代的数据依然尤其价值存在。
+
