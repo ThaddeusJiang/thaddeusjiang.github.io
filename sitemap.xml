@@ -267,7 +267,7 @@
 
    <url>
       <loc>.//2021-01-22-is-mobile-first-wrong</loc>
-      <lastmod>2025-09-02</lastmod>
+      <lastmod>2025-11-14</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -849,7 +849,7 @@
 
    <url>
       <loc>.//2024-10-23-my-second-photos</loc>
-      <lastmod>2025-09-18</lastmod>
+      <lastmod>2025-11-14</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -879,7 +879,7 @@
 
    <url>
       <loc>.//2025-01-07-refactorex</loc>
-      <lastmod>2025-01-07</lastmod>
+      <lastmod>2025-11-14</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -944,6 +944,12 @@
    </url>
 
    <url>
+      <loc>.//2025-12-01-zhong-yu-pei-zhi-liao-1password-cli</loc>
+      <lastmod>2025-12-01</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//31-sui-zai-ri-ben-ba-liao-yi-ke-ya</loc>
       <lastmod>2024-05-12</lastmod>
       <changefreq>monthly</changefreq>
@@ -968,6 +974,12 @@
    </url>
 
    <url>
+      <loc>.//devlog</loc>
+      <lastmod>2025-11-19</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//devops</loc>
       <lastmod>2021-08-18</lastmod>
       <changefreq>monthly</changefreq>
@@ -975,7 +987,7 @@
 
    <url>
       <loc>.//enjoy-freely-coding-like-driving</loc>
-      <lastmod>2025-08-14</lastmod>
+      <lastmod>2025-11-14</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -1011,7 +1023,7 @@
 
    <url>
       <loc>.//screensage-yao-qing-ma</loc>
-      <lastmod>2025-09-02</lastmod>
+      <lastmod>2025-11-14</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

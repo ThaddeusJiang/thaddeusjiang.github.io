@@ -43,6 +43,42 @@
    </item>
 
    <item>
+      <title>2025-12-01 终于配置了 1password cli</title>
+      <link>https://thaddeusjiang.com/2025-12-01-zhong-yu-pei-zhi-liao-1password-cli</link>
+			<description><![CDATA[
+<div class="content">
+  <p><img class=" tc-image-loading" src="https://i.gyazo.com/3ba3e318fd204e1cc94f1981b8132429.png"></p><p>随着 CLI AI tools 用的越来越多，越来越担心自己的环境变量被盗用了。虽然还没有到亡羊补牢，但是也不算早了。</p><blockquote><div>建议：所有人都不要将 API keys 和密钥通过 plaintext 保存。</div></blockquote><p>极简记录配置 GitHub CLI <code>gh</code> 使用 1password 的过程</p><p>1. 安装 1password cli</p><pre class="hljs"><code class="shell hljs">brew install 1password-cli
+op --version</code></pre><p>2. 安装 1password cli 插件</p><pre class="hljs"><code class="shell hljs">op plugin init gh</code></pre><pre class="hljs"><code class="shell hljs">echo &quot;source ~/.config/op/plugins.sh&quot; &gt;&gt; ~/.zshrc &amp;&amp; source ~/.zshrc</code></pre><p>3. 删除 1password 以外副本</p><pre class="hljs"><code class="shell hljs">rm ~/.config/gh/hosts.yml</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://developer.1password.com/docs/cli" rel="noopener noreferrer" target="_blank">https://developer.1password.com/docs/cli</a></li><li><a class="tc-tiddlylink-external" href="https://developer.1password.com/docs/cli/get-started" rel="noopener noreferrer" target="_blank">https://developer.1password.com/docs/cli/get-started</a></li></ul>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Mon, 1 December 2025 4:48:21 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-12-01-zhong-yu-pei-zhi-liao-1password-cli</guid>      
+   </item>
+
+   <item>
       <title>2025-09-06 停止使用硬编码多语言翻译</title>
       <link>https://thaddeusjiang.com/2025-09-06-ting-zhi-shi-yong-ying-bian-ma-duo-yu-yan-fan-yi</link>
 			<description><![CDATA[
@@ -80,41 +116,6 @@
 ]]></description>
       <pubDate>Sat, 6 September 2025 4:32:6 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2025-09-06-ting-zhi-shi-yong-ying-bian-ma-duo-yu-yan-fan-yi</guid>      
-   </item>
-
-   <item>
-      <title>2025-08-29 vibe coding 让我重新“慢了”下来</title>
-      <link>https://thaddeusjiang.com/2025-08-29-vibe-coding-rang-wo-zhong-xin-man-liao-xia-lai</link>
-			<description><![CDATA[
-<div class="content">
-  <p>为了让 AI 能更准确的生成我想要的代码，我重新开始愿意在敲代码前花更多时间了，至少比前几年的我在敲代码前花的时间更多。</p><p>回想了一下，不知从何时开始我选择了“直接敲代码”，每次都是先写一个简单原型，然后边敲代码边改善设计。当然可能和我的工作都不难也有关系吧，因为需要开发的软件真的没什么难度，写写改改也不是不行，因为架构设计上也没有什么大错，几乎不需要推倒重来，所以效率也挺高的。</p><p>但是我依然记得曾经看到书中说，上古时代的软件大神们因为计算机是稀缺资源必须在纸上先把代码设计好才能输入到计算机中，也练就了他们一声软件设计的本领。</p><p>感谢现在 AI 还是不够强大，感谢它还是不能只通过一句话就能生成我期待的优秀代码。我现在又开始重新在软件设计阶段花更多时间了。比起几年前打开电脑就是敲代码，我重新在敲代码前开始尝试思考的更具体了，我会先明确自己的期待、代码的要求，以及如何验证代码是否符合要求。感觉有点像面向 AI 的 TDD，哈哈哈</p><p>感谢 vibe coding 让我重新认真对待”软件设计“这个阶段了。</p>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Fri, 29 August 2025 2:22:4 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-08-29-vibe-coding-rang-wo-zhong-xin-man-liao-xia-lai</guid>      
    </item>
 
 </channel>
