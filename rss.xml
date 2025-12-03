@@ -43,6 +43,41 @@
    </item>
 
    <item>
+      <title>2025-12-03 zeabur custom domain 配置笔记</title>
+      <link>https://thaddeusjiang.com/2025-12-03-zeabur-custom-domain-pei-zhi-bi-ji</link>
+			<description><![CDATA[
+<div class="content">
+  <p>如果你的域名在 cloudflare 中管理，在 zeabur 中配置 custom domain 时可能会遇到 <code>INVALID_DNS</code> 错误，原因可能是你开启了 Cloudflare DNS <code>Proxy</code>，使用 <code>DNS only</code> 可以解决。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/ed642ee1867033744ba610461e99d47b.png"></p><p><img class=" tc-image-loading" src="https://i.gyazo.com/38a01b664fc28c354bb4be890f9a3243.png"></p><p>Zeabur 文档中说可以开启 Proxy，前提是你不能使用 <code>Full (strict)</code> Cloudflare SSL/TLS encryption。</p><blockquote><div>Cloudflare SSL/TLS encryption 作用范围是你的整个 Cloudflare 账号，修改后你的所有域名都会受到影响。</div></blockquote><p>我没有修改 Cloudflare SSL/TLS encryption ，依然使用默认的严格模式。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/750f59fbbc7b08b0f60b672caec10c2a.png"></p><p>讨论记录：<a class="tc-tiddlylink-external" href="https://discord.com/channels/1060209568820494336/1060209569315430512/1445591697294884874" rel="noopener noreferrer" target="_blank">https://discord.com/channels/1060209568820494336/1060209569315430512/1445591697294884874</a></p><p>Zeabur 相关文档 <a class="tc-tiddlylink-external" href="https://zeabur.com/docs/en-US/networking/public#custom-domain" rel="noopener noreferrer" target="_blank">https://zeabur.com/docs/en-US/networking/public#custom-domain</a></p>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Wed, 3 December 2025 3:23:17 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-12-03-zeabur-custom-domain-pei-zhi-bi-ji</guid>      
+   </item>
+
+   <item>
       <title>2025-12-01 终于配置了 1password cli</title>
       <link>https://thaddeusjiang.com/2025-12-01-zhong-yu-pei-zhi-liao-1password-cli</link>
 			<description><![CDATA[
@@ -76,46 +111,6 @@ op --version</code></pre><p>2. 安装 1password cli 插件</p><pre class="hljs">
 ]]></description>
       <pubDate>Mon, 1 December 2025 4:48:21 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/2025-12-01-zhong-yu-pei-zhi-liao-1password-cli</guid>      
-   </item>
-
-   <item>
-      <title>2025-09-06 停止使用硬编码多语言翻译</title>
-      <link>https://thaddeusjiang.com/2025-09-06-ting-zhi-shi-yong-ying-bian-ma-duo-yu-yan-fan-yi</link>
-			<description><![CDATA[
-<div class="content">
-  <p>我认为不应该浪费开发者的时间去翻译，我呼吁停止使用硬编码翻译技术。推荐采用成熟的翻译服务，花小钱办大事。</p><h2 class="">什么是硬编码多语言翻译？</h2><p>即需要维护多份语言对照表的技术方案，例如：</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// en.json </span>
-<span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;hello&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;hello&quot;</span> <span class="hljs-punctuation">}</span>
-<span class="hljs-comment">// zh.json </span>
-<span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;hello&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;你好&quot;</span> <span class="hljs-punctuation">}</span>
-<span class="hljs-comment">// ja.json </span>
-<span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;hello&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;こんにちは&quot;</span> <span class="hljs-punctuation">}</span></code></pre><p>硬编码多语言解决方案的缺点：</p><ul><li>工作量和语言数量是正相关，对应的语言越多，工作量越多。</li><li>翻译和代码强关联，代码实现方式改变，会导致翻译失败。</li><li>文字以外资源的翻译难度大，例如：图片中文字</li></ul><p>SaaS 翻译服务的优点：</p><ul><li>工作量小，只需要简单的集成，就可以动态翻译全部 UI</li><li>翻译和代码分离，非技术人员亦可轻松更新翻译内容</li><li>支持图片翻译</li></ul><h2 class="">实践</h2><p>目前我在使用 <a class="tc-tiddlylink-external" href="https://www.weglot.com/" rel="noopener noreferrer" target="_blank">https://www.weglot.com/</a> 翻译我参与的多个产品。</p><p>我已经停止使用如下技术方案：</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/i18next/i18next" rel="noopener noreferrer" target="_blank">https://github.com/i18next/i18next</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/aiji42/zod-i18n" rel="noopener noreferrer" target="_blank">https://github.com/aiji42/zod-i18n</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/sergiodxa/remix-i18next" rel="noopener noreferrer" target="_blank">https://github.com/sergiodxa/remix-i18next</a></li></ul><p>因为它们都是硬编码的。</p><h2 class="">最后</h2><p>这是一笔经济账。</p><p>如果你是独立开发者或者个人开发者，你认为你的时间投入比每个月几十美金更经济；如果你是公司老板，你不愿意帮助节省开发者时间而每个月支出几十美金。</p><p>免责声明：每个人都可以有自己的选择。</p>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Sat, 6 September 2025 4:32:6 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-09-06-ting-zhi-shi-yong-ying-bian-ma-duo-yu-yan-fan-yi</guid>      
    </item>
 
 </channel>

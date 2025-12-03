@@ -18,21 +18,21 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>When change my tech stacks</title>
-<meta name="description" content="这是一个非常主观的问题，仅代表我个人的思考，不代表我所在的团队的思考。">
+<title>files 就近原则</title>
+<meta name="description" content="组织代码时我喜欢“就近原则”，一起被编写或修改的代码应该放在一起。">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://thaddeusjiang.com/when-change-my-tech-stacks" />
-<meta property="og:title" content="When change my tech stacks" />
-<meta property="og:description" content="这是一个非常主观的问题，仅代表我个人的思考，不代表我所在的团队的思考。" />
+<meta property="og:url" content="https://thaddeusjiang.com/files-jiu-jin-yuan-ze" />
+<meta property="og:title" content="files 就近原则" />
+<meta property="og:description" content="组织代码时我喜欢“就近原则”，一起被编写或修改的代码应该放在一起。" />
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="When change my tech stacks" />
-<meta name="twitter:description" content="这是一个非常主观的问题，仅代表我个人的思考，不代表我所在的团队的思考。" />
+<meta name="twitter:title" content="files 就近原则" />
+<meta name="twitter:description" content="组织代码时我喜欢“就近原则”，一起被编写或修改的代码应该放在一起。" />
 <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
 
 <!-- Google tag (gtag.js) -->
@@ -81,11 +81,11 @@
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <h1 class="title is-4">When change my tech stacks</h1>
+          <h1 class="title is-4">files 就近原则</h1>
           <hr>
 
           <div class="content">
-            <p>这是一个非常主观的问题，仅代表我个人的思考，不代表我所在的团队的思考。</p><h2 class="">1. 当社区中大多数项目都已经切换了</h2><p>应该拥抱社区，不能独自坚守。</p><p>例子：</p><ol><li>我个人认为从 validation 角度，<a class="tc-tiddlylink tc-tiddlylink-missing" href="./yup.html">yup</a> 是 Good Enough。但是如果你关注社区，你会发现社区中大多数项目已经开始使用 <a class="tc-tiddlylink tc-tiddlylink-missing" href="./zod.html">zod</a>，我觉得不应该再坚守了。</li><li>我认为 CICD 角度，<a class="tc-tiddlylink tc-tiddlylink-missing" href="./circleci.html">CircleCI</a> is Good Enough。但是自从 GitHub Actions 出现以后，社区中大多数项目都开始使用 GitHub Actions 了，我觉得自己也应该切换了。</li><li>曾经 create-react-app 是业界主流，但是 2025 年了，连 React 官方都推荐大家使用 Next.js or Remix 这样的框架，不再推荐 create-react-app 了。是时候切换了。</li></ol><h2 class="">2. 当你的思维模式发生变化</h2><p>如果你已经掌握了新的思考方式和设计思想，应该选择能更加发挥你能力的工具。</p><p>例子：</p><ol><li>SPA 时代，client-side fetch 是主流，但是使用 remix loader 之后，我发现我已经完全接受 SSR 的思维模式了。我开始放弃使用 react-query 了，对比 Server Components 和 Server Functions，react-query 提供了 query 和 mutation 的确有点繁琐了。虽然可以提供 client-side cache。</li></ol><h2 class="">3. 当你遇到当前技术栈无法解决的问题</h2><p>例子：</p><ol><li>你需要的是可以插入到任何 website 的 widget，那么需要 server 的 Next.js / Remix 就不适合你。</li><li>你期待 end-to-end type safe，RESTful API 就不适合你</li></ol>
+            <p>组织代码时我喜欢“就近原则”，一起被编写或修改的代码应该放在一起。</p><p>JavaScript 尽量不使用 index 和 default export</p>
           </div>          
       </div>
   </div>

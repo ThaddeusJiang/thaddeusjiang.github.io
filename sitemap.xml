@@ -236,12 +236,6 @@
    </url>
 
    <url>
-      <loc>.//2021-01-11-tu-xing-si-kao-tu-jie-zhan-xian-ni-de-luo-ji-si-kao-nen-li</loc>
-      <lastmod>2025-05-27</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//2021-01-12-qi-shi-ni-bu-xu-yao-unicode-range</loc>
       <lastmod>2023-12-12</lastmod>
       <changefreq>monthly</changefreq>
@@ -416,12 +410,6 @@
    </url>
 
    <url>
-      <loc>.//2021-11-06-ka-pian-bi-ji-xie-zuo-fa-rang-wo-ming-bai-xie-zuo-bu-ying-gai-cong-kong-bai-ye-kai-shi</loc>
-      <lastmod>2025-05-27</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//2021-12-05-how-to-test-frontend</loc>
       <lastmod>2023-12-12</lastmod>
       <changefreq>monthly</changefreq>
@@ -436,24 +424,6 @@
    <url>
       <loc>.//2021-12-28-phoenix-test-css</loc>
       <lastmod>2025-08-07</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//2022-01-03-fu-lei-jia-shu-du-hou-gan</loc>
-      <lastmod>2025-05-27</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//2022-01-23-jia-jia</loc>
-      <lastmod>2025-05-27</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//2022-02-28-gong-zuo-ri-de-gong-yuan-jiu-xiang-shi-wai-tao-yuan</loc>
-      <lastmod>2025-05-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -560,12 +530,6 @@
    </url>
 
    <url>
-      <loc>.//2022-08-29-kan-zong-yi-ye-xue-xi-ren-sheng-da-dao-li</loc>
-      <lastmod>2025-05-27</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//2022-10-13-accessible-svg</loc>
       <lastmod>2023-12-12</lastmod>
       <changefreq>monthly</changefreq>
@@ -586,12 +550,6 @@
    <url>
       <loc>.//2022-11-07-fen-xiang-2022-xia-qi-ji-shu-lei-da</loc>
       <lastmod>2022-11-07</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//2022-11-12-yue-du-bang-zhu-bie-ren-de-zheng-que-zi-shi</loc>
-      <lastmod>2025-05-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -622,18 +580,6 @@
    <url>
       <loc>.//2022-11-28-til-tailwindcss-sao-miao-di-san-fang-library</loc>
       <lastmod>2022-11-28</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//2022-12-04-zhi-fu-lv-xing</loc>
-      <lastmod>2025-05-27</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//2022-12-11-yan-tian-xian-sheng-ru-shi-shuo</loc>
-      <lastmod>2025-05-27</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -674,12 +620,6 @@
    </url>
 
    <url>
-      <loc>.//2023-03-28-wei-shi-me-wo-men-xu-yao-zi-ji-de-ai-fen-shen</loc>
-      <lastmod>2025-05-27</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//2023-05-16-zhen-de-bu-yao-zai-shi-yong-mui-liao</loc>
       <lastmod>2023-12-06</lastmod>
       <changefreq>monthly</changefreq>
@@ -692,12 +632,6 @@
    </url>
 
    <url>
-      <loc>.//2023-08-13-reskilling-du-hou-gan</loc>
-      <lastmod>2024-05-12</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//2023-08-22-typescript-error-handling</loc>
       <lastmod>2023-12-07</lastmod>
       <changefreq>monthly</changefreq>
@@ -706,12 +640,6 @@
    <url>
       <loc>.//2023-08-24-js-ts-number-ge-ge-bu-ru</loc>
       <lastmod>2023-12-06</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//2023-10-04-sui-bi</loc>
-      <lastmod>2024-05-12</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -794,18 +722,6 @@
    </url>
 
    <url>
-      <loc>.//2024-05-12-xiao-hao-geng-duo-zi-yuan-de-jin-bu</loc>
-      <lastmod>2024-07-01</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//2024-06-21-you-chang-de-yi-zhou</loc>
-      <lastmod>2024-06-21</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
       <loc>.//2024-07-12-js-shi-xian-snake-case-zhuan-camelcase</loc>
       <lastmod>2024-08-30</lastmod>
       <changefreq>monthly</changefreq>
@@ -862,12 +778,6 @@
    <url>
       <loc>.//2024-12-24-xiong-xia-zi-bai-bao-mi</loc>
       <lastmod>2024-12-24</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//2024-nian-du-hui-gu</loc>
-      <lastmod>2025-03-31</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -950,8 +860,8 @@
    </url>
 
    <url>
-      <loc>.//31-sui-zai-ri-ben-ba-liao-yi-ke-ya</loc>
-      <lastmod>2024-05-12</lastmod>
+      <loc>.//2025-12-03-zeabur-custom-domain-pei-zhi-bi-ji</loc>
+      <lastmod>2025-12-03</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -986,6 +896,12 @@
    </url>
 
    <url>
+      <loc>.//don-t-use-google-services-in-your-services</loc>
+      <lastmod>2025-12-02</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//enjoy-freely-coding-like-driving</loc>
       <lastmod>2025-11-14</lastmod>
       <changefreq>monthly</changefreq>
@@ -994,6 +910,12 @@
    <url>
       <loc>.//faq</loc>
       <lastmod>2025-03-24</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//files-jiu-jin-yuan-ze</loc>
+      <lastmod>2025-12-02</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -1034,14 +956,8 @@
    </url>
 
    <url>
-      <loc>.//when-change-my-tech-stacks</loc>
-      <lastmod>2025-03-20</lastmod>
-      <changefreq>monthly</changefreq>
-   </url>
-
-   <url>
-      <loc>.//-zui-jin-chang-chang-kao-lv-zhao-ge-xin-li-yi-sheng-zhi-liao-yi-xia</loc>
-      <lastmod>2024-05-12</lastmod>
+      <loc>.//when-should-we-update-the-tech-stack</loc>
+      <lastmod>2025-12-01</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
