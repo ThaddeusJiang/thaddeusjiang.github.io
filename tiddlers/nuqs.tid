@@ -1,0 +1,18 @@
+created: 20251201094510718
+modified: 20251201095351152
+tags: TechRadar/语言和框架 tj-stack
+title: nuqs
+type: text/vnd.tiddlywiki
+
+
+!! 2025-12-01 开始在 Next.js 15 App Router 项目中使用 nuqs
+
+Why?
+
+使用 URL query string (SearchParams) 做 state management 允许通过 URL 记录和分享应用状态，尤其是分享检索条件时体验很好。
+
+URL SearchParams 也有利于 SSR，提高首页渲染速度。
+
+nuqs 丰富的 Built-in parsers 使用体验很好，数值型数据尤其舒适。
+
+https://nuqs.dev/

@@ -1,0 +1,24 @@
+created: 20251203030014227
+modified: 20251203032317667
+published: 20251203032317666
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2025-12-03 zeabur custom domain 配置笔记
+type: text/vnd.tiddlywiki
+
+如果你的域名在 cloudflare 中管理，在 zeabur 中配置 custom domain 时可能会遇到 `INVALID_DNS` 错误，原因可能是你开启了 Cloudflare DNS `Proxy`，使用 `DNS only` 可以解决。
+
+[img[https://i.gyazo.com/ed642ee1867033744ba610461e99d47b.png]]
+
+[img[https://i.gyazo.com/38a01b664fc28c354bb4be890f9a3243.png]]
+
+Zeabur 文档中说可以开启 Proxy，前提是你不能使用 `Full (strict)` Cloudflare SSL/TLS encryption。
+
+> Cloudflare SSL/TLS encryption 作用范围是你的整个 Cloudflare 账号，修改后你的所有域名都会受到影响。
+
+我没有修改 Cloudflare SSL/TLS encryption ，依然使用默认的严格模式。
+
+[img [https://i.gyazo.com/750f59fbbc7b08b0f60b672caec10c2a.png]]
+
+讨论记录：https://discord.com/channels/1060209568820494336/1060209569315430512/1445591697294884874
+
+Zeabur 相关文档 https://zeabur.com/docs/en-US/networking/public#custom-domain

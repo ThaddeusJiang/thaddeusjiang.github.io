@@ -1,13 +1,12 @@
 created: 20241003025612571
-modified: 20251114014542893
+modified: 20251201095427675
 tags: #Index
-title: TechStack
+title: tj-stack
 type: text/vnd.tiddlywiki
 
 ! Using
 
 * TypeScript
-** [[Remix]] - JS full stack web framework
 ** [[Next.js]] - full stack web framework
 ** [[Prisma]] - JS database ORM
 ** [[RemedaJS]]
@@ -55,6 +54,7 @@ type: text/vnd.tiddlywiki
 ! Used
 
 
+* [[Remix.run]]
 * MicroServices
 * [[Protobuf]]
 * [[gRPC]]
