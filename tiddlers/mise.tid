@@ -1,5 +1,5 @@
 created: 20251107122412236
-modified: 20251202010044307
+modified: 20251204083751035
 tags: tj-stack
 title: mise
 type: text/vnd.tiddlywiki
@@ -26,6 +26,6 @@ mise ls-remote ruby
 
 * ~~nvm~~  ~~volta~~  只能安装 node.js 不够用
 * ~~asdf~~ 安装比较麻烦
-* ~~brew~~ 无法只有切换版本
+* ~~brew~~ 无法自由切换版本
 
 
