@@ -1,5 +1,0 @@
-#!/bin/sh
-
-set -x
-
-pnpx tiddlywiki --listen port=8000 username=TJ
