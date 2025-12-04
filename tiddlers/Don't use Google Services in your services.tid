@@ -1,14 +1,18 @@
 created: 20241217052101151
-modified: 20251202011107750
-tags: $:/plugins/adithyab/tiddlyjam/live
+modified: 20251204081631010
+tags: $:/plugins/adithyab/tiddlyjam/live tj-edu
 title: Don't use Google Services in your services
 type: text/vnd.tiddlywiki
 
 个人观点
 
-因为 Google 太喜欢关闭服务了，即使某个服务有很多用户，依然有价值，Google 也会关闭它。Google 自己的解释是对 Google 自己没有价值。但是我认为因为 Google 现在已经是“大企业”了，有很多决定其实是内部斗争的表象，和政治斗争一样愚蠢。
+1. Google 关闭服务不考虑客户
 
-Google 的技术文档也很难阅读，或者说大公司的技术文档都很难阅读，MicroSoft, Azure 都是一样，尤其是添加了非常没有用的 AI Answer 以后。
+即使某个服务有很多用户，依然有价值，Google 也经常会关闭服务。Google 自己的解释是对 Google 自己没有价值。但是我认为因为 Google 现在已经是“大企业”了，有很多决定其实是内部斗争的表象，和政治斗争一样愚蠢。
 
-TanStack 文档也很烂，NestJS 的文档是不全。
+2. Google 的技术文档也很难阅读
+
+或者说大公司的技术文档都很难阅读，MicroSoft, Azure 都是一样，尤其是添加了非常没有用的 AI Answer 以后就更难查阅了。
+
+
 

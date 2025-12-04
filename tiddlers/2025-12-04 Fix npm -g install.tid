@@ -1,0 +1,43 @@
+created: 20251203072355329
+modified: 20251204081834961
+published: 20251204081834960
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2025-12-04 Fix npm -g install
+type: text/vnd.tiddlywiki
+
+我终于解决了 node.js 版本切换时全局安装的 CLI 失效的问题，一次安装，一直可用。🎉
+
+[img[https://i.gyazo.com/ad8ee2e5f016d74251a6da14b200fbca.jpg]]
+
+
+同时也解决了相同 CLI 在不同 node.js 版本下重复安装的问题。🎊
+
+[img[https://i.gyazo.com/dbe697232b74c5a9d0ba2713eb1ec2aa.png]]
+
+```shell
+rm -rvf /Users/tj/.nvm/
+rm -rvf /Users/tj/.volta
+rm -rvf /opt/homebrew/lib/node_modules
+rm -rvf /Users/tj/.cache/pnpm/dlx 
+rm -rvf /Users/tj/.npm/_npx/
+rm -rvf /Users/tj/.npm/
+```
+
+[img[https://i.gyazo.com/74ddea096a218250bda72eff1dd99fb2.png]]
+
+在删除了 node.js 各种版本中的历史垃圾以后，我的电脑空间瞬间就不紧张了。🥳
+
+!! How
+
+我使用 `mise` 代替 `npm -g` 。
+
+```diff
+- npm -g install tiddlywiki
++ mise use -g npm:tiddlywiki
+```
+
+refs
+
+* https://mise.jdx.dev/dev-tools/backends/npm.html
+
+
