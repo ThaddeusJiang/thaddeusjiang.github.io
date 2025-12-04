@@ -18,21 +18,21 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整</title>
-<meta name="description" content="">
+<title>2025-12-04 Fix npm -g install</title>
+<meta name="description" content="我终于解决了 node.js 版本切换时全局安装的 CLI 失效的问题，一次安装，一直可用。🎉">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://thaddeusjiang.com/2018-05-12-zai-airbnb-de-eslint-ji-chu-shang-wo-zuo-liao-na-xie-diao-zheng" />
-<meta property="og:title" content="2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整" />
-<meta property="og:description" content="" />
+<meta property="og:url" content="https://thaddeusjiang.com/2025-12-04-fix-npm-g-install" />
+<meta property="og:title" content="2025-12-04 Fix npm -g install" />
+<meta property="og:description" content="我终于解决了 node.js 版本切换时全局安装的 CLI 失效的问题，一次安装，一直可用。🎉" />
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
 <meta property="article:author" content="@ThaddeusJiang" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ThaddeusJiang">
 <meta name="twitter:creator" content="@ThaddeusJiang">
-<meta name="twitter:title" content="2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整" />
-<meta name="twitter:description" content="" />
+<meta name="twitter:title" content="2025-12-04 Fix npm -g install" />
+<meta name="twitter:description" content="我终于解决了 node.js 版本切换时全局安装的 CLI 失效的问题，一次安装，一直可用。🎉" />
 <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
 
 <!-- Google tag (gtag.js) -->
@@ -81,24 +81,17 @@
 <div class="container">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
       <div>
-          <h1 class="title is-4">2018-05-12 在 airbnb 的 eslint 基础上，我做了哪些调整</h1>
+          <h1 class="title is-4">2025-12-04 Fix npm -g install</h1>
           <hr>
 
           <div class="content">
-            <blockquote class="tc-quote tc-big-quote"><p>没有完美的解决方案，适合自己的才是最好的。
-</p><cite>TJ</cite></blockquote><p>无分号</p><pre class="hljs"><code class="js hljs"><span class="hljs-string">&quot;semi&quot;</span>: [<span class="hljs-string">&quot;warn&quot;</span>, <span class="hljs-string">&quot;never&quot;</span>],</code></pre><p>允许 console 输出 <code>warn</code> <code>error</code></p><pre class="hljs"><code class="js hljs"><span class="hljs-string">&quot;no-console&quot;</span>: [<span class="hljs-string">&quot;error&quot;</span>, { <span class="hljs-string">&quot;allow&quot;</span>: [<span class="hljs-string">&quot;warn&quot;</span>, <span class="hljs-string">&quot;error&quot;</span>] }],</code></pre><p>允许简单运算符混合运用（ + - \* / 等），依旧禁止复杂运算符混合运用</p><pre class="hljs"><code class="js hljs"><span class="hljs-string">&quot;no-mixed-operators&quot;</span>: [
-    <span class="hljs-string">&quot;error&quot;</span>,
-    {
-        <span class="hljs-string">&quot;groups&quot;</span>: [
-            [<span class="hljs-string">&quot;&amp;&quot;</span>, <span class="hljs-string">&quot;|&quot;</span>, <span class="hljs-string">&quot;^&quot;</span>, <span class="hljs-string">&quot;~&quot;</span>, <span class="hljs-string">&quot;&lt;&lt;&quot;</span>, <span class="hljs-string">&quot;&gt;&gt;&quot;</span>, <span class="hljs-string">&quot;&gt;&gt;&gt;&quot;</span>],
-            [<span class="hljs-string">&quot;==&quot;</span>, <span class="hljs-string">&quot;!=&quot;</span>, <span class="hljs-string">&quot;===&quot;</span>, <span class="hljs-string">&quot;!==&quot;</span>, <span class="hljs-string">&quot;&gt;&quot;</span>, <span class="hljs-string">&quot;&gt;=&quot;</span>, <span class="hljs-string">&quot;&lt;&quot;</span>, <span class="hljs-string">&quot;&lt;=&quot;</span>],
-            [<span class="hljs-string">&quot;&amp;&amp;&quot;</span>, <span class="hljs-string">&quot;||&quot;</span>],
-            [<span class="hljs-string">&quot;in&quot;</span>, <span class="hljs-string">&quot;instanceof&quot;</span>]
-        ],
-        <span class="hljs-string">&quot;allowSamePrecedence&quot;</span>: <span class="hljs-literal">true</span>
-    }
-  ],</code></pre><p>其实还有很多，过段时间公开配置文件。
-</p>
+            <p>我终于解决了 node.js 版本切换时全局安装的 CLI 失效的问题，一次安装，一直可用。🎉</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/ad8ee2e5f016d74251a6da14b200fbca.jpg"></p><p>同时也解决了相同 CLI 在不同 node.js 版本下重复安装的问题。🎊</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/dbe697232b74c5a9d0ba2713eb1ec2aa.png"></p><pre class="hljs"><code class="shell hljs">rm -rvf /Users/tj/.nvm/
+rm -rvf /Users/tj/.volta
+rm -rvf /opt/homebrew/lib/node_modules
+rm -rvf /Users/tj/.cache/pnpm/dlx 
+rm -rvf /Users/tj/.npm/_npx/
+rm -rvf /Users/tj/.npm/</code></pre><p><img class=" tc-image-loading" src="https://i.gyazo.com/74ddea096a218250bda72eff1dd99fb2.png"></p><p>在删除了 node.js 各种版本中的历史垃圾以后，我的电脑空间瞬间就不紧张了。🥳</p><h2 class="">How</h2><p>我使用 <code>mise</code> 代替 <code>npm -g</code> 。</p><pre class="hljs"><code class="diff hljs"><span class="hljs-deletion">- npm -g install tiddlywiki</span>
+<span class="hljs-addition">+ mise use -g npm:tiddlywiki</span></code></pre><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://mise.jdx.dev/dev-tools/backends/npm.html" rel="noopener noreferrer" target="_blank">https://mise.jdx.dev/dev-tools/backends/npm.html</a></li></ul>
           </div>          
       </div>
   </div>

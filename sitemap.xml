@@ -866,6 +866,12 @@
    </url>
 
    <url>
+      <loc>.//2025-12-04-fix-npm-g-install</loc>
+      <lastmod>2025-12-04</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//404</loc>
       <lastmod>2024-03-09</lastmod>
       <changefreq>monthly</changefreq>
@@ -897,7 +903,7 @@
 
    <url>
       <loc>.//don-t-use-google-services-in-your-services</loc>
-      <lastmod>2025-12-02</lastmod>
+      <lastmod>2025-12-04</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
