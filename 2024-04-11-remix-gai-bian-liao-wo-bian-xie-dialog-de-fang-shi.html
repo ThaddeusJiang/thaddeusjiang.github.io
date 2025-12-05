@@ -1,0 +1,243 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.8" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2024-04-11 Remix 改变了我编写 dialog 的方式</title>
+<meta name="description" content="关于 dialog（对话框），回想一下，我的代码经历过好几次变化，使用 React 之前，React 初级阶段，目前部分项目使用原生 HTML 部分项目使用 Remix framework。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2024-04-11-remix-gai-bian-liao-wo-bian-xie-dialog-de-fang-shi" />
+<meta property="og:title" content="2024-04-11 Remix 改变了我编写 dialog 的方式" />
+<meta property="og:description" content="关于 dialog（对话框），回想一下，我的代码经历过好几次变化，使用 React 之前，React 初级阶段，目前部分项目使用原生 HTML 部分项目使用 Remix framework。" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2024-04-11 Remix 改变了我编写 dialog 的方式" />
+<meta name="twitter:description" content="关于 dialog（对话框），回想一下，我的代码经历过好几次变化，使用 React 之前，React 初级阶段，目前部分项目使用原生 HTML 部分项目使用 Remix framework。" />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" /><link rel="stylesheet" href="./css/custom.css"/>
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title is-3" href="./">TJ's Blog</a>
+        </h1>
+        <p class="subtitle is-6 is-italic">Computer Programs and Others</p>
+      </div>
+      
+    </p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title is-4">2024-04-11 Remix 改变了我编写 dialog 的方式</h1>
+          <hr>
+
+          <div class="content">
+            <p>关于 dialog（对话框），回想一下，我的代码经历过好几次变化，使用 React 之前，React 初级阶段，目前部分项目使用原生 HTML 部分项目使用 Remix framework。</p><p>tl;dr</p><ol><li>React 之前：命令式，例如 window.alert(message)</li><li>React 初期：all in 声明式，例如：[isOpen, setIsOpen] = useState(true)</li><li>采用 Radix UI 阶段：借助 DialogTrigger</li><li>daisyUI 相关项目： 回归 HTML native dialog</li><li>Remix 相关项目：设计 Modal Route</li></ol><h1 class="">React 之前：命令式</h1><p>React 之前使用过 jQuery, Ext JS, pure JS 编写 UI，一般使用命令式编写 dialog UI。</p><pre class="hljs"><code class="js hljs"><span class="hljs-comment">// jQuery code</span>
+$(<span class="hljs-string">&quot;#boring&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+  $.<span class="hljs-title function_">dialog</span>({
+    <span class="hljs-string">&quot;body&quot;</span>: <span class="hljs-string">&quot;jQueryScript.net!&quot;</span>,
+    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;jQuery Dialog Plugin Demo&quot;</span>,
+    <span class="hljs-string">&quot;show&quot;</span>: <span class="hljs-literal">true</span>
+  });
+});
+
+<span class="hljs-comment">// pure JS</span>
+<span class="hljs-variable language_">window</span>.<span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;hello world&quot;</span>)
+
+<span class="hljs-comment">// sweetalert2</span>
+<span class="hljs-title class_">Swal</span>.<span class="hljs-title function_">fire</span>({
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Good job!&quot;</span>,
+  <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;You clicked the button!&quot;</span>,
+  <span class="hljs-attr">icon</span>: <span class="hljs-string">&quot;success&quot;</span>
+});</code></pre><h1 class="">React 初期：all in 声明式</h1><p>刚开始使用 React 时，几乎都有代码都是声明式的，一般如下：</p><pre class="hljs"><code class="jsx hljs">  <span class="hljs-keyword">let</span> [isOpen, setIsOpen] = <span class="hljs-title function_">useState</span>(<span class="hljs-literal">true</span>)
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">closeModal</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">setIsOpen</span>(<span class="hljs-literal">false</span>)
+  }
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">openModal</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">setIsOpen</span>(<span class="hljs-literal">true</span>)
+  }
+
+
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{openModal}</span>&gt;</span>open<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Dialog</span> <span class="hljs-attr">open</span>=<span class="hljs-string">{isOpen}</span> <span class="hljs-attr">onClose</span>=<span class="hljs-string">{closeModal}</span> &gt;</span>
+        {* ... *}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Dialog</span>&gt;</span>
+    <span class="hljs-tag">&lt;/&gt;</span></span>
+  ) </code></pre><p>不过这种写法有很多问题：</p><ol><li>如果只是想实现类似 alert 的提醒功能，useState 一套下来，无用代码爆炸</li><li>有时需要在 API request 过程中处理 dialog，但是 dialog 显示与否被绑定在 UI 中， 不利于代码拆分。<ol><li>根据 API request 结果处理 dialog 也需要写一堆 if-else </li></ol></li></ol><h1 class="">采用 Radix UI 阶段：借助 DialogTrigger </h1><pre class="hljs"><code class="jsx hljs">&lt;<span class="hljs-title class_">AlertDialog</span>&gt;
+      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">AlertDialogTrigger</span> <span class="hljs-attr">asChild</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;outline&quot;</span>&gt;</span>Show Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">AlertDialogTrigger</span>&gt;</span></span>
+      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">AlertDialogContent</span>&gt;</span>
+      {* ... *}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">AlertDialogContent</span>&gt;</span></span>
+&lt;/<span class="hljs-title class_">AlertDialog</span>&gt;</code></pre><p>使用一个 AlertDialogTrigger 可以避免 useState 爆炸，算是一点点改善🤏</p><h1 class="">daisyUI 相关项目： 回归 HTML native dialog</h1><pre class="hljs"><code class="html hljs">
+<span class="hljs-tag">&lt;<span class="hljs-name">dialog</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;my_modal_2&quot;</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-box&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;font-bold text-lg&quot;</span>&gt;</span>Hello!<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;py-4&quot;</span>&gt;</span>Press ESC key or click outside to close<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;dialog&quot;</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-backdrop&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>close<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dialog</span>&gt;</span>
+
+// close dialog
+document.getElementById(&#x27;my_modal_2&#x27;).showModal()</code></pre><p>这种方式不仅避免了 useState 爆炸，又可以在任意时机操作 dialog。很棒。</p><p>缺点就是在 React 项目中需要一个 useRef 配合。</p><pre class="hljs"><code class="jsx hljs">  <span class="hljs-keyword">const</span> dialogRef = useRef&lt;<span class="hljs-title class_">HTMLDialogElement</span>&gt;(<span class="hljs-literal">null</span>);
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">open</span>(<span class="hljs-params"></span>) {
+    dialogRef.<span class="hljs-property">current</span>?.<span class="hljs-title function_">showModal</span>();
+  }
+
+  &lt;dialog ref={dialogRef} className=<span class="hljs-string">&quot;modal&quot;</span>&gt;
+    {* ... *}
+  &lt;/dialog&gt;</code></pre><h1 class="">Remix 相关项目：设计 Modal Route</h1><p>在需要使用 Modal 的页面中埋下一个 <code>&lt;Outlet /&gt;</code>，然后实现一个 Modal Route 如下：</p><pre class="hljs"><code class="jsx hljs"><span class="hljs-comment">// members.$id.tsx</span>
+&lt;<span class="hljs-title class_">Link</span> to={<span class="hljs-string">&quot;disable&quot;</span>}&gt;disable&lt;/<span class="hljs-title class_">Link</span>&gt;
+
+<span class="hljs-comment">// members.$id.disable.tsx</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">action</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// your code</span>
+  
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">redirect</span>(<span class="hljs-string">&quot;/members/${id}&quot;</span>)
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">MemberDisableRoute</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> navigate = <span class="hljs-title function_">useNavigate</span>()
+    <span class="hljs-keyword">return</span> (
+        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dialog</span> <span class="hljs-attr">id</span>=<span class="hljs-string">{props.title}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal modal-open&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-box&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;font-bold text-lg&quot;</span>&gt;</span>Are you sure?<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;modal-action&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;btn&quot;</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> navigate(-1)}&gt;Cancel<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;POST&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">hidden</span> /&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;btn&quot;</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">Form</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dialog</span>&gt;</span></span>
+    );
+}</code></pre><p>不仅没有 useState 数量爆炸，也不需要手工维护 dialog 状态。</p><p>其他优点：</p><ol><li>更合理的拆分业务逻辑，disable UI 和 API 和 member detail 完全隔离，更容易测试。</li><li>更容易处理 page 状态。例如多个表单的提交状态，以前常常会出现 form1.submitting || form2.submitting 的问题，现在只需要进行页面跳转即可。</li><li>更容易处理多级弹窗。只需要简单重复 Outlet 即可，避免了多层嵌套。</li></ol><p>缺点：</p><ul><li>框架依赖。这是 Remix Nested Routes 前提下的实现方案，不是 Web Standards。</li></ul><p>背景资料：</p><ul><li><a class="tc-tiddlylink-external" href="https://www.jqueryscript.net/demo/Simple-jQuery-Modal-Dialog-Box-Plugin-Dialog/" rel="noopener noreferrer" target="_blank">https://www.jqueryscript.net/demo/Simple-jQuery-Modal-Dialog-Box-Plugin-Dialog/</a></li><li><a class="tc-tiddlylink-external" href="https://sweetalert2.github.io/" rel="noopener noreferrer" target="_blank">https://sweetalert2.github.io/</a></li><li><a class="tc-tiddlylink-external" href="https://www.radix-ui.com/primitives/docs/components/alert-dialog" rel="noopener noreferrer" target="_blank">https://www.radix-ui.com/primitives/docs/components/alert-dialog</a></li><li><a class="tc-tiddlylink-external" href="https://daisyui.com/components/modal/" rel="noopener noreferrer" target="_blank">https://daisyui.com/components/modal/</a></li><li><a class="tc-tiddlylink-external" href="https://remix.run/docs/en/main/file-conventions/routes#nested-routes" rel="noopener noreferrer" target="_blank">https://remix.run/docs/en/main/file-conventions/routes#nested-routes</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ja.html">日本語</a>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.8" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2018-04-26 React 设置页面标题</title>
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2018-04-26-react-she-zhi-ye-mian-biao-ti" />
+<meta property="og:title" content="2018-04-26 React 设置页面标题" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2018-04-26 React 设置页面标题" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" /><link rel="stylesheet" href="./css/custom.css"/>
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title is-3" href="./">TJ's Blog</a>
+        </h1>
+        <p class="subtitle is-6 is-italic">Computer Programs and Others</p>
+      </div>
+      
+    </p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title is-4">2018-04-26 React 设置页面标题</h1>
+          <hr>
+
+          <div class="content">
+            <blockquote class="tc-quote tc-big-quote"><p>React 生态系统如此繁荣，以至于无论多小的问题都有开发者发布 library。 但是我们真的需要依赖那么多第三方吗？
+</p><cite>TJ</cite></blockquote><p>一个超级简单，但是还是需要问 Google 才知道的方法。</p><p>需求</p><p>React App 中 设置页面标题</p><p>这个位置：
+<img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/39289287-6d28c1be-4966-11e8-8c05-ae53dac41b74.png"></p><p>背景</p><p>React App 和过去的 jQuery 页面不同，大部分 React App 是单页面应用，即只有一个 <code>html</code> 文件。
+而页面标题通常定义在 html 的 <code>header</code> 中。如下：</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;ie=edge&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>我是标题<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span></code></pre><p>所以我本来以为这个需求很难实现，就和同事说很难。然后他们就相信了。😂😂😂</p><p>调查以后才知道。超级简单。</p><p>解决方法</p><pre class="hljs"><code class="js hljs"><span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">props</span>.<span class="hljs-property">title</span>
+}</code></pre><blockquote><div>注意：</div><div>在 render() 方法中 document 并不是 js 对象，而是 HTML 对象。</div><div>所以在 render() 中 document.title 无法工作。</div></blockquote><p>所以，如果你想让页面标题随输入内容是变化，可以这么做：</p><pre class="hljs"><code class="js hljs">renderDocumentTitle = <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">const</span> { pageTitle } = <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>
+  <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = pageTitle === <span class="hljs-string">&#x27;&#x27;</span> ? <span class="hljs-string">&#x27;我是标题&#x27;</span> : pageTitle
+}
+
+...
+<span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">renderDocumentTitle</span>()
+}</code></pre><p>github 上有一个项目 <a class="tc-tiddlylink-external" href="https://github.com/gaearon/react-document-title" rel="noopener noreferrer" target="_blank">https://github.com/gaearon/react-document-title</a> 实现了这个功能。</p><p>但是，我个人不推荐使用它。这么简单的功能何必 <code>yarn add</code> 一次呢。</p><p>ref:</p><ul><li><a class="tc-tiddlylink-external" href="https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react" rel="noopener noreferrer" target="_blank">https://stackoverflow.com/questions/34834091/changing-the-document-title-in-react</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ja.html">日本語</a>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

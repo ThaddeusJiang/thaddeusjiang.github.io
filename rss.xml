@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   <title>TJ's Blog</title>
+   <link>https://thaddeusjiang.com</link>
+   <description>Computer Programs and Others</description><follow_challenge>
+    <feedId>41718658305983488</feedId>
+    <userId>41718122139849728</userId>
+</follow_challenge>
+   <item>
+      <title>TypeScript 类型体操</title>
+      <link>https://thaddeusjiang.com/typescript-lei-xing-ti-cao</link>
+			<description><![CDATA[
+<div class="content">
+  <p>唉😮‍💨</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/5387daba38a5907e95d3753376a72e02.png"></p><p><img class=" tc-image-loading" src="https://i.gyazo.com/b76203a257184c4d675ac027bbff5969.png"></p><p>很难理解为什么要把 JS 变成这样的东西，TypeScript 本来是 JS 的好帮手，现在却变得如何让人讨厌。</p>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Mon, 23 June 2025 3:3:17 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/typescript-lei-xing-ti-cao</guid>      
+   </item>
+
+   <item>
+      <title>2025-12-04 Fix npm -g install</title>
+      <link>https://thaddeusjiang.com/2025-12-04-fix-npm-g-install</link>
+			<description><![CDATA[
+<div class="content">
+  <p>我终于解决了 node.js 版本切换时全局安装的 CLI 失效的问题，一次安装，一直可用。🎉</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/ad8ee2e5f016d74251a6da14b200fbca.jpg"></p><p>同时也解决了相同 CLI 在不同 node.js 版本下重复安装的问题。🎊</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/dbe697232b74c5a9d0ba2713eb1ec2aa.png"></p><pre class="hljs"><code class="shell hljs">rm -rvf /Users/tj/.nvm/
+rm -rvf /Users/tj/.volta
+rm -rvf /opt/homebrew/lib/node_modules
+rm -rvf /Users/tj/.cache/pnpm/dlx 
+rm -rvf /Users/tj/.npm/_npx/
+rm -rvf /Users/tj/.npm/</code></pre><p><img class=" tc-image-loading" src="https://i.gyazo.com/74ddea096a218250bda72eff1dd99fb2.png"></p><p>在删除了 node.js 各种版本中的历史垃圾以后，我的电脑空间瞬间就不紧张了。🥳</p><h2 class="">How</h2><p>我使用 <code>mise</code> 代替 <code>npm -g</code> 。</p><pre class="hljs"><code class="diff hljs"><span class="hljs-deletion">- npm -g install tiddlywiki</span>
+<span class="hljs-addition">+ mise use -g npm:tiddlywiki</span></code></pre><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://mise.jdx.dev/dev-tools/backends/npm.html" rel="noopener noreferrer" target="_blank">https://mise.jdx.dev/dev-tools/backends/npm.html</a></li></ul>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Thu, 4 December 2025 8:18:34 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-12-04-fix-npm-g-install</guid>      
+   </item>
+
+   <item>
+      <title>2025-12-03 zeabur custom domain 配置笔记</title>
+      <link>https://thaddeusjiang.com/2025-12-03-zeabur-custom-domain-pei-zhi-bi-ji</link>
+			<description><![CDATA[
+<div class="content">
+  <p>如果你的域名在 cloudflare 中管理，在 zeabur 中配置 custom domain 时可能会遇到 <code>INVALID_DNS</code> 错误，原因可能是你开启了 Cloudflare DNS <code>Proxy</code>，使用 <code>DNS only</code> 可以解决。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/ed642ee1867033744ba610461e99d47b.png"></p><p><img class=" tc-image-loading" src="https://i.gyazo.com/38a01b664fc28c354bb4be890f9a3243.png"></p><p>Zeabur 文档中说可以开启 Proxy，前提是你不能使用 <code>Full (strict)</code> Cloudflare SSL/TLS encryption。</p><blockquote><div>Cloudflare SSL/TLS encryption 作用范围是你的整个 Cloudflare 账号，修改后你的所有域名都会受到影响。</div></blockquote><p>我没有修改 Cloudflare SSL/TLS encryption ，依然使用默认的严格模式。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/750f59fbbc7b08b0f60b672caec10c2a.png"></p><p>讨论记录：<a class="tc-tiddlylink-external" href="https://discord.com/channels/1060209568820494336/1060209569315430512/1445591697294884874" rel="noopener noreferrer" target="_blank">https://discord.com/channels/1060209568820494336/1060209569315430512/1445591697294884874</a></p><p>Zeabur 相关文档 <a class="tc-tiddlylink-external" href="https://zeabur.com/docs/en-US/networking/public#custom-domain" rel="noopener noreferrer" target="_blank">https://zeabur.com/docs/en-US/networking/public#custom-domain</a></p>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Wed, 3 December 2025 3:23:17 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-12-03-zeabur-custom-domain-pei-zhi-bi-ji</guid>      
+   </item>
+
+</channel>
+</rss>

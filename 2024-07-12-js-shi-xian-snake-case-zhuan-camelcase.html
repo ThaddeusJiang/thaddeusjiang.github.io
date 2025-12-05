@@ -1,0 +1,166 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.8" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2024-07-12 js 实现 snake_case 转 camelCase</title>
+<meta name="description" content="今天在 dev-notes 中发现一个笔记，原来 yup 提供了开箱即用的 snake_case 转 camelCase 的方法。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2024-07-12-js-shi-xian-snake-case-zhuan-camelcase" />
+<meta property="og:title" content="2024-07-12 js 实现 snake_case 转 camelCase" />
+<meta property="og:description" content="今天在 dev-notes 中发现一个笔记，原来 yup 提供了开箱即用的 snake_case 转 camelCase 的方法。" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2024-07-12 js 实现 snake_case 转 camelCase" />
+<meta name="twitter:description" content="今天在 dev-notes 中发现一个笔记，原来 yup 提供了开箱即用的 snake_case 转 camelCase 的方法。" />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" /><link rel="stylesheet" href="./css/custom.css"/>
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title is-3" href="./">TJ's Blog</a>
+        </h1>
+        <p class="subtitle is-6 is-italic">Computer Programs and Others</p>
+      </div>
+      
+    </p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title is-4">2024-07-12 js 实现 snake_case 转 camelCase</h1>
+          <hr>
+
+          <div class="content">
+            <p>今天在 dev-notes 中发现一个笔记，原来 yup 提供了开箱即用的 snake_case 转 camelCase 的方法。</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> schema = <span class="hljs-title function_">object</span>({
+  <span class="hljs-attr">firstName</span>: <span class="hljs-title function_">string</span>().<span class="hljs-title function_">lowercase</span>().<span class="hljs-title function_">trim</span>(),
+}).<span class="hljs-title function_">camelCase</span>()
+
+schema.<span class="hljs-title function_">cast</span>({ <span class="hljs-attr">first_name</span>: <span class="hljs-string">&quot;jAnE &quot;</span> }) <span class="hljs-comment">// { firstName: &#x27;jane&#x27; }</span></code></pre><p>开箱即用，真棒。</p><p>因为 js 社区几乎都切换到了 zod，我现在也主要使用 zod，我去看了一下 zod 的文档，好像没有开箱即用的 snake_case 转 camelCase API。</p><p>可能是小众需求吧。</p><p>如果是经历过前后端分离是最佳实践的程序员应该还记得，曾经的 server side 主流采用 snake_case。在 JS 很疯狂的那几年，很多强迫症项目要么要求 server-side 该 camelCase；要么 JS app 中也使用 snake_case；要么就是找一个转换库，自动实现 snake_case 和 camelCase 相互转换。</p><h2 class="">插曲</h2><p>我自己曾经也在 snake_case 和 camelCase 上折腾过一段时间。</p><p>当时的团队中 server-side 在 database 和 Protobuf 中使用 snake_case，然而 Protobuf codegen 默认仅支持 lowerCamelCase。然后代码中就出现了超多诡异的 snake_case 和 camelCase 相互转换的代码。😂</p><p>虽然，后来我们发现原来 Nest.js 中可以让 gRPC 保持 snake_case，设置如下：</p><pre class="hljs"><code class="diff hljs">const app = await NestFactory.createMicroservice&lt;MicroserviceOptions&gt;(AppModule, {
+  transport: Transport.GRPC,
+  options: {
+    package: &#x27;hero&#x27;,
+    protoPath: join(__dirname, &#x27;hero/hero.proto&#x27;),
+<span class="hljs-addition">+    keepCase: true,</span>
+  },
+});</code></pre><p>但是，我们并没有使用。</p><p>因为在 gRPC 中使用 snake_case 没有那么简单，需要各种依赖 libraries 的支持。不仅仅是 Nest.js，还有 TypeScript，Dark 等等。太折腾了。</p><p>😂 全是泪啊，当前都在瞎折腾什么啊，哈哈哈</p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/jquense/yup?tab=readme-ov-file#objectcamelcase-schema" rel="noopener noreferrer" target="_blank">yup</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ja.html">日本語</a>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

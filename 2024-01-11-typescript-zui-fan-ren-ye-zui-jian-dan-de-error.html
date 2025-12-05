@@ -1,0 +1,208 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.8" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2024-01-11 TypeScript 最烦人，也最简单的 error</title>
+<meta name="description" content="《TypeScript optional 的混乱生态》">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2024-01-11-typescript-zui-fan-ren-ye-zui-jian-dan-de-error" />
+<meta property="og:title" content="2024-01-11 TypeScript 最烦人，也最简单的 error" />
+<meta property="og:description" content="《TypeScript optional 的混乱生态》" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2024-01-11 TypeScript 最烦人，也最简单的 error" />
+<meta name="twitter:description" content="《TypeScript optional 的混乱生态》" />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" /><link rel="stylesheet" href="./css/custom.css"/>
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title is-3" href="./">TJ's Blog</a>
+        </h1>
+        <p class="subtitle is-6 is-italic">Computer Programs and Others</p>
+      </div>
+      
+    </p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title is-4">2024-01-11 TypeScript 最烦人，也最简单的 error</h1>
+          <hr>
+
+          <div class="content">
+            <h1 class="">《TypeScript optional 的混乱生态》</h1><p>TypeScript 最烦人的也最简单的错误可能就是 optional 声明方式不兼容了吧。</p><p>相信所有 TypeScript 开发者都遇到下面的错误日志吧？</p><pre class="hljs"><code class="ts hljs"><span class="hljs-title class_">Type</span> <span class="hljs-string">&#x27;number | null&#x27;</span> is not assignable to <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;number | undefined&#x27;</span>.
+  <span class="hljs-title class_">Type</span> <span class="hljs-string">&#x27;null&#x27;</span> is not assignable to <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;number | undefined&#x27;</span>.<span class="hljs-title function_">ts</span>(<span class="hljs-number">2322</span>)</code></pre><p>虽然这个错误的解决方法很简单，但是时不时就被它烦一下，也是服气了。忍不住想吐槽几句。</p><blockquote class="tc-quote tc-big-quote"><p>TypeScript optional 声明方式不兼容造成了生态问题，不是简单的语法问题。
+</p><cite>TJ 2024-01-11</cite></blockquote><p>如果只是简单的语法问题，我又何必吐槽呢？</p><p>如果只是简单的程序，没有第三方依赖，不涉及工具链，那就做好自己就行了。只要自己和团队做得好，TypeScript optional 声明方式不兼容的问题是可以避免的。</p><p>但是对于复杂的程序，有大量第三方依赖，并使用各种工具链辅助开发，那么这就是生态问题。只靠自己和团队避坑是没有用的，因为生态里的总有人会挖好坑等你。</p><h2 class="">为什么说是生态问题呢？</h2><p>先解释一下我现在参加的项目的技术栈：</p><ol><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./protobuf.html">protobuf</a> 定义 gRPC request response，并通过 codegen 生成 gRPC server 和 client 的 TypeScript 类型定义</li><li><a class="tc-tiddlylink tc-tiddlylink-missing" href="./prisma.html">prisma</a> 定义 database schema，并通过 prisma generate 生成 TypeScript 类型定义</li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./class-validator.html">class-validator</a> 定义 validation schema</li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./typescript.html">TypeScript</a> 编写业务代码和辅助数据</li></ol><p>针对最开始分享的 TypeScript error 我分享一下我的 protobuf prisma class-validator TypeScript 分别是怎么写的，如果你是 TypeScript developer，相信你一定能看懂。</p><h3 class="">1. protobuf and generated code</h3><p>protobuf code</p><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// .proto</span>
+message <span class="hljs-title class_">ChargingProfile</span> {
+  <span class="hljs-comment">// ...</span>
+  optional int32 duration = <span class="hljs-number">2</span>;
+  <span class="hljs-comment">// ...</span>
+}</code></pre><p>protobuf generated code </p><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// dist/buf/check_in_history_pb.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChargingProfile</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Message</span>&lt;<span class="hljs-title class_">ChargingProfile</span>&gt; {
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-comment">/**
+   * <span class="hljs-doctag">@generated</span> from field: optional int32 duration = 2;
+   */</span>
+  duration?: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// ...</span></code></pre><h2 class="">2. prisma and generated code</h2><p>prisma schema</p><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// schema.prisma</span>
+model <span class="hljs-title class_">ChargingProfile</span> {
+  <span class="hljs-comment">// ...</span>
+  duration                <span class="hljs-title class_">Int</span>?
+  <span class="hljs-comment">// ...</span>
+}</code></pre><p>prisma schema generated code</p><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// node_module/.prisma/client/index.d.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">type</span> <span class="hljs-title class_">ChargingProfile</span> = {
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-attr">duration</span>: <span class="hljs-built_in">number</span> | <span class="hljs-literal">null</span>
+  <span class="hljs-comment">// ...</span>
+}</code></pre><h3 class="">小结</h3><p>注意看，protobuf generated code 和 prisma schema generated code</p><pre class="hljs"><code class="diff hljs">  // protobuf generated code
+<span class="hljs-addition">+  duration?: number;</span>
+  //prisma schema generated code
+<span class="hljs-addition">+  duration: number | null</span></code></pre><p>最开始分享的 TypeScript error 就是因为这个原因造成的，我在 x.com 上分享了这段代码，很多朋友分享了他们的避免方法。但是 <code>generated code</code> 完全不是我编写的，而是 TypeScript 生态中工具链生成的，即使我的定义是相同的，不同工具链生成的代码还是造成了 TypeScripr error，我真不知道我要如何避免这个错误。🤷</p><blockquote class="tc-quote tc-big-quote"><p>BTW 这个问题的解决方法非常简单，我并不是不能解决。
+只是它经常出来烦我一下，让我忍不住想吐槽。
+</p><cite>TJ 2024-01-11</cite></blockquote><h2 class="">3. class-validator</h2><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChargingProfileDto</span> {
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-meta">@IsOptional</span>()
+  <span class="hljs-meta">@IsInt</span>()
+  duration?: <span class="hljs-built_in">number</span>;
+  <span class="hljs-comment">// ...</span>
+}</code></pre><p>其实 class-validator 实现的代码和本文没什么关系，不过这段代码是真实存在于我们的代码库中的，我就顺便分享一下。</p><p>并且，我非常不喜欢 class-validator，原因有以下几点：</p><ol><li>class-validator 和 TypeScript 在某些方面是重复的，例如 <code>@IsOptional()</code> 和 <code>?</code></li><li>class-validator 只能校验 class instance，如果想校验 JSON 还需要额外依赖（class-transformer）</li><li>class-validator 文档不全，例如：我一直没有找到 <code>@IsNumber(options: IsNumberOptions)</code> 中 options 有哪些配置项</li></ol><h2 class="">最后，分享几种 TypeScript 中 number 的定义</h2><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">type</span> A = {
+  a?: <span class="hljs-built_in">number</span>
+}
+
+<span class="hljs-keyword">type</span> B = {
+  <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> | <span class="hljs-literal">undefined</span>
+}
+
+<span class="hljs-keyword">type</span> C = {
+  <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> | <span class="hljs-literal">null</span>
+}
+
+<span class="hljs-keyword">type</span> D = {
+  <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> | <span class="hljs-literal">null</span> | <span class="hljs-literal">undefined</span>
+}
+
+<span class="hljs-keyword">type</span> E = {
+  <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>
+}</code></pre><p>大家参加的项目中用哪一种呢？就个人而言，你倾向哪一种？</p><p>欢迎大家和我一起讨论：</p><ul><li>x.com: <a class="tc-tiddlylink-external" href="https://x.com/ThaddeusJiang/status/1745085873807347771" rel="noopener noreferrer" target="_blank">https://x.com/ThaddeusJiang/status/1745085873807347771</a></li><li>telegram: <a class="tc-tiddlylink-external" href="https://t.me/talktalk_developer/539" rel="noopener noreferrer" target="_blank">https://t.me/talktalk_developer/539</a></li><li>github: <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/thaddeusjiang.github.io/discussions/63" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/thaddeusjiang.github.io/discussions/63</a></li></ul><h2 class="">更新</h2><blockquote><div>2025-05-07 </div></blockquote><p>在 nuqs 再次遇到 optional field default value is <code>null</code> 的问题。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/791446cf42b5a90ce5d4190c213e257f.png"></p><p>在 nuqs 中，如果在 query string 中没有找到指定 key，返回的值是 <code>null</code>。</p><ul><li><a class="tc-tiddlylink-external" href="https://nuqs.47ng.com/docs/basic-usage" rel="noopener noreferrer" target="_blank">https://nuqs.47ng.com/docs/basic-usage</a></li></ul><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://protobuf.dev/" rel="noopener noreferrer" target="_blank">https://protobuf.dev/</a></li><li><a class="tc-tiddlylink-external" href="https://www.prisma.io/" rel="noopener noreferrer" target="_blank">https://www.prisma.io/</a></li><li><a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/typestack/class-validator" rel="noopener noreferrer" target="_blank">https://github.com/typestack/class-validator</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/typestack/class-transformer" rel="noopener noreferrer" target="_blank">https://github.com/typestack/class-transformer</a></li></ul>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ja.html">日本語</a>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

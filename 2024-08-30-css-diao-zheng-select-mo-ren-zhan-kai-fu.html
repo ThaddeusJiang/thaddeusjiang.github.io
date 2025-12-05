@@ -1,0 +1,184 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.8" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2024-08-30 CSS: 调整 select 默认展开符</title>
+<meta name="description" content="浏览器默认位置：">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2024-08-30-css-diao-zheng-select-mo-ren-zhan-kai-fu" />
+<meta property="og:title" content="2024-08-30 CSS: 调整 select 默认展开符" />
+<meta property="og:description" content="浏览器默认位置：" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2024-08-30 CSS: 调整 select 默认展开符" />
+<meta name="twitter:description" content="浏览器默认位置：" />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" /><link rel="stylesheet" href="./css/custom.css"/>
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title is-3" href="./">TJ's Blog</a>
+        </h1>
+        <p class="subtitle is-6 is-italic">Computer Programs and Others</p>
+      </div>
+      
+    </p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title is-4">2024-08-30 CSS: 调整 select 默认展开符</h1>
+          <hr>
+
+          <div class="content">
+            <p>浏览器默认位置：</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/62432c1ac490a439ec3f9430198cf98d.png"></p><p>期待调整 icon 位置，使 select 前后 padding 一致。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/8da117723711e389d1f81b8f3d1e1111.png"></p><p>CSS 没有开箱即用的方法可以实现期待效果，但是想要实现也不难。</p><h2 class="">Code in tailwindUI</h2><pre class="hljs"><code class="css hljs">select {
+  appearance: none;
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;data:image/svg+xml,%3csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; fill=&#x27;none&#x27; viewBox=&#x27;0 0 20 20&#x27;%3e%3cpath stroke=&#x27;%236b7280&#x27; stroke-linecap=&#x27;round&#x27; stroke-linejoin=&#x27;round&#x27; stroke-width=&#x27;1.5&#x27; d=&#x27;M6 8l4 4 4-4&#x27;/%3e%3c/svg%3e&quot;</span>);
+  <span class="hljs-attribute">background-position</span>: right <span class="hljs-number">0.5rem</span> center;
+  <span class="hljs-attribute">background-repeat</span>: no-repeat;
+  <span class="hljs-attribute">background-size</span>: <span class="hljs-number">1.5em</span> <span class="hljs-number">1.5em</span>;
+}</code></pre><h2 class="">笔记</h2><p>1. 移除浏览器默认 style</p><pre class="hljs"><code class="css hljs">appearance: none;</code></pre><p>2. 使用 background-image 模拟展开符号</p><pre class="hljs"><code class="css hljs"><span class="hljs-comment">/* SVG */</span>
+<span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;data:image/svg+xml,%3csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; fill=&#x27;none&#x27; viewBox=&#x27;0 0 20 20&#x27;%3e%3cpath stroke=&#x27;%236b7280&#x27; stroke-linecap=&#x27;round&#x27; stroke-linejoin=&#x27;round&#x27; stroke-width=&#x27;1.5&#x27; d=&#x27;M6 8l4 4 4-4&#x27;/%3e%3c/svg%3e&quot;</span>);
+
+<span class="hljs-comment">/* 禁止重复 */</span>
+<span class="hljs-attribute">background-repeat</span>: no-repeat;
+
+<span class="hljs-comment">/* 调整位置 */</span>
+<span class="hljs-attribute">background-position</span>: right <span class="hljs-number">0.5rem</span> center;
+
+<span class="hljs-comment">/* 调整大小 */</span>
+<span class="hljs-attribute">background-size</span>: <span class="hljs-number">1.5em</span> <span class="hljs-number">1.5em</span>;</code></pre><h2 class="">当然，也可以 copy CSS from daisyUI</h2><pre class="hljs"><code class="css hljs"><span class="hljs-selector-class">.select</span> {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">45deg</span>, transparent <span class="hljs-number">50%</span>, currentColor <span class="hljs-number">50%</span>), <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">135deg</span>, currentColor <span class="hljs-number">50%</span>, transparent <span class="hljs-number">50%</span>);
+    <span class="hljs-attribute">background-position</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">20px</span>) <span class="hljs-built_in">calc</span>(<span class="hljs-number">1px</span> + <span class="hljs-number">50%</span>), <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">16.1px</span>) <span class="hljs-built_in">calc</span>(<span class="hljs-number">1px</span> + <span class="hljs-number">50%</span>);
+    <span class="hljs-attribute">background-size</span>: <span class="hljs-number">4px</span> <span class="hljs-number">4px</span>, <span class="hljs-number">4px</span> <span class="hljs-number">4px</span>;
+    <span class="hljs-attribute">background-repeat</span>: no-repeat;
+}</code></pre><h2 class="">其他</h2><p>其他需要留意的默认风格</p><p>1. input[type=number] 数字调节按钮太丑了，推荐移除默认风格</p><pre class="hljs"><code class="css hljs"><span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=<span class="hljs-string">&quot;number&quot;</span>]</span>::-webkit-outer-spin-button,
+input[type=<span class="hljs-string">&quot;number&quot;</span>]::-webkit-inner-spin-button {
+  appearance: none;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+}</code></pre>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ja.html">日本語</a>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

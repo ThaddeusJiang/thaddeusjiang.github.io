@@ -1,0 +1,159 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.8" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2022-11-07 分享 2022下期技术雷达</title>
+<meta name="description" content="技术雷达是 ThoughtWorks 发布的技术报告，比较客观，且非常具有前瞻性，我每一期都看。不过 ThoughtWorks 的技术雷达设计的领域过于全面，所以我每次都会把自己关心的内容整理一下自用。这是一篇内部分享，也分享给公司以外的大家。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2022-11-07-fen-xiang-2022-xia-qi-ji-shu-lei-da" />
+<meta property="og:title" content="2022-11-07 分享 2022下期技术雷达" />
+<meta property="og:description" content="技术雷达是 ThoughtWorks 发布的技术报告，比较客观，且非常具有前瞻性，我每一期都看。不过 ThoughtWorks 的技术雷达设计的领域过于全面，所以我每次都会把自己关心的内容整理一下自用。这是一篇内部分享，也分享给公司以外的大家。" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2022-11-07 分享 2022下期技术雷达" />
+<meta name="twitter:description" content="技术雷达是 ThoughtWorks 发布的技术报告，比较客观，且非常具有前瞻性，我每一期都看。不过 ThoughtWorks 的技术雷达设计的领域过于全面，所以我每次都会把自己关心的内容整理一下自用。这是一篇内部分享，也分享给公司以外的大家。" />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" /><link rel="stylesheet" href="./css/custom.css"/>
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title is-3" href="./">TJ's Blog</a>
+        </h1>
+        <p class="subtitle is-6 is-italic">Computer Programs and Others</p>
+      </div>
+      
+    </p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title is-4">2022-11-07 分享 2022下期技术雷达</h1>
+          <hr>
+
+          <div class="content">
+            <p>技术雷达是 ThoughtWorks 发布的技术报告，比较客观，且非常具有前瞻性，我每一期都看。不过 ThoughtWorks 的技术雷达设计的领域过于全面，所以我每次都会把自己关心的内容整理一下自用。这是一篇内部分享，也分享给公司以外的大家。</p><p>ThoughtWorks 从技术、平台、工具、语言&amp;框架等 4 方面，将内容分为采纳、试验、评估、暂缓等 4 种级别。我也一样从技术、平台、工具、语言&amp;框架等 4 方面整理，不过我的评价级别是以我个人为对象分为 <code>我正在使用</code> <code>我想要尝试</code> <code>我保持观望</code> <code>我已经不再使用</code> 4 个级别。</p><p>ok，让我们开始正文：</p><blockquote class="tc-quote tc-big-quote"><h1 class="">我正在使用</h1><ol><li>技术<ol><li>组件视觉回归测试 <code>试验</code></li><li>服务器端驱动 UI <code>评估</code></li></ol></li><li>平台<ol><li>Colima <code>试验</code></li></ol></li><li>工具<ol><li>k6 <code>采纳</code></li><li>Excalidraw <code>试验</code></li></ol></li><li>语言&amp;框架<ol><li>ReactQuery <code>采纳</code></li></ol></li></ol><cite>TJ</cite></blockquote><h1 class="">组件视觉回归测试</h1><p>其实就是 Visual Testing，我正在使用 Chromatic 进行视觉回归测试。我非常喜欢 Visual Testing，我以前分享过很多次，欢迎阅读后和我讨论：</p><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./2019-11-20-react-testing-3-visual-testing.html">2019-11-20 React Testing 3 - Visual Testing</a></li><li><a class="tc-tiddlylink-external" href="https://twitter.com/ThaddeusJiang/status/1479462809323065345" rel="noopener noreferrer" target="_blank">https://twitter.com/ThaddeusJiang/status/1479462809323065345</a></li></ul><h1 class="">服务器端驱动 UI</h1><h1 class="">Colima</h1><p>因为 Docker Desktop 开始收费，大家都在寻找 Docker Desktop 的替代品。其实有很多选项，碰巧我和 ThoughtWorks 选择相同而已。</p><p>我是从哪里看到 Colima 的？
+答：<a class="tc-tiddlylink-external" href="https://dev.to/swyx/running-docker-without-docker-desktop-339h" rel="noopener noreferrer" target="_blank">https://dev.to/swyx/running-docker-without-docker-desktop-339h</a></p><h1 class="">k6</h1><h1 class="">Excalidraw</h1><h1 class="">ReactQuery</h1><blockquote class="tc-quote tc-big-quote"><h1 class="">我想要尝试</h1><ol><li>工具<ol><li>Harness 云服务成本管理 <code>评估</code></li><li>infracost <code>评估</code></li></ol></li><li>语言&amp;框架<ol><li>Yjs <code>采纳</code></li><li>Connect <code>评估</code></li></ol></li></ol><cite>TJ</cite></blockquote><p>云服务成本管理是云原生时代躲不过去的工作，越早掌握越少被坑钱。</p><p>我准备试试 Harness 和 infracost。</p><h1 class="">Yjs</h1><p>实时协作软件越来越流行了，Yjs 就是一个用来编写实时协作软件的库。
+</p><h1 class="">Connect</h1><blockquote class="tc-quote tc-big-quote"><h1 class="">我保持观望的</h1><ol><li>语言&amp;框架<ol><li>Svelte <code>试验</code></li><li>Ladle <code>试验</code></li><li>Astro <code>评估</code></li><li>Bun <code>评估</code></li></ol></li></ol><cite>TJ</cite></blockquote><h1 class="">Svelte</h1><h1 class="">Ladle, Astro</h1><p>我知道他们是不错的技术，不过我还是想看看社区领袖的选择。</p><h1 class="">Bun</h1><blockquote class="tc-quote tc-big-quote"><h1 class="">我已经不再使用</h1><ol><li>技术<ol><li>默认选择 SPA <code>暂缓</code></li></ol></li><li>语言&amp;框架<ol><li>Cypress组件测试 <code>评估</code></li></ol></li></ol><cite>TJ</cite></blockquote><h1 class="">默认选择 SPA</h1><h1 class="">Cypress组件测试</h1><p>组件测试可以继续使用 TestingLibrary
+</p><h1 class="">结束语</h1><p>😂 写的有点多，其实我想说的比这个还多，好期待和大家一起交流技术啊。欢迎大家来 discord 和我聊天，我的频道（邀请制）里有很多大神哟。
+</p>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ja.html">日本語</a>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>
