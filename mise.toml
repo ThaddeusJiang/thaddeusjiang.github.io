@@ -1,0 +1,22 @@
+[tools]
+"npm:tiddlywiki" = "latest"
+
+[tasks]
+start = '''
+#!/usr/bin/env bash
+set -x
+PORT=8080
+while lsof -Pi :$PORT -sTCP:LISTEN -t >/dev/null 2>&1; do
+    PORT=$((PORT + 1))
+done
+
+(sleep 2 && open -a Safari http://localhost:$PORT) &
+tiddlywiki --listen port=$PORT username=TJ
+'''
+
+preview = '''
+#!/usr/bin/env bash
+rm output
+tiddlywiki --build
+open ./output/index.html
+'''

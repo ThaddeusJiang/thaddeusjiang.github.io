@@ -1,10 +1,11 @@
 #!/bin/bash
 
 rm -rf docs
-mkdir -p ./docs
+mkdir -p ./docs/wiki
+mkdir -p ./docs/tiddlyjam
 
 npx tiddlywiki --build index
-cp ./output/index.html ./docs/wiki.html
+cp ./output/* ./docs/wiki/
 
 npx tiddlywiki --build tiddlyjam
-mv ./output/* ./docs/
+mv ./output/* ./docs/tiddlyjam/
