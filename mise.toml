@@ -1,8 +1,9 @@
 [tools]
 "npm:tiddlywiki" = "latest"
 
-[tasks]
-start = '''
+[tasks.start]
+description = 'Start tiddlywiki server'
+run = '''
 #!/usr/bin/env bash
 set -x
 PORT=8080
@@ -14,9 +15,12 @@ done
 tiddlywiki --listen port=$PORT username=TJ
 '''
 
-preview = '''
+[tasks.preview]
+description = 'Build and preview the site'
+run = '''
 #!/usr/bin/env bash
-rm output
-tiddlywiki --build
-open ./output/index.html
+rm -rf output
+sh build
+open ./docs/index.html
+open ./docs/tiddlyjam/index.html
 '''
