@@ -1,6 +1,6 @@
 created: 20200814080720075
 description: Page not found
-modified: 20240309091006621
+modified: 20260119042139105
 name: Page not found
 published: 20200911141413491
 tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live $:/plugins/adithyab/tiddlyjam/internals
@@ -12,7 +12,7 @@ type: text/vnd.tiddlywiki
         <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
             <h1 class="title">Page not found</h1>
             <div>
-                <h2 class="subtitle">🔍 <a href="/wiki#Context%20Search">Search</a></h2>
+                <h2 class="subtitle">🔍 <a href="https://thaddeusjiang.github.io/#Context%20Search">Search</a></h2>
             </div>
 
             [img[404.png]]

@@ -14,6 +14,5 @@ If you want to try it too, see https://tiddlywiki.com/
 
 URLs:
 
-- Edit Mode: https://thaddeusjiang.com/wiki
-- View Mode: https://thaddeusjiang.com
-- GitHub Pages: https://thaddeusjiang.github.io
+- Static Render: https://thaddeusjiang.com
+- TiddlyWiki Render: https://thaddeusjiang.github.io
