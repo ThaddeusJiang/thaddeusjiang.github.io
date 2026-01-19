@@ -1,6 +1,6 @@
 created: 20200418124902034
 creator: TJ
-modified: 20251121045724370
+modified: 20251221034529691
 modifier: TJ
 tags: 
 title: Welcome
@@ -12,11 +12,11 @@ type: text/vnd.tiddlywiki
 
 特点：
 
-* 整个应用程序是一个 HTML，零依赖、无需构建工具，下载即可使用。
-* 一个自产生程序（Quine），输出结果为程序自身源码，你看到的文章也是代码。
+* 整个应用只是一个 HTML，零依赖、零构建，100年可用。
+* 一个自产生程序（Quine），所见即代码。
 * 开源免费，你也可以创建自己的数字花园。
 
-[[👉 Make your own Wiki 👈|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]
+[[👉 GitHub 👈|https://github.com/ThaddeusJiang/thaddeusjiang.github.io]]
 
 Refs:
 

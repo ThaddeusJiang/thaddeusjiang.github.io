@@ -1,9 +1,44 @@
-created: 20221129044340065
-modified: 20221129044805080
-tags: 
+created: 20250526021517630
+history: 2025-11-14
+modified: 20260111080208422
+tags: #repeated
 title: Naming
+type: text/vnd.tiddlywiki
 
-我的代码现在使用几个命名
+<<<.tc-big-quote
+命名是典型的“即简单又困难，即困难又简单”的编程问题。
 
-* mojito 可以直接独立使用。
-* omakase 和其他 code 组合一下使用。
+软件编程3大难题，命名、缓存、任意其他问题。
+<<<TJ
+
+
+命名看似简单，但是在很多项目中混乱无比，很多人因为其太“简单”而忽略它，命名十分影响开发效率却被熟视无睹。
+
+命名虽然没有绝对的优劣之分，但是不统一绝对是巨大的问题。
+
+我个人期待通过命名达到的效果：
+
+# 全文检索和文件检索可以匹配到相同内容
+# 文件名和函数名可以同时匹配
+
+我遇到的 Issues
+
+1. 文件名和函数名不匹配
+
+文件名是 `contactPageUpdate` 函数名却是 `UpdateContactPage`
+
+```js
+// contactPageUpdate.graphql
+mutation UpdateContactPage($input: ContactPageUpdateInput!) {
+  contactPage {
+    update(input: $input) {
+      contactPage {
+        id
+      }
+    }
+  }
+}
+```
+
+我没有办法给你录屏展示这种混乱的命名让我的开发节奏被打乱了多少次，但是真的特别影响我的工作效率。
+

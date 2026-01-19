@@ -1,7 +1,16 @@
 created: 20251121045728279
-modified: 20251121045741884
+modified: 20251221040720394
+tags: tj-soulmate
 title: 自产生程序（Quine）
 type: text/vnd.tiddlywiki
 
 
-https://en.wikipedia.org/wiki/Quine_(computing)
+任何依赖外部数据的程序都不算是 Quine。
+
+一个简单的判断，如果程序需要除了代码以外的任何数据，就不是 Quine。
+
+[[https://en.wikipedia.org/wiki/Quine_(computing)]]
+
+<<<.tc-big-quote
+如果你理解什么是 Quine 并且感到兴奋，我非常期待和你多多交流。
+<<<TJ

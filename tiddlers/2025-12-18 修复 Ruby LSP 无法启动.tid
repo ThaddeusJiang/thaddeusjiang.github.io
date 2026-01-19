@@ -1,0 +1,31 @@
+created: 20251218021616450
+modified: 20260119035849437
+published: 20260119035849436
+tags: 1Password系列 blog $:/plugins/adithyab/tiddlyjam/live
+title: 2025-12-18 修复 Ruby LSP 无法启动
+type: text/vnd.tiddlywiki
+
+因为 Ruby LSP 扩展默认使用 rbenv，而我已经全面切换到 [[mise]] 管理 Ruby 版本，导致 Ruby LSP 无法启动。并且我已经全面[[停止使用明文存储敏感信息]]，我还需要配置 GitHub Packages 认证。
+
+!! 解决方法：配置 Cursor 让 Ruby LSP 使用 mise
+
+```json
+// .vscode/settings.json
+
+{
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "mise"
+  }
+}
+```
+
+!! （可选）如果你也使用 GitHub Packages 管理一部分 private packages
+
+可能需要配配置 GitHub Packages 认证
+
+```yml
+# mise.toml
+
+[env]
+BUNDLE_RUBYGEMS__PKG__GITHUB__COM = "x-access-token:{{ exec(command='op read op://Private/GITHUB_PACKAGES_ACCESS_TOKEN/token') }}"
+```

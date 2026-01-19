@@ -1,0 +1,25 @@
+created: 20251209084834333
+modified: 20260119041441758
+published: 20260119035838136
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 2025-12-09 使用 justfile 近似实现 fuser
+type: text/vnd.tiddlywiki
+
+我发现 macOS 下 fuser 似乎功能不全，无法实现一条命令关闭某个端口的进程。
+
+[img[https://i.gyazo.com/ecc465106194992a3c192f597be1282d.png]]
+
+虽然可以组合 lsof 和 kill
+
+```shell
+lsof -ti:4001 | xargs kill -9 2>/dev/null || true
+```
+
+但是因为我使用这段命令的频率很高，我使用 justfile 近似实现了 fuser -k 的功能。
+
+```
+# justfile
+
+kill port: 
+  @lsof -ti:{{port}} | xargs kill -9
+```

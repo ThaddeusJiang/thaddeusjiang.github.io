@@ -1,0 +1,19 @@
+created: 20251221031618195
+modified: 20251221034022383
+tags: 
+title: 2025-12-21 elixir 绝对会越来越多被采用
+type: text/vnd.tiddlywiki
+
+最初的笔记是“elixir绝对会流行的”，但是未来无法预测，尤其是群体选择往往充斥着各种偶然和非理性。但是我相信一定有越来越多的团队会采用 elixir。
+
+elixir 原生支持异步调用、进程管理、网络请求等非常方便的功能，在需要计算机程序独立相互通信的未来，有着无比的优势。
+
+虽然其他编程语言可以靠框架和库来实现类似的功能，但是和 elixir 的原语比起来肯定会差一点，这里尤其要感谢 erlang 跨越世纪的优秀设计。
+
+
+1. elixir GenServer 非常适合 AI task 的状态管理
+
+2. elixir Supervisor 非常适合 AI Agents 并行和合作
+
+3. elixir Node 非常实用 AI 在不同硬件上实现更优的资源配置
+

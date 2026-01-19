@@ -1,0 +1,15 @@
+created: 20260115075355775
+modified: 20260115075745769
+tags: anti-best-practices
+title: TiddlyWiki 并不适合做 todo-list
+type: text/vnd.tiddlywiki
+
+我认为 TiddlyWiki 并不适合做 todo-list
+
+1. 我认为 todo-list 应该有自动清理功能，过时的 todo tasks 应该自动归档，不能扰乱日常的任务管理。
+
+在 list page 还能看到几个月前的无关紧要的 small tasks 真的让人很沮丧。TiddlyWiki 默认将所有 tiddler 都持久化了，会让 todo-list 的 size 不断膨胀，只到无法维护。
+
+
+
+

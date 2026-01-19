@@ -1,8 +1,8 @@
 created: 20251203072355329
-modified: 20251204081834961
+modified: 20260119041420060
 published: 20251204081834960
 tags: blog $:/plugins/adithyab/tiddlyjam/live
-title: 2025-12-04 Fix npm -g install
+title: 2025-12-04 fix npm -g install
 type: text/vnd.tiddlywiki
 
 我终于解决了 node.js 版本切换时全局安装的 CLI 失效的问题，一次安装，一直可用。🎉

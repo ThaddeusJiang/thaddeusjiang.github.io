@@ -24,3 +24,11 @@ sh build
 open ./docs/index.html
 open ./docs/tiddlyjam/index.html
 '''
+
+[tasks.push]
+description = "push to github pages"
+run = '''
+git add .
+git commit -m "update $(date +%Y%m%d)"
+git push
+'''
