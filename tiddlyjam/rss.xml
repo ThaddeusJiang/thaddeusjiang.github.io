@@ -43,17 +43,11 @@
    </item>
 
    <item>
-      <title>2025-12-04 Fix npm -g install</title>
-      <link>https://thaddeusjiang.com/2025-12-04-fix-npm-g-install</link>
+      <title>20260119 使用 mise 替代 just</title>
+      <link>https://thaddeusjiang.com/20260119-shi-yong-mise-ti-dai-just</link>
 			<description><![CDATA[
 <div class="content">
-  <p>我终于解决了 node.js 版本切换时全局安装的 CLI 失效的问题，一次安装，一直可用。🎉</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/ad8ee2e5f016d74251a6da14b200fbca.jpg"></p><p>同时也解决了相同 CLI 在不同 node.js 版本下重复安装的问题。🎊</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/dbe697232b74c5a9d0ba2713eb1ec2aa.png"></p><pre class="hljs"><code class="shell hljs">rm -rvf /Users/tj/.nvm/
-rm -rvf /Users/tj/.volta
-rm -rvf /opt/homebrew/lib/node_modules
-rm -rvf /Users/tj/.cache/pnpm/dlx 
-rm -rvf /Users/tj/.npm/_npx/
-rm -rvf /Users/tj/.npm/</code></pre><p><img class=" tc-image-loading" src="https://i.gyazo.com/74ddea096a218250bda72eff1dd99fb2.png"></p><p>在删除了 node.js 各种版本中的历史垃圾以后，我的电脑空间瞬间就不紧张了。🥳</p><h2 class="">How</h2><p>我使用 <code>mise</code> 代替 <code>npm -g</code> 。</p><pre class="hljs"><code class="diff hljs"><span class="hljs-deletion">- npm -g install tiddlywiki</span>
-<span class="hljs-addition">+ mise use -g npm:tiddlywiki</span></code></pre><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://mise.jdx.dev/dev-tools/backends/npm.html" rel="noopener noreferrer" target="_blank">https://mise.jdx.dev/dev-tools/backends/npm.html</a></li></ul>
+  <p>为什么不再使用 just，而是使用 mise ?</p><p>最重要的原因是 just 没有覆盖依赖的安装过程，当我需要在新的环境中执行某个命令时总会出现 <code>command not found</code> 问题。</p><p>虽然可以提前安装依赖，但是失去了使用 cli 的一致性，mise 解决了这个问题。</p><ol><li><code>mise install</code> 可以安装依赖</li><li><code>mise task</code> 也可以查看自定义任务</li><li><code>mise xxx</code> 可以执行命令。</li></ol><p>对于我来说，mise 可以完整替代 just。</p><p>不仅如此，mise 还有 env 管理功能，又覆盖掉了 direnv 的功能，又可以减少一项依赖了，太棒了。😁</p><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://mise.jdx.dev/" rel="noopener noreferrer" target="_blank">https://mise.jdx.dev/</a></li><li><a class="tc-tiddlylink-external" href="https://just.systems/man/en/" rel="noopener noreferrer" target="_blank">https://just.systems/man/en/</a></li><li><a class="tc-tiddlylink-external" href="https://direnv.net/" rel="noopener noreferrer" target="_blank">https://direnv.net/</a></li></ul>
 </div>
 
 
@@ -79,16 +73,25 @@ rm -rvf /Users/tj/.npm/</code></pre><p><img class=" tc-image-loading" src="https
 
 
 ]]></description>
-      <pubDate>Thu, 4 December 2025 8:18:34 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-12-04-fix-npm-g-install</guid>      
+      <pubDate>Mon, 19 January 2026 3:59:4 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/20260119-shi-yong-mise-ti-dai-just</guid>      
    </item>
 
    <item>
-      <title>2025-12-03 zeabur custom domain 配置笔记</title>
-      <link>https://thaddeusjiang.com/2025-12-03-zeabur-custom-domain-pei-zhi-bi-ji</link>
+      <title>2025-12-18 修复 Ruby LSP 无法启动</title>
+      <link>https://thaddeusjiang.com/2025-12-18-xiu-fu-ruby-lsp-wu-fa-qi-dong</link>
 			<description><![CDATA[
 <div class="content">
-  <p>如果你的域名在 cloudflare 中管理，在 zeabur 中配置 custom domain 时可能会遇到 <code>INVALID_DNS</code> 错误，原因可能是你开启了 Cloudflare DNS <code>Proxy</code>，使用 <code>DNS only</code> 可以解决。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/ed642ee1867033744ba610461e99d47b.png"></p><p><img class=" tc-image-loading" src="https://i.gyazo.com/38a01b664fc28c354bb4be890f9a3243.png"></p><p>Zeabur 文档中说可以开启 Proxy，前提是你不能使用 <code>Full (strict)</code> Cloudflare SSL/TLS encryption。</p><blockquote><div>Cloudflare SSL/TLS encryption 作用范围是你的整个 Cloudflare 账号，修改后你的所有域名都会受到影响。</div></blockquote><p>我没有修改 Cloudflare SSL/TLS encryption ，依然使用默认的严格模式。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/750f59fbbc7b08b0f60b672caec10c2a.png"></p><p>讨论记录：<a class="tc-tiddlylink-external" href="https://discord.com/channels/1060209568820494336/1060209569315430512/1445591697294884874" rel="noopener noreferrer" target="_blank">https://discord.com/channels/1060209568820494336/1060209569315430512/1445591697294884874</a></p><p>Zeabur 相关文档 <a class="tc-tiddlylink-external" href="https://zeabur.com/docs/en-US/networking/public#custom-domain" rel="noopener noreferrer" target="_blank">https://zeabur.com/docs/en-US/networking/public#custom-domain</a></p>
+  <p>因为 Ruby LSP 扩展默认使用 rbenv，而我已经全面切换到 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#mise">mise</a> 管理 Ruby 版本，导致 Ruby LSP 无法启动。并且我已经全面<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#-ting-zhi-shi-yong-ming-wen-cun-chu-min-gan-xin-xi">停止使用明文存储敏感信息</a>，我还需要配置 GitHub Packages 认证。</p><h2 class="">解决方法：配置 Cursor 让 Ruby LSP 使用 mise</h2><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// .vscode/settings.json</span>
+
+<span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;rubyLsp.rubyVersionManager&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;identifier&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mise&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre><h2 class="">（可选）如果你也使用 GitHub Packages 管理一部分 private packages</h2><p>可能需要配配置 GitHub Packages 认证</p><pre class="hljs"><code class="yml hljs"><span class="hljs-comment"># mise.toml</span>
+
+[<span class="hljs-string">env</span>]
+<span class="hljs-string">BUNDLE_RUBYGEMS__PKG__GITHUB__COM</span> <span class="hljs-string">=</span> <span class="hljs-string">&quot;x-access-token:<span class="hljs-template-variable">{{ exec(command=&#x27;op read op://Private/GITHUB_PACKAGES_ACCESS_TOKEN/token&#x27;) }}</span>&quot;</span></code></pre>
 </div>
 
 
@@ -114,8 +117,8 @@ rm -rvf /Users/tj/.npm/</code></pre><p><img class=" tc-image-loading" src="https
 
 
 ]]></description>
-      <pubDate>Wed, 3 December 2025 3:23:17 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-12-03-zeabur-custom-domain-pei-zhi-bi-ji</guid>      
+      <pubDate>Mon, 19 January 2026 3:58:49 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/2025-12-18-xiu-fu-ruby-lsp-wu-fa-qi-dong</guid>      
    </item>
 
 </channel>

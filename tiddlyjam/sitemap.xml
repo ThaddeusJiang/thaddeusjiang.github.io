@@ -867,7 +867,25 @@
 
    <url>
       <loc>.//2025-12-04-fix-npm-g-install</loc>
-      <lastmod>2025-12-04</lastmod>
+      <lastmod>2026-01-19</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2025-12-09-shi-yong-justfile-jin-si-shi-xian-fuser</loc>
+      <lastmod>2026-01-19</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//2025-12-18-xiu-fu-ruby-lsp-wu-fa-qi-dong</loc>
+      <lastmod>2026-01-19</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//20260119-shi-yong-mise-ti-dai-just</loc>
+      <lastmod>2026-01-19</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

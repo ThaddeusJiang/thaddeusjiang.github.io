@@ -1,0 +1,164 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.3.8" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>2025-12-18 修复 Ruby LSP 无法启动</title>
+<meta name="description" content="因为 Ruby LSP 扩展默认使用 rbenv，而我已经全面切换到 mise 管理 Ruby 版本，导致 Ruby LSP 无法启动。并且我已经全面停止使用明文存储敏感信息，我还需要配置 GitHub Packages 认证。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/2025-12-18-xiu-fu-ruby-lsp-wu-fa-qi-dong" />
+<meta property="og:title" content="2025-12-18 修复 Ruby LSP 无法启动" />
+<meta property="og:description" content="因为 Ruby LSP 扩展默认使用 rbenv，而我已经全面切换到 mise 管理 Ruby 版本，导致 Ruby LSP 无法启动。并且我已经全面停止使用明文存储敏感信息，我还需要配置 GitHub Packages 认证。" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="2025-12-18 修复 Ruby LSP 无法启动" />
+<meta name="twitter:description" content="因为 Ruby LSP 扩展默认使用 rbenv，而我已经全面切换到 mise 管理 Ruby 版本，导致 Ruby LSP 无法启动。并且我已经全面停止使用明文存储敏感信息，我还需要配置 GitHub Packages 认证。" />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" /><link rel="stylesheet" href="./css/custom.css"/>
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title is-3" href="./">TJ's Blog</a>
+        </h1>
+        <p class="subtitle is-6 is-italic">Computer Programs and Others</p>
+      </div>
+      
+    </p></nav></div>
+</div>
+
+
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title is-4">2025-12-18 修复 Ruby LSP 无法启动</h1>
+          <hr>
+
+          <div class="content">
+            <p>因为 Ruby LSP 扩展默认使用 rbenv，而我已经全面切换到 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./mise.html">mise</a> 管理 Ruby 版本，导致 Ruby LSP 无法启动。并且我已经全面<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./-ting-zhi-shi-yong-ming-wen-cun-chu-min-gan-xin-xi.html">停止使用明文存储敏感信息</a>，我还需要配置 GitHub Packages 认证。</p><h2 class="">解决方法：配置 Cursor 让 Ruby LSP 使用 mise</h2><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// .vscode/settings.json</span>
+
+<span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;rubyLsp.rubyVersionManager&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;identifier&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mise&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre><h2 class="">（可选）如果你也使用 GitHub Packages 管理一部分 private packages</h2><p>可能需要配配置 GitHub Packages 认证</p><pre class="hljs"><code class="yml hljs"><span class="hljs-comment"># mise.toml</span>
+
+[<span class="hljs-string">env</span>]
+<span class="hljs-string">BUNDLE_RUBYGEMS__PKG__GITHUB__COM</span> <span class="hljs-string">=</span> <span class="hljs-string">&quot;x-access-token:<span class="hljs-template-variable">{{ exec(command=&#x27;op read op://Private/GITHUB_PACKAGES_ACCESS_TOKEN/token&#x27;) }}</span>&quot;</span></code></pre>
+          </div>          
+      </div>
+  </div>
+</div>     
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./wiki.html">Wiki</a> | <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ja.html">日本語</a>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>
