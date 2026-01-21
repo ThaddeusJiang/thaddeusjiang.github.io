@@ -1,5 +1,5 @@
 created: 20250926033823919
-modified: 20260121052343099
+modified: 20260121055401995
 name: 天海原 / AmamiHara | freelance developer
 published: 20250926033940477
 tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live
@@ -8,8 +8,6 @@ type: text/vnd.tiddlywiki
 
 <div class="container ">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
-
-    <nav class="navbar" role="navigation" aria-label="main navigation">
       
       <div>
         <h1 class="brand">
@@ -17,8 +15,6 @@ type: text/vnd.tiddlywiki
         </h1>
       </div>
       
-    </nav>
-
     <div class="content">
 
 フリーランスのフルサイクル開発者です。

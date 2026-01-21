@@ -1,6 +1,6 @@
 created: 20220313022643471
 description: 
-modified: 20260121052418396
+modified: 20260121055343589
 name: ThaddeusJiang | freelance developer in Japan
 published: 20250926033939445
 tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live
@@ -10,16 +10,11 @@ type: text/vnd.tiddlywiki
 <div class="container ">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      
       <div>
         <h1 class="brand">
           <a class="title is-3" href={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}}>ThaddeusJiang</a>
         </h1>
-      </div>
-      
-    </nav>
-
+      </div>  
 
     <div class="content">
 

@@ -24,6 +24,7 @@
 
 .tc-body {
   font-family: "Chalkboard", "Hannotate SC", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  padding: 1rem 0;
 }
 
 .w-[1/2] {
