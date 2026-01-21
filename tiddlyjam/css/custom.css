@@ -11,11 +11,11 @@
 }
 
 .font-hand {
-  font-family: "Chalkboard";
+  font-family: "Chalkboard", "Hannotate SC", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .brand {
-  font-family: "Marker Felt";
+  font-family: "Marker Felt", "Chalkboard", "Hannotate SC", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   background: -webkit-linear-gradient(207deg, #4285d3 25%, #f364ff);
   background-clip: text;
   -webkit-background-clip: text;
