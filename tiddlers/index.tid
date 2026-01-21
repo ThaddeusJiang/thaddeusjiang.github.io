@@ -1,7 +1,7 @@
 created: 20220313022643471
 description: 
-modified: 20250926034217895
-name: ThaddeusJiang | freelance developer
+modified: 20260121052418396
+name: ThaddeusJiang | freelance developer in Japan
 published: 20250926033939445
 tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live
 title: index
@@ -9,9 +9,41 @@ type: text/vnd.tiddlywiki
 
 <div class="container ">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      
+      <div>
+        <h1 class="brand">
+          <a class="title is-3" href={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}}>ThaddeusJiang</a>
+        </h1>
+      </div>
+      
+    </nav>
+
+
     <div class="content">
 
-      {{AboutMe}}
+I’m a freelance web developer based in Japan.
+
+!! Full Cycle Developer
+
+* Business
+* Architecture
+* Coding
+* Testing
+* Deploying
+* Monitoring 
+* Others
+
+!! Experience & Skills 
+
+* Built global supply chains SaaS, Online shop, HR system, EV charging service, and more.
+* Experienced in frontend and backend development, focusing on improving developer experience, performance, and tech stacks selection.
+* Comfortable working in both large and small teams.
+
+!! Connects
+
+* [[GitHub@ThaddeusJiang|https://github.com/ThaddeusJiang]]
 
     </div>
   </div>

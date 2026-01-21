@@ -1,6 +1,6 @@
 created: 20211117001409176
-modified: 20220327111224846
+modified: 20260121053045913
 title: $:/themes/tiddlywiki/vanilla/settings/editorfontfamily
 type: text/vnd.tiddlywiki
 
-"SFMono-Regular",Weibei SC,Consolas,"Liberation Mono",Menlo,Courier,monospace
+ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"

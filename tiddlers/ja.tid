@@ -1,5 +1,5 @@
 created: 20250926033823919
-modified: 20250926034022128
+modified: 20260121052343099
 name: 天海原 / AmamiHara | freelance developer
 published: 20250926033940477
 tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live
@@ -8,9 +8,37 @@ type: text/vnd.tiddlywiki
 
 <div class="container ">
   <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      
+      <div>
+        <h1 class="brand">
+          <a class="title is-3" href={{$:/plugins/adithyab/tiddlyjam/renderer/baseurl}}>天海原</a>
+        </h1>
+      </div>
+      
+    </nav>
+
     <div class="content">
 
-      {{AboutMe - ja}}
+フリーランスのフルサイクル開発者です。
+
+!! できること
+
+* 事業設計、要件定義
+* アーキテクチャ・システムデザイン
+* 開発、テスト自動化、性能改善
+* 開発体験改善、技術スタック選定
+
+!! 経験・スキル
+
+* グローバルサプライチェーンSaaS、オンラインショップ、HRシステム、EV充電サービスなどの構築経験あり。
+* フロントエンド・バックエンド開発に精通し、開発者体験・性能改善・技術スタック選定の改善に注力。
+* 大規模・小規模チームの両方での開発経験あり。
+
+!! 連絡
+
+* [[Zenn@ThaddeusJiang|https://zenn.dev/thaddeusjiang]] 
 
     </div>
   </div>
