@@ -10,8 +10,8 @@
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.font-hand {
-  font-family: "Chalkboard", "Hannotate SC", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+.font-alpha {
+  font-family: "Chalkboard","Marker Felt","Noteworthy","Bradley Hand", "Hannotate SC", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .brand {
@@ -23,8 +23,12 @@
 }
 
 .tc-body {
-  font-family: "Chalkboard", "Hannotate SC", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Chalkboard", "Marker Felt", "Hannotate SC", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   padding: 1rem 0;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+  font-size: 1.25em !important;
 }
 
 .w-[1/2] {

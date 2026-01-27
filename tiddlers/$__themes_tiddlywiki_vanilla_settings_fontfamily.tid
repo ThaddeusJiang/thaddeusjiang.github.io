@@ -1,8 +1,8 @@
 created: 20210415134148715
 creator: TJ
-modified: 20260121053032020
+modified: 20260127060709031
 modifier: TJ
 title: $:/themes/tiddlywiki/vanilla/settings/fontfamily
 type: text/vnd.tiddlywiki
 
-"Chalkboard", "Hannotate SC", YuMincho, "Hiragino Mincho ProN", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+"Chalkboard","Marker Felt",Noteworthy,"Bradley Hand", "Hannotate SC", YuMincho, "Hiragino Mincho ProN", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"

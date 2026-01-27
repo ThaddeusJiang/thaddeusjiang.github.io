@@ -1,6 +1,6 @@
 created: 20220313022643471
 description: 
-modified: 20260121055343589
+modified: 20260127062039790
 name: ThaddeusJiang | freelance developer in Japan
 published: 20250926033939445
 tags: $:/plugins/adithyab/tiddlyjam/page $:/plugins/adithyab/tiddlyjam/live
@@ -16,7 +16,7 @@ type: text/vnd.tiddlywiki
         </h1>
       </div>  
 
-    <div class="content">
+    <div class="content font-alpha">
 
 I’m a freelance web developer based in Japan.
 

@@ -1,5 +1,6 @@
 [tools]
 "npm:tiddlywiki" = "latest"
+"npm:serve" = "latest"
 
 [tasks.start]
 description = 'Start tiddlywiki server'
@@ -23,6 +24,13 @@ rm -rf output
 sh build
 open ./docs/index.html
 open ./docs/tiddlyjam/index.html
+'''
+
+[tasks.serve]
+description = 'Serve the tiddlyjam'
+run = '''
+#!/usr/bin/env bash
+serve docs/tiddlyjam
 '''
 
 [tasks.push]
