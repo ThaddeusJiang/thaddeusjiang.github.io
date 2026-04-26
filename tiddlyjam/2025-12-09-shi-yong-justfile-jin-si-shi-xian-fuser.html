@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -85,7 +85,7 @@
           <hr>
 
           <div class="content">
-            <p>我发现 macOS 下 fuser 似乎功能不全，无法实现一条命令关闭某个端口的进程。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/ecc465106194992a3c192f597be1282d.png"></p><p>虽然可以组合 lsof 和 kill</p><pre class="hljs"><code class="shell hljs">lsof -ti:4001 | xargs kill -9 2&gt;/dev/null || true</code></pre><p>但是因为我使用这段命令的频率很高，我使用 justfile 近似实现了 fuser -k 的功能。</p><pre><code># justfile
+            <p>我发现 macOS 下 fuser 似乎功能不全，无法实现一条命令关闭某个端口的进程。</p><p><img src="https://i.gyazo.com/ecc465106194992a3c192f597be1282d.png"></p><p>虽然可以组合 lsof 和 kill</p><pre class="hljs"><code class="shell hljs">lsof -ti:4001 | xargs kill -9 2&gt;/dev/null || true</code></pre><p>但是因为我使用这段命令的频率很高，我使用 justfile 近似实现了 fuser -k 的功能。</p><pre><code># justfile
 
 kill port: 
   @lsof -ti:{{port}} | xargs kill -9</code></pre>

@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -87,7 +87,7 @@
           <div class="content">
             <blockquote class="tc-quote tc-big-quote"><p>如果你有一个上古时代的 js 文件，你会直接引用它，还是重写一遍？
 </p><cite>TJ</cite></blockquote><p>React JS/JSX 中引用静态 js 文件，其实超简单。
-只需要在 componentDidMount 创建一个 <code>&lt;script&gt;</code> 标签，并且追加到页面中即可。</p><pre class="hljs"><code class="js hljs">componentDidMount () {
+只需要在 componentDidMount 创建一个 <code>&lt;script&gt;</code> 标签，并且追加到页面中即可。</p><pre class="hljs"><code class="js hljs"><span class="hljs-title function_">componentDidMount</span> () {
   <span class="hljs-keyword">const</span> script = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;script&quot;</span>)
   script.<span class="hljs-property">src</span> = <span class="hljs-string">&quot;https://cdn...&quot;</span>
   script.<span class="hljs-property">async</span> = <span class="hljs-literal">true</span>

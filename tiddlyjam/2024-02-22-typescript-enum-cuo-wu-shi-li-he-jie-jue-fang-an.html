@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -85,7 +85,7 @@
           <hr>
 
           <div class="content">
-            <p>其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：<a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums</a></p><h2 class="">1. Enum 的 key value 完全一致</h2><p>在某项目中看到一段代码，我认为是 TypeScript Enum 的错误示范，如果你的项目中有类似代码，推荐修改一下。</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-built_in">enum</span> <span class="hljs-title class_">EventType</span> {
+            <p>其实 TypeScript 官方文档中已经提到了，“In modern TypeScript, you may not need an enum when an object with as const could suffice”，原文：<a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums</a></p><h2 class="">1. Enum 的 key value 完全一致</h2><p>在某项目中看到一段代码，我认为是 TypeScript Enum 的错误示范，如果你的项目中有类似代码，推荐修改一下。</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">EventType</span> {
   <span class="hljs-title class_">Reserved</span> = <span class="hljs-string">&#x27;Reserved&#x27;</span>,
   <span class="hljs-title class_">ReservationCancelled</span> = <span class="hljs-string">&#x27;ReservationCancelled&#x27;</span>,
   <span class="hljs-title class_">CheckedIn</span> = <span class="hljs-string">&#x27;CheckedIn&#x27;</span>,

@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -85,12 +85,12 @@
           <hr>
 
           <div class="content">
-            <p>我终于解决了 node.js 版本切换时全局安装的 CLI 失效的问题，一次安装，一直可用。🎉</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/ad8ee2e5f016d74251a6da14b200fbca.jpg"></p><p>同时也解决了相同 CLI 在不同 node.js 版本下重复安装的问题。🎊</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/dbe697232b74c5a9d0ba2713eb1ec2aa.png"></p><pre class="hljs"><code class="shell hljs">rm -rvf /Users/tj/.nvm/
+            <p>我终于解决了 node.js 版本切换时全局安装的 CLI 失效的问题，一次安装，一直可用。🎉</p><p><img src="https://i.gyazo.com/ad8ee2e5f016d74251a6da14b200fbca.jpg"></p><p>同时也解决了相同 CLI 在不同 node.js 版本下重复安装的问题。🎊</p><p><img src="https://i.gyazo.com/dbe697232b74c5a9d0ba2713eb1ec2aa.png"></p><pre class="hljs"><code class="shell hljs">rm -rvf /Users/tj/.nvm/
 rm -rvf /Users/tj/.volta
 rm -rvf /opt/homebrew/lib/node_modules
 rm -rvf /Users/tj/.cache/pnpm/dlx 
 rm -rvf /Users/tj/.npm/_npx/
-rm -rvf /Users/tj/.npm/</code></pre><p><img class=" tc-image-loading" src="https://i.gyazo.com/74ddea096a218250bda72eff1dd99fb2.png"></p><p>在删除了 node.js 各种版本中的历史垃圾以后，我的电脑空间瞬间就不紧张了。🥳</p><h2 class="">How</h2><p>我使用 <code>mise</code> 代替 <code>npm -g</code> 。</p><pre class="hljs"><code class="diff hljs"><span class="hljs-deletion">- npm -g install tiddlywiki</span>
+rm -rvf /Users/tj/.npm/</code></pre><p><img src="https://i.gyazo.com/74ddea096a218250bda72eff1dd99fb2.png"></p><p>在删除了 node.js 各种版本中的历史垃圾以后，我的电脑空间瞬间就不紧张了。🥳</p><h2 class="">How</h2><p>我使用 <code>mise</code> 代替 <code>npm -g</code> 。</p><pre class="hljs"><code class="diff hljs"><span class="hljs-deletion">- npm -g install tiddlywiki</span>
 <span class="hljs-addition">+ mise use -g npm:tiddlywiki</span></code></pre><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://mise.jdx.dev/dev-tools/backends/npm.html" rel="noopener noreferrer" target="_blank">https://mise.jdx.dev/dev-tools/backends/npm.html</a></li></ul>
           </div>          
       </div>

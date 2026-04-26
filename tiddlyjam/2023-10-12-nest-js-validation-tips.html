@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -90,7 +90,7 @@
   <span class="hljs-attr">offset</span>: <span class="hljs-built_in">number</span>;
 
   <span class="hljs-meta">@IsInt</span>()
-  limit?: <span class="hljs-built_in">number</span>;</code></pre><p>@Type(() =&gt; Date) 和 :string 也让人困惑。</p><blockquote><div>类型转换用注解还是代码呢？</div></blockquote><pre class="hljs"><code class="ts hljs">  <span class="hljs-meta">@IsDate</span>()
+  <span class="hljs-attr">limit</span>?: <span class="hljs-built_in">number</span>;</code></pre><p>@Type(() =&gt; Date) 和 :string 也让人困惑。</p><blockquote><div>类型转换用注解还是代码呢？</div></blockquote><pre class="hljs"><code class="ts hljs">  <span class="hljs-meta">@IsDate</span>()
   <span class="hljs-meta">@Type</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title class_">Date</span>)
   <span class="hljs-attr">dateFrom</span>: <span class="hljs-built_in">string</span>;
 

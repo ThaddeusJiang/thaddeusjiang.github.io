@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -95,11 +95,11 @@
       <span class="hljs-punctuation">{</span>
         <span class="hljs-attr">&quot;libraryName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;antd&quot;</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;libraryDirectory&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;es&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+        <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
       <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">]</span>
   <span class="hljs-punctuation">]</span>
-<span class="hljs-punctuation">}</span></code></pre><p>问题</p><p>Jest 执行测试时出现 SyntaxError: Unexpected token import 错误。</p><p><img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/39807414-347f9684-53b7-11e8-878f-1a99c6ea875d.png"></p><p>原因：Jest 无法理解 ES6 的 <code>import</code> 特性。</p><p>解决方法：</p><p>第 1 步：删掉 bebel-plugin-import 配置中 <code>libraryDirectory</code> 的部分。</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// .babelrc</span>
+<span class="hljs-punctuation">}</span></code></pre><p>问题</p><p>Jest 执行测试时出现 SyntaxError: Unexpected token import 错误。</p><p><img src="https://user-images.githubusercontent.com/17308201/39807414-347f9684-53b7-11e8-878f-1a99c6ea875d.png"></p><p>原因：Jest 无法理解 ES6 的 <code>import</code> 特性。</p><p>解决方法：</p><p>第 1 步：删掉 bebel-plugin-import 配置中 <code>libraryDirectory</code> 的部分。</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// .babelrc</span>
 <span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;presets&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;env&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;react&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;stage-0&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">&quot;plugins&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
@@ -107,11 +107,11 @@
       <span class="hljs-string">&quot;import&quot;</span><span class="hljs-punctuation">,</span>
       <span class="hljs-punctuation">{</span>
         <span class="hljs-attr">&quot;libraryName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;antd&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+        <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
       <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">]</span>
   <span class="hljs-punctuation">]</span>
-<span class="hljs-punctuation">}</span></code></pre><p>这时，运行 jest 会出现 ReferenceError: Select is not defined 错误。</p><p><img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/39807911-85bc09e6-53b8-11e8-83d3-fc66830bb5e2.png"></p><p>第 2 步：安装 babel-plugin-transform-es2015-modules-commonjs</p><pre class="hljs"><code class="sh hljs">$ yarn add --dev babel-plugin-transform-es2015-modules-commonjs</code></pre><p>更新 .babelrc</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// .babelrc</span>
+<span class="hljs-punctuation">}</span></code></pre><p>这时，运行 jest 会出现 ReferenceError: Select is not defined 错误。</p><p><img src="https://user-images.githubusercontent.com/17308201/39807911-85bc09e6-53b8-11e8-83d3-fc66830bb5e2.png"></p><p>第 2 步：安装 babel-plugin-transform-es2015-modules-commonjs</p><pre class="hljs"><code class="sh hljs">$ yarn add --dev babel-plugin-transform-es2015-modules-commonjs</code></pre><p>更新 .babelrc</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// .babelrc</span>
 <span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;presets&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;env&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;react&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;stage-0&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">&quot;plugins&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
@@ -120,11 +120,11 @@
       <span class="hljs-string">&quot;import&quot;</span><span class="hljs-punctuation">,</span>
       <span class="hljs-punctuation">{</span>
         <span class="hljs-attr">&quot;libraryName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;antd&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+        <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
       <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">]</span>
   <span class="hljs-punctuation">]</span>
-<span class="hljs-punctuation">}</span></code></pre><p>再次运行 jest，问题解决了。</p><p><img class=" tc-image-loading" src="https://user-images.githubusercontent.com/17308201/39808022-d5250500-53b8-11e8-8158-4b0825482904.png"></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/ant-design/ant-design/issues/5362" rel="noopener noreferrer" target="_blank">https://github.com/ant-design/ant-design/issues/5362</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/ant-design/babel-plugin-import/issues/189" rel="noopener noreferrer" target="_blank">https://github.com/ant-design/babel-plugin-import/issues/189</a></li><li><a class="tc-tiddlylink-external" href="https://www.npmjs.com/package/babel-plugin-import" rel="noopener noreferrer" target="_blank">https://www.npmjs.com/package/babel-plugin-import</a></li></ul>
+<span class="hljs-punctuation">}</span></code></pre><p>再次运行 jest，问题解决了。</p><p><img src="https://user-images.githubusercontent.com/17308201/39808022-d5250500-53b8-11e8-8158-4b0825482904.png"></p><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://github.com/ant-design/ant-design/issues/5362" rel="noopener noreferrer" target="_blank">https://github.com/ant-design/ant-design/issues/5362</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/ant-design/babel-plugin-import/issues/189" rel="noopener noreferrer" target="_blank">https://github.com/ant-design/babel-plugin-import/issues/189</a></li><li><a class="tc-tiddlylink-external" href="https://www.npmjs.com/package/babel-plugin-import" rel="noopener noreferrer" target="_blank">https://www.npmjs.com/package/babel-plugin-import</a></li></ul>
           </div>          
       </div>
   </div>

@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -97,7 +97,7 @@
 <span class="hljs-title function_">it</span>(<span class="hljs-string">&quot;visual testing for login page&quot;</span>, <span class="hljs-function">() =&gt;</span> {
   cy.<span class="hljs-title function_">visit</span>(<span class="hljs-string">&quot;/login&quot;</span>)
   cy.<span class="hljs-title function_">percySnapshot</span>()
-})</code></pre><p>5. 登陆 [Percy](<a class="tc-tiddlylink-external" href="https://percy.io/" rel="noopener noreferrer" target="_blank">https://percy.io/</a>) 新建项目，并获得 Token</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/99015684ec24f10d7e5e08839e6a568c.jpg"></p><p>6. 通过 Percy 启动 Cypress</p><pre class="hljs"><code class="bash hljs">$ PERCY_TOKEN=xxx percy <span class="hljs-built_in">exec</span> -- cypress run</code></pre><h1 class="">3. 常见问题</h1><p>1. 如何自动化测试</p><p>以 GitHub Actions 为例：</p><p>第一步：定义 npm scripts</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// package.json</span>
+})</code></pre><p>5. 登陆 [Percy](<a class="tc-tiddlylink-external" href="https://percy.io/" rel="noopener noreferrer" target="_blank">https://percy.io/</a>) 新建项目，并获得 Token</p><p><img src="https://i.gyazo.com/99015684ec24f10d7e5e08839e6a568c.jpg"></p><p>6. 通过 Percy 启动 Cypress</p><pre class="hljs"><code class="bash hljs">$ PERCY_TOKEN=xxx percy <span class="hljs-built_in">exec</span> -- cypress run</code></pre><h1 class="">3. 常见问题</h1><p>1. 如何自动化测试</p><p>以 GitHub Actions 为例：</p><p>第一步：定义 npm scripts</p><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// package.json</span>
 <span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;start&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;react-scripts start&quot;</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;react-scripts build&quot;</span><span class="hljs-punctuation">,</span>

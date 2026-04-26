@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -97,7 +97,7 @@
     <span class="hljs-attr">items</span>: {}
   }),
   <span class="hljs-attr">actions</span>: {
-      fetchItem ({ commit }, id) {
+      <span class="hljs-title function_">fetchItem</span> ({ commit }, id) {
         <span class="hljs-comment">// `store.dispatch()` 会返回 Promise，</span>
         <span class="hljs-comment">// 以便我们能够知道数据在何时更新</span>
         <span class="hljs-keyword">return</span> <span class="hljs-title function_">fetchItem</span>(id).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> {
@@ -106,7 +106,7 @@
       }
     },
     <span class="hljs-attr">mutations</span>: {
-      setItem (state, { id, item }) {
+      <span class="hljs-title function_">setItem</span> (state, { id, item }) {
         <span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">set</span>(state.<span class="hljs-property">items</span>, id, item)
       }
     }
@@ -120,18 +120,18 @@ Nuxt 有 <code>asyncData</code> 或 <code>fetch</code> 函数。</p><pre class="
 
 <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
-  asyncData ({ store, route }) {
+  <span class="hljs-title function_">asyncData</span> ({ store, route }) {
     <span class="hljs-comment">// 触发 action 后，会返回 Promise</span>
     <span class="hljs-keyword">return</span> store.<span class="hljs-title function_">dispatch</span>(<span class="hljs-string">&#x27;fetchItem&#x27;</span>, route.<span class="hljs-property">params</span>.<span class="hljs-property">id</span>)
   },
   <span class="hljs-attr">computed</span>: {
     <span class="hljs-comment">// 从 store 的 state 对象中的获取 item。</span>
-    item () {
+    <span class="hljs-title function_">item</span> () {
       <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">$store</span>.<span class="hljs-property">state</span>.<span class="hljs-property">items</span>[<span class="hljs-variable language_">this</span>.<span class="hljs-property">$route</span>.<span class="hljs-property">params</span>.<span class="hljs-property">id</span>]
     }
   }
 }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre><h1 class="">SSR 不全是服务器端渲染，也有一部分是浏览器渲染的</h1><p>vue 通过 <code>data-server-rendered</code> 属性识别哪些 HTML 是服务器渲染的。</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span> <span class="hljs-attr">data-server-rendered</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span></code></pre><p>因为每个请求都需要一个全新的 Vue 实例，Code Splitting 还是不能少</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Foo</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-title function_">import</span>(<span class="hljs-string">&#x27;./Foo.vue&#x27;</span>)</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://ssr.vuejs.org/" rel="noopener noreferrer" target="_blank">https://ssr.vuejs.org/</a></li><li><a class="tc-tiddlylink-external" href="https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑" rel="noopener noreferrer" target="_blank">https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑</a></li></ul>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre><h1 class="">SSR 不全是服务器端渲染，也有一部分是浏览器渲染的</h1><p>vue 通过 <code>data-server-rendered</code> 属性识别哪些 HTML 是服务器渲染的。</p><pre class="hljs"><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span> <span class="hljs-attr">data-server-rendered</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span></code></pre><p>因为每个请求都需要一个全新的 Vue 实例，Code Splitting 还是不能少</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Foo</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">&#x27;./Foo.vue&#x27;</span>)</code></pre><p>refs:</p><ul><li><a class="tc-tiddlylink-external" href="https://ssr.vuejs.org/" rel="noopener noreferrer" target="_blank">https://ssr.vuejs.org/</a></li><li><a class="tc-tiddlylink-external" href="https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑" rel="noopener noreferrer" target="_blank">https://ssr.vuejs.org/zh/guide/hydration.html#一些需要注意的坑</a></li></ul>
           </div>          
       </div>
   </div>

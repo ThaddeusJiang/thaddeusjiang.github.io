@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -85,13 +85,13 @@
           <hr>
 
           <div class="content">
-            <p>浏览器默认位置：</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/62432c1ac490a439ec3f9430198cf98d.png"></p><p>期待调整 icon 位置，使 select 前后 padding 一致。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/8da117723711e389d1f81b8f3d1e1111.png"></p><p>CSS 没有开箱即用的方法可以实现期待效果，但是想要实现也不难。</p><h2 class="">Code in tailwindUI</h2><pre class="hljs"><code class="css hljs">select {
-  appearance: none;
+            <p>浏览器默认位置：</p><p><img src="https://i.gyazo.com/62432c1ac490a439ec3f9430198cf98d.png"></p><p>期待调整 icon 位置，使 select 前后 padding 一致。</p><p><img src="https://i.gyazo.com/8da117723711e389d1f81b8f3d1e1111.png"></p><p>CSS 没有开箱即用的方法可以实现期待效果，但是想要实现也不难。</p><h2 class="">Code in tailwindUI</h2><pre class="hljs"><code class="css hljs"><span class="hljs-selector-tag">select</span> {
+  <span class="hljs-attribute">appearance</span>: none;
   <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;data:image/svg+xml,%3csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; fill=&#x27;none&#x27; viewBox=&#x27;0 0 20 20&#x27;%3e%3cpath stroke=&#x27;%236b7280&#x27; stroke-linecap=&#x27;round&#x27; stroke-linejoin=&#x27;round&#x27; stroke-width=&#x27;1.5&#x27; d=&#x27;M6 8l4 4 4-4&#x27;/%3e%3c/svg%3e&quot;</span>);
   <span class="hljs-attribute">background-position</span>: right <span class="hljs-number">0.5rem</span> center;
   <span class="hljs-attribute">background-repeat</span>: no-repeat;
   <span class="hljs-attribute">background-size</span>: <span class="hljs-number">1.5em</span> <span class="hljs-number">1.5em</span>;
-}</code></pre><h2 class="">笔记</h2><p>1. 移除浏览器默认 style</p><pre class="hljs"><code class="css hljs">appearance: none;</code></pre><p>2. 使用 background-image 模拟展开符号</p><pre class="hljs"><code class="css hljs"><span class="hljs-comment">/* SVG */</span>
+}</code></pre><h2 class="">笔记</h2><p>1. 移除浏览器默认 style</p><pre class="hljs"><code class="css hljs"><span class="hljs-attribute">appearance</span>: none;</code></pre><p>2. 使用 background-image 模拟展开符号</p><pre class="hljs"><code class="css hljs"><span class="hljs-comment">/* SVG */</span>
 <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;data:image/svg+xml,%3csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; fill=&#x27;none&#x27; viewBox=&#x27;0 0 20 20&#x27;%3e%3cpath stroke=&#x27;%236b7280&#x27; stroke-linecap=&#x27;round&#x27; stroke-linejoin=&#x27;round&#x27; stroke-width=&#x27;1.5&#x27; d=&#x27;M6 8l4 4 4-4&#x27;/%3e%3c/svg%3e&quot;</span>);
 
 <span class="hljs-comment">/* 禁止重复 */</span>
@@ -102,9 +102,9 @@
 
 <span class="hljs-comment">/* 调整大小 */</span>
 <span class="hljs-attribute">background-size</span>: <span class="hljs-number">1.5em</span> <span class="hljs-number">1.5em</span>;</code></pre><h2 class="">当然，也可以 copy CSS from daisyUI</h2><pre class="hljs"><code class="css hljs"><span class="hljs-selector-class">.select</span> {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    -webkit-<span class="hljs-attribute">appearance</span>: none;
+    -moz-<span class="hljs-attribute">appearance</span>: none;
+    <span class="hljs-attribute">appearance</span>: none;
     
     <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">45deg</span>, transparent <span class="hljs-number">50%</span>, currentColor <span class="hljs-number">50%</span>), <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">135deg</span>, currentColor <span class="hljs-number">50%</span>, transparent <span class="hljs-number">50%</span>);
     <span class="hljs-attribute">background-position</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">20px</span>) <span class="hljs-built_in">calc</span>(<span class="hljs-number">1px</span> + <span class="hljs-number">50%</span>), <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">16.1px</span>) <span class="hljs-built_in">calc</span>(<span class="hljs-number">1px</span> + <span class="hljs-number">50%</span>);
@@ -112,7 +112,7 @@
     <span class="hljs-attribute">background-repeat</span>: no-repeat;
 }</code></pre><h2 class="">其他</h2><p>其他需要留意的默认风格</p><p>1. input[type=number] 数字调节按钮太丑了，推荐移除默认风格</p><pre class="hljs"><code class="css hljs"><span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=<span class="hljs-string">&quot;number&quot;</span>]</span>::-webkit-outer-spin-button,
 input[type=<span class="hljs-string">&quot;number&quot;</span>]::-webkit-inner-spin-button {
-  appearance: none;
+  <span class="hljs-attribute">appearance</span>: none;
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 }</code></pre>
           </div>          

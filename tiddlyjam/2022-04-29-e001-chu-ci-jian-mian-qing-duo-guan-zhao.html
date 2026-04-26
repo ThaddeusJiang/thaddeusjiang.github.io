@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -89,9 +89,9 @@
 希望大家今后能根据业务实际含义使用正确的 HTML 元素：</p><ol><li><code>&lt;em&gt;</code> 标记出需要用户着重阅读的内容</li><li><code>&lt;strong&gt;</code> 标记出重要中内容</li><li><code>&lt;i&gt;</code> 仅仅表示斜体</li><li><code>&lt;b&gt;</code> 仅仅表示粗体</li></ol><p>举个例子：Emphasis vs. Strong</p><p><code>&lt;em&gt;</code> 用于改变一个句子的意思，比如：“我<em><strong>喜欢</strong></em>胡萝卜” 和“我喜欢<em><strong>胡萝卜</strong></em>”，分别强调喜欢和胡萝卜。</p><p><code>&lt;strong&gt;</code> 用来对一个句子的部分增加重要性，比如 “<strong>警告</strong>! 这非常危险。”</p><blockquote class="tc-quote tc-big-quote"><p>虽然 CSS 也能实现斜体、粗体或者斜体且加粗的视觉效果，但是却丢失了语义。
 </p><cite>TJ</cite></blockquote><h1 class="">2. Mocking API for Frontend</h1><p>互联网产品通常要同时对应多种终端，例如：Web、App 甚至第三方平台，所以目前前后端分离是主流。
 前后端分离在代码层级实现了解耦，但是没有解决路径依赖，Frontend 功能还是依赖 Backend 的实现。这时 Mocking API for Frontend 就出现了。</p><p>如果没有 Mock，Application 和 Server 的关系：
-<img class=" tc-image-loading" src="https://i.gyazo.com/891a5b7a0ebe007e7f8e7c06344932e3.jpg"></p><p>我不想分享如何 mocking API，我只分享 mocking API 的种类。</p><p>2 种不同类型的 Mocking API</p><p>1. Mocking the request client
-<img class=" tc-image-loading" src="https://i.gyazo.com/eca22c4e52c85626760820a7c768c783.jpg"></p><p>2. Mocking the server
-<img class=" tc-image-loading" src="https://i.gyazo.com/c05918da1d8a5409b773c724ed1d1923.jpg"></p><h1 class="">然后，分享几个 Twitter bookmarks</h1><p>1. native API for deep copying objects in JS</p><p><img class=" tc-image-loading" src="https://pbs.twimg.com/media/FRc2xCqXIAAQeQU?format=jpg&amp;name=medium"></p><p>我十分喜欢图解。
+<img src="https://i.gyazo.com/891a5b7a0ebe007e7f8e7c06344932e3.jpg"></p><p>我不想分享如何 mocking API，我只分享 mocking API 的种类。</p><p>2 种不同类型的 Mocking API</p><p>1. Mocking the request client
+<img src="https://i.gyazo.com/eca22c4e52c85626760820a7c768c783.jpg"></p><p>2. Mocking the server
+<img src="https://i.gyazo.com/c05918da1d8a5409b773c724ed1d1923.jpg"></p><h1 class="">然后，分享几个 Twitter bookmarks</h1><p>1. native API for deep copying objects in JS</p><p><img src="https://pbs.twimg.com/media/FRc2xCqXIAAQeQU?format=jpg&amp;name=medium"></p><p>我十分喜欢图解。
 根据研究发现，人脑对图像的记忆是强于对文字的记忆的，很多时候通过文字展示的知识看过很多遍却经常忘记。
 这时候如果能用图解的方式展示出来，通常可以记得更久。</p><p>2. 软件应该是美丽的</p><blockquote class="tc-quote tc-big-quote"><p>Notion 的巨幅户外广告，居然是一点一点手绘出来的巨型壁画。Notion 风格的手绘小人，展示了科技公司里与众不同的诗意和文艺气息。
 </p><cite>倪爽</cite></blockquote><p>我非常认同“软件应该是美丽的”，这句话让我想起《黑客与画家》，黑客与画家都是创造者，那么他们创造出来的东西都应该是美丽的。美丽有许多不同的层面，不仅仅是视觉上，软件架构也应该美丽的，软件工作流程也应该是美丽的，从事软件开发的工程师的心灵也应该是美丽的。</p><h1 class="">最后，分享几个我很喜欢的 OSS</h1><p>1. react-query</p><p>我从 2020 年就开始使用 react-query，官网介绍：“Hooks for fetching, caching and updating asynchronous data in React”，但是我更喜欢另外一个介绍：“the popular async state management library”。</p><p>因为使用 react-query，我开始真正理解 async state management，我才能自由地运用 API，URL，LocalStorage/SessionStorage，JS runtime 管理应用程序的状态。

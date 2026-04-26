@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -98,7 +98,7 @@ message <span class="hljs-title class_">ChargingProfile</span> {
   <span class="hljs-comment">/**
    * <span class="hljs-doctag">@generated</span> from field: optional int32 duration = 2;
    */</span>
-  duration?: <span class="hljs-built_in">number</span>;
+  <span class="hljs-attr">duration</span>?: <span class="hljs-built_in">number</span>;
   <span class="hljs-comment">// ...</span></code></pre><h2 class="">2. prisma and generated code</h2><p>prisma schema</p><pre class="hljs"><code class="ts hljs"><span class="hljs-comment">// schema.prisma</span>
 model <span class="hljs-title class_">ChargingProfile</span> {
   <span class="hljs-comment">// ...</span>
@@ -118,10 +118,10 @@ model <span class="hljs-title class_">ChargingProfile</span> {
   <span class="hljs-comment">// ...</span>
   <span class="hljs-meta">@IsOptional</span>()
   <span class="hljs-meta">@IsInt</span>()
-  duration?: <span class="hljs-built_in">number</span>;
+  <span class="hljs-attr">duration</span>?: <span class="hljs-built_in">number</span>;
   <span class="hljs-comment">// ...</span>
 }</code></pre><p>其实 class-validator 实现的代码和本文没什么关系，不过这段代码是真实存在于我们的代码库中的，我就顺便分享一下。</p><p>并且，我非常不喜欢 class-validator，原因有以下几点：</p><ol><li>class-validator 和 TypeScript 在某些方面是重复的，例如 <code>@IsOptional()</code> 和 <code>?</code></li><li>class-validator 只能校验 class instance，如果想校验 JSON 还需要额外依赖（class-transformer）</li><li>class-validator 文档不全，例如：我一直没有找到 <code>@IsNumber(options: IsNumberOptions)</code> 中 options 有哪些配置项</li></ol><h2 class="">最后，分享几种 TypeScript 中 number 的定义</h2><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">type</span> A = {
-  a?: <span class="hljs-built_in">number</span>
+  <span class="hljs-attr">a</span>?: <span class="hljs-built_in">number</span>
 }
 
 <span class="hljs-keyword">type</span> B = {
@@ -138,7 +138,7 @@ model <span class="hljs-title class_">ChargingProfile</span> {
 
 <span class="hljs-keyword">type</span> E = {
   <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>
-}</code></pre><p>大家参加的项目中用哪一种呢？就个人而言，你倾向哪一种？</p><p>欢迎大家和我一起讨论：</p><ul><li>x.com: <a class="tc-tiddlylink-external" href="https://x.com/ThaddeusJiang/status/1745085873807347771" rel="noopener noreferrer" target="_blank">https://x.com/ThaddeusJiang/status/1745085873807347771</a></li><li>telegram: <a class="tc-tiddlylink-external" href="https://t.me/talktalk_developer/539" rel="noopener noreferrer" target="_blank">https://t.me/talktalk_developer/539</a></li><li>github: <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/thaddeusjiang.github.io/discussions/63" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/thaddeusjiang.github.io/discussions/63</a></li></ul><h2 class="">更新</h2><blockquote><div>2025-05-07 </div></blockquote><p>在 nuqs 再次遇到 optional field default value is <code>null</code> 的问题。</p><p><img class=" tc-image-loading" src="https://i.gyazo.com/791446cf42b5a90ce5d4190c213e257f.png"></p><p>在 nuqs 中，如果在 query string 中没有找到指定 key，返回的值是 <code>null</code>。</p><ul><li><a class="tc-tiddlylink-external" href="https://nuqs.47ng.com/docs/basic-usage" rel="noopener noreferrer" target="_blank">https://nuqs.47ng.com/docs/basic-usage</a></li></ul><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://protobuf.dev/" rel="noopener noreferrer" target="_blank">https://protobuf.dev/</a></li><li><a class="tc-tiddlylink-external" href="https://www.prisma.io/" rel="noopener noreferrer" target="_blank">https://www.prisma.io/</a></li><li><a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/typestack/class-validator" rel="noopener noreferrer" target="_blank">https://github.com/typestack/class-validator</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/typestack/class-transformer" rel="noopener noreferrer" target="_blank">https://github.com/typestack/class-transformer</a></li></ul>
+}</code></pre><p>大家参加的项目中用哪一种呢？就个人而言，你倾向哪一种？</p><p>欢迎大家和我一起讨论：</p><ul><li>x.com: <a class="tc-tiddlylink-external" href="https://x.com/ThaddeusJiang/status/1745085873807347771" rel="noopener noreferrer" target="_blank">https://x.com/ThaddeusJiang/status/1745085873807347771</a></li><li>telegram: <a class="tc-tiddlylink-external" href="https://t.me/talktalk_developer/539" rel="noopener noreferrer" target="_blank">https://t.me/talktalk_developer/539</a></li><li>github: <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/thaddeusjiang.github.io/discussions/63" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/thaddeusjiang.github.io/discussions/63</a></li></ul><h2 class="">更新</h2><blockquote><div>2025-05-07 </div></blockquote><p>在 nuqs 再次遇到 optional field default value is <code>null</code> 的问题。</p><p><img src="https://i.gyazo.com/791446cf42b5a90ce5d4190c213e257f.png"></p><p>在 nuqs 中，如果在 query string 中没有找到指定 key，返回的值是 <code>null</code>。</p><ul><li><a class="tc-tiddlylink-external" href="https://nuqs.47ng.com/docs/basic-usage" rel="noopener noreferrer" target="_blank">https://nuqs.47ng.com/docs/basic-usage</a></li></ul><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://protobuf.dev/" rel="noopener noreferrer" target="_blank">https://protobuf.dev/</a></li><li><a class="tc-tiddlylink-external" href="https://www.prisma.io/" rel="noopener noreferrer" target="_blank">https://www.prisma.io/</a></li><li><a class="tc-tiddlylink-external" href="https://www.typescriptlang.org/" rel="noopener noreferrer" target="_blank">https://www.typescriptlang.org/</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/typestack/class-validator" rel="noopener noreferrer" target="_blank">https://github.com/typestack/class-validator</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/typestack/class-transformer" rel="noopener noreferrer" target="_blank">https://github.com/typestack/class-transformer</a></li></ul>
           </div>          
       </div>
   </div>

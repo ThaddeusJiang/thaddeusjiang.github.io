@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -91,7 +91,7 @@
   </div>
   <figcaption style="text-align:center;font-style:italic;opacity:0.8;">bignumber.js</figcaption>
 </figure></p><h1 class="">3. int32 int64 对应 TS 类型没有统一标准</h1><p>Prisma scheme 支持 BigInt 类型，对应 TS BigInt 类型</p><p>Protocol Buffers 的 int32 int64 类型分别对应 TS number 和 Long</p><p>如果你同时使用 Prisma BigInt 和 protobuf int64 的话，你带代码中就会出现大量相互转换的 utils，类似下面这种：</p><blockquote><div>👇这些代码都是我从其他人的代码中 copy 过来的，不是我写的，我也永远不用写这种代码。</div></blockquote><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BigIntUtil</span> {
-  <span class="hljs-keyword">static</span> <span class="hljs-title function_">toNumber</span>(<span class="hljs-attr">b</span>: bigint): <span class="hljs-built_in">number</span> {
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">toNumber</span>(<span class="hljs-attr">b</span>: <span class="hljs-built_in">bigint</span>): <span class="hljs-built_in">number</span> {
     <span class="hljs-keyword">const</span> n = <span class="hljs-built_in">parseInt</span>(b.<span class="hljs-title function_">toString</span>());
     <span class="hljs-keyword">if</span> (!<span class="hljs-title class_">Number</span>.<span class="hljs-title function_">isSafeInteger</span>(n)) {
       <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(
@@ -101,7 +101,7 @@
     <span class="hljs-keyword">return</span> n;
   }
 
-  <span class="hljs-keyword">static</span> <span class="hljs-title function_">from</span>(<span class="hljs-attr">v</span>: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | bigint): bigint {
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">from</span>(<span class="hljs-attr">v</span>: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | <span class="hljs-built_in">bigint</span>): <span class="hljs-built_in">bigint</span> {
     <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> v === <span class="hljs-string">&#x27;bigint&#x27;</span>) {
       <span class="hljs-keyword">return</span> v;
     }
@@ -110,18 +110,18 @@
 }</code></pre><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Long</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;long&#x27;</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LongUtil</span> {
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: bigint): <span class="hljs-title class_">Long</span>;
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: bigint | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span>;
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: bigint | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-built_in">bigint</span>): <span class="hljs-title class_">Long</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-built_in">bigint</span> | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">fromBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-built_in">bigint</span> | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> {
     <span class="hljs-keyword">if</span> (num === <span class="hljs-literal">undefined</span> || num === <span class="hljs-literal">null</span>) {
       <span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
     }
     <span class="hljs-keyword">return</span> <span class="hljs-title class_">Long</span>.<span class="hljs-title function_">fromNumber</span>(<span class="hljs-title class_">Number</span>(num));
   }
 
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span>): bigint;
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): bigint | <span class="hljs-literal">undefined</span>;
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): bigint | <span class="hljs-literal">undefined</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span>): <span class="hljs-built_in">bigint</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): <span class="hljs-built_in">bigint</span> | <span class="hljs-literal">undefined</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">toBigInt</span>(<span class="hljs-attr">num</span>: <span class="hljs-title class_">Long</span> | <span class="hljs-literal">undefined</span> | <span class="hljs-literal">null</span>): <span class="hljs-built_in">bigint</span> | <span class="hljs-literal">undefined</span> {
     <span class="hljs-keyword">if</span> (num === <span class="hljs-literal">undefined</span> || num === <span class="hljs-literal">null</span>) {
       <span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
     }

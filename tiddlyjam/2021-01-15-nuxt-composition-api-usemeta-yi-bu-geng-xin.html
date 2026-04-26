@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -88,7 +88,7 @@
             <p>我们项目想提前体验 Vue Composition API 并且享受 Nuxt 的 SSR。
 所以使用了 <a class="tc-tiddlylink-external" href="https://composition-api.nuxtjs.org/" rel="noopener noreferrer" target="_blank">@nuxtjs/composition-api</a></p><p>一个小需求，从 API 获取数据，更新 document 的 <code>title</code> 。</p><p>我们使用 <code>useMeta</code></p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">const</span> { title, meta } = <span class="hljs-title function_">useMeta</span>()
 
-<span class="hljs-title function_">useFetch</span>(<span class="hljs-keyword">async</span> () =&gt; {
+<span class="hljs-title function_">useFetch</span>(<span class="hljs-title function_">async</span> () =&gt; {
   <span class="hljs-keyword">const</span> data  = <span class="hljs-keyword">await</span> <span class="hljs-title function_">someAjax</span>();
 
   title.<span class="hljs-property">value</span>.<span class="hljs-property">title</span> = data.<span class="hljs-property">title</span>

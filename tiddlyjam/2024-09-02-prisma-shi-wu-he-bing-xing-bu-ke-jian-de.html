@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.3.8" />
+  <meta name="tiddlywiki-version" content="5.4.0" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -85,7 +85,7 @@
           <hr>
 
           <div class="content">
-            <p>在 prisma.$transaction() 中采用并行代码是十分危险且不推荐的。</p><p>如下代码是错误的用法，可能会导致不可预期的行为</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">await</span> prisma.$transaction(<span class="hljs-keyword">async</span> (prisma) =&gt; {
+            <p>在 prisma.$transaction() 中采用并行代码是十分危险且不推荐的。</p><p>如下代码是错误的用法，可能会导致不可预期的行为</p><pre class="hljs"><code class="js hljs"><span class="hljs-keyword">await</span> prisma.$transaction(<span class="hljs-title function_">async</span> (prisma) =&gt; {
   <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>([
     prisma.<span class="hljs-property">user</span>.<span class="hljs-title function_">create</span>({ <span class="hljs-attr">data</span>: { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span> } }),
     prisma.<span class="hljs-property">post</span>.<span class="hljs-title function_">create</span>({ <span class="hljs-attr">data</span>: { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Hello World&#x27;</span> } })
