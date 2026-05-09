@@ -60,3 +60,5 @@ pre {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+img { max-height: 500px; }
