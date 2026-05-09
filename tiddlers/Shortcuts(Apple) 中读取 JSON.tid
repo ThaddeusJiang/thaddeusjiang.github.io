@@ -1,0 +1,25 @@
+created: 20260509071105686
+modified: 20260509072546572
+tags: dev-note $:/plugins/adithyab/tiddlyjam/live
+title: Shortcuts(Apple) 中读取 JSON
+type: text/vnd.tiddlywiki
+
+Shortcuts 中读取 JSON 是通过 `Get Dictionary Value`
+
+[img[https://i.imgur.com/S0Xm5EV.jpeg]]
+
+
+```json
+{
+  "statusCode": 400,
+  "statusMessage": "Bad Request",
+  "message": "Human readable error message"
+}
+```
+
+* Variable Name: `optional`
+* Type: `Dictionary`
+* Get Value for Key: your need
+
+[img[https://i.imgur.com/oGJ1bKJ.jpeg]]
+
