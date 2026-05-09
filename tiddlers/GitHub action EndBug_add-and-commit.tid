@@ -1,0 +1,17 @@
+created: 20260428041601877
+modified: 20260428042643930
+tags: TechRadar/放弃
+title: GitHub action EndBug/add-and-commit
+type: text/vnd.tiddlywiki
+
+
+2026-04-28 放弃使用 https://github.com/EndBug/add-and-commit 转向 https://github.com/stefanzweifel/git-auto-commit-action
+
+理由：
+
+* EndBug/add-and-commit 在文件夹为空时会抄错，导致 action failed
+
+
+
+
+

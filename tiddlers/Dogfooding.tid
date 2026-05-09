@@ -1,9 +1,10 @@
 created: 20240909024819502
-modified: 20250918162445636
+list: Vmemo save_it TiddlyJam tw-Nowledge chr tw5-lego
+modified: 20260509073451405
 published: 20241023064929211
 tags: 
 title: Dogfooding
 type: text/vnd.tiddlywiki
 
 
-<<list-links filter:"[tag<currentTiddler>]" >>
+<$macrocall $name="list-tagged-draggable" tag=<<currentTiddler>>/>

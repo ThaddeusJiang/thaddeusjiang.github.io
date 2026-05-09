@@ -1,0 +1,20 @@
+created: 20260423082258288
+modified: 20260423083320202
+tags: tj-stack
+title: react-hot-toast
+type: text/vnd.tiddlywiki
+
+20260423 即使很久没有在项目中使用 react-hot-toast 了，再次看它依然觉得很优雅。深爱之。
+
+近期不使用 react-hot-toast 不是它的问题，是很多项目已经有了类似的代码，虽然希望能使用 react-hot-toast，但是因为投入看不到明显受益，属于费力不讨好的工作，年纪大了以后就不强求了。
+
+我一直喜欢这种自带优雅 styling 的小工具，jQuery 时代我使用 https://sweetalert2.github.io/ 很喜欢。
+
+自带 styling UI library 的优点是使用简单，不容易出错，下限比较高。
+
+headless 的 UI library 虽然上限比较高，可以完全符合 Designer 的设计，但是以为大部分小公司的 Designer 品味其实也一般，所以我个人觉得还不如支持使用 react-hot-toast 这种经过大众检验的项目。
+
+
+https://react-hot-toast.com/
+
+<<tag ui-components/feedback >>

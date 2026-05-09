@@ -9,3 +9,7 @@ blockquote > div { margin-top: 1em; margin-bottom: 1em; }
 blockquote.tc-big-quote { font-family: Georgia, serif; position: relative; background: #f5f5f5; border-left: none; padding: 10px; border-radius: 8px; }
 
 blockquote.tc-big-quote cite:before { content: "\2014 \2009"; }
+
+img {
+  max-height: 500px;
+}
