@@ -1,0 +1,13 @@
+created: 20260515053414829
+modified: 20260515054104922
+tags: dev-note
+title: TIL: form 缺少 phx-change 会导致 LiveView 重连后 form state 丢失
+type: text/vnd.tiddlywiki
+
+2026-05-15 
+
+https://fly.io/phoenix-files/how-phoenix-liveview-form-auto-recovery-works/
+
+learned from https://github.com/software-mansion-labs/live-stash#when-not-to-use
+
+这不就是说 phx-change 对于 form 是必须的吗？应该有 linter 检查机制
