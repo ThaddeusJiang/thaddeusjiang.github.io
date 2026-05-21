@@ -1,0 +1,14 @@
+created: 20260521024950278
+modified: 20260521025923874
+published: 20260521025923874
+tags: Daily blog $:/plugins/adithyab/tiddlyjam/live
+title: 20260521 为什么我没有尝试 GitHub 的替代品
+type: text/vnd.tiddlywiki
+
+因为我曾经尝试过，但是因为社区没有迁移所以无疾而终。
+
+我在 2024 年尝试了 Hugging Face 作为 GitHub 的替代方案，从功能上看 hugging face 已经完全覆盖了 GitHub 中核心功能，并且提供更多好用的功能，例如用来存储大文件的 Datasets，还是免费的。但是从普通的 web 开发者社区的反应来看，GitHub 依然是无可替代的。
+
+同理，Mastodon 和 Meta Threads 也无法替代 X，因为人群没有迁移。
+
+从很久以前开始，我迁移工具的原则就固定下来了，就是跟随社区。 [[When should we update the tech stack]]
