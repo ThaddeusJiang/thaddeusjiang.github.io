@@ -3,7 +3,7 @@
 <channel>
    <title>TJ's Blog</title>
    <link>https://thaddeusjiang.com</link>
-   <description>数字花园，自留地。</description><follow_challenge>
+   <description>数字花园，自留地，个人备份</description><follow_challenge>
     <feedId>41718658305983488</feedId>
     <userId>41718122139849728</userId>
 </follow_challenge>
@@ -43,6 +43,42 @@
    </item>
 
    <item>
+      <title>20260521 为什么我没有尝试 GitHub 的替代品</title>
+      <link>https://thaddeusjiang.com/20260521-wei-shi-me-wo-mei-you-chang-shi-github-de-ti-dai-pin</link>
+			<description><![CDATA[
+<div class="content">
+  <p>因为我曾经尝试过，但是因为社区没有迁移所以无疾而终。</p><p>我在 2024 年尝试了 Hugging Face 作为 GitHub 的替代方案，从功能上看 hugging face 已经完全覆盖了 GitHub 中核心功能，并且提供更多好用的功能，例如用来存储大文件的 Datasets，还是免费的。但是从普通的 web 开发者社区的反应来看，GitHub 依然是无可替代的。</p><p>同理，Mastodon 和 Meta Threads 也无法替代 X，因为人群没有迁移。</p><p>从很久以前开始，我迁移工具的原则就固定下来了，就是跟随社区。 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#when-should-we-update-the-tech-stack">When should we update the tech stack</a>
+</p>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Thu, 21 May 2026 2:59:23 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/20260521-wei-shi-me-wo-mei-you-chang-shi-github-de-ti-dai-pin</guid>      
+   </item>
+
+   <item>
       <title>20260119 使用 mise 替代 just</title>
       <link>https://thaddeusjiang.com/20260119-shi-yong-mise-ti-dai-just</link>
 			<description><![CDATA[
@@ -75,50 +111,6 @@
 ]]></description>
       <pubDate>Mon, 19 January 2026 3:59:4 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/20260119-shi-yong-mise-ti-dai-just</guid>      
-   </item>
-
-   <item>
-      <title>2025-12-18 修复 Ruby LSP 无法启动</title>
-      <link>https://thaddeusjiang.com/2025-12-18-xiu-fu-ruby-lsp-wu-fa-qi-dong</link>
-			<description><![CDATA[
-<div class="content">
-  <p>因为 Ruby LSP 扩展默认使用 rbenv，而我已经全面切换到 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#mise">mise</a> 管理 Ruby 版本，导致 Ruby LSP 无法启动。并且我已经全面<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#-ting-zhi-shi-yong-ming-wen-cun-chu-min-gan-xin-xi">停止使用明文存储敏感信息</a>，我还需要配置 GitHub Packages 认证。</p><h2 class="">解决方法：配置 Cursor 让 Ruby LSP 使用 mise</h2><pre class="hljs"><code class="json hljs"><span class="hljs-comment">// .vscode/settings.json</span>
-
-<span class="hljs-punctuation">{</span>
-  <span class="hljs-attr">&quot;rubyLsp.rubyVersionManager&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;identifier&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mise&quot;</span>
-  <span class="hljs-punctuation">}</span>
-<span class="hljs-punctuation">}</span></code></pre><h2 class="">（可选）如果你也使用 GitHub Packages 管理一部分 private packages</h2><p>可能需要配配置 GitHub Packages 认证</p><pre class="hljs"><code class="yml hljs"><span class="hljs-comment"># mise.toml</span>
-
-[<span class="hljs-string">env</span>]
-<span class="hljs-string">BUNDLE_RUBYGEMS__PKG__GITHUB__COM</span> <span class="hljs-string">=</span> <span class="hljs-string">&quot;x-access-token:<span class="hljs-template-variable">{{ exec(command=&#x27;op read op://Private/GITHUB_PACKAGES_ACCESS_TOKEN/token&#x27;) }}</span>&quot;</span></code></pre>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Mon, 19 January 2026 3:58:49 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/2025-12-18-xiu-fu-ruby-lsp-wu-fa-qi-dong</guid>      
    </item>
 
 </channel>

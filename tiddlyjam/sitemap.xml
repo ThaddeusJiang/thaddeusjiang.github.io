@@ -309,7 +309,7 @@
 
    <url>
       <loc>.//2021-04-16-shi-yong-tiddlyjam-sheng-cheng-static-site</loc>
-      <lastmod>2021-04-16</lastmod>
+      <lastmod>2026-05-21</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
@@ -886,6 +886,12 @@
    <url>
       <loc>.//20260119-shi-yong-mise-ti-dai-just</loc>
       <lastmod>2026-01-27</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//20260521-wei-shi-me-wo-mei-you-chang-shi-github-de-ti-dai-pin</loc>
+      <lastmod>2026-05-21</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 
