@@ -1,0 +1,8 @@
+created: 20260524115516078
+modified: 20260524115913653
+tags: 
+title: 关于 container 部署
+type: text/vnd.tiddlywiki
+
+
+其实我一直认为使用 container 部署应用的话，没有必要再用 self-contained release 了。在 image 基座安装好依赖，app 只包含 source code 就挺好的，借助 container 的隔离性也能做到依赖隔离。但是行业内好像大多数开发者还是习惯使用 self-contained release，哈哈

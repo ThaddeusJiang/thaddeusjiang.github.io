@@ -1,5 +1,5 @@
 created: 20241003025612571
-modified: 20251201095427675
+modified: 20260527031514149
 tags: #Index
 title: tj-stack
 type: text/vnd.tiddlywiki
@@ -61,7 +61,6 @@ type: text/vnd.tiddlywiki
 * GraphQL
 * [[LodashJS]]
 * [[Google Pub/Sub]]
-* [[NestJS]]
 * k8s
 * [[terraform]]
 * [[Datadog]]

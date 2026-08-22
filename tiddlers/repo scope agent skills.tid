@@ -1,0 +1,13 @@
+created: 20260526023433102
+modified: 20260526023944021
+tags: dev-note
+title: repo scope agent skills
+type: text/vnd.tiddlywiki
+
+2026-05-26 我发现不宜在 repo 中管理过多 agent skills，虽然很多 skills 的确有用，但是使用频率并不高，在 repo 中维护成本不合算。
+
+* repo 中维护 agent skills 的操作会污染 git log
+* agent skills 没有明确优化标准，多一句少一句都可以，这种情况更适合个人微调，而不是团队统一操作。
+* repo scope agent skills 很可能和开发者个人的 agent skills 重复或冲突，造成使用不便。请记住 Less, but better.
+
+

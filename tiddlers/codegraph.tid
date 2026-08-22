@@ -1,0 +1,11 @@
+created: 20260606044907831
+modified: 20260606045203045
+tags: dev-note TechRadar/已弃用
+title: codegraph
+type: text/vnd.tiddlywiki
+
+2026-06-06 卸载了 codegraph，因为我没有感受到 codegraph 带来的 code search 能力，没有感受到更少的 token 使用，甚至感觉 token 使用量更多了。
+
+TODO: 我认为需要一个针对真实项目的真实 benchmark 
+
+https://github.com/colbymchenry/codegraph

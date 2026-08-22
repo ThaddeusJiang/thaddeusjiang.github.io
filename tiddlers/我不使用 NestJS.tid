@@ -1,0 +1,16 @@
+created: 20251114014334242
+modified: 20260527031542354
+tags: 
+title: 我不使用 NestJS
+type: text/vnd.tiddlywiki
+
+
+理由：
+
+* NestJS 编写测试太难了，每个测试都需要准备很多依赖，太烦躁了。像 honojs 一样直接测试 app 多好
+* NestJS 要求所有依赖都按照 NestJS 的写法编写，造成海量二次开发。我更喜欢像使用 function 一样使用第三方代码
+* NestJS 文档难以阅读，示例不全，难以查询。
+
+
+
+

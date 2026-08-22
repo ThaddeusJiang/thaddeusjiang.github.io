@@ -1,8 +1,29 @@
 created: 20241111042653834
-modified: 20251202011304739
-tags: TechRadar/语言和框架 TechRadar/放弃
-title: Remix.run
+modified: 20260527032019755
+tags: 
+title: 放弃使用 Remix.run
 type: text/vnd.tiddlywiki
+
+!! 2026-05-27 看到 Remix v3 已经完全脱离 Web Standards ，感到十分遗憾。同时为自己即时放弃 Remix 对自己的直觉又更加自信了
+
+连编写一个简单 button 都需要引入 remix module，我表示极不理解。
+
+btn, on 都是什么鬼啊？
+
+```jsx
+import { type Handle, on } from 'remix/ui'
+import { Glyph } from 'remix/ui/glyph'
+import * as btn from 'remix/ui/button'
+
+<button
+        aria-label={label}
+        aria-live="polite"
+        mix={[
+          btn.secondaryStyle,
+          on("click", async (_, signal) => 
+```
+
+
 
 !! 2025-11-14 似乎已经有一年多没碰 Remix 了
 

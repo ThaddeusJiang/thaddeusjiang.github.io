@@ -1,0 +1,36 @@
+created: 20260522015236240
+modified: 20260522072804603
+tags: TIL blog
+title: 20260522 拥抱 git worktree
+type: text/vnd.tiddlywiki
+
+
+我发现我开始拥抱 git worktree 了，对于并行 Coding Agents 来说，git worktree 的确比 git branch 方便。
+
+!! git worktree 的几个不便也可以用 Agent Skill 解决
+
+# git worktree 需要重新 setup，安装依赖，启动外部依赖，setup db 等等
+# git worktree 不会复制 .gitignore 中定义的文件，最重要的是 `.env` 和 `AGENTS.override.md`
+# git worktree 并行可能导致 port 重复，数据覆盖的问题
+
+我的解决方案是在 repo 中定义一个 Development Skill 例如：https://github.com/ThaddeusJiang/Vmemo/blob/main/.agents/skills/development/SKILL.md
+
+!! git worktree 中安装依赖也有可能很慢，并且占用过多硬盘。
+
+* elixir 解决方案是配置 `MIX_DEPS_PATH`  https://hexdocs.pm/mix/1.20.0-rc.6/Mix.html#module-environment-variables
+
+```
+# .zshrc
+export MIX_DEPS_PATH="$HOME/.cache/mix-deps/$(basename "$PWD")"
+```
+
+or 
+
+```yml
+# mise.toml
+[env]
+MIX_DEPS_PATH = "{{env.HOME}}/.cache/mix-deps/{{cwd | basename}}"
+```
+
+* JS 项目解决方案是用 Bun，https://bun.sh/docs/pm/global-cache
+** 当然 pnpm `enableGlobalVirtualStore` 亦可 https://pnpm.io/global-virtual-store 

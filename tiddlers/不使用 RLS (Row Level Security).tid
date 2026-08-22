@@ -1,0 +1,17 @@
+created: 20260526094732619
+modified: 20260526095145980
+tags: tj-stack
+title: 不使用 RLS (Row Level Security)
+type: text/vnd.tiddlywiki
+
+
+理由：
+
+* postgres 以外其他的数据存储依赖并没有 RLS ，所以还是需要代码控制权限。如果必须在代码中控制权限，那最好统一权限控制，无论是 Postgres 还是 typesense，storage 等等。
+
+
+
+
+
+
+

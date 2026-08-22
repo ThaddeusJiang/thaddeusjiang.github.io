@@ -1,0 +1,7 @@
+created: 20260524132422389
+modified: 20260525021601237
+tags: dev-note
+title: docker run db in development
+type: text/vnd.tiddlywiki
+
+突然想到：其实开发环境如果使用 docker run db 的话，根本就不要 db reset 这种操作，麻烦，直接 docker compose down -v 就行了。

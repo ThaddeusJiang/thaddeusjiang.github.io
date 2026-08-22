@@ -1,6 +1,6 @@
 created: 20211117001409176
-modified: 20260121053045913
+modified: 20260526093953253
 title: $:/themes/tiddlywiki/vanilla/settings/editorfontfamily
 type: text/vnd.tiddlywiki
 
-ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+"Chalkboard","Marker Felt",Noteworthy,"Bradley Hand", "Hannotate SC", YuMincho, "Hiragino Mincho ProN", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
