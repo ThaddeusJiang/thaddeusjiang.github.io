@@ -43,6 +43,44 @@
    </item>
 
    <item>
+      <title>20260522 拥抱 git worktree</title>
+      <link>https://thaddeusjiang.com/20260522-yong-bao-git-worktree</link>
+			<description><![CDATA[
+<div class="content">
+  <p>我发现我开始拥抱 git worktree 了，对于并行 Coding Agents 来说，git worktree 的确比 git branch 方便。</p><h2 class="">git worktree 的几个不便也可以用 Agent Skill 解决</h2><ol><li>git worktree 需要重新 setup，安装依赖，启动外部依赖，setup db 等等</li><li>git worktree 不会复制 .gitignore 中定义的文件，最重要的是 <code>.env</code> 和 <code>AGENTS.override.md</code></li><li>git worktree 并行可能导致 port 重复，数据覆盖的问题</li></ol><p>我的解决方案是在 repo 中定义一个 Development Skill 例如：<a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/Vmemo/blob/main/.agents/skills/development/SKILL.md" rel="noopener noreferrer" target="_blank">https://github.com/ThaddeusJiang/Vmemo/blob/main/.agents/skills/development/SKILL.md</a></p><h2 class="">git worktree 中安装依赖也有可能很慢，并且占用过多硬盘。</h2><ul><li>elixir 解决方案是配置 <code>MIX_DEPS_PATH</code>  <a class="tc-tiddlylink-external" href="https://hexdocs.pm/mix/1.20.0-rc.6/Mix.html#module-environment-variables" rel="noopener noreferrer" target="_blank">https://hexdocs.pm/mix/1.20.0-rc.6/Mix.html#module-environment-variables</a></li></ul><pre><code># .zshrc
+export MIX_DEPS_PATH="$HOME/.cache/mix-deps/$(basename "$PWD")"</code></pre><p>or </p><pre class="hljs"><code class="yml hljs"><span class="hljs-comment"># mise.toml</span>
+[<span class="hljs-string">env</span>]
+<span class="hljs-string">MIX_DEPS_PATH</span> <span class="hljs-string">=</span> <span class="hljs-string">&quot;<span class="hljs-template-variable">{{env.HOME}}</span>/.cache/mix-deps/<span class="hljs-template-variable">{{cwd | basename}}</span>&quot;</span></code></pre><ul><li>JS 项目解决方案是用 Bun，<a class="tc-tiddlylink-external" href="https://bun.sh/docs/pm/global-cache" rel="noopener noreferrer" target="_blank">https://bun.sh/docs/pm/global-cache</a><ul><li>当然 pnpm <code>enableGlobalVirtualStore</code> 亦可 <a class="tc-tiddlylink-external" href="https://pnpm.io/global-virtual-store" rel="noopener noreferrer" target="_blank">https://pnpm.io/global-virtual-store</a> </li></ul></li></ul>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Fri, 22 May 2026 1:52:36 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/20260522-yong-bao-git-worktree</guid>      
+   </item>
+
+   <item>
       <title>20260521 为什么我没有尝试 GitHub 的替代品</title>
       <link>https://thaddeusjiang.com/20260521-wei-shi-me-wo-mei-you-chang-shi-github-de-ti-dai-pin</link>
 			<description><![CDATA[
@@ -76,41 +114,6 @@
 ]]></description>
       <pubDate>Thu, 21 May 2026 2:59:23 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/20260521-wei-shi-me-wo-mei-you-chang-shi-github-de-ti-dai-pin</guid>      
-   </item>
-
-   <item>
-      <title>20260119 使用 mise 替代 just</title>
-      <link>https://thaddeusjiang.com/20260119-shi-yong-mise-ti-dai-just</link>
-			<description><![CDATA[
-<div class="content">
-  <p>为什么不再使用 just，而是使用 mise ?</p><p>最重要的原因是 just 没有覆盖依赖的安装过程，当我需要在新的环境中执行某个命令时总会出现 <code>command not found</code> 问题。</p><p>虽然可以提前安装依赖，但是失去了使用 cli 的一致性，mise 解决了这个问题。使用 mise 执行命令时，只需在 mise.toml 中提前定义 tools，mise 会自动安装依赖。so nice 👍</p><p>再也不用看到烦人的  <code>command not found</code>  了</p><p>对于我来说，mise 可以完整替代 just</p><ol><li><code>mise install</code> 可以安装依赖</li><li><code>mise task</code> 也可以查看自定义任务</li><li><code>mise xxx</code> 可以执行命令。</li></ol><p>不仅如此，mise 还有 env 管理功能，又覆盖掉了 direnv 的功能，又可以减少一项依赖了，太棒了。😁</p><p>你可以在此博客的 repo 中看到我的 <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang/thaddeusjiang.github.io/blob/main/mise.toml" rel="noopener noreferrer" target="_blank">mise.toml</a> 希望你也会喜欢。</p><p>refs</p><ul><li><a class="tc-tiddlylink-external" href="https://mise.jdx.dev/" rel="noopener noreferrer" target="_blank">https://mise.jdx.dev/</a></li><li><a class="tc-tiddlylink-external" href="https://just.systems/man/en/" rel="noopener noreferrer" target="_blank">https://just.systems/man/en/</a></li><li><a class="tc-tiddlylink-external" href="https://direnv.net/" rel="noopener noreferrer" target="_blank">https://direnv.net/</a></li></ul>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Mon, 19 January 2026 3:59:4 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/20260119-shi-yong-mise-ti-dai-just</guid>      
    </item>
 
 </channel>
