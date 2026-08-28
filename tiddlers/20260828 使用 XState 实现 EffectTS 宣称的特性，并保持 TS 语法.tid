@@ -1,0 +1,820 @@
+created: 20260828171241000
+modified: 20260828213535000
+published: 20260828171241000
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 20260828 使用 XState 实现 EffectTS 宣称的特性，并保持 TS 语法
+type: text/vnd.tiddlywiki
+
+结论先说：对于 UI、订单、支付、审批、同步、重试和轮询这类业务工作流，我们可以使用 XState 实现 EffectTS 主打的大部分工程特性，同时让 Actor 内部的 IO 与领域代码继续使用团队熟悉的 TypeScript 写法：普通函数、`async/await`、discriminated union、`AbortSignal` 和 `try/finally`。
+
+这里的 EffectTS 指 TypeScript 的 Effect 生态，下文涉及具体类型和 API 时仍使用它的正式名称 Effect。标题中的“宣称”指 Effect 官网与 [[《异步续延与 Effect 架构的第一性原理》|https://x.com/ewind_dev/status/2092955281714209193]] 公开列出的能力，并不是质疑这些能力是否真实存在。
+
+本文对照的特性包括虚拟时间、快速测试重试与超时、确定性状态演进、异步任务中断、冷求值与重跑、结构化并发、类型化错误、依赖替换、资源清理、Schedule、可观测性，以及状态持久化和事件重放。
+
+这不代表 XState 与 Effect 是同一种东西，也不代表 XState 可以获得 Effect 的全部运行时语义。
+
+Effect 把异步计算表示成冷的 Effect program，并由 fiber runtime 解释执行；`Effect.gen` 和 generator 为这种程序提供直陈式的组合与暂停边界。XState 选择了另一条路：不保存“暂停的调用栈”，而是要求开发者把程序接下来要做的事情显式表示为 machine、state、context 和 event。
+
+两条路线的实现机制不同，但在业务工作流、UI 流程和长时间运行任务中，最终获得的工程能力可以非常接近。
+
+为了与原文逐项比较，本文统一使用原文中的 `TestClock`、DST、continuation、冷求值和受控调度等名词。XState 5.32.6 实际导出的类名是 `SimulatedClock`，代码中通过 `SimulatedClock as TestClock` 建立别名；下文的 `TestClock` 都指这个 XState 实现，并不是另一个 API。
+
+本文沿着六条线索展开：
+
+# 先说明“保持 TS 语法”的准确边界；
+# 从 `TestClock` 看 XState 能控制什么；
+# 从 DST 理解这种控制的价值；
+# 从显式状态解释 XState 为什么不需要持有 generator continuation；
+# 对比 Effect 与 XState 的两种控制路径；
+# 逐项检查 EffectTS 的其他主打特性能否由 XState 覆盖。
+
+!! “保持 TS 语法”具体指什么
+
+严格来说，`Effect.gen` 和 `yield*` 当然也是合法的 TypeScript 语法。本文所说的“保持 TS 语法”，更准确地说是保持典型的 TypeScript 编程模型，不要求业务代码全面进入 `Effect<A, E, R>`、`Effect.gen` 和 `yield*` 组成的 Effect program。
+
+在 XState 路线中：
+
+* 领域数据继续使用 object、interface 和 discriminated union；
+* IO implementation 继续使用普通函数、Promise 和 `async/await`；
+* 取消继续使用 Web 与 Node.js 生态通用的 `AbortSignal`；
+* 资源释放继续使用 cleanup function、`try/finally` 或 `using`；
+* 依赖继续通过函数、object、machine input 或 `provide` 传入；
+* 只有跨时间的控制流被集中到 machine、state、context、event 和 Actor lifecycle 中。
+
+因此，这并不是“零抽象成本”。XState machine config 本身也是一种 DSL，只是它使用 object config 和普通 TypeScript function，把 Effect 专用的顺序式程序模型换成了显式状态模型。
+
+代价也很明确：业务 IO 可以保留熟悉的 TypeScript 写法，但原本藏在 `async/await` 调用栈里的长流程控制必须展开成 state 与 event。本文后面所有“实现”都以副作用已经进入这个 Actor 边界为前提。
+
+!! 从 TestClock 看 XState 的能力
+
+假设我们需要实现一段指数退避逻辑。
+
+任务失败后分别等待 1、2、4、8、16 秒再试。只计算等待时间，完整流程就要消耗 31 秒。
+
+如果测试真的等待 31 秒，CI 和 coding agent 的反馈循环都会变慢。把生产配置中的秒改成测试配置中的毫秒，又意味着测试运行的不是生产参数。使用全局 fake timers 虽然能接管 `setTimeout`，但它仍然需要理解 Promise、微任务和第三方库使用的其他调度通路。
+
+XState 可以把退避过程直接建模成状态：
+
+```text
+trying --FAILED--> waiting --after retryDelay--> trying
+trying --SUCCEEDED--> succeeded
+trying --FAILED and retries >= 5--> failed
+```
+
+对应的 XState 代码如下。这里暂时把真实 IO 简化成 `SUCCEEDED` 和 `FAILED` 事件，以便只关注调度逻辑。
+
+```ts
+import { assign, setup } from "xstate";
+
+export const retryMachine = setup({
+  types: {
+    context: {} as { retries: number },
+    events: {} as
+      | { type: "SUCCEEDED" }
+      | { type: "FAILED" },
+  },
+  delays: {
+    retryDelay: ({ context }) =>
+      1_000 * 2 ** (context.retries - 1),
+  },
+}).createMachine({
+  id: "retry",
+  initial: "trying",
+  context: { retries: 0 },
+  states: {
+    trying: {
+      on: {
+        SUCCEEDED: "succeeded",
+        FAILED: [
+          {
+            guard: ({ context }) => context.retries >= 5,
+            target: "failed",
+          },
+          {
+            target: "waiting",
+            actions: assign({
+              retries: ({ context }) => context.retries + 1,
+            }),
+          },
+        ],
+      },
+    },
+    waiting: {
+      after: {
+        retryDelay: "trying",
+      },
+    },
+    succeeded: {
+      type: "final",
+    },
+    failed: {
+      type: "final",
+    },
+  },
+});
+```
+
+这里没有把重试流程改写成 `Effect.gen`。event 仍然是 TypeScript union，delay 和 context update 仍然是普通函数；XState 专用的部分是把执行顺序写进 machine config，由 Actor runtime 解释这些 state 与 transition。
+
+把这段代码导入 Stately Studio 后，可以直接看到事件、guard、action 和 delayed transition 之间的关系。下面的 statechart 会以模拟模式运行，可以点击 event、缩放和拖动：
+
+<style>
+.stately-chart-frame {
+  width: min(1120px, calc(100vw - 3rem));
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.stately-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 6 / 4;
+  border: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stately-chart-link {
+  display: block;
+  margin-top: 0.5rem;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+@media (max-width: 640px) {
+  .stately-chart-frame {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .stately-chart-portrait {
+    aspect-ratio: 3 / 4;
+  }
+}
+</style>
+
+<div class="stately-chart-frame">
+<iframe
+  src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&mode=Simulate&colorMode=light"
+  title="retryMachine 的交互式 statechart"
+  class="stately-chart"
+  loading="lazy"
+  allowfullscreen
+>
+  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&mode=Simulate">在 Stately Studio 中查看 retryMachine</a>
+</iframe>
+<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&mode=Simulate" target="_blank" rel="noopener">在 Stately 中全屏查看 retryMachine</a>
+</div>
+
+生产环境中的 Actor 默认使用真实时钟。测试时可以注入 `TestClock`：
+
+```ts
+import { createActor, SimulatedClock as TestClock } from "xstate";
+import { expect, test } from "vitest";
+
+test("31 seconds of backoff completes without real waiting", () => {
+  const testClock = new TestClock();
+  const actor = createActor(retryMachine, {
+    clock: testClock,
+  }).start();
+
+  for (const delay of [1_000, 2_000, 4_000, 8_000, 16_000]) {
+    actor.send({ type: "FAILED" });
+    testClock.increment(delay);
+  }
+
+  actor.send({ type: "FAILED" });
+
+  expect(actor.getSnapshot().matches("failed")).toBe(true);
+});
+```
+
+测试推进了 31 秒虚拟时间，但没有执行真实等待。
+
+这里特意逐次推进 1、2、4、8、16 秒，而不是一次执行 `testClock.increment(31_000)`。当前 XState 的 `TestClock` 会先把 `now` 移动到目标时刻，再刷新已经登记的 timeout。某个 timeout 触发后新登记的下一段相对延时，会从移动后的 `now` 开始计算。因此，对链式退避逐个推进 deadline 更符合它的实际语义。
+
+尽管细节与 Effect 的 `TestClock.adjust("31 seconds")` 不完全一样，目标已经达成：使用生产延时参数，在接近零真实耗时的情况下验证完整退避流程。
+
+为什么 XState 能做到？
+
+因为 `after` 不是业务代码直接调用的 `setTimeout`。它是一条状态机描述，由 XState Actor runtime 负责解释。创建 Actor 时注入另一个 clock，就能改变这条描述的执行策略，而不需要修改 machine 本身。
+
+程序与执行策略在这里已经分离。
+
+!! TestClock 背后的更大图景：DST
+
+虚拟时间只是确定性模拟测试（Deterministic Simulation Testing，DST）的一部分。
+
+一个完整的模拟世界通常还会控制随机数、网络、磁盘、外部输入和任务调度。每次运行由固定 seed 和输入脚本决定，因此可以获得三种重要能力：
+
+* 时间可以快进。数小时的重试、租约、轮询和超时逻辑，可以在几毫秒内验证；
+* 故障可以重放。保存 seed 和输入事件后，可以重新得到相同的执行轨迹；
+* 搜索空间可以扩大。同一个场景使用大量 seed 和事件排列运行，用算力覆盖更多边界情况。
+
+XState 本身不是完整的 DST runtime，但它可以成为业务工作流模拟的核心。
+
+原因是 machine 的状态演进可以写成纯 transition：给定相同的 state 和 event，计算出相同的 next state 和 action description。Actor 又提供了显式 mailbox，每次处理一个 event。只要外部不确定性也被放进可替换的边界，整个工作流就可以被记录和重放。
+
+一套以 XState 为核心的模拟环境通常包含以下部分：
+
+# 用 `TestClock` 控制 delayed transition；
+# 用 fake Actor 或 driver 替换网络、磁盘和第三方服务；
+# 把随机数生成器作为 input 或 dependency 注入，并固定 seed；
+# 记录进入 Actor system 的 event；
+# 通过 inspection API 记录 snapshot、event 和 microstep；
+# 使用同一份 event tape 和依赖响应重新运行。
+
+例如，生产 machine 可以通过 `provide` 替换 Actor implementation：
+
+```ts
+import { fromPromise } from "xstate";
+
+const testMachine = checkoutMachine.provide({
+  actors: {
+    chargeCard: fromPromise(async ({ input }) => {
+      return paymentTape.next(input);
+    }),
+  },
+});
+```
+
+machine 仍然描述真实业务流程，但支付结果不再来自真实网络，而是来自可以记录和重放的 tape。
+
+在 AI 编程时代，这种能力尤其有价值。coding agent 的迭代速度取决于验证反馈是否快速、稳定、可信。一个需要真实等待 31 秒的测试会拖慢每一轮修改；一个偶尔因为网络或调度顺序失败的测试，会向 agent 提供带噪声的反馈。
+
+把业务流程限制在显式 machine 中，再控制 clock、IO 和 event tape，可以让 agent 在很短时间内验证长时间尺度的行为。
+
+这与文章讨论 Effect TestClock 时追求的是同一个工程目标。
+
+!! 第一性原理：续延，以及 XState 如何表示它
+
+续延（continuation）可以理解为“程序从当前时刻开始，剩下要做的全部事情”。
+
+在普通 `async/await` 中，续延由 JavaScript 引擎捕获。`await` 后面的局部变量、控制流和返回路径都隐藏在 Promise 与微任务调度中。开发者可以等待结果，却无法直接取得那段“剩下的程序”。
+
+Effect 先把异步计算表示成冷的 Effect program，再由 fiber runtime 解释执行。`Effect.gen` 是组织这类 program 的一种直陈式写法：generator 暂停时，runtime 可以解释它 yield 出来的 Effect，并决定何时恢复 generator。
+
+因此，真正承载调度、中断和资源域语义的是 fiber runtime。generator 提供了重要的组合与暂停机制，但不是 Effect 全部运行时能力的唯一来源。
+
+XState 没有沿着这条路线继续获取 continuation。
+
+它选择把 continuation 展开成数据。
+
+假设一个 checkout 流程依次包含支付、等待确认和发货。使用 `async/await` 时，它可能写成：
+
+```ts
+async function checkout(order: Order) {
+  const payment = await charge(order);
+  const confirmation = await confirm(payment);
+  return ship(confirmation);
+}
+```
+
+当程序暂停在 `await confirm(payment)` 时，“确认完成后调用 `ship`”就是隐藏在引擎中的 continuation。
+
+XState 会把它写成显式状态：
+
+```text
+charging --PAYMENT_SUCCEEDED--> confirming
+confirming --CONFIRMED--> shipping
+shipping --SHIPPED--> completed
+```
+
+下面是完整的 TypeScript machine。成功路径之外，支付、确认和发货都可以进入显式失败状态，流程也可以在完成前取消：
+
+```ts
+import { assign, setup } from "xstate";
+
+export const checkoutMachine = setup({
+  types: {
+    context: {} as {
+      orderId: string;
+      paymentId: string | null;
+      error: string | null;
+    },
+    events: {} as
+      | { type: "PAYMENT_SUCCEEDED"; paymentId: string }
+      | { type: "PAYMENT_FAILED"; reason: string }
+      | { type: "CONFIRMED" }
+      | { type: "CONFIRMATION_FAILED"; reason: string }
+      | { type: "SHIPPED" }
+      | { type: "SHIPPING_FAILED"; reason: string }
+      | { type: "CANCEL" },
+  },
+}).createMachine({
+  id: "checkout",
+  initial: "charging",
+  context: {
+    orderId: "order-42",
+    paymentId: null,
+    error: null,
+  },
+  states: {
+    charging: {
+      on: {
+        PAYMENT_SUCCEEDED: {
+          target: "confirming",
+          actions: assign({
+            paymentId: ({ event }) => event.paymentId,
+          }),
+        },
+        PAYMENT_FAILED: {
+          target: "failed",
+          actions: assign({
+            error: ({ event }) => event.reason,
+          }),
+        },
+        CANCEL: "cancelled",
+      },
+    },
+    confirming: {
+      on: {
+        CONFIRMED: "shipping",
+        CONFIRMATION_FAILED: {
+          target: "failed",
+          actions: assign({
+            error: ({ event }) => event.reason,
+          }),
+        },
+        CANCEL: "cancelled",
+      },
+    },
+    shipping: {
+      on: {
+        SHIPPED: "completed",
+        SHIPPING_FAILED: {
+          target: "failed",
+          actions: assign({
+            error: ({ event }) => event.reason,
+          }),
+        },
+        CANCEL: "cancelled",
+      },
+    },
+    completed: {
+      type: "final",
+    },
+    failed: {
+      type: "final",
+    },
+    cancelled: {
+      type: "final",
+    },
+  },
+});
+```
+
+下面的 statechart 可以沿成功、失败和取消分支运行。进入 `confirming` 后，machine definition 与 context 会共同描述尚未完成的工作：
+
+<div class="stately-chart-frame">
+<iframe
+  src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&mode=Simulate&colorMode=light"
+  title="checkoutMachine 的交互式 statechart"
+  class="stately-chart stately-chart-portrait"
+  loading="lazy"
+  allowfullscreen
+>
+  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&mode=Simulate">在 Stately Studio 中查看 checkoutMachine</a>
+</iframe>
+<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&mode=Simulate" target="_blank" rel="noopener">在 Stately 中全屏查看 checkoutMachine</a>
+</div>
+
+如果流程暂停在 `confirming`，machine definition 与当前 snapshot 一起描述了剩余工作：
+
+```ts
+{
+  value: "confirming",
+  context: {
+    orderId: "order-42",
+    paymentId: "payment-7",
+  },
+}
+```
+
+恢复时不需要恢复原来的 JavaScript 调用栈。machine definition 仍然提供 transition 规则；恢复 snapshot 后，再接收 `CONFIRMED` event，Actor 就知道下一步应该进入 `shipping`。
+
+因此可以把两种路线压缩成一句话：
+
+<<<.tc-big-quote
+在 Effect 中，fiber runtime 持有并恢复程序的 continuation；在 XState 中，machine definition 与当前 snapshot 描述未来可执行的路径，后续 event 驱动路径继续演进。
+<<<TJ
+
+XState 不是取得了原始 continuation，而是通过架构设计消除了对原始 continuation 的依赖。
+
+这也是 XState 适合持久化长流程的基础。generator 对象和 JavaScript 调用栈不能直接 JSON 序列化，但 machine snapshot 可以被保存。XState 可以递归持久化 Actor 状态，并在进程或页面重新启动后恢复。定时任务的跨重启恢复还有额外限制，后文会单独说明。
+
+当然，这种能力不是免费的。
+
+所有需要跨越异步边界的数据都必须放进 context。所有暂停点都必须成为 state。所有外部结果都必须成为 event。一个简单的线性计算可能因此变得比 `async/await` 更长；如果流程有大量状态组合，也可能出现 state explosion。
+
+Effect 支付的是 `yield*`、解释器和专用生态的成本。XState 支付的是显式建模、事件设计和状态数量的成本。
+
+两者都没有让复杂度消失，只是把复杂度放在了不同位置。
+
+!! XState runtime 真正执行什么
+
+XState machine config 也是一种“程序即数据”。
+
+它描述了：
+
+* 当前 state 接受哪些 event；
+* guard 满足时进入哪个 state；
+* transition 需要更新哪些 context；
+* 进入某个 state 时启动哪个 Actor；
+* 离开某个 state 时停止哪个 Actor；
+* 多久以后自动产生 delayed transition；
+* 哪些 action 应该交给外部实现。
+
+真正运行这些描述的是 Actor runtime。它循环完成以下工作：
+
+# 从 mailbox 取得下一条 event；
+# 根据 machine 和当前 snapshot 计算 transition；
+# 更新 state 与 context；
+# 启动或停止对应的 child Actor；
+# 调度 delayed event；
+# 发出新的 snapshot 和 inspection event。
+
+在 XState 已建模的边界内，这套循环也会在业务代码和宿主事件循环之间建立一个受控层。
+
+区别在于控制粒度。
+
+Effect fiber runtime 试图控制 Effect program 中的异步 continuation。XState 控制的是 statechart 中的 event、transition、delayed event 和 Actor lifecycle；裸 Promise 与宿主微任务仍然位于这个边界之外。
+
+只要目标是业务工作流，后者通常已经足够。
+
+!! Effect 与 XState 的两条控制路径
+
+两者可以用下面的方式对比：
+
+|维度|Effect|XState|h
+|程序主要形态|顺序式 Effect program|显式 state machine 与 Actor|
+|业务代码写法|使用 Effect value、`Effect.gen`、`yield*` 和 Effect combinator 组合|Actor implementation 仍可使用普通 function、Promise 与 `async/await`，编排进入 machine config|
+|类型建模|`Effect<A, E, R>` 同时编码成功值、错误与依赖|使用 context、input、output 与 event 的普通 TypeScript 类型和 discriminated union|
+|暂停位置|fiber runtime 中的执行状态与 generator 暂停边界|machine definition 与当前 snapshot|
+|继续执行|fiber runtime 解释 Effect 并恢复 continuation|Actor 接收 event 并 transition|
+|时间控制|Clock service 与 TestClock|Actor clock 与 TestClock|
+|中断边界|fiber 与 Scope|Actor lifecycle 与 AbortSignal|
+|重跑方式|重新解释冷 Effect|重新进入 state、重启 invoked Actor 或创建新 Actor|
+|持久化|需要额外设计|persisted snapshot 是一等能力；定时任务需要额外设计|
+|主要成本|`yield*`、专用类型与生态|状态建模、event 设计与样板代码|
+
+如果直接在 XState action 中调用裸 `setTimeout`，计时器就会逃出 `TestClock` 的控制。如果在 machine 外部启动一个没有绑定 Actor lifecycle 的 Promise，它也不会因为离开 state 而自动停止。
+
+因此 XState 与 Effect 有一条完全相同的边界原则：
+
+<<<.tc-big-quote
+要获得可测试、可取消和可重放的行为，副作用必须进入框架能够控制的边界。
+<<<TJ
+
+对于 XState，这个边界通常由 delayed transition、invoked Actor、spawned Actor、action implementation 和 machine input 组成。
+
+!! 冷求值与重跑：用 Actor lifecycle 覆盖
+
+Effect value 是一段冷的程序描述；在交给 runtime 运行前，它不会执行副作用。
+
+XState 的 machine 和 Actor logic 同样是描述。创建 machine 不会启动 IO；`createActor` 会建立 Actor 实例和初始 snapshot，但 action 与 invoked Actor 要到 `actor.start()` 后才执行或启动。团队可以先构造同一份 machine、替换 Actor implementation 和 input，再决定何时运行。
+
+重跑由 Actor lifecycle 显式表达。可以停止并重新创建 Actor，也可以离开后再次进入 invoking state。需要在同一个 state 上重启 invocation 时，self-transition 必须使用 `reenter: true`，这样 XState 才会执行 exit、cleanup、entry 并重新启动 invoked Actor。
+
+因此，XState 可以覆盖“构造时不执行、运行时才解释，以及按需重跑”这一目标。差别是 Effect 可以重新解释任意冷 Effect；XState 只能重跑已经放进 Actor lifecycle 的工作。
+
+!! 对照 EffectTS 的其他主打特性
+
+TestClock 和 DST 只是入口。EffectTS 官网还把类型化错误、依赖注入、结构化并发、自动资源清理、Schedule 和内建 tracing 列为主要能力。XState 不能复制相同的 Effect runtime 语义，但可以通过普通 TypeScript 类型与 Actor 模型逐项实现相近的工程结果。
+
+!! 类型化错误：用 event 和失败状态覆盖
+
+Effect 的 `Effect<A, E, R>` 使用 `E` 表示类型化错误通道。XState 没有同名的泛型参数，但可以直接使用 TypeScript 的 discriminated union，把失败结果表示成 event：
+
+```ts
+type CheckoutEvent =
+  | { type: "PAYMENT_SUCCEEDED"; receipt: Receipt }
+  | { type: "PAYMENT_DECLINED"; reason: DeclineReason }
+  | { type: "PAYMENT_TIMED_OUT" }
+  | { type: "PAYMENT_PROVIDER_UNAVAILABLE" };
+```
+
+machine 可以显式决定每种失败 event 在当前 state 下如何处理：重试、进入人工审核、回滚订单或最终失败。
+
+discriminated union 会约束 event 的类型和数据形状，但 XState 不会强制每个 state 穷尽处理所有 event。当前 state 没有对应 transition 时，event 会被忽略。
+
+因此，要达到“错误成为类型系统和业务模型中的一等公民”这一目标，团队需要在 Actor 边界把未知异常转换成 domain event，并通过 machine 设计、模型测试或穷尽性断言确保必须处理的失败不会被静默忽略。与 Effect 相比，错误不会自动沿着 Effect chain 传播，也没有现成的 `catchTag`。
+
+对于业务工作流，这种显式失败状态往往比深层 `try/catch` 更容易观察。
+
+!! 依赖注入：用 setup、provide 和 input 覆盖
+
+Effect 通过 `R` 与 Layer 把依赖图变成可组合的值。
+
+XState 可以使用 `setup` 定义 Actor、action、guard 和 delay 的接口，再通过 `provide` 替换具体实现：
+
+```ts
+const productionMachine = checkoutMachine.provide({
+  actors: {
+    chargeCard: stripeChargeActor,
+  },
+});
+
+const testMachine = checkoutMachine.provide({
+  actors: {
+    chargeCard: fakeChargeActor,
+  },
+});
+```
+
+动态依赖可以通过 machine input 或 Actor input 传入。这些实现仍然是普通 TypeScript function 和 object，不需要先包装成 Effect service 或 Layer。
+
+这已经覆盖了测试替身、环境切换和 capability injection。XState 不会像 Layer 一样自动计算复杂依赖图，也不会自动管理所有依赖的获取与释放顺序，但大多数应用并不需要一个完整 DI runtime。显式 `provide`、构造器函数和 input 通常足够。
+
+!! 结构化并发与中断：用 Actor tree 覆盖
+
+XState 的 invoked Actor 与父 state 绑定。进入 state 时启动，离开 state 时停止。停止 root Actor 时，整个 Actor system 和它的子 Actor 都会停止。
+
+Promise Actor 还能取得 `AbortSignal`。下面的 machine 把请求、成功、失败、取消和重试都放进同一个 Actor lifecycle：
+
+```ts
+import { assign, fromPromise, setup } from "xstate";
+
+type User = {
+  id: string;
+  name: string;
+};
+
+const loadUser = fromPromise<User, { userId: string }>(
+  async ({ input, signal }) => {
+    const response = await fetch("/users/" + input.userId, { signal });
+
+    if (!response.ok) {
+      throw new Error("Failed to load user");
+    }
+
+    return response.json() as Promise<User>;
+  },
+);
+
+export const loadUserMachine = setup({
+  types: {
+    context: {} as {
+      userId: string;
+      user: User | null;
+      error: string | null;
+    },
+    events: {} as
+      | { type: "LOAD" }
+      | { type: "CANCEL" }
+      | { type: "RETRY" },
+  },
+  actors: {
+    loadUser,
+  },
+}).createMachine({
+  id: "loadUser",
+  initial: "idle",
+  context: {
+    userId: "42",
+    user: null,
+    error: null,
+  },
+  states: {
+    idle: {
+      on: {
+        LOAD: "loading",
+      },
+    },
+    loading: {
+      invoke: {
+        src: "loadUser",
+        input: ({ context }) => ({
+          userId: context.userId,
+        }),
+        onDone: {
+          target: "loaded",
+          actions: assign({
+            user: ({ event }) => event.output,
+            error: null,
+          }),
+        },
+        onError: {
+          target: "failed",
+          actions: assign({
+            user: null,
+            error: ({ event }) => String(event.error),
+          }),
+        },
+      },
+      on: {
+        CANCEL: "cancelled",
+      },
+    },
+    loaded: {
+      type: "final",
+    },
+    failed: {
+      on: {
+        RETRY: "loading",
+      },
+    },
+    cancelled: {
+      on: {
+        RETRY: "loading",
+      },
+    },
+  },
+});
+```
+
+在图中点击 `LOAD` 会进入 `loading` 并启动 Promise Actor；`onDone` 与 `onError` 分别进入 `loaded` 和 `failed`。如果先发送 `CANCEL` 离开 `loading`，XState 会停止 Promise Actor 并触发 signal，支持该 signal 的 `fetch` 也会取消请求；之后可以用 `RETRY` 重新进入 `loading`。
+
+<div class="stately-chart-frame">
+<iframe
+  src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=d11022b9-f5de-442e-91f0-dfccd4df17f9&mode=Simulate&colorMode=light"
+  title="loadUserMachine 的交互式 statechart"
+  class="stately-chart stately-chart-portrait"
+  loading="lazy"
+  allowfullscreen
+>
+  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=d11022b9-f5de-442e-91f0-dfccd4df17f9&mode=Simulate">在 Stately Studio 中查看 loadUserMachine</a>
+</iframe>
+<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=d11022b9-f5de-442e-91f0-dfccd4df17f9&mode=Simulate" target="_blank" rel="noopener">在 Stately 中全屏查看 loadUserMachine</a>
+</div>
+
+这里的限制与所有基于 `AbortSignal` 的方案一样：取消是协作式的。第三方 IO 如果忽略 signal，XState 只能丢弃完成结果，不能强行终止任意 JavaScript 代码。
+
+只要所有并发任务都位于 Actor tree 中，父任务结束时清理子任务的目标就可以实现。spawned Actor 需要显式停止，或者依赖父 Actor 停止时统一回收。
+
+!! 资源安全：用 Actor cleanup 覆盖
+
+Effect 使用 Scope 和 `acquireRelease` 把资源获取与释放绑定在一起。
+
+XState 的 callback Actor 可以返回 cleanup function：
+
+```ts
+import { fromCallback } from "xstate";
+
+const socketActor = fromCallback(({ sendBack }) => {
+  const socket = new WebSocket("wss://example.com/events");
+
+  const onMessage = (event: MessageEvent) => {
+    sendBack({ type: "SOCKET_MESSAGE", data: event.data });
+  };
+
+  socket.addEventListener("message", onMessage);
+
+  return () => {
+    socket.removeEventListener("message", onMessage);
+    socket.close();
+  };
+});
+```
+
+Actor 被停止时，cleanup function 会执行。对于普通 TypeScript 资源，还可以配合 `using`、`try/finally` 和 `AbortSignal`。
+
+XState 没有一个覆盖任意函数的通用 Scope，但“资源生命周期与拥有它的 Actor 生命周期绑定”可以达到相同的业务目标。
+
+!! Schedule：用显式状态和可复用 machine 覆盖
+
+Effect Schedule 可以把指数退避、抖动、次数上限和组合策略变成一等值。
+
+XState 没有同等丰富的 Schedule combinator，但重试策略可以由以下元素表达：
+
+* context 保存重试次数和上次错误；
+* guard 决定是否继续；
+* delay expression 计算下一次等待；
+* waiting state 表示暂停；
+* event 决定成功、重试或最终失败。
+
+如果多个流程共享同一种策略，可以把它提取成 machine factory、child Actor 或统一的 retry Actor logic。
+
+代码量通常比 `Effect.retry(schedule)` 多，但退避、节流和超时可复用、可测试的目标仍然能够实现。
+
+!! 可观测性：用 inspection、snapshot 和 event log 覆盖
+
+XState Actor system 可以通过 inspection API 发出 Actor 创建、event、snapshot 和 microstep 信息。
+
+```ts
+const trace: unknown[] = [];
+
+const actor = createActor(appMachine, {
+  inspect: (inspectionEvent) => {
+    trace.push(inspectionEvent);
+  },
+});
+```
+
+这些事件可以转换成日志、可视化时间线、测试 trace 或 OpenTelemetry span。state 与 event 名称本身也提供了比任意 Promise chain 更明确的业务语义。
+
+Effect 的优势是 tracing context 会随着 Effect program 自动传播。XState 需要团队建立从 Actor inspection event 到 telemetry backend 的适配层，但可观测目标可以实现。
+
+!! 持久化与事件重放：XState 的强项
+
+XState 可以直接取得 persisted snapshot：
+
+```ts
+const persistedSnapshot = actor.getPersistedSnapshot();
+
+const restoredActor = createActor(appMachine, {
+  snapshot: persistedSnapshot,
+}).start();
+```
+
+machine Actor 的 invoked 和 spawned Actor 可以递归持久化和恢复。恢复时，已经执行过的 action 不会再次执行，invocation 会重新启动。
+
+但在本文使用的 `xstate@5.32.6` 中，`actor.getPersistedSnapshot()` 不包含 Actor system 当前已经调度的 delayed event。假设 Actor 在一个 `after` 10 秒的 `waiting` state 中运行了 2 秒，此时保存并恢复 snapshot，剩余 8 秒的 timeout 不会自动恢复。
+
+因此，依赖重试、超时或租约的跨进程长流程不能只保存 snapshot。常见做法是把绝对 deadline 或剩余时间放进可序列化 context，恢复后重新计算并登记 delay；另一种做法是把调度交给独立的持久化 scheduler。
+
+这不是把暂停中的 Promise 或 JavaScript 调用栈序列化，而是恢复显式工作流状态。对于由外部 event 驱动的页面刷新、进程重启和长时间运行流程，这通常很实用；依赖定时任务的流程则需要补上上述调度恢复设计。
+
+如果需要重放 action，可以保存进入 Actor system 的 event，再从初始状态重新发送，这就是 event sourcing 路线。
+
+!! 要让这些能力真正成立，需要遵守什么
+
+XState 可以覆盖目标，不代表只安装 package 就会自动得到全部保证。
+
+架构需要遵守以下约束：
+
+# 所有长流程都由 machine 和 Actor 表达；
+# 所有 IO 都封装成 invoked 或 spawned Actor；
+# 所有时间逻辑都使用 XState delay，避免裸 `setTimeout`；
+# 所有外部结果都转换成明确的 event；
+# 随机数、网络结果和系统时间必须可以注入；
+# 跨越异步边界的数据必须进入可序列化 context；
+# 跨重启仍需生效的 deadline 必须被持久化，并在恢复后重新调度；
+# 资源清理必须绑定 Actor 停止或显式 disposal；
+# 测试通过 fake Actor、TestClock、seed 和 event tape 控制输入。
+
+如果违反这些约束，能力就会出现缺口。
+
+直接在 action 中执行真实网络请求，会让测试无法控制完成顺序。直接使用 `setTimeout`，会让虚拟时钟失效。把无法序列化的对象放进 context，会破坏持久化。启动不属于 Actor tree 的后台任务，会产生 orphan task。
+
+这与 Effect 要求副作用留在 Effect program 内，本质上是同一种工程纪律。
+
+!! “实现这些特性”不等于替代 EffectTS
+
+标题比较的是工程特性，不是说 XState 与 EffectTS 具有相同的类型系统和运行时语义。
+
+如果目标是“让任意普通 TypeScript 函数自动获得类型化错误、资源域、结构化并发和续延级调度”，XState 并不能替代 Effect。
+
+XState 只控制被建模进 machine 和 Actor system 的流程。普通 `async/await` 函数不会因为项目安装了 XState 就自动变成冷求值，也不会自动获得错误通道和资源安全。
+
+但如果目标是文章中反复出现的工程结果：
+
+* 重试与超时可以瞬时测试；
+* 工作流状态演进可以确定性验证；
+* 外部故障可以记录和重放；
+* 异步任务可以随父流程停止；
+* 依赖可以在测试中替换；
+* 错误、资源和可观测信息具有明确边界；
+* 长流程可以持久化并恢复，定时流程额外持久化 deadline 并重新调度；
+
+那么 XState 路线成立，而且具体的 IO、错误数据、取消信号和 cleanup 仍然可以沿用典型 TypeScript 生态。
+
+需要补充的是，完整 DST 从来都不只是一个 library 的功能。无论使用 Effect 还是 XState，网络、磁盘、随机数和宿主环境都必须进入可控模拟边界。XState 提供的是业务工作流层的确定性内核，不是整个操作系统的模拟器。
+
+!! 结语
+
+现在可以更准确地解释标题。
+
+“使用 XState 实现 EffectTS 宣称的特性”，指的是在业务工作流边界内，用 state、event、Actor tree、可注入 clock 和 inspection 等机制，实现可测试时间、取消、重试、依赖替换、资源清理、可观测性与恢复等工程结果。
+
+“并保持 TS 语法”，指的是 Actor 内部仍然编写普通 TypeScript function、`async/await`、discriminated union、`AbortSignal` 和 cleanup function，不要求整个业务代码库改写成 Effect program。代价是跨时间的控制流必须显式建模成 machine，而不是继续隐藏在顺序式调用栈里。
+
+Effect 与 XState 回答的是两个不同问题。
+
+Effect 问：如何在不控制 JavaScript 运行时的前提下，让顺序式程序获得更强的异步运行时语义？
+
+XState 问：如何把一个跨越时间、事件和副作用的流程，表达成可以解释、观察、测试和恢复的数据？
+
+Effect 通过持有 continuation 获得控制权。XState 通过显式 state、context、event 和 Actor lifecycle 获得控制权。
+
+对于基础设施库、复杂并发算法和大量可组合的顺序式 effect，Effect 的抽象更完整。
+
+对于 UI、订单、支付、审批、同步、重试、轮询和其他业务工作流，XState 通常已经能够实现相同的目标，而且显式 state 还会带来可视化、持久化和模型测试方面的优势。
+
+因此，如果项目本来就适合用 state machine 表达，就没有必要仅仅为了虚拟时间、取消、重试、依赖替换或确定性测试，把业务代码改写成 Effect program。
+
+真正需要选择的不是哪一个 library “理论上更强”，而是哪一种复杂度更符合系统：
+
+<<<.tc-big-quote
+Effect 把复杂度放进运行时和类型系统；XState 把复杂度展开成业务状态与事件。
+<<<TJ
+
+只要团队愿意把副作用纳入 Actor 边界，XState 就能在保留典型 TypeScript 编程模型的同时，实现文章里 EffectTS 想要达到的大部分工程目标。
+
+!! 相关链接
+
+* [[Yifeng “Evan” Wang：异步续延与 Effect 架构的第一性原理|https://x.com/ewind_dev/status/2092955281714209193]]
+* [[Effect：Production Grade TypeScript|https://effect.website/]]
+* [[XState：TypeScript|https://stately.ai/docs/typescript]]
+* [[XState：Actors|https://stately.ai/docs/actors]]
+* [[XState：Events and transitions|https://stately.ai/docs/transitions]]
+* [[XState：Pure transition functions|https://stately.ai/docs/pure-transitions]]
+* [[XState：Delayed transitions|https://stately.ai/docs/delayed-transitions]]
+* [[XState：Promise actors|https://stately.ai/docs/promise-actors]]
+* [[XState：Persistence|https://stately.ai/docs/persistence]]
+* [[XState：Inspection|https://stately.ai/docs/inspection]]
+* [[XState：Testing|https://stately.ai/docs/testing]]
+* [[XState 5.32.6 API：TestClock（实际类名 SimulatedClock）|https://www.jsdocs.io/package/xstate#SimulatedClock]]
