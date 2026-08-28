@@ -1,0 +1,221 @@
+created: 20260828032531000
+modified: 20260828040308416
+published: 20260828040308415
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: 20260828 当 GitHub Actions 配额耗尽：我如何用 gh-signoff 把 iOS CI 搬回本地
+type: text/vnd.tiddlywiki
+
+结论先说：我没有因为 GitHub Actions 配额耗尽就放弃 CI，也没有继续为昂贵的远端 macOS Runner 买单。
+
+我把测试执行搬回自己的 Mac，再用 Basecamp 开源的 [[gh-signoff|https://github.com/basecamp/gh-signoff]] 把结果写成 GitHub Commit Status。Pull Request 仍然会显示绿色或红色的 `signoff`，只是实际运行测试的机器从 GitHub-hosted runner 变成了我的开发机。
+
+这不是“不要 CI”，而是把 CI 拆成两个部分：本地负责运行检查，GitHub 负责展示签核结果。
+
+!! 问题不是测试失败，而是失败失去了含义
+
+FoodPhotos 是一个 SwiftUI iOS 项目。它的交付检查不只是编译和单元测试，还包括：
+
+* Shell 契约测试；
+* 35 条 Maestro Flow 语法检查；
+* 110 个 XCTest；
+* iPhone 17 和 iPhone 16e 各 32 个静态视觉场景；
+* UX 敏感改动触发的照片、地图和设置 3 条 E2E 用户旅程。
+
+这套检查在固定环境里很有价值，但远端执行成本不低。两台 iOS Simulator 的视觉矩阵会长时间占用 macOS Runner，额度也因此持续消耗。
+
+当个人账户的 GitHub Actions 使用额度耗尽后，GitHub 仍然会为 Pull Request、`main` push 和定时任务创建 run，但 job 无法真正启动。页面上留下的是红色失败，原因却不是代码错误，而是账户配额。
+
+此时 CI 最重要的能力已经失效：红色不再表示“这次改动有问题”。
+
+!! 只在本地跑测试还不够
+
+最直接的应对方式当然是关闭 GitHub Actions，然后在提交前手动运行测试。
+
+但这会丢掉一个关键能力：其他人打开 Pull Request 时，无法知道某个精确 commit 是否真的经过了完整检查。开发者口头说“我本地跑过了”，无法回答以下问题：
+
+* 测试的是不是当前 PR HEAD；
+* 测试通过后是否又修改了代码；
+* 测试失败后是否遗漏了报告；
+* 本地只跑了部分检查，还是跑了完整门禁。
+
+我需要的不是另一个测试框架，而是一种轻量的证明：把本地检查结果绑定到已经 push 的精确 SHA，并让 GitHub 在 PR 上显示它。
+
+这正是 `gh-signoff` 解决的问题。
+
+其实，我并不是最近才知道 `gh-signoff`。2025 年 3 月 4 日，DHH [[在 X 上正式介绍它|https://x.com/dhh/status/1896932150055997517]] 时，我就已经注意到了这个工具。只是当时我的 GitHub Actions 还没有遇到 usage limit，远端 CI 也在正常工作，我没有足够理由改动一套已经能用的流程，因此只是记下了它，没有实际尝试。
+
+直到最近 GitHub Actions 的使用额度耗尽，job 因 usage limit 无法启动，我才重新想起 `gh-signoff`。过去那个“也许有一天会用到”的工具，正好回应了眼前的问题：继续把检查结果留在 GitHub PR 上，同时把昂贵的 iOS CI 执行搬回自己的 Mac。
+
+!! gh-signoff 做什么，不做什么
+
+`gh-signoff` 是一个 GitHub CLI extension。它不会替你编译 App，也不会决定应该运行哪些测试。它负责把本地结果发布为 GitHub Commit Status：
+
+```sh
+gh extension install basecamp/gh-signoff --pin v0.4.1
+
+# Tests passed
+gh signoff
+
+# Tests failed
+gh signoff fail
+```
+
+测试仍然由项目自己的脚本运行，`gh-signoff` 只负责最后一公里：把“通过”或“失败”写回 GitHub。
+
+我使用固定版本 `0.4.1`。这个版本支持通过 `--url` 为 Commit Status 的 ''Details'' 添加目标链接，也支持显式留下失败状态。FoodPhotos 把 Details 指向当前 PR；没有 PR 时则指向对应 commit。
+
+!! 我在 FoodPhotos 中如何落地
+
+我把入口收敛成两个 [[mise]] task：
+
+```sh
+# Run checks locally without publishing a GitHub status
+mise run check
+
+# Run checks and publish the result for the pushed commit
+mise run signoff
+```
+
+`check` 面向开发过程，可以在脏工作区运行，也不会写入 GitHub。
+
+`signoff` 是一次正式签核。它在运行前要求：
+
+# 工作区必须干净；
+# GitHub CLI 已完成认证；
+# 当前 commit 已经 push，GitHub 能查询到这个 SHA；
+# `gh-signoff` 必须是项目固定的版本。
+
+这些限制是为了防止最危险的误报：本地测试了一个状态，却给 GitHub 上的另一个状态点绿灯。
+
+完整检查由 `scripts/signoff-local-ci.sh` 编排。核心结构可以简化为：
+
+```bash
+prepare_signoff
+trap 'publish_failure $?' ERR
+
+run_quality_checks
+mise run ui
+
+if has_ux_changes; then
+  mise run e2e
+fi
+
+trap - ERR
+gh signoff \
+  --commit "$SIGNOFF_COMMIT" \
+  --url "$SIGNOFF_URL"
+```
+
+任何步骤返回非零状态，`ERR` trap 都会调用失败路径：
+
+```bash
+gh signoff fail \
+  --commit "$SIGNOFF_COMMIT" \
+  --description "Local checks failed (exit $exit_code)" \
+  --url "$SIGNOFF_URL"
+```
+
+失败也必须被发布。没有状态不能被解释成“没问题”，它只能表示“无法确认是否运行过”。
+
+!! 为什么只保留一个 signoff 状态
+
+`gh-signoff` 支持为 tests、lint 或不同平台建立多个 context，但 FoodPhotos 选择单一的 `signoff` 聚合状态。
+
+这个项目只有一个本地交付入口。Shell 契约、Flow 语法、XCTest、双设备 visual，以及按路径触发的 E2E，必须在同一次执行中全部满足。拆成多个 context 会增加部分状态过期和遗漏签核的可能性，却没有带来足够收益。
+
+单一状态表达的是一个明确结论：这个 SHA 已经通过当前项目定义的完整本地门禁。
+
+!! 停用 Actions，不删除 workflow
+
+我把 GitHub Actions 的 `CI` 和 `Friction Log` 设为停用，GitHub API 回读状态为 `disabled_manually`。
+
+仓库中的 `.github/workflows/ci.yml` 和 `.github/workflows/friction-log.yml` 仍保留原文件名和原路径。停用执行是 GitHub 端的运行状态，不应该通过重命名、移动或删除 workflow 文件实现。
+
+这样做保留了两件事：
+
+* Git 历史和 workflow 配置仍然清晰；
+* 将来恢复 GitHub Actions 时，不需要先还原文件结构。
+
+本地签核是当前执行策略，不是对远端配置的破坏性迁移。
+
+!! 一次真实的红灯比十次口头保证更有用
+
+这套方案第一次正式运行时并没有直接变绿。
+
+另一个 worktree 正在同时操作相同的 Simulator。两个 Maestro Runner 互相 shutdown、boot 设备，破坏了 fixture 顺序，视觉检查因此失败。本地脚本正确地向 GitHub 发布了红色 `signoff`。
+
+等待另一个任务自然结束，并让签核运行独占 Simulator 后，完整检查通过：
+
+* 35 条 Maestro Flow 语法检查通过；
+* 110/110 XCTest 通过；
+* iPhone 17 的 32/32 visual 通过；
+* iPhone 16e 的 32/32 visual 通过；
+* 改动不命中 UX 敏感路径，3 条 E2E 按契约跳过。
+
+最终结果写入 PR HEAD，并显示为 `signoff=success`。对应分支没有产生任何 GitHub Actions run，PR 随后合并到 `main`。
+
+这个过程也暴露了本地 CI 的真实边界：开发机不是天然可靠的 Runner。共享设备、后台任务和环境漂移同样会制造假红，只是问题从云端基础设施转移到了本地资源协调。
+
+!! 为了让本地 CI 值得信任，我加了哪些约束
+
+!!! 固定工具版本
+
+GitHub CLI、`gh-signoff`、XcodeGen、Java 和 Maestro 都使用固定版本。这样可以降低开发机升级后悄悄改变签核语义的概率。
+
+脚本会先检查 `gh signoff version`。版本不一致时，它会移除旧 extension，再从 `v0.4.1` tag 重新安装。
+
+!!! 签核精确 SHA
+
+脚本显式取得 `git rev-parse HEAD`，确认 GitHub 已经知道这个 commit，再通过 `--commit` 发布状态。脏工作区不能签核。
+
+!!! 成功和失败都回写
+
+只发布绿色状态会让异常退出变成沉默。脚本用 trap 捕获失败，并为相同 SHA 发布红色状态。
+
+!!! 将 Details 指向可审查上下文
+
+Commit Status 的 Details 指向 PR 或 commit。它目前不是完整日志托管服务，但至少能让审查者回到正确的改动上下文。
+
+!!! Simulator 必须独占
+
+同一台机器上的多个 worktree 不得并发操作同一组 Simulator。对 FoodPhotos 来说，这是本地 visual signoff 能否可信的必要条件。
+
+!! 这套方案没有解决什么
+
+本地 `signoff` 不是远端 CI 的无条件替代品。
+
+首先，验证者变成了开发者自己的机器。团队必须信任这台机器、签核脚本和操作者。如果项目需要隔离构建、合规审计或不可篡改的执行环境，远端受控 Runner 仍然更合适。
+
+其次，本地运行默认没有集中式日志和 artifact 托管。FoodPhotos 会在本地保留 Maestro 调试产物，但当前 Details 只链接到 PR，而不是一份可远程下载的完整运行记录。
+
+再次，绿色状态是否构成强制合并门禁取决于 GitHub 仓库能力和配置。`gh-signoff` 支持通过 ruleset 要求 signoff，但 FoodPhotos 当时使用的私有免费仓库无法启用这项保护。因此这里的绿色状态是清晰、可见的交付信号，不是 GitHub 强制执行的合并条件。
+
+最后，本地环境仍会漂移。固定工具版本只能减少变化，不能替代对 Xcode、Simulator runtime、机器状态和资源竞争的持续管理。
+
+!! 什么项目适合尝试
+
+我认为本地 CI 加 `gh-signoff` 比较适合以下项目：
+
+* 个人项目或高度互信的小团队；
+* 远端平台 Runner 昂贵，例如 iOS 和 macOS 项目；
+* 开发机比租用 Runner 更快、更稳定；
+* 测试入口已经脚本化，可以一次执行完整门禁；
+* 团队愿意明确管理本地环境和共享资源。
+
+如果项目依赖多平台矩阵、严格供应链隔离、集中审计、自动部署或大规模并行测试，远端 CI 依然更自然。
+
+!! 最后的认识
+
+这次迁移让我重新区分了三个经常被混在一起的概念：测试执行、结果签核和合并门禁。
+
+GitHub Actions 可以同时承担三者，但它不是唯一组合方式。FoodPhotos 现在由本地机器执行测试，`gh-signoff` 把结果绑定到 commit，GitHub PR 展示签核状态。是否强制阻止合并，则由仓库规则另行决定。
+
+当远端 CI 的成本或配额开始损害反馈质量时，问题不一定要用更多云资源解决。对于边界清楚、环境可控的项目，把计算搬回已经拥有的机器，同时保留 GitHub 上可见的结果，可能是一条更直接的路。
+
+!! 相关链接
+
+* [[DHH：We're moving continuous integration back to developer machines（本地 CI 的前身方案，2024）|https://world.hey.com/dhh/we-re-moving-continuous-integration-back-to-developer-machines-3ac6c611]]
+* [[DHH：正式介绍 gh-signoff（X，2025）|https://x.com/dhh/status/1896932150055997517]]
+* [[DHH 在 LinkedIn 介绍 gh-signoff（2025）|https://www.linkedin.com/posts/david-heinemeier-hansson-374b18221_developer-machines-are-getting-so-powerful-activity-7316734186025885696-rylA]]
+* [[Basecamp gh-signoff|https://github.com/basecamp/gh-signoff]]
+* [[gh-signoff v0.4.1|https://github.com/basecamp/gh-signoff/releases/tag/v0.4.1]]
