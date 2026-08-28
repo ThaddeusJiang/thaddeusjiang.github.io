@@ -1,4 +1,5 @@
 [tools]
+"github:nubjs/nub" = "0.7.5"
 "npm:tiddlywiki" = "5.4.1"
 "npm:serve" = "14.2.6"
 

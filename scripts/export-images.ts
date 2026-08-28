@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env -S nub
 
 import {
   copyFileSync,
@@ -13,10 +13,10 @@ const IMAGE_FILE_PATTERN = /\.(?:avif|bmp|gif|ico|jpe?g|png|svg|webp)$/i;
 const [tiddlersDirectory, outputDirectory] = process.argv.slice(2);
 
 if (!tiddlersDirectory || !outputDirectory) {
-  throw new Error("Usage: export-images.mjs <tiddlers-directory> <output-directory>");
+  throw new Error("Usage: export-images.ts <tiddlers-directory> <output-directory>");
 }
 
-function findImageFiles(directory) {
+function findImageFiles(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const path = join(directory, entry.name);
 
@@ -28,7 +28,7 @@ function findImageFiles(directory) {
   });
 }
 
-function readTitle(imagePath) {
+function readTitle(imagePath: string): string {
   const metadataPath = `${imagePath}.meta`;
 
   if (!existsSync(metadataPath)) {
@@ -43,7 +43,7 @@ function readTitle(imagePath) {
 
 mkdirSync(outputDirectory, { recursive: true });
 
-const exportedPaths = new Set();
+const exportedPaths = new Set<string>();
 let exportedCount = 0;
 
 for (const imagePath of findImageFiles(tiddlersDirectory)) {

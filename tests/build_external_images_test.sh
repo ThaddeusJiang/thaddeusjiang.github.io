@@ -43,7 +43,7 @@ list_expected_images() {
 
     [[ "$title" == '$:/'* ]] && continue
 
-    node -e 'process.stdout.write(`${encodeURIComponent(process.argv[1])}\n`)' "$title"
+    nub -e 'process.stdout.write(`${encodeURIComponent(process.argv[1])}\n`)' "$title"
   done
 }
 

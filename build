@@ -32,7 +32,7 @@ rsync -a \
   --exclude='output' \
   "$REPO_ROOT/" "$WIKI_COPY/"
 
-node "$REPO_ROOT/scripts/export-images.mjs" \
+nub "$REPO_ROOT/scripts/export-images.ts" \
   "$REPO_ROOT/tiddlers" \
   "$STAGED_DOCS/images"
 

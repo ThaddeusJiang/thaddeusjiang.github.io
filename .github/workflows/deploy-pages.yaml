@@ -15,6 +15,9 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
+      - name: Install pinned tools 🧰
+        uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
+
       - name: Build and Verify 🔧
         run: |
           ./tests/build_external_images_test.sh
