@@ -1,6 +1,6 @@
 [tools]
-"npm:tiddlywiki" = "latest"
-"npm:serve" = "latest"
+"npm:tiddlywiki" = "5.4.1"
+"npm:serve" = "14.2.6"
 
 [tasks.start]
 description = 'Start tiddlywiki server'
@@ -21,10 +21,14 @@ description = 'Build and preview the site'
 run = '''
 #!/usr/bin/env bash
 rm -rf output
-sh build
+./build
 open ./docs/index.html
 open ./docs/tiddlyjam/index.html
 '''
+
+[tasks.test]
+description = 'Test external image publishing'
+run = './tests/build_external_images_test.sh'
 
 [tasks.serve]
 description = 'Serve the tiddlyjam'

@@ -15,9 +15,9 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Install and Build 🔧
+      - name: Build and Verify 🔧
         run: |
-          sh build
+          ./tests/build_external_images_test.sh
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
