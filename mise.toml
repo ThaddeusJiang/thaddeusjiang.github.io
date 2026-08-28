@@ -3,6 +3,10 @@
 "npm:tiddlywiki" = "5.4.1"
 "npm:serve" = "14.2.6"
 
+[tasks.dev]
+description = 'Start tiddlywiki development server'
+depends = ['start']
+
 [tasks.start]
 description = 'Start tiddlywiki server'
 run = '''
