@@ -47,11 +47,11 @@ npx --yes "tiddlywiki@$TIDDLYWIKI_VERSION" "$WIKI_COPY" \
 cp "$INDEX_OUTPUT/index.html" "$STAGED_DOCS/index.html"
 
 npx --yes "tiddlywiki@$TIDDLYWIKI_VERSION" "$WIKI_COPY" \
+  --setfield '[!is[system]is[image]]' _canonical_uri '$:/templates/canonical-uri-tiddlyjam-asset' text/plain
+
+npx --yes "tiddlywiki@$TIDDLYWIKI_VERSION" "$WIKI_COPY" \
   --output "$STAGED_DOCS/tiddlyjam" \
   --build tiddlyjam
-
-mkdir -p "$STAGED_DOCS/tiddlyjam/assets"
-cp -R "$STAGED_DOCS/assets/." "$STAGED_DOCS/tiddlyjam/assets/"
 
 if [[ -d "$REPO_ROOT/docs" ]]; then
   mv "$REPO_ROOT/docs" "$PREVIOUS_DOCS"
