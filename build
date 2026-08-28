@@ -24,7 +24,7 @@ restore_previous_docs() {
 trap cleanup EXIT
 trap 'restore_previous_docs; exit 1' INT TERM
 
-mkdir -p "$WIKI_COPY" "$INDEX_OUTPUT" "$STAGED_DOCS/images" "$STAGED_DOCS/tiddlyjam"
+mkdir -p "$WIKI_COPY" "$INDEX_OUTPUT" "$STAGED_DOCS/assets" "$STAGED_DOCS/tiddlyjam"
 
 rsync -a \
   --exclude='.git' \
@@ -34,10 +34,10 @@ rsync -a \
 
 nub "$REPO_ROOT/scripts/export-images.ts" \
   "$REPO_ROOT/tiddlers" \
-  "$STAGED_DOCS/images"
+  "$STAGED_DOCS/assets"
 
 npx --yes "tiddlywiki@$TIDDLYWIKI_VERSION" "$WIKI_COPY" \
-  --setfield '[!is[system]is[image]]' _canonical_uri '$:/core/templates/canonical-uri-external-image' text/plain \
+  --setfield '[!is[system]is[image]]' _canonical_uri '$:/templates/canonical-uri-external-asset' text/plain \
   --setfield '[!is[system]is[image]]' text '' text/plain
 
 npx --yes "tiddlywiki@$TIDDLYWIKI_VERSION" "$WIKI_COPY" \
@@ -50,8 +50,8 @@ npx --yes "tiddlywiki@$TIDDLYWIKI_VERSION" "$WIKI_COPY" \
   --output "$STAGED_DOCS/tiddlyjam" \
   --build tiddlyjam
 
-mkdir -p "$STAGED_DOCS/tiddlyjam/images"
-cp -R "$STAGED_DOCS/images/." "$STAGED_DOCS/tiddlyjam/images/"
+mkdir -p "$STAGED_DOCS/tiddlyjam/assets"
+cp -R "$STAGED_DOCS/assets/." "$STAGED_DOCS/tiddlyjam/assets/"
 
 if [[ -d "$REPO_ROOT/docs" ]]; then
   mv "$REPO_ROOT/docs" "$PREVIOUS_DOCS"

@@ -32,7 +32,7 @@ open ./docs/tiddlyjam/index.html
 '''
 
 [tasks.test]
-description = 'Test external image publishing'
+description = 'Test external asset publishing'
 run = './tests/build_external_images_test.sh'
 
 [tasks.serve]

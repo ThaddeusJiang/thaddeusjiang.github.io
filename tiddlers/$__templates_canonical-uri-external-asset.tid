@@ -1,0 +1,2 @@
+title: $:/templates/canonical-uri-external-asset
+text: ./assets/<$view field="title" format="doubleurlencoded"/>

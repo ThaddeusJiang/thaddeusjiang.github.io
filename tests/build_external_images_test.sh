@@ -62,8 +62,10 @@ GYAZO_AFTER=$(count_gyazo_references)
 
 [[ -f docs/index.html ]] || fail 'docs/index.html was not generated'
 [[ -f docs/tiddlyjam/index.html ]] || fail 'docs/tiddlyjam/index.html was not generated'
-[[ -d docs/images ]] || fail 'docs/images was not generated'
-[[ -d docs/tiddlyjam/images ]] || fail 'docs/tiddlyjam/images was not generated'
+[[ -d docs/assets ]] || fail 'docs/assets was not generated'
+[[ -d docs/tiddlyjam/assets ]] || fail 'docs/tiddlyjam/assets was not generated'
+[[ ! -e docs/images ]] || fail 'legacy docs/images was generated'
+[[ ! -e docs/tiddlyjam/images ]] || fail 'legacy docs/tiddlyjam/images was generated'
 
 EXPECTED_IMAGES=()
 
@@ -74,20 +76,20 @@ done < <(list_expected_images)
 [[ "${#EXPECTED_IMAGES[@]}" -gt 0 ]] || fail 'no source images were discovered'
 
 for image in "${EXPECTED_IMAGES[@]}"; do
-  [[ -f "docs/images/$image" ]] || fail "missing docs/images/$image"
-  [[ -f "docs/tiddlyjam/images/$image" ]] || fail "missing docs/tiddlyjam/images/$image"
+  [[ -f "docs/assets/$image" ]] || fail "missing docs/assets/$image"
+  [[ -f "docs/tiddlyjam/assets/$image" ]] || fail "missing docs/tiddlyjam/assets/$image"
 done
 
-IMAGE_COUNT=$(find docs/images -maxdepth 1 -type f | wc -l | tr -d ' ')
-TIDDLYJAM_IMAGE_COUNT=$(find docs/tiddlyjam/images -maxdepth 1 -type f | wc -l | tr -d ' ')
+ASSET_COUNT=$(find docs/assets -maxdepth 1 -type f | wc -l | tr -d ' ')
+TIDDLYJAM_ASSET_COUNT=$(find docs/tiddlyjam/assets -maxdepth 1 -type f | wc -l | tr -d ' ')
 
-[[ "$IMAGE_COUNT" == "${#EXPECTED_IMAGES[@]}" ]] || fail "docs/images contains $IMAGE_COUNT files"
-[[ "$TIDDLYJAM_IMAGE_COUNT" == "${#EXPECTED_IMAGES[@]}" ]] || fail "docs/tiddlyjam/images contains $TIDDLYJAM_IMAGE_COUNT files"
+[[ "$ASSET_COUNT" == "${#EXPECTED_IMAGES[@]}" ]] || fail "docs/assets contains $ASSET_COUNT files"
+[[ "$TIDDLYJAM_ASSET_COUNT" == "${#EXPECTED_IMAGES[@]}" ]] || fail "docs/tiddlyjam/assets contains $TIDDLYJAM_ASSET_COUNT files"
 
-grep -Fq '"_canonical_uri":"./images/Stop%2520Losing%2520Solutions%2520Again.png"' docs/index.html \
+grep -Fq '"_canonical_uri":"./assets/Stop%2520Losing%2520Solutions%2520Again.png"' docs/index.html \
   || fail 'index.html does not contain the expected canonical image URI'
 
-grep -RFl 'src="./images/Dont-become-like-this.png"' docs/tiddlyjam --include='*.html' >/dev/null \
+grep -RFl 'src="./assets/Dont-become-like-this.png"' docs/tiddlyjam --include='*.html' >/dev/null \
   || fail 'TiddlyJam did not render a published tiddler with an external image URI'
 
 EMBEDDED_PREFIX=$(base64 < tiddlers/Dont-become-like-this.png | tr -d '\n' | cut -c1-80)
@@ -96,4 +98,4 @@ if grep -Fq "$EMBEDDED_PREFIX" docs/index.html; then
   fail 'index.html still embeds content image data'
 fi
 
-printf 'PASS: external images are published without changing tiddlers or Gyazo references\n'
+printf 'PASS: external images are published under assets without changing tiddlers or Gyazo references\n'
