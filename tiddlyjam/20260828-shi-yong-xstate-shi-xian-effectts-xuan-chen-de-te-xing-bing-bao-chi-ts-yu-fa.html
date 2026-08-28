@@ -1,114 +1,91 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-   <title>TJ's Blog</title>
-   <link>https://thaddeusjiang.com</link>
-   <description>数字花园，自留地，个人备份</description><follow_challenge>
-    <feedId>41718658305983488</feedId>
-    <userId>41718122139849728</userId>
-</follow_challenge>
-   <item>
-      <title>TypeScript 类型体操</title>
-      <link>https://thaddeusjiang.com/typescript-lei-xing-ti-cao</link>
-			<description><![CDATA[
-<div class="content">
-  <p>唉😮‍💨</p><p><img src="https://i.gyazo.com/5387daba38a5907e95d3753376a72e02.png"></p><p><img src="https://i.gyazo.com/b76203a257184c4d675ac027bbff5969.png"></p><p>很难理解为什么要把 JS 变成这样的东西，TypeScript 本来是 JS 的好帮手，现在却变得如何让人讨厌。</p>
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.4.1" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>20260828 使用 XState 实现 EffectTS 宣称的特性，并保持 TS 语法</title>
+<meta name="description" content="结论先说：对于 UI、订单、支付、审批、同步、重试和轮询这类业务工作流，我们可以使用 XState 实现 EffectTS 主打的大部分工程特性，同时让 Actor 内部的 IO 与领域代码继续使用团队熟悉的 TypeScript 写法：普通函数、async/await、discriminated union、AbortSignal 和 try/finally。">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thaddeusjiang.com/20260828-shi-yong-xstate-shi-xian-effectts-xuan-chen-de-te-xing-bing-bao-chi-ts-yu-fa" />
+<meta property="og:title" content="20260828 使用 XState 实现 EffectTS 宣称的特性，并保持 TS 语法" />
+<meta property="og:description" content="结论先说：对于 UI、订单、支付、审批、同步、重试和轮询这类业务工作流，我们可以使用 XState 实现 EffectTS 主打的大部分工程特性，同时让 Actor 内部的 IO 与领域代码继续使用团队熟悉的 TypeScript 写法：普通函数、async/await、discriminated union、AbortSignal 和 try/finally。" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/17308201" />
+<meta property="article:author" content="@ThaddeusJiang" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ThaddeusJiang">
+<meta name="twitter:creator" content="@ThaddeusJiang">
+<meta name="twitter:title" content="20260828 使用 XState 实现 EffectTS 宣称的特性，并保持 TS 语法" />
+<meta name="twitter:description" content="结论先说：对于 UI、订单、支付、审批、同步、重试和轮询这类业务工作流，我们可以使用 XState 实现 EffectTS 主打的大部分工程特性，同时让 Actor 内部的 IO 与领域代码继续使用团队熟悉的 TypeScript 写法：普通函数、async/await、discriminated union、AbortSignal 和 try/finally。" />
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/17308201" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYMJ3T7BNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYMJ3T7BNK');
+</script>
+
+<link
+  title="ThaddeusJiang on Twitter"
+  rel="me"
+  href="https://twitter.com/ThaddeusJiang"
+/>
+
+<link rel="webmention" href="https://webmention.io/thaddeusjiang.com/webmention" />
+<link rel="pingback" href="https://webmention.io/thaddeusjiang.com/xmlrpc" /><link rel="stylesheet" href="./css/custom.css"/>
+<link rel="stylesheet" href="./css/tiddlyjam.min.css"/>
+<link rel="stylesheet" href="./css/vanilla.css"/>
+
+<script async src="https://kit.fontawesome.com/f8d8f6a864.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+
+<body class="tc-body">
+  
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2"><nav aria-label="main navigation" class="navbar" role="navigation"><p><div>
+        <h1 class="brand">
+          <a class="title is-3" href="./">TJ's Blog</a>
+        </h1>
+        <p class="subtitle is-6 is-italic">数字花园，自留地，个人备份</p>
+      </div>
+      
+    </p></nav></div>
 </div>
 
 
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
+<div class="container">
+  <div class="column is-6-desktop is-offset-3-desktop is-8 is-offset-2">
+      <div>
+          <h1 class="title is-4">20260828 使用 XState 实现 EffectTS 宣称的特性，并保持 TS 语法</h1>
+          <hr>
 
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Mon, 23 June 2025 3:3:17 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/typescript-lei-xing-ti-cao</guid>      
-   </item>
-
-   <item>
-      <title>20260828 当 GitHub Actions 配额耗尽：我如何用 gh-signoff 把 iOS CI 搬回本地</title>
-      <link>https://thaddeusjiang.com/20260828-dang-github-actions-pei-e-hao-jin-wo-ru-he-yong-gh-signoff-ba-ios-ci-ban-hui-ben-di</link>
-			<description><![CDATA[
-<div class="content">
-  <p>结论先说：我没有因为 GitHub Actions 配额耗尽就放弃 CI，也没有继续为昂贵的远端 macOS Runner 买单。</p><p>我把测试执行搬回自己的 Mac，再用 Basecamp 开源的 <a class="tc-tiddlylink-external" href="https://github.com/basecamp/gh-signoff" rel="noopener noreferrer" target="_blank">gh-signoff</a> 把结果写成 GitHub Commit Status。Pull Request 仍然会显示绿色或红色的 <code>signoff</code>，只是实际运行测试的机器从 GitHub-hosted runner 变成了我的开发机。</p><p>这不是“不要 CI”，而是把 CI 拆成两个部分：本地负责运行检查，GitHub 负责展示签核结果。</p><h2 class="">问题不是测试失败，而是失败失去了含义</h2><p>FoodPhotos 是一个 SwiftUI iOS 项目。它的交付检查不只是编译和单元测试，还包括：</p><ul><li>Shell 契约测试；</li><li>35 条 Maestro Flow 语法检查；</li><li>110 个 XCTest；</li><li>iPhone 17 和 iPhone 16e 各 32 个静态视觉场景；</li><li>UX 敏感改动触发的照片、地图和设置 3 条 E2E 用户旅程。</li></ul><p>这套检查在固定环境里很有价值，但远端执行成本不低。两台 iOS Simulator 的视觉矩阵会长时间占用 macOS Runner，额度也因此持续消耗。</p><p>当个人账户的 GitHub Actions 使用额度耗尽后，GitHub 仍然会为 Pull Request、<code>main</code> push 和定时任务创建 run，但 job 无法真正启动。页面上留下的是红色失败，原因却不是代码错误，而是账户配额。</p><p>此时 CI 最重要的能力已经失效：红色不再表示“这次改动有问题”。</p><h2 class="">只在本地跑测试还不够</h2><p>最直接的应对方式当然是关闭 GitHub Actions，然后在提交前手动运行测试。</p><p>但这会丢掉一个关键能力：其他人打开 Pull Request 时，无法知道某个精确 commit 是否真的经过了完整检查。开发者口头说“我本地跑过了”，无法回答以下问题：</p><ul><li>测试的是不是当前 PR HEAD；</li><li>测试通过后是否又修改了代码；</li><li>测试失败后是否遗漏了报告；</li><li>本地只跑了部分检查，还是跑了完整门禁。</li></ul><p>我需要的不是另一个测试框架，而是一种轻量的证明：把本地检查结果绑定到已经 push 的精确 SHA，并让 GitHub 在 PR 上显示它。</p><p>这正是 <code>gh-signoff</code> 解决的问题。</p><p>其实，我并不是最近才知道 <code>gh-signoff</code>。2025 年 3 月 4 日，DHH <a class="tc-tiddlylink-external" href="https://x.com/dhh/status/1896932150055997517" rel="noopener noreferrer" target="_blank">在 X 上正式介绍它</a> 时，我就已经注意到了这个工具。只是当时我的 GitHub Actions 还没有遇到 usage limit，远端 CI 也在正常工作，我没有足够理由改动一套已经能用的流程，因此只是记下了它，没有实际尝试。</p><p>直到最近 GitHub Actions 的使用额度耗尽，job 因 usage limit 无法启动，我才重新想起 <code>gh-signoff</code>。过去那个“也许有一天会用到”的工具，正好回应了眼前的问题：继续把检查结果留在 GitHub PR 上，同时把昂贵的 iOS CI 执行搬回自己的 Mac。</p><h2 class="">gh-signoff 做什么，不做什么</h2><p><code>gh-signoff</code> 是一个 GitHub CLI extension。它不会替你编译 App，也不会决定应该运行哪些测试。它负责把本地结果发布为 GitHub Commit Status：</p><pre class="hljs"><code class="sh hljs">gh extension install basecamp/gh-signoff --pin v0.4.1
-
-<span class="hljs-comment"># Tests passed</span>
-gh signoff
-
-<span class="hljs-comment"># Tests failed</span>
-gh signoff fail</code></pre><p>测试仍然由项目自己的脚本运行，<code>gh-signoff</code> 只负责最后一公里：把“通过”或“失败”写回 GitHub。</p><p>我使用固定版本 <code>0.4.1</code>。这个版本支持通过 <code>--url</code> 为 Commit Status 的 <strong>Details</strong> 添加目标链接，也支持显式留下失败状态。FoodPhotos 把 Details 指向当前 PR；没有 PR 时则指向对应 commit。</p><h2 class="">我在 FoodPhotos 中如何落地</h2><p>我把入口收敛成两个 <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./#mise">mise</a> task：</p><pre class="hljs"><code class="sh hljs"><span class="hljs-comment"># Run checks locally without publishing a GitHub status</span>
-mise run check
-
-<span class="hljs-comment"># Run checks and publish the result for the pushed commit</span>
-mise run signoff</code></pre><p><code>check</code> 面向开发过程，可以在脏工作区运行，也不会写入 GitHub。</p><p><code>signoff</code> 是一次正式签核。它在运行前要求：</p><ol><li>工作区必须干净；</li><li>GitHub CLI 已完成认证；</li><li>当前 commit 已经 push，GitHub 能查询到这个 SHA；</li><li><code>gh-signoff</code> 必须是项目固定的版本。</li></ol><p>这些限制是为了防止最危险的误报：本地测试了一个状态，却给 GitHub 上的另一个状态点绿灯。</p><p>完整检查由 <code>scripts/signoff-local-ci.sh</code> 编排。核心结构可以简化为：</p><pre class="hljs"><code class="bash hljs">prepare_signoff
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&#x27;publish_failure $?&#x27;</span> ERR
-
-run_quality_checks
-mise run ui
-
-<span class="hljs-keyword">if</span> has_ux_changes; <span class="hljs-keyword">then</span>
-  mise run e2e
-<span class="hljs-keyword">fi</span>
-
-<span class="hljs-built_in">trap</span> - ERR
-gh signoff \
-  --commit <span class="hljs-string">&quot;<span class="hljs-variable">$SIGNOFF_COMMIT</span>&quot;</span> \
-  --url <span class="hljs-string">&quot;<span class="hljs-variable">$SIGNOFF_URL</span>&quot;</span></code></pre><p>任何步骤返回非零状态，<code>ERR</code> trap 都会调用失败路径：</p><pre class="hljs"><code class="bash hljs">gh signoff fail \
-  --commit <span class="hljs-string">&quot;<span class="hljs-variable">$SIGNOFF_COMMIT</span>&quot;</span> \
-  --description <span class="hljs-string">&quot;Local checks failed (exit <span class="hljs-variable">$exit_code</span>)&quot;</span> \
-  --url <span class="hljs-string">&quot;<span class="hljs-variable">$SIGNOFF_URL</span>&quot;</span></code></pre><p>失败也必须被发布。没有状态不能被解释成“没问题”，它只能表示“无法确认是否运行过”。</p><h2 class="">为什么只保留一个 signoff 状态</h2><p><code>gh-signoff</code> 支持为 tests、lint 或不同平台建立多个 context，但 FoodPhotos 选择单一的 <code>signoff</code> 聚合状态。</p><p>这个项目只有一个本地交付入口。Shell 契约、Flow 语法、XCTest、双设备 visual，以及按路径触发的 E2E，必须在同一次执行中全部满足。拆成多个 context 会增加部分状态过期和遗漏签核的可能性，却没有带来足够收益。</p><p>单一状态表达的是一个明确结论：这个 SHA 已经通过当前项目定义的完整本地门禁。</p><h2 class="">停用 Actions，不删除 workflow</h2><p>我把 GitHub Actions 的 <code>CI</code> 和 <code>Friction Log</code> 设为停用，GitHub API 回读状态为 <code>disabled_manually</code>。</p><p>仓库中的 <code>.github/workflows/ci.yml</code> 和 <code>.github/workflows/friction-log.yml</code> 仍保留原文件名和原路径。停用执行是 GitHub 端的运行状态，不应该通过重命名、移动或删除 workflow 文件实现。</p><p>这样做保留了两件事：</p><ul><li>Git 历史和 workflow 配置仍然清晰；</li><li>将来恢复 GitHub Actions 时，不需要先还原文件结构。</li></ul><p>本地签核是当前执行策略，不是对远端配置的破坏性迁移。</p><h2 class="">一次真实的红灯比十次口头保证更有用</h2><p>这套方案第一次正式运行时并没有直接变绿。</p><p>另一个 worktree 正在同时操作相同的 Simulator。两个 Maestro Runner 互相 shutdown、boot 设备，破坏了 fixture 顺序，视觉检查因此失败。本地脚本正确地向 GitHub 发布了红色 <code>signoff</code>。</p><p>等待另一个任务自然结束，并让签核运行独占 Simulator 后，完整检查通过：</p><ul><li>35 条 Maestro Flow 语法检查通过；</li><li>110/110 XCTest 通过；</li><li>iPhone 17 的 32/32 visual 通过；</li><li>iPhone 16e 的 32/32 visual 通过；</li><li>改动不命中 UX 敏感路径，3 条 E2E 按契约跳过。</li></ul><p>最终结果写入 PR HEAD，并显示为 <code>signoff=success</code>。对应分支没有产生任何 GitHub Actions run，PR 随后合并到 <code>main</code>。</p><p>这个过程也暴露了本地 CI 的真实边界：开发机不是天然可靠的 Runner。共享设备、后台任务和环境漂移同样会制造假红，只是问题从云端基础设施转移到了本地资源协调。</p><h2 class="">为了让本地 CI 值得信任，我加了哪些约束</h2><h3 class="">固定工具版本</h3><p>GitHub CLI、<code>gh-signoff</code>、XcodeGen、Java 和 Maestro 都使用固定版本。这样可以降低开发机升级后悄悄改变签核语义的概率。</p><p>脚本会先检查 <code>gh signoff version</code>。版本不一致时，它会移除旧 extension，再从 <code>v0.4.1</code> tag 重新安装。</p><h3 class="">签核精确 SHA</h3><p>脚本显式取得 <code>git rev-parse HEAD</code>，确认 GitHub 已经知道这个 commit，再通过 <code>--commit</code> 发布状态。脏工作区不能签核。</p><h3 class="">成功和失败都回写</h3><p>只发布绿色状态会让异常退出变成沉默。脚本用 trap 捕获失败，并为相同 SHA 发布红色状态。</p><h3 class="">将 Details 指向可审查上下文</h3><p>Commit Status 的 Details 指向 PR 或 commit。它目前不是完整日志托管服务，但至少能让审查者回到正确的改动上下文。</p><h3 class="">Simulator 必须独占</h3><p>同一台机器上的多个 worktree 不得并发操作同一组 Simulator。对 FoodPhotos 来说，这是本地 visual signoff 能否可信的必要条件。</p><h2 class="">这套方案没有解决什么</h2><p>本地 <code>signoff</code> 不是远端 CI 的无条件替代品。</p><p>首先，验证者变成了开发者自己的机器。团队必须信任这台机器、签核脚本和操作者。如果项目需要隔离构建、合规审计或不可篡改的执行环境，远端受控 Runner 仍然更合适。</p><p>其次，本地运行默认没有集中式日志和 artifact 托管。FoodPhotos 会在本地保留 Maestro 调试产物，但当前 Details 只链接到 PR，而不是一份可远程下载的完整运行记录。</p><p>再次，绿色状态是否构成强制合并门禁取决于 GitHub 仓库能力和配置。<code>gh-signoff</code> 支持通过 ruleset 要求 signoff，但 FoodPhotos 当时使用的私有免费仓库无法启用这项保护。因此这里的绿色状态是清晰、可见的交付信号，不是 GitHub 强制执行的合并条件。</p><p>最后，本地环境仍会漂移。固定工具版本只能减少变化，不能替代对 Xcode、Simulator runtime、机器状态和资源竞争的持续管理。</p><h2 class="">什么项目适合尝试</h2><p>我认为本地 CI 加 <code>gh-signoff</code> 比较适合以下项目：</p><ul><li>个人项目或高度互信的小团队；</li><li>远端平台 Runner 昂贵，例如 iOS 和 macOS 项目；</li><li>开发机比租用 Runner 更快、更稳定；</li><li>测试入口已经脚本化，可以一次执行完整门禁；</li><li>团队愿意明确管理本地环境和共享资源。</li></ul><p>如果项目依赖多平台矩阵、严格供应链隔离、集中审计、自动部署或大规模并行测试，远端 CI 依然更自然。</p><h2 class="">最后的认识</h2><p>这次迁移让我重新区分了三个经常被混在一起的概念：测试执行、结果签核和合并门禁。</p><p>GitHub Actions 可以同时承担三者，但它不是唯一组合方式。FoodPhotos 现在由本地机器执行测试，<code>gh-signoff</code> 把结果绑定到 commit，GitHub PR 展示签核状态。是否强制阻止合并，则由仓库规则另行决定。</p><p>当远端 CI 的成本或配额开始损害反馈质量时，问题不一定要用更多云资源解决。对于边界清楚、环境可控的项目，把计算搬回已经拥有的机器，同时保留 GitHub 上可见的结果，可能是一条更直接的路。</p><h2 class="">相关链接</h2><ul><li><a class="tc-tiddlylink-external" href="https://world.hey.com/dhh/we-re-moving-continuous-integration-back-to-developer-machines-3ac6c611" rel="noopener noreferrer" target="_blank">DHH：We're moving continuous integration back to developer machines（本地 CI 的前身方案，2024）</a></li><li><a class="tc-tiddlylink-external" href="https://x.com/dhh/status/1896932150055997517" rel="noopener noreferrer" target="_blank">DHH：正式介绍 gh-signoff（X，2025）</a></li><li><a class="tc-tiddlylink-external" href="https://www.linkedin.com/posts/david-heinemeier-hansson-374b18221_developer-machines-are-getting-so-powerful-activity-7316734186025885696-rylA" rel="noopener noreferrer" target="_blank">DHH 在 LinkedIn 介绍 gh-signoff（2025）</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/basecamp/gh-signoff" rel="noopener noreferrer" target="_blank">Basecamp gh-signoff</a></li><li><a class="tc-tiddlylink-external" href="https://github.com/basecamp/gh-signoff/releases/tag/v0.4.1" rel="noopener noreferrer" target="_blank">gh-signoff v0.4.1</a></li></ul>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Fri, 28 August 2026 4:3:8 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/20260828-dang-github-actions-pei-e-hao-jin-wo-ru-he-yong-gh-signoff-ba-ios-ci-ban-hui-ben-di</guid>      
-   </item>
-
-   <item>
-      <title>20260828 使用 XState 实现 EffectTS 宣称的特性，并保持 TS 语法</title>
-      <link>https://thaddeusjiang.com/20260828-shi-yong-xstate-shi-xian-effectts-xuan-chen-de-te-xing-bing-bao-chi-ts-yu-fa</link>
-			<description><![CDATA[
-<div class="content">
-  <p>结论先说：对于 UI、订单、支付、审批、同步、重试和轮询这类业务工作流，我们可以使用 XState 实现 EffectTS 主打的大部分工程特性，同时让 Actor 内部的 IO 与领域代码继续使用团队熟悉的 TypeScript 写法：普通函数、<code>async/await</code>、discriminated union、<code>AbortSignal</code> 和 <code>try/finally</code>。</p><p>这里的 EffectTS 指 TypeScript 的 Effect 生态，下文涉及具体类型和 API 时仍使用它的正式名称 Effect。标题中的“宣称”指 Effect 官网与 <a class="tc-tiddlylink-external" href="https://x.com/ewind_dev/status/2092955281714209193" rel="noopener noreferrer" target="_blank">《异步续延与 Effect 架构的第一性原理》</a> 公开列出的能力，并不是质疑这些能力是否真实存在。</p><p>本文对照的特性包括虚拟时间、快速测试重试与超时、确定性状态演进、异步任务中断、冷求值与重跑、结构化并发、类型化错误、依赖替换、资源清理、Schedule、可观测性，以及状态持久化和事件重放。</p><p>这不代表 XState 与 Effect 是同一种东西，也不代表 XState 可以获得 Effect 的全部运行时语义。</p><p>Effect 把异步计算表示成冷的 Effect program，并由 fiber runtime 解释执行；<code>Effect.gen</code> 和 generator 为这种程序提供直陈式的组合与暂停边界。XState 选择了另一条路：不保存“暂停的调用栈”，而是要求开发者把程序接下来要做的事情显式表示为 machine、state、context 和 event。</p><p>两条路线的实现机制不同，但在业务工作流、UI 流程和长时间运行任务中，最终获得的工程能力可以非常接近。</p><p>为了与原文逐项比较，本文统一使用原文中的 <code>TestClock</code>、DST、continuation、冷求值和受控调度等名词。XState 5.32.6 实际导出的类名是 <code>SimulatedClock</code>，代码中通过 <code>SimulatedClock as TestClock</code> 建立别名；下文的 <code>TestClock</code> 都指这个 XState 实现，并不是另一个 API。</p><p>本文沿着六条线索展开：</p><ol><li>先说明“保持 TS 语法”的准确边界；</li><li>从 <code>TestClock</code> 看 XState 能控制什么；</li><li>从 DST 理解这种控制的价值；</li><li>从显式状态解释 XState 为什么不需要持有 generator continuation；</li><li>对比 Effect 与 XState 的两种控制路径；</li><li>逐项检查 EffectTS 的其他主打特性能否由 XState 覆盖。</li></ol><h2 class="">“保持 TS 语法”具体指什么</h2><p>严格来说，<code>Effect.gen</code> 和 <code>yield*</code> 当然也是合法的 TypeScript 语法。本文所说的“保持 TS 语法”，更准确地说是保持典型的 TypeScript 编程模型，不要求业务代码全面进入 <code>Effect&lt;A, E, R&gt;</code>、<code>Effect.gen</code> 和 <code>yield*</code> 组成的 Effect program。</p><p>在 XState 路线中：</p><ul><li>领域数据继续使用 object、interface 和 discriminated union；</li><li>IO implementation 继续使用普通函数、Promise 和 <code>async/await</code>；</li><li>取消继续使用 Web 与 Node.js 生态通用的 <code>AbortSignal</code>；</li><li>资源释放继续使用 cleanup function、<code>try/finally</code> 或 <code>using</code>；</li><li>依赖继续通过函数、object、machine input 或 <code>provide</code> 传入；</li><li>只有跨时间的控制流被集中到 machine、state、context、event 和 Actor lifecycle 中。</li></ul><p>因此，这并不是“零抽象成本”。XState machine config 本身也是一种 DSL，只是它使用 object config 和普通 TypeScript function，把 Effect 专用的顺序式程序模型换成了显式状态模型。</p><p>代价也很明确：业务 IO 可以保留熟悉的 TypeScript 写法，但原本藏在 <code>async/await</code> 调用栈里的长流程控制必须展开成 state 与 event。本文后面所有“实现”都以副作用已经进入这个 Actor 边界为前提。</p><h2 class="">从 TestClock 看 XState 的能力</h2><p>假设我们需要实现一段指数退避逻辑。</p><p>任务失败后分别等待 1、2、4、8、16 秒再试。只计算等待时间，完整流程就要消耗 31 秒。</p><p>如果测试真的等待 31 秒，CI 和 coding agent 的反馈循环都会变慢。把生产配置中的秒改成测试配置中的毫秒，又意味着测试运行的不是生产参数。使用全局 fake timers 虽然能接管 <code>setTimeout</code>，但它仍然需要理解 Promise、微任务和第三方库使用的其他调度通路。</p><p>XState 可以把退避过程直接建模成状态：</p><pre class="hljs"><code class="text hljs">trying --FAILED--&gt; waiting --after retryDelay--&gt; trying
+          <div class="content">
+            <p>结论先说：对于 UI、订单、支付、审批、同步、重试和轮询这类业务工作流，我们可以使用 XState 实现 EffectTS 主打的大部分工程特性，同时让 Actor 内部的 IO 与领域代码继续使用团队熟悉的 TypeScript 写法：普通函数、<code>async/await</code>、discriminated union、<code>AbortSignal</code> 和 <code>try/finally</code>。</p><p>这里的 EffectTS 指 TypeScript 的 Effect 生态，下文涉及具体类型和 API 时仍使用它的正式名称 Effect。标题中的“宣称”指 Effect 官网与 <a class="tc-tiddlylink-external" href="https://x.com/ewind_dev/status/2092955281714209193" rel="noopener noreferrer" target="_blank">《异步续延与 Effect 架构的第一性原理》</a> 公开列出的能力，并不是质疑这些能力是否真实存在。</p><p>本文对照的特性包括虚拟时间、快速测试重试与超时、确定性状态演进、异步任务中断、冷求值与重跑、结构化并发、类型化错误、依赖替换、资源清理、Schedule、可观测性，以及状态持久化和事件重放。</p><p>这不代表 XState 与 Effect 是同一种东西，也不代表 XState 可以获得 Effect 的全部运行时语义。</p><p>Effect 把异步计算表示成冷的 Effect program，并由 fiber runtime 解释执行；<code>Effect.gen</code> 和 generator 为这种程序提供直陈式的组合与暂停边界。XState 选择了另一条路：不保存“暂停的调用栈”，而是要求开发者把程序接下来要做的事情显式表示为 machine、state、context 和 event。</p><p>两条路线的实现机制不同，但在业务工作流、UI 流程和长时间运行任务中，最终获得的工程能力可以非常接近。</p><p>为了与原文逐项比较，本文统一使用原文中的 <code>TestClock</code>、DST、continuation、冷求值和受控调度等名词。XState 5.32.6 实际导出的类名是 <code>SimulatedClock</code>，代码中通过 <code>SimulatedClock as TestClock</code> 建立别名；下文的 <code>TestClock</code> 都指这个 XState 实现，并不是另一个 API。</p><p>本文沿着六条线索展开：</p><ol><li>先说明“保持 TS 语法”的准确边界；</li><li>从 <code>TestClock</code> 看 XState 能控制什么；</li><li>从 DST 理解这种控制的价值；</li><li>从显式状态解释 XState 为什么不需要持有 generator continuation；</li><li>对比 Effect 与 XState 的两种控制路径；</li><li>逐项检查 EffectTS 的其他主打特性能否由 XState 覆盖。</li></ol><h2 class="">“保持 TS 语法”具体指什么</h2><p>严格来说，<code>Effect.gen</code> 和 <code>yield*</code> 当然也是合法的 TypeScript 语法。本文所说的“保持 TS 语法”，更准确地说是保持典型的 TypeScript 编程模型，不要求业务代码全面进入 <code>Effect&lt;A, E, R&gt;</code>、<code>Effect.gen</code> 和 <code>yield*</code> 组成的 Effect program。</p><p>在 XState 路线中：</p><ul><li>领域数据继续使用 object、interface 和 discriminated union；</li><li>IO implementation 继续使用普通函数、Promise 和 <code>async/await</code>；</li><li>取消继续使用 Web 与 Node.js 生态通用的 <code>AbortSignal</code>；</li><li>资源释放继续使用 cleanup function、<code>try/finally</code> 或 <code>using</code>；</li><li>依赖继续通过函数、object、machine input 或 <code>provide</code> 传入；</li><li>只有跨时间的控制流被集中到 machine、state、context、event 和 Actor lifecycle 中。</li></ul><p>因此，这并不是“零抽象成本”。XState machine config 本身也是一种 DSL，只是它使用 object config 和普通 TypeScript function，把 Effect 专用的顺序式程序模型换成了显式状态模型。</p><p>代价也很明确：业务 IO 可以保留熟悉的 TypeScript 写法，但原本藏在 <code>async/await</code> 调用栈里的长流程控制必须展开成 state 与 event。本文后面所有“实现”都以副作用已经进入这个 Actor 边界为前提。</p><h2 class="">从 TestClock 看 XState 的能力</h2><p>假设我们需要实现一段指数退避逻辑。</p><p>任务失败后分别等待 1、2、4、8、16 秒再试。只计算等待时间，完整流程就要消耗 31 秒。</p><p>如果测试真的等待 31 秒，CI 和 coding agent 的反馈循环都会变慢。把生产配置中的秒改成测试配置中的毫秒，又意味着测试运行的不是生产参数。使用全局 fake timers 虽然能接管 <code>setTimeout</code>，但它仍然需要理解 Promise、微任务和第三方库使用的其他调度通路。</p><p>XState 可以把退避过程直接建模成状态：</p><pre class="hljs"><code class="text hljs">trying --FAILED--&gt; waiting --after retryDelay--&gt; trying
 trying --SUCCEEDED--&gt; succeeded
 trying --FAILED and retries &gt;= 5--&gt; failed</code></pre><p>对应的 XState 代码如下。这里暂时把真实 IO 简化成 <code>SUCCEEDED</code> 和 <code>FAILED</code> 事件，以便只关注调度逻辑。</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { assign, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
 
@@ -453,7 +430,10 @@ shipping --SHIPPED--&gt; completed</code></pre><p>下面是完整的 TypeScript 
   <span class="hljs-attr">snapshot</span>: persistedSnapshot,
 }).<span class="hljs-title function_">start</span>();</code></pre><p>machine Actor 的 invoked 和 spawned Actor 可以递归持久化和恢复。恢复时，已经执行过的 action 不会再次执行，invocation 会重新启动。</p><p>但在本文使用的 <code>xstate@5.32.6</code> 中，<code>actor.getPersistedSnapshot()</code> 不包含 Actor system 当前已经调度的 delayed event。假设 Actor 在一个 <code>after</code> 10 秒的 <code>waiting</code> state 中运行了 2 秒，此时保存并恢复 snapshot，剩余 8 秒的 timeout 不会自动恢复。</p><p>因此，依赖重试、超时或租约的跨进程长流程不能只保存 snapshot。常见做法是把绝对 deadline 或剩余时间放进可序列化 context，恢复后重新计算并登记 delay；另一种做法是把调度交给独立的持久化 scheduler。</p><p>这不是把暂停中的 Promise 或 JavaScript 调用栈序列化，而是恢复显式工作流状态。对于由外部 event 驱动的页面刷新、进程重启和长时间运行流程，这通常很实用；依赖定时任务的流程则需要补上上述调度恢复设计。</p><p>如果需要重放 action，可以保存进入 Actor system 的 event，再从初始状态重新发送，这就是 event sourcing 路线。</p><h2 class="">要让这些能力真正成立，需要遵守什么</h2><p>XState 可以覆盖目标，不代表只安装 package 就会自动得到全部保证。</p><p>架构需要遵守以下约束：</p><ol><li>所有长流程都由 machine 和 Actor 表达；</li><li>所有 IO 都封装成 invoked 或 spawned Actor；</li><li>所有时间逻辑都使用 XState delay，避免裸 <code>setTimeout</code>；</li><li>所有外部结果都转换成明确的 event；</li><li>随机数、网络结果和系统时间必须可以注入；</li><li>跨越异步边界的数据必须进入可序列化 context；</li><li>跨重启仍需生效的 deadline 必须被持久化，并在恢复后重新调度；</li><li>资源清理必须绑定 Actor 停止或显式 disposal；</li><li>测试通过 fake Actor、TestClock、seed 和 event tape 控制输入。</li></ol><p>如果违反这些约束，能力就会出现缺口。</p><p>直接在 action 中执行真实网络请求，会让测试无法控制完成顺序。直接使用 <code>setTimeout</code>，会让虚拟时钟失效。把无法序列化的对象放进 context，会破坏持久化。启动不属于 Actor tree 的后台任务，会产生 orphan task。</p><p>这与 Effect 要求副作用留在 Effect program 内，本质上是同一种工程纪律。</p><h2 class="">“实现这些特性”不等于替代 EffectTS</h2><p>标题比较的是工程特性，不是说 XState 与 EffectTS 具有相同的类型系统和运行时语义。</p><p>如果目标是“让任意普通 TypeScript 函数自动获得类型化错误、资源域、结构化并发和续延级调度”，XState 并不能替代 Effect。</p><p>XState 只控制被建模进 machine 和 Actor system 的流程。普通 <code>async/await</code> 函数不会因为项目安装了 XState 就自动变成冷求值，也不会自动获得错误通道和资源安全。</p><p>但如果目标是文章中反复出现的工程结果：</p><ul><li>重试与超时可以瞬时测试；</li><li>工作流状态演进可以确定性验证；</li><li>外部故障可以记录和重放；</li><li>异步任务可以随父流程停止；</li><li>依赖可以在测试中替换；</li><li>错误、资源和可观测信息具有明确边界；</li><li>长流程可以持久化并恢复，定时流程额外持久化 deadline 并重新调度；</li></ul><p>那么 XState 路线成立，而且具体的 IO、错误数据、取消信号和 cleanup 仍然可以沿用典型 TypeScript 生态。</p><p>需要补充的是，完整 DST 从来都不只是一个 library 的功能。无论使用 Effect 还是 XState，网络、磁盘、随机数和宿主环境都必须进入可控模拟边界。XState 提供的是业务工作流层的确定性内核，不是整个操作系统的模拟器。</p><h2 class="">结语</h2><p>现在可以更准确地解释标题。</p><p>“使用 XState 实现 EffectTS 宣称的特性”，指的是在业务工作流边界内，用 state、event、Actor tree、可注入 clock 和 inspection 等机制，实现可测试时间、取消、重试、依赖替换、资源清理、可观测性与恢复等工程结果。</p><p>“并保持 TS 语法”，指的是 Actor 内部仍然编写普通 TypeScript function、<code>async/await</code>、discriminated union、<code>AbortSignal</code> 和 cleanup function，不要求整个业务代码库改写成 Effect program。代价是跨时间的控制流必须显式建模成 machine，而不是继续隐藏在顺序式调用栈里。</p><p>Effect 与 XState 回答的是两个不同问题。</p><p>Effect 问：如何在不控制 JavaScript 运行时的前提下，让顺序式程序获得更强的异步运行时语义？</p><p>XState 问：如何把一个跨越时间、事件和副作用的流程，表达成可以解释、观察、测试和恢复的数据？</p><p>Effect 通过持有 continuation 获得控制权。XState 通过显式 state、context、event 和 Actor lifecycle 获得控制权。</p><p>对于基础设施库、复杂并发算法和大量可组合的顺序式 effect，Effect 的抽象更完整。</p><p>对于 UI、订单、支付、审批、同步、重试、轮询和其他业务工作流，XState 通常已经能够实现相同的目标，而且显式 state 还会带来可视化、持久化和模型测试方面的优势。</p><p>因此，如果项目本来就适合用 state machine 表达，就没有必要仅仅为了虚拟时间、取消、重试、依赖替换或确定性测试，把业务代码改写成 Effect program。</p><p>真正需要选择的不是哪一个 library “理论上更强”，而是哪一种复杂度更符合系统：</p><blockquote class="tc-quote tc-big-quote"><p>Effect 把复杂度放进运行时和类型系统；XState 把复杂度展开成业务状态与事件。
 </p><cite>TJ</cite></blockquote><p>只要团队愿意把副作用纳入 Actor 边界，XState 就能在保留典型 TypeScript 编程模型的同时，实现文章里 EffectTS 想要达到的大部分工程目标。</p><h2 class="">相关链接</h2><ul><li><a class="tc-tiddlylink-external" href="https://x.com/ewind_dev/status/2092955281714209193" rel="noopener noreferrer" target="_blank">Yifeng “Evan” Wang：异步续延与 Effect 架构的第一性原理</a></li><li><a class="tc-tiddlylink-external" href="https://effect.website/" rel="noopener noreferrer" target="_blank">Effect：Production Grade TypeScript</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/typescript" rel="noopener noreferrer" target="_blank">XState：TypeScript</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/actors" rel="noopener noreferrer" target="_blank">XState：Actors</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/transitions" rel="noopener noreferrer" target="_blank">XState：Events and transitions</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/pure-transitions" rel="noopener noreferrer" target="_blank">XState：Pure transition functions</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/delayed-transitions" rel="noopener noreferrer" target="_blank">XState：Delayed transitions</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/promise-actors" rel="noopener noreferrer" target="_blank">XState：Promise actors</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/persistence" rel="noopener noreferrer" target="_blank">XState：Persistence</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/inspection" rel="noopener noreferrer" target="_blank">XState：Inspection</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/testing" rel="noopener noreferrer" target="_blank">XState：Testing</a></li><li><a class="tc-tiddlylink-external" href="https://www.jsdocs.io/package/xstate#SimulatedClock" rel="noopener noreferrer" target="_blank">XState 5.32.6 API：TestClock（实际类名 SimulatedClock）</a></li></ul>
-</div>
+          </div>          
+      </div>
+  </div>
+</div>     
 
 
 <div class="copyright">
@@ -477,10 +457,43 @@ shipping --SHIPPED--&gt; completed</code></pre><p>下面是完整的 TypeScript 
 
 
 
-]]></description>
-      <pubDate>Fri, 28 August 2026 17:12:41 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/20260828-shi-yong-xstate-shi-xian-effectts-xuan-chen-de-te-xing-bing-bao-chi-ts-yu-fa</guid>      
-   </item>
 
-</channel>
-</rss>
+<div class="comment giscus column is-6-desktop is-offset-3-desktop is-8 is-offset-2"></div>
+
+<script async src="https://giscus.app/client.js"
+        data-repo="ThaddeusJiang/thaddeusjiang.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNTY3NDMxMTc="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOD02Wzc4CAJc1"
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+       >
+</script>
+
+<style>
+.comment {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+
+  <footer class="section">    
+    <div class="has-text-centered">
+      <p> © ThaddeusJiang | Powered by <a class="tc-tiddlylink-external" href="http://github.com/ThaddeusJiang/TiddlyJam" rel="noopener noreferrer" target="_blank">TiddlyJam</a></p>
+    </div>
+
+    <div class="has-text-centered">
+<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="./blog.html">Blog</a> | <a class="tc-tiddlylink-external" href="https://thaddeusjiang.com/rss.xml" rel="noopener noreferrer" target="_blank">RSS</a> | <a class="tc-tiddlylink-external" href="https://github.com/ThaddeusJiang" rel="noopener noreferrer" target="_blank">GitHub</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ja.html">日本語</a>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>
