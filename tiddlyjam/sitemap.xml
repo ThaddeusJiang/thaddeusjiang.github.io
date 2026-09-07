@@ -896,6 +896,12 @@
    </url>
 
    <url>
+      <loc>.//20260522-yong-bao-git-worktree</loc>
+      <lastmod>2026-08-28</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
       <loc>.//20260828-shi-yong-xstate-shi-xian-effectts-xuan-chen-de-te-xing-bing-bao-chi-ts-yu-fa</loc>
       <lastmod>2026-08-28</lastmod>
       <changefreq>monthly</changefreq>
@@ -904,6 +910,12 @@
    <url>
       <loc>.//20260828-dang-github-actions-pei-e-hao-jin-wo-ru-he-yong-gh-signoff-ba-ios-ci-ban-hui-ben-di</loc>
       <lastmod>2026-08-28</lastmod>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>.//20260907-postgresql-geng-xin-huan-jing-bian-liang-bu-hui-zi-dong-geng-xin-database-password</loc>
+      <lastmod>2026-09-07</lastmod>
       <changefreq>monthly</changefreq>
    </url>
 

@@ -85,9 +85,48 @@
           <hr>
 
           <div class="content">
-            <p>结论先说：对于 UI、订单、支付、审批、同步、重试和轮询这类业务工作流，我们可以使用 XState 实现 EffectTS 主打的大部分工程特性，同时让 Actor 内部的 IO 与领域代码继续使用团队熟悉的 TypeScript 写法：普通函数、<code>async/await</code>、discriminated union、<code>AbortSignal</code> 和 <code>try/finally</code>。</p><p>这里的 EffectTS 指 TypeScript 的 Effect 生态，下文涉及具体类型和 API 时仍使用它的正式名称 Effect。标题中的“宣称”指 Effect 官网与 <a class="tc-tiddlylink-external" href="https://x.com/ewind_dev/status/2092955281714209193" rel="noopener noreferrer" target="_blank">《异步续延与 Effect 架构的第一性原理》</a> 公开列出的能力，并不是质疑这些能力是否真实存在。</p><p>本文对照的特性包括虚拟时间、快速测试重试与超时、确定性状态演进、异步任务中断、冷求值与重跑、结构化并发、类型化错误、依赖替换、资源清理、Schedule、可观测性，以及状态持久化和事件重放。</p><p>这不代表 XState 与 Effect 是同一种东西，也不代表 XState 可以获得 Effect 的全部运行时语义。</p><p>Effect 把异步计算表示成冷的 Effect program，并由 fiber runtime 解释执行；<code>Effect.gen</code> 和 generator 为这种程序提供直陈式的组合与暂停边界。XState 选择了另一条路：不保存“暂停的调用栈”，而是要求开发者把程序接下来要做的事情显式表示为 machine、state、context 和 event。</p><p>两条路线的实现机制不同，但在业务工作流、UI 流程和长时间运行任务中，最终获得的工程能力可以非常接近。</p><p>为了与原文逐项比较，本文统一使用原文中的 <code>TestClock</code>、DST、continuation、冷求值和受控调度等名词。XState 5.32.6 实际导出的类名是 <code>SimulatedClock</code>，代码中通过 <code>SimulatedClock as TestClock</code> 建立别名；下文的 <code>TestClock</code> 都指这个 XState 实现，并不是另一个 API。</p><p>本文沿着六条线索展开：</p><ol><li>先说明“保持 TS 语法”的准确边界；</li><li>从 <code>TestClock</code> 看 XState 能控制什么；</li><li>从 DST 理解这种控制的价值；</li><li>从显式状态解释 XState 为什么不需要持有 generator continuation；</li><li>对比 Effect 与 XState 的两种控制路径；</li><li>逐项检查 EffectTS 的其他主打特性能否由 XState 覆盖。</li></ol><h2 class="">“保持 TS 语法”具体指什么</h2><p>严格来说，<code>Effect.gen</code> 和 <code>yield*</code> 当然也是合法的 TypeScript 语法。本文所说的“保持 TS 语法”，更准确地说是保持典型的 TypeScript 编程模型，不要求业务代码全面进入 <code>Effect&lt;A, E, R&gt;</code>、<code>Effect.gen</code> 和 <code>yield*</code> 组成的 Effect program。</p><p>在 XState 路线中：</p><ul><li>领域数据继续使用 object、interface 和 discriminated union；</li><li>IO implementation 继续使用普通函数、Promise 和 <code>async/await</code>；</li><li>取消继续使用 Web 与 Node.js 生态通用的 <code>AbortSignal</code>；</li><li>资源释放继续使用 cleanup function、<code>try/finally</code> 或 <code>using</code>；</li><li>依赖继续通过函数、object、machine input 或 <code>provide</code> 传入；</li><li>只有跨时间的控制流被集中到 machine、state、context、event 和 Actor lifecycle 中。</li></ul><p>因此，这并不是“零抽象成本”。XState machine config 本身也是一种 DSL，只是它使用 object config 和普通 TypeScript function，把 Effect 专用的顺序式程序模型换成了显式状态模型。</p><p>代价也很明确：业务 IO 可以保留熟悉的 TypeScript 写法，但原本藏在 <code>async/await</code> 调用栈里的长流程控制必须展开成 state 与 event。本文后面所有“实现”都以副作用已经进入这个 Actor 边界为前提。</p><h2 class="">从 TestClock 看 XState 的能力</h2><p>假设我们需要实现一段指数退避逻辑。</p><p>任务失败后分别等待 1、2、4、8、16 秒再试。只计算等待时间，完整流程就要消耗 31 秒。</p><p>如果测试真的等待 31 秒，CI 和 coding agent 的反馈循环都会变慢。把生产配置中的秒改成测试配置中的毫秒，又意味着测试运行的不是生产参数。使用全局 fake timers 虽然能接管 <code>setTimeout</code>，但它仍然需要理解 Promise、微任务和第三方库使用的其他调度通路。</p><p>XState 可以把退避过程直接建模成状态：</p><pre class="hljs"><code class="text hljs">trying --FAILED--&gt; waiting --after retryDelay--&gt; trying
-trying --SUCCEEDED--&gt; succeeded
-trying --FAILED and retries &gt;= 5--&gt; failed</code></pre><p>对应的 XState 代码如下。这里暂时把真实 IO 简化成 <code>SUCCEEDED</code> 和 <code>FAILED</code> 事件，以便只关注调度逻辑。</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { assign, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
+            <p>结论先说：对于 UI、订单、支付、审批、同步、重试和轮询这类业务工作流，我们可以使用 XState 实现 EffectTS 主打的大部分工程特性，同时让 Actor 内部的 IO 与领域代码继续使用团队熟悉的 TypeScript 写法：普通函数、<code>async/await</code>、discriminated union、<code>AbortSignal</code> 和 <code>try/finally</code>。</p><p>这里的 EffectTS 指 TypeScript 的 Effect 生态，下文涉及具体类型和 API 时仍使用它的正式名称 Effect。标题中的“宣称”指 Effect 官网与 <a class="tc-tiddlylink-external" href="https://x.com/ewind_dev/status/2092955281714209193" rel="noopener noreferrer" target="_blank">《异步续延与 Effect 架构的第一性原理》</a> 公开列出的能力，并不是质疑这些能力是否真实存在。</p><p>本文对照的特性包括虚拟时间、快速测试重试与超时、确定性状态演进、异步任务中断、冷求值与重跑、结构化并发、类型化错误、依赖替换、资源清理、Schedule、可观测性，以及状态持久化和事件重放。</p><p>这不代表 XState 与 Effect 是同一种东西，也不代表 XState 可以获得 Effect 的全部运行时语义。</p><p>Effect 把异步计算表示成冷的 Effect program，并由 fiber runtime 解释执行；<code>Effect.gen</code> 和 generator 为这种程序提供直陈式的组合与暂停边界。XState 选择了另一条路：不保存“暂停的调用栈”，而是要求开发者把程序接下来要做的事情显式表示为 machine、state、context 和 event。</p><p>两条路线的实现机制不同，但在业务工作流、UI 流程和长时间运行任务中，最终获得的工程能力可以非常接近。</p><p>为了与原文逐项比较，本文统一使用原文中的 <code>TestClock</code>、DST、continuation、冷求值和受控调度等名词。XState 5.32.6 实际导出的类名是 <code>SimulatedClock</code>，代码中通过 <code>SimulatedClock as TestClock</code> 建立别名；下文的 <code>TestClock</code> 都指这个 XState 实现，并不是另一个 API。</p><p>本文沿着六条线索展开：</p><ol><li>先说明“保持 TS 语法”的准确边界；</li><li>从 <code>TestClock</code> 看 XState 能控制什么；</li><li>从 DST 理解这种控制的价值；</li><li>从显式状态解释 XState 为什么不需要持有 generator continuation；</li><li>对比 Effect 与 XState 的两种控制路径；</li><li>逐项检查 EffectTS 的其他主打特性能否由 XState 覆盖。</li></ol><h2 class="">“保持 TS 语法”具体指什么</h2><p>严格来说，<code>Effect.gen</code> 和 <code>yield*</code> 当然也是合法的 TypeScript 语法。本文所说的“保持 TS 语法”，更准确地说是保持典型的 TypeScript 编程模型，不要求业务代码全面进入 <code>Effect&lt;A, E, R&gt;</code>、<code>Effect.gen</code> 和 <code>yield*</code> 组成的 Effect program。</p><p>在 XState 路线中：</p><ul><li>领域数据继续使用 object、interface 和 discriminated union；</li><li>IO implementation 继续使用普通函数、Promise 和 <code>async/await</code>；</li><li>取消继续使用 Web 与 Node.js 生态通用的 <code>AbortSignal</code>；</li><li>资源释放继续使用 cleanup function、<code>try/finally</code> 或 <code>using</code>；</li><li>依赖继续通过函数、object、machine input 或 <code>provide</code> 传入；</li><li>只有跨时间的控制流被集中到 machine、state、context、event 和 Actor lifecycle 中。</li></ul><p>因此，这并不是“零抽象成本”。XState machine config 本身也是一种 DSL，只是它使用 object config 和普通 TypeScript function，把 Effect 专用的顺序式程序模型换成了显式状态模型。</p><p>代价也很明确：业务 IO 可以保留熟悉的 TypeScript 写法，但原本藏在 <code>async/await</code> 调用栈里的长流程控制必须展开成 state 与 event。本文后面所有“实现”都以副作用已经进入这个 Actor 边界为前提。</p><h2 class="">从 TestClock 看 XState 的能力</h2><p>假设我们需要实现一段指数退避逻辑。</p><p>任务失败后分别等待 1、2、4、8、16 秒再试。只计算等待时间，完整流程就要消耗 31 秒。</p><p>如果测试真的等待 31 秒，CI 和 coding agent 的反馈循环都会变慢。把生产配置中的秒改成测试配置中的毫秒，又意味着测试运行的不是生产参数。使用全局 fake timers 虽然能接管 <code>setTimeout</code>，但它仍然需要理解 Promise、微任务和第三方库使用的其他调度通路。</p><p>XState 可以把退避过程直接建模为 <code>trying</code>、<code>waiting</code>、<code>succeeded</code> 和 <code>failed</code> 四个显式状态。先看 statechart，再看对应的 TypeScript 实现：</p><p><style>
+.stately-chart-frame {
+  width: min(1120px, calc(100vw - 3rem));
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.stately-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 6 / 4;
+  border: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stately-chart-link {
+  display: block;
+  margin-top: 0.5rem;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+@media (max-width: 640px) {
+  .stately-chart-frame {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .stately-chart-portrait {
+    aspect-ratio: 3 / 4;
+  }
+}
+</style></p><p><div class="stately-chart-frame">
+<iframe allowfullscreen="true" class="stately-chart" loading="lazy" src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&amp;mode=Simulate&amp;colorMode=light" title="retryMachine 的交互式 statechart">
+  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&amp;mode=Simulate">在 Stately Studio 中查看 retryMachine</a>
+</iframe>
+<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&amp;mode=Simulate" rel="noopener" target="_blank">在 Stately 中全屏查看 retryMachine</a>
+</div></p><p>对应的 XState 代码如下。这里暂时把真实 IO 简化成 <code>SUCCEEDED</code> 和 <code>FAILED</code> 事件，以便只关注调度逻辑。</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { assign, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> retryMachine = <span class="hljs-title function_">setup</span>({
   <span class="hljs-attr">types</span>: {
@@ -134,48 +173,7 @@ trying --FAILED and retries &gt;= 5--&gt; failed</code></pre><p>对应的 XState
       <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;final&quot;</span>,
     },
   },
-});</code></pre><p>这里没有把重试流程改写成 <code>Effect.gen</code>。event 仍然是 TypeScript union，delay 和 context update 仍然是普通函数；XState 专用的部分是把执行顺序写进 machine config，由 Actor runtime 解释这些 state 与 transition。</p><p>把这段代码导入 Stately Studio 后，可以直接看到事件、guard、action 和 delayed transition 之间的关系。下面的 statechart 会以模拟模式运行，可以点击 event、缩放和拖动：</p><p><style>
-.stately-chart-frame {
-  width: min(1120px, calc(100vw - 3rem));
-  max-width: none;
-  margin-left: 50%;
-  transform: translateX(-50%);
-}
-
-.stately-chart {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 6 / 4;
-  border: 0;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.stately-chart-link {
-  display: block;
-  margin-top: 0.5rem;
-  text-align: right;
-  font-size: 0.9em;
-}
-
-@media (max-width: 640px) {
-  .stately-chart-frame {
-    width: 100%;
-    margin-left: 0;
-    transform: none;
-  }
-
-  .stately-chart-portrait {
-    aspect-ratio: 3 / 4;
-  }
-}
-</style></p><p><div class="stately-chart-frame">
-<iframe allowfullscreen="true" class="stately-chart" loading="lazy" src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&amp;mode=Simulate&amp;colorMode=light" title="retryMachine 的交互式 statechart">
-  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&amp;mode=Simulate">在 Stately Studio 中查看 retryMachine</a>
-</iframe>
-<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&amp;mode=Simulate" rel="noopener" target="_blank">在 Stately 中全屏查看 retryMachine</a>
-</div></p><p>生产环境中的 Actor 默认使用真实时钟。测试时可以注入 <code>TestClock</code>：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { createActor, <span class="hljs-title class_">SimulatedClock</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">TestClock</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
+});</code></pre><p>这里没有把重试流程改写成 <code>Effect.gen</code>。event 仍然是 TypeScript union，delay 和 context update 仍然是普通函数；XState 专用的部分是把执行顺序写进 machine config，由 Actor runtime 解释这些 state 与 transition。</p><p>需要模拟 event、缩放或拖动时，可以使用 statechart 下方的 Stately 全屏链接。</p><p>生产环境中的 Actor 默认使用真实时钟。测试时可以注入 <code>TestClock</code>：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { createActor, <span class="hljs-title class_">SimulatedClock</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">TestClock</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
 <span class="hljs-keyword">import</span> { expect, test } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vitest&quot;</span>;
 
 <span class="hljs-title function_">test</span>(<span class="hljs-string">&quot;31 seconds of backoff completes without real waiting&quot;</span>, <span class="hljs-function">() =&gt;</span> {
@@ -204,9 +202,12 @@ trying --FAILED and retries &gt;= 5--&gt; failed</code></pre><p>对应的 XState
   <span class="hljs-keyword">const</span> payment = <span class="hljs-keyword">await</span> <span class="hljs-title function_">charge</span>(order);
   <span class="hljs-keyword">const</span> confirmation = <span class="hljs-keyword">await</span> <span class="hljs-title function_">confirm</span>(payment);
   <span class="hljs-keyword">return</span> <span class="hljs-title function_">ship</span>(confirmation);
-}</code></pre><p>当程序暂停在 <code>await confirm(payment)</code> 时，“确认完成后调用 <code>ship</code>”就是隐藏在引擎中的 continuation。</p><p>XState 会把它写成显式状态：</p><pre class="hljs"><code class="text hljs">charging --PAYMENT_SUCCEEDED--&gt; confirming
-confirming --CONFIRMED--&gt; shipping
-shipping --SHIPPED--&gt; completed</code></pre><p>下面是完整的 TypeScript machine。成功路径之外，支付、确认和发货都可以进入显式失败状态，流程也可以在完成前取消：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { assign, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
+}</code></pre><p>当程序暂停在 <code>await confirm(payment)</code> 时，“确认完成后调用 <code>ship</code>”就是隐藏在引擎中的 continuation。</p><p>XState 会把 continuation 展开成 <code>charging</code>、<code>confirming</code>、<code>shipping</code> 与终态之间的显式关系。先看 statechart，再看完整的 TypeScript machine：</p><p><div class="stately-chart-frame">
+<iframe allowfullscreen="true" class="stately-chart stately-chart-portrait" loading="lazy" src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&amp;mode=Simulate&amp;colorMode=light" title="checkoutMachine 的交互式 statechart">
+  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&amp;mode=Simulate">在 Stately Studio 中查看 checkoutMachine</a>
+</iframe>
+<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&amp;mode=Simulate" rel="noopener" target="_blank">在 Stately 中全屏查看 checkoutMachine</a>
+</div></p><p>下面是完整的 TypeScript machine。成功路径之外，支付、确认和发货都可以进入显式失败状态，流程也可以在完成前取消：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { assign, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> checkoutMachine = <span class="hljs-title function_">setup</span>({
   <span class="hljs-attr">types</span>: {
@@ -284,12 +285,7 @@ shipping --SHIPPED--&gt; completed</code></pre><p>下面是完整的 TypeScript 
       <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;final&quot;</span>,
     },
   },
-});</code></pre><p>下面的 statechart 可以沿成功、失败和取消分支运行。进入 <code>confirming</code> 后，machine definition 与 context 会共同描述尚未完成的工作：</p><p><div class="stately-chart-frame">
-<iframe allowfullscreen="true" class="stately-chart stately-chart-portrait" loading="lazy" src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&amp;mode=Simulate&amp;colorMode=light" title="checkoutMachine 的交互式 statechart">
-  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&amp;mode=Simulate">在 Stately Studio 中查看 checkoutMachine</a>
-</iframe>
-<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&amp;mode=Simulate" rel="noopener" target="_blank">在 Stately 中全屏查看 checkoutMachine</a>
-</div></p><p>如果流程暂停在 <code>confirming</code>，machine definition 与当前 snapshot 一起描述了剩余工作：</p><pre class="hljs"><code class="ts hljs">{
+});</code></pre><p>需要沿成功、失败和取消分支进行模拟时，可以使用 statechart 下方的 Stately 全屏链接。</p><p>如果流程暂停在 <code>confirming</code>，machine definition 与当前 snapshot 一起描述了剩余工作：</p><pre class="hljs"><code class="ts hljs">{
   <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;confirming&quot;</span>,
   <span class="hljs-attr">context</span>: {
     <span class="hljs-attr">orderId</span>: <span class="hljs-string">&quot;order-42&quot;</span>,

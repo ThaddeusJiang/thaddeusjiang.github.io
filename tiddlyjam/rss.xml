@@ -43,6 +43,41 @@
    </item>
 
    <item>
+      <title>20260907 PostgreSQL 更新环境变量不会自动更新 database password</title>
+      <link>https://thaddeusjiang.com/20260907-postgresql-geng-xin-huan-jing-bian-liang-bu-hui-zi-dong-geng-xin-database-password</link>
+			<description><![CDATA[
+<div class="content">
+  <p>我曾以为在 zeabur dashboard 更新环境变量并重启服务就会自动更新 database password，我天真了。😅</p><p>希望朋友们能以我为戒，能跳过这个坑。</p><p><img src="../assets/2026-08-27-zeabur-%25E5%25AE%2589%25E5%2585%25A8%25E4%25BA%258B%25E4%25BB%25B6.jpg"></p><p>在接到 Zeabur 安全事件更新的邮件时，我的第一反应很自然：打开 Zeabur，改数环境变量，重启项目。</p><p>面板上的 <code>POSTGRES_PASSWORD</code> 已经是新值了，服务也重新跑起来了。按常见 PaaS 的直觉，这应该已经轮换完成。</p><p>然后两件怪事同时出现：</p><ul><li>应用改用新密码后，日志变成 <code>password authentication failed for user</code>。</li><li>旧密码还能连上数据库；</li></ul><p>问题不是重启没执行，而是重启没有帮我更新 database password。</p><h2 class="">环境变量只在空 volume 第一次初始化时生效</h2><p>Zeabur 的 PostgreSQL 服务会把数据放在持久化 volume 里，路径通常是 <code>/var/lib/postgresql/data</code>。</p><p>Postgres Docker 官方镜像写得很清楚：<code>POSTGRES_PASSWORD</code> 这类变量，只在数据目录还是空的时候用来创建超级用户。目录里一旦有了数据库，之后再改环境变量、再重启容器，都不会去改已经存在的角色密码。</p><p>Zeabur 重启只是把容器拉起来。volume 还在，Postgres 继续用第一次初始化时写入的密码。</p><p>所以会出现分叉：</p><ul><li>Zeabur 面板显示新密码；</li><li>Postgres server 仍接受旧密码；</li><li>应用如果去信面板，就会连错。</li></ul><h2 class="">正确的轮换顺序</h2><ol><li>生成一段 URL 安全的新密码，避免 <code>@ : / % # +</code>，免得写进 <code>DATABASE_URL</code> 还要编码：</li></ol><pre class="hljs"><code class="sh hljs">openssl rand -hex 32</code></pre><ol><li>打开 PostgreSQL 服务的终端，进入数据库：</li></ol><pre class="hljs"><code class="sh hljs">psql -U root -d vmemo_prod</code></pre><ol><li>在 Postgres 里改角色密码：</li></ol><pre class="hljs"><code class="sql hljs"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> root <span class="hljs-keyword">WITH</span> PASSWORD <span class="hljs-string">&#x27;新密码&#x27;</span>;</code></pre><p><code>ALTER USER</code> 一生效，旧密码立刻不能从其他服务连进来。</p><ol><li>马上把应用的 <code>DATABASE_URL</code> 改成带新密码的字面量，不要再留 <code>${...}</code> 模板。</li><li>重启的是**应用服务**，不是指望重启 Postgres 来改密码。</li><li>最后把 Zeabur 面板里的 <code>PASSWORD</code>、<code>POSTGRES_PASSWORD</code> 改成同一个新值。这一步只是让面板和真实密码重新对齐，它不会反向写入 Postgres。</li></ol><h2 class="">两个容易误判的点</h2><p>在 Postgres 容器内部跑 <code>psql</code>，本地 socket 常常是 <code>trust</code>，不校验密码。这会让人误以为“新密码已经生效了”。应用在另一个服务里走 TCP，用的是角色的真实密码。</p><p>改密码之后，不要只改 Zeabur 变量。应用连接串不一起改，服务会立刻打不开。</p><h2 class="">相关链接</h2><ul><li><a class="tc-tiddlylink-external" href="https://hub.docker.com/_/postgres" rel="noopener noreferrer" target="_blank">Docker Postgres 镜像说明（环境变量只作用于空数据目录）</a></li></ul>
+</div>
+
+
+<div class="copyright">
+<strong>
+<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
+版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
+</a>
+</strong>
+</div>
+
+<style>
+.copyright {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.copyright:hover {
+  opacity: 0.9;
+}
+</style>
+
+
+
+]]></description>
+      <pubDate>Mon, 7 September 2026 12:23:45 -00:00</pubDate>
+			<guid>https://thaddeusjiang.com/20260907-postgresql-geng-xin-huan-jing-bian-liang-bu-hui-zi-dong-geng-xin-database-password</guid>      
+   </item>
+
+   <item>
       <title>20260828 当 GitHub Actions 配额耗尽：我如何用 gh-signoff 把 iOS CI 搬回本地</title>
       <link>https://thaddeusjiang.com/20260828-dang-github-actions-pei-e-hao-jin-wo-ru-he-yong-gh-signoff-ba-ios-ci-ban-hui-ben-di</link>
 			<description><![CDATA[
@@ -101,385 +136,6 @@ gh signoff \
 ]]></description>
       <pubDate>Fri, 28 August 2026 4:3:8 -00:00</pubDate>
 			<guid>https://thaddeusjiang.com/20260828-dang-github-actions-pei-e-hao-jin-wo-ru-he-yong-gh-signoff-ba-ios-ci-ban-hui-ben-di</guid>      
-   </item>
-
-   <item>
-      <title>20260828 使用 XState 实现 EffectTS 宣称的特性，并保持 TS 语法</title>
-      <link>https://thaddeusjiang.com/20260828-shi-yong-xstate-shi-xian-effectts-xuan-chen-de-te-xing-bing-bao-chi-ts-yu-fa</link>
-			<description><![CDATA[
-<div class="content">
-  <p>结论先说：对于 UI、订单、支付、审批、同步、重试和轮询这类业务工作流，我们可以使用 XState 实现 EffectTS 主打的大部分工程特性，同时让 Actor 内部的 IO 与领域代码继续使用团队熟悉的 TypeScript 写法：普通函数、<code>async/await</code>、discriminated union、<code>AbortSignal</code> 和 <code>try/finally</code>。</p><p>这里的 EffectTS 指 TypeScript 的 Effect 生态，下文涉及具体类型和 API 时仍使用它的正式名称 Effect。标题中的“宣称”指 Effect 官网与 <a class="tc-tiddlylink-external" href="https://x.com/ewind_dev/status/2092955281714209193" rel="noopener noreferrer" target="_blank">《异步续延与 Effect 架构的第一性原理》</a> 公开列出的能力，并不是质疑这些能力是否真实存在。</p><p>本文对照的特性包括虚拟时间、快速测试重试与超时、确定性状态演进、异步任务中断、冷求值与重跑、结构化并发、类型化错误、依赖替换、资源清理、Schedule、可观测性，以及状态持久化和事件重放。</p><p>这不代表 XState 与 Effect 是同一种东西，也不代表 XState 可以获得 Effect 的全部运行时语义。</p><p>Effect 把异步计算表示成冷的 Effect program，并由 fiber runtime 解释执行；<code>Effect.gen</code> 和 generator 为这种程序提供直陈式的组合与暂停边界。XState 选择了另一条路：不保存“暂停的调用栈”，而是要求开发者把程序接下来要做的事情显式表示为 machine、state、context 和 event。</p><p>两条路线的实现机制不同，但在业务工作流、UI 流程和长时间运行任务中，最终获得的工程能力可以非常接近。</p><p>为了与原文逐项比较，本文统一使用原文中的 <code>TestClock</code>、DST、continuation、冷求值和受控调度等名词。XState 5.32.6 实际导出的类名是 <code>SimulatedClock</code>，代码中通过 <code>SimulatedClock as TestClock</code> 建立别名；下文的 <code>TestClock</code> 都指这个 XState 实现，并不是另一个 API。</p><p>本文沿着六条线索展开：</p><ol><li>先说明“保持 TS 语法”的准确边界；</li><li>从 <code>TestClock</code> 看 XState 能控制什么；</li><li>从 DST 理解这种控制的价值；</li><li>从显式状态解释 XState 为什么不需要持有 generator continuation；</li><li>对比 Effect 与 XState 的两种控制路径；</li><li>逐项检查 EffectTS 的其他主打特性能否由 XState 覆盖。</li></ol><h2 class="">“保持 TS 语法”具体指什么</h2><p>严格来说，<code>Effect.gen</code> 和 <code>yield*</code> 当然也是合法的 TypeScript 语法。本文所说的“保持 TS 语法”，更准确地说是保持典型的 TypeScript 编程模型，不要求业务代码全面进入 <code>Effect&lt;A, E, R&gt;</code>、<code>Effect.gen</code> 和 <code>yield*</code> 组成的 Effect program。</p><p>在 XState 路线中：</p><ul><li>领域数据继续使用 object、interface 和 discriminated union；</li><li>IO implementation 继续使用普通函数、Promise 和 <code>async/await</code>；</li><li>取消继续使用 Web 与 Node.js 生态通用的 <code>AbortSignal</code>；</li><li>资源释放继续使用 cleanup function、<code>try/finally</code> 或 <code>using</code>；</li><li>依赖继续通过函数、object、machine input 或 <code>provide</code> 传入；</li><li>只有跨时间的控制流被集中到 machine、state、context、event 和 Actor lifecycle 中。</li></ul><p>因此，这并不是“零抽象成本”。XState machine config 本身也是一种 DSL，只是它使用 object config 和普通 TypeScript function，把 Effect 专用的顺序式程序模型换成了显式状态模型。</p><p>代价也很明确：业务 IO 可以保留熟悉的 TypeScript 写法，但原本藏在 <code>async/await</code> 调用栈里的长流程控制必须展开成 state 与 event。本文后面所有“实现”都以副作用已经进入这个 Actor 边界为前提。</p><h2 class="">从 TestClock 看 XState 的能力</h2><p>假设我们需要实现一段指数退避逻辑。</p><p>任务失败后分别等待 1、2、4、8、16 秒再试。只计算等待时间，完整流程就要消耗 31 秒。</p><p>如果测试真的等待 31 秒，CI 和 coding agent 的反馈循环都会变慢。把生产配置中的秒改成测试配置中的毫秒，又意味着测试运行的不是生产参数。使用全局 fake timers 虽然能接管 <code>setTimeout</code>，但它仍然需要理解 Promise、微任务和第三方库使用的其他调度通路。</p><p>XState 可以把退避过程直接建模成状态：</p><pre class="hljs"><code class="text hljs">trying --FAILED--&gt; waiting --after retryDelay--&gt; trying
-trying --SUCCEEDED--&gt; succeeded
-trying --FAILED and retries &gt;= 5--&gt; failed</code></pre><p>对应的 XState 代码如下。这里暂时把真实 IO 简化成 <code>SUCCEEDED</code> 和 <code>FAILED</code> 事件，以便只关注调度逻辑。</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { assign, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> retryMachine = <span class="hljs-title function_">setup</span>({
-  <span class="hljs-attr">types</span>: {
-    <span class="hljs-attr">context</span>: {} <span class="hljs-keyword">as</span> { <span class="hljs-attr">retries</span>: <span class="hljs-built_in">number</span> },
-    <span class="hljs-attr">events</span>: {} <span class="hljs-keyword">as</span>
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;SUCCEEDED&quot;</span> }
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;FAILED&quot;</span> },
-  },
-  <span class="hljs-attr">delays</span>: {
-    <span class="hljs-attr">retryDelay</span>: <span class="hljs-function">(<span class="hljs-params">{ context }</span>) =&gt;</span>
-      <span class="hljs-number">1_000</span> * <span class="hljs-number">2</span> ** (context.<span class="hljs-property">retries</span> - <span class="hljs-number">1</span>),
-  },
-}).<span class="hljs-title function_">createMachine</span>({
-  <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;retry&quot;</span>,
-  <span class="hljs-attr">initial</span>: <span class="hljs-string">&quot;trying&quot;</span>,
-  <span class="hljs-attr">context</span>: { <span class="hljs-attr">retries</span>: <span class="hljs-number">0</span> },
-  <span class="hljs-attr">states</span>: {
-    <span class="hljs-attr">trying</span>: {
-      <span class="hljs-attr">on</span>: {
-        <span class="hljs-attr">SUCCEEDED</span>: <span class="hljs-string">&quot;succeeded&quot;</span>,
-        <span class="hljs-attr">FAILED</span>: [
-          {
-            <span class="hljs-attr">guard</span>: <span class="hljs-function">(<span class="hljs-params">{ context }</span>) =&gt;</span> context.<span class="hljs-property">retries</span> &gt;= <span class="hljs-number">5</span>,
-            <span class="hljs-attr">target</span>: <span class="hljs-string">&quot;failed&quot;</span>,
-          },
-          {
-            <span class="hljs-attr">target</span>: <span class="hljs-string">&quot;waiting&quot;</span>,
-            <span class="hljs-attr">actions</span>: <span class="hljs-title function_">assign</span>({
-              <span class="hljs-attr">retries</span>: <span class="hljs-function">(<span class="hljs-params">{ context }</span>) =&gt;</span> context.<span class="hljs-property">retries</span> + <span class="hljs-number">1</span>,
-            }),
-          },
-        ],
-      },
-    },
-    <span class="hljs-attr">waiting</span>: {
-      <span class="hljs-attr">after</span>: {
-        <span class="hljs-attr">retryDelay</span>: <span class="hljs-string">&quot;trying&quot;</span>,
-      },
-    },
-    <span class="hljs-attr">succeeded</span>: {
-      <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;final&quot;</span>,
-    },
-    <span class="hljs-attr">failed</span>: {
-      <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;final&quot;</span>,
-    },
-  },
-});</code></pre><p>这里没有把重试流程改写成 <code>Effect.gen</code>。event 仍然是 TypeScript union，delay 和 context update 仍然是普通函数；XState 专用的部分是把执行顺序写进 machine config，由 Actor runtime 解释这些 state 与 transition。</p><p>把这段代码导入 Stately Studio 后，可以直接看到事件、guard、action 和 delayed transition 之间的关系。下面的 statechart 会以模拟模式运行，可以点击 event、缩放和拖动：</p><p><style>
-.stately-chart-frame {
-  width: min(1120px, calc(100vw - 3rem));
-  max-width: none;
-  margin-left: 50%;
-  transform: translateX(-50%);
-}
-
-.stately-chart {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 6 / 4;
-  border: 0;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.stately-chart-link {
-  display: block;
-  margin-top: 0.5rem;
-  text-align: right;
-  font-size: 0.9em;
-}
-
-@media (max-width: 640px) {
-  .stately-chart-frame {
-    width: 100%;
-    margin-left: 0;
-    transform: none;
-  }
-
-  .stately-chart-portrait {
-    aspect-ratio: 3 / 4;
-  }
-}
-</style></p><p><div class="stately-chart-frame">
-<iframe allowfullscreen="true" class="stately-chart" loading="lazy" src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&amp;mode=Simulate&amp;colorMode=light" title="retryMachine 的交互式 statechart">
-  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&amp;mode=Simulate">在 Stately Studio 中查看 retryMachine</a>
-</iframe>
-<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&amp;mode=Simulate" rel="noopener" target="_blank">在 Stately 中全屏查看 retryMachine</a>
-</div></p><p>生产环境中的 Actor 默认使用真实时钟。测试时可以注入 <code>TestClock</code>：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { createActor, <span class="hljs-title class_">SimulatedClock</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">TestClock</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
-<span class="hljs-keyword">import</span> { expect, test } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vitest&quot;</span>;
-
-<span class="hljs-title function_">test</span>(<span class="hljs-string">&quot;31 seconds of backoff completes without real waiting&quot;</span>, <span class="hljs-function">() =&gt;</span> {
-  <span class="hljs-keyword">const</span> testClock = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TestClock</span>();
-  <span class="hljs-keyword">const</span> actor = <span class="hljs-title function_">createActor</span>(retryMachine, {
-    <span class="hljs-attr">clock</span>: testClock,
-  }).<span class="hljs-title function_">start</span>();
-
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> delay <span class="hljs-keyword">of</span> [<span class="hljs-number">1_000</span>, <span class="hljs-number">2_000</span>, <span class="hljs-number">4_000</span>, <span class="hljs-number">8_000</span>, <span class="hljs-number">16_000</span>]) {
-    actor.<span class="hljs-title function_">send</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;FAILED&quot;</span> });
-    testClock.<span class="hljs-title function_">increment</span>(delay);
-  }
-
-  actor.<span class="hljs-title function_">send</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;FAILED&quot;</span> });
-
-  <span class="hljs-title function_">expect</span>(actor.<span class="hljs-title function_">getSnapshot</span>().<span class="hljs-title function_">matches</span>(<span class="hljs-string">&quot;failed&quot;</span>)).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">true</span>);
-});</code></pre><p>测试推进了 31 秒虚拟时间，但没有执行真实等待。</p><p>这里特意逐次推进 1、2、4、8、16 秒，而不是一次执行 <code>testClock.increment(31_000)</code>。当前 XState 的 <code>TestClock</code> 会先把 <code>now</code> 移动到目标时刻，再刷新已经登记的 timeout。某个 timeout 触发后新登记的下一段相对延时，会从移动后的 <code>now</code> 开始计算。因此，对链式退避逐个推进 deadline 更符合它的实际语义。</p><p>尽管细节与 Effect 的 <code>TestClock.adjust("31 seconds")</code> 不完全一样，目标已经达成：使用生产延时参数，在接近零真实耗时的情况下验证完整退避流程。</p><p>为什么 XState 能做到？</p><p>因为 <code>after</code> 不是业务代码直接调用的 <code>setTimeout</code>。它是一条状态机描述，由 XState Actor runtime 负责解释。创建 Actor 时注入另一个 clock，就能改变这条描述的执行策略，而不需要修改 machine 本身。</p><p>程序与执行策略在这里已经分离。</p><h2 class="">TestClock 背后的更大图景：DST</h2><p>虚拟时间只是确定性模拟测试（Deterministic Simulation Testing，DST）的一部分。</p><p>一个完整的模拟世界通常还会控制随机数、网络、磁盘、外部输入和任务调度。每次运行由固定 seed 和输入脚本决定，因此可以获得三种重要能力：</p><ul><li>时间可以快进。数小时的重试、租约、轮询和超时逻辑，可以在几毫秒内验证；</li><li>故障可以重放。保存 seed 和输入事件后，可以重新得到相同的执行轨迹；</li><li>搜索空间可以扩大。同一个场景使用大量 seed 和事件排列运行，用算力覆盖更多边界情况。</li></ul><p>XState 本身不是完整的 DST runtime，但它可以成为业务工作流模拟的核心。</p><p>原因是 machine 的状态演进可以写成纯 transition：给定相同的 state 和 event，计算出相同的 next state 和 action description。Actor 又提供了显式 mailbox，每次处理一个 event。只要外部不确定性也被放进可替换的边界，整个工作流就可以被记录和重放。</p><p>一套以 XState 为核心的模拟环境通常包含以下部分：</p><ol><li>用 <code>TestClock</code> 控制 delayed transition；</li><li>用 fake Actor 或 driver 替换网络、磁盘和第三方服务；</li><li>把随机数生成器作为 input 或 dependency 注入，并固定 seed；</li><li>记录进入 Actor system 的 event；</li><li>通过 inspection API 记录 snapshot、event 和 microstep；</li><li>使用同一份 event tape 和依赖响应重新运行。</li></ol><p>例如，生产 machine 可以通过 <code>provide</code> 替换 Actor implementation：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { fromPromise } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
-
-<span class="hljs-keyword">const</span> testMachine = checkoutMachine.<span class="hljs-title function_">provide</span>({
-  <span class="hljs-attr">actors</span>: {
-    <span class="hljs-attr">chargeCard</span>: <span class="hljs-title function_">fromPromise</span>(<span class="hljs-title function_">async</span> ({ input }) =&gt; {
-      <span class="hljs-keyword">return</span> paymentTape.<span class="hljs-title function_">next</span>(input);
-    }),
-  },
-});</code></pre><p>machine 仍然描述真实业务流程，但支付结果不再来自真实网络，而是来自可以记录和重放的 tape。</p><p>在 AI 编程时代，这种能力尤其有价值。coding agent 的迭代速度取决于验证反馈是否快速、稳定、可信。一个需要真实等待 31 秒的测试会拖慢每一轮修改；一个偶尔因为网络或调度顺序失败的测试，会向 agent 提供带噪声的反馈。</p><p>把业务流程限制在显式 machine 中，再控制 clock、IO 和 event tape，可以让 agent 在很短时间内验证长时间尺度的行为。</p><p>这与文章讨论 Effect TestClock 时追求的是同一个工程目标。</p><h2 class="">第一性原理：续延，以及 XState 如何表示它</h2><p>续延（continuation）可以理解为“程序从当前时刻开始，剩下要做的全部事情”。</p><p>在普通 <code>async/await</code> 中，续延由 JavaScript 引擎捕获。<code>await</code> 后面的局部变量、控制流和返回路径都隐藏在 Promise 与微任务调度中。开发者可以等待结果，却无法直接取得那段“剩下的程序”。</p><p>Effect 先把异步计算表示成冷的 Effect program，再由 fiber runtime 解释执行。<code>Effect.gen</code> 是组织这类 program 的一种直陈式写法：generator 暂停时，runtime 可以解释它 yield 出来的 Effect，并决定何时恢复 generator。</p><p>因此，真正承载调度、中断和资源域语义的是 fiber runtime。generator 提供了重要的组合与暂停机制，但不是 Effect 全部运行时能力的唯一来源。</p><p>XState 没有沿着这条路线继续获取 continuation。</p><p>它选择把 continuation 展开成数据。</p><p>假设一个 checkout 流程依次包含支付、等待确认和发货。使用 <code>async/await</code> 时，它可能写成：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">checkout</span>(<span class="hljs-params"><span class="hljs-attr">order</span>: <span class="hljs-title class_">Order</span></span>) {
-  <span class="hljs-keyword">const</span> payment = <span class="hljs-keyword">await</span> <span class="hljs-title function_">charge</span>(order);
-  <span class="hljs-keyword">const</span> confirmation = <span class="hljs-keyword">await</span> <span class="hljs-title function_">confirm</span>(payment);
-  <span class="hljs-keyword">return</span> <span class="hljs-title function_">ship</span>(confirmation);
-}</code></pre><p>当程序暂停在 <code>await confirm(payment)</code> 时，“确认完成后调用 <code>ship</code>”就是隐藏在引擎中的 continuation。</p><p>XState 会把它写成显式状态：</p><pre class="hljs"><code class="text hljs">charging --PAYMENT_SUCCEEDED--&gt; confirming
-confirming --CONFIRMED--&gt; shipping
-shipping --SHIPPED--&gt; completed</code></pre><p>下面是完整的 TypeScript machine。成功路径之外，支付、确认和发货都可以进入显式失败状态，流程也可以在完成前取消：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { assign, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> checkoutMachine = <span class="hljs-title function_">setup</span>({
-  <span class="hljs-attr">types</span>: {
-    <span class="hljs-attr">context</span>: {} <span class="hljs-keyword">as</span> {
-      <span class="hljs-attr">orderId</span>: <span class="hljs-built_in">string</span>;
-      <span class="hljs-attr">paymentId</span>: <span class="hljs-built_in">string</span> | <span class="hljs-literal">null</span>;
-      <span class="hljs-attr">error</span>: <span class="hljs-built_in">string</span> | <span class="hljs-literal">null</span>;
-    },
-    <span class="hljs-attr">events</span>: {} <span class="hljs-keyword">as</span>
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;PAYMENT_SUCCEEDED&quot;</span>; <span class="hljs-attr">paymentId</span>: <span class="hljs-built_in">string</span> }
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;PAYMENT_FAILED&quot;</span>; <span class="hljs-attr">reason</span>: <span class="hljs-built_in">string</span> }
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;CONFIRMED&quot;</span> }
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;CONFIRMATION_FAILED&quot;</span>; <span class="hljs-attr">reason</span>: <span class="hljs-built_in">string</span> }
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;SHIPPED&quot;</span> }
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;SHIPPING_FAILED&quot;</span>; <span class="hljs-attr">reason</span>: <span class="hljs-built_in">string</span> }
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;CANCEL&quot;</span> },
-  },
-}).<span class="hljs-title function_">createMachine</span>({
-  <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;checkout&quot;</span>,
-  <span class="hljs-attr">initial</span>: <span class="hljs-string">&quot;charging&quot;</span>,
-  <span class="hljs-attr">context</span>: {
-    <span class="hljs-attr">orderId</span>: <span class="hljs-string">&quot;order-42&quot;</span>,
-    <span class="hljs-attr">paymentId</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">error</span>: <span class="hljs-literal">null</span>,
-  },
-  <span class="hljs-attr">states</span>: {
-    <span class="hljs-attr">charging</span>: {
-      <span class="hljs-attr">on</span>: {
-        <span class="hljs-attr">PAYMENT_SUCCEEDED</span>: {
-          <span class="hljs-attr">target</span>: <span class="hljs-string">&quot;confirming&quot;</span>,
-          <span class="hljs-attr">actions</span>: <span class="hljs-title function_">assign</span>({
-            <span class="hljs-attr">paymentId</span>: <span class="hljs-function">(<span class="hljs-params">{ event }</span>) =&gt;</span> event.<span class="hljs-property">paymentId</span>,
-          }),
-        },
-        <span class="hljs-attr">PAYMENT_FAILED</span>: {
-          <span class="hljs-attr">target</span>: <span class="hljs-string">&quot;failed&quot;</span>,
-          <span class="hljs-attr">actions</span>: <span class="hljs-title function_">assign</span>({
-            <span class="hljs-attr">error</span>: <span class="hljs-function">(<span class="hljs-params">{ event }</span>) =&gt;</span> event.<span class="hljs-property">reason</span>,
-          }),
-        },
-        <span class="hljs-attr">CANCEL</span>: <span class="hljs-string">&quot;cancelled&quot;</span>,
-      },
-    },
-    <span class="hljs-attr">confirming</span>: {
-      <span class="hljs-attr">on</span>: {
-        <span class="hljs-attr">CONFIRMED</span>: <span class="hljs-string">&quot;shipping&quot;</span>,
-        <span class="hljs-attr">CONFIRMATION_FAILED</span>: {
-          <span class="hljs-attr">target</span>: <span class="hljs-string">&quot;failed&quot;</span>,
-          <span class="hljs-attr">actions</span>: <span class="hljs-title function_">assign</span>({
-            <span class="hljs-attr">error</span>: <span class="hljs-function">(<span class="hljs-params">{ event }</span>) =&gt;</span> event.<span class="hljs-property">reason</span>,
-          }),
-        },
-        <span class="hljs-attr">CANCEL</span>: <span class="hljs-string">&quot;cancelled&quot;</span>,
-      },
-    },
-    <span class="hljs-attr">shipping</span>: {
-      <span class="hljs-attr">on</span>: {
-        <span class="hljs-attr">SHIPPED</span>: <span class="hljs-string">&quot;completed&quot;</span>,
-        <span class="hljs-attr">SHIPPING_FAILED</span>: {
-          <span class="hljs-attr">target</span>: <span class="hljs-string">&quot;failed&quot;</span>,
-          <span class="hljs-attr">actions</span>: <span class="hljs-title function_">assign</span>({
-            <span class="hljs-attr">error</span>: <span class="hljs-function">(<span class="hljs-params">{ event }</span>) =&gt;</span> event.<span class="hljs-property">reason</span>,
-          }),
-        },
-        <span class="hljs-attr">CANCEL</span>: <span class="hljs-string">&quot;cancelled&quot;</span>,
-      },
-    },
-    <span class="hljs-attr">completed</span>: {
-      <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;final&quot;</span>,
-    },
-    <span class="hljs-attr">failed</span>: {
-      <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;final&quot;</span>,
-    },
-    <span class="hljs-attr">cancelled</span>: {
-      <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;final&quot;</span>,
-    },
-  },
-});</code></pre><p>下面的 statechart 可以沿成功、失败和取消分支运行。进入 <code>confirming</code> 后，machine definition 与 context 会共同描述尚未完成的工作：</p><p><div class="stately-chart-frame">
-<iframe allowfullscreen="true" class="stately-chart stately-chart-portrait" loading="lazy" src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&amp;mode=Simulate&amp;colorMode=light" title="checkoutMachine 的交互式 statechart">
-  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&amp;mode=Simulate">在 Stately Studio 中查看 checkoutMachine</a>
-</iframe>
-<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&amp;mode=Simulate" rel="noopener" target="_blank">在 Stately 中全屏查看 checkoutMachine</a>
-</div></p><p>如果流程暂停在 <code>confirming</code>，machine definition 与当前 snapshot 一起描述了剩余工作：</p><pre class="hljs"><code class="ts hljs">{
-  <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;confirming&quot;</span>,
-  <span class="hljs-attr">context</span>: {
-    <span class="hljs-attr">orderId</span>: <span class="hljs-string">&quot;order-42&quot;</span>,
-    <span class="hljs-attr">paymentId</span>: <span class="hljs-string">&quot;payment-7&quot;</span>,
-  },
-}</code></pre><p>恢复时不需要恢复原来的 JavaScript 调用栈。machine definition 仍然提供 transition 规则；恢复 snapshot 后，再接收 <code>CONFIRMED</code> event，Actor 就知道下一步应该进入 <code>shipping</code>。</p><p>因此可以把两种路线压缩成一句话：</p><blockquote class="tc-quote tc-big-quote"><p>在 Effect 中，fiber runtime 持有并恢复程序的 continuation；在 XState 中，machine definition 与当前 snapshot 描述未来可执行的路径，后续 event 驱动路径继续演进。
-</p><cite>TJ</cite></blockquote><p>XState 不是取得了原始 continuation，而是通过架构设计消除了对原始 continuation 的依赖。</p><p>这也是 XState 适合持久化长流程的基础。generator 对象和 JavaScript 调用栈不能直接 JSON 序列化，但 machine snapshot 可以被保存。XState 可以递归持久化 Actor 状态，并在进程或页面重新启动后恢复。定时任务的跨重启恢复还有额外限制，后文会单独说明。</p><p>当然，这种能力不是免费的。</p><p>所有需要跨越异步边界的数据都必须放进 context。所有暂停点都必须成为 state。所有外部结果都必须成为 event。一个简单的线性计算可能因此变得比 <code>async/await</code> 更长；如果流程有大量状态组合，也可能出现 state explosion。</p><p>Effect 支付的是 <code>yield*</code>、解释器和专用生态的成本。XState 支付的是显式建模、事件设计和状态数量的成本。</p><p>两者都没有让复杂度消失，只是把复杂度放在了不同位置。</p><h2 class="">XState runtime 真正执行什么</h2><p>XState machine config 也是一种“程序即数据”。</p><p>它描述了：</p><ul><li>当前 state 接受哪些 event；</li><li>guard 满足时进入哪个 state；</li><li>transition 需要更新哪些 context；</li><li>进入某个 state 时启动哪个 Actor；</li><li>离开某个 state 时停止哪个 Actor；</li><li>多久以后自动产生 delayed transition；</li><li>哪些 action 应该交给外部实现。</li></ul><p>真正运行这些描述的是 Actor runtime。它循环完成以下工作：</p><ol><li>从 mailbox 取得下一条 event；</li><li>根据 machine 和当前 snapshot 计算 transition；</li><li>更新 state 与 context；</li><li>启动或停止对应的 child Actor；</li><li>调度 delayed event；</li><li>发出新的 snapshot 和 inspection event。</li></ol><p>在 XState 已建模的边界内，这套循环也会在业务代码和宿主事件循环之间建立一个受控层。</p><p>区别在于控制粒度。</p><p>Effect fiber runtime 试图控制 Effect program 中的异步 continuation。XState 控制的是 statechart 中的 event、transition、delayed event 和 Actor lifecycle；裸 Promise 与宿主微任务仍然位于这个边界之外。</p><p>只要目标是业务工作流，后者通常已经足够。</p><h2 class="">Effect 与 XState 的两条控制路径</h2><p>两者可以用下面的方式对比：</p><table><thead><tr class="evenRow"><td>维度</td><td>Effect</td><td>XState</td></tr></thead><tbody><tr class="oddRow"><td>程序主要形态</td><td>顺序式 Effect program</td><td>显式 state machine 与 Actor</td></tr><tr class="evenRow"><td>业务代码写法</td><td>使用 Effect value、<code>Effect.gen</code>、<code>yield*</code> 和 Effect combinator 组合</td><td>Actor implementation 仍可使用普通 function、Promise 与 <code>async/await</code>，编排进入 machine config</td></tr><tr class="oddRow"><td>类型建模</td><td><code>Effect&lt;A, E, R&gt;</code> 同时编码成功值、错误与依赖</td><td>使用 context、input、output 与 event 的普通 TypeScript 类型和 discriminated union</td></tr><tr class="evenRow"><td>暂停位置</td><td>fiber runtime 中的执行状态与 generator 暂停边界</td><td>machine definition 与当前 snapshot</td></tr><tr class="oddRow"><td>继续执行</td><td>fiber runtime 解释 Effect 并恢复 continuation</td><td>Actor 接收 event 并 transition</td></tr><tr class="evenRow"><td>时间控制</td><td>Clock service 与 TestClock</td><td>Actor clock 与 TestClock</td></tr><tr class="oddRow"><td>中断边界</td><td>fiber 与 Scope</td><td>Actor lifecycle 与 AbortSignal</td></tr><tr class="evenRow"><td>重跑方式</td><td>重新解释冷 Effect</td><td>重新进入 state、重启 invoked Actor 或创建新 Actor</td></tr><tr class="oddRow"><td>持久化</td><td>需要额外设计</td><td>persisted snapshot 是一等能力；定时任务需要额外设计</td></tr><tr class="evenRow"><td>主要成本</td><td><code>yield*</code>、专用类型与生态</td><td>状态建模、event 设计与样板代码</td></tr></tbody></table><p>如果直接在 XState action 中调用裸 <code>setTimeout</code>，计时器就会逃出 <code>TestClock</code> 的控制。如果在 machine 外部启动一个没有绑定 Actor lifecycle 的 Promise，它也不会因为离开 state 而自动停止。</p><p>因此 XState 与 Effect 有一条完全相同的边界原则：</p><blockquote class="tc-quote tc-big-quote"><p>要获得可测试、可取消和可重放的行为，副作用必须进入框架能够控制的边界。
-</p><cite>TJ</cite></blockquote><p>对于 XState，这个边界通常由 delayed transition、invoked Actor、spawned Actor、action implementation 和 machine input 组成。</p><h2 class="">冷求值与重跑：用 Actor lifecycle 覆盖</h2><p>Effect value 是一段冷的程序描述；在交给 runtime 运行前，它不会执行副作用。</p><p>XState 的 machine 和 Actor logic 同样是描述。创建 machine 不会启动 IO；<code>createActor</code> 会建立 Actor 实例和初始 snapshot，但 action 与 invoked Actor 要到 <code>actor.start()</code> 后才执行或启动。团队可以先构造同一份 machine、替换 Actor implementation 和 input，再决定何时运行。</p><p>重跑由 Actor lifecycle 显式表达。可以停止并重新创建 Actor，也可以离开后再次进入 invoking state。需要在同一个 state 上重启 invocation 时，self-transition 必须使用 <code>reenter: true</code>，这样 XState 才会执行 exit、cleanup、entry 并重新启动 invoked Actor。</p><p>因此，XState 可以覆盖“构造时不执行、运行时才解释，以及按需重跑”这一目标。差别是 Effect 可以重新解释任意冷 Effect；XState 只能重跑已经放进 Actor lifecycle 的工作。</p><h2 class="">对照 EffectTS 的其他主打特性</h2><p>TestClock 和 DST 只是入口。EffectTS 官网还把类型化错误、依赖注入、结构化并发、自动资源清理、Schedule 和内建 tracing 列为主要能力。XState 不能复制相同的 Effect runtime 语义，但可以通过普通 TypeScript 类型与 Actor 模型逐项实现相近的工程结果。</p><h2 class="">类型化错误：用 event 和失败状态覆盖</h2><p>Effect 的 <code>Effect&lt;A, E, R&gt;</code> 使用 <code>E</code> 表示类型化错误通道。XState 没有同名的泛型参数，但可以直接使用 TypeScript 的 discriminated union，把失败结果表示成 event：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">type</span> <span class="hljs-title class_">CheckoutEvent</span> =
-  | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;PAYMENT_SUCCEEDED&quot;</span>; <span class="hljs-attr">receipt</span>: <span class="hljs-title class_">Receipt</span> }
-  | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;PAYMENT_DECLINED&quot;</span>; <span class="hljs-attr">reason</span>: <span class="hljs-title class_">DeclineReason</span> }
-  | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;PAYMENT_TIMED_OUT&quot;</span> }
-  | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;PAYMENT_PROVIDER_UNAVAILABLE&quot;</span> };</code></pre><p>machine 可以显式决定每种失败 event 在当前 state 下如何处理：重试、进入人工审核、回滚订单或最终失败。</p><p>discriminated union 会约束 event 的类型和数据形状，但 XState 不会强制每个 state 穷尽处理所有 event。当前 state 没有对应 transition 时，event 会被忽略。</p><p>因此，要达到“错误成为类型系统和业务模型中的一等公民”这一目标，团队需要在 Actor 边界把未知异常转换成 domain event，并通过 machine 设计、模型测试或穷尽性断言确保必须处理的失败不会被静默忽略。与 Effect 相比，错误不会自动沿着 Effect chain 传播，也没有现成的 <code>catchTag</code>。</p><p>对于业务工作流，这种显式失败状态往往比深层 <code>try/catch</code> 更容易观察。</p><h2 class="">依赖注入：用 setup、provide 和 input 覆盖</h2><p>Effect 通过 <code>R</code> 与 Layer 把依赖图变成可组合的值。</p><p>XState 可以使用 <code>setup</code> 定义 Actor、action、guard 和 delay 的接口，再通过 <code>provide</code> 替换具体实现：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">const</span> productionMachine = checkoutMachine.<span class="hljs-title function_">provide</span>({
-  <span class="hljs-attr">actors</span>: {
-    <span class="hljs-attr">chargeCard</span>: stripeChargeActor,
-  },
-});
-
-<span class="hljs-keyword">const</span> testMachine = checkoutMachine.<span class="hljs-title function_">provide</span>({
-  <span class="hljs-attr">actors</span>: {
-    <span class="hljs-attr">chargeCard</span>: fakeChargeActor,
-  },
-});</code></pre><p>动态依赖可以通过 machine input 或 Actor input 传入。这些实现仍然是普通 TypeScript function 和 object，不需要先包装成 Effect service 或 Layer。</p><p>这已经覆盖了测试替身、环境切换和 capability injection。XState 不会像 Layer 一样自动计算复杂依赖图，也不会自动管理所有依赖的获取与释放顺序，但大多数应用并不需要一个完整 DI runtime。显式 <code>provide</code>、构造器函数和 input 通常足够。</p><h2 class="">结构化并发与中断：用 Actor tree 覆盖</h2><p>XState 的 invoked Actor 与父 state 绑定。进入 state 时启动，离开 state 时停止。停止 root Actor 时，整个 Actor system 和它的子 Actor 都会停止。</p><p>Promise Actor 还能取得 <code>AbortSignal</code>。下面的 machine 把请求、成功、失败、取消和重试都放进同一个 Actor lifecycle：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { assign, fromPromise, setup } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
-
-<span class="hljs-keyword">type</span> <span class="hljs-title class_">User</span> = {
-  <span class="hljs-attr">id</span>: <span class="hljs-built_in">string</span>;
-  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
-};
-
-<span class="hljs-keyword">const</span> loadUser = fromPromise&lt;<span class="hljs-title class_">User</span>, { <span class="hljs-attr">userId</span>: <span class="hljs-built_in">string</span> }&gt;(
-  <span class="hljs-title function_">async</span> ({ input, signal }) =&gt; {
-    <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;/users/&quot;</span> + input.<span class="hljs-property">userId</span>, { signal });
-
-    <span class="hljs-keyword">if</span> (!response.<span class="hljs-property">ok</span>) {
-      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Failed to load user&quot;</span>);
-    }
-
-    <span class="hljs-keyword">return</span> response.<span class="hljs-title function_">json</span>() <span class="hljs-keyword">as</span> <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-title class_">User</span>&gt;;
-  },
-);
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> loadUserMachine = <span class="hljs-title function_">setup</span>({
-  <span class="hljs-attr">types</span>: {
-    <span class="hljs-attr">context</span>: {} <span class="hljs-keyword">as</span> {
-      <span class="hljs-attr">userId</span>: <span class="hljs-built_in">string</span>;
-      <span class="hljs-attr">user</span>: <span class="hljs-title class_">User</span> | <span class="hljs-literal">null</span>;
-      <span class="hljs-attr">error</span>: <span class="hljs-built_in">string</span> | <span class="hljs-literal">null</span>;
-    },
-    <span class="hljs-attr">events</span>: {} <span class="hljs-keyword">as</span>
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;LOAD&quot;</span> }
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;CANCEL&quot;</span> }
-      | { <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;RETRY&quot;</span> },
-  },
-  <span class="hljs-attr">actors</span>: {
-    loadUser,
-  },
-}).<span class="hljs-title function_">createMachine</span>({
-  <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;loadUser&quot;</span>,
-  <span class="hljs-attr">initial</span>: <span class="hljs-string">&quot;idle&quot;</span>,
-  <span class="hljs-attr">context</span>: {
-    <span class="hljs-attr">userId</span>: <span class="hljs-string">&quot;42&quot;</span>,
-    <span class="hljs-attr">user</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">error</span>: <span class="hljs-literal">null</span>,
-  },
-  <span class="hljs-attr">states</span>: {
-    <span class="hljs-attr">idle</span>: {
-      <span class="hljs-attr">on</span>: {
-        <span class="hljs-attr">LOAD</span>: <span class="hljs-string">&quot;loading&quot;</span>,
-      },
-    },
-    <span class="hljs-attr">loading</span>: {
-      <span class="hljs-attr">invoke</span>: {
-        <span class="hljs-attr">src</span>: <span class="hljs-string">&quot;loadUser&quot;</span>,
-        <span class="hljs-attr">input</span>: <span class="hljs-function">(<span class="hljs-params">{ context }</span>) =&gt;</span> ({
-          <span class="hljs-attr">userId</span>: context.<span class="hljs-property">userId</span>,
-        }),
-        <span class="hljs-attr">onDone</span>: {
-          <span class="hljs-attr">target</span>: <span class="hljs-string">&quot;loaded&quot;</span>,
-          <span class="hljs-attr">actions</span>: <span class="hljs-title function_">assign</span>({
-            <span class="hljs-attr">user</span>: <span class="hljs-function">(<span class="hljs-params">{ event }</span>) =&gt;</span> event.<span class="hljs-property">output</span>,
-            <span class="hljs-attr">error</span>: <span class="hljs-literal">null</span>,
-          }),
-        },
-        <span class="hljs-attr">onError</span>: {
-          <span class="hljs-attr">target</span>: <span class="hljs-string">&quot;failed&quot;</span>,
-          <span class="hljs-attr">actions</span>: <span class="hljs-title function_">assign</span>({
-            <span class="hljs-attr">user</span>: <span class="hljs-literal">null</span>,
-            <span class="hljs-attr">error</span>: <span class="hljs-function">(<span class="hljs-params">{ event }</span>) =&gt;</span> <span class="hljs-title class_">String</span>(event.<span class="hljs-property">error</span>),
-          }),
-        },
-      },
-      <span class="hljs-attr">on</span>: {
-        <span class="hljs-attr">CANCEL</span>: <span class="hljs-string">&quot;cancelled&quot;</span>,
-      },
-    },
-    <span class="hljs-attr">loaded</span>: {
-      <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;final&quot;</span>,
-    },
-    <span class="hljs-attr">failed</span>: {
-      <span class="hljs-attr">on</span>: {
-        <span class="hljs-attr">RETRY</span>: <span class="hljs-string">&quot;loading&quot;</span>,
-      },
-    },
-    <span class="hljs-attr">cancelled</span>: {
-      <span class="hljs-attr">on</span>: {
-        <span class="hljs-attr">RETRY</span>: <span class="hljs-string">&quot;loading&quot;</span>,
-      },
-    },
-  },
-});</code></pre><p>在图中点击 <code>LOAD</code> 会进入 <code>loading</code> 并启动 Promise Actor；<code>onDone</code> 与 <code>onError</code> 分别进入 <code>loaded</code> 和 <code>failed</code>。如果先发送 <code>CANCEL</code> 离开 <code>loading</code>，XState 会停止 Promise Actor 并触发 signal，支持该 signal 的 <code>fetch</code> 也会取消请求；之后可以用 <code>RETRY</code> 重新进入 <code>loading</code>。</p><p><div class="stately-chart-frame">
-<iframe allowfullscreen="true" class="stately-chart stately-chart-portrait" loading="lazy" src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=d11022b9-f5de-442e-91f0-dfccd4df17f9&amp;mode=Simulate&amp;colorMode=light" title="loadUserMachine 的交互式 statechart">
-  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=d11022b9-f5de-442e-91f0-dfccd4df17f9&amp;mode=Simulate">在 Stately Studio 中查看 loadUserMachine</a>
-</iframe>
-<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=d11022b9-f5de-442e-91f0-dfccd4df17f9&amp;mode=Simulate" rel="noopener" target="_blank">在 Stately 中全屏查看 loadUserMachine</a>
-</div></p><p>这里的限制与所有基于 <code>AbortSignal</code> 的方案一样：取消是协作式的。第三方 IO 如果忽略 signal，XState 只能丢弃完成结果，不能强行终止任意 JavaScript 代码。</p><p>只要所有并发任务都位于 Actor tree 中，父任务结束时清理子任务的目标就可以实现。spawned Actor 需要显式停止，或者依赖父 Actor 停止时统一回收。</p><h2 class="">资源安全：用 Actor cleanup 覆盖</h2><p>Effect 使用 Scope 和 <code>acquireRelease</code> 把资源获取与释放绑定在一起。</p><p>XState 的 callback Actor 可以返回 cleanup function：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">import</span> { fromCallback } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xstate&quot;</span>;
-
-<span class="hljs-keyword">const</span> socketActor = <span class="hljs-title function_">fromCallback</span>(<span class="hljs-function">(<span class="hljs-params">{ sendBack }</span>) =&gt;</span> {
-  <span class="hljs-keyword">const</span> socket = <span class="hljs-keyword">new</span> <span class="hljs-title class_">WebSocket</span>(<span class="hljs-string">&quot;wss://example.com/events&quot;</span>);
-
-  <span class="hljs-keyword">const</span> <span class="hljs-title function_">onMessage</span> = (<span class="hljs-params"><span class="hljs-attr">event</span>: <span class="hljs-title class_">MessageEvent</span></span>) =&gt; {
-    <span class="hljs-title function_">sendBack</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;SOCKET_MESSAGE&quot;</span>, <span class="hljs-attr">data</span>: event.<span class="hljs-property">data</span> });
-  };
-
-  socket.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;message&quot;</span>, onMessage);
-
-  <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> {
-    socket.<span class="hljs-title function_">removeEventListener</span>(<span class="hljs-string">&quot;message&quot;</span>, onMessage);
-    socket.<span class="hljs-title function_">close</span>();
-  };
-});</code></pre><p>Actor 被停止时，cleanup function 会执行。对于普通 TypeScript 资源，还可以配合 <code>using</code>、<code>try/finally</code> 和 <code>AbortSignal</code>。</p><p>XState 没有一个覆盖任意函数的通用 Scope，但“资源生命周期与拥有它的 Actor 生命周期绑定”可以达到相同的业务目标。</p><h2 class="">Schedule：用显式状态和可复用 machine 覆盖</h2><p>Effect Schedule 可以把指数退避、抖动、次数上限和组合策略变成一等值。</p><p>XState 没有同等丰富的 Schedule combinator，但重试策略可以由以下元素表达：</p><ul><li>context 保存重试次数和上次错误；</li><li>guard 决定是否继续；</li><li>delay expression 计算下一次等待；</li><li>waiting state 表示暂停；</li><li>event 决定成功、重试或最终失败。</li></ul><p>如果多个流程共享同一种策略，可以把它提取成 machine factory、child Actor 或统一的 retry Actor logic。</p><p>代码量通常比 <code>Effect.retry(schedule)</code> 多，但退避、节流和超时可复用、可测试的目标仍然能够实现。</p><h2 class="">可观测性：用 inspection、snapshot 和 event log 覆盖</h2><p>XState Actor system 可以通过 inspection API 发出 Actor 创建、event、snapshot 和 microstep 信息。</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">const</span> <span class="hljs-attr">trace</span>: <span class="hljs-built_in">unknown</span>[] = [];
-
-<span class="hljs-keyword">const</span> actor = <span class="hljs-title function_">createActor</span>(appMachine, {
-  <span class="hljs-attr">inspect</span>: <span class="hljs-function">(<span class="hljs-params">inspectionEvent</span>) =&gt;</span> {
-    trace.<span class="hljs-title function_">push</span>(inspectionEvent);
-  },
-});</code></pre><p>这些事件可以转换成日志、可视化时间线、测试 trace 或 OpenTelemetry span。state 与 event 名称本身也提供了比任意 Promise chain 更明确的业务语义。</p><p>Effect 的优势是 tracing context 会随着 Effect program 自动传播。XState 需要团队建立从 Actor inspection event 到 telemetry backend 的适配层，但可观测目标可以实现。</p><h2 class="">持久化与事件重放：XState 的强项</h2><p>XState 可以直接取得 persisted snapshot：</p><pre class="hljs"><code class="ts hljs"><span class="hljs-keyword">const</span> persistedSnapshot = actor.<span class="hljs-title function_">getPersistedSnapshot</span>();
-
-<span class="hljs-keyword">const</span> restoredActor = <span class="hljs-title function_">createActor</span>(appMachine, {
-  <span class="hljs-attr">snapshot</span>: persistedSnapshot,
-}).<span class="hljs-title function_">start</span>();</code></pre><p>machine Actor 的 invoked 和 spawned Actor 可以递归持久化和恢复。恢复时，已经执行过的 action 不会再次执行，invocation 会重新启动。</p><p>但在本文使用的 <code>xstate@5.32.6</code> 中，<code>actor.getPersistedSnapshot()</code> 不包含 Actor system 当前已经调度的 delayed event。假设 Actor 在一个 <code>after</code> 10 秒的 <code>waiting</code> state 中运行了 2 秒，此时保存并恢复 snapshot，剩余 8 秒的 timeout 不会自动恢复。</p><p>因此，依赖重试、超时或租约的跨进程长流程不能只保存 snapshot。常见做法是把绝对 deadline 或剩余时间放进可序列化 context，恢复后重新计算并登记 delay；另一种做法是把调度交给独立的持久化 scheduler。</p><p>这不是把暂停中的 Promise 或 JavaScript 调用栈序列化，而是恢复显式工作流状态。对于由外部 event 驱动的页面刷新、进程重启和长时间运行流程，这通常很实用；依赖定时任务的流程则需要补上上述调度恢复设计。</p><p>如果需要重放 action，可以保存进入 Actor system 的 event，再从初始状态重新发送，这就是 event sourcing 路线。</p><h2 class="">要让这些能力真正成立，需要遵守什么</h2><p>XState 可以覆盖目标，不代表只安装 package 就会自动得到全部保证。</p><p>架构需要遵守以下约束：</p><ol><li>所有长流程都由 machine 和 Actor 表达；</li><li>所有 IO 都封装成 invoked 或 spawned Actor；</li><li>所有时间逻辑都使用 XState delay，避免裸 <code>setTimeout</code>；</li><li>所有外部结果都转换成明确的 event；</li><li>随机数、网络结果和系统时间必须可以注入；</li><li>跨越异步边界的数据必须进入可序列化 context；</li><li>跨重启仍需生效的 deadline 必须被持久化，并在恢复后重新调度；</li><li>资源清理必须绑定 Actor 停止或显式 disposal；</li><li>测试通过 fake Actor、TestClock、seed 和 event tape 控制输入。</li></ol><p>如果违反这些约束，能力就会出现缺口。</p><p>直接在 action 中执行真实网络请求，会让测试无法控制完成顺序。直接使用 <code>setTimeout</code>，会让虚拟时钟失效。把无法序列化的对象放进 context，会破坏持久化。启动不属于 Actor tree 的后台任务，会产生 orphan task。</p><p>这与 Effect 要求副作用留在 Effect program 内，本质上是同一种工程纪律。</p><h2 class="">“实现这些特性”不等于替代 EffectTS</h2><p>标题比较的是工程特性，不是说 XState 与 EffectTS 具有相同的类型系统和运行时语义。</p><p>如果目标是“让任意普通 TypeScript 函数自动获得类型化错误、资源域、结构化并发和续延级调度”，XState 并不能替代 Effect。</p><p>XState 只控制被建模进 machine 和 Actor system 的流程。普通 <code>async/await</code> 函数不会因为项目安装了 XState 就自动变成冷求值，也不会自动获得错误通道和资源安全。</p><p>但如果目标是文章中反复出现的工程结果：</p><ul><li>重试与超时可以瞬时测试；</li><li>工作流状态演进可以确定性验证；</li><li>外部故障可以记录和重放；</li><li>异步任务可以随父流程停止；</li><li>依赖可以在测试中替换；</li><li>错误、资源和可观测信息具有明确边界；</li><li>长流程可以持久化并恢复，定时流程额外持久化 deadline 并重新调度；</li></ul><p>那么 XState 路线成立，而且具体的 IO、错误数据、取消信号和 cleanup 仍然可以沿用典型 TypeScript 生态。</p><p>需要补充的是，完整 DST 从来都不只是一个 library 的功能。无论使用 Effect 还是 XState，网络、磁盘、随机数和宿主环境都必须进入可控模拟边界。XState 提供的是业务工作流层的确定性内核，不是整个操作系统的模拟器。</p><h2 class="">结语</h2><p>现在可以更准确地解释标题。</p><p>“使用 XState 实现 EffectTS 宣称的特性”，指的是在业务工作流边界内，用 state、event、Actor tree、可注入 clock 和 inspection 等机制，实现可测试时间、取消、重试、依赖替换、资源清理、可观测性与恢复等工程结果。</p><p>“并保持 TS 语法”，指的是 Actor 内部仍然编写普通 TypeScript function、<code>async/await</code>、discriminated union、<code>AbortSignal</code> 和 cleanup function，不要求整个业务代码库改写成 Effect program。代价是跨时间的控制流必须显式建模成 machine，而不是继续隐藏在顺序式调用栈里。</p><p>Effect 与 XState 回答的是两个不同问题。</p><p>Effect 问：如何在不控制 JavaScript 运行时的前提下，让顺序式程序获得更强的异步运行时语义？</p><p>XState 问：如何把一个跨越时间、事件和副作用的流程，表达成可以解释、观察、测试和恢复的数据？</p><p>Effect 通过持有 continuation 获得控制权。XState 通过显式 state、context、event 和 Actor lifecycle 获得控制权。</p><p>对于基础设施库、复杂并发算法和大量可组合的顺序式 effect，Effect 的抽象更完整。</p><p>对于 UI、订单、支付、审批、同步、重试、轮询和其他业务工作流，XState 通常已经能够实现相同的目标，而且显式 state 还会带来可视化、持久化和模型测试方面的优势。</p><p>因此，如果项目本来就适合用 state machine 表达，就没有必要仅仅为了虚拟时间、取消、重试、依赖替换或确定性测试，把业务代码改写成 Effect program。</p><p>真正需要选择的不是哪一个 library “理论上更强”，而是哪一种复杂度更符合系统：</p><blockquote class="tc-quote tc-big-quote"><p>Effect 把复杂度放进运行时和类型系统；XState 把复杂度展开成业务状态与事件。
-</p><cite>TJ</cite></blockquote><p>只要团队愿意把副作用纳入 Actor 边界，XState 就能在保留典型 TypeScript 编程模型的同时，实现文章里 EffectTS 想要达到的大部分工程目标。</p><h2 class="">相关链接</h2><ul><li><a class="tc-tiddlylink-external" href="https://x.com/ewind_dev/status/2092955281714209193" rel="noopener noreferrer" target="_blank">Yifeng “Evan” Wang：异步续延与 Effect 架构的第一性原理</a></li><li><a class="tc-tiddlylink-external" href="https://effect.website/" rel="noopener noreferrer" target="_blank">Effect：Production Grade TypeScript</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/typescript" rel="noopener noreferrer" target="_blank">XState：TypeScript</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/actors" rel="noopener noreferrer" target="_blank">XState：Actors</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/transitions" rel="noopener noreferrer" target="_blank">XState：Events and transitions</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/pure-transitions" rel="noopener noreferrer" target="_blank">XState：Pure transition functions</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/delayed-transitions" rel="noopener noreferrer" target="_blank">XState：Delayed transitions</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/promise-actors" rel="noopener noreferrer" target="_blank">XState：Promise actors</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/persistence" rel="noopener noreferrer" target="_blank">XState：Persistence</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/inspection" rel="noopener noreferrer" target="_blank">XState：Inspection</a></li><li><a class="tc-tiddlylink-external" href="https://stately.ai/docs/testing" rel="noopener noreferrer" target="_blank">XState：Testing</a></li><li><a class="tc-tiddlylink-external" href="https://www.jsdocs.io/package/xstate#SimulatedClock" rel="noopener noreferrer" target="_blank">XState 5.32.6 API：TestClock（实际类名 SimulatedClock）</a></li></ul>
-</div>
-
-
-<div class="copyright">
-<strong>
-<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">
-版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）
-</a>
-</strong>
-</div>
-
-<style>
-.copyright {
-  padding: 0.5rem 1rem;
-  text-align: center;
-}
-
-.copyright:hover {
-  opacity: 0.9;
-}
-</style>
-
-
-
-]]></description>
-      <pubDate>Fri, 28 August 2026 17:12:41 -00:00</pubDate>
-			<guid>https://thaddeusjiang.com/20260828-shi-yong-xstate-shi-xian-effectts-xuan-chen-de-te-xing-bing-bao-chi-ts-yu-fa</guid>      
    </item>
 
 </channel>
