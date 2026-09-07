@@ -53,13 +53,58 @@ Effect 把异步计算表示成冷的 Effect program，并由 fiber runtime 解�
 
 如果测试真的等待 31 秒，CI 和 coding agent 的反馈循环都会变慢。把生产配置中的秒改成测试配置中的毫秒，又意味着测试运行的不是生产参数。使用全局 fake timers 虽然能接管 `setTimeout`，但它仍然需要理解 Promise、微任务和第三方库使用的其他调度通路。
 
-XState 可以把退避过程直接建模成状态：
+XState 可以把退避过程直接建模为 `trying`、`waiting`、`succeeded` 和 `failed` 四个显式状态。先看 statechart，再看对应的 TypeScript 实现：
 
-```text
-trying --FAILED--> waiting --after retryDelay--> trying
-trying --SUCCEEDED--> succeeded
-trying --FAILED and retries >= 5--> failed
-```
+<style>
+.stately-chart-frame {
+  width: min(1120px, calc(100vw - 3rem));
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.stately-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 6 / 4;
+  border: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stately-chart-link {
+  display: block;
+  margin-top: 0.5rem;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+@media (max-width: 640px) {
+  .stately-chart-frame {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .stately-chart-portrait {
+    aspect-ratio: 3 / 4;
+  }
+}
+</style>
+
+<div class="stately-chart-frame">
+<iframe
+  src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&mode=Simulate&colorMode=light"
+  title="retryMachine 的交互式 statechart"
+  class="stately-chart"
+  loading="lazy"
+  allowfullscreen
+>
+  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&mode=Simulate">在 Stately Studio 中查看 retryMachine</a>
+</iframe>
+<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&mode=Simulate" target="_blank" rel="noopener">在 Stately 中全屏查看 retryMachine</a>
+</div>
 
 对应的 XState 代码如下。这里暂时把真实 IO 简化成 `SUCCEEDED` 和 `FAILED` 事件，以便只关注调度逻辑。
 
@@ -116,58 +161,7 @@ export const retryMachine = setup({
 
 这里没有把重试流程改写成 `Effect.gen`。event 仍然是 TypeScript union，delay 和 context update 仍然是普通函数；XState 专用的部分是把执行顺序写进 machine config，由 Actor runtime 解释这些 state 与 transition。
 
-把这段代码导入 Stately Studio 后，可以直接看到事件、guard、action 和 delayed transition 之间的关系。下面的 statechart 会以模拟模式运行，可以点击 event、缩放和拖动：
-
-<style>
-.stately-chart-frame {
-  width: min(1120px, calc(100vw - 3rem));
-  max-width: none;
-  margin-left: 50%;
-  transform: translateX(-50%);
-}
-
-.stately-chart {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 6 / 4;
-  border: 0;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.stately-chart-link {
-  display: block;
-  margin-top: 0.5rem;
-  text-align: right;
-  font-size: 0.9em;
-}
-
-@media (max-width: 640px) {
-  .stately-chart-frame {
-    width: 100%;
-    margin-left: 0;
-    transform: none;
-  }
-
-  .stately-chart-portrait {
-    aspect-ratio: 3 / 4;
-  }
-}
-</style>
-
-<div class="stately-chart-frame">
-<iframe
-  src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&mode=Simulate&colorMode=light"
-  title="retryMachine 的交互式 statechart"
-  class="stately-chart"
-  loading="lazy"
-  allowfullscreen
->
-  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&mode=Simulate">在 Stately Studio 中查看 retryMachine</a>
-</iframe>
-<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=b3abb4a9-48ba-49e2-b4a7-57567e3645eb&mode=Simulate" target="_blank" rel="noopener">在 Stately 中全屏查看 retryMachine</a>
-</div>
+需要模拟 event、缩放或拖动时，可以使用 statechart 下方的 Stately 全屏链接。
 
 生产环境中的 Actor 默认使用真实时钟。测试时可以注入 `TestClock`：
 
@@ -275,13 +269,20 @@ async function checkout(order: Order) {
 
 当程序暂停在 `await confirm(payment)` 时，“确认完成后调用 `ship`”就是隐藏在引擎中的 continuation。
 
-XState 会把它写成显式状态：
+XState 会把 continuation 展开成 `charging`、`confirming`、`shipping` 与终态之间的显式关系。先看 statechart，再看完整的 TypeScript machine：
 
-```text
-charging --PAYMENT_SUCCEEDED--> confirming
-confirming --CONFIRMED--> shipping
-shipping --SHIPPED--> completed
-```
+<div class="stately-chart-frame">
+<iframe
+  src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&mode=Simulate&colorMode=light"
+  title="checkoutMachine 的交互式 statechart"
+  class="stately-chart stately-chart-portrait"
+  loading="lazy"
+  allowfullscreen
+>
+  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&mode=Simulate">在 Stately Studio 中查看 checkoutMachine</a>
+</iframe>
+<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&mode=Simulate" target="_blank" rel="noopener">在 Stately 中全屏查看 checkoutMachine</a>
+</div>
 
 下面是完整的 TypeScript machine。成功路径之外，支付、确认和发货都可以进入显式失败状态，流程也可以在完成前取消：
 
@@ -367,20 +368,7 @@ export const checkoutMachine = setup({
 });
 ```
 
-下面的 statechart 可以沿成功、失败和取消分支运行。进入 `confirming` 后，machine definition 与 context 会共同描述尚未完成的工作：
-
-<div class="stately-chart-frame">
-<iframe
-  src="https://stately.ai/registry/editor/embed/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&mode=Simulate&colorMode=light"
-  title="checkoutMachine 的交互式 statechart"
-  class="stately-chart stately-chart-portrait"
-  loading="lazy"
-  allowfullscreen
->
-  <a href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&mode=Simulate">在 Stately Studio 中查看 checkoutMachine</a>
-</iframe>
-<a class="stately-chart-link" href="https://stately.ai/registry/editor/64d2f342-920b-42a3-a176-cd4092cc5c76?machineId=ba9631a4-1b6a-4ae8-9eb8-080aa97cb61b&mode=Simulate" target="_blank" rel="noopener">在 Stately 中全屏查看 checkoutMachine</a>
-</div>
+需要沿成功、失败和取消分支进行模拟时，可以使用 statechart 下方的 Stately 全屏链接。
 
 如果流程暂停在 `confirming`，machine definition 与当前 snapshot 一起描述了剩余工作：
 
