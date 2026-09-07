@@ -1,2 +1,0 @@
-title: $:/templates/canonical-uri-tiddlyjam-asset
-text: ../assets/<$view field="title" format="doubleurlencoded"/>

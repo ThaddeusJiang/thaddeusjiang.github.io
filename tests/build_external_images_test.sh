@@ -63,7 +63,7 @@ GYAZO_AFTER=$(count_gyazo_references)
 [[ -f docs/index.html ]] || fail 'docs/index.html was not generated'
 [[ -f docs/tiddlyjam/index.html ]] || fail 'docs/tiddlyjam/index.html was not generated'
 [[ -d docs/assets ]] || fail 'docs/assets was not generated'
-[[ ! -e docs/tiddlyjam/assets ]] || fail 'docs/tiddlyjam/assets duplicated root assets'
+[[ -d docs/tiddlyjam/assets ]] || fail 'docs/tiddlyjam/assets was not generated'
 [[ ! -e docs/images ]] || fail 'legacy docs/images was generated'
 [[ ! -e docs/tiddlyjam/images ]] || fail 'legacy docs/tiddlyjam/images was generated'
 
@@ -77,17 +77,27 @@ done < <(list_expected_images)
 
 for image in "${EXPECTED_IMAGES[@]}"; do
   [[ -f "docs/assets/$image" ]] || fail "missing docs/assets/$image"
+  [[ -f "docs/tiddlyjam/assets/$image" ]] || fail "missing docs/tiddlyjam/assets/$image"
 done
 
 ASSET_COUNT=$(find docs/assets -maxdepth 1 -type f | wc -l | tr -d ' ')
+TIDDLYJAM_ASSET_COUNT=$(find docs/tiddlyjam/assets -maxdepth 1 -type f | wc -l | tr -d ' ')
 
 [[ "$ASSET_COUNT" == "${#EXPECTED_IMAGES[@]}" ]] || fail "docs/assets contains $ASSET_COUNT files"
+[[ "$TIDDLYJAM_ASSET_COUNT" == "${#EXPECTED_IMAGES[@]}" ]] || fail "docs/tiddlyjam/assets contains $TIDDLYJAM_ASSET_COUNT files"
 
 grep -Fq '"_canonical_uri":"./assets/Stop%2520Losing%2520Solutions%2520Again.png"' docs/index.html \
   || fail 'index.html does not contain the expected canonical image URI'
 
-grep -RFl 'src="../assets/Dont-become-like-this.png"' docs/tiddlyjam --include='*.html' >/dev/null \
-  || fail 'TiddlyJam did not reuse the root external asset URI'
+grep -RFl 'src="./assets/Dont-become-like-this.png"' docs/tiddlyjam --include='*.html' >/dev/null \
+  || fail 'TiddlyJam did not emit a root-relative external asset URI'
+
+if grep -RFl 'src="../assets/' docs/tiddlyjam --include='*.html' >/dev/null; then
+  fail 'TiddlyJam still points images at ../assets, which 404s when served as the site root'
+fi
+
+grep -RFl 'src="./assets/2026-08-27-zeabur-%25E5%25AE%2589%25E5%2585%25A8%25E4%25BA%258B%25E4%25BB%25B6.jpg"' docs/tiddlyjam --include='*.html' >/dev/null \
+  || fail 'TiddlyJam did not emit the CJK article image URI'
 
 EMBEDDED_PREFIX=$(base64 < tiddlers/Dont-become-like-this.png | tr -d '\n' | cut -c1-80)
 
