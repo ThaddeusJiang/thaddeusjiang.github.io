@@ -1,0 +1,28 @@
+created: 20260908075237964
+modified: 20260908075707345
+tags: blog $:/plugins/adithyab/tiddlyjam/live
+title: Codex terminal 无法使用 jj、thefuck 等全局工具
+type: text/vnd.tiddlywiki
+
+问题：Codex terminal 无法使用 jj、thefuck 等全局工具。
+
+```
+command not found: thefuck
+```
+
+原因：Homebrew PATH 只在登录 shell 中初始化，非登录终端可能找不到这些工具。
+
+修复：在 ~/.zshrc 开头加入 Homebrew 初始化，确保先于 mise 和 thefuck 加载。
+
+```
+# Initialize Homebrew for interactive shells, including non-login app terminals.
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+fi
+```
+
+重新打开 Codex terminal 即可生效；现有终端可执行：
+
+```
+exec /bin/zsh
+```
