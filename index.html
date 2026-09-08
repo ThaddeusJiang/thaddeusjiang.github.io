@@ -956,6 +956,8 @@ Error message and password prompt
 
 <li>Codes are bugs</li>
 
+<li>Codex terminal 无法使用 jj、thefuck 等全局工具</li>
+
 <li>Colima</li>
 
 <li>CRDT</li>
@@ -2322,6 +2324,8 @@ Error message and password prompt
 {"title":"codegraph","created":"20260606044907831","modified":"20260606045203045","tags":"dev-note TechRadar/已弃用","type":"text/vnd.tiddlywiki","text":"2026-06-06 卸载了 codegraph，因为我没有感受到 codegraph 带来的 code search 能力，没有感受到更少的 token 使用，甚至感觉 token 使用量更多了。\n\nTODO: 我认为需要一个针对真实项目的真实 benchmark \n\nhttps://github.com/colbymchenry/codegraph","revision":"0","bag":"default"}
 ,
 {"title":"Codes are bugs","created":"20250606012622065","modified":"20250606013005081","tags":"","type":"text/vnd.tiddlywiki","text":"\n让我们一起实践 Less, but better. \n\n一些关于使用更少代码","revision":"0","bag":"default"}
+,
+{"title":"Codex terminal 无法使用 jj、thefuck 等全局工具","created":"20260908075237964","modified":"20260908075707345","tags":"blog $:/plugins/adithyab/tiddlyjam/live","type":"text/vnd.tiddlywiki","text":"问题：Codex terminal 无法使用 jj、thefuck 等全局工具。\n\n```\ncommand not found: thefuck\n```\n\n原因：Homebrew PATH 只在登录 shell 中初始化，非登录终端可能找不到这些工具。\n\n修复：在 ~/.zshrc 开头加入 Homebrew 初始化，确保先于 mise 和 thefuck 加载。\n\n```\n# Initialize Homebrew for interactive shells, including non-login app terminals.\nif [[ -x /opt/homebrew/bin/brew ]]; then\n  eval \"$(/opt/homebrew/bin/brew shellenv zsh)\"\nfi\n```\n\n重新打开 Codex terminal 即可生效；现有终端可执行：\n\n```\nexec /bin/zsh\n```","revision":"0","bag":"default"}
 ,
 {"title":"Colima","created":"20221107004431023","modified":"20221107100756808","type":"text/vnd.tiddlywiki","text":"因为 Docker Desktop 开始收费，大家都在寻找 Docker Desktop 的替代品。其实有很多选项，碰巧我和 ThoughtWorks 选择相同而已。\n\n我是从哪里看到 Colima 的？\n答：https://dev.to/swyx/running-docker-without-docker-desktop-339h","revision":"0","bag":"default"}
 ,
